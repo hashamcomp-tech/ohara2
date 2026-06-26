@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ohara — Your Novel Library</title>
+  <meta name="description" content="A personal web novel library. Browse and read scraped novels offline.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a href="index.html" class="logo">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+        <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+      </svg>
+      Ohara
+    </a>
+    <span class="header-tagline">Library</span>
+  </div>
+</header>
+
+<main>
+  <div class="container">
+
+    <div class="page-hero">
+      <h1>Your <span>Library</span></h1>
+      <p>All scraped novels, ready to read.</p>
+    </div>
+
+    <div class="search-bar">
+      <input class="search-input" type="search" id="search" placeholder="Search novels…" autocomplete="off">
+    </div>
+
+    <div id="stats-bar" class="stats-bar hidden"></div>
+
+    <div id="state-loading" class="state-loading">Loading library</div>
+    <div id="state-error"   class="state-error   hidden"></div>
+    <div id="state-empty"   class="state-empty   hidden">
+      No novels yet.<p>Run the scraper, then push <code>docs/data/</code> to GitHub.</p>
+    </div>
+    <div id="content" class="hidden">
+      <div id="novel-grid" class="novel-grid"></div>
+    </div>
+
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container">Ohara · personal library</div>
+</footer>
+
+<script src="app.js"></script>
+<script>
+  let allNovels = [];
+
+  async function init() {
+    try {
+      const index = await loadIndex();
+      allNovels = (index.novels || []).sort((a, b) =>
+        (b.lastUpdated || '').localeCompare(a.lastUpdated || '')
+      );
+
+      if (!allNovels.length) { showState('state-empty'); return; }
+
+      // Stats bar
+      const totalCh = allNovels.reduce((s, n) => s + (n.totalChapters || 0), 0);
+      document.getElementById('stats-bar').innerHTML =
+        `<strong>${allNovels.length}</strong> novels &nbsp;·&nbsp; <strong>${totalCh.toLocaleString()}</strong> chapters`;
+      document.getElementById('stats-bar').classList.remove('hidden');
+
+      renderGrid(allNovels);
+      showState('content');
+    } catch (e) {
+      document.getElementById('state-error').textContent = 'Could not load library. ' + e.message;
+      showState('state-error');
+    }
+  }
+
+  function renderGrid(novels) {
+    const grid = document.getElementById('novel-grid');
+    grid.innerHTML = novels.map(n => `
+      <div class="novel-card" onclick="go('novel.html', {slug:'${esc(n.slug)}'})" role="link" tabindex="0"
+           onkeydown="if(event.key==='Enter')go('novel.html',{slug:'${esc(n.slug)}'})">
+        <div class="novel-card-cover">
+          ${n.cover
+            ? `<img src="${esc(n.cover)}" alt="${esc(n.title)}" loading="lazy" onerror="this.parentElement.innerHTML='<span class=cover-fallback>📖</span>'">`
+            : `<span class="cover-fallback">📖</span>`}
+        </div>
+        <div class="novel-card-body">
+          <div class="novel-card-title">${esc(n.title)}</div>
+          <div class="novel-card-meta">
+            <span class="badge badge-gold">${(n.totalChapters || 0).toLocaleString()} ch</span>
+            ${n.lastUpdated ? `<br><small style="color:var(--ink-faint);font-size:.72rem">Updated ${n.lastUpdated}</small>` : ''}
+          </div>
+        </div>
+      </div>
+    `).join('');
+  }
+
+  // Live search filter
+  document.getElementById('search').addEventListener('input', e => {
+    const q = e.target.value.toLowerCase().trim();
+    const filtered = q ? allNovels.filter(n => n.title.toLowerCase().includes(q)) : allNovels;
+    renderGrid(filtered);
+    if (!filtered.length && q) {
+      document.getElementById('novel-grid').innerHTML =
+        `<p style="color:var(--ink-dim);font-size:.9rem;padding:24px 0">No novels match "<strong>${esc(q)}</strong>"</p>`;
+    }
+  });
+
+  init();
+</script>
+</body>
+</html>

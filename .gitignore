@@ -1,0 +1,7 @@
+output/
+scraped_novels.txt
+failed_chapters.txt
+__pycache__/
+*.pyc
+*.pyo
+.env

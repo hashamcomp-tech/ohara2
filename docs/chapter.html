@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reading — Ohara</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Reading-specific layout tweaks */
+    .chapter-prose { margin-top: 0; }
+    #merged-chapters { margin-top: 0; }
+    #loading-merge {
+      text-align: center;
+      padding: 24px;
+      color: var(--ink-dim);
+      font-size: .85rem;
+      display: none;
+    }
+    #loading-merge.visible { display: block; }
+    #loading-merge::after {
+      content: '';
+      display: inline-block;
+      width: 14px; height: 14px;
+      border: 2px solid var(--border);
+      border-top-color: var(--gold);
+      border-radius: 50%;
+      animation: spin .7s linear infinite;
+      margin-left: 8px;
+      vertical-align: middle;
+    }
+    .font-controls {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .font-btn {
+      width: 30px; height: 30px;
+      border: 1px solid var(--border);
+      border-radius: var(--r);
+      background: transparent;
+      color: var(--ink-dim);
+      cursor: pointer;
+      font-family: inherit;
+      font-size: .9rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: border-color .15s, color .15s;
+    }
+    .font-btn:hover { border-color: var(--gold-dim); color: var(--ink); }
+    .nav-col-left  { display: flex; justify-content: flex-start; }
+    .nav-col-mid   { display: flex; justify-content: center; }
+    .nav-col-right { display: flex; justify-content: flex-end; }
+  </style>
+</head>
+<body>
+
+<!-- Sticky main header -->
+<header class="site-header">
+  <div class="inner">
+    <a href="index.html" class="logo">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+        <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+      </svg>
+      Ohara
+    </a>
+    <nav class="breadcrumb">
+      <span class="sep">›</span>
+      <a href="#" id="bc-novel" class="breadcrumb-link">…</a>
+      <span class="sep">›</span>
+      <span id="bc-chapter" style="color:var(--ink-dim)">…</span>
+    </nav>
+    <div class="header-right font-controls">
+      <button class="font-btn" id="font-down" title="Smaller text">A−</button>
+      <button class="font-btn" id="font-up"   title="Larger text">A+</button>
+    </div>
+  </div>
+</header>
+
+<!-- Sticky reader sub-header with chapter progress -->
+<div class="reader-header">
+  <div class="reader-header-inner">
+    <span id="rh-title" style="flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap"></span>
+    <span id="rh-progress" class="reader-progress"></span>
+  </div>
+</div>
+
+<main>
+  <div id="state-loading" class="state-loading" style="padding-top:80px">Loading chapter</div>
+  <div id="state-error"   class="state-error hidden" style="padding-top:80px"></div>
+  <div id="content"       class="hidden">
+
+    <div class="prose-container">
+      <div class="chapter-content-area">
+        <!-- Chapter(s) render here -->
+        <div id="merged-chapters"></div>
+        <div id="loading-merge"></div>
+      </div>
+
+      <!-- Navigation: [Prev] [Merge Next 10] [Next] -->
+      <div class="chapter-nav">
+        <div class="nav-col-left">
+          <button class="nav-btn prev" id="btn-prev" disabled>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+            <span><span class="nav-btn-label">Previous</span><span id="prev-label">—</span></span>
+          </button>
+        </div>
+        <div class="nav-col-mid">
+          <button class="nav-btn merge" id="btn-merge">
+            ⊕ Merge Next 10
+          </button>
+        </div>
+        <div class="nav-col-right">
+          <button class="nav-btn next" id="btn-next" disabled>
+            <span><span class="nav-btn-label">Next</span><span id="next-label">—</span></span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container">Ohara · personal library</div>
+</footer>
+
+<script src="app.js"></script>
+<script>
+  // ── State ────────────────────────────────────────────────────
+  const slug       = params().get('slug');
+  const startChNum = parseInt(params().get('ch')) || 1;
+
+  let meta            = null;       // novel meta.json
+  let chapterMap      = {};         // num → {num, title} from meta.chapters
+  let maxLoadedCh     = 0;          // highest chapter number currently displayed
+  let totalChapters   = 0;          // last chapter number in meta
+  let fontSize        = parseFloat(localStorage.getItem('ohara-font') || '1.08');
+  let merging         = false;
+
+  // ── Font size controls ───────────────────────────────────────
+  function applyFont() {
+    document.querySelectorAll('.chapter-prose').forEach(el => {
+      el.style.fontSize = fontSize + 'rem';
+    });
+    localStorage.setItem('ohara-font', fontSize);
+  }
+  document.getElementById('font-up').addEventListener('click', () => {
+    if (fontSize < 1.6) { fontSize = Math.round((fontSize + 0.05) * 100) / 100; applyFont(); }
+  });
+  document.getElementById('font-down').addEventListener('click', () => {
+    if (fontSize > 0.8) { fontSize = Math.round((fontSize - 0.05) * 100) / 100; applyFont(); }
+  });
+
+  // ── Chapter rendering ────────────────────────────────────────
+  function chapterHTML(ch) {
+    const isFirst = ch.num === startChNum;
+    return `
+      ${!isFirst ? `<div class="chapter-section-divider">Chapter ${ch.num}</div>` : ''}
+      <div class="chapter-section-title ${isFirst ? 'chapter-title-heading' : ''}">
+        ${esc(ch.title || `Chapter ${ch.num}`)}
+      </div>
+      <div class="chapter-prose" style="font-size:${fontSize}rem">
+        ${renderContent(ch.content)}
+      </div>
+    `;
+  }
+
+  function appendChapterToDOM(ch) {
+    const container = document.getElementById('merged-chapters');
+    const div = document.createElement('div');
+    div.id = `ch-${ch.num}`;
+    div.innerHTML = chapterHTML(ch);
+    container.appendChild(div);
+    if (ch.num > maxLoadedCh) maxLoadedCh = ch.num;
+  }
+
+  // ── Navigation helpers ───────────────────────────────────────
+  function updateNavButtons() {
+    const allNums    = meta.chapters.map(c => c.num);
+    const firstNum   = allNums[0];
+    const lastNum    = allNums[allNums.length - 1];
+    const prevNum    = allNums[allNums.indexOf(startChNum) - 1];
+    const nextNum    = allNums[allNums.indexOf(maxLoadedCh) + 1];
+
+    // Prev → goes to actual previous chapter page
+    const btnPrev = document.getElementById('btn-prev');
+    if (prevNum !== undefined) {
+      btnPrev.disabled = false;
+      document.getElementById('prev-label').textContent = `Ch ${prevNum}`;
+      btnPrev.onclick = () => go('chapter.html', { slug, ch: prevNum });
+    } else {
+      btnPrev.disabled = true;
+      document.getElementById('prev-label').textContent = 'Start';
+    }
+
+    // Next → goes to next chapter page (after maxLoaded)
+    const btnNext = document.getElementById('btn-next');
+    if (nextNum !== undefined) {
+      btnNext.disabled = false;
+      document.getElementById('next-label').textContent = `Ch ${nextNum}`;
+      btnNext.onclick = () => go('chapter.html', { slug, ch: nextNum });
+    } else {
+      btnNext.disabled = true;
+      document.getElementById('next-label').textContent = 'End';
+    }
+
+    // Merge button
+    const btnMerge = document.getElementById('btn-merge');
+    const canMerge = nextNum !== undefined;
+    btnMerge.disabled = !canMerge;
+    if (!canMerge) btnMerge.textContent = '✓ All loaded';
+
+    // Reader header progress
+    const idx      = allNums.indexOf(maxLoadedCh) + 1;
+    document.getElementById('rh-progress').textContent = `${idx} / ${allNums.length}`;
+  }
+
+  // ── Merge Next 10 ────────────────────────────────────────────
+  document.getElementById('btn-merge').addEventListener('click', async () => {
+    if (merging) return;
+    merging = true;
+
+    const allNums   = meta.chapters.map(c => c.num);
+    const afterIdx  = allNums.indexOf(maxLoadedCh) + 1;
+    const toLoad    = allNums.slice(afterIdx, afterIdx + 10);
+    if (!toLoad.length) return;
+
+    const btn   = document.getElementById('btn-merge');
+    const loader = document.getElementById('loading-merge');
+    btn.disabled = true;
+    btn.textContent = 'Loading…';
+    loader.textContent = `Fetching chapters ${toLoad[0]}–${toLoad[toLoad.length - 1]}`;
+    loader.classList.add('visible');
+
+    // Load all in parallel, preserve order
+    const results = await Promise.all(
+      toLoad.map(n => loadChapter(slug, n).catch(() => null))
+    );
+
+    for (const ch of results) {
+      if (ch) appendChapterToDOM(ch);
+    }
+
+    loader.classList.remove('visible');
+    loader.textContent = '';
+    btn.textContent = '⊕ Merge Next 10';
+    merging = false;
+
+    updateNavButtons();
+    // Scroll to the first newly added chapter
+    const firstNew = document.getElementById(`ch-${toLoad[0]}`);
+    if (firstNew) firstNew.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+
+  // ── Init ─────────────────────────────────────────────────────
+  async function init() {
+    if (!slug || !startChNum) {
+      document.getElementById('state-error').textContent = 'Missing slug or chapter number.';
+      showState('state-error');
+      return;
+    }
+    try {
+      // Load novel meta for navigation
+      meta = await loadNovelMeta(slug);
+      totalChapters = meta.chapters.length;
+      chapterMap    = Object.fromEntries(meta.chapters.map(c => [c.num, c]));
+
+      // Breadcrumb
+      document.title = `Ch ${startChNum} · ${meta.title} — Ohara`;
+      const bcNovel = document.getElementById('bc-novel');
+      bcNovel.textContent = meta.title;
+      bcNovel.href = `novel.html?slug=${esc(slug)}`;
+      document.getElementById('bc-chapter').textContent = `Chapter ${startChNum}`;
+      document.getElementById('rh-title').textContent = meta.title;
+
+      // Load & render the requested chapter
+      const chData = await loadChapter(slug, startChNum);
+      appendChapterToDOM(chData);
+
+      updateNavButtons();
+      showState('content');
+      applyFont();
+    } catch (e) {
+      document.getElementById('state-error').textContent =
+        'Chapter not found or failed to load. ' + e.message;
+      showState('state-error');
+    }
+  }
+
+  init();
+</script>
+</body>
+</html>

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Novel — Ohara</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a href="index.html" class="logo">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+        <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+      </svg>
+      Ohara
+    </a>
+    <nav class="breadcrumb">
+      <span class="sep">›</span>
+      <span id="bc-title" style="color:var(--ink-dim)">…</span>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="container">
+
+    <div id="state-loading" class="state-loading">Loading novel</div>
+    <div id="state-error"   class="state-error   hidden"></div>
+    <div id="state-empty"   class="state-empty   hidden">Novel not found.</div>
+    <div id="content"       class="hidden">
+
+      <!-- Hero -->
+      <div class="novel-hero">
+        <div class="novel-hero-cover" id="hero-cover"></div>
+        <div class="novel-hero-info">
+          <h1 class="novel-hero-title" id="hero-title"></h1>
+          <div class="novel-hero-meta" id="hero-meta"></div>
+          <a id="btn-start" class="btn-start" href="#">Read Chapter 1</a>
+        </div>
+      </div>
+
+      <!-- Chapter list -->
+      <div class="chapter-list-section">
+        <div class="section-title">Chapters</div>
+        <div id="list-pagination" class="list-pagination"></div>
+        <ul class="chapter-list" id="chapter-list"></ul>
+        <div id="list-pagination-bottom" class="list-pagination" style="padding-top:16px"></div>
+      </div>
+
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container">Ohara · personal library</div>
+</footer>
+
+<script src="app.js"></script>
+<script>
+  const CHAPTERS_PER_PAGE = 100;
+  let meta = null;
+  let currentPage = 0;
+  const slug = params().get('slug');
+
+  async function init() {
+    if (!slug) { showState('state-empty'); return; }
+    try {
+      meta = await loadNovelMeta(slug);
+      document.title = `${meta.title} — Ohara`;
+      document.getElementById('bc-title').textContent = meta.title;
+
+      // Cover
+      const coverEl = document.getElementById('hero-cover');
+      coverEl.innerHTML = meta.cover
+        ? `<img src="${esc(meta.cover)}" alt="${esc(meta.title)}" onerror="this.parentElement.innerHTML='<span class=cover-fallback>📖</span>'">`
+        : `<span class="cover-fallback">📖</span>`;
+
+      document.getElementById('hero-title').textContent = meta.title;
+      document.getElementById('hero-meta').innerHTML = `
+        <span><strong>${(meta.totalChapters || meta.chapters.length).toLocaleString()}</strong> chapters</span>
+        ${meta.lastUpdated ? `<span>Updated <strong>${meta.lastUpdated}</strong></span>` : ''}
+        ${meta.source ? `<span><a href="${esc(meta.source)}" target="_blank" rel="noopener" style="color:var(--gold-dim)">Source ↗</a></span>` : ''}
+      `;
+
+      // "Read Chapter 1" button
+      if (meta.chapters && meta.chapters.length) {
+        const first = meta.chapters[0].num;
+        document.getElementById('btn-start').href = `chapter.html?slug=${esc(slug)}&ch=${first}`;
+      }
+
+      renderPage(0);
+      showState('content');
+    } catch (e) {
+      document.getElementById('state-error').textContent = 'Could not load novel. ' + e.message;
+      showState('state-error');
+    }
+  }
+
+  function renderPage(page) {
+    currentPage = page;
+    const chapters = meta.chapters || [];
+    const totalPages = Math.ceil(chapters.length / CHAPTERS_PER_PAGE);
+    const start = page * CHAPTERS_PER_PAGE;
+    const slice = chapters.slice(start, start + CHAPTERS_PER_PAGE);
+
+    // Chapter list
+    document.getElementById('chapter-list').innerHTML = slice.map(ch => `
+      <li class="chapter-item">
+        <a class="chapter-link" href="chapter.html?slug=${esc(slug)}&ch=${ch.num}">
+          <span class="chapter-num">${String(ch.num).padStart(4, '0')}</span>
+          <span class="chapter-title-text">${esc(ch.title || `Chapter ${ch.num}`)}</span>
+        </a>
+      </li>
+    `).join('');
+
+    // Pagination
+    const pagHTML = totalPages > 1
+      ? Array.from({length: totalPages}, (_, i) =>
+          `<button class="page-btn ${i === page ? 'active' : ''}" onclick="renderPage(${i})">${i + 1}</button>`
+        ).join('')
+      : '';
+    document.getElementById('list-pagination').innerHTML = pagHTML;
+    document.getElementById('list-pagination-bottom').innerHTML = pagHTML;
+  }
+
+  init();
+</script>
+</body>
+</html>
