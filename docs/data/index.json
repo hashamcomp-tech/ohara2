@@ -1,3 +1,11 @@
 {
-  "novels": []
+  "novels": [
+    {
+      "slug": "shadow-slave",
+      "title": "Shadow Slave",
+      "cover": "https://freewebnovel.com/files/article/image/1/1991/1991s.jpg",
+      "totalChapters": 3064,
+      "lastUpdated": "2026-06-27"
+    }
+  ]
 }
