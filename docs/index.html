@@ -6,6 +6,53 @@
   <title>Ohara — Your Novel Library</title>
   <meta name="description" content="A personal web novel library. Browse and read scraped novels offline.">
   <link rel="stylesheet" href="style.css">
+  <style>
+    .pagination {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 32px 0 64px;
+      flex-wrap: wrap;
+    }
+    .pg-btn {
+      min-width: 38px;
+      height: 38px;
+      padding: 0 12px;
+      border: 1px solid var(--border);
+      border-radius: var(--r);
+      background: var(--bg-card);
+      color: var(--ink-dim);
+      font-size: .85rem;
+      font-family: inherit;
+      cursor: pointer;
+      transition: border-color .15s, color .15s, background .15s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .pg-btn:hover:not(:disabled) {
+      border-color: var(--gold-dim);
+      color: var(--ink);
+    }
+    .pg-btn.active {
+      background: rgba(201,168,76,.15);
+      border-color: var(--gold);
+      color: var(--gold);
+      font-weight: 700;
+    }
+    .pg-btn:disabled { opacity: .3; cursor: not-allowed; }
+    .pg-info {
+      font-size: .8rem;
+      color: var(--ink-faint);
+      padding: 0 8px;
+    }
+    .pg-ellipsis {
+      color: var(--ink-faint);
+      font-size: .85rem;
+      padding: 0 4px;
+    }
+  </style>
 </head>
 <body>
 
@@ -42,7 +89,6 @@
     </div>
 
     <div id="stats-bar" class="stats-bar hidden"></div>
-
     <div id="tag-filter-bar" class="tag-filter hidden"></div>
 
     <div id="state-loading" class="state-loading">Loading library</div>
@@ -52,6 +98,7 @@
     </div>
     <div id="content" class="hidden">
       <div id="novel-grid" class="novel-grid"></div>
+      <div id="pagination" class="pagination"></div>
     </div>
 
   </div>
@@ -63,16 +110,17 @@
 
 <script src="app.js"></script>
 <script>
-  let allNovels   = [];
-  let activeTag   = null;
-  let searchQuery = '';
-
-  // Tags to hide when content filter is ON
+  const PER_PAGE    = 10;
   const BLOCKED_TAGS = ['adult', 'smut', 'harem', 'ecchi', 'erotic', 'r-18', 'r18', 'sexual content'];
 
-  // Filter is ON by default; persisted in localStorage
+  let allNovels      = [];   // full list, never mutated
+  let filteredNovels = [];   // result after search + tag + content filter
+  let currentPage    = 0;    // 0-indexed
+  let activeTag      = null;
+  let searchQuery    = '';
   let contentFilterOn = localStorage.getItem('ohara-filter') !== 'off';
 
+  // ── Content filter ───────────────────────────────────────────
   function toggleContentFilter() {
     contentFilterOn = !contentFilterOn;
     localStorage.setItem('ohara-filter', contentFilterOn ? 'on' : 'off');
@@ -93,28 +141,22 @@
     }
   }
 
-  function isBlocked(novel) {
+  function isBlocked(n) {
     if (!contentFilterOn) return false;
-    const tags = (novel.tags || []).map(t => t.toLowerCase());
+    const tags = (n.tags || []).map(t => t.toLowerCase());
     return BLOCKED_TAGS.some(b => tags.includes(b));
   }
 
+  // ── Init ─────────────────────────────────────────────────────
   async function init() {
     try {
       const index = await loadIndex();
       allNovels = (index.novels || []).sort((a, b) =>
         (b.lastUpdated || '').localeCompare(a.lastUpdated || '')
       );
-
       if (!allNovels.length) { showState('state-empty'); return; }
 
       updateFilterBtn();
-
-      const totalCh = allNovels.reduce((s, n) => s + (n.totalChapters || 0), 0);
-      document.getElementById('stats-bar').innerHTML =
-        `<strong>${allNovels.length}</strong> novels &nbsp;·&nbsp; <strong>${totalCh.toLocaleString()}</strong> chapters`;
-      document.getElementById('stats-bar').classList.remove('hidden');
-
       buildTagBar();
       applyFilters();
       showState('content');
@@ -124,6 +166,7 @@
     }
   }
 
+  // ── Tag bar ──────────────────────────────────────────────────
   function buildTagBar() {
     const tagCount = {};
     allNovels.forEach(n => (n.tags || []).forEach(t => {
@@ -131,7 +174,6 @@
     }));
     const tags = Object.keys(tagCount).sort();
     if (!tags.length) return;
-
     const bar = document.getElementById('tag-filter-bar');
     bar.innerHTML =
       `<span class="tag-filter-label">Tags</span>` +
@@ -144,66 +186,141 @@
 
   function filterByTag(tag) {
     activeTag = activeTag === tag ? null : tag;
-    document.querySelectorAll('.tag').forEach(el => {
-      el.classList.toggle('active', el.dataset.tag === activeTag);
-    });
-    const clearBtn = document.getElementById('tag-clear');
-    if (clearBtn) clearBtn.classList.toggle('hidden', !activeTag);
+    document.querySelectorAll('.tag[data-tag]').forEach(el =>
+      el.classList.toggle('active', el.dataset.tag === activeTag)
+    );
+    const cb = document.getElementById('tag-clear');
+    if (cb) cb.classList.toggle('hidden', !activeTag);
     applyFilters();
   }
 
   function clearTag() {
     activeTag = null;
-    document.querySelectorAll('.tag').forEach(el => el.classList.remove('active'));
-    const clearBtn = document.getElementById('tag-clear');
-    if (clearBtn) clearBtn.classList.add('hidden');
+    document.querySelectorAll('.tag[data-tag]').forEach(el => el.classList.remove('active'));
+    const cb = document.getElementById('tag-clear');
+    if (cb) cb.classList.add('hidden');
     applyFilters();
   }
 
-  function applyFilters() {
-    let filtered = allNovels;
-    filtered = filtered.filter(n => !isBlocked(n));
-    if (activeTag)   filtered = filtered.filter(n => (n.tags || []).includes(activeTag));
-    if (searchQuery) filtered = filtered.filter(n => n.title.toLowerCase().includes(searchQuery));
+  // ── Core filter + render ─────────────────────────────────────
+  function applyFilters(resetPage = true) {
+    if (resetPage) currentPage = 0;
 
-    const hidden = allNovels.filter(n => isBlocked(n)).length;
-    const bar = document.getElementById('stats-bar');
+    filteredNovels = allNovels
+      .filter(n => !isBlocked(n))
+      .filter(n => !activeTag   || (n.tags || []).includes(activeTag))
+      .filter(n => !searchQuery || n.title.toLowerCase().includes(searchQuery));
+
+    const hidden  = allNovels.filter(n => isBlocked(n)).length;
     const totalCh = allNovels.reduce((s, n) => s + (n.totalChapters || 0), 0);
-    bar.innerHTML = `<strong>${allNovels.length}</strong> novels &nbsp;·&nbsp; <strong>${totalCh.toLocaleString()}</strong> chapters`
-      + (hidden && contentFilterOn ? ` &nbsp;·&nbsp; <span style="color:var(--ink-faint)">${hidden} hidden by filter</span>` : '');
+    const statsBar = document.getElementById('stats-bar');
+    statsBar.innerHTML =
+      `<strong>${filteredNovels.length}</strong> of <strong>${allNovels.length}</strong> novels` +
+      ` &nbsp;·&nbsp; <strong>${totalCh.toLocaleString()}</strong> chapters` +
+      (hidden && contentFilterOn ? ` &nbsp;·&nbsp; <span style="color:var(--ink-faint)">${hidden} hidden</span>` : '');
+    statsBar.classList.remove('hidden');
 
-    renderGrid(filtered);
+    renderPage();
   }
 
-  function renderGrid(novels) {
-    const grid = document.getElementById('novel-grid');
-    if (!novels.length) {
+  function renderPage() {
+    const start  = currentPage * PER_PAGE;
+    const slice  = filteredNovels.slice(start, start + PER_PAGE);
+    const grid   = document.getElementById('novel-grid');
+
+    if (!filteredNovels.length) {
       grid.innerHTML = `<p style="color:var(--ink-dim);font-size:.9rem;padding:24px 0">No novels match your filters.</p>`;
+      document.getElementById('pagination').innerHTML = '';
       return;
     }
-    grid.innerHTML = novels.map(n => `
-      <div class="novel-card" onclick="go('novel.html', {slug:'${esc(n.slug)}'})" role="link" tabindex="0"
+
+    grid.innerHTML = slice.map(n => `
+      <div class="novel-card" onclick="go('novel.html',{slug:'${esc(n.slug)}'})" role="link" tabindex="0"
            onkeydown="if(event.key==='Enter')go('novel.html',{slug:'${esc(n.slug)}'})">
         <div class="novel-card-cover">
           ${n.cover
-            ? `<img src="${esc(n.cover)}" alt="${esc(n.title)}" loading="lazy" onerror="this.parentElement.innerHTML='<span class=cover-fallback>📖</span>'">`
+            ? `<img src="${esc(n.cover)}" alt="${esc(n.title)}" loading="lazy"
+                    onerror="this.parentElement.innerHTML='<span class=cover-fallback>📖</span>'">`
             : `<span class="cover-fallback">📖</span>`}
         </div>
         <div class="novel-card-body">
           <div class="novel-card-title">${esc(n.title)}</div>
-          ${(n.tags || []).length ? `<div class="tags" style="margin-top:6px">${n.tags.slice(0,3).map(t => `<span class="tag" style="font-size:.65rem;padding:2px 7px" onclick="event.stopPropagation();filterByTag('${esc(t)}')">${esc(t)}</span>`).join('')}</div>` : ''}
+          ${(n.tags||[]).length
+            ? `<div class="tags" style="margin-top:6px">${
+                n.tags.slice(0,3).map(t =>
+                  `<span class="tag" style="font-size:.65rem;padding:2px 7px"
+                         onclick="event.stopPropagation();filterByTag('${esc(t)}')">${esc(t)}</span>`
+                ).join('')}</div>`
+            : ''}
           <div class="novel-card-meta" style="margin-top:6px">
-            <span class="badge badge-gold">${(n.totalChapters || 0).toLocaleString()} ch</span>
-            ${n.lastUpdated ? `<br><small style="color:var(--ink-faint);font-size:.72rem">Updated ${n.lastUpdated}</small>` : ''}
+            <span class="badge badge-gold">${(n.totalChapters||0).toLocaleString()} ch</span>
+            ${n.lastUpdated
+              ? `<br><small style="color:var(--ink-faint);font-size:.72rem">Updated ${n.lastUpdated}</small>`
+              : ''}
           </div>
         </div>
       </div>
     `).join('');
+
+    renderPagination();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
+  // ── Pagination controls ──────────────────────────────────────
+  function renderPagination() {
+    const totalPages = Math.ceil(filteredNovels.length / PER_PAGE);
+    const pg = document.getElementById('pagination');
+    if (totalPages <= 1) { pg.innerHTML = ''; return; }
+
+    const p = currentPage;
+    let html = '';
+
+    // Prev
+    html += `<button class="pg-btn" onclick="goPage(${p-1})" ${p===0?'disabled':''}>&#8592;</button>`;
+
+    // Page numbers with ellipsis
+    const pages = pageNumbers(p, totalPages);
+    let prev = null;
+    for (const n of pages) {
+      if (prev !== null && n - prev > 1) html += `<span class="pg-ellipsis">…</span>`;
+      html += `<button class="pg-btn ${n===p?'active':''}" onclick="goPage(${n})">${n+1}</button>`;
+      prev = n;
+    }
+
+    // Next
+    html += `<button class="pg-btn" onclick="goPage(${p+1})" ${p===totalPages-1?'disabled':''}>&#8594;</button>`;
+
+    // Page info
+    const start = p * PER_PAGE + 1;
+    const end   = Math.min((p+1) * PER_PAGE, filteredNovels.length);
+    html += `<span class="pg-info">${start}–${end} of ${filteredNovels.length}</span>`;
+
+    pg.innerHTML = html;
+  }
+
+  function pageNumbers(current, total) {
+    // Always show: first, last, current, and 1 either side of current
+    const set = new Set([0, total-1, current, current-1, current+1].filter(n => n>=0 && n<total));
+    return [...set].sort((a,b) => a-b);
+  }
+
+  function goPage(n) {
+    const totalPages = Math.ceil(filteredNovels.length / PER_PAGE);
+    if (n < 0 || n >= totalPages) return;
+    currentPage = n;
+    renderPage();
+  }
+
+  // ── Search — debounced for snappiness ────────────────────────
+  let searchTimer;
   document.getElementById('search').addEventListener('input', e => {
-    searchQuery = e.target.value.toLowerCase().trim();
-    applyFilters();
+    clearTimeout(searchTimer);
+    // Instant for short queries, tiny debounce for long ones
+    const delay = e.target.value.length < 3 ? 0 : 80;
+    searchTimer = setTimeout(() => {
+      searchQuery = e.target.value.toLowerCase().trim();
+      applyFilters();
+    }, delay);
   });
 
   init();
