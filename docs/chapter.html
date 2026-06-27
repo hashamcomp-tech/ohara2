@@ -131,13 +131,13 @@
   // ── State ────────────────────────────────────────────────────
   const slug       = params().get('slug');
   const startChNum = parseInt(params().get('ch')) || 1;
+  // endChNum: set from URL when restoring a merged page, otherwise equals startChNum
+  let   endChNum   = parseInt(params().get('end')) || startChNum;
 
-  let meta            = null;       // novel meta.json
-  let chapterMap      = {};         // num → {num, title} from meta.chapters
-  let maxLoadedCh     = 0;          // highest chapter number currently displayed
-  let totalChapters   = 0;          // last chapter number in meta
-  let fontSize        = parseFloat(localStorage.getItem('ohara-font') || '1.08');
-  let merging         = false;
+  let meta      = null;
+  let maxLoadedCh = 0;
+  let fontSize  = parseFloat(localStorage.getItem('ohara-font') || '1.08');
+  let merging   = false;
 
   // ── Font size controls ───────────────────────────────────────
   function applyFont() {
@@ -176,15 +176,28 @@
     if (ch.num > maxLoadedCh) maxLoadedCh = ch.num;
   }
 
+  // ── URL sync — treat the merged range as one page ────────────
+  function syncURL() {
+    const q = new URLSearchParams({ slug, ch: startChNum });
+    if (maxLoadedCh > startChNum) q.set('end', maxLoadedCh);
+    history.replaceState(null, '', `chapter.html?${q}`);
+
+    // Update breadcrumb to show range
+    const label = maxLoadedCh > startChNum
+      ? `Ch ${startChNum}–${maxLoadedCh}`
+      : `Chapter ${startChNum}`;
+    document.getElementById('bc-chapter').textContent = label;
+    document.title = `${label} · ${meta.title} — Ohara`;
+  }
+
   // ── Navigation helpers ───────────────────────────────────────
   function updateNavButtons() {
-    const allNums    = meta.chapters.map(c => c.num);
-    const firstNum   = allNums[0];
-    const lastNum    = allNums[allNums.length - 1];
-    const prevNum    = allNums[allNums.indexOf(startChNum) - 1];
-    const nextNum    = allNums[allNums.indexOf(maxLoadedCh) + 1];
+    const allNums = meta.chapters.map(c => c.num);
+    // Prev = chapter before the START of this page
+    const prevNum = allNums[allNums.indexOf(startChNum) - 1];
+    // Next = chapter after the END of this page (after all merged)
+    const nextNum = allNums[allNums.indexOf(maxLoadedCh) + 1];
 
-    // Prev → goes to actual previous chapter page
     const btnPrev = document.getElementById('btn-prev');
     if (prevNum !== undefined) {
       btnPrev.disabled = false;
@@ -195,26 +208,29 @@
       document.getElementById('prev-label').textContent = 'Start';
     }
 
-    // Next → goes to next chapter page (after maxLoaded)
     const btnNext = document.getElementById('btn-next');
     if (nextNum !== undefined) {
       btnNext.disabled = false;
       document.getElementById('next-label').textContent = `Ch ${nextNum}`;
+      // Next jumps to the chapter right after the entire merged block
       btnNext.onclick = () => go('chapter.html', { slug, ch: nextNum });
     } else {
       btnNext.disabled = true;
       document.getElementById('next-label').textContent = 'End';
     }
 
-    // Merge button
     const btnMerge = document.getElementById('btn-merge');
     const canMerge = nextNum !== undefined;
     btnMerge.disabled = !canMerge;
     if (!canMerge) btnMerge.textContent = '✓ All loaded';
 
-    // Reader header progress
-    const idx      = allNums.indexOf(maxLoadedCh) + 1;
-    document.getElementById('rh-progress').textContent = `${idx} / ${allNums.length}`;
+    // Progress shows range of loaded chapters
+    const startIdx = allNums.indexOf(startChNum) + 1;
+    const endIdx   = allNums.indexOf(maxLoadedCh) + 1;
+    const progress = startIdx === endIdx
+      ? `${startIdx} / ${allNums.length}`
+      : `${startIdx}–${endIdx} / ${allNums.length}`;
+    document.getElementById('rh-progress').textContent = progress;
   }
 
   // ── Merge Next 10 ────────────────────────────────────────────
@@ -222,19 +238,18 @@
     if (merging) return;
     merging = true;
 
-    const allNums   = meta.chapters.map(c => c.num);
-    const afterIdx  = allNums.indexOf(maxLoadedCh) + 1;
-    const toLoad    = allNums.slice(afterIdx, afterIdx + 10);
-    if (!toLoad.length) return;
+    const allNums  = meta.chapters.map(c => c.num);
+    const afterIdx = allNums.indexOf(maxLoadedCh) + 1;
+    const toLoad   = allNums.slice(afterIdx, afterIdx + 10);
+    if (!toLoad.length) { merging = false; return; }
 
-    const btn   = document.getElementById('btn-merge');
+    const btn    = document.getElementById('btn-merge');
     const loader = document.getElementById('loading-merge');
     btn.disabled = true;
     btn.textContent = 'Loading…';
     loader.textContent = `Fetching chapters ${toLoad[0]}–${toLoad[toLoad.length - 1]}`;
     loader.classList.add('visible');
 
-    // Load all in parallel, preserve order
     const results = await Promise.all(
       toLoad.map(n => loadChapter(slug, n).catch(() => null))
     );
@@ -248,8 +263,12 @@
     btn.textContent = '⊕ Merge Next 10';
     merging = false;
 
+    // Update URL so this merged range is the new "page"
+    endChNum = maxLoadedCh;
+    syncURL();
     updateNavButtons();
-    // Scroll to the first newly added chapter
+
+    // Scroll to first newly loaded chapter
     const firstNew = document.getElementById(`ch-${toLoad[0]}`);
     if (firstNew) firstNew.scrollIntoView({ behavior: 'smooth', block: 'start' });
   });
@@ -262,23 +281,30 @@
       return;
     }
     try {
-      // Load novel meta for navigation
       meta = await loadNovelMeta(slug);
-      totalChapters = meta.chapters.length;
-      chapterMap    = Object.fromEntries(meta.chapters.map(c => [c.num, c]));
+      const allNums = meta.chapters.map(c => c.num);
 
-      // Breadcrumb
-      document.title = `Ch ${startChNum} · ${meta.title} — Ohara`;
+      // Breadcrumb & title (updated again by syncURL after loading)
       const bcNovel = document.getElementById('bc-novel');
       bcNovel.textContent = meta.title;
       bcNovel.href = `novel.html?slug=${esc(slug)}`;
-      document.getElementById('bc-chapter').textContent = `Chapter ${startChNum}`;
       document.getElementById('rh-title').textContent = meta.title;
 
-      // Load & render the requested chapter
-      const chData = await loadChapter(slug, startChNum);
-      appendChapterToDOM(chData);
+      // Determine the full range to load on this page
+      // If ?end= is in the URL, restore all chapters from start→end
+      const chaptersToLoad = endChNum > startChNum
+        ? allNums.filter(n => n >= startChNum && n <= endChNum)
+        : [startChNum];
 
+      // Load all chapters in range (parallel)
+      const results = await Promise.all(
+        chaptersToLoad.map(n => loadChapter(slug, n).catch(() => null))
+      );
+      for (const ch of results) {
+        if (ch) appendChapterToDOM(ch);
+      }
+
+      syncURL();
       updateNavButtons();
       showState('content');
       applyFont();
