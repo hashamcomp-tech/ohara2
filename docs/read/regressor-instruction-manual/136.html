@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chapter 136 — Regressor Instruction Manual</title>
+  <style>
+    :root { --ink:#1a1a1a; --dim:#666; --bg:#fff; --gold:#8a6a1a; --border:#ddd; }
+    @media (prefers-color-scheme:dark) {
+      :root { --ink:#e9e4da; --dim:#9a9286; --bg:#111010; --gold:#c9a84c; --border:#2a2825; }
+    }
+    *{ box-sizing:border-box; margin:0; padding:0; }
+    body{ background:var(--bg); color:var(--ink); font-family:Georgia,'Times New Roman',serif;
+          font-size:1.125rem; line-height:1.85; padding:40px 24px 80px;
+          max-width:680px; margin:0 auto; }
+    header{ margin-bottom:32px; padding-bottom:20px; border-bottom:1px solid var(--border); }
+    header a{ color:var(--gold); text-decoration:none; font-size:.85rem; }
+    h1{ font-size:1.35rem; font-weight:700; margin-top:10px; line-height:1.25; }
+    article p{ margin-bottom:1.4em; text-align:justify; hyphens:auto; }
+    .ch-divider{ text-align:center; padding:28px 0 16px; color:var(--dim);
+                  font-size:.8rem; letter-spacing:.1em; text-transform:uppercase; }
+    .ch-divider::before,.ch-divider::after{ content:''; display:inline-block;
+      width:40px; height:1px; background:var(--border); vertical-align:middle; margin:0 12px; }
+    .ch-title{ font-size:1.1rem; font-weight:700; color:var(--gold); margin-bottom:16px; }
+    nav{ display:grid; grid-template-columns:1fr auto 1fr; gap:10px; align-items:center;
+          margin-top:48px; padding-top:20px; border-top:1px solid var(--border); font-size:.88rem; }
+    nav a{ color:var(--gold); text-decoration:none; }
+    nav a:hover{ text-decoration:underline; }
+    nav .nav-right{ text-align:right; }
+    nav .nav-mid{ text-align:center; }
+    .btn-merge{ background:rgba(138,106,26,.12); border:1px solid var(--gold);
+                 color:var(--gold); padding:9px 16px; border-radius:6px; cursor:pointer;
+                 font-family:Georgia,serif; font-size:.85rem; font-weight:600;
+                 transition:background .15s; white-space:nowrap; }
+    .btn-merge:hover:not(:disabled){ background:rgba(138,106,26,.25); }
+    .btn-merge:disabled{ opacity:.35; cursor:not-allowed; }
+    #merge-status{ text-align:center; padding:12px; font-size:.82rem;
+                    color:var(--dim); display:none; }
+  </style>
+</head>
+<body>
+<header>
+  <a href="../../novel.html?slug=regressor-instruction-manual">&larr; Regressor Instruction Manual</a>
+  <h1 id="page-title">Chapter 136</h1>
+</header>
+
+<div id="chapters">
+  <article id="ch-136">
+    <p>Chapter 136: The Third Card (1)</p>
+    <p>“It’s correct to say that I am the distributor, dear Supreme Justice Court.”</p>
+    <p>| swallowed the laughter that was about to rumble out of me.</p>
+    <p>As soon as I finished speaking, the audience was up in an uproar.</p>
+    <p>Cardinal Basel looked calm, but others seemed to be disconcerted by the sudden change.</p>
+    <p>It was, yet again, a natural reaction. It was the same as finding that a neighbor who had been sending out a good smile one day was found to be a drug offender in the next.</p>
+    <p>It was a little embarrassing for me to admit this, but my image within the Empire was good enough to penetrate the sky itself.</p>
+    <p>Perhaps thinking I had something up my sleeve, Ito Souta started to speak once more. However, what the public was waiting for were my next words, not his.</p>
+    <p>“It’s too shameless to confess his sins so calmly. Supreme Judge, would you still need to listen? At present, the plaintiff and the defendant are clearly interchanged. Go ahead and arrest him as per the procedure…”</p>
+    <p>“Arrest as per procedure? I indeed distributed it, but I have never admitted my crimes with my mouth. You are still the defendant in this case.”</p>
+    <p>“If it is not a sin to distribute drugs in a free city, then what is? If you say that trying to drive an innocent person as an offender is also a sin, you can say so.”</p>
+    <p>“I’m saying that I have no idea what you’re talking about now. This is what I’m saying, Ito Souta.”</p>
+    <p>“It is as it is shown, Lee Kiyoung-ssi. Didn’t you admit to your doings yourself?”</p>
+    <p>“What are you talking about, Souta-ssi?”</p>
+    <p>“If you are thinking of playing innocent…”</p>
+    <p>“The fantasy potion is not a drug.”</p>
+    <p>Seeing his disconcerted expression, the urge to laugh only grew stronger. He had no idea what I was thinking, and what I was trying to do. Perhaps he thought I was only bluffing, as he had taken the necessary and cautious steps with the assumption that I had an ace.</p>
+    <p>“Dear Supreme Justice Court, the fantasy potions that I have distributed are not something that can be called drugs. I hope that you will allow me to clarify about the fantasy potions in circulation to the citizens of the Empire here.”</p>
+    <p>“Certainly… I think this needs an explanation.”</p>
+    <p>“Supreme Judge!”</p>
+    <p>“I will allow you to speak.”</p>
+    <p>Very good.</p>
+    <p>“Most of Ito Souta’s testimony is true. It is also true that I made a mental healing potion at the Cursed Shrine and actually made a fantasy potion deriving from the former. I also created with Yuno Kasugano, a new guild called Sora, and distributed potions through this. I haven’t been able to confirm that it’s being sold on the black market, but that is probably true as well.”</p>
+    <p>“Please continue to testify.”</p>
+    <p>“Of course, there are other testimonies that are not true. Saying that the Lindel terrorist incident was a fight between drug gangs and that Hiroyuki Kazuma was a member of the Kage Guild are all false. Of course, it is also false that the attempted assassination case was my own doing.”</p>
+    <p>“Supreme Judge!”</p>
+    <p>“Be quiet for a moment, defendant. As the defendant said before, what the plaintiff will testify from now on is very important in this trial.”</p>
+    <p>The Supreme Court Justice, who had maintained a good relationship with my side, was also hoping for us to win the trial. Seeing him cheering me on silently, I felt more confident.</p>
+    <p>“Of course, the biggest lie among them is the statement that fantasy potions are drugs. It’s an empty story that doesn’t make any sense.”</p>
+    <p>“Do you have any evidence?”</p>
+    <p>“To be precise, the fantasy potion is a potion made for healing purposes.”</p>
+    <p>“You mean treatment?”</p>
+    <p>“Yes, treatment. Like the mental healing potion used for the Cursed Shrine, the fantasy potion was created for healing purposes and then distributed for healing purposes. The defendant testifies that incidents occur due to the battle between the Kake Guild and my territory, but the truth is completely different. The Yamato Guild, in which Ito Souta is a member, is holding hands with the Kake guild.”</p>
+    <p>Yamato Guild and Kake Guild holding hands was something I had made up on the spot. Of course, I didn’t have any evidence to present right away, but I thought it would be more efficient to talk like this.</p>
+    <p>“Everyone has heard of it somewhere.”</p>
+    <p>‘That’s because of me.’</p>
+    <p>“It is rumored that the Yamato Guild’s Ito Souta handles slave trafficking, organ trafficking, and illegal drugs, as well as running the black market.”</p>
+    <p>“I have objections. Supreme Court! Those rumors have no basis, and the content of the evidence to be presented is very poor.”</p>
+    <p>“The greatest evidence will come in a moment. Here is the start. Supreme Judge, the story begins when Yuno Kasugano of the Yozora Guild visited me. It was about a drug that had been illegally circulating in Japanese markets for a long time. Yes. It’s not a fantasy potion; it’s a real drug. I heard directly from her that Celia, the Free City, was already exposed to illegal drugs and that many people were suffering from them.”</p>
+    <p>“What she asked me to do was make a cure.”</p>
+    <p>“Ah…”</p>
+    <p>“Yeah. As you all might think, fantasy potions are a cure for illegal drugs that are now hard to find in Celia. We, the Blues and Yozora, wanted to cure drug addicts and wanted to know where these illegal drugs were circulating. That was probably where everything started.”</p>
+    <p>“What started, plaintiff?”</p>
+    <p>“I was constantly under threat of assassination. They seemed not to want me to approach the truth. In addition to the Lindel terrorist incident, there have been many threats that continue to target me. In fact, we weren’t able to find about the group that was controlling the Japanese drug market, but we learned a lot thanks to the ongoing assassination attempts. As I said at the beginning of the trial, the Yamato Guild tried to assassinate me. Oh, maybe it was the Kake Guild too. I mean a guild member of the Kake Guild who was ordered by the Yamato Guild.”</p>
+    <p>“Everything is a lie under the guise of sophistry, Supreme. The statement that fantasy potions are the cure for existing drugs is unfounded. I wonder how a fantasy potion, which is addictive in the first place, can be a cure for drugs.”</p>
+    <p>“Why are you saying that it can’t be a cure, Ito Souta-ssi? The fantasy potion has already proven its effectiveness with the cursed shrine. And to say that is addictive… Please be careful. It is true that fantasy potions have some addictive properties, but calling them drugs is no different from calling favorite foods such as wine as drugs.”</p>
+    <p>“That’s…”</p>
+    <p>“It is a product that was originally released as a treatment. If someone somewhere did not intentionally block the distribution, it would have already been in circulation. Supreme Judge, the reason Ito Souta continuously threatened me was to prevent the circulation of a remedy called the fantasy potion.”</p>
+    <p>“It’s ridiculous. Your Honor, the alchemists in our guild, discovered the Weed ingredient that induces addiction and hallucinations in fantasy potions.”</p>
+    <p>This is really surprising.</p>
+    <p>Of course, I knew he would do the component analysis to get some solid evidence, but I didn’t think he would hit exactly one of the catalysts in it.</p>
+    <p>Bringing alchemists who could be said to be competent in their own way was certainly a thing to have my head cut off.</p>
+    <p>However…</p>
+    <p>There was no alchemist better than me on the entire continent.</p>
+    <p>“You have already finished detecting the ingredients. This is where you can get a little more curious, Supreme Judge. To be calling the fantasy potion a drug even though the ingredients analysis has ended.”</p>
+    <p>“If you don’t call a potion containing Weed ingredients as a drug, what should you call it, Lee Kiyoung.”</p>
+    <p>“Ito Souta-ssi. Is it correct that you have properly detected the ingredients? If it is correct that you fully know about the fantasy potion, the same words cannot be said. No, they shouldn’t come out.”</p>
+    <p>“What…”</p>
+    <p>“The fantasy potion is an object made of holy water, Ito Souta-ssi.”</p>
+    <p>It wasn’t just him. The entire courtroom had gone silent.</p>
+    <p>This entire situation has just gotten a lot more interesting.</p>
+    <p>Ito Souta’s face was already very distorted. I saw him turning his head in a hurry to check the faces of Cardinal Basel, as well as the other religious people.</p>
+    <p>‘Pfft.</p>
+    <p>He didn’t look like a powerful person who could control a city.</p>
+    <p>“Originally, that’s what healing does, Ito Souta-ssi. Putting Weed as an ingredient was with nothing more than or less than the purpose of treatment. Benigore’s Goddess holy water purifies all harmful ingredients. It was a little easy for me, seeing as I am an alchemist.”</p>
+    <p>“In fact, I didn’t even need to make a separate treatment. The goddess’ holy water was enough to clean up; it wasn’t just illegal drugs that were eating away the Free City Celia. What the fantasy potion shows is a gift from the Goddess for us, Ito Souta-ssi.”</p>
+    <p>“You dare call the Goddess’s gift a drug. If this isn’t blasphemy, what is it? Isn’t that right, everyone?”</p>
+    <p>Some still had their mouths closed tightly. However, it didn’t take long for the silence to be replaced with agitation.</p>
+    <p>The first to shout out was Helena, the Director of the Inquisition, and one of the people who had maintained a close relationship with me.</p>
+    <p>“It’s blasphemy!”</p>
+    <p>This triggered the rest of the shouting.</p>
+    <p>“It is blasphemy! Blasphemy!”</p>
+    <p>“It’s heresy! It’s heresy!”</p>
+    <p>“It’s blasphemy!”</p>
+    <p>I thought that heresy was a little too far, but that definitely went in my favor.</p>
+    <p>‘Pfft.</p>
+    <p>Ito Souta spoke in a hurry.</p>
+    <p>“‘T-That is because I didn’t know the fantasy potion was made of holy water. If I had known, I would never have said that. Honorable Supreme Court. No, Cardinal Basel, don’t you know how much faith I have in Benigore’s Goddess?”</p>
+    <p>‘It is better for him to make excuses like this.</p>
+    <p>“I want you to forgive my ignorance, dear priests. There was absolutely no other intention.”</p>
+    <p>Cardinal Basel was currently the highest religious person here. Considering that only the Cardinals could hold the Inquisition, it was not unreasonable for him to be begging to Cardinal Basel. Still, unfortunately, Cardinal Basel had been on my side for a long time.</p>
+    <p>Well, apart from that, in fact, his excuse was reasonable.</p>
+    <p>Saying again that the fantasy potion was not a drug is like denying the testimony he had given so far. In other words, he was more likely to survive if he denied his former testimony.</p>
+    <p>‘There is a possibility.’</p>
+    <p>If he said that he didn’t, then there was room for more excuses.</p>
+    <p>‘The problem is…</p>
+    <p>This wasn’t the end of everything that I had prepared. What else did I have up my sleeve?</p>
+    <p>Of course, the precious wine I had prepared.</p>
+    <p>‘It is also a special product. Puhahahahaha.’</p>
+    <p>The fantasy potion basically makes you see what you want to see, after all.</p>
+    <p>Perhaps some religious people might think that what they see after drinking the holy water from the Goddess is a divine revelation.</p>
+    <p>Only</p>
+    <p>The same was true for Cardinal Basel, who was very religious.</p>
+    <p>‘What do you think Cardinal Basel had seen after drinking the wine I presented? Idiot.’</p>
+    <p>Ito Souta couldn’t even begin to imagine.</p>
+    <p>“At this time, it is judged that this case is out of the authority of the imperial court, and under the authority of the Second Cardinal of the Holy Empire, I formally request Judge James to hold an inquisition here and now.”</p>
+    <p>“What…”</p>
+    <p>That would be a little secret only Cardinal Basel and I would know.</p>
+    <p>‘Take this, Ito Souta!’</p>
+    <p>This was the most heartfelt gift I could ever give him.</p>
+  </article>
+</div>
+
+<div id="merge-status"></div>
+
+<nav>
+  <span class="nav-left"><a href="135.html" rel="prev">&#8592; Ch 135</a></span>
+  <span class="nav-mid">
+    <button class="btn-merge" id="btn-merge" >Merge Next 10</button>
+  </span>
+  <span class="nav-right"><a href="137.html" rel="next">Ch 137 &#8594;</a></span>
+</nav>
+
+<script>
+  // Chapters available after this one — discovered from meta.json
+  var slug       = "regressor-instruction-manual";
+  var currentNum = 136;
+  var nextNum    = 137;
+  var maxLoaded  = currentNum;
+  var allNums    = null;   // loaded lazily from meta.json
+  var merging    = false;
+  var root       = "../../";
+
+  async function getNums() {
+    if (allNums) return allNums;
+    var res = await fetch(root + "data/" + slug + "/meta.json");
+    var meta = await res.json();
+    allNums = meta.chapters.map(function(c){ return c.num; });
+    return allNums;
+  }
+
+  document.getElementById("btn-merge").addEventListener("click", async function() {
+    if (merging) return;
+    merging = true;
+    var btn    = document.getElementById("btn-merge");
+    var status = document.getElementById("merge-status");
+    btn.textContent = "Loading…";
+    btn.disabled = true;
+
+    var nums   = await getNums();
+    var idx    = nums.indexOf(maxLoaded);
+    var toLoad = nums.slice(idx + 1, idx + 11);
+    if (!toLoad.length) { merging = false; return; }
+
+    status.style.display = "block";
+    status.textContent = "Fetching chapters " + toLoad[0] + "–" + toLoad[toLoad.length-1] + "…";
+
+    var container = document.getElementById("chapters");
+    var firstNew  = null;
+
+    for (var i = 0; i < toLoad.length; i++) {
+      var n = toLoad[i];
+      try {
+        var res  = await fetch(n + ".html");
+        var html = await res.text();
+        var doc  = new DOMParser().parseFromString(html, "text/html");
+        var art  = doc.querySelector("article");
+        var h1   = doc.querySelector("h1");
+        if (!art) continue;
+
+        // Divider
+        var divider = document.createElement("div");
+        divider.className = "ch-divider";
+        divider.textContent = "Chapter " + n;
+        container.appendChild(divider);
+
+        // Chapter title
+        if (h1) {
+          var chTitle = document.createElement("div");
+          chTitle.className = "ch-title";
+          chTitle.textContent = h1.textContent;
+          container.appendChild(chTitle);
+        }
+
+        // Content
+        var section = document.createElement("article");
+        section.id = "ch-" + n;
+        section.innerHTML = art.innerHTML;
+        container.appendChild(section);
+
+        if (!firstNew) firstNew = divider;
+        maxLoaded = n;
+      } catch(e) {
+        console.warn("Failed to load chapter " + n, e);
+      }
+    }
+
+    // Update nav next link
+    var nextIdx = nums.indexOf(maxLoaded) + 1;
+    var newNext = nextIdx < nums.length ? nums[nextIdx] : null;
+    var navRight = document.querySelector(".nav-right");
+    if (newNext) {
+      navRight.innerHTML = '<a href="' + newNext + '.html" rel="next">Ch ' + newNext + ' &#8594;</a>';
+    } else {
+      navRight.innerHTML = '<span></span>';
+    }
+
+    status.style.display = "none";
+    btn.textContent = newNext ? "⊕ Merge Next 10" : "✓ All loaded";
+    btn.disabled = !newNext;
+    merging = false;
+
+    if (firstNew) firstNew.scrollIntoView({ behavior:"smooth", block:"start" });
+  });
+</script>
+</body>
+</html>

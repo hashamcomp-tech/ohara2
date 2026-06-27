@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chapter 78 — Regressor Instruction Manual</title>
+  <style>
+    :root { --ink:#1a1a1a; --dim:#666; --bg:#fff; --gold:#8a6a1a; --border:#ddd; }
+    @media (prefers-color-scheme:dark) {
+      :root { --ink:#e9e4da; --dim:#9a9286; --bg:#111010; --gold:#c9a84c; --border:#2a2825; }
+    }
+    *{ box-sizing:border-box; margin:0; padding:0; }
+    body{ background:var(--bg); color:var(--ink); font-family:Georgia,'Times New Roman',serif;
+          font-size:1.125rem; line-height:1.85; padding:40px 24px 80px;
+          max-width:680px; margin:0 auto; }
+    header{ margin-bottom:32px; padding-bottom:20px; border-bottom:1px solid var(--border); }
+    header a{ color:var(--gold); text-decoration:none; font-size:.85rem; }
+    h1{ font-size:1.35rem; font-weight:700; margin-top:10px; line-height:1.25; }
+    article p{ margin-bottom:1.4em; text-align:justify; hyphens:auto; }
+    .ch-divider{ text-align:center; padding:28px 0 16px; color:var(--dim);
+                  font-size:.8rem; letter-spacing:.1em; text-transform:uppercase; }
+    .ch-divider::before,.ch-divider::after{ content:''; display:inline-block;
+      width:40px; height:1px; background:var(--border); vertical-align:middle; margin:0 12px; }
+    .ch-title{ font-size:1.1rem; font-weight:700; color:var(--gold); margin-bottom:16px; }
+    nav{ display:grid; grid-template-columns:1fr auto 1fr; gap:10px; align-items:center;
+          margin-top:48px; padding-top:20px; border-top:1px solid var(--border); font-size:.88rem; }
+    nav a{ color:var(--gold); text-decoration:none; }
+    nav a:hover{ text-decoration:underline; }
+    nav .nav-right{ text-align:right; }
+    nav .nav-mid{ text-align:center; }
+    .btn-merge{ background:rgba(138,106,26,.12); border:1px solid var(--gold);
+                 color:var(--gold); padding:9px 16px; border-radius:6px; cursor:pointer;
+                 font-family:Georgia,serif; font-size:.85rem; font-weight:600;
+                 transition:background .15s; white-space:nowrap; }
+    .btn-merge:hover:not(:disabled){ background:rgba(138,106,26,.25); }
+    .btn-merge:disabled{ opacity:.35; cursor:not-allowed; }
+    #merge-status{ text-align:center; padding:12px; font-size:.82rem;
+                    color:var(--dim); display:none; }
+  </style>
+</head>
+<body>
+<header>
+  <a href="../../novel.html?slug=regressor-instruction-manual">&larr; Regressor Instruction Manual</a>
+  <h1 id="page-title">Chapter 78</h1>
+</header>
+
+<div id="chapters">
+  <article id="ch-78">
+    <p>Chapter 78: The Third Job (4)</p>
+    <p>I found myself stunned by this new piece of information.</p>
+    <p>It felt so ridiculous that I couldn’t even begin to respond. I didn’t even need to clear my mind - the perpetrator was obvious in terms of personality and recent behavior.</p>
+    <p>This was Jung Hayan’s doing.</p>
+    <p>Several guilds and clans came to mind, but I knew none of them had a valid reason to do this. There were also the three crazy women hanging around me that could be considered suspects.</p>
+    <p>However, it was difficult for someone like Cha Hee-ra to hire a wizard and cast a spell on me. I also knew Lee Jihye neither had the time nor ability to cast this magic type on me. I would have noticed if she had beforehand.</p>
+    <p>The suspect must have been someone who cast the spell while I was asleep in my room.</p>
+    <p>Of course, this could only mean Jung Hayan.</p>
+    <p>Thinking about her watching me sleep made goosebumps form all over my body.</p>
+    <p>Before entering the Guild House, Jung Hayan came here every night to do various things, but when I thought about it, I had never woken up in the middle of the night after entering the Guild House.</p>
+    <p>I didn’t know exactly when, but…</p>
+    <p>It felt strange to think that Jung Hayan was involved in this.</p>
+    <p>However, when I thought about all those times that I had not woken in my sleep ever since we started staying at the Guild House, the answer came to me.</p>
+    <p>Whenever I walked into my room with the intent to sleep, I must have been so immersed in my thoughts that I thought receiving headaches daily was normal.</p>
+    <p>Of course, this was only speculation, but if this was true, then Jung Hayan probably received some pre-sex education before we even arrived here.</p>
+    <p>After trying to sort through my embarrassed, befuddled mind, I looked back up to see Hwang Jeong-yeon looking at me as if she had just committed a big mistake. If I were her, I would have reacted in the same manner as well. It was like she had just blatantly told someone they were being watched by their significant other.</p>
+    <p>I didn’t know how my relationship with Jung Hayan must have looked to them, but I felt like I should have noticed this sooner.</p>
+    <p>I opened my mouth to speak once more. I felt like I deserved a better explanation.</p>
+    <p>“Can you elaborate it for a bit?”</p>
+    <p>“Yes…?”</p>
+    <p>It is of utmost importance to know the exact situation. That way, I could be careful, too.</p>
+    <p>“So… That…”</p>
+    <p>“I would like you to tell me the exact details.”</p>
+    <p>“Well, that…”</p>
+    <p>Her hesitation made me feel even more anxious.</p>
+    <p>This was because I was worried that this spell might have hidden functions. I hadn’t heard of eavesdropping magic within the continent before, but I wouldn’t be surprised to find out that Jung Hayan was capable of producing new magic on her own. If so, how much would she have heard?</p>
+    <p>“Can I be honest with you, then?”</p>
+    <p>“Go ahead. I just felt a little surprised. I mean, I should have expected this to some extent… Anyway, I don’t really care.”</p>
+    <p>“If you say so, then I should let you know. Miss Hayan really surprised me.”</p>
+    <p>“Yeah. She tends to be a little too jealous at times. Perhaps that’s what drove her to do this.”</p>
+    <p>“Oh my God, it’s probably because of all the rumors with the Red Mercenary Queen. If so, then I can understand why she would do this.”</p>
+    <p>“…”</p>
+    <p>“Somehow, she managed to hide the presence of her spell really well.”</p>
+    <p>“Really?”</p>
+    <p>“The average person won’t even notice it, so I’m not surprised that you haven’t. The same goes for most wizards. They’re not particularly sensitive to magic like me, or it simply feels so systematic and complicated that they wouldn’t notice it at all. If I didn’t have over 80 magic stats, I wouldn’t have noticed it as well. The magical power is also very faint, and above all, it was designed to melt into Mr. Kiyoung’s unique magic power.”</p>
+    <p>“Ah…”</p>
+    <p>“Honestly, it’s all so interesting to me as well. I didn’t think that magic could be used in this manner, but the rumors did say Miss Hayan was a genius. Anyway, you said you were an alchemist?”</p>
+    <p>“Yes, I am.”</p>
+    <p>“My class is a little different from hers, but I can still tell you what kind of magic she used. The order itself stems from basic magic.”</p>
+    <p>“Ah…”</p>
+    <p>“The first enchantment, as I mentioned, is the location tracking magic. As the name suggests, it’s a type of magic designed to help you identify where your target is. This is not really a big deal, but the second magic seems a bit interesting to me.”</p>
+    <p>“What is it?”</p>
+    <p>“It’s a kind of magic similar to creating a safety zone within a dungeon. It would be comfortable to think of it as a magic that sends a signal when a creature enters a certain radius. On average, the radius is about 50cm… In simple terms, it would be right to explain that it is a magic that sends a signal to the caster when a specific someone approaches Kiyoung over a certain area. Of course, we have no idea as to who it is, but…”</p>
+    <p>“Yeah.”</p>
+    <p>“Usually, to cast this kind of magic, a part of the subject’s body or a catalyst such as blood is needed… Do you really not know this?”</p>
+    <p>“What would happen if it was done without a catalyst?”</p>
+    <p>“It’s impossible to use this kind of magic without a catalyst. This magic is difficult to find because it has transformed into a form similar to the kind of magic that Kiyoung has. In this way, the presence of a catalyst is essential. If not, the activation of the spell would be impossible to trigger.”</p>
+    <p>“Yes, I remember this.”</p>
+    <p>“So, a strand of hair would do? Or nails?”</p>
+    <p>“No. If one were to use these, they would need a bunch of them.”</p>
+    <p>Of course, I don’t remember allowing Jung Hayan to amass an abundance of my hair.</p>
+    <p>However, I knew what she must have used - the tooth I had lost back in the dungeon.</p>
+    <p>It felt ridiculous for me to remember that fact. At that time, I never imagined she would use it like this.</p>
+    <p>When I thought about it on a deeper scale, I remembered Jung Hayan appearing during my talk with Lee Jihye. The spell must have alerted her as the other woman was inside the trigger radius.</p>
+    <p>That was the whole reason why Jung Hayan had started at Lee Jihye so murderously. No wonder I felt so worried about seeing her in that manner.</p>
+    <p>Meanwhile, Hwang Jeong-yeon was still staring at me with a worried expression of her own - similar to how a mother would look when watching her favorite drama shows.</p>
+    <p>“Does this type of magic include being able to listen in on conversations, or seeing what the person is currently doing?”</p>
+    <p>“Well, since there are two types of enchantments present, it’s quite tricky to be able to tell. It’s hard to believe that a newcomer has managed to create this type of magic. Of course, it was possible because the consumption of magical power used was low. This is enough to ensure a new type of thesis for magic academia!”</p>
+    <p>Ah…”</p>
+    <p>“I think I can disarm the spell… what do you want me to do?”</p>
+    <p>“No, no, I’ll be fine for now.”</p>
+    <p>“Oh, you must be enjoying the restraint. It seems a little weird to me, but it’s romantic all the same.”</p>
+    <p>This was very shocking news, but I was grateful I was able to remain calm.</p>
+    <p>I already knew Jung Hayan was obsessed with me, but not to this extent. However, I knew that I could handle her perfectly well, so this exchange didn’t surprise me as much as it should’ve.</p>
+    <p>Of course, that didn’t mean it didn’t creep me out!</p>
+    <p>At this, I wondered if there were other devices hidden in my room.</p>
+    <p>“Would you please go up to my room with me if you’re available?”</p>
+    <p>“Y-Yes?” The look Hwang Jeong-yeon shot me made me feel more embarrassed. I realized just how suggestive my offer sounded.</p>
+    <p>“Well, thank you for the suggestion, but I’m afraid I’m not interested in that sort of thing… don’t get me wrong, you are attractive and all, but…”</p>
+    <p>“I didn’t mean it in that manner.”</p>
+    <p>“Ah.”</p>
+    <p>“I would like you to see if there’s any other magic residing within my room.”</p>
+    <p>“Ah, I see!”</p>
+    <p>Once again, I was able to notice that she smelled a lot like Park Deokgu.</p>
+    <p>“Then let’s go up together! I was curious about your workshop since it apparently costs a lot. Today’s my lucky day!”</p>
+    <p>“Yes, the same is true for me.”</p>
+    <p>If it weren’t for her, I wouldn’t have known about the presence of this type of magic.</p>
+    <p>As soon as I got up from my seat, I noticed Hwang Jeong-yeon’s expression once more. It was like she wasn’t even taking this seriously. She seemed to regard us as a drama set.</p>
+    <p>As we made our way up to the second floor, I could feel my steps getting heavier for some reason. However, this was completely necessary.</p>
+    <p>“So this is the place used by the 7th generation people. I heard it’s very good.”</p>
+    <p>“Actually, I haven’t seen other people’s accommodations, so I can’t say the same.”</p>
+    <p>Hwang Jeong-yan stopped momentarily in front of Park Deokgu’s room. It was subtle, but I had caught it all the same.</p>
+    <p>A horrible scenario emerged from my brain at this. Shaking my head, I coaxed her in the direction of my room, not wanting to think about it.</p>
+    <p>I opened the door with a casual expression. My place was minimalistic as a whole, with various books and equipment on my desk. Admittedly, my room looked messier than I would have liked, but there was nothing I could do about it for now.</p>
+    <p>“It’s a really neat room.”</p>
+    <p>“A-Ah…”</p>
+    <p>“Oh, my goodness. You seem to have more books than me…”</p>
+    <p>“Oh, I gave up reading these halfway through.”</p>
+    <p>“It’s still good to study… Oh, I got distracted. You wanted me to check if there’s any other magic present within the room?”</p>
+    <p>“Yeah. That’s right.”</p>
+    <p>Only</p>
+    <p>“Wait.”</p>
+    <p>Hwang Jeong-yeon then began to look around the room with magic-infused eyes. I didn’t think I’d be so determined to find out about any magic spells. I knew I should not have underestimated Jung Hayan’s power.</p>
+    <p>After a while, Hwang Jeong-yeon’s expression began to change very subtly. Whatever she found, she seemed to find it very interesting, as she was trying her best to hold back her smile.</p>
+    <p>My anxiety peaked at this expression. Eventually, she spoke again.</p>
+    <p>“There is.”</p>
+    <p>“Yeah?”</p>
+    <p>“I can see it on the wall and on the bed.”</p>
+    <p>‘…”</p>
+  </article>
+</div>
+
+<div id="merge-status"></div>
+
+<nav>
+  <span class="nav-left"><a href="77.html" rel="prev">&#8592; Ch 77</a></span>
+  <span class="nav-mid">
+    <button class="btn-merge" id="btn-merge" >Merge Next 10</button>
+  </span>
+  <span class="nav-right"><a href="79.html" rel="next">Ch 79 &#8594;</a></span>
+</nav>
+
+<script>
+  // Chapters available after this one — discovered from meta.json
+  var slug       = "regressor-instruction-manual";
+  var currentNum = 78;
+  var nextNum    = 79;
+  var maxLoaded  = currentNum;
+  var allNums    = null;   // loaded lazily from meta.json
+  var merging    = false;
+  var root       = "../../";
+
+  async function getNums() {
+    if (allNums) return allNums;
+    var res = await fetch(root + "data/" + slug + "/meta.json");
+    var meta = await res.json();
+    allNums = meta.chapters.map(function(c){ return c.num; });
+    return allNums;
+  }
+
+  document.getElementById("btn-merge").addEventListener("click", async function() {
+    if (merging) return;
+    merging = true;
+    var btn    = document.getElementById("btn-merge");
+    var status = document.getElementById("merge-status");
+    btn.textContent = "Loading…";
+    btn.disabled = true;
+
+    var nums   = await getNums();
+    var idx    = nums.indexOf(maxLoaded);
+    var toLoad = nums.slice(idx + 1, idx + 11);
+    if (!toLoad.length) { merging = false; return; }
+
+    status.style.display = "block";
+    status.textContent = "Fetching chapters " + toLoad[0] + "–" + toLoad[toLoad.length-1] + "…";
+
+    var container = document.getElementById("chapters");
+    var firstNew  = null;
+
+    for (var i = 0; i < toLoad.length; i++) {
+      var n = toLoad[i];
+      try {
+        var res  = await fetch(n + ".html");
+        var html = await res.text();
+        var doc  = new DOMParser().parseFromString(html, "text/html");
+        var art  = doc.querySelector("article");
+        var h1   = doc.querySelector("h1");
+        if (!art) continue;
+
+        // Divider
+        var divider = document.createElement("div");
+        divider.className = "ch-divider";
+        divider.textContent = "Chapter " + n;
+        container.appendChild(divider);
+
+        // Chapter title
+        if (h1) {
+          var chTitle = document.createElement("div");
+          chTitle.className = "ch-title";
+          chTitle.textContent = h1.textContent;
+          container.appendChild(chTitle);
+        }
+
+        // Content
+        var section = document.createElement("article");
+        section.id = "ch-" + n;
+        section.innerHTML = art.innerHTML;
+        container.appendChild(section);
+
+        if (!firstNew) firstNew = divider;
+        maxLoaded = n;
+      } catch(e) {
+        console.warn("Failed to load chapter " + n, e);
+      }
+    }
+
+    // Update nav next link
+    var nextIdx = nums.indexOf(maxLoaded) + 1;
+    var newNext = nextIdx < nums.length ? nums[nextIdx] : null;
+    var navRight = document.querySelector(".nav-right");
+    if (newNext) {
+      navRight.innerHTML = '<a href="' + newNext + '.html" rel="next">Ch ' + newNext + ' &#8594;</a>';
+    } else {
+      navRight.innerHTML = '<span></span>';
+    }
+
+    status.style.display = "none";
+    btn.textContent = newNext ? "⊕ Merge Next 10" : "✓ All loaded";
+    btn.disabled = !newNext;
+    merging = false;
+
+    if (firstNew) firstNew.scrollIntoView({ behavior:"smooth", block:"start" });
+  });
+</script>
+</body>
+</html>

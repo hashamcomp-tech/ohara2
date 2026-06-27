@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chapter 422 — Regressor Instruction Manual</title>
+  <style>
+    :root { --ink:#1a1a1a; --dim:#666; --bg:#fff; --gold:#8a6a1a; --border:#ddd; }
+    @media (prefers-color-scheme:dark) {
+      :root { --ink:#e9e4da; --dim:#9a9286; --bg:#111010; --gold:#c9a84c; --border:#2a2825; }
+    }
+    *{ box-sizing:border-box; margin:0; padding:0; }
+    body{ background:var(--bg); color:var(--ink); font-family:Georgia,'Times New Roman',serif;
+          font-size:1.125rem; line-height:1.85; padding:40px 24px 80px;
+          max-width:680px; margin:0 auto; }
+    header{ margin-bottom:32px; padding-bottom:20px; border-bottom:1px solid var(--border); }
+    header a{ color:var(--gold); text-decoration:none; font-size:.85rem; }
+    h1{ font-size:1.35rem; font-weight:700; margin-top:10px; line-height:1.25; }
+    article p{ margin-bottom:1.4em; text-align:justify; hyphens:auto; }
+    .ch-divider{ text-align:center; padding:28px 0 16px; color:var(--dim);
+                  font-size:.8rem; letter-spacing:.1em; text-transform:uppercase; }
+    .ch-divider::before,.ch-divider::after{ content:''; display:inline-block;
+      width:40px; height:1px; background:var(--border); vertical-align:middle; margin:0 12px; }
+    .ch-title{ font-size:1.1rem; font-weight:700; color:var(--gold); margin-bottom:16px; }
+    nav{ display:grid; grid-template-columns:1fr auto 1fr; gap:10px; align-items:center;
+          margin-top:48px; padding-top:20px; border-top:1px solid var(--border); font-size:.88rem; }
+    nav a{ color:var(--gold); text-decoration:none; }
+    nav a:hover{ text-decoration:underline; }
+    nav .nav-right{ text-align:right; }
+    nav .nav-mid{ text-align:center; }
+    .btn-merge{ background:rgba(138,106,26,.12); border:1px solid var(--gold);
+                 color:var(--gold); padding:9px 16px; border-radius:6px; cursor:pointer;
+                 font-family:Georgia,serif; font-size:.85rem; font-weight:600;
+                 transition:background .15s; white-space:nowrap; }
+    .btn-merge:hover:not(:disabled){ background:rgba(138,106,26,.25); }
+    .btn-merge:disabled{ opacity:.35; cursor:not-allowed; }
+    #merge-status{ text-align:center; padding:12px; font-size:.82rem;
+                    color:var(--dim); display:none; }
+  </style>
+</head>
+<body>
+<header>
+  <a href="../../novel.html?slug=regressor-instruction-manual">&larr; Regressor Instruction Manual</a>
+  <h1 id="page-title">Chapter 422</h1>
+</header>
+
+<div id="chapters">
+  <article id="ch-422">
+    <p>Chapter 422: A Problem From Above (5)</p>
+    <p>[The latest free chapter is what a lot of you guys have been waiting for… anyways, thanks for the support!]</p>
+    <p>[I… I went bankrupt.]</p>
+    <p>‘What do you mean, bankrupt?’</p>
+    <p>[I… I have nothing… It’s because I’m broke… that I keep… crying… and stuff. I haven’t fallen. It’s absolutely nothing like that. Sniff. So please don’t do that.]</p>
+    <p>I didn’t know if her reply could be called useful information. However, I couldn’t help but admit that I did feel a little happy.</p>
+    <p>My hypothesis was very slightly right.</p>
+    <p>The demon performed with contracts and the gods with faith.</p>
+    <p>When she said she went bankrupt, it didn’t mean she had lost all the money she had, but she probably meant that she had lost her divinity.</p>
+    <p>[You’re right.]</p>
+    <p>‘How could you lose all the divinity you’ve collected so far? I don’t understand. Are you extravagant?’</p>
+    <p>[What? This son of a bitch. Trash bastard! You dare say that to me?!]</p>
+    <p>‘…’</p>
+    <p>[No. No. I shouldn’t have said that… my bad. I’m really sorry… Honorary Cardinal Lee Kiyoung, you know that my most cherished believer is Cardinal Lee Kiyoung, right? I haven’t fallen. So you can’t do that.]</p>
+    <p>‘…’</p>
+    <p>What a double-personality psycho.</p>
+    <p>However, it didn’t seem like she was completely out of herself. I was mostly curious about why she had to contact me that way.</p>
+    <p>I already thought that divinity was necessary to create quests, but I couldn’t imagine she wouldn’t be able even to do that.</p>
+    <p>“…”</p>
+    <p>[…]</p>
+    <p>In fact, I didn’t even have to think.</p>
+    <p>Wasn’t she the one who could easily give me an answer?</p>
+    <p>“Our Goddess Benignore, do you know what this lowly believer is wondering about?”</p>
+    <p>[Basic quests have already been set by the system. For example, the system manages the quests you can receive when entering a dungeon or fulfilling class-change quests… It’s different in the case of forced quests or quests sent to individuals. We use our divinity directly. Of course, unimaginable divinity is consumed. Gods cannot intervene in human affairs. Originally, that’s the principle. Forced quests are against that principle. Of course, the amount of divinity used varies greatly depending on the content and difficulty, but anyway. The same applies to the rewards paid after completion.]</p>
+    <p>‘Good to know.’</p>
+    <p>[I ran out of all the divinity I had, and I’ve also run out of the divinities I borrowed. All for… my proud believer… sniff… Lee Kiyoung… Sniff… Honorary Cardinal.]</p>
+    <p>“So, it seems to me that our Goddess Benignore is saying that it was me that caused her bankruptcy.”</p>
+    <p>[No, of course… it’s all my fault. All… A-Anyway, that’s why I could only contact you this way. I can’t create a forced quest… I could only do this.]</p>
+    <p>“There isn’t only one deity, right? There is also Elune trash… you could have contacted me through other means as well… although it would only last for a while. I wonder how you even lost your divinity.”</p>
+    <p>[I-I can explain! The same goes for the others and all the other gods are bankrupt. It’s because I borrowed a lot of divinity here and there… there were so many unavoidable situations… yeah… even externally…things… got a little bad. I got caught by bad guys…]</p>
+    <p>‘Were you managing the continent with your feet?’</p>
+    <p>[It’s not that. My… My proud Honorary Cardinal Lee Kiyoung. And those words are blasphemy.]</p>
+    <p>She had denied that this wasn’t the case, but I thought otherwise.</p>
+    <p>How on Earth did they manage to instantly ruin the continent that had been doing well for so long?</p>
+    <p>I could understand the bankruptcy of Benignore alone, but the news that everyone who was in control of the continent was collapsing alarmed me.</p>
+    <p>I wasn’t exactly sure if the example was appropriate, but the continent was like a workshop to the sky’s beings.</p>
+    <p>They gained divinity through the continent and managed it with that divinity. Of course, there were many things to use it on. They also had to keep demons in check and solve natural phenomena.</p>
+    <p>I could also assume that some of the divine powers used by priests used their divinity.</p>
+    <p>Besides, the continent already had an adequate amount of population. It didn’t increase easily anymore. Many divinities could be accepted in such a continent, but they would be limited.</p>
+    <p>Although knowing that, they used it like a parvenu. Such a miserable end could be seen as expected.</p>
+    <p>She was seriously crying there, but in the end, it turned out to be entirely their fault.</p>
+    <p>‘I can see how it went.’</p>
+    <p>I wasn’t sure if such concepts existed above there, but based on human systems, I thought Benignore borrowed some sort of divinity from that was not enough, she borrowed from the gods of the surrounding kingdoms too.</p>
+    <p>The gods of the continent eventually needed to use a collective guarantee. Thanks to that, Benignore got her hands on divinity from external parties.</p>
+    <p>She would’ve been happy for a while. She must’ve been enjoying a good life with abundant divine nature. However, that happiness lasted for only a second.</p>
+    <p>After a certain duration, the divinity coming from the outside became a problem. It was no different than calling it the IMF exploding in the sky.</p>
+    <p>I was able to understand to some extent why Benignore was so friendly.</p>
+    <p>‘She’s worried about being doomed. Phew… That’s amazing. Amazing.’</p>
+    <p>Even now, the divinity must be fixedly entering.</p>
+    <p>It was natural that the number of believers would decrease as soon as the story that the fallen god Benignore had become evil-polluted and crazy.</p>
+    <p>A mob might even come in to smash the statue of Benignore, who was being driven by evil spirits. Of course, that was only if Operation Benignore worked well, but even if it were only half-successful, it would be threatening enough for Benignore, who was struggling because she couldn’t afford to send a quest.</p>
+    <p>I didn’t know what the consequences would be when all the gods’ divinities had been depleted, but no matter how I thought about it, it wasn’t a good situation.</p>
+    <p>They could disappear or fall to the ground.</p>
+    <p>“Am I right?”</p>
+    <p>[…]</p>
+    <p>“Well, well… Our Goddess Benignore seems to be having a lot of trouble right now.”</p>
+    <p>[That’s why you’re a quick-witted dog…]</p>
+    <p>“I beg your pardon?”</p>
+    <p>[No… That’s not right. Believer Lee Kiyoung. Most of them are correct, but I’ve always been friendly to you.]</p>
+    <p>“At first, you weren’t. Goddess Benignore.”</p>
+    <p>[T-T-That’s Elune. Elune was in charge of you. Halfway through, the person in charge has changed. It’s something I didn’t know well, and I couldn’t help it. Think about it, Honorary Cardinal Lee Kiyoung, my lovely son, all the things I did for you. There’s the Bomb of Light potion! There’s also the semi-mythic grade class! In addition to that, I helped you a lot. Why would I hate you? You increased the number of my believers and did your best for the Benignore Church. We are a team. At first, Elune was the one in charge. Really! Elune, that bastard was in charge!]</p>
+    <p>“That bastard really is an irreparable piece of trash.”</p>
+    <p>[I… I think so sometimes. She also sold her daughter off. I never abandon my sons and daughters. In particular, I never neglect the people like you. When did I ever disappoint you? We are a team. One team.]</p>
+    <p>I thought it would be unlikely that Elune trash was the one in charge, but it would be understandable if it were her trash power.</p>
+    <p>[The rumors about Elune aren’t that good anyway. There’s nothing good about being close to him, and more than that, Honorary Cardinal Lee Kiyoung. I have something to say…]</p>
+    <p>“No, no, I’ll talk first.”</p>
+    <p>[Okay… Do that. My proud son…]</p>
+    <p>“I had something I wanted to ask if ever I got an opportunity like this. It was one-sided up until now, but finally, I got a window where I can have a two-sided conversation. I have a lot to ask, so I’ll put the prologue away and talk. First, the thing I’m curious about. Where are you now? Are you here in this statue?”</p>
+    <p>[Yes and no. To be more precise, no. My body is still above… it is difficult to explain with human concepts.]</p>
+    <p>“Really?”</p>
+    <p>[Where are you touching, you bastard!]</p>
+    <p>“You said you weren’t here.”</p>
+    <p>[Only a part is hidden. Only a part… a part… is hidden. Because of the bastards urging me to pay my debts… motherf- no, my lovely Honorary Cardinal Lee Kiyoung.]</p>
+    <p>“Why didn’t you say that right away. And are you overreacting with me barely stroking the statue? You won’t even feel it anyway. But do you really look like this?”</p>
+    <p>[Similar… It was made from the memories of a sculptor who saw me in a dream. So this is the second question?]</p>
+    <p>“No. I just asked because I was curious. You’re prettier than I thought. Honestly, you’re my type.”</p>
+    <p>[I-I hear that a lot… Well, you can’t say that, though. It’s blasphemy.]</p>
+    <p>“Well… Anyway, the second question. What happens when humans die?”</p>
+    <p>[What?]</p>
+    <p>“Like I said, what happens when humans die? Honestly, it’s something I’ve always been curious about. Imagine you’ve met a transcendental being. Naturally, you’d want to ask.”</p>
+    <p>[…]</p>
+    <p>“…”</p>
+    <p>[Listen, and please don’t misunderstand me, Honorary Cardinal. I swear in Benignore’s name… Even I don’t know that.]</p>
+    <p>“What?”</p>
+    <p>[I don’t know what exactly happens. That’s not under my jurisdiction. There are parts that we can say, and parts that we cannot say. There are problems with security issues and problems with other aspects. But that… that question can’t be answered. We don’t really know about what happens after not only human death but the death of any living being. I don’t know what happens when we are destroyed. I don’t know if you’ll believe it, but I hope you do.]</p>
+    <p>“Well… I believe you.”</p>
+    <p>[Really?]</p>
+    <p>“Really. I didn’t even expect to hear an actual answer anyway. I thought you wouldn’t know for some reason. So, do you mean that you can reveal information that has security embedded in them?”</p>
+    <p>[That’s impossible too. Of course, it would be nice if I could, but I’m not allowed to tell anyone about it. Even if I tell you, you won’t hear anything.]</p>
+    <p>“So, you’re saying you can only tell me bullsh*t?”</p>
+    <p>[That depends on the question. What are you curious about?]</p>
+    <p>“…”</p>
+    <p>[…]</p>
+    <p>“Why did you bring us here?”</p>
+    <p>[…]</p>
+    <p>“I’m not blaming you or anything. I am very satisfied with this life now. I’m just curious about this too.”</p>
+    <p>[This has no security, but it’s also something I can’t talk about in detail. To be precise, we didn’t bring you. They left you over here, and we accepted you.]</p>
+    <p>“What are you talking about? The Earth left us here?”</p>
+    <p>[I can’t tell you the exact details. But it is true. Of course, I know it’s hard to accept. It must be harsh for foreigners. The tutorial dungeon is designed like that because we had no choice. We cannot accept all of the humans who come in. Of course, we also recognize that the method was violent, but that wasn’t our decision either. I swear by my name, it was inevitable. Sorry… that’s all I can tell you. I can’t tell you… about why or how things work.]</p>
+    <p>“So, you’re saying there’s security in those details.”</p>
+    <p>[It’s really unfortunate.]</p>
+    <p>“What?”</p>
+    <p>[Being abandoned in a dimension… It’s really unfortunate.]</p>
+    <p>I didn’t know why, but her voice seemed to pity me.</p>
+  </article>
+</div>
+
+<div id="merge-status"></div>
+
+<nav>
+  <span class="nav-left"><a href="421.html" rel="prev">&#8592; Ch 421</a></span>
+  <span class="nav-mid">
+    <button class="btn-merge" id="btn-merge" >Merge Next 10</button>
+  </span>
+  <span class="nav-right"><a href="423.html" rel="next">Ch 423 &#8594;</a></span>
+</nav>
+
+<script>
+  // Chapters available after this one — discovered from meta.json
+  var slug       = "regressor-instruction-manual";
+  var currentNum = 422;
+  var nextNum    = 423;
+  var maxLoaded  = currentNum;
+  var allNums    = null;   // loaded lazily from meta.json
+  var merging    = false;
+  var root       = "../../";
+
+  async function getNums() {
+    if (allNums) return allNums;
+    var res = await fetch(root + "data/" + slug + "/meta.json");
+    var meta = await res.json();
+    allNums = meta.chapters.map(function(c){ return c.num; });
+    return allNums;
+  }
+
+  document.getElementById("btn-merge").addEventListener("click", async function() {
+    if (merging) return;
+    merging = true;
+    var btn    = document.getElementById("btn-merge");
+    var status = document.getElementById("merge-status");
+    btn.textContent = "Loading…";
+    btn.disabled = true;
+
+    var nums   = await getNums();
+    var idx    = nums.indexOf(maxLoaded);
+    var toLoad = nums.slice(idx + 1, idx + 11);
+    if (!toLoad.length) { merging = false; return; }
+
+    status.style.display = "block";
+    status.textContent = "Fetching chapters " + toLoad[0] + "–" + toLoad[toLoad.length-1] + "…";
+
+    var container = document.getElementById("chapters");
+    var firstNew  = null;
+
+    for (var i = 0; i < toLoad.length; i++) {
+      var n = toLoad[i];
+      try {
+        var res  = await fetch(n + ".html");
+        var html = await res.text();
+        var doc  = new DOMParser().parseFromString(html, "text/html");
+        var art  = doc.querySelector("article");
+        var h1   = doc.querySelector("h1");
+        if (!art) continue;
+
+        // Divider
+        var divider = document.createElement("div");
+        divider.className = "ch-divider";
+        divider.textContent = "Chapter " + n;
+        container.appendChild(divider);
+
+        // Chapter title
+        if (h1) {
+          var chTitle = document.createElement("div");
+          chTitle.className = "ch-title";
+          chTitle.textContent = h1.textContent;
+          container.appendChild(chTitle);
+        }
+
+        // Content
+        var section = document.createElement("article");
+        section.id = "ch-" + n;
+        section.innerHTML = art.innerHTML;
+        container.appendChild(section);
+
+        if (!firstNew) firstNew = divider;
+        maxLoaded = n;
+      } catch(e) {
+        console.warn("Failed to load chapter " + n, e);
+      }
+    }
+
+    // Update nav next link
+    var nextIdx = nums.indexOf(maxLoaded) + 1;
+    var newNext = nextIdx < nums.length ? nums[nextIdx] : null;
+    var navRight = document.querySelector(".nav-right");
+    if (newNext) {
+      navRight.innerHTML = '<a href="' + newNext + '.html" rel="next">Ch ' + newNext + ' &#8594;</a>';
+    } else {
+      navRight.innerHTML = '<span></span>';
+    }
+
+    status.style.display = "none";
+    btn.textContent = newNext ? "⊕ Merge Next 10" : "✓ All loaded";
+    btn.disabled = !newNext;
+    merging = false;
+
+    if (firstNew) firstNew.scrollIntoView({ behavior:"smooth", block:"start" });
+  });
+</script>
+</body>
+</html>

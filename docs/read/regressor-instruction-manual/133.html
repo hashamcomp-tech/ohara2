@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chapter 133 — Regressor Instruction Manual</title>
+  <style>
+    :root { --ink:#1a1a1a; --dim:#666; --bg:#fff; --gold:#8a6a1a; --border:#ddd; }
+    @media (prefers-color-scheme:dark) {
+      :root { --ink:#e9e4da; --dim:#9a9286; --bg:#111010; --gold:#c9a84c; --border:#2a2825; }
+    }
+    *{ box-sizing:border-box; margin:0; padding:0; }
+    body{ background:var(--bg); color:var(--ink); font-family:Georgia,'Times New Roman',serif;
+          font-size:1.125rem; line-height:1.85; padding:40px 24px 80px;
+          max-width:680px; margin:0 auto; }
+    header{ margin-bottom:32px; padding-bottom:20px; border-bottom:1px solid var(--border); }
+    header a{ color:var(--gold); text-decoration:none; font-size:.85rem; }
+    h1{ font-size:1.35rem; font-weight:700; margin-top:10px; line-height:1.25; }
+    article p{ margin-bottom:1.4em; text-align:justify; hyphens:auto; }
+    .ch-divider{ text-align:center; padding:28px 0 16px; color:var(--dim);
+                  font-size:.8rem; letter-spacing:.1em; text-transform:uppercase; }
+    .ch-divider::before,.ch-divider::after{ content:''; display:inline-block;
+      width:40px; height:1px; background:var(--border); vertical-align:middle; margin:0 12px; }
+    .ch-title{ font-size:1.1rem; font-weight:700; color:var(--gold); margin-bottom:16px; }
+    nav{ display:grid; grid-template-columns:1fr auto 1fr; gap:10px; align-items:center;
+          margin-top:48px; padding-top:20px; border-top:1px solid var(--border); font-size:.88rem; }
+    nav a{ color:var(--gold); text-decoration:none; }
+    nav a:hover{ text-decoration:underline; }
+    nav .nav-right{ text-align:right; }
+    nav .nav-mid{ text-align:center; }
+    .btn-merge{ background:rgba(138,106,26,.12); border:1px solid var(--gold);
+                 color:var(--gold); padding:9px 16px; border-radius:6px; cursor:pointer;
+                 font-family:Georgia,serif; font-size:.85rem; font-weight:600;
+                 transition:background .15s; white-space:nowrap; }
+    .btn-merge:hover:not(:disabled){ background:rgba(138,106,26,.25); }
+    .btn-merge:disabled{ opacity:.35; cursor:not-allowed; }
+    #merge-status{ text-align:center; padding:12px; font-size:.82rem;
+                    color:var(--dim); display:none; }
+  </style>
+</head>
+<body>
+<header>
+  <a href="../../novel.html?slug=regressor-instruction-manual">&larr; Regressor Instruction Manual</a>
+  <h1 id="page-title">Chapter 133</h1>
+</header>
+
+<div id="chapters">
+  <article id="ch-133">
+    <p>Chapter 133: Witch hunt (3)</p>
+    <p>Ito Souta’s trial date was fast approaching.</p>
+    <p>The sentence was simple, but it meant a lot. The citizens of Lindel, who were in a raging situation, clinked their drink glasses, saying that this was a way of dealing justice, and the personnel in Celia were agitated by the sudden news.</p>
+    <p>Of course, Ito Souta was the one who had asked for a trial, but it was impossible for people from Lindel and Celia to know about that. We wouldn’t let the people know he was the requester, and likewise, Souta never delivered this piece of news to Celia, either.</p>
+    <p>Last time, I became the victim, so it seemed that he wanted to be the victim this time.</p>
+    <p>However, the only thing that mattered to us was the fact that he was being tried, because Yuno Kasugano was already blocking his attempts at manipulating the masses in Celia.</p>
+    <p>In fact, most of the people didn’t have to know about the real situation. They only needed to know that he was standing in court as the perpetrator, and that the good-hearted Lee Kiyoung was being taken in for attempted murder.</p>
+    <p>For now, this was enough. Anyway, the trial might not proceed normally.</p>
+    <p>What they knew about the trial was that the punishment level depended on how much the offender Ito Souta harmed the victim Lee Kiyoung, but those in an important position in this trial were aware that that place would also be a battlefield of politics between us.</p>
+    <p>That was why Lee Jihye felt uneasy.</p>
+    <p>“It’s a little too sudden, so I don’t know if you’re ready, oppa.”</p>
+    <p>“Enough, Jihye. We had a nice talk with the judges and those under the Pope.”</p>
+    <p>“That’s because I’m nervous. I think I know what you’re hiding, but I have something that bothers me too. Even if you say that you have the insurance prepared, I’m not sure if it will work… Perhaps the trial is just nominal. The trial here is a little different from the modern trial. Thinking about what he will say while defending himself… Isn’t it natural for me to worry?”</p>
+    <p>“You don’t have to worry. Our Ito Souta-sama can be just as smart as us.”</p>
+    <p>At this, Lee Jihye looked at me quietly. It was the first time I had ever seen her so worried. It looked like she knew something, but it didn’t seem to be too bad.</p>
+    <p>“I will trust you.”</p>
+    <p>“Yes. You can trust me, Jihye.”</p>
+    <p>Although she felt uneasy, it seemed that she had decided to get rid of the rising anxiety.</p>
+    <p>Good. The fact that Lee Jihye didn’t care as much as she should, meant that things were going the way I wanted them to.</p>
+    <p>I was curious about how Ito Souta would try to attack me, but everything had been calculated anyway. However, I still had to speak upon seeing Jihye’s incessantly curious expression. I felt like it wouldn’t be bad for her to know beforehand.”</p>
+    <p>“So, you’re curious, huh?”</p>
+    <p>“If I say I’m not curious, I would be lying. I’m only not bothered because you told me not to care. Didn’t you say that I was getting in your way running around? You said it would be more noticeable if many people move at once.”</p>
+    <p>“It’s not like that, exactly. In a normal situation, it would’ve been better to get your help. That way, I could have made a more perfect trap. I kept it a secret from you because I wanted to show Ito Souta that I was being careful. That’s insurance. What do you think? How do you think things will go? Fine, I’ll ask this first. How far have you reached with a simple mind? What do you think was my original plan?”</p>
+    <p>Lee Jihye thought for a moment before speaking up.</p>
+    <p>“First…”</p>
+    <p>“Yes?”</p>
+    <p>“To end Ito Souta’s political life… You would have to isolate him from both the side of the Emperor and the Pope. And the means were…”</p>
+    <p>“Yes?”</p>
+    <p>“It’s the drugs we are releasing in Japan. There are a few other things that I can see, but I thought the rest were just fake rumors to draw attention. Most of the rumors, like slave trafficking and organ trafficking in black markets, are all made up.”</p>
+    <p>“You knew?”</p>
+    <p>“Of course, I don’t have any material evidence. Just by the flow and simple thoughts… I just thought that would be it. Of course, I was the only one who knew. I didn’t dig into it any further, and even if I had, it would be impossible for me to know since my movements are limited. Wasn’t it your plan to use the drugs as clear evidence and put it with all the offenses Ito Souta had done so far and put an end to it?”</p>
+    <p>“Just use simple words, Jihye.”</p>
+    <p>“The original plan is to end him with fake information that the Yamato Guild, run by Ito Souta, is selling drugs in Celia.”</p>
+    <p>“Yes, that’s the first. Then, why didn’t I tell you or others about this?”</p>
+    <p>“That’s because you have to be careful. There may be many reasons, but this is the most obvious answer.”</p>
+    <p>“That’s also the right answer, Jihye. But, as I said earlier, the important thing here is that I have to show that I am as careful as possible in this matter. I didn’t even tell my representative, whom I trust the most, to make him think that I’m preparing a big punch.”</p>
+    <p>“That…”</p>
+    <p>“Of course, the information I made up is actually a heavy hit. The Lee Kiyoung’s attempted murder case isn’t just a rite of passage that he has to go through… If he doesn’t know that a new potion is in circulation in the city, he will be fatally hit by the crime of drug distribution. We’re making him take the crime of distributing illegal potions in the city. This was the first route.”</p>
+    <p>“I got it.”</p>
+    <p>“Let’s think of one more case here, this time when if he knows the existence of the potion.”</p>
+    <p>“Yes.”</p>
+    <p>“He might find out that the potion I put in circulation was a trap because it all looks suspicious. Personally, I think this is a bit more likely, since he asked to hold a trial first.”</p>
+    <p>“I think so, too.”</p>
+    <p>“It will be hard for him to find. This is information that only Yuno Kasugano and I know… If he’s competent, he could’ve reached out to the fabricated information. Still, he probably had a hard time getting through the investigation. As I said earlier, this was the kind of work that even you did not get involved in. He must have thought about many things while digging. Since there was no evidence, he would think it was suspicious. For example…”</p>
+    <p>After I took a moment, I saw Lee Jihye hurriedly opening her mouth.</p>
+    <p>“For example, that this is the only thing you’ve prepared?”</p>
+    <p>“Yes.”</p>
+    <p>“I see what you mean. But what if Souta Ito was expecting a second? He already knows that you are going to send him off with the potion thing… What would you do if he knew your next move?”</p>
+    <p>“What do you think it will be my next move?”</p>
+    <p>“If I were you, I would incriminate Yuno Kasugano. It would be the most reasonable and worthwhile idea to send Yuno Kasugano and Ito Souta off, together. If Ito Souta speaks in court that it was not him who is currently distributing potions to Celia, but Yuno Kasugano and Lee Kiyoung, she would be your only means of escape, right?”</p>
+    <p>“Pfft, haha.”</p>
+    <p>“It is the right thing to testify falsely and send them both off. But it’s a waste to throw away Yuno Kasugano here, oppa. If I’m right, I’d rather revise the plan now. I understand that you’re angry, but wasting that shaman on that bastard… It’s not a business that fits the budget.”</p>
+    <p>“Do I look like that kind of bastard?”</p>
+    <p>“I just thought about what I would’ve done if I were you. That’s the most reasonable option.”</p>
+    <p>“You’re right. It’s certainly reasonable, but I don’t intend to abandon Yuno Kasugano. Let’s say that Ito Souta succeeded in digging about the potion and brought information to the court that I was circulating the potion. Let’s say I’m in a critical situation.”</p>
+    <p>“Yes.”</p>
+    <p>“It was wrong from the beginning, Jihye.”</p>
+    <p>“What do you mean?”</p>
+    <p>“This is not a drug.”</p>
+    <p>“I beg your pardon?”</p>
+    <p>“This is not a drug… To be precise, if I say it is a drug, it becomes a drug, and if I testify that it is not a drug, it will not be a drug.”</p>
+    <p>“Ah…”</p>
+    <p>“If Ito Souta doesn’t know about the existence of this potion, this potion will be a drug. He would become a drug offender in no time, so his neck would be severed, or he would receive a fatal blow. On the contrary, if Ito Souta’s evidence about the potion pushes me into a drug offender, this potion will not be a drug.”</p>
+    <p>“How is that possible?”</p>
+    <p>“Why do you think that is not possible? I’m the only one who can detect the ingredients of this potion. No one knows alchemy better than me on this continent, Jihye. I made this potion, and you won’t know the recipe unless you open up my head.”</p>
+    <p>“Ah…”</p>
+    <p>“I’ll tell this only to you…”</p>
+    <p>“Yes.”</p>
+    <p>“Do you know what the base catalyst of this potion is?”</p>
+    <p>“Holy water.”</p>
+    <p>“I beg your pardon?”</p>
+    <p>“It’s holy water, the kind of holy water officially handled by the Holy Empire Benigore Kingdom. The moment Ito Souta says that this potion is a drug, the game is over. A potion made of holy water, said to be a drug? If this is not blasphemy, what would it be? Puhahahahaha. What can he do if he knows about the existence of this potion? What can you do? He won’t know even if he dies that this potion is made of holy water.”</p>
+    <p>“Puhahahahaha. It would be better to just die as a drug offender without knowing anything. The moment he pushes me to be the one who distributed drugs trying to turn the situation, the heresy interrogators will be dispatched! Puhahaha. Cough, cough. Yeah, I admit he’s smart, Jihye. And what? Whether Ito Souta is smart or stupid, the game was over from the moment my potion entered Japan. He’s not an alchemist.”</p>
+    <p>“Ah…”</p>
+    <p>“It’s a story that the choice is decided anyway. Puhahahahahaha! That’s why I said he made the worst choice, Jihye. If it’s correct that he will attack me with the potion I distributed, he made the wrong decision. For heresy, from his family members to the guild members will be screwed … Because this is the Holy Empire.”</p>
+    <p>I saw Lee Jihye, quietly looking at me. Perhaps now she was organizing the information in her mind. There were many possibilities, but these two were the most representative.</p>
+    <p>First, if Ito Souta didn’t know about this potion, we prepared the fake evidence that the Yamato guild was distributing drugs. He would end up as a drug dealer.</p>
+    <p>Secondly, if Ito Souta knew about this potion and brought evidence that would drive me as a drug dealer, I prepared this potion’s recipe. I can calmly say that I am the one who distributed this great potion. It will end in blasphemy.</p>
+    <p>Either way, hell would await for him. It was hard to rein in my laughter.</p>
+    <p>“Puhhahahahaha!”</p>
+    <p>Lee Jihye’s face upon looking at me had turned red.</p>
+    <p>Only</p>
+    <p>“Oppa.”</p>
+    <p>“Yes?”</p>
+    <p>“You are really sexy.”</p>
+    <p>“You have such weird taste.”</p>
+    <p>“You are also an awesome piece of sh*t. It’s really attractive.”</p>
+    <p>I was speechless with her comment. As I looked at my watch, I saw that the time to head to court was approaching. As I got up and opened my mouth, Lee Jihye nodded.</p>
+    <p>“Let’s go finish this, Jihye.”</p>
+    <p>“I’m really looking forward to it, Kiyoung oppa.”</p>
+  </article>
+</div>
+
+<div id="merge-status"></div>
+
+<nav>
+  <span class="nav-left"><a href="132.html" rel="prev">&#8592; Ch 132</a></span>
+  <span class="nav-mid">
+    <button class="btn-merge" id="btn-merge" >Merge Next 10</button>
+  </span>
+  <span class="nav-right"><a href="134.html" rel="next">Ch 134 &#8594;</a></span>
+</nav>
+
+<script>
+  // Chapters available after this one — discovered from meta.json
+  var slug       = "regressor-instruction-manual";
+  var currentNum = 133;
+  var nextNum    = 134;
+  var maxLoaded  = currentNum;
+  var allNums    = null;   // loaded lazily from meta.json
+  var merging    = false;
+  var root       = "../../";
+
+  async function getNums() {
+    if (allNums) return allNums;
+    var res = await fetch(root + "data/" + slug + "/meta.json");
+    var meta = await res.json();
+    allNums = meta.chapters.map(function(c){ return c.num; });
+    return allNums;
+  }
+
+  document.getElementById("btn-merge").addEventListener("click", async function() {
+    if (merging) return;
+    merging = true;
+    var btn    = document.getElementById("btn-merge");
+    var status = document.getElementById("merge-status");
+    btn.textContent = "Loading…";
+    btn.disabled = true;
+
+    var nums   = await getNums();
+    var idx    = nums.indexOf(maxLoaded);
+    var toLoad = nums.slice(idx + 1, idx + 11);
+    if (!toLoad.length) { merging = false; return; }
+
+    status.style.display = "block";
+    status.textContent = "Fetching chapters " + toLoad[0] + "–" + toLoad[toLoad.length-1] + "…";
+
+    var container = document.getElementById("chapters");
+    var firstNew  = null;
+
+    for (var i = 0; i < toLoad.length; i++) {
+      var n = toLoad[i];
+      try {
+        var res  = await fetch(n + ".html");
+        var html = await res.text();
+        var doc  = new DOMParser().parseFromString(html, "text/html");
+        var art  = doc.querySelector("article");
+        var h1   = doc.querySelector("h1");
+        if (!art) continue;
+
+        // Divider
+        var divider = document.createElement("div");
+        divider.className = "ch-divider";
+        divider.textContent = "Chapter " + n;
+        container.appendChild(divider);
+
+        // Chapter title
+        if (h1) {
+          var chTitle = document.createElement("div");
+          chTitle.className = "ch-title";
+          chTitle.textContent = h1.textContent;
+          container.appendChild(chTitle);
+        }
+
+        // Content
+        var section = document.createElement("article");
+        section.id = "ch-" + n;
+        section.innerHTML = art.innerHTML;
+        container.appendChild(section);
+
+        if (!firstNew) firstNew = divider;
+        maxLoaded = n;
+      } catch(e) {
+        console.warn("Failed to load chapter " + n, e);
+      }
+    }
+
+    // Update nav next link
+    var nextIdx = nums.indexOf(maxLoaded) + 1;
+    var newNext = nextIdx < nums.length ? nums[nextIdx] : null;
+    var navRight = document.querySelector(".nav-right");
+    if (newNext) {
+      navRight.innerHTML = '<a href="' + newNext + '.html" rel="next">Ch ' + newNext + ' &#8594;</a>';
+    } else {
+      navRight.innerHTML = '<span></span>';
+    }
+
+    status.style.display = "none";
+    btn.textContent = newNext ? "⊕ Merge Next 10" : "✓ All loaded";
+    btn.disabled = !newNext;
+    merging = false;
+
+    if (firstNew) firstNew.scrollIntoView({ behavior:"smooth", block:"start" });
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chapter 202 — Regressor Instruction Manual</title>
+  <style>
+    :root { --ink:#1a1a1a; --dim:#666; --bg:#fff; --gold:#8a6a1a; --border:#ddd; }
+    @media (prefers-color-scheme:dark) {
+      :root { --ink:#e9e4da; --dim:#9a9286; --bg:#111010; --gold:#c9a84c; --border:#2a2825; }
+    }
+    *{ box-sizing:border-box; margin:0; padding:0; }
+    body{ background:var(--bg); color:var(--ink); font-family:Georgia,'Times New Roman',serif;
+          font-size:1.125rem; line-height:1.85; padding:40px 24px 80px;
+          max-width:680px; margin:0 auto; }
+    header{ margin-bottom:32px; padding-bottom:20px; border-bottom:1px solid var(--border); }
+    header a{ color:var(--gold); text-decoration:none; font-size:.85rem; }
+    h1{ font-size:1.35rem; font-weight:700; margin-top:10px; line-height:1.25; }
+    article p{ margin-bottom:1.4em; text-align:justify; hyphens:auto; }
+    .ch-divider{ text-align:center; padding:28px 0 16px; color:var(--dim);
+                  font-size:.8rem; letter-spacing:.1em; text-transform:uppercase; }
+    .ch-divider::before,.ch-divider::after{ content:''; display:inline-block;
+      width:40px; height:1px; background:var(--border); vertical-align:middle; margin:0 12px; }
+    .ch-title{ font-size:1.1rem; font-weight:700; color:var(--gold); margin-bottom:16px; }
+    nav{ display:grid; grid-template-columns:1fr auto 1fr; gap:10px; align-items:center;
+          margin-top:48px; padding-top:20px; border-top:1px solid var(--border); font-size:.88rem; }
+    nav a{ color:var(--gold); text-decoration:none; }
+    nav a:hover{ text-decoration:underline; }
+    nav .nav-right{ text-align:right; }
+    nav .nav-mid{ text-align:center; }
+    .btn-merge{ background:rgba(138,106,26,.12); border:1px solid var(--gold);
+                 color:var(--gold); padding:9px 16px; border-radius:6px; cursor:pointer;
+                 font-family:Georgia,serif; font-size:.85rem; font-weight:600;
+                 transition:background .15s; white-space:nowrap; }
+    .btn-merge:hover:not(:disabled){ background:rgba(138,106,26,.25); }
+    .btn-merge:disabled{ opacity:.35; cursor:not-allowed; }
+    #merge-status{ text-align:center; padding:12px; font-size:.82rem;
+                    color:var(--dim); display:none; }
+  </style>
+</head>
+<body>
+<header>
+  <a href="../../novel.html?slug=regressor-instruction-manual">&larr; Regressor Instruction Manual</a>
+  <h1 id="page-title">Chapter 202</h1>
+</header>
+
+<div id="chapters">
+  <article id="ch-202">
+    <p>Chapter 202: Lee Kiyoung’s Prank (3)</p>
+    <p>In a way, Jung Jinho was the biggest victim in the second timeline. Had the future flowed as it was, Jung Jinho may have founded the Murder Brigade by now.</p>
+    <p>‘Perhaps he could have become the real owner of Juliana…’</p>
+    <p>Of course, I didn’t know if they would have the same affinity, but this did not matter now.</p>
+    <p>Anyway, the answer as to how I knew all this was easy.</p>
+    <p>‘Because I saw it.’</p>
+    <p>I didn’t actually see it. In the conversation between Lee Kiyoung and Park Deokgu in the first timeline, it wasn’t hard to deduce the fact that I had been in contact with the brigade at the time.</p>
+    <p>It seemed that I didn’t join because of Park Deokgu, but I personally got close to Jung Jinho.</p>
+    <p>The Murder Brigade was an unofficial clan that would be created in the next year or two. Though I didn’t have any detailed information, I knew one thing for sure. Since this was a clan built around Jung Jinho, it would not appear in the second timeline.</p>
+    <p>I was only borrowing the name of Murder Brigade under the fictitious murderer clan’s name, but it certainly still felt cold.</p>
+    <p>‘Even if the guy is not here, the members aren’t going anywhere, so it’s not like there is no chance of being created…’</p>
+    <p>However, I knew that without Jinho, they wouldn’t have much of an impact.</p>
+    <p>Meanwhile, Ahn Ki-mo continued talking, and even I attentively listened.</p>
+    <p>“Murder Brigade?”</p>
+    <p>“That’s right.”</p>
+    <p>“You mean there are such guys found near Lindel?”</p>
+    <p>“Yes. Although they regularly patrol at the city level, the Murder Brigade’s own technique is so secretive. I know that our guild still hasn’t caught their tail. Of course, a little time has passed since then, but we still have to be careful.”</p>
+    <p>“Oh, did they ever show up recently?”</p>
+    <p>“If so, I wouldn’t have joined you guys. Hahaha.”</p>
+    <p>“That’s fortunate…”</p>
+    <p>It was interesting watching Ki-mo assured him that nothing would happen anymore right after raising the tension this much. After all, one had to throw the bait in order to catch the fish.</p>
+    <p>Ahn Ki-mo’s naturalness at acting was a stark contrast to Jung Hayan and Kim Ye-ri, who were both spouting out fearful remarks with painfully stoic expressions.</p>
+    <p>“Don’t worry too much, Deokgu. It happened a long time ago… Just be careful, because anything can happen. Isn’t that right, Ki-mo-ssi?”</p>
+    <p>“Yes, it’s been a long time. Of course, it doesn’t mean that it wouldn’t…”</p>
+    <p>Park Deokgu, who was responsible for the safety of the party members, spoke quickly.</p>
+    <p>“What’s on your mind?”</p>
+    <p>Without a doubt, he had taken the bait. Upon seeing this, Ahn Ki-mo sent a subtle signal back to me, confirming what I already knew. Things were going well so far.</p>
+    <p>“Ah. It’s no big deal. You really don’t have to worry about it, Deokgu.”</p>
+    <p>“I’m asking because I’m really curious, Ki-mo-ssi.”</p>
+    <p>“This is because the frequency of disappearance cases has increased a bit recently.”</p>
+    <p>“Disappearance… cases?”</p>
+    <p>“Yes. Of course, it’s not a remarkable number. It usually just happens annually.”</p>
+    <p>“Is that so?”</p>
+    <p>“Yes. Anyway, they’ll definitely lessen if you can train the new recruits right. Usually, their stats increase explosively in the first year of entry…”</p>
+    <p>“Ah.”</p>
+    <p>“Although the city has been avoiding brutal expeditions, they usually don’t listen. Even though it has been less than a year since entering the continent, the recruits from the last year were exceptionally full of confidence, thanks to the two people chosen for the Eight Seats of the Empire. Hahaha. Of course, I’m not blaming Kiyoung-ssi. The accidents that have happened were because of their choice.”</p>
+    <p>“Are you sure that’s the only reason?”</p>
+    <p>“It’s not really something you should care about. The Red Mercenaries had already finished their search for that. We have searched several times already, but there’s been no trace of the Murder Brigade staying nearby.”</p>
+    <p>“The Red Mercenary is reliable, but…”</p>
+    <p>I didn’t know if it was because Kim Hyunsung wasn’t here, but he had fallen for the trap much easier than I had initially thought. The fact that he was responsible for our safety probably helped.</p>
+    <p>Of course, there was Kim Ye-ri as the front liner, but she had an assassin’s role. She would focus on the offense, barely giving her other teammates any thought.</p>
+    <p>Park Deokgu now looked so serious that I resisted the urge to laugh.</p>
+    <p>“Then, let’s get going.”</p>
+    <p>“Hyung-nim.”</p>
+    <p>“Yes?”</p>
+    <p>“N-Nothing.”</p>
+    <p>At this point, Park Deokgu must want to go back. Had this not been a place for reconciliation, he might have pushed through with retreating.</p>
+    <p>Personally, I liked that expression of his very much. I really liked the fact that he always worried about and always thought of the worst.</p>
+    <p>When we were almost at the dungeon, he started asking questions once more.</p>
+    <p>“Hyung-nim, where did this dungeon…”</p>
+    <p>“I don’t know. The source has not been confirmed, so I bought it through a guild. The last one who had it was the Black Swan.”</p>
+    <p>“I see.”</p>
+    <p>“Why? Is there something wrong with it?”</p>
+    <p>“No, it’s nothing like that. Well, perhaps the Black Swan Guild… Do they have anything to do with the brigade?”</p>
+    <p>“There must be some sort of relation. Even when they were still active, the Black Swan was still one of Lindel’s giant guilds. Are you still worried about the brigade?”</p>
+    <p>“Not really. Something just feels a little ominous…”</p>
+    <p>“You don’t have to look so serious. I’ve been careful. It’s been a few years already, and there’s no reason the brigade would be aiming for Lindel at this time. Of course, they aren’t the type to do something for no reason…”</p>
+    <p>“If it’s you saying that, then it must be true… For some reason, I keep… Isn’t Hyung-nim an important person in the city?”</p>
+    <p>“Huh?”</p>
+    <p>“Well, since you’re a member of the Empire’s Eight Seats… well, I’m just worried about an accident happening at this time.”</p>
+    <p>His hunch had been right. Though he was bad at explaining, I understood what he was trying to say.</p>
+    <p>He probably thought that having me accompany them to an expedition right after being given such an important role would make things much more dangerous for me.</p>
+    <p>If one were to assume that a group of unspecified individuals would target me, it must mean that the brigade within the city would have found information of me quietly buying a dungeon.</p>
+    <p>With my death, they would be able to resurrect their brigade.</p>
+    <p>Of course, Park Deokgu wouldn’t have thought this far. In the first place, the only pieces we threw were bits of information about the brigade, and there was too little other information to fit the whole puzzle. This was why he kept drilling us with questions, trying to complete the puzzle by himself.</p>
+    <p>There was no way to check whether the piece he was looking for would fit the picture he drew or not, but I honestly wanted to applaud him.</p>
+    <p>‘This bastard has grown.’</p>
+    <p>It was quite different from what he used to be when he started following me without thinking. Simply put, Park Deokgu was growing both mentally and physically.</p>
+    <p>With that aside, I could feel his anxiety gradually increasing.</p>
+    <p>Ahn Ki-mo’s role in throwing baits would prove to be crucial at this point in time. The fact that both Hayan and Ye-ri stayed quiet certainly helped.</p>
+    <p>As time went by, Park Deokgu’s suspicion grew, so I tried my best to soothe him, saying that Jung Hayan and Kim Ye-ri would be okay.</p>
+    <p>Of course, this was all just the initial steps that we needed to take for the plan to go off without a hitch.</p>
+    <p>Of course, it will begin once the ‘It’s going to be safe’ consciousness had unconsciously settled in their head.</p>
+    <p>‘It’s about time to come out.’</p>
+    <p>The timing was perfect, both in terms of location and timing.</p>
+    <p>Since Lee Jihye had completely planned this part, I also felt curious about it.</p>
+    <p>When we were almost ready to enter the dungeon, a woman appeared from nowhere and began to approach us, harboring a cold expression.</p>
+    <p>‘Is that…?’</p>
+    <p>It definitely was. Seeing her would seem like a strange sight, even to me. Anyone who saw her would think that she was blocking the road.</p>
+    <p>“Hey… Who… are you? Did you come here alone?”</p>
+    <p>Even when Park Deokgu spoke carefully, she didn’t answer. In contrast to Park Deokgu, who felt anxious, I felt a little disappointed.</p>
+    <p>‘Just one person?’</p>
+    <p>Lee Jihye, who had ranted that she would prepare perfectly and told me not to worry, passed by in my mind. I thought she would at least send the Black Swan elite, but it appeared that she had only sent one.</p>
+    <p>I checked the surroundings just in case, only to confirm the fact that she was indeed the only one that Lee Jihye had prepared.</p>
+    <p>Of course, since this was just acting, it didn’t really matter who came, but I still felt like this lacked the urgency I had been aiming for.</p>
+    <p>‘Tsk.’</p>
+    <p>It was then that I felt an explosive, murderous aura emanating from the woman.</p>
+    <p>‘Huh?’</p>
+    <p>My hands and feet trembled, and I started backing away, almost unconsciously. This was the same feeling as when I had gotten hit by Cha Hee-ra before.</p>
+    <p>‘Uh…’</p>
+    <p>The moment I felt the aura wrapping around my body, I realized just who Lee Jihye had sent.</p>
+    <p>This was another powerful player in Lindel, who had been evaluated as an equal to Cha Hee-ra.</p>
+    <p>It was another member of the Eight Seats of the Empire, the Guild Master of the Black Swan, who had been said to like Kim Hyunsung.</p>
+    <p>‘Park Yeon-joo?’</p>
+    <p>Before I could even organize my thoughts, Park Deokgu began to shout.</p>
+    <p>“Run!”</p>
+  </article>
+</div>
+
+<div id="merge-status"></div>
+
+<nav>
+  <span class="nav-left"><a href="201.html" rel="prev">&#8592; Ch 201</a></span>
+  <span class="nav-mid">
+    <button class="btn-merge" id="btn-merge" >Merge Next 10</button>
+  </span>
+  <span class="nav-right"><a href="203.html" rel="next">Ch 203 &#8594;</a></span>
+</nav>
+
+<script>
+  // Chapters available after this one — discovered from meta.json
+  var slug       = "regressor-instruction-manual";
+  var currentNum = 202;
+  var nextNum    = 203;
+  var maxLoaded  = currentNum;
+  var allNums    = null;   // loaded lazily from meta.json
+  var merging    = false;
+  var root       = "../../";
+
+  async function getNums() {
+    if (allNums) return allNums;
+    var res = await fetch(root + "data/" + slug + "/meta.json");
+    var meta = await res.json();
+    allNums = meta.chapters.map(function(c){ return c.num; });
+    return allNums;
+  }
+
+  document.getElementById("btn-merge").addEventListener("click", async function() {
+    if (merging) return;
+    merging = true;
+    var btn    = document.getElementById("btn-merge");
+    var status = document.getElementById("merge-status");
+    btn.textContent = "Loading…";
+    btn.disabled = true;
+
+    var nums   = await getNums();
+    var idx    = nums.indexOf(maxLoaded);
+    var toLoad = nums.slice(idx + 1, idx + 11);
+    if (!toLoad.length) { merging = false; return; }
+
+    status.style.display = "block";
+    status.textContent = "Fetching chapters " + toLoad[0] + "–" + toLoad[toLoad.length-1] + "…";
+
+    var container = document.getElementById("chapters");
+    var firstNew  = null;
+
+    for (var i = 0; i < toLoad.length; i++) {
+      var n = toLoad[i];
+      try {
+        var res  = await fetch(n + ".html");
+        var html = await res.text();
+        var doc  = new DOMParser().parseFromString(html, "text/html");
+        var art  = doc.querySelector("article");
+        var h1   = doc.querySelector("h1");
+        if (!art) continue;
+
+        // Divider
+        var divider = document.createElement("div");
+        divider.className = "ch-divider";
+        divider.textContent = "Chapter " + n;
+        container.appendChild(divider);
+
+        // Chapter title
+        if (h1) {
+          var chTitle = document.createElement("div");
+          chTitle.className = "ch-title";
+          chTitle.textContent = h1.textContent;
+          container.appendChild(chTitle);
+        }
+
+        // Content
+        var section = document.createElement("article");
+        section.id = "ch-" + n;
+        section.innerHTML = art.innerHTML;
+        container.appendChild(section);
+
+        if (!firstNew) firstNew = divider;
+        maxLoaded = n;
+      } catch(e) {
+        console.warn("Failed to load chapter " + n, e);
+      }
+    }
+
+    // Update nav next link
+    var nextIdx = nums.indexOf(maxLoaded) + 1;
+    var newNext = nextIdx < nums.length ? nums[nextIdx] : null;
+    var navRight = document.querySelector(".nav-right");
+    if (newNext) {
+      navRight.innerHTML = '<a href="' + newNext + '.html" rel="next">Ch ' + newNext + ' &#8594;</a>';
+    } else {
+      navRight.innerHTML = '<span></span>';
+    }
+
+    status.style.display = "none";
+    btn.textContent = newNext ? "⊕ Merge Next 10" : "✓ All loaded";
+    btn.disabled = !newNext;
+    merging = false;
+
+    if (firstNew) firstNew.scrollIntoView({ behavior:"smooth", block:"start" });
+  });
+</script>
+</body>
+</html>

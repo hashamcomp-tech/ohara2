@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chapter 440 — Regressor Instruction Manual</title>
+  <style>
+    :root { --ink:#1a1a1a; --dim:#666; --bg:#fff; --gold:#8a6a1a; --border:#ddd; }
+    @media (prefers-color-scheme:dark) {
+      :root { --ink:#e9e4da; --dim:#9a9286; --bg:#111010; --gold:#c9a84c; --border:#2a2825; }
+    }
+    *{ box-sizing:border-box; margin:0; padding:0; }
+    body{ background:var(--bg); color:var(--ink); font-family:Georgia,'Times New Roman',serif;
+          font-size:1.125rem; line-height:1.85; padding:40px 24px 80px;
+          max-width:680px; margin:0 auto; }
+    header{ margin-bottom:32px; padding-bottom:20px; border-bottom:1px solid var(--border); }
+    header a{ color:var(--gold); text-decoration:none; font-size:.85rem; }
+    h1{ font-size:1.35rem; font-weight:700; margin-top:10px; line-height:1.25; }
+    article p{ margin-bottom:1.4em; text-align:justify; hyphens:auto; }
+    .ch-divider{ text-align:center; padding:28px 0 16px; color:var(--dim);
+                  font-size:.8rem; letter-spacing:.1em; text-transform:uppercase; }
+    .ch-divider::before,.ch-divider::after{ content:''; display:inline-block;
+      width:40px; height:1px; background:var(--border); vertical-align:middle; margin:0 12px; }
+    .ch-title{ font-size:1.1rem; font-weight:700; color:var(--gold); margin-bottom:16px; }
+    nav{ display:grid; grid-template-columns:1fr auto 1fr; gap:10px; align-items:center;
+          margin-top:48px; padding-top:20px; border-top:1px solid var(--border); font-size:.88rem; }
+    nav a{ color:var(--gold); text-decoration:none; }
+    nav a:hover{ text-decoration:underline; }
+    nav .nav-right{ text-align:right; }
+    nav .nav-mid{ text-align:center; }
+    .btn-merge{ background:rgba(138,106,26,.12); border:1px solid var(--gold);
+                 color:var(--gold); padding:9px 16px; border-radius:6px; cursor:pointer;
+                 font-family:Georgia,serif; font-size:.85rem; font-weight:600;
+                 transition:background .15s; white-space:nowrap; }
+    .btn-merge:hover:not(:disabled){ background:rgba(138,106,26,.25); }
+    .btn-merge:disabled{ opacity:.35; cursor:not-allowed; }
+    #merge-status{ text-align:center; padding:12px; font-size:.82rem;
+                    color:var(--dim); display:none; }
+  </style>
+</head>
+<body>
+<header>
+  <a href="../../novel.html?slug=regressor-instruction-manual">&larr; Regressor Instruction Manual</a>
+  <h1 id="page-title">Chapter 440</h1>
+</header>
+
+<div id="chapters">
+  <article id="ch-440">
+    <p>Chapter 440: Welcome to Crack Land (3)</p>
+    <p>“You don’t look so good, Kiyeon…”</p>
+    <p>“No. It’s nothing.”</p>
+    <p>Usually, adventurers were supposed to spend the rest of their time socializing after finding a party. Beyond simple meetings, there were cases of drinking parties and unity competitions in big expeditions.</p>
+    <p>It could be considered as evidence that the chemistry and closeness of party members were important.</p>
+    <p>Of course, some groups didn’t allow getting close to each other in private, but at least the foreigners from Korea who lived in Lindel enjoyed those events.</p>
+    <p>As for me, I just wanted to rest.</p>
+    <p>However, the members of the party I joined seemed to think they needed that kind of time.</p>
+    <p>With the whole innkeeper matter done, we unpacked our luggage and started drinking rum, paired with a big dinner at a bar located under the Crack Inn.</p>
+    <p>I didn’t like the food that they had ordered, but since I finally could enjoy a civilian’s life after such a long time, I at least enjoyed the calm atmosphere.</p>
+    <p>I mean, until I saw Pak Sergei and Argirmo, who had seemingly appeared out of nowhere.</p>
+    <p>“Phew. You mean you came in this morning and got this?! It’s a legendary-grade item! The Queen of Truth’s necklace! The Crack Museum is very generous! Everyone, come quickly! You’ll lose money if you don’t go! This is a blessing from the Goddess Benignore!”</p>
+    <p>‘This moron…’</p>
+    <p>“Thank you, Crack Museum! It’s not just this! There are also a lot of advanced catalysts! I can sleep in a legendary-room tonight!”</p>
+    <p>Although they looked like white people on the outside, they certainly looked like Park Deokgu and Ahn Ki-mo in my Mind’s Eyes.</p>
+    <p>At the same time, the way Yetni Kova was acting like a Russian proved to be entertaining.</p>
+    <p>‘And you said you don’t like acting…’</p>
+    <p>Honestly, Kim Ye-ri didn’t look like a kid. Her skills could already be nominated for Best Actress.</p>
+    <p>Pak Sergei bent over his body and waved his necklace as he spoke. I wasn’t sure if he knew I was watching them or not.</p>
+    <p>“Everyone’s drinks are on me tonight!!”</p>
+    <p>“Stop, you bastard. Don’t do that.’</p>
+    <p>I had to believe that he would pay with his money.</p>
+    <p>‘What are you going to do if you get caught…?’</p>
+    <p>Of course, there was no possibility of that ever happening. None of the people who came to that place could ever detect that kind of magic.</p>
+    <p>The large tavern wasn’t of bad quality, but the lower classes of society frequented it.</p>
+    <p>Even a legendary-grade individual wouldn’t easily detect it, and it was improbable for them to come to such a bar in the first place.</p>
+    <p>‘All of them are in a private room or drinking in a place with premium goods.’</p>
+    <p>If I had come with Lee Kiyoung’s body, not Lee Kiyeon, I wouldn’t have set foot in such a place either, unless if it was to encourage our workers.</p>
+    <p>Perhaps he saw me glancing at the other side over and over again, but the big man in front of me had begun to talk to me.</p>
+    <p>“Do you know them?”</p>
+    <p>“No. I just thought they’re noisy… It’s my first time seeing them.”</p>
+    <p>“People like them are everywhere. It’s better if you just ignore them. I recently heard rumors that new people are emerging from the Republic side… It’s probably them. That big one, Pak Sergei… even though he is a muscle-filled man, he’s classified as a wizard. The magical properties he uses are uniquely called physical properties.”</p>
+    <p>‘Where did you hear such information that even I didn’t know? Their community is pretty active… and, you stupid bastard. Physical property magic doesn’t exist in this world.’</p>
+    <p>“The warrior next to him is Argirmo. They call him Berserker. They say that once he tastes blood, he doesn’t stop until the other side collapses. Thousands fell by his weapon…”</p>
+    <p>‘He’s a priest… although he’s a combat priest… he can’t even taste blood.’</p>
+    <p>“And that woman is the Clan Master Yetni Kova. She’s their leader. She is said to have an unusual class called dancer. I heard that she has an attribute that captivates both men and women with her fatal dance.”</p>
+    <p>‘Fatal temptation skill, my ass… Ye-ri, don’t put your wishes into acting. So shameless, even though you’re just a kid… Hyunsung will weep at the guild office. Don’t do those kinds of setups. Please don’t.’</p>
+    <p>I had to pick at several things there. Usually, for that kind of acting, the details to be put in were important.</p>
+    <p>I couldn’t help but think that the acting group had already lost its soul because director Light Kiyoung was missing. However, there were also parts that I wanted to praise.</p>
+    <p>‘That kind of thing is fine…’</p>
+    <p>Letting everyone know that you got a good item was definitely something to avoid, but if the purpose was to promote the Crack Museum, then it was a whole different story.</p>
+    <p>In fact, the most reassuring part was that he was in good health.</p>
+    <p>Although I already heard from Lee Jihye and knew that Park Deokgu had completely recovered, he looked healthier than usual when I actually saw him face to face. He looked like he didn’t even get hurt from the beginning.</p>
+    <p>‘Pig bastard…’</p>
+    <p>I couldn’t help but appreciate the fact that he looked the same as ever.</p>
+    <p>I was worried that they might find me, but they didn’t seem to be interested elsewhere. They were focusing on something completely different.</p>
+    <p>‘If that’s the case, I don’t have to worry.’</p>
+    <p>It was currently more important to focus on the conversations happening near them rather than the conversations far from them.</p>
+    <p>That was their purpose in the first place.</p>
+    <p>“Yetni Kova, Pak Sergei… it seems they’ll go up one more step. I can’t see what item it is, but I’m jealous that it’s a legendary item. On the other hand, I’m also happy because there’s a chance for us to get something like that. It seems that the probability of that happening isn’t as bad as I thought.”</p>
+    <p>“I don’t know. We’ll only know once we go, but… that’s why there is a lot of content prepared at the Crack Museum, oppa. He’s not the only one I saw. Quite a few people were bragging about items here and there. Honestly, I was a little worried because I thought we had invested too much gold… I wish that such items would come out to our clan…”</p>
+    <p>“We have to make it happen, Minji. As you said, we spent more money than I thought. Only when heroic-grade items at the minimum come out will we be able to recover from our expenses. They said there were a total of three chances, so our odds are good enough. And if we fail, we can think of it as a great learning experience…”</p>
+    <p>“I think buying the potions was a good choice. I wanted to use the potion that the Alchemist of Light sells. Of course, it would be better if nothing happens during our raids so we won’t have to use them immediately.”</p>
+    <p>“I was right. Buying that package is a long-term advantage. We’re not going to stop our adventurer life after this expedition, right? Since we can continue using it, it’s definitely a profit for us. By the way, Kiyeon, does the food here… suit your taste?”</p>
+    <p>“…”</p>
+    <p>Honestly, it didn’t suit my taste. The awkward smile seemed to be an unspoken answer.</p>
+    <p>I could see them embarrassed.</p>
+    <p>The stupid guys who became almost like my servants were agitated, and the female members were, once again, staring at me with contempt.</p>
+    <p>‘Ah, I made a mistake again.’</p>
+    <p>I had done something I’d be hated for.</p>
+    <p>“No. No. It’s delicious. I’m just not feeling well. We should celebrate, so shall we make a toast?”</p>
+    <p>“That sounds good.”</p>
+    <p>“Cheers to the expedition to the Crack Museum!”</p>
+    <p>“Cheers!”</p>
+    <p>“Cheers for a successful expedition!!”</p>
+    <p>When we clinked the glasses together, I glanced towards Kook Minji, but her atmosphere was still cold.</p>
+    <p>I guess she really hated my guts. I had no choice but to realize again that being too modest had inevitably resulted in antagonism.</p>
+    <p>‘Well, it’s your loss.’</p>
+    <p>Even after my efforts, if she built a wall, I couldn’t do anything about it. Naturally, I emptied my glass without any regrets.</p>
+    <p>“Whew…”</p>
+    <p>The refreshing sensation of drinking after a long time made me make a pleasant sound unknowingly.</p>
+    <p>‘Everything is bad, but this one is quite good.’</p>
+    <p>I didn’t know who made it, but this particular dish was really delicious. The sauce on the outside was especially excellent.</p>
+    <p>I wanted to eat it all at once, but it was impossible.</p>
+    <p>“Hmm… mhmm.”</p>
+    <p>I first caught the sauce that was about to fall off.</p>
+    <p>After that, I chomped down on it. When it was ready to some extent, I took a big bite.</p>
+    <p>“This is really good. Hmm.”</p>
+    <p>The two men were blushing. The four women looked at me with contempt again.</p>
+    <p>That was when I saw a group approaching our way. They were four men with large builds.</p>
+    <p>‘What do you want?’</p>
+    <p>Naturally, I had to be bothered by their stare.</p>
+    <p>Although I had a hunch that a scene from old martial arts novels was about to pop out, I couldn’t even imagine that it would come true.</p>
+    <p>“How about having a drink with us? What’s your name, lady?”</p>
+    <p>“Play with us instead of playing with such poor guys.”</p>
+    <p>“What’s your name? I think it’s my first time seeing you. Are you from Lindel?”</p>
+    <p>What happened to those guys who always couldn’t get out of the same pattern?</p>
+    <p>These two guys, who were completely ignoring the guys from our party, didn’t seem nice.</p>
+    <p>Meanwhile, the big guy from our side, Daegun, started to frown with the situation turning sour.</p>
+    <p>“What?”</p>
+    <p>‘Don’t act so full of bravado, Daegun. I think he’s stronger than you…’</p>
+    <p>It wasn’t possible to judge all fights with the status window, but I could still see that the drunken dogs in front of us were more powerful than our party.</p>
+    <p>If a fight began, it would be a tie in terms of numerical superiority, but honestly, there was no reason to fight. I refused to cause a fuss.</p>
+    <p>Lee Cheol-woo, who was next to me, was trying to mediate between them as much as possible as if he thought the same way, but it was simply impossible.</p>
+    <p>“Let’s not do this here. Let’s go outside and talk.”</p>
+    <p>“Cheol-woo, talking won’t work with them. There will always be trashy people like them in this society.”</p>
+    <p>“No. What did we do to be called trash? Is it such a sin to ask her to play with us?”</p>
+    <p>“If my party member is offended, it’s a sin. Isn’t it wrong for you to talk to someone for no specific reason? I don’t want us to touch each other.”</p>
+    <p>“We’ve spoken to that lady out of pity, but I guess she’s reacted too sensitively.”</p>
+    <p>“What?”</p>
+    <p>“How will she stay still when it’s obvious that she’ll have a hard time with guys like you?”</p>
+    <p>“These motherfuckers, what?”</p>
+    <p>“Daegun! Stop!”</p>
+    <p>“You want to try me? Then try me.”</p>
+    <p>“Come outside, motherfucker!”</p>
+    <p>This was indeed a volatile situation. The atmosphere was rapidly getting more serious.</p>
+    <p>Rare-grade parties were getting out of the way, and the people’s attention was focused on the sudden turmoil.</p>
+    <p>‘Ha… I’m really tired.’</p>
+    <p>I was naturally annoyed by the trouble I was in. I wouldn’t have to get caught up in it if I was Light Kiyoung.</p>
+    <p>Still, I had to think that I had to solve the situation somehow before the guard arrived.</p>
+    <p>‘I need to appease and send them back, then put a separate complaint later.’</p>
+    <p>I was just about to open my mouth when I heard someone speak.</p>
+    <p>“Physical magic.”</p>
+    <p>“Huh?”</p>
+    <p>“Backdrop.”</p>
+    <p>I could see the bully in the middle being thrown to the floor.</p>
+    <p>‘Park Deokgu, you moron!’</p>
+    <p>An unexpected hero had appeared.</p>
+    <p>“Why don’t we all just enjoy our drinks?”</p>
+  </article>
+</div>
+
+<div id="merge-status"></div>
+
+<nav>
+  <span class="nav-left"><a href="439.html" rel="prev">&#8592; Ch 439</a></span>
+  <span class="nav-mid">
+    <button class="btn-merge" id="btn-merge" >Merge Next 10</button>
+  </span>
+  <span class="nav-right"><a href="441.html" rel="next">Ch 441 &#8594;</a></span>
+</nav>
+
+<script>
+  // Chapters available after this one — discovered from meta.json
+  var slug       = "regressor-instruction-manual";
+  var currentNum = 440;
+  var nextNum    = 441;
+  var maxLoaded  = currentNum;
+  var allNums    = null;   // loaded lazily from meta.json
+  var merging    = false;
+  var root       = "../../";
+
+  async function getNums() {
+    if (allNums) return allNums;
+    var res = await fetch(root + "data/" + slug + "/meta.json");
+    var meta = await res.json();
+    allNums = meta.chapters.map(function(c){ return c.num; });
+    return allNums;
+  }
+
+  document.getElementById("btn-merge").addEventListener("click", async function() {
+    if (merging) return;
+    merging = true;
+    var btn    = document.getElementById("btn-merge");
+    var status = document.getElementById("merge-status");
+    btn.textContent = "Loading…";
+    btn.disabled = true;
+
+    var nums   = await getNums();
+    var idx    = nums.indexOf(maxLoaded);
+    var toLoad = nums.slice(idx + 1, idx + 11);
+    if (!toLoad.length) { merging = false; return; }
+
+    status.style.display = "block";
+    status.textContent = "Fetching chapters " + toLoad[0] + "–" + toLoad[toLoad.length-1] + "…";
+
+    var container = document.getElementById("chapters");
+    var firstNew  = null;
+
+    for (var i = 0; i < toLoad.length; i++) {
+      var n = toLoad[i];
+      try {
+        var res  = await fetch(n + ".html");
+        var html = await res.text();
+        var doc  = new DOMParser().parseFromString(html, "text/html");
+        var art  = doc.querySelector("article");
+        var h1   = doc.querySelector("h1");
+        if (!art) continue;
+
+        // Divider
+        var divider = document.createElement("div");
+        divider.className = "ch-divider";
+        divider.textContent = "Chapter " + n;
+        container.appendChild(divider);
+
+        // Chapter title
+        if (h1) {
+          var chTitle = document.createElement("div");
+          chTitle.className = "ch-title";
+          chTitle.textContent = h1.textContent;
+          container.appendChild(chTitle);
+        }
+
+        // Content
+        var section = document.createElement("article");
+        section.id = "ch-" + n;
+        section.innerHTML = art.innerHTML;
+        container.appendChild(section);
+
+        if (!firstNew) firstNew = divider;
+        maxLoaded = n;
+      } catch(e) {
+        console.warn("Failed to load chapter " + n, e);
+      }
+    }
+
+    // Update nav next link
+    var nextIdx = nums.indexOf(maxLoaded) + 1;
+    var newNext = nextIdx < nums.length ? nums[nextIdx] : null;
+    var navRight = document.querySelector(".nav-right");
+    if (newNext) {
+      navRight.innerHTML = '<a href="' + newNext + '.html" rel="next">Ch ' + newNext + ' &#8594;</a>';
+    } else {
+      navRight.innerHTML = '<span></span>';
+    }
+
+    status.style.display = "none";
+    btn.textContent = newNext ? "⊕ Merge Next 10" : "✓ All loaded";
+    btn.disabled = !newNext;
+    merging = false;
+
+    if (firstNew) firstNew.scrollIntoView({ behavior:"smooth", block:"start" });
+  });
+</script>
+</body>
+</html>

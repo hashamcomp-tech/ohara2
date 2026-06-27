@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chapter 120 — Regressor Instruction Manual</title>
+  <style>
+    :root { --ink:#1a1a1a; --dim:#666; --bg:#fff; --gold:#8a6a1a; --border:#ddd; }
+    @media (prefers-color-scheme:dark) {
+      :root { --ink:#e9e4da; --dim:#9a9286; --bg:#111010; --gold:#c9a84c; --border:#2a2825; }
+    }
+    *{ box-sizing:border-box; margin:0; padding:0; }
+    body{ background:var(--bg); color:var(--ink); font-family:Georgia,'Times New Roman',serif;
+          font-size:1.125rem; line-height:1.85; padding:40px 24px 80px;
+          max-width:680px; margin:0 auto; }
+    header{ margin-bottom:32px; padding-bottom:20px; border-bottom:1px solid var(--border); }
+    header a{ color:var(--gold); text-decoration:none; font-size:.85rem; }
+    h1{ font-size:1.35rem; font-weight:700; margin-top:10px; line-height:1.25; }
+    article p{ margin-bottom:1.4em; text-align:justify; hyphens:auto; }
+    .ch-divider{ text-align:center; padding:28px 0 16px; color:var(--dim);
+                  font-size:.8rem; letter-spacing:.1em; text-transform:uppercase; }
+    .ch-divider::before,.ch-divider::after{ content:''; display:inline-block;
+      width:40px; height:1px; background:var(--border); vertical-align:middle; margin:0 12px; }
+    .ch-title{ font-size:1.1rem; font-weight:700; color:var(--gold); margin-bottom:16px; }
+    nav{ display:grid; grid-template-columns:1fr auto 1fr; gap:10px; align-items:center;
+          margin-top:48px; padding-top:20px; border-top:1px solid var(--border); font-size:.88rem; }
+    nav a{ color:var(--gold); text-decoration:none; }
+    nav a:hover{ text-decoration:underline; }
+    nav .nav-right{ text-align:right; }
+    nav .nav-mid{ text-align:center; }
+    .btn-merge{ background:rgba(138,106,26,.12); border:1px solid var(--gold);
+                 color:var(--gold); padding:9px 16px; border-radius:6px; cursor:pointer;
+                 font-family:Georgia,serif; font-size:.85rem; font-weight:600;
+                 transition:background .15s; white-space:nowrap; }
+    .btn-merge:hover:not(:disabled){ background:rgba(138,106,26,.25); }
+    .btn-merge:disabled{ opacity:.35; cursor:not-allowed; }
+    #merge-status{ text-align:center; padding:12px; font-size:.82rem;
+                    color:var(--dim); display:none; }
+  </style>
+</head>
+<body>
+<header>
+  <a href="../../novel.html?slug=regressor-instruction-manual">&larr; Regressor Instruction Manual</a>
+  <h1 id="page-title">Chapter 120</h1>
+</header>
+
+<div id="chapters">
+  <article id="ch-120">
+    <p>Chapter 120: The Black World (1)</p>
+    <p>In this crazy situation, I had no choice but to scream. I couldn’t understand what was going on around me.</p>
+    <p>‘She’s out of her mind!</p>
+    <p>The shaman in front of me was simply insane.</p>
+    <p>I kept trying to open the door, but it was still hopelessly shut. This hadn’t been the kind of trap I was imagining, and I felt more confused than ever.</p>
+    <p>In the meantime, the shaman continued with her onslaught of nonsensical ramblings.</p>
+    <p>“Master! Master! I have been waiting for this day for a long time.”</p>
+    <p>“F-Fuck!”</p>
+    <p>“My light, my love, my everything.”</p>
+    <p>“Don’t you dare come near me!”</p>
+    <p>Seeing her crawling this way made goosebumps rise throughout my entire body. I had no idea how to respond to her.</p>
+    <p>‘Should I call Jung Hayan?’</p>
+    <p>It didn’t matter; if she tried to physically touch me, Jung Hayan would be alerted anyway. She would realize that something was wrong and would come to me right away.</p>
+    <p>No - it was highly probable that she was on her way here right now.</p>
+    <p>‘Nevertheless…</p>
+    <p>As I tried to figure out what to do, my lips formed a frown. With the shaman’s sudden antics, I had completely forgotten the purpose of my visit. I wanted to find out why she had called me here, and just how much she knew about me.</p>
+    <p>With all the ruckus, I must have stepped back unknowingly, for I felt my back hit the door. However, Kasugano had not gone too far from her original position just moments ago.</p>
+    <p>The door was locked, but it seemed like she had no intention of harming me.</p>
+    <p>‘If she tried to do something…’</p>
+    <p>She would’ve done it already.</p>
+    <p>Even now, she seemed uneasy, her body trembling, but I felt like now would be the right time to have a conversation. For a moment, I thought pretending to be her so-called master would be more effective, but I quickly realized that that would be a bad idea.</p>
+    <p>Considering her ability, she would see through me in an instant.</p>
+    <p>As I calmed myself and sat myself down on a nearby chair, I could see the woman staring at me expectantly. It felt weird to be gazed at in that manner, and as I looked behind me, I was reminded of the weird tools that had been the first things to come into my sight ever since I entered the room.</p>
+    <p>‘Why are they here in the first place…’</p>
+    <p>“Ahhhhhh…”</p>
+    <p>Please don’t make that sound.’</p>
+    <p>“Master…’</p>
+    <p>Don’t even think about it.’</p>
+    <p>I soon regretted choosing to sit down. However, I really had to start a conversation with her. The only problem was, I didn’t know how exactly should start. Should I lead? Or should I go with her flow?</p>
+    <p>Meanwhile, the shaman kept crying for punishment, a miserable expression on her face.</p>
+    <p>As I had apparently spent too much time mulling over my thoughts, she opened her mouth first.</p>
+    <p>“Please, don’t be formal with me.”</p>
+    <p>That was better.</p>
+    <p>“Do you know who I am?”</p>
+    <p>“You are my only master.”</p>
+    <p>“That’s not the point of the question. I mean, do you know exactly who I am?”</p>
+    <p>“I know nothing but the fact that you are my master.”</p>
+    <p>‘What kind of sh*tty situation is this?’</p>
+    <p>“I was able to realize it the moment I first saw you. You were the one I have been looking for. And the mind that saw through everything…”</p>
+    <p>“So, you do know.”</p>
+    <p>“I’m sorry if I’m being too unpleasant…”</p>
+    <p>‘Stop.</p>
+    <p>“To be honest, it’s a little embarrassing. I don’t even know what you’re talking about. I’ve never even seen you before. I wanted to know why, so I came here, but your behavior… You’re right. It feels very unpleasant.”</p>
+    <p>“I’m sorry. My, I couldn’t figure out my master’s feelings… I’m so sorry, I’m such a mistake… Please do kill me…”</p>
+    <p>“What am I going to do… I felt so excited and was unable to grasp the situation properly… Please do forgive me!”</p>
+    <p>‘She’s not acting.</p>
+    <p>Those were genuine tears falling down her face, which confused me even further. Because of this, I could tell that she wasn’t lying.</p>
+    <p>I just had to find out if she could really see the future or the past, as such an explanation was already written in her ability’s description.</p>
+    <p>[Talent-Legendary grade: Eyes that see through the essence and the past and future]</p>
+    <p>[You can have a glimpse of what others cannot see.]</p>
+    <p>Although it was described in a vague manner, it would be correct to think that she could see the future or the past. The title of her ability was already quite the telltale sign.</p>
+    <p>‘Perhaps…</p>
+    <p>“Have you ever seen me in the future?”</p>
+    <p>It was a good possibility, and it would explain why she kept calling me her master, and why I seemed to have such an influence on her.</p>
+    <p>However, I would know the real answer only if she didn’t lie.</p>
+    <p>“That is…”</p>
+    <p>“Or have you met me in the past?”</p>
+    <p>“Neither, Master. To be precise…”</p>
+    <p>“To be precise?”</p>
+    <p>“To be precise, it’s neither the future nor the past. I don’t know how to say this, but… I can certainly see things through my eyes. You might think it’s strange, but what I see isn’t the past or the future. It’s more like… a memory engraved on my body.”</p>
+    <p>“A memory engraved on the body?”</p>
+    <p>“Ah, no, I think it would be more appropriate to call it the memory engraved in the soul. I don’t know how to define it, but I’ve been here for 6 years…”</p>
+    <p>“Didn’t you say it was 4 years?”</p>
+    <p>“That’s what the public knows, but it’s actually been 6 years since I came here. l-if you want to go back four years ago…”</p>
+    <p>“No, it doesn’t matter. I’d like you to explain this to me first.”</p>
+    <p>“T-the first thing I saw as soon as I came here was my master and me together. I’m not sure what happened, but I remember that I seemed very happy. Of course, it was a difficult memory for me to accept at that time…”</p>
+    <p>“How are you so sure that what you saw isn’t the future?”</p>
+    <p>“Scenes from the future are usually in a white setting, while the past is gray. For scenes that are neither from the future nor the past, the setting is black. I call this the black world.”</p>
+    <p>“Right.”</p>
+    <p>That did sound convincing, even more so because the status window never lied. If she saw was neither the past nor the future, then that could only be one thing.</p>
+    <p>‘Was it from the first timeline?’</p>
+    <p>All I could think about was the first timeline that Kim Hyunsung had come from. There was a high possibility that parallel worlds existed, yet! couldn’t exactly disregard the possibility of her just having delusions.</p>
+    <p>‘However, the former just might be possible…</p>
+    <p>This girl seemed to know about me - and quite possibly, my own ability, too.</p>
+    <p>She didn’t seem to be aware of the fact that this was a different reality now, or the fact that she was also a time returner, just like Kim Hyunsung. The problem was - where did I fit in?</p>
+    <p>‘Did I survive?</p>
+    <p>I was sure I had also been present from the first timeline. In fact, I thought it would be less likely for me to have survived.</p>
+    <p>Back then, Kim Hyunsung would not have been a returner, and I would not have been intrigued with his ability. Therefore, I wouldn’t have chosen to follow him. However, it was likely that I had still chosen to pair up with Park Deokgu.</p>
+    <p>However, I had been saved twice by Kim Hyunsung in the tutorial dungeon this time around. Without him, I wouldn’t have been able to get out of there.</p>
+    <p>‘And…’</p>
+    <p>If this woman really saw me as her ‘master’ from the first timeline, then it must mean that I had managed to garner some talent for myself. I didn’t know what exactly happened, but this all felt a little odd.</p>
+    <p>Of course, this was assuming that what Kasugano saw really was from that time. I couldn’t confirm it yet, but it didn’t stop me from weaseling out more information.</p>
+    <p>“Have you seen anything else? No, what else have you seen about me?”</p>
+    <p>“I couldn’t see much other than that. I’m sorry, but my ability doesn’t show what I want to see. The future or the past sometimes shows what I want, but in the case of the black world…”</p>
+    <p>‘Is there a penalty?’</p>
+    <p>“In the case of the black world, all I see are fragments of a scene. Of course, tthe one I would always see was the scene with my master… No, in fact, most of them are just memories of spending time with you.”</p>
+    <p>“What kind of memory are you talking about, exactly?”</p>
+    <p>“I-I’m ashamed to say it, but that… that is…”</p>
+    <p>I saw her looking at the things behind me. Only then did I begin to understand this shaman’s reaction.</p>
+    <p>‘Lee Kiyoung, what the hell did you do?’</p>
+    <p>According to her status window, she was only twenty years old. I didn’t know when I met her, but this situation felt so ridiculous that I couldn’t help but laugh.</p>
+    <p>“No, you don’t have to say. I think I can kind of understand. Then, I’ll change the question. How did the two of us meet in the black world? Were you able to see this?”</p>
+    <p>“N-no. I could see to some extent anything related to the master. It’s fragmentary, so it’s a little hard to explain in detail, but in the black world, I remember that I myself went after the master.”</p>
+    <p>“What?”</p>
+    <p>“In the black world, I could see my ability showing me my future with the master. I must have felt confused about seeing myself being very happy in them, so I went after him. However, I also felt suffering with him. I am also aware that I looked stupid back there in the black world. I even went so far as to sympathize with the master. Even though I wanted to reject the future with him, I couldn’t help but feel sorry.”</p>
+    <p>“Right.”</p>
+    <p>“At the time, I brought my master in, who had been injured at the time, and devoted myself to treating him.”</p>
+    <p>“You’re a lifesaver.”</p>
+    <p>“Ah, I feel embarrassed… Anyway, after the master had recovered, I saw…”</p>
+    <p>“What did you see?”</p>
+    <p>“I saw the master choking me…”</p>
+    <p>“What?”</p>
+    <p>“My master was choking me. I wasn’t able to see it in detail, but I can clearly remember the words he said.”</p>
+    <p>I got nervous for some reason.</p>
+    <p>“What did I say?”</p>
+    <p>“You said: Get rid of your pity, you damn bitch. All of you are the same. And… In that way, my master and I became connected. The next scene happened after a long time. That’s how our relationship in the black world began…”</p>
+    <p>‘What the hell…’</p>
+    <p>How exactly would we have connected through those means? The story felt so absurd!</p>
+    <p>As soon as I calmed my rapidly-beating heart, I began to piece what I had found out so far.</p>
+    <p>First off, this shaman could see the future, the past, and the first timeline, unlike before, when her abilities were only limited to the past and the future.</p>
+    <p>Second. She could not trigger her ability at will. The scenes came at random intervals.</p>
+    <p>Third. What the shaman could see from the first timeline was very limited. It seemed that only the memories engraved on her soul could be read.</p>
+    <p>Fourth. I don’t know why, but it seemed like she again wanted to be my servant. Perhaps it was a side effect of looking into her ‘black world’ too much.</p>
+    <p>Only</p>
+    <p>Fifth. She had saved me back in the first timeline.</p>
+    <p>Sixth. Back in the first timeline, she had seen herself having a future with me. She decided to reject this.</p>
+    <p>Seventh. In the end, she felt sympathy for me and thus decided to save me. How she found me, or where she saved me was not known. However, the fact stood that she still took me in and nursed me to full recovery.</p>
+    <p>Lastly, the Lee Kiyoung from back then strangled her as soon as he had recovered, yet she still refused to change the future.</p>
+    <p>Or perhaps she did, but couldn’t. In short, I had stabbed the person who had decided to save me. There was no excuse for any of my actions.</p>
+    <p>‘I was a total piece of trash…’</p>
+    <p>I felt ashamed of myself back then. I must have been a real asshole.</p>
+    <p>‘This… bastard…</p>
+  </article>
+</div>
+
+<div id="merge-status"></div>
+
+<nav>
+  <span class="nav-left"><a href="119.html" rel="prev">&#8592; Ch 119</a></span>
+  <span class="nav-mid">
+    <button class="btn-merge" id="btn-merge" >Merge Next 10</button>
+  </span>
+  <span class="nav-right"><a href="121.html" rel="next">Ch 121 &#8594;</a></span>
+</nav>
+
+<script>
+  // Chapters available after this one — discovered from meta.json
+  var slug       = "regressor-instruction-manual";
+  var currentNum = 120;
+  var nextNum    = 121;
+  var maxLoaded  = currentNum;
+  var allNums    = null;   // loaded lazily from meta.json
+  var merging    = false;
+  var root       = "../../";
+
+  async function getNums() {
+    if (allNums) return allNums;
+    var res = await fetch(root + "data/" + slug + "/meta.json");
+    var meta = await res.json();
+    allNums = meta.chapters.map(function(c){ return c.num; });
+    return allNums;
+  }
+
+  document.getElementById("btn-merge").addEventListener("click", async function() {
+    if (merging) return;
+    merging = true;
+    var btn    = document.getElementById("btn-merge");
+    var status = document.getElementById("merge-status");
+    btn.textContent = "Loading…";
+    btn.disabled = true;
+
+    var nums   = await getNums();
+    var idx    = nums.indexOf(maxLoaded);
+    var toLoad = nums.slice(idx + 1, idx + 11);
+    if (!toLoad.length) { merging = false; return; }
+
+    status.style.display = "block";
+    status.textContent = "Fetching chapters " + toLoad[0] + "–" + toLoad[toLoad.length-1] + "…";
+
+    var container = document.getElementById("chapters");
+    var firstNew  = null;
+
+    for (var i = 0; i < toLoad.length; i++) {
+      var n = toLoad[i];
+      try {
+        var res  = await fetch(n + ".html");
+        var html = await res.text();
+        var doc  = new DOMParser().parseFromString(html, "text/html");
+        var art  = doc.querySelector("article");
+        var h1   = doc.querySelector("h1");
+        if (!art) continue;
+
+        // Divider
+        var divider = document.createElement("div");
+        divider.className = "ch-divider";
+        divider.textContent = "Chapter " + n;
+        container.appendChild(divider);
+
+        // Chapter title
+        if (h1) {
+          var chTitle = document.createElement("div");
+          chTitle.className = "ch-title";
+          chTitle.textContent = h1.textContent;
+          container.appendChild(chTitle);
+        }
+
+        // Content
+        var section = document.createElement("article");
+        section.id = "ch-" + n;
+        section.innerHTML = art.innerHTML;
+        container.appendChild(section);
+
+        if (!firstNew) firstNew = divider;
+        maxLoaded = n;
+      } catch(e) {
+        console.warn("Failed to load chapter " + n, e);
+      }
+    }
+
+    // Update nav next link
+    var nextIdx = nums.indexOf(maxLoaded) + 1;
+    var newNext = nextIdx < nums.length ? nums[nextIdx] : null;
+    var navRight = document.querySelector(".nav-right");
+    if (newNext) {
+      navRight.innerHTML = '<a href="' + newNext + '.html" rel="next">Ch ' + newNext + ' &#8594;</a>';
+    } else {
+      navRight.innerHTML = '<span></span>';
+    }
+
+    status.style.display = "none";
+    btn.textContent = newNext ? "⊕ Merge Next 10" : "✓ All loaded";
+    btn.disabled = !newNext;
+    merging = false;
+
+    if (firstNew) firstNew.scrollIntoView({ behavior:"smooth", block:"start" });
+  });
+</script>
+</body>
+</html>

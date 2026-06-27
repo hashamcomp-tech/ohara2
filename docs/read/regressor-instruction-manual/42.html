@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chapter 42 — Regressor Instruction Manual</title>
+  <style>
+    :root { --ink:#1a1a1a; --dim:#666; --bg:#fff; --gold:#8a6a1a; --border:#ddd; }
+    @media (prefers-color-scheme:dark) {
+      :root { --ink:#e9e4da; --dim:#9a9286; --bg:#111010; --gold:#c9a84c; --border:#2a2825; }
+    }
+    *{ box-sizing:border-box; margin:0; padding:0; }
+    body{ background:var(--bg); color:var(--ink); font-family:Georgia,'Times New Roman',serif;
+          font-size:1.125rem; line-height:1.85; padding:40px 24px 80px;
+          max-width:680px; margin:0 auto; }
+    header{ margin-bottom:32px; padding-bottom:20px; border-bottom:1px solid var(--border); }
+    header a{ color:var(--gold); text-decoration:none; font-size:.85rem; }
+    h1{ font-size:1.35rem; font-weight:700; margin-top:10px; line-height:1.25; }
+    article p{ margin-bottom:1.4em; text-align:justify; hyphens:auto; }
+    .ch-divider{ text-align:center; padding:28px 0 16px; color:var(--dim);
+                  font-size:.8rem; letter-spacing:.1em; text-transform:uppercase; }
+    .ch-divider::before,.ch-divider::after{ content:''; display:inline-block;
+      width:40px; height:1px; background:var(--border); vertical-align:middle; margin:0 12px; }
+    .ch-title{ font-size:1.1rem; font-weight:700; color:var(--gold); margin-bottom:16px; }
+    nav{ display:grid; grid-template-columns:1fr auto 1fr; gap:10px; align-items:center;
+          margin-top:48px; padding-top:20px; border-top:1px solid var(--border); font-size:.88rem; }
+    nav a{ color:var(--gold); text-decoration:none; }
+    nav a:hover{ text-decoration:underline; }
+    nav .nav-right{ text-align:right; }
+    nav .nav-mid{ text-align:center; }
+    .btn-merge{ background:rgba(138,106,26,.12); border:1px solid var(--gold);
+                 color:var(--gold); padding:9px 16px; border-radius:6px; cursor:pointer;
+                 font-family:Georgia,serif; font-size:.85rem; font-weight:600;
+                 transition:background .15s; white-space:nowrap; }
+    .btn-merge:hover:not(:disabled){ background:rgba(138,106,26,.25); }
+    .btn-merge:disabled{ opacity:.35; cursor:not-allowed; }
+    #merge-status{ text-align:center; padding:12px; font-size:.82rem;
+                    color:var(--dim); display:none; }
+  </style>
+</head>
+<body>
+<header>
+  <a href="../../novel.html?slug=regressor-instruction-manual">&larr; Regressor Instruction Manual</a>
+  <h1 id="page-title">Chapter 42</h1>
+</header>
+
+<div id="chapters">
+  <article id="ch-42">
+    <p>Chapter 42: Let’s raise the ransom (2)</p>
+    <p>It was hard for everyone to understand what happened and how it had occurred. It seemed that I was not dreaming after all. Jung Hayan’s performance really guaranteed a better outcome than what I expected.</p>
+    <p>It was natural that a general buzz of noisiness descended upon the crowd after the initial pause of silence.</p>
+    <p>“Did you bring her profile?!”</p>
+    <p>“How did you say the negotiations with the Blue Guild were going on?”</p>
+    <p>“It’s an unconditional recruitment. Who is the guild master?”</p>
+    <p>“You said that the down payment doesn’t matter. It has already been granted.”</p>
+    <p>“What were the personnel in charge of the guild doing? No more detailed data? Didn’t you get anything from the Blue Guild?”</p>
+    <p>“Sorry, I’m sorry!”</p>
+    <p>“Fuck. Will this problem end with a simple sorry? Son of a bitch … Useless babies…”</p>
+    <p>It seemed that there was also a system that allowed one to communicate with a distant partner.</p>
+    <p>This is exactly what I expected. No, this was more than that.</p>
+    <p>You could see the guild executives gathering around, excitement showing on their faces as they hustled and jostled in an attempt to find out more about Jung Hayan.</p>
+    <p>Looking at Jung Hayan’s profile was only the first step. I could already see these executives trying to work out just where she would be and how much she could achieve if she were to join their respective guilds.</p>
+    <p>The other guilds were also approaching the Blue Guild at this point. As they had the primary bargaining power, some of the others were thinking about bargaining with them.</p>
+    <p>Of course, Lee Sang-hee and the executives of the Blue Guild would be agitated.</p>
+    <p>I knew our team quite the catch, but I did not expect to receive this much desire.</p>
+    <p>I caught a glimpse of Jung Hayan’s expression and could see that she was indeed feeling happy. She knew she had succeeded. She looked a little cute, staring at me like that with her hands clasped together.</p>
+    <p>I was curious as to what extent she had grown, and when I looked into her status window with my ability, her stats revealed themselves to me.</p>
+    <p>[Check player Jung Hayan’s status window and potential.]</p>
+    <p>[Name-Jung Hayan]</p>
+    <p>[Title-None. You should try a little more.]</p>
+    <p>[Age-21]</p>
+    <p>[Propensity-Pure Advocate]</p>
+    <p>[Profession-Elemental Wizard-Rare Grade]</p>
+    <p>[Job Effect-Acquisition of Basic Magic Knowledge]</p>
+    <p>[Job Effect-Intermediate Magic Knowledge Acquisition]</p>
+    <p>[Capacity]</p>
+    <p>[Strength-11/Growth Limit: Rare or less]</p>
+    <p>[Agility-11/Growth Limit: Rare or less]</p>
+    <p>[Health-16/Growth Limit: Hero or less]</p>
+    <p>[Intellect-29/Growth Limit: Hero or higher]</p>
+    <p>[Endurance-14/Growth Limit: Rare or less]</p>
+    <p>[Luck-25/Growth Limit: Hero or higher]</p>
+    <p>[Magic Power -31/Growth Limit: Legend or higher]</p>
+    <p>[Equipment-Divine Healing-Rare Grade]</p>
+    <p>[Talent-How to Become a Wizard-Hero Grade]</p>
+    <p>[General comment- Very good. The growth of the magic power point is most noticeable. It is showing an incomprehensible rate of growth, but there is a drawback, although not a big one, that the stats have not grown evenly. Player Lee Kiyoung is lucky. Make sure you don’t lose her. That’s the right way to survive. You just need to be careful riding on a good boat.]</p>
+    <p>’31 magic power?’</p>
+    <p>That was a ridiculous number.</p>
+    <p>In fact, you could not accurately determine whether it was high or not. Those who appeared to be Wizards have quite a variety of magical powers. They ranged from as low as 60 to as high as 80.</p>
+    <p>I didn’t know how much she practiced, but one thing was for sure - Jung Hayan’s growth was immense.</p>
+    <p>‘Is it possible to produce that level of power in such a short time?’</p>
+    <p>Taking this into consideration, it was highly possible that Jung Hayan had decided to be flexible with her abilities. She looked a little tired now, so that little spectacle must have cost a lot of magic. Nevertheless, if you looked at the noisy surrounding atmosphere, what Jung Hayan was showing now was a story that was difficult to explain in common sense.</p>
+    <p>-That… The demonstration is over…</p>
+    <p>Even before the moderator had finished talking, Jung Hayan had already started running in our direction. Although the crowds flocked to her, she seemed to have ignored them all.</p>
+    <p>‘I will accept business cards…’</p>
+    <p>“Oppa!” Jung Hayan’s face glowed. She was obviously expecting praise from me.</p>
+    <p>Since I didn’t see her properly this entire week, it was not unreasonable for me to show her a little approval.</p>
+    <p>“You did a good job, Hayan.”</p>
+    <p>“Thank you, Oppa…”</p>
+    <p>“Did you have a hard time?”</p>
+    <p>“No. Don’t worry, I didn’t!” there were tears in her eyes.</p>
+    <p>I was a little worried about whether it was okay to show such affection in such a crowded place, but both the Blue Guild’s head and the large guilds’ executives were looking at us.</p>
+    <p>‘This isn’t so bad. Rather, it’s actually good.’</p>
+    <p>It was not bad to show off that you had close friends. I opened my arms a little and hugged her tightly. Jung Hayan positively glowed.</p>
+    <p>As time passed, the heavy gazes in our direction started to become burdensome to the point where I started feeling embarrassed.</p>
+    <p>‘Ah…’</p>
+    <p>Of course, I was not that cunning as to show public affection in such a place.</p>
+    <p>“Oh, Oppa! Give me a hot kiss!” It was Park Deokgu who had jokingly spoken.</p>
+    <p>‘Stop it, you pig!”</p>
+    <p>“Oppa! Oppa! Oppa! You’re so hot as a man!”</p>
+    <p>As Park Deokgu continued to joke around, Jung Hayan’s expression eventually shifted. It was obvious that she was expecting more.</p>
+    <p>‘Jung Hayan…’</p>
+    <p>I always say, ‘Jung Hayan can’t be this stupid’. I didn’t talk out loud, but I was sure…</p>
+    <p>‘I’ve done this much, so I have to get a decent reward. I’ve been patient for a week.’ I felt like that was what she was saying.</p>
+    <p>It didn’t seem like such a bad idea. I wanted to announce, ‘She’s mine.’ in front of everyone.</p>
+    <p>I had to be careful, but I also had to do something.</p>
+    <p>After thinking about it, I gently grabbed her face with both hands and puckered my lips. I thought that a slow move would be the best way.</p>
+    <p>When I kissed her lightly on her forehead, I could feel Jung Hayan trembling.</p>
+    <p>It was only my lips touching her forehead, but the effect was more than I had imagined.</p>
+    <p>‘What…’</p>
+    <p>Not only was she hugging me tight enough to hurt my back, but her legs also started trembling. I glanced down at her and saw a face, reddened beyond imagination.</p>
+    <p>The appearance of her parted lips looked dangerous, but I thought that it didn’t matter. The entire time, I could feel the heavy gazes coming from the executives.</p>
+    <p>It didn’t matter who saw us; we gave off the perfect scenario as lovers.</p>
+    <p>At this point, the moderator seemed to be confused. The Blue Guild’s head had also noticed that something was wrong.</p>
+    <p>-That… Jung Hayan’s demonstration is over. VIPs, please do not leave your seats and act according to the procedure after all the schedules are finished. Likewise, there will be a demonstration of Kim Hyunsung, who participated in the first tutorial dungeon as a strategy team. The content of the demonstration is a duel…</p>
+    <p>“Hayan, I’m going to see Mr. Hyunsung now.”</p>
+    <p>“Ah… Yes, yes of course, Oppa.” Jung Hayan looked up at me and smiled. Although I felt uncomfortable, it was not unbearable. Rather, this would be appropriate as a reward in return for Jung Hayan’s performance.</p>
+    <p>Sure, it was burdensome as she was constantly trying to bury her face into my chest, but when Kim Hyunsung came out with a sword in the center of the training center, attention began to shift from us to him.</p>
+    <p>“Well, I feel alienated for no reason… Should I also get a girlfriend?”</p>
+    <p>“Concentrate on the duel, Deokgu. It’s probably quite worth seeing.”</p>
+    <p>“Even if my Hyung doesn’t say that, I’m not taking my eyes off it. I want to watch Kim Hyunsung too.”</p>
+    <p>-If you are ready, I would like you to send a signal.</p>
+    <p>Slowly, Kim Hyunsung raised his hand.</p>
+    <p>-Then, let’s get started.</p>
+    <p>I knew that the warrior series were going to demonstrate through sparring, while the wizard series would demonstrate magic, but the opponent did not look easy at all.</p>
+    <p>First, the stats themselves are higher than Kim Hyunsung’s own stats.</p>
+    <p>Of course, Kim Hyunsung would think otherwise.</p>
+    <p>The opponent’s expression slowly hardened upon looking at Kim Hyunsung, confidently holding his sword.</p>
+    <p>Jung Hayan was already a big hint that our party was not normal, but Kim Hyunsung? He was definitely taking us to another level altogether.</p>
+    <p>In an instant, he and his opponent disappeared from sight.</p>
+    <p>A battle unfolded that couldn’t even be caught up with normal eyes.</p>
+    <p>This was yet another spectacle, second only to Jung Hayan’s performance.</p>
+    <p>It seems that the distinguished guests who came to watch would be more than pleasantly surprised.</p>
+    <p>As the duel continued, I could see the audience’s eyes slowly widening.</p>
+    <p>‘Is it because you thought the only talented one was Jung Hayan?’</p>
+    <p>Well, they were obviously wrong.</p>
+    <p>‘Puh!’</p>
+    <p>When I saw the VIPs with their mouths hanging open, I could not resist smiling. However, I could only hear the sound of swords clashing.</p>
+    <p>‘Well done!’</p>
+    <p>We already knew that our lovely regressors would be strong, but this is the first time I’ve seen them fight properly.</p>
+    <p>The difference in stats was easily distinguishable.</p>
+    <p>However, if you looked at the face of his opponent, the answer would come out.</p>
+    <p>He now felt nervous. Kim Hyunsung had proven himself to be a formidable enemy.</p>
+    <p>‘He’s strong.’</p>
+    <p>Soon after, the opponent’s sword flew into the air. Kim Hyunsung did not bother retrieving his sword. He knew that he had already shown his worth.</p>
+    <p>The opponent, however, didn’t give up and swung his fist, but the moment the opponent pushed Kim Hyunsung with the same arm that dropped the sword, a roar resonated.</p>
+    <p>Kim Hyunsung bounced off to the other side.</p>
+    <p>“Ah!”</p>
+    <p>Quaang! It was safe to say that he could have broken a lot of bones after landing against the wall in such a rough manner, but when Kim Hyunsung simply got up and brushed the dust off his sleeves, it seemed that he wanted to show that his durability ability wasn’t bad either.</p>
+    <p>“I lost.”</p>
+    <p>‘It’s neat. This foxy guy is so strong!’</p>
+    <p>It did not matter. They had managed to show off all their strengths.</p>
+    <p>If the guy who just came in had overcome the veteran casually, the distinguished guests here would have thought it was strange.</p>
+    <p>Showing his skill through the duel had been a smart move for Kim Hyunsung.</p>
+    <p>Slowly, the applause started to fill in from the crowds. I could see the executives from the other guilds looking positively hungry.</p>
+    <p>In terms of impact, I would like to say that Jung Hayan would be one of the top rankers, but the demonstration that Kim Hyunsung showed definitely stood out.</p>
+    <p>“Huh…”</p>
+    <p>“Genius…”</p>
+    <p>-That… Kim Hyunsung’s demonstration is over… Please, distinguished guests, follow the procedure…</p>
+    <p>The voice of the moderator did not seem to reach our distinguished guests.</p>
+    <p>As soon as Kim Hyunsung’s battle was over, a lot of people jumped from their seats to approach Kim Hyunsung.</p>
+    <p>Nice try.</p>
+    <p>It wasn’t just Kim Hyunsung who became a star at this point.</p>
+    <p>“Would you mind talking for a minute?”</p>
+    <p>Only</p>
+    <p>“…”</p>
+    <p>“Lee Kiyoung, was it? And Jung Hayan. If it doesn’t bother you, can we take some of your time? This is Cha Hee-ra of the Red Mercenary Guild.”</p>
+    <p>I had also become quite the star as the pillar of a talented genius wizard.</p>
+    <p>‘This is…’</p>
+    <p>This was a situation where you couldn’t hide your humble smile.</p>
+    <p>The one who approached me was an unusually red-haired woman, offering out her hand for a handshake.</p>
+    <p>I didn’t know if I was just caught off guard, or if it was because I was, after all, a man, but my eyes were automatically drawn to her bold outfit.</p>
+    <p>‘Ah…’</p>
+  </article>
+</div>
+
+<div id="merge-status"></div>
+
+<nav>
+  <span class="nav-left"><a href="41.html" rel="prev">&#8592; Ch 41</a></span>
+  <span class="nav-mid">
+    <button class="btn-merge" id="btn-merge" >Merge Next 10</button>
+  </span>
+  <span class="nav-right"><a href="43.html" rel="next">Ch 43 &#8594;</a></span>
+</nav>
+
+<script>
+  // Chapters available after this one — discovered from meta.json
+  var slug       = "regressor-instruction-manual";
+  var currentNum = 42;
+  var nextNum    = 43;
+  var maxLoaded  = currentNum;
+  var allNums    = null;   // loaded lazily from meta.json
+  var merging    = false;
+  var root       = "../../";
+
+  async function getNums() {
+    if (allNums) return allNums;
+    var res = await fetch(root + "data/" + slug + "/meta.json");
+    var meta = await res.json();
+    allNums = meta.chapters.map(function(c){ return c.num; });
+    return allNums;
+  }
+
+  document.getElementById("btn-merge").addEventListener("click", async function() {
+    if (merging) return;
+    merging = true;
+    var btn    = document.getElementById("btn-merge");
+    var status = document.getElementById("merge-status");
+    btn.textContent = "Loading…";
+    btn.disabled = true;
+
+    var nums   = await getNums();
+    var idx    = nums.indexOf(maxLoaded);
+    var toLoad = nums.slice(idx + 1, idx + 11);
+    if (!toLoad.length) { merging = false; return; }
+
+    status.style.display = "block";
+    status.textContent = "Fetching chapters " + toLoad[0] + "–" + toLoad[toLoad.length-1] + "…";
+
+    var container = document.getElementById("chapters");
+    var firstNew  = null;
+
+    for (var i = 0; i < toLoad.length; i++) {
+      var n = toLoad[i];
+      try {
+        var res  = await fetch(n + ".html");
+        var html = await res.text();
+        var doc  = new DOMParser().parseFromString(html, "text/html");
+        var art  = doc.querySelector("article");
+        var h1   = doc.querySelector("h1");
+        if (!art) continue;
+
+        // Divider
+        var divider = document.createElement("div");
+        divider.className = "ch-divider";
+        divider.textContent = "Chapter " + n;
+        container.appendChild(divider);
+
+        // Chapter title
+        if (h1) {
+          var chTitle = document.createElement("div");
+          chTitle.className = "ch-title";
+          chTitle.textContent = h1.textContent;
+          container.appendChild(chTitle);
+        }
+
+        // Content
+        var section = document.createElement("article");
+        section.id = "ch-" + n;
+        section.innerHTML = art.innerHTML;
+        container.appendChild(section);
+
+        if (!firstNew) firstNew = divider;
+        maxLoaded = n;
+      } catch(e) {
+        console.warn("Failed to load chapter " + n, e);
+      }
+    }
+
+    // Update nav next link
+    var nextIdx = nums.indexOf(maxLoaded) + 1;
+    var newNext = nextIdx < nums.length ? nums[nextIdx] : null;
+    var navRight = document.querySelector(".nav-right");
+    if (newNext) {
+      navRight.innerHTML = '<a href="' + newNext + '.html" rel="next">Ch ' + newNext + ' &#8594;</a>';
+    } else {
+      navRight.innerHTML = '<span></span>';
+    }
+
+    status.style.display = "none";
+    btn.textContent = newNext ? "⊕ Merge Next 10" : "✓ All loaded";
+    btn.disabled = !newNext;
+    merging = false;
+
+    if (firstNew) firstNew.scrollIntoView({ behavior:"smooth", block:"start" });
+  });
+</script>
+</body>
+</html>

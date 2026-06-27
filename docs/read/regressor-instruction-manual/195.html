@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chapter 195 — Regressor Instruction Manual</title>
+  <style>
+    :root { --ink:#1a1a1a; --dim:#666; --bg:#fff; --gold:#8a6a1a; --border:#ddd; }
+    @media (prefers-color-scheme:dark) {
+      :root { --ink:#e9e4da; --dim:#9a9286; --bg:#111010; --gold:#c9a84c; --border:#2a2825; }
+    }
+    *{ box-sizing:border-box; margin:0; padding:0; }
+    body{ background:var(--bg); color:var(--ink); font-family:Georgia,'Times New Roman',serif;
+          font-size:1.125rem; line-height:1.85; padding:40px 24px 80px;
+          max-width:680px; margin:0 auto; }
+    header{ margin-bottom:32px; padding-bottom:20px; border-bottom:1px solid var(--border); }
+    header a{ color:var(--gold); text-decoration:none; font-size:.85rem; }
+    h1{ font-size:1.35rem; font-weight:700; margin-top:10px; line-height:1.25; }
+    article p{ margin-bottom:1.4em; text-align:justify; hyphens:auto; }
+    .ch-divider{ text-align:center; padding:28px 0 16px; color:var(--dim);
+                  font-size:.8rem; letter-spacing:.1em; text-transform:uppercase; }
+    .ch-divider::before,.ch-divider::after{ content:''; display:inline-block;
+      width:40px; height:1px; background:var(--border); vertical-align:middle; margin:0 12px; }
+    .ch-title{ font-size:1.1rem; font-weight:700; color:var(--gold); margin-bottom:16px; }
+    nav{ display:grid; grid-template-columns:1fr auto 1fr; gap:10px; align-items:center;
+          margin-top:48px; padding-top:20px; border-top:1px solid var(--border); font-size:.88rem; }
+    nav a{ color:var(--gold); text-decoration:none; }
+    nav a:hover{ text-decoration:underline; }
+    nav .nav-right{ text-align:right; }
+    nav .nav-mid{ text-align:center; }
+    .btn-merge{ background:rgba(138,106,26,.12); border:1px solid var(--gold);
+                 color:var(--gold); padding:9px 16px; border-radius:6px; cursor:pointer;
+                 font-family:Georgia,serif; font-size:.85rem; font-weight:600;
+                 transition:background .15s; white-space:nowrap; }
+    .btn-merge:hover:not(:disabled){ background:rgba(138,106,26,.25); }
+    .btn-merge:disabled{ opacity:.35; cursor:not-allowed; }
+    #merge-status{ text-align:center; padding:12px; font-size:.82rem;
+                    color:var(--dim); display:none; }
+  </style>
+</head>
+<body>
+<header>
+  <a href="../../novel.html?slug=regressor-instruction-manual">&larr; Regressor Instruction Manual</a>
+  <h1 id="page-title">Chapter 195</h1>
+</header>
+
+<div id="chapters">
+  <article id="ch-195">
+    <p>Chapter 195: Dragon’s nest, Experiment, Change, Enhancement (3)</p>
+    <p>“Hey, you crazy woman!”</p>
+    <p>I knew this continent was not very kind to women.</p>
+    <p>If you had talents like Cha Hee-ra, Jung Hayan, and Cho Hyejin, or if you were strong like Lee Jihye, the story was different. But most of the women who freely rode from the tutorial dungeon were considered the underdogs of this society.</p>
+    <p>Men also had a hard time when they had to fight monsters. Naturally, physically weak women would have a hard time, too.</p>
+    <p>The reality was that those without a wizard aptitude or priest aptitude gave up fighting even before they even started, and even if they had the aptitude, those without talent did not get many different results.</p>
+    <p>Even those who dared to go into a party hunt with some of the crazy guys would get humiliated. Female players exposed to the specifics of hunting or having to spend a long time with the homeless were naturally separated from hunting.</p>
+    <p>In fact, female players who were not in a guild did not get in easily unless they were in a fixed party. It wouldn’t be easy to trust in a man they had only seen for the first time in a situation where you had to spend days and nights together, either.</p>
+    <p>So, considering that most of the guild members were only women in the Black Swans, this problem felt a little more serious before we even came in.</p>
+    <p>In the end, the women who gave up living as players turned to be a common worker or got in a guild as a clerical worker.</p>
+    <p>However, guilds, clans, and even self-employed people did not pay them the proper wages.</p>
+    <p>The minimum wage system was implicitly set, but most of the time, they were not followed.</p>
+    <p>So, as a result, what was born was…</p>
+    <p>‘The Player Professional Women’s Loan.’</p>
+    <p>It was a legitimate loan company such as Love America or Garrosh &amp; Cash.</p>
+    <p>Lindel also had its own bank. Although it was a little primitive, the Holy Empire also ran an Empire bank, and loans and insurance products certainly existed here.</p>
+    <p>Obviously, people with no base could borrow money from such facilities.</p>
+    <p>‘Damn.’</p>
+    <p>In the end, a common cliché was that those who could not afford the snowball-inflated interest would get confined to a corner.</p>
+    <p>Of course, there were cases like mine, when wives with adventurer husbands were unable to meet their consumption barriers.</p>
+    <p>I never imagined that a dragon that wasn’t human would end up backstabbing me.</p>
+    <p>Dialugia looked confused with my reaction, apparently not having figured out the situation yet. Her bewilderment soon turned into anger.</p>
+    <p>“W-What did you say? It’s rude. I did it for you! This is a gift!”</p>
+    <p>“It’s for me, my ass!”</p>
+    <p>“You… really are a rude person! This kind of person is the father of Dialuria! Don’t humans understand what a gift of gratitude is?!”</p>
+    <p>“Are you saying this without knowing who is really rude?! Get the contract right now!”</p>
+    <p>“What?”</p>
+    <p>“I want you to get the contract quickly, you woman!”</p>
+    <p>After seeing me so perplexed, she began to realize that something was wrong. Hurriedly, she handed me the documents.</p>
+    <p>It would have been a little better if she had borrowed money from Garrosh &amp; Cash. It was a small clan, and Clan Master Gal Oh-shik’s power wasn’t too strong.</p>
+    <p>However, Kim Mijoo’s story from America Love was a bit different.</p>
+    <p>It was a little insufficient to be called a large guild, but at least, it had the force and network to protect itself. Of course, if one were to look at the size itself, it couldn’t be compared with the Red Mercenary, the Black Swan, the Blue, and the Yozora Guild, but not only had she legally borrowed money, she has already used it all.</p>
+    <p>Because of this, I felt annoyed about the prospect of all the time I would spend negotiating in the future. There were so many things to do right now that I didn’t even have the time to pay attention to it. The one who had asked to borrow money first was our side. Blue would not look good for all the other guilds or clans.</p>
+    <p>“H-Here it is.”</p>
+    <p>Suddenly, my irritation sprang up.</p>
+    <p>“I don’t need it!”</p>
+    <p>Having been unable to withstand my anger, I threw the contract away as soon as Dialugia handed it to me. She seemed unsure as to what she had done wrong, but the atmosphere made her feel that she had made a huge mistake, so she, of course, looked a little depressed.</p>
+    <p>This was a huge sum of money. Plus, it was Dialugia who had approached them first.</p>
+    <p>There was no excuse for this.</p>
+    <p>‘I already spent a lot of money in the underground arena…’</p>
+    <p>It would be hard to get help from the Yozora Guild. Perhaps the best option was to borrow money from the Black Swans or the Red Mercenaries.</p>
+    <p>I couldn’t wait to see the monetary interest increase more and more.</p>
+    <p>‘If there were a table, I would like to turn it over.’</p>
+    <p>I wanted to explode. However, I had to restrain myself. Nothing good would come from falling out with Dialugia.</p>
+    <p>“I…told you … to not to come into contact with humans thoughtlessly, Dialugia.”</p>
+    <p>“I still don’t…”</p>
+    <p>“You don’t borrow gold carelessly. I know you are intelligent, but your sociality is the same as a child in terms of human society. I understand what you meant, but let’s learn this step by step. No, in the first place…!”</p>
+    <p>“Kieeek!”</p>
+    <p>“…”</p>
+    <p>“Kie-e-e-e-ee-ee-ee-ee-ee!”</p>
+    <p>“Oh! Did our Tol To-ri wake up?”</p>
+    <p>“Haaa! Haaa!”</p>
+    <p>Tol To-ri managed to appear to save her mother just when I was about to explode. I wasn’t sure if my loud voice woke him up, but Dialugia must be thinking that he appeared at the right time.</p>
+    <p>I couldn’t get nervous in front of him since we had to look like a close couple.</p>
+    <p>In fact, the appearance of Tol To-ri jumping toward me was so cute that my anger got relieved for a moment. At this point, I think I could understand what it felt like to live for your children, so I didn’t need to say anything else.</p>
+    <p>“Oh! Yes, daddy’s come home. Did you miss me?”</p>
+    <p>“Kie-e-e-e-ee-ee Kie eh eh! Haaa! Haaa!”</p>
+    <p>Tol To-ri, shaking his tail like crazy, seemed to be on a sugar-high. He licked me all over, evidently showing how much he missed me.</p>
+    <p>Since he hadn’t seen my face for a long time, it would be natural for him to react like this.</p>
+    <p>“Yes, yes, daddy came back after work!”</p>
+    <p>“Kieehek!”</p>
+    <p>Perhaps he didn’t even know what I was saying. He excitedly jumped around, trying to be hugged.</p>
+    <p>As I picked him up and turned back to Dialugia, the woman averted her gaze.</p>
+    <p>“I… I can repay it.”</p>
+    <p>“How? Note that there is no option to sell any part of your body. Your body is entirely mine. That was a deal.”</p>
+    <p>“Kieek! Haaa!”</p>
+    <p>“T-Then I can go hunting and grab the monsters.”</p>
+    <p>“It is not an amount that can be covered by catching one or two monsters. And if you catch it, you can only use it to block interest, anyway. I will take care of the gold. Whoo. Tol To-ri is not the only creature that needs education. I think you should get some education, too. This shouldn’t happen next time.”</p>
+    <p>“…”</p>
+    <p>“I have something to check about your body right away, so please prepare for it.”</p>
+    <p>I was thinking of taking it easy, but with the sudden turn of events, I now wanted to head right into work. Anyway, the laboratory itself had already been completed.</p>
+    <p>Sure, I felt grateful, but I couldn’t even express it because of my instant annoyance.</p>
+    <p>She didn’t tell me, but Dialugia felt a little bit disappointed. In the end, I had to thank her quietly.</p>
+    <p>“And… Thank you for the gift. I gratefully accept your intentions.”</p>
+    <p>Only then did she begin to feel better.</p>
+    <p>After spending time with Tol To-ri, I thought it was appropriate to get to know her right away. I had a lot of work to do, so I had neglected this particular task.</p>
+    <p>‘In fact, I wanted to rest for a few days…’</p>
+    <p>However, my empty bankbook had slapped me in the face.</p>
+    <p>‘I was supposed to make money…’</p>
+    <p>Compared to the money I would make from now on, the money I had so far was only a small amount, anyway.</p>
+    <p>Even though I knew it better than anyone else, I couldn’t resist my anger. It was natural to think about how to approach Dialugia while spending time with Tol To-ri.</p>
+    <p>Meanwhile, Dialugia still looked immensely guilty.</p>
+    <p>“What should I do?”</p>
+    <p>She was looking at me with an expression depicting her lack of knowledge.</p>
+    <p>“First of all, you just need to change into your original body. I haven’t figured it out yet.”</p>
+    <p>“Ah, alright.”</p>
+    <p>As soon as I finished speaking, I saw something wrong happening with her body. Her clothes were torn, but there was no time to appreciate her body openly, seeing as she was slowly transforming back into dragon form.</p>
+    <p>Her unique scales grew along the arms, and the appearance of human skin breaking out to form dragon’s skin looked really fascinating. I could hear the sound of twisting bones and muscles, but it didn’t look painful. It was as natural as walking.</p>
+    <p>“Grooooaarr…”</p>
+    <p>Her dragon form was still too overwhelming for me to bear. My jaw was dropped without my knowledge. I honestly still found her scary like this. Now I was starting to regret throwing the contract in her face.</p>
+    <p>I didn’t know how I was being reflected in her gaze right now, but Dialugia’s appearance from up close was really overwhelming.</p>
+    <p>I could see her big eyes staring straight at me.</p>
+    <p>“Wow…”</p>
+    <p>Dialugia had big horns, as well as teeth that seemed to be able to chew and swallow me whole. Looking at her glossy leather and scales, I could feel that a dragon was really in front of me.</p>
+    <p>-Is it weird?</p>
+    <p>“Huh?”</p>
+    <p>-I can only convey my mind to my spouse. Somehow, the body organs of dragons are impossible to speak out human language…</p>
+    <p>“I see what you mean. You don’t look weird. I just thought it was really great. At that time, you only looked scary, but looking at you calmly makes me feel really surprised.”</p>
+    <p>‘You blew away my money, but…’</p>
+    <p>“At first, I’ll start by simply analyzing your blood. After that, we will measure the numbers and employ it hurts, you have to tell me.”</p>
+    <p>I put into her arm a specially designed syringe and slowly drained her of some of her blood. Immediately I heard her voice.</p>
+    <p>-It tickles. Hee… Hihi. Hihihi.</p>
+    <p>The sound of her laughter was lighter than I thought.</p>
+    <p>“Please be patient.”</p>
+    <p>-Hee… Hihihihi!</p>
+    <p>“If you don’t want to see me dying, don’t move!”</p>
+    <p>-But…</p>
+    <p>“It’s all over now. Please be a little careful. My body is really fragile.”</p>
+    <p>-Don’t worry, I’ll be careful.</p>
+    <p>In fact, I didn’t think this study would be finished overnight. I worked quickly because I didn’t know how long this would take.</p>
+    <p>Immediately, I activated my Mind’s Eye and began to transfer her blood to the pension kit.</p>
+    <p>Her blood became separated little by little, transferred to each flask, and immediately reacted with the catalysts.</p>
+    <p>I wasn’t hoping for a result. My first step was to check how it reacted to the equipment I had prepared. It was natural to extract cells and search for any genes.</p>
+    <p>I thought it would be better to experiment with this equipment first because it may take a little time to calculate with my current equipment and magic power.</p>
+    <p>‘Where should I dig into?’</p>
+    <p>[The first to discover the legendary-grade catalyst -.]</p>
+    <p>[Intelligence increases by 1.]</p>
+    <p>[The first to discover the legendary-grade catalyst -.]</p>
+    <p>[Intelligence increases by 1.]</p>
+    <p>[The first to discover the legendary-grade catalyst -.]</p>
+    <p>[Intelligence increases by 1.]</p>
+    <p>[Please enter the name of the catalyst directly.]</p>
+    <p>[You got a new title.]</p>
+    <p>[First Discoverer]</p>
+    <p>[This title is for players who have discovered a new material that did not previously exist on the continent. Intelligence increases by 1.]</p>
+    <p>[Alchemist Who Experimented with Dragons]</p>
+    <p>[This title is for the first player on the continent who explored living dragons. Intelligence increases by 1.]</p>
+    <p>[We admire your endless search for alchemy and truth, as well as your adventurous spirit.]</p>
+    <p>[Discovered a new legendary-grade class.]</p>
+    <p>[Dragon Alchemist: (Unique Legendary)]</p>
+    <p>“I love you!”</p>
+    <p>At that moment, I forgot that she had blown all my fortune.</p>
+  </article>
+</div>
+
+<div id="merge-status"></div>
+
+<nav>
+  <span class="nav-left"><a href="194.html" rel="prev">&#8592; Ch 194</a></span>
+  <span class="nav-mid">
+    <button class="btn-merge" id="btn-merge" >Merge Next 10</button>
+  </span>
+  <span class="nav-right"><a href="196.html" rel="next">Ch 196 &#8594;</a></span>
+</nav>
+
+<script>
+  // Chapters available after this one — discovered from meta.json
+  var slug       = "regressor-instruction-manual";
+  var currentNum = 195;
+  var nextNum    = 196;
+  var maxLoaded  = currentNum;
+  var allNums    = null;   // loaded lazily from meta.json
+  var merging    = false;
+  var root       = "../../";
+
+  async function getNums() {
+    if (allNums) return allNums;
+    var res = await fetch(root + "data/" + slug + "/meta.json");
+    var meta = await res.json();
+    allNums = meta.chapters.map(function(c){ return c.num; });
+    return allNums;
+  }
+
+  document.getElementById("btn-merge").addEventListener("click", async function() {
+    if (merging) return;
+    merging = true;
+    var btn    = document.getElementById("btn-merge");
+    var status = document.getElementById("merge-status");
+    btn.textContent = "Loading…";
+    btn.disabled = true;
+
+    var nums   = await getNums();
+    var idx    = nums.indexOf(maxLoaded);
+    var toLoad = nums.slice(idx + 1, idx + 11);
+    if (!toLoad.length) { merging = false; return; }
+
+    status.style.display = "block";
+    status.textContent = "Fetching chapters " + toLoad[0] + "–" + toLoad[toLoad.length-1] + "…";
+
+    var container = document.getElementById("chapters");
+    var firstNew  = null;
+
+    for (var i = 0; i < toLoad.length; i++) {
+      var n = toLoad[i];
+      try {
+        var res  = await fetch(n + ".html");
+        var html = await res.text();
+        var doc  = new DOMParser().parseFromString(html, "text/html");
+        var art  = doc.querySelector("article");
+        var h1   = doc.querySelector("h1");
+        if (!art) continue;
+
+        // Divider
+        var divider = document.createElement("div");
+        divider.className = "ch-divider";
+        divider.textContent = "Chapter " + n;
+        container.appendChild(divider);
+
+        // Chapter title
+        if (h1) {
+          var chTitle = document.createElement("div");
+          chTitle.className = "ch-title";
+          chTitle.textContent = h1.textContent;
+          container.appendChild(chTitle);
+        }
+
+        // Content
+        var section = document.createElement("article");
+        section.id = "ch-" + n;
+        section.innerHTML = art.innerHTML;
+        container.appendChild(section);
+
+        if (!firstNew) firstNew = divider;
+        maxLoaded = n;
+      } catch(e) {
+        console.warn("Failed to load chapter " + n, e);
+      }
+    }
+
+    // Update nav next link
+    var nextIdx = nums.indexOf(maxLoaded) + 1;
+    var newNext = nextIdx < nums.length ? nums[nextIdx] : null;
+    var navRight = document.querySelector(".nav-right");
+    if (newNext) {
+      navRight.innerHTML = '<a href="' + newNext + '.html" rel="next">Ch ' + newNext + ' &#8594;</a>';
+    } else {
+      navRight.innerHTML = '<span></span>';
+    }
+
+    status.style.display = "none";
+    btn.textContent = newNext ? "⊕ Merge Next 10" : "✓ All loaded";
+    btn.disabled = !newNext;
+    merging = false;
+
+    if (firstNew) firstNew.scrollIntoView({ behavior:"smooth", block:"start" });
+  });
+</script>
+</body>
+</html>

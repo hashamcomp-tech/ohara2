@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chapter 54 — Regressor Instruction Manual</title>
+  <style>
+    :root { --ink:#1a1a1a; --dim:#666; --bg:#fff; --gold:#8a6a1a; --border:#ddd; }
+    @media (prefers-color-scheme:dark) {
+      :root { --ink:#e9e4da; --dim:#9a9286; --bg:#111010; --gold:#c9a84c; --border:#2a2825; }
+    }
+    *{ box-sizing:border-box; margin:0; padding:0; }
+    body{ background:var(--bg); color:var(--ink); font-family:Georgia,'Times New Roman',serif;
+          font-size:1.125rem; line-height:1.85; padding:40px 24px 80px;
+          max-width:680px; margin:0 auto; }
+    header{ margin-bottom:32px; padding-bottom:20px; border-bottom:1px solid var(--border); }
+    header a{ color:var(--gold); text-decoration:none; font-size:.85rem; }
+    h1{ font-size:1.35rem; font-weight:700; margin-top:10px; line-height:1.25; }
+    article p{ margin-bottom:1.4em; text-align:justify; hyphens:auto; }
+    .ch-divider{ text-align:center; padding:28px 0 16px; color:var(--dim);
+                  font-size:.8rem; letter-spacing:.1em; text-transform:uppercase; }
+    .ch-divider::before,.ch-divider::after{ content:''; display:inline-block;
+      width:40px; height:1px; background:var(--border); vertical-align:middle; margin:0 12px; }
+    .ch-title{ font-size:1.1rem; font-weight:700; color:var(--gold); margin-bottom:16px; }
+    nav{ display:grid; grid-template-columns:1fr auto 1fr; gap:10px; align-items:center;
+          margin-top:48px; padding-top:20px; border-top:1px solid var(--border); font-size:.88rem; }
+    nav a{ color:var(--gold); text-decoration:none; }
+    nav a:hover{ text-decoration:underline; }
+    nav .nav-right{ text-align:right; }
+    nav .nav-mid{ text-align:center; }
+    .btn-merge{ background:rgba(138,106,26,.12); border:1px solid var(--gold);
+                 color:var(--gold); padding:9px 16px; border-radius:6px; cursor:pointer;
+                 font-family:Georgia,serif; font-size:.85rem; font-weight:600;
+                 transition:background .15s; white-space:nowrap; }
+    .btn-merge:hover:not(:disabled){ background:rgba(138,106,26,.25); }
+    .btn-merge:disabled{ opacity:.35; cursor:not-allowed; }
+    #merge-status{ text-align:center; padding:12px; font-size:.82rem;
+                    color:var(--dim); display:none; }
+  </style>
+</head>
+<body>
+<header>
+  <a href="../../novel.html?slug=regressor-instruction-manual">&larr; Regressor Instruction Manual</a>
+  <h1 id="page-title">Chapter 54</h1>
+</header>
+
+<div id="chapters">
+  <article id="ch-54">
+    <p>Chapter 54: Just because you are poor, it doesn’t mean you’re a good person (3)</p>
+    <p>“What are you thinking of?”</p>
+    <p>“I’m not thinking of anything. Honestly, I just want to show you that what I said is right.” I couldn’t help it at this point - I laughed.</p>
+    <p>‘What money…’</p>
+    <p>The sole fact that I hired all these people would prove to be quite problematic for me financially. The catalyst I was gaining from my alchemy right now was inadequate for a continuous payroll. I wasn’t in a problematic situation as of the moment, but I knew I could have used the money for better things.</p>
+    <p>However, I also found this situation an ideal event to conduct clinical trials very cheaply, and I knew the smug feeling from proving Sun Hee-young wrong would be worth the money. After all, business benefits could be found in many aspects.</p>
+    <p>‘Why did I have to go this far to break her line of thinking? One may ask. That was because this was my plan to recruit her into my party.’</p>
+    <p>‘I have been in this place for three years. It was two years ago that I began to be called the Saint of the Forsaken. I started as a member of the temple, not a clan or guild, and after leaving the temple, I continued to devote myself to volunteer activities. I have been rejecting offers from large guilds or small and medium-sized clans for two years.’</p>
+    <p>This was her brilliant backstory.</p>
+    <p>Despite being able to ride the elite course like me, she had still chosen the path to the temple. Because of her upbringing, I knew why she had chosen to live a life like this. The people who considered themselves saints of the forsaken made it their ultimate mission to relieve the poor from their sufferings.</p>
+    <p>Proof of this manifested itself in Sun Hee-young, for she had refused any contracts or treaties with any guilds or clans for two years. I couldn’t even imagine the number of offers she must have received in her lifetime.</p>
+    <p>Of course, some of the desperate offers may have included full-scale relief for the poor. Nevertheless, she had refused even those, and the reason was quite obvious.</p>
+    <p>It was because she thought she had to do it herself.</p>
+    <p>Honestly, I didn’t know why she had such an attachment to these people when she barely even knew them, but I couldn’t find it in me to care about that as of the moment. The first task was to separate her from the poor.</p>
+    <p>Looking ahead, I could see people who were working quite hard on their tasks. Some also looked quite motivated.</p>
+    <p>I thought maybe my plan would get ruined, but I didn’t feel worried at the moment.</p>
+    <p>“There are people in the slums who have yet to find work… Are you not going to hire them?”</p>
+    <p>“Just wait. I will go when the right time comes.”</p>
+    <p>“Do you have anything else to say? This is just a simple labor of moving rocks. The weather will be a little hot because of the sunlight, but it will be a valuable drop of sweat for them after a long time. Seeing those who feel the true value of labor, I feel like I want to join them in moving rocks.”</p>
+    <p>“Sounds like a taunt.”</p>
+    <p>“You’re mistaken.”</p>
+    <p>Of course, it didn’t look like she took my side very well. If I were in her position, I wouldn’t like myself either. I was a man that defied her values.</p>
+    <p>This, of course, turned the tides in my favor. My way was effective because it was an entirely different approach from how most people would usually approach Sun Hee-young.</p>
+    <p>“What on earth do you mean that it is I who have tamed them?”</p>
+    <p>“Take it literally. These people are all capable of working, they just don’t want to.”</p>
+    <p>“Can’t you see that they are working right now?”</p>
+    <p>“I can see what’s happening in front of me quite well. The question is… can you?”</p>
+    <p>“What…”</p>
+    <p>“In the Free City of Lindel, these kinds of jobs are widespread.”</p>
+    <p>‘Although…yes, it’s a bit dangerous.’</p>
+    <p>“Of course, it’s undeniable that working with me is beneficial, but… There are many similar things to this kind of work. The eastern region has undergone redevelopment, and the Red Mercenary Guild is said to be seeking handymen needed to make the tower this time. Not only that… Did you know that there is currently a large-scale construction going on near the tutorial? Maybe even these people know.”</p>
+    <p>“…”</p>
+    <p>“I gave them the motivation to start working today. They wanted to prove they weren’t lazy pigs. You may want to back off a little bit for their true colors to shine.”</p>
+    <p>“Then…”</p>
+    <p>“They were agitated. They probably didn’t realize this since I riled them up in a positive manner instead of a negative one. Well, I still stick to what I’ve said.”</p>
+    <p>“What…”</p>
+    <p>“Human nature doesn’t change so easily. They may be motivated right now, as what you and I both can see. But this won’t even last a month. These people will eventually miss hanging around in the slums instead of working hard under the sun. They’ll miss the free relief goods they get instead of working for their keep. No one wants to experience the pain and exhaustion of always working.”</p>
+    <p>“I know what you’re thinking, but you’re wrong. People can change if they want to.”</p>
+    <p>“Then what about my reasoning that the Saint of the Forsaken has changed them? In the end, they are just dogs that feed on ordinary people.”</p>
+    <p>“You!”</p>
+    <p>‘Did I go too far?’</p>
+    <p>I could see Sun Hee-young trembling on the spot, and quite frankly, I could feel a tremor of fear running down my spine. Her big eyes had begun to fill with tears.</p>
+    <p>I thought about whether I was pushing a girl who didn’t know anything, but I also thought this kind of stimulation was necessary. Even though she believed I was wrong, I successfully planted seeds of doubt in her mind.</p>
+    <p>‘What if that man’s words are true?’</p>
+    <p>Even if such small doubts arose, a woman who served others and sought value would be ruined. Our dear little saint right here looked a little weak.</p>
+    <p>“It won’t work the way you think. It is arrogance and self-righteousness that urge these people to do their job. The world never works the way you wish for it to be.”</p>
+    <p>“I do not know about that.”</p>
+    <p>“Just wait. They will show you their true colors and you’ll have a reason to think differently afterwards.”</p>
+    <p>“Is there any reason to think like that?”</p>
+    <p>“It’s a part that can be seen so obviously when you have a realistic point of view.”</p>
+    <p>At her silence, I began to speak again.</p>
+    <p>“…Did you ever hear of the underdog effect?”</p>
+    <p>“…”</p>
+    <p>“It is a word that refers to the basic error of distinguishing a good person from an evil person by the difference in strength.”</p>
+    <p>“…”</p>
+    <p>“In short, being poor doesn’t automatically mean you’re a good person.”</p>
+    <p>“…”</p>
+    <p>“Perhaps he’s just a simple and kind person in front of you. Playing victim is obviously the best approach when it comes to softhearted and stronger individuals. But they are also perpetrators from somewhere. The slums are not a heaven where the angels live. It is still part of the society we live in. A society where all kinds of dirty and unbelievable things are common.”</p>
+    <p>“If societies are like what you think…”</p>
+    <p>“It’s rotten. Where humans are, there is always conflict. If you can’t believe it, I’d recommend a little experiment.”</p>
+    <p>“What…”</p>
+    <p>“You try to be the poor yourself. Not from the position of a saint who saves them, but to live in the same position as the poor. Then there will be something to feel. Why don’t you try it for one week? No, just one day will be enough.”</p>
+    <p>“I can’t…”</p>
+    <p>“I know what you’re worried about. You’re worried about people who might be hungry without you. But it’s okay to disappear for a day or so. Don’t you have wonderful friends who are following you in this kind of service?”</p>
+    <p>‘Of course, your friends are the type of people who only go because of you.’</p>
+    <p>At her hesitation, I raised an eyebrow challengingly and smirked. “Or are you just not confident?”</p>
+    <p>“You’re right… I’m not.”</p>
+    <p>“We’ll do the preparations here.”</p>
+    <p>“You really… You are a disgusting person.”</p>
+    <p>“What was that? Can’t you respond more confidently?”</p>
+    <p>“Whether or not I respond with confidence does not matter. You are treating them like zoo animals!”</p>
+    <p>“You will respond. You won’t respond. Both do matter. You think this is an opportunity to be able to help the less able. You are correct.”</p>
+    <p>“You will regret this.”</p>
+    <p>“I don’t know… It will be you, not me, who will end up regretting.”</p>
+    <p>Seeing Sun Hee-young biting her lips in doubt and turning away was quite the spectacle.</p>
+    <p>‘I’m so naive…’ I could hear her cognitive functions whirling.</p>
+    <p>Certainly, maintaining that kind of naïveté in such a place was a blessing, especially for someone who came from Earth.</p>
+    <p>Looking back at the scene before me, I could still see the people trying their best to work hard, sweat pouring down their faces as they moved the stones.</p>
+    <p>“Hey there!”</p>
+    <p>“I don’t think I can transfer this…”</p>
+    <p>“We will have enough strength if everyone gathers together.”</p>
+    <p>“Yeah.”</p>
+    <p>“Hey, Kim! Come on, quickly!”</p>
+    <p>“I’ll just finish this and go!”</p>
+    <p>As soon as Sun Hee-young moved away, Jung Hayan worriedly rushed to my side. Her quick hug made me feel a little better.</p>
+    <p>Judging by the notebook she was holding in one hand, she seemed to have worked hard on the work entrusted to her.</p>
+    <p>“Oppa.”</p>
+    <p>“Are you doing well?”</p>
+    <p>“Yeah, I am.”</p>
+    <p>“Shall we listen to what you have to say?”</p>
+    <p>“Yeah! So, um…”</p>
+    <p>“Huh?”</p>
+    <p>“Test 13 seems to be a little helpless. I think he got angry more than a couple of times… Numbers 7 and 8 seemed to be working hard.”</p>
+    <p>“I heard a loud noise from the inside a little earlier.”</p>
+    <p>“That was number 56 and number 75. There seemed to be something that happened between them while working. I didn’t pay enough attention, I’m sorry.”</p>
+    <p>“No, just knowing that there is a problem is enough. How about number 38?”</p>
+    <p>“Ah. Number 38 was fluctuating. He didn’t seem motivated enough to continue on. He also said he would quit soon. Numbers 93 and 95 agreed with the words of number 38.”</p>
+    <p>“Ahhh. I like that. That’s a good outcome.”</p>
+    <p>“Mmhm, yeah.”</p>
+    <p>“I had a hard time, Hayan, but thanks to you, my work became easier.”</p>
+    <p>Only</p>
+    <p>“I-It’s fine, Oppa.”</p>
+    <p>“And just in case… Is there a type of magic that can change one’s appearance?”</p>
+    <p>“Yes, there is.”</p>
+    <p>“It will be enough to change the facial structure slightly with magic. Will it be difficult to do?”</p>
+    <p>“Ah! I think that’s possible to do. But why?”</p>
+    <p>“I think I should show a princess who doesn’t know the world about how dirty people live.”</p>
+    <p>Jung Hayan began to smile at my words. “I see what you mean.”</p>
+  </article>
+</div>
+
+<div id="merge-status"></div>
+
+<nav>
+  <span class="nav-left"><a href="53.html" rel="prev">&#8592; Ch 53</a></span>
+  <span class="nav-mid">
+    <button class="btn-merge" id="btn-merge" >Merge Next 10</button>
+  </span>
+  <span class="nav-right"><a href="55.html" rel="next">Ch 55 &#8594;</a></span>
+</nav>
+
+<script>
+  // Chapters available after this one — discovered from meta.json
+  var slug       = "regressor-instruction-manual";
+  var currentNum = 54;
+  var nextNum    = 55;
+  var maxLoaded  = currentNum;
+  var allNums    = null;   // loaded lazily from meta.json
+  var merging    = false;
+  var root       = "../../";
+
+  async function getNums() {
+    if (allNums) return allNums;
+    var res = await fetch(root + "data/" + slug + "/meta.json");
+    var meta = await res.json();
+    allNums = meta.chapters.map(function(c){ return c.num; });
+    return allNums;
+  }
+
+  document.getElementById("btn-merge").addEventListener("click", async function() {
+    if (merging) return;
+    merging = true;
+    var btn    = document.getElementById("btn-merge");
+    var status = document.getElementById("merge-status");
+    btn.textContent = "Loading…";
+    btn.disabled = true;
+
+    var nums   = await getNums();
+    var idx    = nums.indexOf(maxLoaded);
+    var toLoad = nums.slice(idx + 1, idx + 11);
+    if (!toLoad.length) { merging = false; return; }
+
+    status.style.display = "block";
+    status.textContent = "Fetching chapters " + toLoad[0] + "–" + toLoad[toLoad.length-1] + "…";
+
+    var container = document.getElementById("chapters");
+    var firstNew  = null;
+
+    for (var i = 0; i < toLoad.length; i++) {
+      var n = toLoad[i];
+      try {
+        var res  = await fetch(n + ".html");
+        var html = await res.text();
+        var doc  = new DOMParser().parseFromString(html, "text/html");
+        var art  = doc.querySelector("article");
+        var h1   = doc.querySelector("h1");
+        if (!art) continue;
+
+        // Divider
+        var divider = document.createElement("div");
+        divider.className = "ch-divider";
+        divider.textContent = "Chapter " + n;
+        container.appendChild(divider);
+
+        // Chapter title
+        if (h1) {
+          var chTitle = document.createElement("div");
+          chTitle.className = "ch-title";
+          chTitle.textContent = h1.textContent;
+          container.appendChild(chTitle);
+        }
+
+        // Content
+        var section = document.createElement("article");
+        section.id = "ch-" + n;
+        section.innerHTML = art.innerHTML;
+        container.appendChild(section);
+
+        if (!firstNew) firstNew = divider;
+        maxLoaded = n;
+      } catch(e) {
+        console.warn("Failed to load chapter " + n, e);
+      }
+    }
+
+    // Update nav next link
+    var nextIdx = nums.indexOf(maxLoaded) + 1;
+    var newNext = nextIdx < nums.length ? nums[nextIdx] : null;
+    var navRight = document.querySelector(".nav-right");
+    if (newNext) {
+      navRight.innerHTML = '<a href="' + newNext + '.html" rel="next">Ch ' + newNext + ' &#8594;</a>';
+    } else {
+      navRight.innerHTML = '<span></span>';
+    }
+
+    status.style.display = "none";
+    btn.textContent = newNext ? "⊕ Merge Next 10" : "✓ All loaded";
+    btn.disabled = !newNext;
+    merging = false;
+
+    if (firstNew) firstNew.scrollIntoView({ behavior:"smooth", block:"start" });
+  });
+</script>
+</body>
+</html>

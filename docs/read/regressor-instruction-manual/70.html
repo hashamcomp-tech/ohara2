@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chapter 70 — Regressor Instruction Manual</title>
+  <style>
+    :root { --ink:#1a1a1a; --dim:#666; --bg:#fff; --gold:#8a6a1a; --border:#ddd; }
+    @media (prefers-color-scheme:dark) {
+      :root { --ink:#e9e4da; --dim:#9a9286; --bg:#111010; --gold:#c9a84c; --border:#2a2825; }
+    }
+    *{ box-sizing:border-box; margin:0; padding:0; }
+    body{ background:var(--bg); color:var(--ink); font-family:Georgia,'Times New Roman',serif;
+          font-size:1.125rem; line-height:1.85; padding:40px 24px 80px;
+          max-width:680px; margin:0 auto; }
+    header{ margin-bottom:32px; padding-bottom:20px; border-bottom:1px solid var(--border); }
+    header a{ color:var(--gold); text-decoration:none; font-size:.85rem; }
+    h1{ font-size:1.35rem; font-weight:700; margin-top:10px; line-height:1.25; }
+    article p{ margin-bottom:1.4em; text-align:justify; hyphens:auto; }
+    .ch-divider{ text-align:center; padding:28px 0 16px; color:var(--dim);
+                  font-size:.8rem; letter-spacing:.1em; text-transform:uppercase; }
+    .ch-divider::before,.ch-divider::after{ content:''; display:inline-block;
+      width:40px; height:1px; background:var(--border); vertical-align:middle; margin:0 12px; }
+    .ch-title{ font-size:1.1rem; font-weight:700; color:var(--gold); margin-bottom:16px; }
+    nav{ display:grid; grid-template-columns:1fr auto 1fr; gap:10px; align-items:center;
+          margin-top:48px; padding-top:20px; border-top:1px solid var(--border); font-size:.88rem; }
+    nav a{ color:var(--gold); text-decoration:none; }
+    nav a:hover{ text-decoration:underline; }
+    nav .nav-right{ text-align:right; }
+    nav .nav-mid{ text-align:center; }
+    .btn-merge{ background:rgba(138,106,26,.12); border:1px solid var(--gold);
+                 color:var(--gold); padding:9px 16px; border-radius:6px; cursor:pointer;
+                 font-family:Georgia,serif; font-size:.85rem; font-weight:600;
+                 transition:background .15s; white-space:nowrap; }
+    .btn-merge:hover:not(:disabled){ background:rgba(138,106,26,.25); }
+    .btn-merge:disabled{ opacity:.35; cursor:not-allowed; }
+    #merge-status{ text-align:center; padding:12px; font-size:.82rem;
+                    color:var(--dim); display:none; }
+  </style>
+</head>
+<body>
+<header>
+  <a href="../../novel.html?slug=regressor-instruction-manual">&larr; Regressor Instruction Manual</a>
+  <h1 id="page-title">Chapter 70</h1>
+</header>
+
+<div id="chapters">
+  <article id="ch-70">
+    <p>Chapter 70: Press (3)</p>
+    <p>“This is a well-made article.”</p>
+    <p>I had initially thought that there would be changes to the story I had proposed, but more importantly, I was pleasantly surprised to find out that the reporters had indeed taken the bait. The story itself didn’t just criticize Jung Yura and the abuse of power within the Free City of Lindel.</p>
+    <p>“But damaging the reputation of such a large guild… Is that okay?”</p>
+    <p>‘Ah, it’s very good.’</p>
+    <p>Titles such as those currently found in the paper would surely elicit a reaction among every reader within Lindel. After all, most people here knew how it felt to be oppressed by a greater force.</p>
+    <p>Granted, I haven’t been treated like that within Lindel as I had fortunately entered a guild still considered prestigious, but I could bet that the smaller guilds would have all experienced such treatment.</p>
+    <p>To put it simply, getting a place within one of the large guilds automatically equated to being part of Lindel’s higher class. In this manner, it wasn’t that hard to predict the multitude of corruption cases within the city.</p>
+    <p>In this particular coverage, all parties involved came from large guilds. Still, since I, a newbie member of a guild that tethered on the edge of ruination, was portrayed as the victim of said familiar oppression, the public was sure to be on my side.</p>
+    <p>The reaction was almost immediate. The other large-scale guilds went to great lengths to prove that they had better personalities than the Black Swans, and through subtle means, the smaller guilds showed us that they were supporting us.</p>
+    <p>It felt like a social movement of sorts. This was what the ability to move the masses could amount to. No matter how strong one was, it didn’t mean anything if no one supported him. In that same mindset, Lindel’s upperclassmen only hold their power because the lower class, as much as they would like to deny it, acknowledge their power.</p>
+    <p>Simply put, the upperclassmen cannot exist without the lower class. Without people buying weapons from the Red Mercenaries’ shop, potions from the Magic Guild, cheap information from the Black Swans, or other merchandise from other guilds, society’s higher throngs cannot maintain their standing. They can only do so because those lower than them were responsible for their success.</p>
+    <p>These people probably forgot - this wasn’t the Earth we were so accustomed to living in. In a place like this, logic only worked when it was backed up by power. For this very reason, it was understandable as to why the media did not hold a lot of power. Yet they may have forgotten that the media is the key to getting the people’s support.</p>
+    <p>However, with certain story coverage, I knew people had started to realize just how scary the press could be. The effect was indeed awesome.</p>
+    <p>In addition to boycotting all businesses operated by the Black Swan Guild, small and medium-sized guilds, renowned explorers, and adventurers had also expressed their intentions to never attack dungeons with any of their members.</p>
+    <p>‘Ah…’</p>
+    <p>It truly was a frightening event when all the oppressed banded together for a common goal - to raise the voices of the marginalized.</p>
+    <p>Though each individual had different reasons, they all cooperated just the same.</p>
+    <p>I knew that, just from this meager little story, I had already helped in the formation of Lindel’s revolutionary history.</p>
+    <p>After I ate my lunch, I headed outside, where several reporters were waiting. Of course, these weren’t the same reporters who had bothered to attend my invitation before. These were the ones who did not attend or could smell the money they could gain from also covering this story.</p>
+    <p>“May I have a moment of your time? About Jung Yura…”</p>
+    <p>“Sorry. There is still an official announcement about this…”</p>
+    <p>“I know it would be quite the hassle, but do you have anything to say about-“</p>
+    <p>“We will officially hold a press conference about this later.”</p>
+    <p>“What do you think of Jung Yura’s remarks about the collaboration between Red and Blue?”</p>
+    <p>“It’s not something I can answer just yet.”</p>
+    <p>“Oi, don’t bother my hyung so much!”</p>
+    <p>“It’s okay, Deokgu.”</p>
+    <p>We had to remember to be kind to journalists, especially for the time being. Whoever won their support also won the support of the public.</p>
+    <p>“I would like to ask what position you are taking in the current Black Swan Guild boycott.” The guy who asked this question looked pretty familiar to me.</p>
+    <p>‘Is that Kim Seong-gyeong?’</p>
+    <p>It did look like him. It wouldn’t be bad to answer this particular question.</p>
+    <p>“I was able to see how many people could feel the loss, regardless of whether this was true or not. It wasn’t just what happened to me. The outrage must stem from the pus of injustice that many people have felt from living in Lindel. Of course, this is understandable, but I am worried that many of you will feel too angry. That is all.”</p>
+    <p>Directly answering the question in the form of an indirect response would be the best direction I could take.</p>
+    <p>“Are you saying that all the threats in the dungeon are true?”</p>
+    <p>“I will not comment.”</p>
+    <p>“Are you in support of the boycott?”</p>
+    <p>“I support the matter on the one hand, but not on the other. I’m just worried that this will cause further damage.”</p>
+    <p>Employing such subtle wording was truly a talent of mine. I wanted to take down the Black Swan Guild, but not through a direct hit. I would rather give the guild itself a chance to redeem themselves.</p>
+    <p>The only casualty I wanted was Jung Yura.</p>
+    <p>“Please tell me something about Cha Hee-ra.”</p>
+    <p>“I will arrange a seat for you later.”</p>
+    <p>“Please talk to the adventurers who are angry about this situation.”</p>
+    <p>“It’s very difficult to speak for now, but I suppose I can say something. Your actions in resisting injustice in society are never wrong. Every individual is more influential than they would like to think. The way you act without giving into pressure… You are all helping in your own ways.”</p>
+    <p>The reporters wrote down my words diligently as I spoke. I had a feeling this would turn into a new article by tomorrow.</p>
+    <p>[I understand the feelings of adventurers who are feeling lost.]</p>
+    <p>Something like that would probably appear on the next barrage of articles.</p>
+    <p>[I support the boycott, but worry about dealing further damage.]</p>
+    <p>I was feeling pretty good about this. After all, reporters knew how to spin even the drabbest of responses into something more dramatic. This would surely cause another uproar tomorrow.</p>
+    <p>More questions arose after my response, but I knew responding to any more might come back to bite me in the rear end.</p>
+    <p>Since I was playing the role of victim, I needed to speak the least amount. The more interpretations these reporters came up with, the better.</p>
+    <p>While I thought about this, Park Deokgu began to speak beside me.</p>
+    <p>“Oh, I didn’t know it was going to be this big, hyung.”</p>
+    <p>“Neither did I.” Of course, that was a lie.</p>
+    <p>“I think I should be more careful about my actions in the future… This is bad.”</p>
+    <p>“It won’t matter if you just act as you usually do.”</p>
+    <p>“So, didn’t you say that the Red Mercenary will be announcing their stand today?”</p>
+    <p>“Huh. Yes, that’s right.”</p>
+    <p>I knew what this would already entail. They would respond directly to the criticisms stated by Jung Yura, particularly about their Mercenary Queen, but would not assault the guild itself. After all, the stories had already covered the insults directed towards Cha Hee-ra, so it was only right that she took the necessary precautions and struck back.</p>
+    <p>‘And maybe within a week…”</p>
+    <p>Eventually, the Black Swan Guild will also be giving an announcement. However, it would be too late by then. I didn’t know what was currently going on within their guild now, but I knew for sure that they must be feeling embarrassed.</p>
+    <p>Perhaps there must have also been an uproar within their guild. Anyhow, there must be a reason as to why they were taking so long to respond.</p>
+    <p>If I were in their shoes, I would have formed a response team right away and tried to get in touch with the opposite side. Simply giving an appearance was a form of action in itself. Had the Black Swans have any smarts in them, they would have responded by now.</p>
+    <p>It was then that Sun Hee-young approached me.</p>
+    <p>“Mr. Kiyoung?”</p>
+    <p>“Yeah.”</p>
+    <p>“Some people from the Black Swans Guild are here.”</p>
+    <p>‘Oh?’</p>
+    <p>It turned out that the Black Swans did have some semblance of smarts within them.</p>
+    <p>“What happened?”</p>
+    <p>“I don’t know specifically. It seems that they’ve come to apologize.”</p>
+    <p>“Are they waiting in the reception room?”</p>
+    <p>“Yes, they are.” Sun Hee-young nodded slightly. I thanked her and began to head in the direction of the reception room, where I found familiar faces waiting for me.</p>
+    <p>The first person I noticed was Jung Yura herself. With her were various Black Swan Guild executives. I also saw Lee Seol-ho with the crowd, and I stiffened. What was this crazy old man doing?</p>
+    <p>I didn’t know what exactly was happening, but I was not too fond of the idea of him trying to get on board with all this craziness.</p>
+    <p>“What to say about this…”</p>
+    <p>“Hahaha, do not fret about it. For now…”</p>
+    <p>As I saw them converse, annoyance soared from within me.</p>
+    <p>Then I noticed a familiar-looking woman sitting on one side.</p>
+    <p>‘Lee Ji-Hye?’</p>
+    <p>I remembered her from the shelter that Kim Hyunsung had devised back in the tutorial dungeon. What was she doing here? I felt surprised.</p>
+    <p>I didn’t think that Lee Ji-Hye was entirely useless in terms of abilities, but I would never have thought that she’d try to get herself in with the Black Swans.</p>
+    <p>It was ridiculous to see them cozying up with the deranged old executives from our side.</p>
+    <p>‘Ha.’</p>
+    <p>[Check player Jihye Lee’s status window and potential.]</p>
+    <p>[Name-Jihye Lee]</p>
+    <p>[Title-None. You should try a little more.]</p>
+    <p>[Age-29]</p>
+    <p>[Propensity-Selfish Ambition]</p>
+    <p>[Job-Commander]</p>
+    <p>[Capacity]</p>
+    <p>[Strength -09/Growth limit: Below normal]</p>
+    <p>[Agility-11/Growth limit: Below normal]</p>
+    <p>[Health-15/Growth limit: Below normal]</p>
+    <p>[Intellect-29/Growth limit: Rare or higher]</p>
+    <p>[Durability-10/Growth limit: Below normal]</p>
+    <p>Only</p>
+    <p>[Luck-15/Growth limit: Below normal]</p>
+    <p>[Holy-05/Growth limit: Below normal]</p>
+    <p>[Overall Review - Congratulations, Player Kiyoung Lee. You have met your soulmate once again. At this point, it doesn’t seem like an exaggeration to say that it is fate. It seems that you have connected once, although I certainly recommend that you do not connect again. As I said, I am very sorry for the second generation to be born if they will come from you. Always be careful with your actions.]</p>
+    <p>While assessing her current stats, I continued to watch both sides converse with each other. However, some of the gazes had already begun to swing over to where I stood.</p>
+    <p>Lee Ji-Hye, who was one of them, began to speak in a happy tone of voice.</p>
+    <p>“Oppa! It’s been a while.”</p>
+    <p>‘What? Since when was I her oppa…?’</p>
+  </article>
+</div>
+
+<div id="merge-status"></div>
+
+<nav>
+  <span class="nav-left"><a href="69.html" rel="prev">&#8592; Ch 69</a></span>
+  <span class="nav-mid">
+    <button class="btn-merge" id="btn-merge" >Merge Next 10</button>
+  </span>
+  <span class="nav-right"><a href="71.html" rel="next">Ch 71 &#8594;</a></span>
+</nav>
+
+<script>
+  // Chapters available after this one — discovered from meta.json
+  var slug       = "regressor-instruction-manual";
+  var currentNum = 70;
+  var nextNum    = 71;
+  var maxLoaded  = currentNum;
+  var allNums    = null;   // loaded lazily from meta.json
+  var merging    = false;
+  var root       = "../../";
+
+  async function getNums() {
+    if (allNums) return allNums;
+    var res = await fetch(root + "data/" + slug + "/meta.json");
+    var meta = await res.json();
+    allNums = meta.chapters.map(function(c){ return c.num; });
+    return allNums;
+  }
+
+  document.getElementById("btn-merge").addEventListener("click", async function() {
+    if (merging) return;
+    merging = true;
+    var btn    = document.getElementById("btn-merge");
+    var status = document.getElementById("merge-status");
+    btn.textContent = "Loading…";
+    btn.disabled = true;
+
+    var nums   = await getNums();
+    var idx    = nums.indexOf(maxLoaded);
+    var toLoad = nums.slice(idx + 1, idx + 11);
+    if (!toLoad.length) { merging = false; return; }
+
+    status.style.display = "block";
+    status.textContent = "Fetching chapters " + toLoad[0] + "–" + toLoad[toLoad.length-1] + "…";
+
+    var container = document.getElementById("chapters");
+    var firstNew  = null;
+
+    for (var i = 0; i < toLoad.length; i++) {
+      var n = toLoad[i];
+      try {
+        var res  = await fetch(n + ".html");
+        var html = await res.text();
+        var doc  = new DOMParser().parseFromString(html, "text/html");
+        var art  = doc.querySelector("article");
+        var h1   = doc.querySelector("h1");
+        if (!art) continue;
+
+        // Divider
+        var divider = document.createElement("div");
+        divider.className = "ch-divider";
+        divider.textContent = "Chapter " + n;
+        container.appendChild(divider);
+
+        // Chapter title
+        if (h1) {
+          var chTitle = document.createElement("div");
+          chTitle.className = "ch-title";
+          chTitle.textContent = h1.textContent;
+          container.appendChild(chTitle);
+        }
+
+        // Content
+        var section = document.createElement("article");
+        section.id = "ch-" + n;
+        section.innerHTML = art.innerHTML;
+        container.appendChild(section);
+
+        if (!firstNew) firstNew = divider;
+        maxLoaded = n;
+      } catch(e) {
+        console.warn("Failed to load chapter " + n, e);
+      }
+    }
+
+    // Update nav next link
+    var nextIdx = nums.indexOf(maxLoaded) + 1;
+    var newNext = nextIdx < nums.length ? nums[nextIdx] : null;
+    var navRight = document.querySelector(".nav-right");
+    if (newNext) {
+      navRight.innerHTML = '<a href="' + newNext + '.html" rel="next">Ch ' + newNext + ' &#8594;</a>';
+    } else {
+      navRight.innerHTML = '<span></span>';
+    }
+
+    status.style.display = "none";
+    btn.textContent = newNext ? "⊕ Merge Next 10" : "✓ All loaded";
+    btn.disabled = !newNext;
+    merging = false;
+
+    if (firstNew) firstNew.scrollIntoView({ behavior:"smooth", block:"start" });
+  });
+</script>
+</body>
+</html>

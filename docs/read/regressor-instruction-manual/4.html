@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chapter 4 — Regressor Instruction Manual</title>
+  <style>
+    :root { --ink:#1a1a1a; --dim:#666; --bg:#fff; --gold:#8a6a1a; --border:#ddd; }
+    @media (prefers-color-scheme:dark) {
+      :root { --ink:#e9e4da; --dim:#9a9286; --bg:#111010; --gold:#c9a84c; --border:#2a2825; }
+    }
+    *{ box-sizing:border-box; margin:0; padding:0; }
+    body{ background:var(--bg); color:var(--ink); font-family:Georgia,'Times New Roman',serif;
+          font-size:1.125rem; line-height:1.85; padding:40px 24px 80px;
+          max-width:680px; margin:0 auto; }
+    header{ margin-bottom:32px; padding-bottom:20px; border-bottom:1px solid var(--border); }
+    header a{ color:var(--gold); text-decoration:none; font-size:.85rem; }
+    h1{ font-size:1.35rem; font-weight:700; margin-top:10px; line-height:1.25; }
+    article p{ margin-bottom:1.4em; text-align:justify; hyphens:auto; }
+    .ch-divider{ text-align:center; padding:28px 0 16px; color:var(--dim);
+                  font-size:.8rem; letter-spacing:.1em; text-transform:uppercase; }
+    .ch-divider::before,.ch-divider::after{ content:''; display:inline-block;
+      width:40px; height:1px; background:var(--border); vertical-align:middle; margin:0 12px; }
+    .ch-title{ font-size:1.1rem; font-weight:700; color:var(--gold); margin-bottom:16px; }
+    nav{ display:grid; grid-template-columns:1fr auto 1fr; gap:10px; align-items:center;
+          margin-top:48px; padding-top:20px; border-top:1px solid var(--border); font-size:.88rem; }
+    nav a{ color:var(--gold); text-decoration:none; }
+    nav a:hover{ text-decoration:underline; }
+    nav .nav-right{ text-align:right; }
+    nav .nav-mid{ text-align:center; }
+    .btn-merge{ background:rgba(138,106,26,.12); border:1px solid var(--gold);
+                 color:var(--gold); padding:9px 16px; border-radius:6px; cursor:pointer;
+                 font-family:Georgia,serif; font-size:.85rem; font-weight:600;
+                 transition:background .15s; white-space:nowrap; }
+    .btn-merge:hover:not(:disabled){ background:rgba(138,106,26,.25); }
+    .btn-merge:disabled{ opacity:.35; cursor:not-allowed; }
+    #merge-status{ text-align:center; padding:12px; font-size:.82rem;
+                    color:var(--dim); display:none; }
+  </style>
+</head>
+<body>
+<header>
+  <a href="../../novel.html?slug=regressor-instruction-manual">&larr; Regressor Instruction Manual</a>
+  <h1 id="page-title">Chapter 4</h1>
+</header>
+
+<div id="chapters">
+  <article id="ch-4">
+    <p>Chapter 4: Regressor (1)</p>
+    <p>“For now, let’s try to escape from here.”</p>
+    <p>Obtaining a class. That’s the first thing on the list.</p>
+    <p>“How do we get a class?”</p>
+    <p>“I don’t know.”</p>
+    <p>Park Deokgu looked at me with a shocked face.</p>
+    <p>“Why are you looking at me like that? I’m not so smart that I’d know everything.”</p>
+    <p>“No, you are smart, aren’t you, hyung-nim? At least you seem to be more trustworthy than those who only know how to study. Even though you look like a nerd.”</p>
+    <p>He was half right.</p>
+    <p>Just, I wasn’t a very good student.</p>
+    <p>“So, how do we gain our classes?”</p>
+    <p>“For now, the only way seems to be by hunting monsters. That woman said that our class will depend on our hard work.”</p>
+    <p>“Oh, I think I heard that too…”</p>
+    <p>“First, we have to act to make a difference, whether it’s just swinging your sword while standing in place or catching monsters. If we stagnate here and do nothing, we will die.”</p>
+    <p>Saying this, I poured out everything I had in my leather bag on the ground.</p>
+    <p>Park Deokgu looked at me as if wondering what I was doing, but when I started to put leather on him, tying it up with sneaker laces, he seemed to realize my intention.</p>
+    <p>He looked at me with a slightly moved face.</p>
+    <p>“It looks like armor… But hyung-nim, don’t you need it more than me?</p>
+    <p>He would be the one fighting in the front anyway, so I didn’t have to make one for myself.</p>
+    <p>It was at least one more layer of insurance to protect my own neck. Just now, I didn’t go ahead of you only to gain nothing.</p>
+    <p>However, it wasn’t necessary to explain this to him.</p>
+    <p>“You are taller than me.”</p>
+    <p>“I’m afraid that I might not live up to your expectations, but… I will try my best.”</p>
+    <p>I nodded at his words.</p>
+    <p>***</p>
+    <p>He definitely lived up to my expectations.</p>
+    <p>In fact, even only looking at Park Deokgu’s basic stats, you could tell he was somehow strong.</p>
+    <p>I didn’t quite understand how our bodies affected our stats, but his stats were nearly twice as high as mine.</p>
+    <p>I felt especially embarrassed when looking at his 30 points of endurance.</p>
+    <p>His strength, shield and sword put together made his large body seem even bigger.</p>
+    <p>Adding to this the clumsily made leather armor, and he looked just like a gladiator from some movie.</p>
+    <p>But it was a very natural look for him. It was really not bad.</p>
+    <p>However, this guy who finally gained some confidence, exceeded my expectations.</p>
+    <p>“Hyung-nim!”</p>
+    <p>“I know.”</p>
+    <p>The back of this big guy, who pushed two monsters away with his shield, came into my view.</p>
+    <p>His face was still pale with fear, but even in this state he still hit them with his shield.</p>
+    <p>He was just pushing forward with all his might, but monsters wedged between the wall and his shield could only aimlessly flail about with their clawed hands.</p>
+    <p>While Park Deokgu was holding them in place, I raised my spear and stabbed it into the monster’s face, once again frowning at the strange sensation under my palms.</p>
+    <p>‘That’s right.’</p>
+    <p>“Haaa!”</p>
+    <p>Park Deokgu wielded a sword in one hand, as he let out a short scream.</p>
+    <p>He frowned, but didn’t relax his grip on the sword. It was because from previous experience we learned that carelessness could get us hurt.</p>
+    <p>“Gaeeek…”</p>
+    <p>When the creature finally drooped down without any strength, I pulled back my spear.</p>
+    <p>“Haah… haah…”</p>
+    <p>‘It’s hard.’</p>
+    <p>It looked simple, but it definitely wasn’t simple in practice.</p>
+    <p>With Park Deokgu’s help it was much better compared to my first time, but there was originally a big gap in our basic stats.</p>
+    <p>Spending a few minutes dealing with those guys was enough for me to be covered in sweat.</p>
+    <p>“Here, have some water.”</p>
+    <p>“Thank you.”</p>
+    <p>With a little sigh, Park Deokgu made a worried face and opened his mouth.</p>
+    <p>“Isn’t your stamina a little too low?”</p>
+    <p>“I’ve never exercised before.”</p>
+    <p>At least my stamina had increased since we started killing monsters.</p>
+    <p>‘Only by 1 though.’</p>
+    <p>Park Deokgu’s situation was a little different.</p>
+    <p>His original 30-point endurance had turned into 33 now. Compared to me, it was a huge achievement.</p>
+    <p>I wasn’t sure if talent affected the rate stats rose, but looking at it, I guess that was it.</p>
+    <p>His endurance stat growth potential allowed him to reach the heroic grade and even beyond if he put his mind to it, so climbing higher at first shouldn’t be too difficult for him.</p>
+    <p>‘Damn it.’</p>
+    <p>Of course what I was feeling wasn’t needless jealousy.</p>
+    <p>What worried me was that Park Deokgu might not need me.</p>
+    <p>Looking at his innocent face, he didn’t seem to think this way yet.</p>
+    <p>I came to the conclusion that it would be in my best interests to survive while relying on him.</p>
+    <p>“By the way, maybe today we could look around a little more, hyung-nim?”</p>
+    <p>“Look around a little more… By the way, when you speak, keep your voice down.”</p>
+    <p>“Do we really need to be so careful?”</p>
+    <p>“I think noise was the reason why so many monsters appeared at the starting point.”</p>
+    <p>“That female guide also talked a lot…”</p>
+    <p>“Yes, but I don’t think that was the main reason. Those monsters seem dull but are sensitive to sound. It’s only natural that they poured into that room, since people there were yelling at each other for so long. Perhaps, half of those people could have survived if only we started the tutorial quietly.”</p>
+    <p>“You think so?”</p>
+    <p>“Yes. So while in a fight, we need to turn down the noise a little. For now, we are dealing with only one or two at time, but when four or five of them gather, we’ll die. The reason we keep moving is that if we stay in one place, we might get surrounded.”</p>
+    <p>He cast me a look of peculiar admiration. If only you used your head a little, anyone could realise this.</p>
+    <p>However, the fact that this innocent guy was looking at me like that made me want to laugh.</p>
+    <p>I nodded and continued.</p>
+    <p>“It’s possible that all the monsters from this area were lured to the starting point. Perhaps everyone else who managed to run away at that time, are in a similar situation as us.”</p>
+    <p>I thought the best way to organize information in my head was to discuss it in points like this, one by one.</p>
+    <p>“Let’s stop for a while and eat.”</p>
+    <p>“Yup, good idea.”</p>
+    <p>It was when I was sitting on the floor, quietly munching on tasteless food that I wouldn’t even feed a dog that…</p>
+    <p>“…”</p>
+    <p>…I heard a faint voice from somewhere.</p>
+    <p>I wanted to pretend I didn’t hear anything, but Park Deokgu raised his head and opened his mouth.</p>
+    <p>“Isn’t this a human’s voice?”</p>
+    <p>“No way.”</p>
+    <p>“Ahhhhh…! Help me!”</p>
+    <p>The voice was getting closer.</p>
+    <p>‘Ah…’</p>
+    <p>They had realised that there were other people here.</p>
+    <p>‘It was mistake.’</p>
+    <p>It certainly was a mistake.</p>
+    <p>It was a mistake to carve out those marks on the walls with a dagger to prevent us from getting lost.</p>
+    <p>I actually hoped that someone would come, but I never imagined it would be someone yelling at the top of their lungs, as if to wake up a whole town.</p>
+    <p>“H-hyung-nim.”</p>
+    <p>“Pick up your sword.”</p>
+    <p>It was too late to avoid it.</p>
+    <p>“Geeek!”</p>
+    <p>Luckily, the monsters weren’t many in number.</p>
+    <p>It was nice to have new people join us, but it was also a very unwelcome situation.</p>
+    <p>‘It would be a different story if they had drinking water and food…’</p>
+    <p>There was the problem of limited resources.</p>
+    <p>This wasn’t a charity.</p>
+    <p>I needed comrades in arms, not a new burden.</p>
+    <p>It would be ideal if they were someone willing to fight, with drinking water and food, and only a small number of them.</p>
+    <p>And by the sound of this voice, they had already failed one of those conditions.</p>
+    <p>It wasn’t someone who was willing to fight.</p>
+    <p>“How annoying…”</p>
+    <p>“I don’t think you need to worry too much, hyung-nim. It doesn’t seem like there’s a lot of them.”</p>
+    <p>‘Easy to say for you.’</p>
+    <p>Park Deokgu ran forward with his sword and shield. I also immediately followed behind him with my spear.</p>
+    <p>When I stepped closer, I could see a woman being chased by three monsters.</p>
+    <p>Half torn clothes and overall a pretty face, but that was all her appearance had to offer.</p>
+    <p>‘A civilian woman.’</p>
+    <p>I didn’t care if she was scared and running away.</p>
+    <p>She had no weapons and no food.</p>
+    <p>After checking the abilities of monsters behind her, I used Mind’s Eyes to observe the woman.</p>
+    <p>[Checking the status window and talent levels of the player Jung Hayan.]</p>
+    <p>[Name: Jung Hayan]</p>
+    <p>[Title: None. You should try a little harder.]</p>
+    <p>[Age: 21]</p>
+    <p>[Disposition: Pure Advocate]</p>
+    <p>[Class: None]</p>
+    <p>[Stats]</p>
+    <p>[Strength: 10/Growth potential: rare or lower]</p>
+    <p>[Agility: 11/Growth potential: rare or lower]</p>
+    <p>[Stamina: 12/Growth potential: heroic or lower]</p>
+    <p>[Intelligence: 22/Growth potential: heroic or higher]</p>
+    <p>[Endurance: 14/Growth potential: rare or lower]</p>
+    <p>[Luck: 23/Growth potential: heroic or higher]</p>
+    <p>[Magic Power: 10/Growth potential: legendary or higher]</p>
+    <p>[Overview: You have above legendary grade magic potential growth. While your overall physical ability is low, you can experience explosive growth as wizard or priest in the future. You are currently unable to feel magic. It’s not an exaggeration to say that player Lee Kiyoung has the potential of an ant in comparison.]</p>
+    <p>‘What the hell.’</p>
+    <p>It was hard to believe just how great the ability of this girl running out of breath was.</p>
+    <p>In addition, I’ve never seen a human with the potential to go beyond legendary grade.</p>
+    <p>Unlike me, whose magic power stat is still sitting on a round 0, hers is already at 10.</p>
+    <p>“We have never dealt with three at the same time.”</p>
+    <p>Obviously, as soon as I checked her stats, the idea of discarding this girl immediately left my mind and a new plan formed.</p>
+    <p>“We fight.”</p>
+    <p>“Can we win?”</p>
+    <p>“We need to lure them to a more closed space.”</p>
+    <p>“I think I know what you mean.”</p>
+    <p>It was more advantageous to fight while leaning against the wall than to be surrounded.</p>
+    <p>Our escape route would be blocked, but I didn’t think we would lose so fast.</p>
+    <p>I tightened my grip on my spear.</p>
+    <p>Having found us, the girl ran in our direction as fast as she could.</p>
+    <p>When I gestured to her to come this way, she nodded her head, so it looked like she wasn’t completely unable to comprehend anything.</p>
+    <p>“Wait in the corner.”</p>
+    <p>“O-okay.”</p>
+    <p>After the woman finally reached our side, Park Deokgu heavily swung his shield as monsters turned the corner.</p>
+    <p>“Now!”</p>
+    <p>“Haa!”</p>
+    <p>It seemed like Park Deokgu managed to push them back for a moment, but then one of the monsters tried to rush towards him again.</p>
+    <p>“Hyung-nim!”</p>
+    <p>With a blank mind, I pierced one of them with my spear, while the other one collapsed under Park Deokgu’s sword.</p>
+    <p>The problem was that because of this move, Park Deokgu’s stance was broken.</p>
+    <p>Certainly, dealing with three of them at once wasn’t easy.</p>
+    <p>The only thing I could do for Park Deokgu, who was still holding up his shield, was to continue swinging a spear.</p>
+    <p>The moment I bit my lips hard, suddenly, I could see a sword protruding from the chest of the last monster.</p>
+    <p>“Tha-thank you.”</p>
+    <p>“No problem.”</p>
+    <p>Someone helped us.</p>
+    <p>When the monster collapsed, I saw a face I’d already seen once before.</p>
+    <p>It was that man who helped me back at the starting point.</p>
+    <p>I remembered his face that seemed a little desperate at the time.</p>
+    <p>Only</p>
+    <p>“What the…”</p>
+    <p>[Checking the status window and talent levels of the player Kim Hyunsung.]</p>
+    <p>[Name: Kim Hyunsung]</p>
+    <p>[Titles: The Regressor of Altanus, The Swordsman Who Started the 2nd Round, The One Who Failed, The One Who Embraced Sacrifice, The Enlightened One]</p>
+    <p>[Age: 22]</p>
+    <p>[Disposition: Well-Meaning Arbitrator]</p>
+    <p>[Class: Swordsman (Common)]</p>
+    <p>[Stats]</p>
+    <p>[Strength: 19/Growth potential: legendary or higher]</p>
+    <p>[Agility: 28/Growth potential: legendary or higher]</p>
+    <p>[Stamina: 23/Growth potential: legendary or higher]</p>
+    <p>[Intelligence: 18/Growth potential: heroic or lower]</p>
+    <p>[Endurance: 22/Growth potential: heroic or lower]</p>
+    <p>[Luck: 23/Growth potential: heroic or higher]</p>
+    <p>[Magic Power: 11/Growth potential: heroic or higher]</p>
+    <p>‘What is this…?’</p>
+    <p>I couldn’t help but widen my eyes at the sight of this status window filled with unexpected information.</p>
+    <p>‘Regression? Turning back time?’</p>
+    <p>For this guy, this wasn’t the first time.</p>
+  </article>
+</div>
+
+<div id="merge-status"></div>
+
+<nav>
+  <span class="nav-left"><a href="3.html" rel="prev">&#8592; Ch 3</a></span>
+  <span class="nav-mid">
+    <button class="btn-merge" id="btn-merge" >Merge Next 10</button>
+  </span>
+  <span class="nav-right"><a href="5.html" rel="next">Ch 5 &#8594;</a></span>
+</nav>
+
+<script>
+  // Chapters available after this one — discovered from meta.json
+  var slug       = "regressor-instruction-manual";
+  var currentNum = 4;
+  var nextNum    = 5;
+  var maxLoaded  = currentNum;
+  var allNums    = null;   // loaded lazily from meta.json
+  var merging    = false;
+  var root       = "../../";
+
+  async function getNums() {
+    if (allNums) return allNums;
+    var res = await fetch(root + "data/" + slug + "/meta.json");
+    var meta = await res.json();
+    allNums = meta.chapters.map(function(c){ return c.num; });
+    return allNums;
+  }
+
+  document.getElementById("btn-merge").addEventListener("click", async function() {
+    if (merging) return;
+    merging = true;
+    var btn    = document.getElementById("btn-merge");
+    var status = document.getElementById("merge-status");
+    btn.textContent = "Loading…";
+    btn.disabled = true;
+
+    var nums   = await getNums();
+    var idx    = nums.indexOf(maxLoaded);
+    var toLoad = nums.slice(idx + 1, idx + 11);
+    if (!toLoad.length) { merging = false; return; }
+
+    status.style.display = "block";
+    status.textContent = "Fetching chapters " + toLoad[0] + "–" + toLoad[toLoad.length-1] + "…";
+
+    var container = document.getElementById("chapters");
+    var firstNew  = null;
+
+    for (var i = 0; i < toLoad.length; i++) {
+      var n = toLoad[i];
+      try {
+        var res  = await fetch(n + ".html");
+        var html = await res.text();
+        var doc  = new DOMParser().parseFromString(html, "text/html");
+        var art  = doc.querySelector("article");
+        var h1   = doc.querySelector("h1");
+        if (!art) continue;
+
+        // Divider
+        var divider = document.createElement("div");
+        divider.className = "ch-divider";
+        divider.textContent = "Chapter " + n;
+        container.appendChild(divider);
+
+        // Chapter title
+        if (h1) {
+          var chTitle = document.createElement("div");
+          chTitle.className = "ch-title";
+          chTitle.textContent = h1.textContent;
+          container.appendChild(chTitle);
+        }
+
+        // Content
+        var section = document.createElement("article");
+        section.id = "ch-" + n;
+        section.innerHTML = art.innerHTML;
+        container.appendChild(section);
+
+        if (!firstNew) firstNew = divider;
+        maxLoaded = n;
+      } catch(e) {
+        console.warn("Failed to load chapter " + n, e);
+      }
+    }
+
+    // Update nav next link
+    var nextIdx = nums.indexOf(maxLoaded) + 1;
+    var newNext = nextIdx < nums.length ? nums[nextIdx] : null;
+    var navRight = document.querySelector(".nav-right");
+    if (newNext) {
+      navRight.innerHTML = '<a href="' + newNext + '.html" rel="next">Ch ' + newNext + ' &#8594;</a>';
+    } else {
+      navRight.innerHTML = '<span></span>';
+    }
+
+    status.style.display = "none";
+    btn.textContent = newNext ? "⊕ Merge Next 10" : "✓ All loaded";
+    btn.disabled = !newNext;
+    merging = false;
+
+    if (firstNew) firstNew.scrollIntoView({ behavior:"smooth", block:"start" });
+  });
+</script>
+</body>
+</html>

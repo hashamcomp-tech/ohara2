@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chapter 85 — Regressor Instruction Manual</title>
+  <style>
+    :root { --ink:#1a1a1a; --dim:#666; --bg:#fff; --gold:#8a6a1a; --border:#ddd; }
+    @media (prefers-color-scheme:dark) {
+      :root { --ink:#e9e4da; --dim:#9a9286; --bg:#111010; --gold:#c9a84c; --border:#2a2825; }
+    }
+    *{ box-sizing:border-box; margin:0; padding:0; }
+    body{ background:var(--bg); color:var(--ink); font-family:Georgia,'Times New Roman',serif;
+          font-size:1.125rem; line-height:1.85; padding:40px 24px 80px;
+          max-width:680px; margin:0 auto; }
+    header{ margin-bottom:32px; padding-bottom:20px; border-bottom:1px solid var(--border); }
+    header a{ color:var(--gold); text-decoration:none; font-size:.85rem; }
+    h1{ font-size:1.35rem; font-weight:700; margin-top:10px; line-height:1.25; }
+    article p{ margin-bottom:1.4em; text-align:justify; hyphens:auto; }
+    .ch-divider{ text-align:center; padding:28px 0 16px; color:var(--dim);
+                  font-size:.8rem; letter-spacing:.1em; text-transform:uppercase; }
+    .ch-divider::before,.ch-divider::after{ content:''; display:inline-block;
+      width:40px; height:1px; background:var(--border); vertical-align:middle; margin:0 12px; }
+    .ch-title{ font-size:1.1rem; font-weight:700; color:var(--gold); margin-bottom:16px; }
+    nav{ display:grid; grid-template-columns:1fr auto 1fr; gap:10px; align-items:center;
+          margin-top:48px; padding-top:20px; border-top:1px solid var(--border); font-size:.88rem; }
+    nav a{ color:var(--gold); text-decoration:none; }
+    nav a:hover{ text-decoration:underline; }
+    nav .nav-right{ text-align:right; }
+    nav .nav-mid{ text-align:center; }
+    .btn-merge{ background:rgba(138,106,26,.12); border:1px solid var(--gold);
+                 color:var(--gold); padding:9px 16px; border-radius:6px; cursor:pointer;
+                 font-family:Georgia,serif; font-size:.85rem; font-weight:600;
+                 transition:background .15s; white-space:nowrap; }
+    .btn-merge:hover:not(:disabled){ background:rgba(138,106,26,.25); }
+    .btn-merge:disabled{ opacity:.35; cursor:not-allowed; }
+    #merge-status{ text-align:center; padding:12px; font-size:.82rem;
+                    color:var(--dim); display:none; }
+  </style>
+</head>
+<body>
+<header>
+  <a href="../../novel.html?slug=regressor-instruction-manual">&larr; Regressor Instruction Manual</a>
+  <h1 id="page-title">Chapter 85</h1>
+</header>
+
+<div id="chapters">
+  <article id="ch-85">
+    <p>Chapter 85: The Crazy Old Man (1)</p>
+    <p>The atmosphere itself felt very heavy. Even a newborn baby would be able to sense the change.</p>
+    <p>Lee Sang-hee, who looked hesitant, finally spoke.</p>
+    <p>“Currently, all parties except Blue’s second and seventh units are isolated in hero-grade dungeons. Life and death counts have not yet been confirmed, yet they have confirmed the morning’s rescue signal. Considering that they had not been able to send a second signal, it seemed that there was a problem with the parties entering the dungeon.”</p>
+    <p>‘What is this…?’</p>
+    <p>“The exact time they entered the dungeon was on the 14th of August, and our last contact was around 6:40 this morning. Is that right, Seolho?” Sang-hee added.</p>
+    <p>“Yes, that’s correct,” Seolho replied and nodded.</p>
+    <p>If they had entered on the 14th of August, then that meant they had gone even before we were recruited in Blue Guild. I could sense how things had gone for them.</p>
+    <p>‘Their expeditions have failed…’</p>
+    <p>This was one of the typical reasons for the downfall of guilds. I had not yet been in Lindel long enough, yet this was common, obtainable knowledge.</p>
+    <p>‘One expedition failure can make a small clan stumble, yet two will cause even a large guild to stumble.’</p>
+    <p>The danger was commonly known for everyone who would dare to enter a dungeon. At the same time, it was a testimony of power, which was what Lindel thrived on.</p>
+    <p>If accidents were to happen during an expedition, it would inflict not only physical injuries but also social ones. It meant that the unit or party was not as powerful as they seemed to be.</p>
+    <p>This was why ordinary clans and guilds invested a lot in preparing for expeditions. Weaker guilds had even resorted to recruiting trial parties to estimate the dungeon’s difficulty.</p>
+    <p>If the dungeon found was a dungeon with a hero level or higher, one needed to be more careful.</p>
+    <p>Unlike rare dungeons where simple monsters appeared followed by the boss monster, hero-grade dungeons had different mechanisms for each dungeon.</p>
+    <p>I had not even entered one yet myself, but I knew how risky it could be.</p>
+    <p>‘The Blue Guild would eventually collapse because of several expedition failures.’</p>
+    <p>Kim Hyunsung must have already been aware of this situation. Sending in a rescue team must have been a predetermined procedure. Human resources were the topmost priority for every guild.</p>
+    <p>No, before the topic of human resources, these people have been like family to each other. Blue had a long history, after all. If it were up to him, he would barge in and rescue them himself. However, there were certain procedures he still had to take note of.</p>
+    <p>The question now was what choices we would make in light of this situation. Soon, voices rose in reaction to this. We started discussing what options we could take.</p>
+    <p>‘It’s a tabletop theory, anyway…’</p>
+    <p>“Would you like to ask another guild for support?”</p>
+    <p>“I requested support from the Red Mercenary, but the answer is delayed due to the absence of the Mercenary Queen. We don’t know how long it would take them to answer… Perhaps it would be too late by then.”</p>
+    <p>“So, do you mean for us to barge in without any planned countermeasures?”</p>
+    <p>“I am not saying that. However, seeing as the rescue signal was sent just this morning, there is a large possibility that many of our personnel are still alive. That is why I called for an urgent meeting.”</p>
+    <p>“It’s only right that we send in a rescue team, but we admittedly don’t have a lot of power. At this point, what we need is structure, not a strategy.”</p>
+    <p>“If you want to organize a rescue team, retired people can also…”</p>
+    <p>“Oh, but at this point, even just doing administrative work can already tire us old men out…” Lee Seolho laughed nervously.</p>
+    <p>“But our numbers aren’t sufficient!”</p>
+    <p>“How is it not enough? We have the 7th unit, don’t we?”</p>
+    <p>“…”</p>
+    <p>“The 7th unit…”</p>
+    <p>“Isn’t the 7th party also considered as the main power of our guild?”</p>
+    <p>‘This deranged old man…’</p>
+    <p>I decided to stay quiet. I could already see where this was heading. We would be sent in, regardless of what we could say in return.</p>
+    <p>Though there would be information about the dungeon to aid us, the fact that the previous party had already failed meant that the expedition would be highly dangerous.</p>
+    <p>Even if Hwang Jeong-yeon and Lee Sang-hee volunteered to act as the rescue team, it would still not be enough of a force.</p>
+    <p>The question was how we should go about this. It would be of common opinion to dispatch a rescue team to save those in danger, but it seemed like people like Lee Seolho wouldn’t be willing to throw their selves in harm’s way.</p>
+    <p>“Didn’t we pay an expensive amount for them? Now is the time for them to show that they’re worth the money.”</p>
+    <p>“They’re a party that hasn’t grown properly yet, Seolho.”</p>
+    <p>“Hwang Jeong-yeon, I know that very well. But isn’t it the time for them to show what they’re truly worth? We’ll need all the help we can get.”</p>
+    <p>“Even if you put it that way…”</p>
+    <p>“This is a guild crisis. It’s only natural for them to help out.”</p>
+    <p>“If you think so, why don’t you also go, Lee Seolho?”</p>
+    <p>“As a retired adventurer, I own a weak and fragile body. I have been devoting my entire life to the guild. As much as we’d love to rescue those in danger, I have to stay and protect the guild in my own way.”</p>
+    <p>“Ah, but…”</p>
+    <p>“Even if we go, we won’t be of much help.”</p>
+    <p>“Hm…”</p>
+    <p>‘What obvious excuses…’</p>
+    <p>Assessing this ridiculous atmosphere almost made me laugh. I knew what this senile geezer was thinking. If Lee Sang-hee and Hwang Jeong-Yeon entered the dungeon together, the one who would reap the most benefit by staying safely behind would be him.</p>
+    <p>‘Just as I thought, he’s a rabid old dog.’</p>
+    <p>After analyzing him with my ability, I could say his stats weren’t all that bad. He may seem like a weak man on the outside, but I could see that he still had some fight left in him. However, he doubted he could safely make it out of an expedition, which was why he chose to opt-out of the operation.</p>
+    <p>This meant that Kim Hyunsung’s party—my party—would be caught in the middle. Whether this rescue expedition succeeded or not, most of the blame would fall on us.</p>
+    <p>“It’s still not the right time to dispatch the 7th unit.”</p>
+    <p>“Huh, but there’s no other way, is there?”</p>
+    <p>“These are people who have only been in Lindel for less than a year.”</p>
+    <p>“But they are also guild members of Blue, who received preferential treatment, nonetheless!”</p>
+    <p>“It’s not a matter of preference. It’s common sense. No guild in the city sends parties less than a year old to hero-grade dungeons. I mean, most guilds choose to dispatch trial parties…”</p>
+    <p>“Ha! A trial party, what a joke! I say we dispatch them!”</p>
+    <p>“Stop.”</p>
+    <p>Lee Sang-hee eventually put an end to the ongoing argument.</p>
+    <p>“We’ll have to wait. Both Seolho and Jeong-yeon are right. No matter how fast Hyunsung and others grow up… It won’t help much.”</p>
+    <p>‘This is it.’</p>
+    <p>“Please protect the guild in my absence.”</p>
+    <p>“Ah, but…”</p>
+    <p>“Stop it. This is my decision. For the rest of you also going, please ready your people. Aside from this, we can only rely on the support of other guilds now…”</p>
+    <p>“If that’s your final decision, then…”</p>
+    <p>I did not know if this was Kim Hyunsung’s intention, but if it was, then I could understand why. If this rescue operation failed, then our party would soon become the most influential unit within Blue.</p>
+    <p>Of course, there would be several problems to deal with, but assuming that we’d be skipping a very complicated part of the process, we would achieve our goals in a much quicker fashion.</p>
+    <p>‘However, things might not go as well as we would like for them to…’</p>
+    <p>Conversely, it also meant that even Lee Sang-hee and Hwang Jeong-yeon might not make it back successfully. If we were to lose two powerful members, then the story would change. We needed to make sure that this wouldn’t happen.</p>
+    <p>The fact remained, however. It would take a little more time, but the power would eventually shift to us.</p>
+    <p>The most important thing was what choice Kim Hyunsung would take now.</p>
+    <p>It felt very frustrating not to know what he was thinking. Of course, that didn’t mean that he was completely unreadable. I knew Kim Hyunsung would be able to see the benefits in this situation.</p>
+    <p>“We will go with you.”</p>
+    <p>Kim Hyunsung reacted the way I expected him to.</p>
+    <p>“What…?”</p>
+    <p>“I already told you. We will go with you.”</p>
+    <p>“Ah… Thank you so much… This…”</p>
+    <p>Of course, I had to support Kim Hyunsung’s decision. I did not oppose the notion. Both Lee Sang-hee and Hwang Jeong-yeon had helped me in so many ways, after all.</p>
+    <p>“Hyunsung is right. It is only right for us to go together.”</p>
+    <p>‘Ah, but I feel so anxious…’</p>
+    <p>I knew there was another reason why Kim Hyunsung chose to take this path. Perhaps he was aware of the rewards we could reap from the dungeon we’d be going into.</p>
+    <p>After all, no matter how good Hyunsung’s intentions were, he wasn’t a saint.</p>
+    <p>I took a deep breath and spoke.</p>
+    <p>“Recently, our whole party has been able to progress remarkably. All of us have acquired hero-level jobs as our third job, and our main stats are already in the line of 60s. In Jung Hayan’s case, she has already reached the 70th level.”</p>
+    <p>“That…”</p>
+    <p>“Really?”</p>
+    <p>“Huh…”</p>
+    <p>“That’s nonsense…”</p>
+    <p>“Of course, I know that this is not enough. We are aware of the fact that our stats are insufficient for hero-grade dungeons. However, we are also members of the Blue Guild. Though we are only bonded via contractual means, it does not mean that we take our responsibilities lightly.”</p>
+    <p>Only</p>
+    <p>“Kiyoung…”</p>
+    <p>“I have been helped by many people. This time, I would like to lend you our services. If we judge that we cannot continue any further, we will take the necessary protocols and retreat. However, we ask you to allow us the opportunity to help.”</p>
+    <p>I lowered my head a little. Everyone’s reactions exploded at that moment. My actions might have seemed reckless, but it did not mean that it wouldn’t garner positive attention.</p>
+    <p>“Ah, I definitely want you guys to go with us!”</p>
+    <p>“Haha, what a touching resolution!” The only blight was the old geezer’s amusement.</p>
+    <p>“Lee Sang-hee, Mr. Kiyoung, and Mr. Hyunsung are volunteering. Since they have already acquired their third jobs, they may be able to be of help. Why don’t you take them with you?”</p>
+    <p>For all his stupidity, what the old man said was indeed correct.</p>
+    <p>Perhaps I wasn’t the only one thinking this way.</p>
+  </article>
+</div>
+
+<div id="merge-status"></div>
+
+<nav>
+  <span class="nav-left"><a href="84.html" rel="prev">&#8592; Ch 84</a></span>
+  <span class="nav-mid">
+    <button class="btn-merge" id="btn-merge" >Merge Next 10</button>
+  </span>
+  <span class="nav-right"><a href="86.html" rel="next">Ch 86 &#8594;</a></span>
+</nav>
+
+<script>
+  // Chapters available after this one — discovered from meta.json
+  var slug       = "regressor-instruction-manual";
+  var currentNum = 85;
+  var nextNum    = 86;
+  var maxLoaded  = currentNum;
+  var allNums    = null;   // loaded lazily from meta.json
+  var merging    = false;
+  var root       = "../../";
+
+  async function getNums() {
+    if (allNums) return allNums;
+    var res = await fetch(root + "data/" + slug + "/meta.json");
+    var meta = await res.json();
+    allNums = meta.chapters.map(function(c){ return c.num; });
+    return allNums;
+  }
+
+  document.getElementById("btn-merge").addEventListener("click", async function() {
+    if (merging) return;
+    merging = true;
+    var btn    = document.getElementById("btn-merge");
+    var status = document.getElementById("merge-status");
+    btn.textContent = "Loading…";
+    btn.disabled = true;
+
+    var nums   = await getNums();
+    var idx    = nums.indexOf(maxLoaded);
+    var toLoad = nums.slice(idx + 1, idx + 11);
+    if (!toLoad.length) { merging = false; return; }
+
+    status.style.display = "block";
+    status.textContent = "Fetching chapters " + toLoad[0] + "–" + toLoad[toLoad.length-1] + "…";
+
+    var container = document.getElementById("chapters");
+    var firstNew  = null;
+
+    for (var i = 0; i < toLoad.length; i++) {
+      var n = toLoad[i];
+      try {
+        var res  = await fetch(n + ".html");
+        var html = await res.text();
+        var doc  = new DOMParser().parseFromString(html, "text/html");
+        var art  = doc.querySelector("article");
+        var h1   = doc.querySelector("h1");
+        if (!art) continue;
+
+        // Divider
+        var divider = document.createElement("div");
+        divider.className = "ch-divider";
+        divider.textContent = "Chapter " + n;
+        container.appendChild(divider);
+
+        // Chapter title
+        if (h1) {
+          var chTitle = document.createElement("div");
+          chTitle.className = "ch-title";
+          chTitle.textContent = h1.textContent;
+          container.appendChild(chTitle);
+        }
+
+        // Content
+        var section = document.createElement("article");
+        section.id = "ch-" + n;
+        section.innerHTML = art.innerHTML;
+        container.appendChild(section);
+
+        if (!firstNew) firstNew = divider;
+        maxLoaded = n;
+      } catch(e) {
+        console.warn("Failed to load chapter " + n, e);
+      }
+    }
+
+    // Update nav next link
+    var nextIdx = nums.indexOf(maxLoaded) + 1;
+    var newNext = nextIdx < nums.length ? nums[nextIdx] : null;
+    var navRight = document.querySelector(".nav-right");
+    if (newNext) {
+      navRight.innerHTML = '<a href="' + newNext + '.html" rel="next">Ch ' + newNext + ' &#8594;</a>';
+    } else {
+      navRight.innerHTML = '<span></span>';
+    }
+
+    status.style.display = "none";
+    btn.textContent = newNext ? "⊕ Merge Next 10" : "✓ All loaded";
+    btn.disabled = !newNext;
+    merging = false;
+
+    if (firstNew) firstNew.scrollIntoView({ behavior:"smooth", block:"start" });
+  });
+</script>
+</body>
+</html>

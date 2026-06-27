@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chapter 111 — Regressor Instruction Manual</title>
+  <style>
+    :root { --ink:#1a1a1a; --dim:#666; --bg:#fff; --gold:#8a6a1a; --border:#ddd; }
+    @media (prefers-color-scheme:dark) {
+      :root { --ink:#e9e4da; --dim:#9a9286; --bg:#111010; --gold:#c9a84c; --border:#2a2825; }
+    }
+    *{ box-sizing:border-box; margin:0; padding:0; }
+    body{ background:var(--bg); color:var(--ink); font-family:Georgia,'Times New Roman',serif;
+          font-size:1.125rem; line-height:1.85; padding:40px 24px 80px;
+          max-width:680px; margin:0 auto; }
+    header{ margin-bottom:32px; padding-bottom:20px; border-bottom:1px solid var(--border); }
+    header a{ color:var(--gold); text-decoration:none; font-size:.85rem; }
+    h1{ font-size:1.35rem; font-weight:700; margin-top:10px; line-height:1.25; }
+    article p{ margin-bottom:1.4em; text-align:justify; hyphens:auto; }
+    .ch-divider{ text-align:center; padding:28px 0 16px; color:var(--dim);
+                  font-size:.8rem; letter-spacing:.1em; text-transform:uppercase; }
+    .ch-divider::before,.ch-divider::after{ content:''; display:inline-block;
+      width:40px; height:1px; background:var(--border); vertical-align:middle; margin:0 12px; }
+    .ch-title{ font-size:1.1rem; font-weight:700; color:var(--gold); margin-bottom:16px; }
+    nav{ display:grid; grid-template-columns:1fr auto 1fr; gap:10px; align-items:center;
+          margin-top:48px; padding-top:20px; border-top:1px solid var(--border); font-size:.88rem; }
+    nav a{ color:var(--gold); text-decoration:none; }
+    nav a:hover{ text-decoration:underline; }
+    nav .nav-right{ text-align:right; }
+    nav .nav-mid{ text-align:center; }
+    .btn-merge{ background:rgba(138,106,26,.12); border:1px solid var(--gold);
+                 color:var(--gold); padding:9px 16px; border-radius:6px; cursor:pointer;
+                 font-family:Georgia,serif; font-size:.85rem; font-weight:600;
+                 transition:background .15s; white-space:nowrap; }
+    .btn-merge:hover:not(:disabled){ background:rgba(138,106,26,.25); }
+    .btn-merge:disabled{ opacity:.35; cursor:not-allowed; }
+    #merge-status{ text-align:center; padding:12px; font-size:.82rem;
+                    color:var(--dim); display:none; }
+  </style>
+</head>
+<body>
+<header>
+  <a href="../../novel.html?slug=regressor-instruction-manual">&larr; Regressor Instruction Manual</a>
+  <h1 id="page-title">Chapter 111</h1>
+</header>
+
+<div id="chapters">
+  <article id="ch-111">
+    <p>Chapter 111: Go to work! (1)</p>
+    <p>“Kiyoung, you’re finally here.”</p>
+    <p>“Ah. clearly…”</p>
+    <p>“This is Park Jung-ki, a member of the Blue Guild.”</p>
+    <p>“Ahhhhhh… Jung-ki, yes. I remember. What happened?”</p>
+    <p>“The guild master has called for all the executives.”</p>
+    <p>“I see. Please go back first and tell them that I am on my way.”</p>
+    <p>“Yes, Okay.”</p>
+    <p>For an ordinary guild member, Park Jung-ki’s agility level was evidently high as he quickly disappeared from view.</p>
+    <p>He must have been a designated messenger. Due to my ability, I managed to view his stats.</p>
+    <p>‘Agility stat hero or less…’</p>
+    <p>“Huh. That’s not bad.”</p>
+    <p>“What?”</p>
+    <p>“Ah… It’s nothing, Hee-young.”</p>
+    <p>“Do you have to go now? I heard him say that there was a meeting.”</p>
+    <p>“I think I can go in a little late.”</p>
+    <p>“Ah… That’s fortunate. Then, how about drinking a cup of coffee?”</p>
+    <p>“Let’s stop by a nearby cafe.”</p>
+    <p>It felt weird because this felt like a date, but I didn’t think I needed to rush. I knew why Lee Sang-hee had called for the meeting. She had made up her mind.</p>
+    <p>She had probably called for us to discuss Blue’s current status and the Guild Master spot’s vacancy. It was only right for her to do so.</p>
+    <p>Lee Sang-hee was, after all, incompetent as a leader. She was most likely aware of this fact, and since I had been absent from the guild, I knew she felt it even more.</p>
+    <p>It was difficult to see the majority of the guild members choosing to leave rather than stay. At this point, it was no exaggeration to say that Blue was already sinking underwater.</p>
+    <p>It was not a matter that Lee Sang-hee, with her troubled mindset, can handle.</p>
+    <p>It seemed that Kim Hyunsung had kept her sane for a purpose, but I couldn’t help but feel like there was a hole in his plan. However, the current result would not matter.</p>
+    <p>‘Because I can make the desired result happen later on, anyway.’</p>
+    <p>The fact that Kim Hyunsung was taking charge showed how much he had contributed to Blue. Unlike Sang-hee, Kim Hyunsung was a competent leader with both power and intelligence.</p>
+    <p>I knew that all members would turn to him if I were absent from the guild for a long time.</p>
+    <p>‘I feel sorry for doing this, but…’</p>
+    <p>Surely he knew why I had done this.</p>
+    <p>‘That’s why I decided to stay silent.’</p>
+    <p>As I continued to talk with Sun Hee-young, I felt the time pass us by.</p>
+    <p>In fact, the conversation I had with Sun Hee-young was actually a little fun. Among the women I knew, Lee Jihye was, of course, the number one, but Sun Heeyoung had some parts that complimented me well.</p>
+    <p>It felt much better than having my brain picked at by someone like Cha Hee ra.</p>
+    <p>“I have to get going now.”</p>
+    <p>“Ah. That’s a little disappointing. It felt good to be able to talk after so long.”</p>
+    <p>“I can say the same, Hee-young. Anyway, I’ll often go out on breaks.”</p>
+    <p>“Will you hang out with me sometime?”</p>
+    <p>“Yes, of course.”</p>
+    <p>At this, we both stood up.</p>
+    <p>In fact, while being with Sun Hee-young, I couldn’t help but worry about Kim Hyunsung.</p>
+    <p>I didn’t know if I had done the right thing, but it felt like I had just given a list of chores to someone who did not want to be part of the process.</p>
+    <p>I regretted not helping him out, but I knew Kim Hyunsung had probably done a great job. After all, he was not a fool.</p>
+    <p>“Then, I’ll see you after the meeting.”</p>
+    <p>“Yes, of course.”</p>
+    <p>Though I tried to walk slowly, I arrived back at the guild in no time. It seemed that I had walked faster than I normally intended.</p>
+    <p>I was worried that he would have done the job well.</p>
+    <p>After roughly bidding Sun Hee-young goodbye, I went straight to the conference room.</p>
+    <p>After knocking on the door and peeking in, I could see three sets of serious expressions inside the room.</p>
+    <p>“This is Lee Kiyoung. I’m going in.”</p>
+    <p>“Yes, of course.”</p>
+    <p>Lee Sang-hee wore a little glutinous expression, Hwang Jeong-yeon exhaled a sigh of relief, and Kim Hyunsung smiled up at me.</p>
+    <p>It seemed that his work had gone successfully.</p>
+    <p>‘Good.’</p>
+    <p>“Forgive me for being late. There was a little accident on the way back…”</p>
+    <p>“It’s fine! The meeting was very sudden, after all.”</p>
+    <p>“By any chance…”</p>
+    <p>It was Kim Hyunsung who answered.</p>
+    <p>“We were discussing how Blue should go forward. Lee Sang-hee has expressed her desire to retire from the front lines and was talking about the vacant spot.”</p>
+    <p>“Ah…”</p>
+    <p>“Good, good.</p>
+    <p>“It’s not enough, but I think I’ll be in charge of the guild for the time being. Of course, Lee Sang-hee will stand in the position of teaching various things as an advisor.”</p>
+    <p>At this, I quietly nodded.</p>
+    <p>‘That’s not bad.’</p>
+    <p>Having Lee Sang-hee as an advisor was also an excellent choice. Though she was an ineffective leader, it didn’t make her an incompetent person.</p>
+    <p>Perhaps she decided to make up for her incompetence as a leader by honing her skills in other ways. In this case, she seemed to have noticed how the guild members had been faring with the sudden power shift.</p>
+    <p>Anyway, it was clear that Lee Sang-hee would not be intervening much. It wouldn’t make sense to corrupt such talent.</p>
+    <p>‘Yet you should still get to work, Lee Sang-hee.’</p>
+    <p>It felt like Kim Hyunsung had handled her a little better than I thought.</p>
+    <p>“You’ve made such a difficult choice, Lee Sang-hee.”</p>
+    <p>“No, Mr. Kiyoung. I felt like I was wearing clothes that didn’t really suit me. It feels good to have taken them off. Now, if you’ll excuse me…”</p>
+    <p>“Yeah?”</p>
+    <p>“I have to inform the other guild members about this.</p>
+    <p>“As you’ve ordered, they’re all in one place.”</p>
+    <p>“Then, I’ll head there right away.”</p>
+    <p>From the way she spoke, it was apparent that she had prepared for this burdensome task. Naturally, I couldn’t stop myself from smiling.</p>
+    <p>Kim Hyunsung seemed to have asked Lee Sang-hee a lot of questions about the new announcement.</p>
+    <p>One look inside the auditorium notified me of the people we had gathered together. I could see Park Deokgu, Kim Ye-ri, and Sun Hee-young sitting in the front row. This time around, it would not be me speaking in front of everyone.</p>
+    <p>“Hyung.”</p>
+    <p>“How are you?”</p>
+    <p>“Oh, aren’t you too busy these days?”</p>
+    <p>“Various things have happened. Now, there will be a lot of time to be able to do stuff together. After the guild has successfully recovered, we’ll have more time to relax.”</p>
+    <p>“I hope that day comes soon… More than that, is Hayan okay?”</p>
+    <p>“Yes. She was even sleepwalking yesterday.”</p>
+    <p>“Ha, that’s a good thing.”</p>
+    <p>“Miss Hee-young also said she could move around soon, so don’t worry too much. Instead, we should focus on the news I heard today.”</p>
+    <p>“I was surprised to see everyone gathered around… Did something interesting happen?”</p>
+    <p>“You’ll know soon enough.”</p>
+    <p>It would not be a fun announcement, that was for sure.</p>
+    <p>After some time passed, Lee Sang-hee and Kim Hyunsung appeared on the podium. The real reason why Lee Sang-hee had called everyone on such short notice was that she wanted to get this over with as soon as possible. As she slowly opened her mouth, a calm voice resonated in the auditorium.</p>
+    <p>“The reason I have gathered you all today is to resolve Blue’s current problems for the betterment of its future. To start with the conclusion, I have decided to step down from being the leader.”</p>
+    <p>She was calm as she spoke, but it did not stop the voices from rising. A lot of people were concerned about what this meant for Blue.</p>
+    <p>“The new Guild Master of Blue has been determined. Kim Hyunsung, the leader of the 7th party, is suitable, and all of the leaders of Blue, including me, agreed. I understand that this is a confusing time. I am ashamed as a former leadership to appear in front of you like this, but I hope that we can overcome this crisis together.”</p>
+    <p>At this, a small round of applause filled the room. It was admittedly a good speech, both short and intense.</p>
+    <p>As Lee Sang-hee quietly left the stage, leaving the stage to Kim Hyunsung, who did not appear to be nervous or awkward at all. In fact, it looked natural for him.</p>
+    <p>“Perhaps…</p>
+    <p>Perhaps he had held a similar position in the past.</p>
+    <p>“It is an honor to be seated in such a way. To address your concerns, Lee Sang-hee did not come down suddenly. She has given a lot of thought regarding this change, and has told me so in advance. Fortunately, Lee Sanghee, who was the founding member of Blue, will continue to remain in the guild as an advisor.’</p>
+    <p>‘Good. That’s the way you should go.’</p>
+    <p>“Blue has suffered a great deal. Most of the members here have probably been in Blue for a very long time. Understandably, you are all agitated by an event that happened a while ago.”</p>
+    <p>That was an understatement.</p>
+    <p>“Let’s think of this as a fresh start.”</p>
+    <p>Kim Hyunsung was amazing at this.</p>
+    <p>“I’m telling you that the change will start right from this moment. It’s sudden, but I want to tell you my greetings and plans for future development.”</p>
+    <p>I never thought that he would have prepared for this. When I looked at Lee Sang-hee, I felt like she already knew.</p>
+    <p>I didn’t know when they had such a conversation, but what I did know was that people weren’t good at handling change. They would probably receive backlash, although not on a large scale.</p>
+    <p>However, Kim Hyunsung didn’t seem to think so. My heart pounded as he opened his mouth once more to speak. I knew he would give me a solid seat, given everything I had done so far.</p>
+    <p>Kim Hyunsung’s voice boomed over the crowd.</p>
+    <p>“First, I appoint Mr. Lee Kiyoung as the Vice Guild Master.”</p>
+    <p>‘I love you, Hyunsung!’</p>
+    <p>My eyes flashed. This is what I had been waiting for, though I was not expecting to get it.</p>
+    <p>I am second-in-command in his kingdom.’</p>
+    <p>I knew he cherished me, but it appeared that Kim Hyunsung appreciated me more than I thought. I couldn’t help but smile at this point or dance. This had effectively brightened my mood.</p>
+    <p>“The Guild Secretary will temporarily also be Mr. Kiyoung for the moment.”</p>
+    <p>Being able to handle the guild’s funding would also give me an additional semblance of power. I was not only the Vice Master but the secretary as well. This meant that I would be busy for some time, but I knew I could handle</p>
+    <p>“After, a temporary personnel committee will be established to recruit the most important personnel, Lee Kiyoung will also act as the chairperson for that.”</p>
+    <p>Being able to pick people that would suit my tastes would definitely also work in my favor.</p>
+    <p>“We will create a new strategy team for targeting the dungeon, and Mr. Lee Kiyoung will be doing all the hard work temporarily.”</p>
+    <p>It was only after a little while that I realized something was wrong.</p>
+    <p>“The Guild Future Strategy Headquarters and the Damage Countermeasure Committee have been established, and Lee Kiyoung will serve as the first chairman for the time being.”</p>
+    <p>‘Wait.’</p>
+    <p>“We temporarily appoint Mr. Lee Kiyoung to the Chief Executive Officer position to encompass the overall administrative work. We will continue to work hard until the situation stabilizes.”</p>
+    <p>‘Stop.</p>
+    <p>“We also appoint Mr. Kiyoung Lee as the manager of the Pension Strategy Planning Office.”</p>
+    <p>‘Stop.</p>
+    <p>“We have established a PR strategy team, and Lee Kiyoung will also temporarily be in charge of promoting the guild.”</p>
+    <p>Only</p>
+    <p>‘Please stop already, you bastard!’</p>
+    <p>The problem was that my name kept popping out of Kim Hyunsung’s mouth.</p>
+    <p>Of course, in addition to my name, the names of Hwang Jeong-yeon and Sun Hee-young also popped up in the middle, but it was me who kept getting appointed to various positions with the strangest titles.</p>
+    <p>Eventually, the people around me started to give me pitying looks. At this point, I was suspicious of whether Kim Hyunsung was trying to keep me busy to prevent me from doing or saying anything else.</p>
+    <p>“I also appoint Mr. Lee Kiyoung as the interim chairman.”</p>
+    <p>‘Okay, I get it already…’</p>
+    <p>The room had gone silent at this point.</p>
+    <p>It was the first time I felt resentment for Kim Hyunsung.</p>
+  </article>
+</div>
+
+<div id="merge-status"></div>
+
+<nav>
+  <span class="nav-left"><a href="110.html" rel="prev">&#8592; Ch 110</a></span>
+  <span class="nav-mid">
+    <button class="btn-merge" id="btn-merge" >Merge Next 10</button>
+  </span>
+  <span class="nav-right"><a href="112.html" rel="next">Ch 112 &#8594;</a></span>
+</nav>
+
+<script>
+  // Chapters available after this one — discovered from meta.json
+  var slug       = "regressor-instruction-manual";
+  var currentNum = 111;
+  var nextNum    = 112;
+  var maxLoaded  = currentNum;
+  var allNums    = null;   // loaded lazily from meta.json
+  var merging    = false;
+  var root       = "../../";
+
+  async function getNums() {
+    if (allNums) return allNums;
+    var res = await fetch(root + "data/" + slug + "/meta.json");
+    var meta = await res.json();
+    allNums = meta.chapters.map(function(c){ return c.num; });
+    return allNums;
+  }
+
+  document.getElementById("btn-merge").addEventListener("click", async function() {
+    if (merging) return;
+    merging = true;
+    var btn    = document.getElementById("btn-merge");
+    var status = document.getElementById("merge-status");
+    btn.textContent = "Loading…";
+    btn.disabled = true;
+
+    var nums   = await getNums();
+    var idx    = nums.indexOf(maxLoaded);
+    var toLoad = nums.slice(idx + 1, idx + 11);
+    if (!toLoad.length) { merging = false; return; }
+
+    status.style.display = "block";
+    status.textContent = "Fetching chapters " + toLoad[0] + "–" + toLoad[toLoad.length-1] + "…";
+
+    var container = document.getElementById("chapters");
+    var firstNew  = null;
+
+    for (var i = 0; i < toLoad.length; i++) {
+      var n = toLoad[i];
+      try {
+        var res  = await fetch(n + ".html");
+        var html = await res.text();
+        var doc  = new DOMParser().parseFromString(html, "text/html");
+        var art  = doc.querySelector("article");
+        var h1   = doc.querySelector("h1");
+        if (!art) continue;
+
+        // Divider
+        var divider = document.createElement("div");
+        divider.className = "ch-divider";
+        divider.textContent = "Chapter " + n;
+        container.appendChild(divider);
+
+        // Chapter title
+        if (h1) {
+          var chTitle = document.createElement("div");
+          chTitle.className = "ch-title";
+          chTitle.textContent = h1.textContent;
+          container.appendChild(chTitle);
+        }
+
+        // Content
+        var section = document.createElement("article");
+        section.id = "ch-" + n;
+        section.innerHTML = art.innerHTML;
+        container.appendChild(section);
+
+        if (!firstNew) firstNew = divider;
+        maxLoaded = n;
+      } catch(e) {
+        console.warn("Failed to load chapter " + n, e);
+      }
+    }
+
+    // Update nav next link
+    var nextIdx = nums.indexOf(maxLoaded) + 1;
+    var newNext = nextIdx < nums.length ? nums[nextIdx] : null;
+    var navRight = document.querySelector(".nav-right");
+    if (newNext) {
+      navRight.innerHTML = '<a href="' + newNext + '.html" rel="next">Ch ' + newNext + ' &#8594;</a>';
+    } else {
+      navRight.innerHTML = '<span></span>';
+    }
+
+    status.style.display = "none";
+    btn.textContent = newNext ? "⊕ Merge Next 10" : "✓ All loaded";
+    btn.disabled = !newNext;
+    merging = false;
+
+    if (firstNew) firstNew.scrollIntoView({ behavior:"smooth", block:"start" });
+  });
+</script>
+</body>
+</html>

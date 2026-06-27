@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chapter 90 — Regressor Instruction Manual</title>
+  <style>
+    :root { --ink:#1a1a1a; --dim:#666; --bg:#fff; --gold:#8a6a1a; --border:#ddd; }
+    @media (prefers-color-scheme:dark) {
+      :root { --ink:#e9e4da; --dim:#9a9286; --bg:#111010; --gold:#c9a84c; --border:#2a2825; }
+    }
+    *{ box-sizing:border-box; margin:0; padding:0; }
+    body{ background:var(--bg); color:var(--ink); font-family:Georgia,'Times New Roman',serif;
+          font-size:1.125rem; line-height:1.85; padding:40px 24px 80px;
+          max-width:680px; margin:0 auto; }
+    header{ margin-bottom:32px; padding-bottom:20px; border-bottom:1px solid var(--border); }
+    header a{ color:var(--gold); text-decoration:none; font-size:.85rem; }
+    h1{ font-size:1.35rem; font-weight:700; margin-top:10px; line-height:1.25; }
+    article p{ margin-bottom:1.4em; text-align:justify; hyphens:auto; }
+    .ch-divider{ text-align:center; padding:28px 0 16px; color:var(--dim);
+                  font-size:.8rem; letter-spacing:.1em; text-transform:uppercase; }
+    .ch-divider::before,.ch-divider::after{ content:''; display:inline-block;
+      width:40px; height:1px; background:var(--border); vertical-align:middle; margin:0 12px; }
+    .ch-title{ font-size:1.1rem; font-weight:700; color:var(--gold); margin-bottom:16px; }
+    nav{ display:grid; grid-template-columns:1fr auto 1fr; gap:10px; align-items:center;
+          margin-top:48px; padding-top:20px; border-top:1px solid var(--border); font-size:.88rem; }
+    nav a{ color:var(--gold); text-decoration:none; }
+    nav a:hover{ text-decoration:underline; }
+    nav .nav-right{ text-align:right; }
+    nav .nav-mid{ text-align:center; }
+    .btn-merge{ background:rgba(138,106,26,.12); border:1px solid var(--gold);
+                 color:var(--gold); padding:9px 16px; border-radius:6px; cursor:pointer;
+                 font-family:Georgia,serif; font-size:.85rem; font-weight:600;
+                 transition:background .15s; white-space:nowrap; }
+    .btn-merge:hover:not(:disabled){ background:rgba(138,106,26,.25); }
+    .btn-merge:disabled{ opacity:.35; cursor:not-allowed; }
+    #merge-status{ text-align:center; padding:12px; font-size:.82rem;
+                    color:var(--dim); display:none; }
+  </style>
+</head>
+<body>
+<header>
+  <a href="../../novel.html?slug=regressor-instruction-manual">&larr; Regressor Instruction Manual</a>
+  <h1 id="page-title">Chapter 90</h1>
+</header>
+
+<div id="chapters">
+  <article id="ch-90">
+    <p>Chapter 90: Together Forever (4)</p>
+    <p>“We’ll be together forever. We can stay here for all time, Oppa. Hehehe…”</p>
+    <p>Her creepy voice sent shivers down my spine.</p>
+    <p>I knew Jung Hayan wasn’t expecting me to flinch from the way she had been acting, so I chose not to move. In the first place, her mentality was obviously not healthy.</p>
+    <p>Sun Hee-young had a similar mindset, but she already had her own set of values in place. She was essentially different from Jung Hayan, who relied entirely on me. Their biggest difference lay in the fact that one knew how to control herself, and the other one didn’t.</p>
+    <p>I didn’t know who Jung Hayan was hearing, but…</p>
+    <p>“I’m not going to listen to you. So don’t talk to me. I won’t listen, anyway.”</p>
+    <p>Perhaps it was some twisted version of me.</p>
+    <p>In context, it was correct to think so. After all, I’m her biggest weakness.</p>
+    <p>“My Oppa can’t die… I’m only going to cut your legs. You’re going to run away? There’s no way you’re going to do that because you said you loved me. There’s no way. If you do that, you’re going to be hurting, and I don’t like that.”</p>
+    <p>Momentarily, I felt her hand stroking my leg. I wanted to scream, to resist, but I could not.</p>
+    <p>I should have been sleeping soundly by now.</p>
+    <p>“You still don’t know? Huh. You don’t have to do that. If I cut off his arms, he won’t have a hand that will stroke my head, idiot. He wouldn’t even be able to hug me tight… You are an idiot.”</p>
+    <p>‘Sh*t.’</p>
+    <p>Her condition seemed to be getting worse.</p>
+    <p>Right now, I could hear another voice in addition to Jung Hayan’s.</p>
+    <p>Hearing Jung Jinho and Park Hyaeyoung constantly invading my head irritated me. Since the curse overlapped with one’s mentality, I knew all of us must be feeling worn.</p>
+    <p>The curse eroded the mind faster than anything else. I knew it should not affect us, but in truth, it was honestly affecting Jung Hayan on a largely negative scale.</p>
+    <p>Nevertheless…</p>
+    <p>‘She’s not completely crazy yet…’</p>
+    <p>I was sure of this because she knew not to act in that manner when other people were present. As long as she was acting sanely, it would all be okay.</p>
+    <p>With these thoughts, I tried my best to stay quiet.</p>
+    <p>“Oppa seems to be awake…?”</p>
+    <p>I froze when I heard it.</p>
+    <p>“No… He has never awakened once. Oppa doesn’t get up easily once he falls asleep. I cast magic on him, too…”</p>
+    <p>“Ah. This isn’t the Guild House. I forgot…”</p>
+    <p>‘Ah…’</p>
+    <p>Though my eyes were closed, I could still feel Jung Hayan moving closer. This was because I could feel her rough breathing right against my skin.</p>
+    <p>I knew she was checking to see if I was actually asleep.</p>
+    <p>After some time, she kissed me lightly on the lips and drew back.</p>
+    <p>‘Ah…’</p>
+    <p>Feeling her move away, it seemed that she’d decided it would be better to stay away from me.</p>
+    <p>Still though, I didn’t dare to move.</p>
+    <p>Jung Hayan moved to another position. After some time, I thought about finally opening my eyes, however…</p>
+    <p>“Ah, so I was right. You’re still sleeping, aren’t you, Oppa?”</p>
+    <p>Then she moved away again.</p>
+    <p>I tried to sleep as much as possible, which wasn’t a problem with my drowsiness. To put it plainly, dungeons were no longer a problem for me.</p>
+    <p>‘But I have more pressing matters to attend to.’</p>
+    <p>It was more important to solve this situation.</p>
+    <p>In the first place, Jung Hayan’s abnormal behavior wasn’t easily recognizable. It was also incomprehensible that she had cast magic in my room and on myself.</p>
+    <p>But she hadn’t done that to hurt me. She had done it to protect me from any possible enemy.</p>
+    <p>This was her own way of showing that she cared for me a lot.</p>
+    <p>Simply put, Jung Hayan had never once shown that she intended to hurt me.</p>
+    <p>The current situation felt different, however.</p>
+    <p>‘Now, she’s…’</p>
+    <p>Now it felt like a possible endeavor for her to take, especially after experiencing the hallucination. In fact, she must probably already be planning it.</p>
+    <p>‘To stay together forever in this dungeon for the rest of our lives…’</p>
+    <p>I shuddered.</p>
+    <p>In the first place, the idea of ??thinking that drinking water and food can be obtained here was ridiculous. Drinking water could somehow be obtained by magic, but this was not a place where humans could live.</p>
+    <p>Of course, I wasn’t sure if Jung Hayan was really entertaining the possibility, but it only felt right to act on it before she even attempted to.</p>
+    <p>Assuming that Jung Hayan had really made up her mind, she had two options.</p>
+    <p>One was to kill and hide those who had entered this place. The other one was to disappear after taking only me.</p>
+    <p>Although it seemed to me that the second option was more viable, there was no guarantee that she would not choose the first if things got worse than it was now.</p>
+    <p>‘Although…’</p>
+    <p>I didn’t think Jung Hayan would be able to kill everyone in this expedition.</p>
+    <p>‘Knowing her specs, it’s still a possibility.’</p>
+    <p>Jung Hayan was smarter and more resourceful than I would like to admit.</p>
+    <p>The place where we were now was a dungeon that had swallowed up the five previous Blue parties, and everyone had been afflicted with hallucinations. It didn’t matter if Kim Hyunsung was a returner. Jung Hayan was still a very unpredictable variable.</p>
+    <p>Suppose Jung Hayan’s plan was put into action and completed successfully. In that case, the dungeon we were in now might be renamed to a legendary dungeon, not a heroic-grade dungeon depicting a cursed shrine, but a legendary dungeon with a mad wizard and a cursed shrine.</p>
+    <p>‘The mad wizard and the cursed shrine…’</p>
+    <p>It was an ominous-sounding thought.</p>
+    <p>From Jung Hayan’s perspective, anyone who dared to enter would be seen as an intruder in our own nest of love. It would be the best bad ending out of all possible scenarios.</p>
+    <p>Of course, I didn’t want to waste my whole life away in an area like this.</p>
+    <p>This may be a safe and comfortable place, but my freedom would always be suppressed.</p>
+    <p>‘What should I do…’</p>
+    <p>There were many options, but the first was to fix her mentality as soon as possible. In addition to completing the expedition’s task, I had one more thing to do.</p>
+    <p>As I busied myself in my next course of action, day approached our group. The first voice I heard was Jung Hayan’s.</p>
+    <p>“It’s time to get up, Oppa.”</p>
+    <p>“Ah… Huh.”</p>
+    <p>As I nodded and looked up at her, her status window reflected in front of me.</p>
+    <p>[Check the player’s status window and potential ability.]</p>
+    <p>[Name - Hayan Jung]</p>
+    <p>[Title - None. You should try a little more.]</p>
+    <p>[Age - 21]</p>
+    <p>[Alignment -???]</p>
+    <p>[Job - Archmage - Heroic Grade]</p>
+    <p>[Capacity]</p>
+    <p>[Strength - 17/Growth limit: Rare or less]</p>
+    <p>[Agility - 15/Growth limit: Rare or less]</p>
+    <p>[Health - 29/Growth limit: Heroic or less]</p>
+    <p>[Intellect - 61/Growth limit: Heroic or higher]</p>
+    <p>[Durability - 22/Growth limit: Rare or less]</p>
+    <p>[Luck - 52/Growth limit: Heroic or higher]</p>
+    <p>[Mana - 70/Growth limit: Legendary or higher]</p>
+    <p>[Equipment - Holy Protection]</p>
+    <p>[Talent - How to Become a Wizard - Heroic Grade]</p>
+    <p>[General comment - Her growth rate is outstanding. Player Jung Hayan has a near-perfect understanding of magic. It seems that it is still difficult to advance her mind to the next level, but she is expected to gain momentum soon. I am very sorry to mention player Lee Kiyoung. It is noticeable that her tendency is changing. If you don’t want to transform the Cursed Shrine into a new type of dungeon, you should take some action. I’ve hardly been affectionate, but I hope you survive.]</p>
+    <p>‘Ah, so it’s true…’</p>
+    <p>Fortunately, her change in disposition was not yet complete. I didn’t know what the question mark meant, but the general review literally stated that Jung Hayan was at a crossroads.</p>
+    <p>I didn’t know what her tendency to change would be like, but it could very well be a positive change.</p>
+    <p>When I looked at Jung Hayan again, I could see her acting like how she always was with me. Because of this, I felt embarrassed at my inability to act as casually as I would’ve liked.</p>
+    <p>“Hehehe.”</p>
+    <p>However, it was natural for me to cover up for my blunder. As I smiled and stroked her face, she looked very happy.</p>
+    <p>“Can you still hear the voice? Hayan?”</p>
+    <p>“Yeah. I still hear it at times, but it’s okay now. They’re all just hallucinations.”</p>
+    <p>“What exactly has it been saying?”</p>
+    <p>“I do not know. I can’t hear them well anymore. You don’t have to worry.”</p>
+    <p>Of course, she was lying.</p>
+    <p>“Alright, I’m glad. Anyway, we need to go soon. What about the others?”</p>
+    <p>“I heard that we would leave in half an hour. Everyone seems to be organizing their luggage…”</p>
+    <p>We held hands at this point. I also smiled and kissed Jung Hayan on the lips. She then wrapped her arms around my neck, but we both knew we couldn’t do anything further. It was time to move.</p>
+    <p>However, with the way we were acting, it was almost like we were old lovers.</p>
+    <p>For a long while, a blush stayed on Jung Hayan’s face.</p>
+    <p>‘Good.’</p>
+    <p>This was not a bad reaction. It felt like it would be better for me to move a little more actively, and it seemed to be working so far.</p>
+    <p>Of course, it was natural for me to keep her close and continue to shower her with praises. I thought that what Jung Hayan needed now was greater affection. At least, when she was with me, her condition didn’t seem to be worsening.</p>
+    <p>“Are you ready to leave?”</p>
+    <p>“Yes. I’ve prepared everything.”</p>
+    <p>“Ah. Thanks. Then, shall we go out?”</p>
+    <p>“Ah. Oppa, wait… I actually have something to say.”</p>
+    <p>“Huh?”</p>
+    <p>“The other day… Um, about last time.”</p>
+    <p>“Huh. What about it?”</p>
+    <p>“We do… First… You know when you first kissed me, right?”</p>
+    <p>Of course, I remembered.</p>
+    <p>Before going to Cha Hee-ra, I kissed Jung Hayan to reassure her that I wouldn’t leave her.</p>
+    <p>“Then…”</p>
+    <p>“…”</p>
+    <p>“You said you loved me, right? You said I was the only one.”</p>
+    <p>“Of course you are.”</p>
+    <p>“Even now… Do you feel the same? You love me, don’t you?”</p>
+    <p>‘This…’</p>
+    <p>It was hard to tell what the right answer was.</p>
+    <p>However, after assessing her glances, I realized I had another option. If I thought about it, I could simply just nod.</p>
+    <p>However, it was very difficult to tell if this was really the correct answer.</p>
+    <p>One wrong move could change her disposition.</p>
+    <p>As I was thinking about this, Jung Hayan spoke once more, a little more forcefully this time.</p>
+    <p>“You love me, right?”</p>
+    <p>At the urgency in her tone, I felt compelled to answer.</p>
+    <p>Only</p>
+    <p>“Of course, I love you now, and I will continue to love you in the future.”</p>
+    <p>“Ah… thank God!”</p>
+    <p>“By the way… Why are you asking this all of a sudden?”</p>
+    <p>“Ah, it’s nothing…”</p>
+    <p>Her expression showed pure joy, but it was still hard to tell if I had given her the correct answer or not. There hadn’t been a change in disposition yet.</p>
+    <p>“I love you too, Oppa.”</p>
+    <p>“Me, too…”</p>
+    <p>It was then that a change occurred with Jung Hayan’s status window.</p>
+  </article>
+</div>
+
+<div id="merge-status"></div>
+
+<nav>
+  <span class="nav-left"><a href="89.html" rel="prev">&#8592; Ch 89</a></span>
+  <span class="nav-mid">
+    <button class="btn-merge" id="btn-merge" >Merge Next 10</button>
+  </span>
+  <span class="nav-right"><a href="91.html" rel="next">Ch 91 &#8594;</a></span>
+</nav>
+
+<script>
+  // Chapters available after this one — discovered from meta.json
+  var slug       = "regressor-instruction-manual";
+  var currentNum = 90;
+  var nextNum    = 91;
+  var maxLoaded  = currentNum;
+  var allNums    = null;   // loaded lazily from meta.json
+  var merging    = false;
+  var root       = "../../";
+
+  async function getNums() {
+    if (allNums) return allNums;
+    var res = await fetch(root + "data/" + slug + "/meta.json");
+    var meta = await res.json();
+    allNums = meta.chapters.map(function(c){ return c.num; });
+    return allNums;
+  }
+
+  document.getElementById("btn-merge").addEventListener("click", async function() {
+    if (merging) return;
+    merging = true;
+    var btn    = document.getElementById("btn-merge");
+    var status = document.getElementById("merge-status");
+    btn.textContent = "Loading…";
+    btn.disabled = true;
+
+    var nums   = await getNums();
+    var idx    = nums.indexOf(maxLoaded);
+    var toLoad = nums.slice(idx + 1, idx + 11);
+    if (!toLoad.length) { merging = false; return; }
+
+    status.style.display = "block";
+    status.textContent = "Fetching chapters " + toLoad[0] + "–" + toLoad[toLoad.length-1] + "…";
+
+    var container = document.getElementById("chapters");
+    var firstNew  = null;
+
+    for (var i = 0; i < toLoad.length; i++) {
+      var n = toLoad[i];
+      try {
+        var res  = await fetch(n + ".html");
+        var html = await res.text();
+        var doc  = new DOMParser().parseFromString(html, "text/html");
+        var art  = doc.querySelector("article");
+        var h1   = doc.querySelector("h1");
+        if (!art) continue;
+
+        // Divider
+        var divider = document.createElement("div");
+        divider.className = "ch-divider";
+        divider.textContent = "Chapter " + n;
+        container.appendChild(divider);
+
+        // Chapter title
+        if (h1) {
+          var chTitle = document.createElement("div");
+          chTitle.className = "ch-title";
+          chTitle.textContent = h1.textContent;
+          container.appendChild(chTitle);
+        }
+
+        // Content
+        var section = document.createElement("article");
+        section.id = "ch-" + n;
+        section.innerHTML = art.innerHTML;
+        container.appendChild(section);
+
+        if (!firstNew) firstNew = divider;
+        maxLoaded = n;
+      } catch(e) {
+        console.warn("Failed to load chapter " + n, e);
+      }
+    }
+
+    // Update nav next link
+    var nextIdx = nums.indexOf(maxLoaded) + 1;
+    var newNext = nextIdx < nums.length ? nums[nextIdx] : null;
+    var navRight = document.querySelector(".nav-right");
+    if (newNext) {
+      navRight.innerHTML = '<a href="' + newNext + '.html" rel="next">Ch ' + newNext + ' &#8594;</a>';
+    } else {
+      navRight.innerHTML = '<span></span>';
+    }
+
+    status.style.display = "none";
+    btn.textContent = newNext ? "⊕ Merge Next 10" : "✓ All loaded";
+    btn.disabled = !newNext;
+    merging = false;
+
+    if (firstNew) firstNew.scrollIntoView({ behavior:"smooth", block:"start" });
+  });
+</script>
+</body>
+</html>

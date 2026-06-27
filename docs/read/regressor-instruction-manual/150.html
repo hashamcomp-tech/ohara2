@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chapter 150 — Regressor Instruction Manual</title>
+  <style>
+    :root { --ink:#1a1a1a; --dim:#666; --bg:#fff; --gold:#8a6a1a; --border:#ddd; }
+    @media (prefers-color-scheme:dark) {
+      :root { --ink:#e9e4da; --dim:#9a9286; --bg:#111010; --gold:#c9a84c; --border:#2a2825; }
+    }
+    *{ box-sizing:border-box; margin:0; padding:0; }
+    body{ background:var(--bg); color:var(--ink); font-family:Georgia,'Times New Roman',serif;
+          font-size:1.125rem; line-height:1.85; padding:40px 24px 80px;
+          max-width:680px; margin:0 auto; }
+    header{ margin-bottom:32px; padding-bottom:20px; border-bottom:1px solid var(--border); }
+    header a{ color:var(--gold); text-decoration:none; font-size:.85rem; }
+    h1{ font-size:1.35rem; font-weight:700; margin-top:10px; line-height:1.25; }
+    article p{ margin-bottom:1.4em; text-align:justify; hyphens:auto; }
+    .ch-divider{ text-align:center; padding:28px 0 16px; color:var(--dim);
+                  font-size:.8rem; letter-spacing:.1em; text-transform:uppercase; }
+    .ch-divider::before,.ch-divider::after{ content:''; display:inline-block;
+      width:40px; height:1px; background:var(--border); vertical-align:middle; margin:0 12px; }
+    .ch-title{ font-size:1.1rem; font-weight:700; color:var(--gold); margin-bottom:16px; }
+    nav{ display:grid; grid-template-columns:1fr auto 1fr; gap:10px; align-items:center;
+          margin-top:48px; padding-top:20px; border-top:1px solid var(--border); font-size:.88rem; }
+    nav a{ color:var(--gold); text-decoration:none; }
+    nav a:hover{ text-decoration:underline; }
+    nav .nav-right{ text-align:right; }
+    nav .nav-mid{ text-align:center; }
+    .btn-merge{ background:rgba(138,106,26,.12); border:1px solid var(--gold);
+                 color:var(--gold); padding:9px 16px; border-radius:6px; cursor:pointer;
+                 font-family:Georgia,serif; font-size:.85rem; font-weight:600;
+                 transition:background .15s; white-space:nowrap; }
+    .btn-merge:hover:not(:disabled){ background:rgba(138,106,26,.25); }
+    .btn-merge:disabled{ opacity:.35; cursor:not-allowed; }
+    #merge-status{ text-align:center; padding:12px; font-size:.82rem;
+                    color:var(--dim); display:none; }
+  </style>
+</head>
+<body>
+<header>
+  <a href="../../novel.html?slug=regressor-instruction-manual">&larr; Regressor Instruction Manual</a>
+  <h1 id="page-title">Chapter 150</h1>
+</header>
+
+<div id="chapters">
+  <article id="ch-150">
+    <p>Chapter 150: Don&#x27;t you know why I&#x27;m disappointed? (2)</p>
+    <p>“So, what happened, Hyung-nim? Did everything go well?”</p>
+    <p>“Can’t you tell? It went very well.”</p>
+    <p>“Ah…”</p>
+    <p>“Why do you ask?”</p>
+    <p>It had been a few days since my serious conversation with Kim Hyunsung. It was Park Deokgu now who had deemed to ask me, as we both packed our luggage.</p>
+    <p>“Nothing. It was just a little unexpected. Ah! How’s our hyung-ssi?”</p>
+    <p>I didn’t know what to say. I’ve only been noticing that Kim Hyunsung seemed a little depressed from our interaction. I couldn’t figure out what Cho Hyejin meant to Kim Hyunsung, but the man must have realized that he had put her in a position I could not accept.</p>
+    <p>I knew he gave it the excuse of preparing this for me, but I knew there was something else underneath. As a result, he had realized his fault.</p>
+    <p>‘He looked like a dejected puppy.</p>
+    <p>I knew Hyunsung had expected a positive reaction from me. However, if it was up to me, I would do my utmost to reduce Hyejin’s authority. At the very least, what power I currently had should remain until Kim Mi-young can finish her job.</p>
+    <p>All this I had disguised under the guise of Cho Hyejin being an entirely new member. In fact, apart from her abilities, there had been a lot of speculations about her and Hyunsung being in a relationship.</p>
+    <p>‘It seems like he doesn’t know.’</p>
+    <p>Personal reasons aside, I knew it was not the right time for Cho Hyejin to be put in a position of power. However, it wouldn’t be good for me to be too openly discriminating.</p>
+    <p>At this, I looked at Park Deokgu and spoke once more. “Well, he seemed a little sad about it, but he agreed with me in the end.”</p>
+    <p>“I’m glad, then…”</p>
+    <p>“What’s with that face?”</p>
+    <p>“No, it’s not a big deal. I’m just surprised at the fact that you two had different opinions.”</p>
+    <p>“There was no trouble.”</p>
+    <p>“I know, I only heard things.”</p>
+    <p>“What did you hear?”</p>
+    <p>“Well, what the female guild employees are saying is one thing, but the rumors state that hyung-nim and hyung-ssi fought. Is that true?”</p>
+    <p>“Ah…”</p>
+    <p>“Wait, wait! Did you actually fight?”</p>
+    <p>“It’s not as big as you think. We just had some misunderstandings, so you don’t have to worry about it. I felt disappointed that he made an important decision and only said it last…”</p>
+    <p>“So…”</p>
+    <p>“As a result, I got an apology, and everything is normal. If I keep going against it, there may be friction, but it won’t happen. In any case, I think Cho Hyejin is competent, and in Blue, we need talents like her. Ah! I’m just telling you, don’t go anywhere and talk about this…”</p>
+    <p>“Mm. My mouth is as close as an oyster.”</p>
+    <p>“Did you prepare everything you need?”</p>
+    <p>“Almost everything.”</p>
+    <p>“Can I check it once?”</p>
+    <p>“W-Wait just a little more.”</p>
+    <p>“It’s been a while since we had a long expedition. There can’t be any mistakes.”</p>
+    <p>As I looked around, I saw other people busy preparing for the expedition. Hwang Jeong-yeon had come to help Park Deokgu with his belongings. Jung Hayan, Sun Hee-young and Kim Ye-ri were also taking quite a long time in organizing their luggage.</p>
+    <p>Most of the members were disconcerted by the news that they were suddenly leaving for Castle Rock. Still, they were experienced, and in no time, I saw them transporting all the items without missing anything in a carriage.</p>
+    <p>The guild staff proved to be busier than the party members. Loud voices echoed everywhere.</p>
+    <p>“Are you sure you packed the supplies there?”</p>
+    <p>“Yes, Park Jung-gi! The last one is entering.”</p>
+    <p>“You have also arranged for the items to be sent later, right?”</p>
+    <p>“Yes. So… Alchemy kits, consumable catalysts, and spare equipment were first put in the warehouse.”</p>
+    <p>“Put the griffon feed in there as well.”</p>
+    <p>“Okay.”</p>
+    <p>“With basic protection magic, manage the items so that they don’t get damaged. I’ll check and tell the team members to be on standby.”</p>
+    <p>“Yes. Okay.”</p>
+    <p>It felt good to see them preparing for the expedition on their own, without me having to take care of everything.</p>
+    <p>“But, manager… I heard that it’s going to be a long expedition, but there seems to be too much supply. There are many lists to purchase at Castle Rock… The organized supplies are more than what our budget can handle…”</p>
+    <p>“This is a matter directly requested by the Guild Master, so just follow the orders. It’s not our job to be curious, or to have futile questions. All we have to do is deliver the supplies without error.”</p>
+    <p>“Yes, of course.”</p>
+    <p>What was interesting was that the supplies that were going to the Castle Rock expedition, in fact, felt excessive compared to the usual expedition. I felt certain that Park Jung-gi, deemed Head of the Expedition Support Team, understood this the best.</p>
+    <p>He couldn’t say anything because the Guild Master directed it, but even if I were to think about it, the items that did go into this expedition were a bit strange. Of course, considering the current situation in Castle Rock, it made sense to an extent.</p>
+    <p>I didn’t know if the citizens over there were aware that something was indeed happening in their city, but Kim Hyunsung had clearly stated that something was happening in their area.</p>
+    <p>‘A new dungeon appearance? Monster wave? A hero-grade monster?’</p>
+    <p>Considering the supplies, I knew which among these was most likely.</p>
+    <p>‘You’re so obvious, Hyunsung.’</p>
+    <p>It was necessary to prepare for any situation in an expedition, but it felt weird preparing a thousand arrows for Kim Ye-ri, who wasn’t even a pure archer by default.</p>
+    <p>And it wasn’t just this, either.</p>
+    <p>Basic stamina potions were being massively produced in our potion factory, all in order to reach the quota Kim Hyunsung had set for them. At this point, it was easy to predict about what was going to happen in Castle Rock - we were preparing for a massive battle.</p>
+    <p>Of course, as Kim Hyunsung said, it was to prepare for anything, but seeing that the guy who knows the future is preparing too much, I could at least realize that the purpose of this expedition was not a simple dungeon attack.</p>
+    <p>‘We’re either going to face a monster wave, or a raid.’</p>
+    <p>Personally, I hoped it was the former. I was anxious, but I was also excited. If Kim Hyunsung was willing to dive into such a situation, it must mean that the reward was great.</p>
+    <p>“Not to mention, the experience…</p>
+    <p>“What?”</p>
+    <p>“Oh, nothing. Hee-young, did you pack all our luggage?”</p>
+    <p>“Yes. I’ve packed all my personal belongings.”</p>
+    <p>“What about the others?”</p>
+    <p>“We packed everything and checked Ye-ri and Hayan’s luggage. Hyejin seems to have finished preparing as well. Everything is going well.”</p>
+    <p>“Good. Then I will tell our Guild Master that we are ready to go.”</p>
+    <p>“Yes.”</p>
+    <p>My job here was done. Next…</p>
+    <p>“Manager Park Jung-gi?”</p>
+    <p>“Vice Guild Master.”</p>
+    <p>“I believe you have handled everything without errors according to the list.”</p>
+    <p>“Ah. Yes. There are a few things that are missing from the sudden preparation, but when all the supplies are in place, you can head to Castle Rock. This is one last check, but do I really have to send all of these supplies?”</p>
+    <p>“Yes, Manager Park Jung-gi. Please send it without any error. No, it would be nice to send additional supplies if you still can. You did a really good job. Ah! If there are more items to be needed in the future, I will tell you again using a carrier pigeon.”</p>
+    <p>“Okay.”</p>
+    <p>This part also seemed ready.</p>
+    <p>Kim Hyunsung appeared then, at what I’d call a perfect timing. There was no more need for me to find and report him about the finished preparations. We were set to go.</p>
+    <p>“I think we can leave right away, Hyunsung-ssi.”</p>
+    <p>“Yes, thank you. You don’t have to come out and check every time…”</p>
+    <p>“I get a bit nervous if I don’t check it personally, anyway.”</p>
+    <p>“I feel reassured to have Kiyoung-ssi.”</p>
+    <p>‘You have to, you bastard.’</p>
+    <p>“It’s not hard work. The number of expeditionary members is 13, including me, Hwang Jeong-yeon, Park Deokgu, Jung Hayan, Sun Hee-young, Kim Ye-ri, Cho Hyejin, and five other guild employees. Except for some items that need to be adjusted, everything else is loaded onto the wagon. Later, as soon as the quantity is met, the other wagons will depart.”</p>
+    <p>“Yeah.”</p>
+    <p>“The guild is planned to be handled by advisors Lee Sang-hee, and manager Kim Mi-young, among many others.”</p>
+    <p>“Yes. I confirmed. Then let’s go.”</p>
+    <p>“Yes.”</p>
+    <p>After the guild members slowly entered the carriage, I also went to enter. It would be quicker if I went on a griffon, but there were a lot of supplies. It was unfortunate that the road to Castle Rock was a little rough in itself.</p>
+    <p>Considering that it was a place that had already been stabilized, I didn’t have to worry about monsters attacking us, so the journey would be like going on a picnic. In short, I could relax.</p>
+    <p>“Well, it’s been a while since we went on an expedition, so I’m excited.”</p>
+    <p>“We’re not going for fun, so you better be tense. You can rest until we get to Castle Rock.”</p>
+    <p>“Ahem, isn’t hyung-nim being too tight?”</p>
+    <p>“Ha ha ha ha ha.”</p>
+    <p>At Park Deokgu’s words, Kim Hyunsung spoke up.</p>
+    <p>Whenever it rained, the ground would harden. The same could be said between Hyunsung and me, who had just gotten out of a dispute.</p>
+    <p>Perhaps I was just imagining it, but I felt like our relationship had gotten a little stronger compared to yesterday. Just thinking about his nervous expression made me laugh.</p>
+    <p>I already knew Kim Hyunsung wasn’t a bad person, but yesterday’s incident seemed to make me trust in him a little more.</p>
+    <p>Only</p>
+    <p>That aside, we had a lot to do.</p>
+    <p>On my side, I needed to find out some more information about Cho Hyejin, as well as find a way to distribute my potions in Castle Rock. Not only did I have to meet with Marlin Young-ae, I might also have to visit the church.</p>
+    <p>Never mind a possible raid or monster wave - I had enough to do in the city.</p>
+    <p>Out of everything, however, there was only one thing I considered the most important</p>
+    <p>That was to protect Kim Hyunsung.</p>
+    <p>It was then that something happened.</p>
+    <p>[Your Hero-grade attribute, Mind’s Eye, increases its grade.]</p>
+  </article>
+</div>
+
+<div id="merge-status"></div>
+
+<nav>
+  <span class="nav-left"><a href="149.html" rel="prev">&#8592; Ch 149</a></span>
+  <span class="nav-mid">
+    <button class="btn-merge" id="btn-merge" >Merge Next 10</button>
+  </span>
+  <span class="nav-right"><a href="151.html" rel="next">Ch 151 &#8594;</a></span>
+</nav>
+
+<script>
+  // Chapters available after this one — discovered from meta.json
+  var slug       = "regressor-instruction-manual";
+  var currentNum = 150;
+  var nextNum    = 151;
+  var maxLoaded  = currentNum;
+  var allNums    = null;   // loaded lazily from meta.json
+  var merging    = false;
+  var root       = "../../";
+
+  async function getNums() {
+    if (allNums) return allNums;
+    var res = await fetch(root + "data/" + slug + "/meta.json");
+    var meta = await res.json();
+    allNums = meta.chapters.map(function(c){ return c.num; });
+    return allNums;
+  }
+
+  document.getElementById("btn-merge").addEventListener("click", async function() {
+    if (merging) return;
+    merging = true;
+    var btn    = document.getElementById("btn-merge");
+    var status = document.getElementById("merge-status");
+    btn.textContent = "Loading…";
+    btn.disabled = true;
+
+    var nums   = await getNums();
+    var idx    = nums.indexOf(maxLoaded);
+    var toLoad = nums.slice(idx + 1, idx + 11);
+    if (!toLoad.length) { merging = false; return; }
+
+    status.style.display = "block";
+    status.textContent = "Fetching chapters " + toLoad[0] + "–" + toLoad[toLoad.length-1] + "…";
+
+    var container = document.getElementById("chapters");
+    var firstNew  = null;
+
+    for (var i = 0; i < toLoad.length; i++) {
+      var n = toLoad[i];
+      try {
+        var res  = await fetch(n + ".html");
+        var html = await res.text();
+        var doc  = new DOMParser().parseFromString(html, "text/html");
+        var art  = doc.querySelector("article");
+        var h1   = doc.querySelector("h1");
+        if (!art) continue;
+
+        // Divider
+        var divider = document.createElement("div");
+        divider.className = "ch-divider";
+        divider.textContent = "Chapter " + n;
+        container.appendChild(divider);
+
+        // Chapter title
+        if (h1) {
+          var chTitle = document.createElement("div");
+          chTitle.className = "ch-title";
+          chTitle.textContent = h1.textContent;
+          container.appendChild(chTitle);
+        }
+
+        // Content
+        var section = document.createElement("article");
+        section.id = "ch-" + n;
+        section.innerHTML = art.innerHTML;
+        container.appendChild(section);
+
+        if (!firstNew) firstNew = divider;
+        maxLoaded = n;
+      } catch(e) {
+        console.warn("Failed to load chapter " + n, e);
+      }
+    }
+
+    // Update nav next link
+    var nextIdx = nums.indexOf(maxLoaded) + 1;
+    var newNext = nextIdx < nums.length ? nums[nextIdx] : null;
+    var navRight = document.querySelector(".nav-right");
+    if (newNext) {
+      navRight.innerHTML = '<a href="' + newNext + '.html" rel="next">Ch ' + newNext + ' &#8594;</a>';
+    } else {
+      navRight.innerHTML = '<span></span>';
+    }
+
+    status.style.display = "none";
+    btn.textContent = newNext ? "⊕ Merge Next 10" : "✓ All loaded";
+    btn.disabled = !newNext;
+    merging = false;
+
+    if (firstNew) firstNew.scrollIntoView({ behavior:"smooth", block:"start" });
+  });
+</script>
+</body>
+</html>

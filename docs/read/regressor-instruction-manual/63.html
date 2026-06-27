@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chapter 63 — Regressor Instruction Manual</title>
+  <style>
+    :root { --ink:#1a1a1a; --dim:#666; --bg:#fff; --gold:#8a6a1a; --border:#ddd; }
+    @media (prefers-color-scheme:dark) {
+      :root { --ink:#e9e4da; --dim:#9a9286; --bg:#111010; --gold:#c9a84c; --border:#2a2825; }
+    }
+    *{ box-sizing:border-box; margin:0; padding:0; }
+    body{ background:var(--bg); color:var(--ink); font-family:Georgia,'Times New Roman',serif;
+          font-size:1.125rem; line-height:1.85; padding:40px 24px 80px;
+          max-width:680px; margin:0 auto; }
+    header{ margin-bottom:32px; padding-bottom:20px; border-bottom:1px solid var(--border); }
+    header a{ color:var(--gold); text-decoration:none; font-size:.85rem; }
+    h1{ font-size:1.35rem; font-weight:700; margin-top:10px; line-height:1.25; }
+    article p{ margin-bottom:1.4em; text-align:justify; hyphens:auto; }
+    .ch-divider{ text-align:center; padding:28px 0 16px; color:var(--dim);
+                  font-size:.8rem; letter-spacing:.1em; text-transform:uppercase; }
+    .ch-divider::before,.ch-divider::after{ content:''; display:inline-block;
+      width:40px; height:1px; background:var(--border); vertical-align:middle; margin:0 12px; }
+    .ch-title{ font-size:1.1rem; font-weight:700; color:var(--gold); margin-bottom:16px; }
+    nav{ display:grid; grid-template-columns:1fr auto 1fr; gap:10px; align-items:center;
+          margin-top:48px; padding-top:20px; border-top:1px solid var(--border); font-size:.88rem; }
+    nav a{ color:var(--gold); text-decoration:none; }
+    nav a:hover{ text-decoration:underline; }
+    nav .nav-right{ text-align:right; }
+    nav .nav-mid{ text-align:center; }
+    .btn-merge{ background:rgba(138,106,26,.12); border:1px solid var(--gold);
+                 color:var(--gold); padding:9px 16px; border-radius:6px; cursor:pointer;
+                 font-family:Georgia,serif; font-size:.85rem; font-weight:600;
+                 transition:background .15s; white-space:nowrap; }
+    .btn-merge:hover:not(:disabled){ background:rgba(138,106,26,.25); }
+    .btn-merge:disabled{ opacity:.35; cursor:not-allowed; }
+    #merge-status{ text-align:center; padding:12px; font-size:.82rem;
+                    color:var(--dim); display:none; }
+  </style>
+</head>
+<body>
+<header>
+  <a href="../../novel.html?slug=regressor-instruction-manual">&larr; Regressor Instruction Manual</a>
+  <h1 id="page-title">Chapter 63</h1>
+</header>
+
+<div id="chapters">
+  <article id="ch-63">
+    <p>Chapter 63: Dungeon attack becomes a political war (5)</p>
+    <p>Kim Hyunsung’s expression showed that he was definitely in a bad mood.</p>
+    <p>“There is no need to apologize, Kiyoung.”</p>
+    <p>“Y-Yeah?”</p>
+    <p>“Kiyoung did nothing wrong. No, even if he did something wrong, Miss Yura does not have the right to point out his fault.”</p>
+    <p>‘Ah, Hyunsung… You’re doing such a great job.’</p>
+    <p>“Seriously, Kiyoung is a Blue Guild party member. If he made a mistake, I would have told him first. I don’t know why Miss Yura has a problem with our party member’s behavior, but this just isn’t right.”</p>
+    <p>I hadn’t expected Kim Hyunsung to jump in. I was merely calculating how to best get the group’s sympathy by pitching Yura against me. She had indeed made a mistake in approaching me so deftly.</p>
+    <p>My affiliation lay with the Blue Guild. Therefore, Kim Hyunsung was responsible for me. Yura had no right to meddle in interparty affairs.</p>
+    <p>From a passerby’s point of view, Jung Yura might have done it in an attempt to expand her influence over the rest of her group members, but it appeared that Kim Hyunsung was having none of this treatment. For him, it was taboo to interfere with other party members too much.</p>
+    <p>‘That simply means that Yura isn’t giving us the respect we deserve.’</p>
+    <p>In a nutshell, Kim Hyunsung’s defensive stance seemed to say, ‘Who the hell are you, and why are you meddling with my charge?’</p>
+    <p>It had been a pleasurable turn of events to find Kim Hyunsung standing up for me, though in truth, I was expecting Choi Young-ki to do the defending. Hyunsung’s protective stance made me feel even better.</p>
+    <p>‘Very good, Hyunsung.’</p>
+    <p>Things were going very well at this point.</p>
+    <p>Playing the role of the victim came as natural to me as breathing at this point.</p>
+    <p>“Both Kim Hyunsung and Yura are speaking from the standpoint of seniors. She had a point, so I don’t think she meant to offend anyone…”</p>
+    <p>“No, Kiyoung. No matter how wrong you must have behaved, she had no right to go about in this manner.”</p>
+    <p>“I must have done something wrong…”</p>
+    <p>“Let me be clear, Kiyoung. You did nothing wrong.”</p>
+    <p>I found it hard to keep myself from smiling. Aside from seeing the embarrassment on Jung Yura’s face, I could tell that the rest of our group mates had started to disapprove of her. Slowly, her influence was lessening to the point of nonexistence.</p>
+    <p>‘That’s what you get for inciting me.’</p>
+    <p>At this point, the other group members had started to approach me to offer words of comfort.</p>
+    <p>“I don’t know if Kiyoung is inexperienced yet, but Hyunsung is right. If you have anything to say directly to Mr. Kiyoung, it is correct to at least ask the party leader for his input. In that way, we can resolve the matter more efficiently.”</p>
+    <p>“This is not it. No matter how many faults you find in a person, you must still control yourself.”</p>
+    <p>“Blue’s party is said to be at a learning position because of their inexperience. However, they are trying their best to prove their worth. The Black Swan Guild’s behavior is really hard to understand.”</p>
+    <p>The Magic Guild members had started to talk about the Black Swan members’ lack of manners.</p>
+    <p>“Mr. Kiyoung did nothing wrong. Rather, I think he tried his best to create a good atmosphere. When the strategy was in progress, he actually worked hard to achieve our goal.”</p>
+    <p>“That’s right. In fact, it isn’t easy to proceed with such an awkward atmosphere. Fighting and reproaching isn’t the way to go.”</p>
+    <p>“Communication is important. Honestly, what is Yura doing?”</p>
+    <p>“Tch…”</p>
+    <p>Even the Red Mercenary members who normally didn’t fall prey to their emotions had started to speak.</p>
+    <p>“Yura, isn’t it a little bit harsh to do this? As a party that was assigned to go on an expedition altogether, it’s best that we stay on good terms with each other.”</p>
+    <p>“Ugh…”</p>
+    <p>Direct accusations pierced through Jung Yura like sharpened arrows.</p>
+    <p>As I said, she had picked the wrong person to pick a fight with. With just one incitement, her carefully-built image had been shattered.</p>
+    <p>“Oppa… Are you hurt?”</p>
+    <p>“Huh. I’m okay, Hayan. It’s no big deal.”</p>
+    <p>“What exactly happened to you?”</p>
+    <p>“I’m okay, Sun Hee-young. Please don’t worry.”</p>
+    <p>It might have been more effective if Jung Yura had hit me even once, but I knew that she wouldn’t be that careless.</p>
+    <p>Anyway, it was only right that I had emerged from the situation unscathed. If I hadn’t, Jung Hayan would probably busy planning an assassination attempt for Jung Yura. The situation had already turned out to be as good as it could get. Yura was getting all the blame, while I was getting all the comfort.</p>
+    <p>Honestly, I was curious about what kind of reaction she would make, but the safest direction she could choose had already been decided for her.</p>
+    <p>‘Admit the wrong and fall flat.’</p>
+    <p>Although this was indeed the best option, it didn’t mean that she would get good results. She would earn forgiveness, but by bowing her head in submission, she would lose her influence.</p>
+    <p>She had to look at least like she was still looking out for the expedition, so this was the only right course of action to take. Simply put, she needed to stay in the middle position of this situation.</p>
+    <p>Yura seemed to be thinking of the same tactic.</p>
+    <p>“I’m sorry.”</p>
+    <p>She was apologizing, but it was apparent that she was trying hard not to show her anger.</p>
+    <p>‘What a stupid bitch.’</p>
+    <p>“Kiyoung is a member of my party and, by default, is under my jurisdiction.”</p>
+    <p>“I’m sorry for not being able to tell you in advance, Mr. Hyunsung. And I apologize to Mr. Kiyoung, who I must’ve hurt by suddenly reproaching.”</p>
+    <p>“Then…”</p>
+    <p>“I think I was a little too insensitive. But I thought I had to say something. I thought he was not being alert enough. If it’s an expedition consisting of a normal party, you don’t have to worry about this, but…”</p>
+    <p>‘Ah, she’s still being an idiot.’</p>
+    <p>“As a senior with experience, I thought I had to say something. Of course, I am fully aware that my choice of execution was wrong.”</p>
+    <p>“I don’t know why Jung Yura has been thinking about correcting his discipline. Of course, we made a mistake in the beginning, but we’ve more than made up for it and haven’t blundered again.”</p>
+    <p>Kim Hyunsung was dealing with this way more efficiently than I thought.</p>
+    <p>In a nutshell, we had managed to make Jung Yura sound like a petty senior who looked down on us and refused to let us go after we made a single mistake. However, at least she still had the decency to feel sorry for what she did.</p>
+    <p>Unsurprisingly, voices burst from the other Black Swan members.</p>
+    <p>“A lot of our tankers have been continually looking out for Blue. If it weren’t for that, our burdens should have been reduced.”</p>
+    <p>“And what of the kid archer? It was dangerous bringing her in.”</p>
+    <p>“And they even got a non-combat member, an alchemist, to join the party!”</p>
+    <p>Naturally, opposing opinions would also eventually pop up during this dispute.</p>
+    <p>“While that is true, we can’t say that they have been hindering us. In fact, there are many enemies eradicated by Miss Hayan, and Miss Sun Hee-young has helped us a lot of times.”</p>
+    <p>“That’s right. Because of this, we have no right to judge them for doing their best to help.”</p>
+    <p>The situation wasn’t even that controversial, yet the discussion was starting to get heated. I would have hated to be in Jung Yura’s shoes at this point.</p>
+    <p>I contemplated my next reply when Kim Hyunsung’s face, a little hardened, came into view.</p>
+    <p>‘Ah…’</p>
+    <p>Even if Kim Hyunsung was the reincarnation of Buddha, it was only right for him to feel angry. Hyunsung might not be familiar with political tactics, but he knew when our party was being criticized.</p>
+    <p>“I hope this will not happen next time. If you have anything to say to our party, you can do it directly through me.”</p>
+    <p>“Yes, of course. I’m really sorry, Mr. Hyunsung. And I’m very sorry for the Blue party members who might have struggled. I’m particularly sorry for Kiyoung.”</p>
+    <p>“Don’t be… I was just a little embarrassed.”</p>
+    <p>“I was also surprised. I didn’t know you would get hurt by what I said… Let’s talk separately later.”</p>
+    <p>“Do not worry about it. It’s all good.”</p>
+    <p>Although we had finally resolved the dispute, Jung Yura had lost her influence. The moment she lost the group’s approval was when she lost the fight; she had decided to pick with me.</p>
+    <p>In other words, she made it seem like she was forcing herself to be a villain for the safety of the expedition, but she wasn’t doing a very good job with the execution.</p>
+    <p>‘Ah, but I won’t let her find an opportunity to win.’</p>
+    <p>Outwardly, Yura seemed relaxed, but I knew she was secretly relieved to have escaped a checkmate position. It should have ended here, but Kim Hyunsung seemed to have a different opinion about it altogether.</p>
+    <p>“Would everyone please gather for a minute?”</p>
+    <p>“Yes, sure.”</p>
+    <p>As if they noticed that he still had something to say, the others crowded around. Kim Hyunsung looked at all of them before speaking.</p>
+    <p>“I sincerely apologize for hindering you all with our inexperience.”</p>
+    <p>“No, no, you shouldn’t be sorry.”</p>
+    <p>“No, I have to. I insisted that we come along for the experience, but I hadn’t expected my dear Kiyoung to be disregarded like this.”</p>
+    <p>‘I wasn’t being disregarded…’</p>
+    <p>“I don’t think this was a waste. Your party has learned a lot of things in this expedition.”</p>
+    <p>“Yeah, that’s right.”</p>
+    <p>“From now on, this will not happen ever again.”</p>
+    <p>I knew Kim Hyunsung was a responsible type of guy. Seeing him biting firmly on his lips, I felt like an idea had just come into his mind.</p>
+    <p>“I will change the location a bit. I will stand a little more avant-garde. Mr. Deokgu can continue as he has done. The timing to use magic will also be different from here on out. Miss Hee-young, please focus a little more on Deokgu. You are free to think that your other party members do not exist. Ye-ri shall continue on as usual.”</p>
+    <p>Only</p>
+    <p>“Yes, okay.”</p>
+    <p>“Jung Hayan, you should increase your magic power a little more. Hee-young can keep watching over Deok-gu.”</p>
+    <p>Kim Hyunsung’s leadership charisma was the reason why he commanded respect. Even I felt a little in awe watching him.</p>
+    <p>‘Ah…’</p>
+    <p>Only then did I realize what he had been thinking. We had not been on the frontlines up until now. I wasn’t sure why, but I could think of several reasons.</p>
+    <p>Our party was attracting everyone’s attention, and in fact, our urgency to gain experience was being hindered due to the continued comfort of this spotlight effect.</p>
+    <p>‘Thank you for getting us back on track.’</p>
+    <p>It looked like I wasn’t the only one who wanted to prove Jung Yura wrong. Kim Hyunsung looked very much passionate at this point.</p>
+  </article>
+</div>
+
+<div id="merge-status"></div>
+
+<nav>
+  <span class="nav-left"><a href="62.html" rel="prev">&#8592; Ch 62</a></span>
+  <span class="nav-mid">
+    <button class="btn-merge" id="btn-merge" >Merge Next 10</button>
+  </span>
+  <span class="nav-right"><a href="64.html" rel="next">Ch 64 &#8594;</a></span>
+</nav>
+
+<script>
+  // Chapters available after this one — discovered from meta.json
+  var slug       = "regressor-instruction-manual";
+  var currentNum = 63;
+  var nextNum    = 64;
+  var maxLoaded  = currentNum;
+  var allNums    = null;   // loaded lazily from meta.json
+  var merging    = false;
+  var root       = "../../";
+
+  async function getNums() {
+    if (allNums) return allNums;
+    var res = await fetch(root + "data/" + slug + "/meta.json");
+    var meta = await res.json();
+    allNums = meta.chapters.map(function(c){ return c.num; });
+    return allNums;
+  }
+
+  document.getElementById("btn-merge").addEventListener("click", async function() {
+    if (merging) return;
+    merging = true;
+    var btn    = document.getElementById("btn-merge");
+    var status = document.getElementById("merge-status");
+    btn.textContent = "Loading…";
+    btn.disabled = true;
+
+    var nums   = await getNums();
+    var idx    = nums.indexOf(maxLoaded);
+    var toLoad = nums.slice(idx + 1, idx + 11);
+    if (!toLoad.length) { merging = false; return; }
+
+    status.style.display = "block";
+    status.textContent = "Fetching chapters " + toLoad[0] + "–" + toLoad[toLoad.length-1] + "…";
+
+    var container = document.getElementById("chapters");
+    var firstNew  = null;
+
+    for (var i = 0; i < toLoad.length; i++) {
+      var n = toLoad[i];
+      try {
+        var res  = await fetch(n + ".html");
+        var html = await res.text();
+        var doc  = new DOMParser().parseFromString(html, "text/html");
+        var art  = doc.querySelector("article");
+        var h1   = doc.querySelector("h1");
+        if (!art) continue;
+
+        // Divider
+        var divider = document.createElement("div");
+        divider.className = "ch-divider";
+        divider.textContent = "Chapter " + n;
+        container.appendChild(divider);
+
+        // Chapter title
+        if (h1) {
+          var chTitle = document.createElement("div");
+          chTitle.className = "ch-title";
+          chTitle.textContent = h1.textContent;
+          container.appendChild(chTitle);
+        }
+
+        // Content
+        var section = document.createElement("article");
+        section.id = "ch-" + n;
+        section.innerHTML = art.innerHTML;
+        container.appendChild(section);
+
+        if (!firstNew) firstNew = divider;
+        maxLoaded = n;
+      } catch(e) {
+        console.warn("Failed to load chapter " + n, e);
+      }
+    }
+
+    // Update nav next link
+    var nextIdx = nums.indexOf(maxLoaded) + 1;
+    var newNext = nextIdx < nums.length ? nums[nextIdx] : null;
+    var navRight = document.querySelector(".nav-right");
+    if (newNext) {
+      navRight.innerHTML = '<a href="' + newNext + '.html" rel="next">Ch ' + newNext + ' &#8594;</a>';
+    } else {
+      navRight.innerHTML = '<span></span>';
+    }
+
+    status.style.display = "none";
+    btn.textContent = newNext ? "⊕ Merge Next 10" : "✓ All loaded";
+    btn.disabled = !newNext;
+    merging = false;
+
+    if (firstNew) firstNew.scrollIntoView({ behavior:"smooth", block:"start" });
+  });
+</script>
+</body>
+</html>

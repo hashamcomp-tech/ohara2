@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chapter 92 — Regressor Instruction Manual</title>
+  <style>
+    :root { --ink:#1a1a1a; --dim:#666; --bg:#fff; --gold:#8a6a1a; --border:#ddd; }
+    @media (prefers-color-scheme:dark) {
+      :root { --ink:#e9e4da; --dim:#9a9286; --bg:#111010; --gold:#c9a84c; --border:#2a2825; }
+    }
+    *{ box-sizing:border-box; margin:0; padding:0; }
+    body{ background:var(--bg); color:var(--ink); font-family:Georgia,'Times New Roman',serif;
+          font-size:1.125rem; line-height:1.85; padding:40px 24px 80px;
+          max-width:680px; margin:0 auto; }
+    header{ margin-bottom:32px; padding-bottom:20px; border-bottom:1px solid var(--border); }
+    header a{ color:var(--gold); text-decoration:none; font-size:.85rem; }
+    h1{ font-size:1.35rem; font-weight:700; margin-top:10px; line-height:1.25; }
+    article p{ margin-bottom:1.4em; text-align:justify; hyphens:auto; }
+    .ch-divider{ text-align:center; padding:28px 0 16px; color:var(--dim);
+                  font-size:.8rem; letter-spacing:.1em; text-transform:uppercase; }
+    .ch-divider::before,.ch-divider::after{ content:''; display:inline-block;
+      width:40px; height:1px; background:var(--border); vertical-align:middle; margin:0 12px; }
+    .ch-title{ font-size:1.1rem; font-weight:700; color:var(--gold); margin-bottom:16px; }
+    nav{ display:grid; grid-template-columns:1fr auto 1fr; gap:10px; align-items:center;
+          margin-top:48px; padding-top:20px; border-top:1px solid var(--border); font-size:.88rem; }
+    nav a{ color:var(--gold); text-decoration:none; }
+    nav a:hover{ text-decoration:underline; }
+    nav .nav-right{ text-align:right; }
+    nav .nav-mid{ text-align:center; }
+    .btn-merge{ background:rgba(138,106,26,.12); border:1px solid var(--gold);
+                 color:var(--gold); padding:9px 16px; border-radius:6px; cursor:pointer;
+                 font-family:Georgia,serif; font-size:.85rem; font-weight:600;
+                 transition:background .15s; white-space:nowrap; }
+    .btn-merge:hover:not(:disabled){ background:rgba(138,106,26,.25); }
+    .btn-merge:disabled{ opacity:.35; cursor:not-allowed; }
+    #merge-status{ text-align:center; padding:12px; font-size:.82rem;
+                    color:var(--dim); display:none; }
+  </style>
+</head>
+<body>
+<header>
+  <a href="../../novel.html?slug=regressor-instruction-manual">&larr; Regressor Instruction Manual</a>
+  <h1 id="page-title">Chapter 92</h1>
+</header>
+
+<div id="chapters">
+  <article id="ch-92">
+    <p>Chapter 92: Together Forever (6)</p>
+    <p>“How’s the reaction?”</p>
+    <p>“I’m not sure how to answer that…”</p>
+    <p>“Are you sure you’re okay with this? You’re not feeling any abnormalities, right?”</p>
+    <p>“Yes, it seems okay so far. In fact, the data I’ve gathered in previous trials had no problems with the body, so you don’t have to worry about that.”</p>
+    <p>“When did you do such an experiment again…?”</p>
+    <p>I had used it when I successfully tried to lure Sun Hee-young into joining our party. At that time, I had obtained satisfactory results, but I had to stop the research overall because there had been so many limitations.</p>
+    <p>I never thought it would be helpful in a place like this. It seemed like every little thing had a chance of being useful every once in a while.</p>
+    <p>“How about making the concentration a little thicker?”</p>
+    <p>“It’s not good to put too much. This is just the right amount, especially if you plan to use magic again later on. Otherwise, it could trigger an effect on the body.”</p>
+    <p>“No, if you think about using it to try and resist the curse, it will outperform the curse.”</p>
+    <p>“Okay, Admiral Lee.”</p>
+    <p>“I think it would be okay to approach with similar effects.”</p>
+    <p>“It feels like we’re moving in circles.”</p>
+    <p>“To be precise, we’re not going back to square one. I think most of them are ready for this…”</p>
+    <p>“The problem is that you’re not entirely confident about the results yet, right?”</p>
+    <p>“Yes.”</p>
+    <p>“Then you’ll have to rewrite the formula. It looks like today will be tough.”</p>
+    <p>Even the simple exchange of opinions worked. I couldn’t believe that it had only been a day since I felt hopeless about my situation. Who knew we could make so much progress?</p>
+    <p>The main reason was that Hwang Jeong-yeon and I proved to be a good match.</p>
+    <p>In the beginning, I only planned on collaborating with her for the sake of getting my third job, but our relationship turned out to be more beneficial than I thought.</p>
+    <p>Of course, it didn’t mean we were bound for intimacy. It was just that we were more efficient in our work together. Hwang Jeong-yeon had been able to help me in the aspects where I was weakest. She had helped me in so many ways. I had also been able to help her, of course, with my innovative mindset.</p>
+    <p>“How is Jung Hayan, by the way? You seem very anxious…”</p>
+    <p>“We only really talk in the evenings. I feel like it’s best to remain a little distant.”</p>
+    <p>“But…”</p>
+    <p>“She hasn’t shown any abnormal behavior yet.”</p>
+    <p>“I guess so. I can understand why you’re in a hurry to solve this right away. I just feel like she’s not happy with how we’re spending so much time together.”</p>
+    <p>“I’m sorry about that. As I said…”</p>
+    <p>“I know, and I understand. What I don’t get is how I, a girl who has never been with a man, suddenly became the focus of a girl’s resentment. It’s almost as if I got caught having an affair with you. I kind of feel guilty…”</p>
+    <p>Hwang Jeong-yeon lowered her head a little.</p>
+    <p>“My goodness…”</p>
+    <p>“Why do I have to be portrayed as the other woman? Even Park Deokgu might begin to have negative thoughts about me.”</p>
+    <p>“Don’t worry. After all of this is over, I’ll definitely help you with him.”</p>
+    <p>After saying that, Jeong-yeon’s eyes seemed to sparkle, and she exclaimed.</p>
+    <p>“Don’t you dare forget that!”</p>
+    <p>As time passed, Jung Hayan’s symptoms began to worsen. I knew that my quality time with Hwang Jeong-yeon was the main cause of this progression. Simply put, she harbored jealous feelings.</p>
+    <p>I knew the curse was accelerating at a faster pace this time around because I wasn’t always there to be with her.</p>
+    <p>No, in fact, it would be impossible to predict how fast the curse will erode her mental health. I couldn’t even tell what Jung Hayan was thinking.</p>
+    <p>In the end, this was a race to see which would finish first—Jung Hayan’s mental state or my experiment with Hwang Jeong-yeon.</p>
+    <p>Had I been able to concentrate on the research completely, we wouldn’t have had this problem in the first place, but I still had to find some time to spend with Jung Hayan to ensure she wasn’t regressing too much.</p>
+    <p>It was also very important as we needed time for the potion’s effects to stabilize. We couldn’t rush anything at this point.</p>
+    <p>‘If we rush its creation, there will definitely be bad side effects.’</p>
+    <p>We had to minimize any side effects as much as possible.</p>
+    <p>It wasn’t just Jung Hayan who hindered my research, though. We also had to focus on progressing through the dungeon to search for the other survivors.</p>
+    <p>Of course, we could maximize exploration results while minimizing the effort needed, but it still proved to be a disadvantage for us.</p>
+    <p>Despite Hwang Jeong-yeon’s efforts, we hadn’t really progressed much with our expedition. It may be because we had not yet found any monsters, but at least we were able to find small achievements with Kim Hyunsung’s help.</p>
+    <p>As I had been so focused on my research, I wasn’t up to date with our exploration status, but we were apparently making slow progress. That wasn’t even the worst of it.</p>
+    <p>Aside from Jung Hayan, most of our party members were thoroughly getting affected by the curse, to the point where some of them would start talking to themselves at random intervals.</p>
+    <p>Although Kim Hyunsung tried his best to repress the curse, the side effects we were expecting to appear began to show themselves.</p>
+    <p>Among everyone afflicted with the curse, only Lee Sang-hee began to show some of the said effects.</p>
+    <p>“Sorry.”</p>
+    <p>Her illusion, after all, was about the party members we needed to save. Her anxiety increased as well as her sense of urgency, but it was expected.</p>
+    <p>‘That’s because we haven’t found a single hint, let alone any survivors.’</p>
+    <p>Based on the expression on everyone’s faces, I knew everyone had begun to expect the worse—that none of them were alive. Still, the expedition continued to advance, and the curse continued its relentless attack on everyone’s mental state.</p>
+    <p>“It can’t be considered perfect yet. I’m sorry, Mr. Kiyoung.”</p>
+    <p>“At least it’s helping. The voices are still there, but the headaches have stopped. In fact, just this much…”</p>
+    <p>“I should be able to call it an achievement, but… We could still be able to improve its effects over time. I’m sorry…”</p>
+    <p>“Exerting effort on it is more important than having regrets about it.”</p>
+    <p>“I know, I know. Can you please ask Hayan to stop staring at me?”</p>
+    <p>“I can’t stop her from doing so, and you know that.”</p>
+    <p>“I know I’m a drama-lover, but… it’s not nice experiencing this in reality.”</p>
+    <p>“…”</p>
+    <p>“I only like being part of the audience.”</p>
+    <p>“By the way, how are you coping with the curse?”</p>
+    <p>“Ah… it’s still difficult, mental-wise. However, being so focused on this research helped me a lot. I can still see hallucinations every now and then, but… Aren’t you experiencing the same?”</p>
+    <p>“Yes, but… They’re not all that serious.”</p>
+    <p>“Then it looks like the experiment is working.”</p>
+    <p>A little more time had passed since then, but there were no changes in this short duration. The rescue team continued to move forward, but we had not encountered anyone. There’s not a single monster, and definitely not a single survivor. It felt like being stuck in a maze.</p>
+    <p>Kim Hyunsung looked unaffected, but Lee Sang-hee wasn’t doing too well.</p>
+    <p>“Sang-hee, this is a safety zone.”</p>
+    <p>“Oh, Let’s skip this one.”</p>
+    <p>“Yeah?”</p>
+    <p>“A lot of time has already passed. I worry about the survivors. Let’s rest at the next point.”</p>
+    <p>‘There she goes again.’</p>
+    <p>“But, this is already the second time we’ve skipped…”</p>
+    <p>“There’ll be one in the next room. Yes, definitely…”</p>
+    <p>“I think the Master needs to rest.”</p>
+    <p>“No, I’m okay. I know everyone is having a hard time, but please be patient. After finding a survivor… Yes. If a survivor is found…”</p>
+    <p>At this point, we might not find a single one. It would be safe to assume that they were all dead.</p>
+    <p>Logically speaking, even if the previous party members have survived, it was highly unlikely that the undead didn’t kill them off by now. Perhaps they even resorted to killing each other.</p>
+    <p>“Please be patient… We’ll speed up a little bit… Yes, a little faster…” Sang-hee insisted.</p>
+    <p>“Ah…”</p>
+    <p>It was obvious - our expedition leader was suffering from her own hallucinations.</p>
+    <p>As we trudged on, I could see several members showing annoyed expressions. Some even grumbled out complaints. Everyone was struggling with their own illusions, after all.</p>
+    <p>Seeing Park Deokgu struggle was normal now, but even Sun Hee-young felt exhausted at this point. Everyone was on the brink of exploding.</p>
+    <p>‘How many months are we going to spend in this state?’</p>
+    <p>This may seem like the worst situation for the party members, but this was the perfect time for Jung Hayan to execute her plan, should she ever decide to push through with it.</p>
+    <p>“Come on, everyone.”</p>
+    <p>“We’re reaching our limit…”</p>
+    <p>“The guild members are dying on the inside.”</p>
+    <p>“The back-ups are struggling a lot, Lee Sang-hee.”</p>
+    <p>“…”</p>
+    <p>“Lee Sang-hee?”</p>
+    <p>It was at this point that I realized something was wrong.</p>
+    <p>The curse…</p>
+    <p>‘Damn.’</p>
+    <p>Everyone was looking upwards. It was the same voice we had first heard when we entered the dungeon. Our mentality was slowly reaching the brink of despair. At this point, we would have to worry less about rescuing our fellow guild members and more about saving ourselves.</p>
+    <p>“Please recite the divine defense magic.”</p>
+    <p>“Ah, but…”</p>
+    <p>“It would be better than nothing. We will respond as much as possible. Magicians should also try to block the effects as much as possible.”</p>
+    <p>Wizards and priests within the party did as she commanded, but this wasn’t something we could combat with magic.</p>
+    <p>Slowly, I looked at Jung Hayan, who was smiling as she looked upwards. She wasn’t talking, but she seemed like she wanted to say something.</p>
+    <p>‘What…’</p>
+    <p>When I felt the strange aura emanating from her, I immediately shouted for Hwang Jeong-yeon.</p>
+    <p>“Really?”</p>
+    <p>“Son of a bitch!… Jeong-yeon, chant the spell immediately!”</p>
+    <p>I had no choice but to execute the plan now. Though the timing was a little early, there was nothing else I could do.</p>
+    <p>‘Was it because of her jealousy of Hwang Jeong-yeon?’</p>
+    <p>I was almost sure of it.</p>
+    <p>“But the defensive spells…”</p>
+    <p>Hwang Jeong-yeon seemed anxious, but this is no time to hesitate.</p>
+    <p>“Quickly!” I exclaimed in an urgent tone.</p>
+    <p>“Okay, I see! Is Jung okay? This is still…”</p>
+    <p>“Recite it quickly!”</p>
+    <p>“The content, too?!”</p>
+    <p>I was frustrated at her endless questions. She still didn’t seem to grasp the urgency of the situation, so I had to shriek some sense into her.</p>
+    <p>“For God’s sake, just do it!”</p>
+    <p>Screams began erupting from the front. Evidently, the curse affected several party members.</p>
+    <p>After emptying the potion that I had prepared in my mouth, I immediately started to run toward Jung Hayan.</p>
+    <p>“I knew my Oppa felt the same!”</p>
+    <p>I welcomed her outstretched arms and bent down to kiss her, transferring the potion from my mouth to hers.</p>
+    <p>“I love you, Oppa!”</p>
+    <p>Only</p>
+    <p>‘Sh*t, sh*t…’</p>
+    <p>I could feel magic spreading across my body, and the worst-case scenarios came into mind—Jung Hayan manipulating me or trying to kill me.</p>
+    <p>I didn’t know what type of magic she was trying to use, but it was at least not a defensive one. Inwardly, I prayed that Hwang Jeong-yeon’s spell would work faster than Jung Hayan’s.</p>
+    <p>Meanwhile, Hayan’s eyes began to widen.</p>
+    <p>‘Did I get caught?’</p>
+    <p>I wasn’t sure yet. However, I knew she would be able to sense Hwang Jeong-yeon’s magic at work. I would not let her achieve the ending she wanted for us.</p>
+    <p>“Ahhh!!!”</p>
+    <p>I convinced myself that what she was seeing was the scenario I had prepared as she looked into the air and began to shed tears.</p>
+  </article>
+</div>
+
+<div id="merge-status"></div>
+
+<nav>
+  <span class="nav-left"><a href="91.html" rel="prev">&#8592; Ch 91</a></span>
+  <span class="nav-mid">
+    <button class="btn-merge" id="btn-merge" >Merge Next 10</button>
+  </span>
+  <span class="nav-right"><a href="93.html" rel="next">Ch 93 &#8594;</a></span>
+</nav>
+
+<script>
+  // Chapters available after this one — discovered from meta.json
+  var slug       = "regressor-instruction-manual";
+  var currentNum = 92;
+  var nextNum    = 93;
+  var maxLoaded  = currentNum;
+  var allNums    = null;   // loaded lazily from meta.json
+  var merging    = false;
+  var root       = "../../";
+
+  async function getNums() {
+    if (allNums) return allNums;
+    var res = await fetch(root + "data/" + slug + "/meta.json");
+    var meta = await res.json();
+    allNums = meta.chapters.map(function(c){ return c.num; });
+    return allNums;
+  }
+
+  document.getElementById("btn-merge").addEventListener("click", async function() {
+    if (merging) return;
+    merging = true;
+    var btn    = document.getElementById("btn-merge");
+    var status = document.getElementById("merge-status");
+    btn.textContent = "Loading…";
+    btn.disabled = true;
+
+    var nums   = await getNums();
+    var idx    = nums.indexOf(maxLoaded);
+    var toLoad = nums.slice(idx + 1, idx + 11);
+    if (!toLoad.length) { merging = false; return; }
+
+    status.style.display = "block";
+    status.textContent = "Fetching chapters " + toLoad[0] + "–" + toLoad[toLoad.length-1] + "…";
+
+    var container = document.getElementById("chapters");
+    var firstNew  = null;
+
+    for (var i = 0; i < toLoad.length; i++) {
+      var n = toLoad[i];
+      try {
+        var res  = await fetch(n + ".html");
+        var html = await res.text();
+        var doc  = new DOMParser().parseFromString(html, "text/html");
+        var art  = doc.querySelector("article");
+        var h1   = doc.querySelector("h1");
+        if (!art) continue;
+
+        // Divider
+        var divider = document.createElement("div");
+        divider.className = "ch-divider";
+        divider.textContent = "Chapter " + n;
+        container.appendChild(divider);
+
+        // Chapter title
+        if (h1) {
+          var chTitle = document.createElement("div");
+          chTitle.className = "ch-title";
+          chTitle.textContent = h1.textContent;
+          container.appendChild(chTitle);
+        }
+
+        // Content
+        var section = document.createElement("article");
+        section.id = "ch-" + n;
+        section.innerHTML = art.innerHTML;
+        container.appendChild(section);
+
+        if (!firstNew) firstNew = divider;
+        maxLoaded = n;
+      } catch(e) {
+        console.warn("Failed to load chapter " + n, e);
+      }
+    }
+
+    // Update nav next link
+    var nextIdx = nums.indexOf(maxLoaded) + 1;
+    var newNext = nextIdx < nums.length ? nums[nextIdx] : null;
+    var navRight = document.querySelector(".nav-right");
+    if (newNext) {
+      navRight.innerHTML = '<a href="' + newNext + '.html" rel="next">Ch ' + newNext + ' &#8594;</a>';
+    } else {
+      navRight.innerHTML = '<span></span>';
+    }
+
+    status.style.display = "none";
+    btn.textContent = newNext ? "⊕ Merge Next 10" : "✓ All loaded";
+    btn.disabled = !newNext;
+    merging = false;
+
+    if (firstNew) firstNew.scrollIntoView({ behavior:"smooth", block:"start" });
+  });
+</script>
+</body>
+</html>

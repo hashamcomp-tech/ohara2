@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chapter 682 — Regressor Instruction Manual</title>
+  <style>
+    :root { --ink:#1a1a1a; --dim:#666; --bg:#fff; --gold:#8a6a1a; --border:#ddd; }
+    @media (prefers-color-scheme:dark) {
+      :root { --ink:#e9e4da; --dim:#9a9286; --bg:#111010; --gold:#c9a84c; --border:#2a2825; }
+    }
+    *{ box-sizing:border-box; margin:0; padding:0; }
+    body{ background:var(--bg); color:var(--ink); font-family:Georgia,'Times New Roman',serif;
+          font-size:1.125rem; line-height:1.85; padding:40px 24px 80px;
+          max-width:680px; margin:0 auto; }
+    header{ margin-bottom:32px; padding-bottom:20px; border-bottom:1px solid var(--border); }
+    header a{ color:var(--gold); text-decoration:none; font-size:.85rem; }
+    h1{ font-size:1.35rem; font-weight:700; margin-top:10px; line-height:1.25; }
+    article p{ margin-bottom:1.4em; text-align:justify; hyphens:auto; }
+    .ch-divider{ text-align:center; padding:28px 0 16px; color:var(--dim);
+                  font-size:.8rem; letter-spacing:.1em; text-transform:uppercase; }
+    .ch-divider::before,.ch-divider::after{ content:''; display:inline-block;
+      width:40px; height:1px; background:var(--border); vertical-align:middle; margin:0 12px; }
+    .ch-title{ font-size:1.1rem; font-weight:700; color:var(--gold); margin-bottom:16px; }
+    nav{ display:grid; grid-template-columns:1fr auto 1fr; gap:10px; align-items:center;
+          margin-top:48px; padding-top:20px; border-top:1px solid var(--border); font-size:.88rem; }
+    nav a{ color:var(--gold); text-decoration:none; }
+    nav a:hover{ text-decoration:underline; }
+    nav .nav-right{ text-align:right; }
+    nav .nav-mid{ text-align:center; }
+    .btn-merge{ background:rgba(138,106,26,.12); border:1px solid var(--gold);
+                 color:var(--gold); padding:9px 16px; border-radius:6px; cursor:pointer;
+                 font-family:Georgia,serif; font-size:.85rem; font-weight:600;
+                 transition:background .15s; white-space:nowrap; }
+    .btn-merge:hover:not(:disabled){ background:rgba(138,106,26,.25); }
+    .btn-merge:disabled{ opacity:.35; cursor:not-allowed; }
+    #merge-status{ text-align:center; padding:12px; font-size:.82rem;
+                    color:var(--dim); display:none; }
+  </style>
+</head>
+<body>
+<header>
+  <a href="../../novel.html?slug=regressor-instruction-manual">&larr; Regressor Instruction Manual</a>
+  <h1 id="page-title">Chapter 682</h1>
+</header>
+
+<div id="chapters">
+  <article id="ch-682">
+    <p>Chapter 682: Get Ready (2)</p>
+    <p>[Oscar, the leader of the Divine Church, shows his enthusiasm in his determined speech ‘Get Ready for Victory.’ - Reporter Kim Sung-kyung of the Kyo-kuk Newspaper]</p>
+    <p>[With seven days left, the sudden announcement was made. What will the fate of the continent become? Yuno Kasugano refused to express her official position. -Celia Weekly Daily, Yonez Kenji.]</p>
+    <p>[Pope Basel, according to Benignore’s prophecy… Everyone should participate in the temple and enjoy the victory they deserve, but the warrior who fights next to the prosecutor of the sunset is silent. - Reporter Kang Yu-mi of Linspatch.]</p>
+    <p>[At a time of continental fortunes, the Blue Guild Master is shopping for bags? Is the idle appearance an expression of confidence or a mere luxury? An anonymous report of the embezzlement of guild funds has been sent in as well… - Linspatch Kang Yu-mi.]</p>
+    <p>[Notification of Personal Safety Measures - Continental Protection and Management Committee.]</p>
+    <p>[Anomalies all over the continent. The circumstances of the extinction are being revealed. What are the demons wearing angel masks? How about comparing their power to that of the continent? - Reporter Kim Sung-kyung of the Kyo-kuk Newspaper.]</p>
+    <p>[Genius swordsman and alchemist’s long box office. Finally, it’s the end… Nothing is known about the serialization of the foreign war yet. - Kang Yu-mi, a reporter for Lindel Culture.]</p>
+    <p>[Lee Kiyoung has not yet made public appearances and has no foreign activity other than a Continental Protection and Management Commission video. People are concerned about his health. - Reporter Kim Sung-kyung of the Kyo-kuk Newspaper]</p>
+    <p>“It’s a real mess.”</p>
+    <p>“…”</p>
+    <p>“It is, isn’t it?”</p>
+    <p>“Hey! Miss Kim!”</p>
+    <p>“…”</p>
+    <p>“Miss Kim!”</p>
+    <p>“Yes, sir. I’m here.”</p>
+    <p>“Are you done with your training? You’re looking at the hand mirror again today. It’ll make your eyesight worse.”</p>
+    <p>“Even if my eyesight gets worse, if you put in my magic, I’ll still be able to see far enough. It won’t get worse, anyway.”</p>
+    <p>“How’s the atmosphere there?”</p>
+    <p>“It’s just… it’s not good, but it’s not that bad either. Compared to the provocative article, the comments are clean. Did Mr. Choi finish his work today?”</p>
+    <p>“Well, that’s right. All I have to do is work overtime.”</p>
+    <p>“I see it every day, but it’s really unexpected. I didn’t expect you to volunteer to stay.”</p>
+    <p>“We’re in a support company anyway. You’re far more surprising than me. Didn’t you say you’d be sent to the center tomorrow? Our Kim, you really succeeded.”</p>
+    <p>“I told you I had high stats.”</p>
+    <p>“No, you’re not being called by Ahn or Park? Miss Kim seems like a good fit for the Blue…”</p>
+    <p>“Shhhh!”</p>
+    <p>“Hmph…”</p>
+    <p>“I don’t know, but I could be.”</p>
+    <p>“Really?”</p>
+    <p>“No, to be honest, it’s too much to join the Blue… But since Mr. Park is here, I’m thinking about how I can gather more connections. I heard you keep in touch with him. I might be called to the Central Support Company or transferred to the Suseong Military Force. Is it impossible to transfer troops to Suseong Military Force at the right level?”</p>
+    <p>“Do you have any medical history?”</p>
+    <p>“Nothing was written except that I had to be taken to the center. Maybe they can’t tell me. I left a message because I was curious, but he said he doesn’t know either. Well, maybe it’s nothing. Anyway, take care. I’m ashamed to say this between us, but… Well, survive.”</p>
+    <p>“What are you so worried about? If it’s dangerous, you can pull away from it. Kim, Park, and Ahn are more worried than me. I won’t see you leave, but have a safe trip, and fight hard…”</p>
+    <p>“See you again tomorrow.”</p>
+    <p>“Tomorrow it is…”</p>
+    <p>“You don’t have to come out. We’ll meet again after work. Well, Mr. Park asked me to have a beer after work.”</p>
+    <p>“Sounds good to me.”</p>
+    <p>The image of Uncle Choi nodding and smiling was reflected in my view.</p>
+    <p>I didn’t think I’d see him again there, but I felt as if we had ended up being more connected than I thought.</p>
+    <p>At first, I didn’t want to see him, but I couldn’t help but feel attached as I kept looking at him.</p>
+    <p>‘Is he going to survive?’</p>
+    <p>In fact, I wasn’t in a position to worry about others. As Choi said, it was undeniable that I was sent to the fiercest battlefield.</p>
+    <p>In addition to Park and Ahn, the headquarters filled with numerous strong people would be the most dangerous area.</p>
+    <p>It was facing a huge light in terms of location, and most of all, it was known that Honorary Cardinal Lee Kiyoung, or Chairman Lee Kiyoung, and the Blue Guild Master were stationed in that area.</p>
+    <p>As it connected all forward bases located in the northern part of the continent, the strongest powerhouses were always on standby in there. Considering that most of the formidable forces could be classified as vested interests, it wouldn’t be wrong to assume that they would take the lead.</p>
+    <p>Of course, public opinion in the comments was great.</p>
+    <p>The Blue Guild Master’s sudden ability to fly naturally caused controversy, but who cared about it when the day of prophecy was only six days away?</p>
+    <p>We had spent 8 to 10 billion won. The story of an anonymous informant, who allegedly embezzled guild funds, quickly died down.</p>
+    <p>Perhaps that was the news that Nature Lovers cared about the most.</p>
+    <p>After Choi left, I immediately opened up a room in Benignore Net.</p>
+    <p>[Title: Day of Prophecy, only six days left.]</p>
+    <p>[Lindel Village Resident: I’m embarrassed because it is quieter than I thought, and people seem to accept it calmly… In the old days, as a joke with your friends, what would you do a week before the continent collapsed? What do I do now? I thought about this a lot, but I’m calm because it’s so sudden. I’m not sure why, but I’m just continuing my daily life. The neighborhood is also quiet. Well, there are no people who commit crimes, and there are no people who pretend to be crazy and underlined their bucket lists. Is everyone okay?]</p>
+    <p>[Poor Man: Is it because I know that the continent won’t fail? I don’t think it’s going to happen, as Oscar said… If you think about it, the continent was almost destroyed before, but yesterday is not today.]</p>
+    <p>[Poor Man: It was the same when there was a war against the Republic and when Raios and the devil summons occurred. When I first opened the tutorial dungeon, I heard that the continent’s residents talked a lot… It might be because I’m thinking about how well it will work out this time, but it’ll be okay… Everything will be resolved properly.]</p>
+    <p>[Lindel Village Resident: It’s quiet, but I think it’s too quiet…]</p>
+    <p>[No ID: So you’re just running around on fire, and you want apocalypse and crazy people to go wild? You didn’t think criminals would set the temple on fire, did you?]</p>
+    <p>[Lindel Village Resident: Not really…]</p>
+    <p>[No ID: If you think Oscar and the Continental Protection and Management Committee really learned about this just a week ago, you’re too stupid.]</p>
+    <p>[Poor man:?]</p>
+    <p>[No ID: I’m sure they were already aware of the situation at least a few months ago, and they set it up as comfortable for civilians as they could. Only the official announcement came out yesterday. They already knew everything.]</p>
+    <p>[Poor man: Yes, they did.]</p>
+    <p>[No ID: Did he care about public opinion and security? I’m sure the guys trying to do crazy things with the end of the world have been swamped without even realizing it. Don’t you know one of the Guild Masters in the neighborhood is dead? Who would believe that the Guild Master took care of it himself? Just look at the forward base or the main frontlines right now. None of them are busy running around.]</p>
+    <p>[Lindel Village Resident: So how’s the atmosphere been?]</p>
+    <p>[No ID: I don’t know because I’m not on the frontlines. Still, based on their actions, they’re not cramming. They’ve prepared well for this. I’ve already finished preparing a long time ago myself, and I’m just lying on my bed and turning over the bookshelf to control my condition a few days before the exam. The deployment of troops has already been done long ago, and the supply and training have been completed.]</p>
+    <p>[Lindel Village Resident: That’s a bit…]</p>
+    <p>[No ID: The continent is already ready to fight the enemy. If you don’t believe it, call Natural lover. You said you’re a Blue employee. I’m sure you know best.]</p>
+    <p>‘What the hell is this?’</p>
+    <p>It was a story that made me nod without realizing it.</p>
+    <p>I thought I was comfortable, but I suddenly felt like I was losing my grip. It was all a far-fetched part, but No ID’s words weren’t wrong.</p>
+    <p>Such an atmosphere was also underlying, and more than anything else, the scene was telling. But the bad feeling was…</p>
+    <p>‘No.’</p>
+    <p>The fact that they were all prepared for the event was definitely something to applaud.</p>
+    <p>The only problem was that the Continental Protection and Management Committee hid the timing.</p>
+    <p>As soon as I sat on the table and put my finger on it, a new article came into view.</p>
+    <p>[Nature Lover: Then we’ll get ready, won’t we? It’s a prophecy that’s been around for years. Don’t spread a conspiracy theory.]</p>
+    <p>[No ID: Did I say something weird? I’m just saying I’m ready. Why are you reacting like that? Don’t you think the timing was any good? Hahahaha]</p>
+    <p>[Nature Lover: How would someone that has never been to the field tap their hand mirror?]</p>
+    <p>[No ID: It’s stinging, so can you draw a line while using honorifics?]</p>
+    <p>[No ID: The leader of the country, Oscar, told us to get ready, but we’re already ready. So I think we can just take it as personal preparation for the rest of the period. Write a will or talk to your family on the phone. Something like that.]</p>
+    <p>[No ID: By now, even the Blue Guild is probably having its last get-together. You have time to tap your hand mirror. The condition of the Blue now is so-so.</p>
+    <p>[Lindel Village Resident: Nature Lover, are you sure? Are you sure you’re all set?]</p>
+    <p>[Nature Lover: No, there are so many details to grasp. I can’t tell you the details because it’s confidential, but believe me. It’s really complicated. What do you know?]</p>
+    <p>[Angel Public Relations Committee Chairman: ID Mi-jung is probably right. I guarantee it.]</p>
+    <p>[Nature Lover: What do you guarantee?]</p>
+    <p>[Angel Public Relations Committee Chairman: I’m sure it’s right.]</p>
+    <p>[Nature Lover: Uh…]</p>
+    <p>[Poor Man: Did you unblock him, Nature Lover?]</p>
+    <p>[Nature Lover: No, I didn’t… Why would I?]</p>
+    <p>[Angel Public Relations Committee Chairman: There are still a few puzzles left, but I think it’s right to say we’re ready.]</p>
+    <p>[Nature Lover has blocked Angel Public Relations Committee Chairman.]</p>
+    <p>[Angel Public Relations Committee Chairman does not exist.]</p>
+    <p>“Uh…”</p>
+    <p>[Nature Lover has blocked Angel Public Relations Committee Chairman.]</p>
+    <p>[Angel Public Relations Committee Chairman does not exist.]</p>
+    <p>“What?”</p>
+    <p>I could see the chat room going wild in an instant. Everyone was just typing question marks, and so was myself, who kept looking at the hand mirror without saying anything else.</p>
+    <p>‘There’s never been an error.’</p>
+    <p>The Benignore Net differed from the Earth’s Internet from its principles. There was no such thing as a server error in the first place…</p>
+    <p>“Isn’t that what’s known?”</p>
+    <p>[Angel Public Relations Committee Chairman: Of course, it’s an unsolved problem. People who have to go over the wall are not getting over it… Well, I’m sure this will work out…]</p>
+    <p>[Nature Lover: Is the server being weird right now? What’s wrong with the Benignore Net?]</p>
+    <p>[Angel Public Relations Committee Chairman: It’s also interesting that our poor grey child isn’t waking up. It’s nothing to call a substitute, but I can’t help but applaud the attainment of the guardians of the continent… I don’t think there’s a problem with the Continental Protection and Management Committee, the painting that our Lee Kiyoung is drawing… There are many overcome it.]</p>
+    <p>[Lindel Village Resident: Who said the server would be closed if a war broke out? What? What is it now?]</p>
+    <p>[Nature Lover: I can’t block him. It says his username doesn’t exist.]</p>
+    <p>[No ID: Who are you?]</p>
+    <p>[Angel Public Relations Committee Chairman: But the most curious thing is what kind of choice Kim Hyunsung will make. Whatever it is, it’s not a bad bet for me, but it’s quite surprising that Lee Kiyoung threw the dice… As expected, I thought that humans are fun.]</p>
+    <p>[Nature Lover: You, who are you? If you don’t tell me…]</p>
+    <p>[Angel Public Relations Committee Chairman: Whatever it is, it will be a good story for you. We’re ready for the externalities.]</p>
+    <p>[No ID: I’m searching for the ID of Angel Public Relations Committee Chairman, and I’m scared as sh*t. Who are you?]</p>
+    <p>[Lindel Village Resident: The posts of the Angel Public Relations Committee Chairman are disappearing. I don’t think there’s any membership information. How did that person sign up? I can’t track it. Nothing’s coming up, really.]</p>
+    <p>[Poor Man: I’ll just leave. I’m scared now.]</p>
+    <p>[Angel Public Relations Committee Chairman: Well, whatever the outcome may be… I have no choice but to watch in earnest.]</p>
+    <p>“…”</p>
+    <p>[Angel Public Relations Committee Chairman: See you next time, everyone.]</p>
+    <p>“Who is that…”</p>
+    <p>[Angel Public Relations Committee Chairman has left the room.]</p>
+    <p>“Who was that…?”</p>
+  </article>
+</div>
+
+<div id="merge-status"></div>
+
+<nav>
+  <span class="nav-left"><a href="681.html" rel="prev">&#8592; Ch 681</a></span>
+  <span class="nav-mid">
+    <button class="btn-merge" id="btn-merge" >Merge Next 10</button>
+  </span>
+  <span class="nav-right"><a href="683.html" rel="next">Ch 683 &#8594;</a></span>
+</nav>
+
+<script>
+  // Chapters available after this one — discovered from meta.json
+  var slug       = "regressor-instruction-manual";
+  var currentNum = 682;
+  var nextNum    = 683;
+  var maxLoaded  = currentNum;
+  var allNums    = null;   // loaded lazily from meta.json
+  var merging    = false;
+  var root       = "../../";
+
+  async function getNums() {
+    if (allNums) return allNums;
+    var res = await fetch(root + "data/" + slug + "/meta.json");
+    var meta = await res.json();
+    allNums = meta.chapters.map(function(c){ return c.num; });
+    return allNums;
+  }
+
+  document.getElementById("btn-merge").addEventListener("click", async function() {
+    if (merging) return;
+    merging = true;
+    var btn    = document.getElementById("btn-merge");
+    var status = document.getElementById("merge-status");
+    btn.textContent = "Loading…";
+    btn.disabled = true;
+
+    var nums   = await getNums();
+    var idx    = nums.indexOf(maxLoaded);
+    var toLoad = nums.slice(idx + 1, idx + 11);
+    if (!toLoad.length) { merging = false; return; }
+
+    status.style.display = "block";
+    status.textContent = "Fetching chapters " + toLoad[0] + "–" + toLoad[toLoad.length-1] + "…";
+
+    var container = document.getElementById("chapters");
+    var firstNew  = null;
+
+    for (var i = 0; i < toLoad.length; i++) {
+      var n = toLoad[i];
+      try {
+        var res  = await fetch(n + ".html");
+        var html = await res.text();
+        var doc  = new DOMParser().parseFromString(html, "text/html");
+        var art  = doc.querySelector("article");
+        var h1   = doc.querySelector("h1");
+        if (!art) continue;
+
+        // Divider
+        var divider = document.createElement("div");
+        divider.className = "ch-divider";
+        divider.textContent = "Chapter " + n;
+        container.appendChild(divider);
+
+        // Chapter title
+        if (h1) {
+          var chTitle = document.createElement("div");
+          chTitle.className = "ch-title";
+          chTitle.textContent = h1.textContent;
+          container.appendChild(chTitle);
+        }
+
+        // Content
+        var section = document.createElement("article");
+        section.id = "ch-" + n;
+        section.innerHTML = art.innerHTML;
+        container.appendChild(section);
+
+        if (!firstNew) firstNew = divider;
+        maxLoaded = n;
+      } catch(e) {
+        console.warn("Failed to load chapter " + n, e);
+      }
+    }
+
+    // Update nav next link
+    var nextIdx = nums.indexOf(maxLoaded) + 1;
+    var newNext = nextIdx < nums.length ? nums[nextIdx] : null;
+    var navRight = document.querySelector(".nav-right");
+    if (newNext) {
+      navRight.innerHTML = '<a href="' + newNext + '.html" rel="next">Ch ' + newNext + ' &#8594;</a>';
+    } else {
+      navRight.innerHTML = '<span></span>';
+    }
+
+    status.style.display = "none";
+    btn.textContent = newNext ? "⊕ Merge Next 10" : "✓ All loaded";
+    btn.disabled = !newNext;
+    merging = false;
+
+    if (firstNew) firstNew.scrollIntoView({ behavior:"smooth", block:"start" });
+  });
+</script>
+</body>
+</html>

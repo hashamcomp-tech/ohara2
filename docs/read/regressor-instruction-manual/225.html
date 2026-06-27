@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chapter 225 — Regressor Instruction Manual</title>
+  <style>
+    :root { --ink:#1a1a1a; --dim:#666; --bg:#fff; --gold:#8a6a1a; --border:#ddd; }
+    @media (prefers-color-scheme:dark) {
+      :root { --ink:#e9e4da; --dim:#9a9286; --bg:#111010; --gold:#c9a84c; --border:#2a2825; }
+    }
+    *{ box-sizing:border-box; margin:0; padding:0; }
+    body{ background:var(--bg); color:var(--ink); font-family:Georgia,'Times New Roman',serif;
+          font-size:1.125rem; line-height:1.85; padding:40px 24px 80px;
+          max-width:680px; margin:0 auto; }
+    header{ margin-bottom:32px; padding-bottom:20px; border-bottom:1px solid var(--border); }
+    header a{ color:var(--gold); text-decoration:none; font-size:.85rem; }
+    h1{ font-size:1.35rem; font-weight:700; margin-top:10px; line-height:1.25; }
+    article p{ margin-bottom:1.4em; text-align:justify; hyphens:auto; }
+    .ch-divider{ text-align:center; padding:28px 0 16px; color:var(--dim);
+                  font-size:.8rem; letter-spacing:.1em; text-transform:uppercase; }
+    .ch-divider::before,.ch-divider::after{ content:''; display:inline-block;
+      width:40px; height:1px; background:var(--border); vertical-align:middle; margin:0 12px; }
+    .ch-title{ font-size:1.1rem; font-weight:700; color:var(--gold); margin-bottom:16px; }
+    nav{ display:grid; grid-template-columns:1fr auto 1fr; gap:10px; align-items:center;
+          margin-top:48px; padding-top:20px; border-top:1px solid var(--border); font-size:.88rem; }
+    nav a{ color:var(--gold); text-decoration:none; }
+    nav a:hover{ text-decoration:underline; }
+    nav .nav-right{ text-align:right; }
+    nav .nav-mid{ text-align:center; }
+    .btn-merge{ background:rgba(138,106,26,.12); border:1px solid var(--gold);
+                 color:var(--gold); padding:9px 16px; border-radius:6px; cursor:pointer;
+                 font-family:Georgia,serif; font-size:.85rem; font-weight:600;
+                 transition:background .15s; white-space:nowrap; }
+    .btn-merge:hover:not(:disabled){ background:rgba(138,106,26,.25); }
+    .btn-merge:disabled{ opacity:.35; cursor:not-allowed; }
+    #merge-status{ text-align:center; padding:12px; font-size:.82rem;
+                    color:var(--dim); display:none; }
+  </style>
+</head>
+<body>
+<header>
+  <a href="../../novel.html?slug=regressor-instruction-manual">&larr; Regressor Instruction Manual</a>
+  <h1 id="page-title">Chapter 225</h1>
+</header>
+
+<div id="chapters">
+  <article id="ch-225">
+    <p>Chapter 225: The Party (1)</p>
+    <p>In fact, even I had felt unsettled when Jung Hayan had brought Han Sora to us. Though Han Sora had received treatment from Sun Hee-young, she looked nothing more than a rag at the time.</p>
+    <p>It was unknown what had exactly occurred between Jung Hayan and Han Sora.</p>
+    <p>However, considering Han Sora’s condition at the time, it was clear that she suffered more than I could ever imagine. The aftereffects had remained even after she had gotten healed.</p>
+    <p>‘I think her trauma is stronger than I first thought.’</p>
+    <p>Who knew she would pee on the spot with just a mere glance at Jung Hayan?</p>
+    <p>Now that she knew that everything was a misunderstanding, Jung Hayan seemed not to care much about Han Sora, but I had no choice but to worry about her all the way back to the city in the carriage.</p>
+    <p>To be precise, she changed her pants three times from the tutorial training center to Lindel. If the wagon had not been wide, I could have been sure that she would have changed at least seven more times.</p>
+    <p>Thanks to this, Han Sora used the same space as Dialugia and Tol To-ri, who was busy sleeping, and not mine, but it seemed that even that made her a little uncomfortable.</p>
+    <p>Even if I wanted to do something, I knew I couldn’t.</p>
+    <p>Hearing Jung Hayan’s name not only triggered her seizure but also caused her to tremble continuously. For now, I had no choice but to wait and see until she got used to it.</p>
+    <p>At this point, I wondered if it was a mistake to choose Han Sora.</p>
+    <p>Even if the first party and the second party were to be divided, the second party could stand together with us in a dungeon or battlefield once they got on the right track.</p>
+    <p>Considering this, I knew it was necessary to do something with Han Sora’s mentality.</p>
+    <p>First of all, I had to show that I</p>
+    <p>I was the one who held the collar of the overly excited dog, and it would be effective just to show that it usually wore a muzzle. Sure, she still would be scared, but I could at least stop her from having seizures.</p>
+    <p>As I was thinking of a solution, the wagon had now passed by Lindel’s front door.</p>
+    <p>That was when Yoo Ahyoung’s jaw dropped. Han Sora, who had been trembling, was also looking out the window as if she was curious, and Lee Chang-ryul also glanced outside the carriage, all the while pretending not to be interested.</p>
+    <p>“Wow…”</p>
+    <p>It was the same as our party’s reaction when we had first seen Lindel.</p>
+    <p>Of course, I knew it was natural to show such a reaction. Unlike the training center that did not have any amenities or forms of entertainment, there were pieces of evidence that Lindel had achieved some degree of civilization throughout the city.</p>
+    <p>There are also cultural facilities that one could enjoy, and the faces of some of the people were full of life. And just as expected…</p>
+    <p>As soon as we entered the began to be heard.</p>
+    <p>“We’re looking for a party! We just need one priest in order to go hunting. By-products are also distributed in proportion. We just need one priest! We politely refuse a thief.”</p>
+    <p>“We dispose of rare-grade items. They’re all cheap, so come and take a look.”</p>
+    <p>“Extra! Extra!”</p>
+    <p>“We’re looking for more people to explore a dungeon! It’s only a common-grade dungeon!”</p>
+    <p>“The best seller who struck Lindel, How An Alchemist and a Genius Prosecutor Fell in Love, the 3rd book! Only 93 copies are left in limited quantity. We will only distribute it up to 93. I’m really sorry for those who have been waiting.”</p>
+    <p>‘Now they’re even selling novels…’</p>
+    <p>Among them, what caught my eye were the crowded people outside the square.</p>
+    <p>All in all, the area was very noisy. Seeing that a group of almost all women struggled to buy that unknown novel, even I began to wonder what the hell was going on.</p>
+    <p>“What?! Are you kidding me? I’ve been waiting since last night. Does that make sense?”</p>
+    <p>“How can you organize an event like this… Where is the organizer?”</p>
+    <p>“I don’t care about money. If there is any remaining quantity, just release it, quickly!”</p>
+    <p>“Do you think that I don’t know that you distributed it to the large guild officers in advance? Do you think that only the large guilds read it?”</p>
+    <p>It was a fever similar to the time when Blue announced the new potion’s model.</p>
+    <p>Certainly, it felt like the amount of gold consumed for any content had increased as people had more money. I even laughed at the people urging the ones who had already bought the limited edition novels to sell them back.</p>
+    <p>Unconsciously, I began to speak.</p>
+    <p>“Manager Mi-young?”</p>
+    <p>“Yes?”</p>
+    <p>“That’s…”</p>
+    <p>“Oh. That… It seems to be a popular novel on Lindel recently.”</p>
+    <p>“I see. Does it sell well?”</p>
+    <p>“Yes. Originally, it was a novel that only wandered around in the dark, but gradually it was on everyone’s lips… Recently, I heard that it is also distributed in Celia and Dawan.”</p>
+    <p>“Celia and Dawan? Huh… Whoa. That’s interesting. Certainly, the content business seems to be okay these days… Do we have any item being prepared by Blue?”</p>
+    <p>“No. We haven’t thought about in that area yet…”</p>
+    <p>“If it’s okay, please give me a report, including market research. It doesn’t matter if it’s a little laid-back, so I’d be grateful if you send it to me. It would be fun to be in charge of distribution… Oh, did team leader Kim Mi-young read that novel?”</p>
+    <p>“What? Ah… Yes.”</p>
+    <p>Her expression looked a little shaky.</p>
+    <p>Manager Kim Mi-young was the type of person who was considered a work addict. I felt a little relieved to know that she was enjoying her leisure time and hobbies.</p>
+    <p>“That’s a good thing. Perhaps the content…”</p>
+    <p>“It’s a bit complicated to explain.”</p>
+    <p>“I see. Did you read it too, Hayan?”</p>
+    <p>“No. This is my first time seeing this. I didn’t even know there was such a thing.”</p>
+    <p>Certainly, there were still a few people who still enjoyed that kind of content.</p>
+    <p>Anyway, at least the newcomers didn’t find Lindel to be all that bad. On the contrary, they looked to be in a pretty good mood.</p>
+    <p>Of course, if one were to look a little deeper, some things may make one frown, but it was certainly a place where other people live, too. There were also a lot of people smiling, and they seemed to be very active.</p>
+    <p>The reason for the whole city to be a little livelier must be, in part, the newcomers, but I wanted to thank the Lindel citizens who had managed to show them good impressions.</p>
+    <p>Eventually, the carriage passed the square and headed for the Blue Guild House.</p>
+    <p>“We’re here, Vice Guild Master.”</p>
+    <p>“Oh, alright.”</p>
+    <p>The moment I got off the carriage, Park Deokgu and Hwang Jeong-yeon caught my eye. It had also been a long time ago since I last saw Kim Ye-ri, and it was Ahn Ki-mo who stood next to her. And…</p>
+    <p>‘Cho Hyejin also came.’</p>
+    <p>The work at Castle Rock seemed to be finished now. I knew there would be a chance for us to talk separately later.</p>
+    <p>What was a little fun was that the Blue Guild House had been expanded while I was away.</p>
+    <p>‘I heard it in the report, but…’</p>
+    <p>It was different, being able to see it for myself.</p>
+    <p>The design itself seemed to be more of a medieval-style than a modern one, but there was also something classical about it.</p>
+    <p>The new recruits looked amazed at how the Blue Guild House looked.</p>
+    <p>Before I could even give the infrastructure a full appraisal, someone called out to me.</p>
+    <p>“Hyung-nim!”</p>
+    <p>“Oh, Deokgu. It’s been a while, Jeong-yeon-ssi, and Hyejin-ssi. And Ye-ri, you too…”</p>
+    <p>“Yeah…”</p>
+    <p>“Yes. Long time no see, Vice Guild Master…”</p>
+    <p>“What about you, Ahn Ki-mo?”</p>
+    <p>“Actually, our former guild master told me to leave as quickly as possible if I was going to leave, so I packed up and left. I’ve been living in Blue since a few days ago… Haha.”</p>
+    <p>“Ah! I see. Welcome to Blue. And let me introduce to you. These are the newcomers who came in this time. From the left, this is Yoo Ahyoung, Lee Chang-ryul, and Han Sora.”</p>
+    <p>Greetings ensued after I said this.</p>
+    <p>“Hello. I’m Yoo Ahyoung. Take good care of me.”</p>
+    <p>“I’m Lee Chang-ryul.”</p>
+    <p>“I’m… Han Sora. Please take good care of me.”</p>
+    <p>Seeing them introduce themselves in different ways made me happy.</p>
+    <p>Yoo Ahyoung was quite lively, Lee Chang-ryul was quite… poker-faced, and Han Sora was still highly aware of Jung Hayan’s presence.</p>
+    <p>I spoke once more.</p>
+    <p>“Yoo Ahyoung is a warrior, Lee Chang-ryul is an assassin, and Han Sora is a wizard. I’ll tell you more about them later, but I’m planning to raise them as the new second party’s main members. I think it’s better to start with the accommodations first… Oh, Deokgu. I think it would be better if you were to guide them. Please also join them, Jeong-yeon.”</p>
+    <p>“Well, if it’s this kind of thing, I’m always down!”</p>
+    <p>“I think I can guide you step by step from the basement to the upper floors, and Jeong-yeon can choose the accommodations right away. Lee Chang-ryul-ssi said he wanted to go to the most isolated room, so please do that… Han Sora and Yoo Ahyoung, please make your decisions carefully.”</p>
+    <p>“Hmmm…”</p>
+    <p>“There will be dinner in the evening, so you can finish all of your things by evening.”</p>
+    <p>I thought there was a high probability that the guild staff had done it all, but there would be people here who would want to prepare as well.</p>
+    <p>“I’ll… do it…”</p>
+    <p>It was Kim Ye-ri who looked at her first-time juniors with an amazed expression.</p>
+    <p>She seems to have already recognized herself as a senior.</p>
+    <p>Of course, it was impossible to entrust such a task to a child who was not yet an adult. Before I even thought about whether she needed a guardian, I heard a voice next to me.</p>
+    <p>“I will go with you, Vice Guild Master.”</p>
+    <p>“Then, please, Hyejin-ssi.”</p>
+    <p>“Okay.”</p>
+    <p>“I will go with you.”</p>
+    <p>“You do that, Ahn Ki-mo-ssi.”</p>
+    <p>Although I felt distracted by how many people were around me, the atmosphere wasn’t all that bad, all in all. Jung Hayan herself didn’t seem to care.</p>
+    <p>Since Tol To-ri had been asleep for quite a long time, it seemed like Dialugia would not return to the nest today. Meanwhile, the sun seemed to set at a faster pace than usual.</p>
+    <p>The new recruits were still going around the Blue Guild House, and as Kim Ye-ri, Cho Hyejin, Ahn Ki-mo, and even Jung Hayan began preparing for the party, all the work preparations ended soon.</p>
+    <p>As soon as I heard that Kim Hyunsung had arrived back in Lindel, I promptly began to wait around for him.</p>
+    <p>Shortly after that, the man himself entered my line of sight.</p>
+    <p>‘I missed you, you bastard.’</p>
+    <p>It had been a while since we’d been face to face like this.</p>
+  </article>
+</div>
+
+<div id="merge-status"></div>
+
+<nav>
+  <span class="nav-left"><a href="224.html" rel="prev">&#8592; Ch 224</a></span>
+  <span class="nav-mid">
+    <button class="btn-merge" id="btn-merge" >Merge Next 10</button>
+  </span>
+  <span class="nav-right"><a href="226.html" rel="next">Ch 226 &#8594;</a></span>
+</nav>
+
+<script>
+  // Chapters available after this one — discovered from meta.json
+  var slug       = "regressor-instruction-manual";
+  var currentNum = 225;
+  var nextNum    = 226;
+  var maxLoaded  = currentNum;
+  var allNums    = null;   // loaded lazily from meta.json
+  var merging    = false;
+  var root       = "../../";
+
+  async function getNums() {
+    if (allNums) return allNums;
+    var res = await fetch(root + "data/" + slug + "/meta.json");
+    var meta = await res.json();
+    allNums = meta.chapters.map(function(c){ return c.num; });
+    return allNums;
+  }
+
+  document.getElementById("btn-merge").addEventListener("click", async function() {
+    if (merging) return;
+    merging = true;
+    var btn    = document.getElementById("btn-merge");
+    var status = document.getElementById("merge-status");
+    btn.textContent = "Loading…";
+    btn.disabled = true;
+
+    var nums   = await getNums();
+    var idx    = nums.indexOf(maxLoaded);
+    var toLoad = nums.slice(idx + 1, idx + 11);
+    if (!toLoad.length) { merging = false; return; }
+
+    status.style.display = "block";
+    status.textContent = "Fetching chapters " + toLoad[0] + "–" + toLoad[toLoad.length-1] + "…";
+
+    var container = document.getElementById("chapters");
+    var firstNew  = null;
+
+    for (var i = 0; i < toLoad.length; i++) {
+      var n = toLoad[i];
+      try {
+        var res  = await fetch(n + ".html");
+        var html = await res.text();
+        var doc  = new DOMParser().parseFromString(html, "text/html");
+        var art  = doc.querySelector("article");
+        var h1   = doc.querySelector("h1");
+        if (!art) continue;
+
+        // Divider
+        var divider = document.createElement("div");
+        divider.className = "ch-divider";
+        divider.textContent = "Chapter " + n;
+        container.appendChild(divider);
+
+        // Chapter title
+        if (h1) {
+          var chTitle = document.createElement("div");
+          chTitle.className = "ch-title";
+          chTitle.textContent = h1.textContent;
+          container.appendChild(chTitle);
+        }
+
+        // Content
+        var section = document.createElement("article");
+        section.id = "ch-" + n;
+        section.innerHTML = art.innerHTML;
+        container.appendChild(section);
+
+        if (!firstNew) firstNew = divider;
+        maxLoaded = n;
+      } catch(e) {
+        console.warn("Failed to load chapter " + n, e);
+      }
+    }
+
+    // Update nav next link
+    var nextIdx = nums.indexOf(maxLoaded) + 1;
+    var newNext = nextIdx < nums.length ? nums[nextIdx] : null;
+    var navRight = document.querySelector(".nav-right");
+    if (newNext) {
+      navRight.innerHTML = '<a href="' + newNext + '.html" rel="next">Ch ' + newNext + ' &#8594;</a>';
+    } else {
+      navRight.innerHTML = '<span></span>';
+    }
+
+    status.style.display = "none";
+    btn.textContent = newNext ? "⊕ Merge Next 10" : "✓ All loaded";
+    btn.disabled = !newNext;
+    merging = false;
+
+    if (firstNew) firstNew.scrollIntoView({ behavior:"smooth", block:"start" });
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chapter 145 — Regressor Instruction Manual</title>
+  <style>
+    :root { --ink:#1a1a1a; --dim:#666; --bg:#fff; --gold:#8a6a1a; --border:#ddd; }
+    @media (prefers-color-scheme:dark) {
+      :root { --ink:#e9e4da; --dim:#9a9286; --bg:#111010; --gold:#c9a84c; --border:#2a2825; }
+    }
+    *{ box-sizing:border-box; margin:0; padding:0; }
+    body{ background:var(--bg); color:var(--ink); font-family:Georgia,'Times New Roman',serif;
+          font-size:1.125rem; line-height:1.85; padding:40px 24px 80px;
+          max-width:680px; margin:0 auto; }
+    header{ margin-bottom:32px; padding-bottom:20px; border-bottom:1px solid var(--border); }
+    header a{ color:var(--gold); text-decoration:none; font-size:.85rem; }
+    h1{ font-size:1.35rem; font-weight:700; margin-top:10px; line-height:1.25; }
+    article p{ margin-bottom:1.4em; text-align:justify; hyphens:auto; }
+    .ch-divider{ text-align:center; padding:28px 0 16px; color:var(--dim);
+                  font-size:.8rem; letter-spacing:.1em; text-transform:uppercase; }
+    .ch-divider::before,.ch-divider::after{ content:''; display:inline-block;
+      width:40px; height:1px; background:var(--border); vertical-align:middle; margin:0 12px; }
+    .ch-title{ font-size:1.1rem; font-weight:700; color:var(--gold); margin-bottom:16px; }
+    nav{ display:grid; grid-template-columns:1fr auto 1fr; gap:10px; align-items:center;
+          margin-top:48px; padding-top:20px; border-top:1px solid var(--border); font-size:.88rem; }
+    nav a{ color:var(--gold); text-decoration:none; }
+    nav a:hover{ text-decoration:underline; }
+    nav .nav-right{ text-align:right; }
+    nav .nav-mid{ text-align:center; }
+    .btn-merge{ background:rgba(138,106,26,.12); border:1px solid var(--gold);
+                 color:var(--gold); padding:9px 16px; border-radius:6px; cursor:pointer;
+                 font-family:Georgia,serif; font-size:.85rem; font-weight:600;
+                 transition:background .15s; white-space:nowrap; }
+    .btn-merge:hover:not(:disabled){ background:rgba(138,106,26,.25); }
+    .btn-merge:disabled{ opacity:.35; cursor:not-allowed; }
+    #merge-status{ text-align:center; padding:12px; font-size:.82rem;
+                    color:var(--dim); display:none; }
+  </style>
+</head>
+<body>
+<header>
+  <a href="../../novel.html?slug=regressor-instruction-manual">&larr; Regressor Instruction Manual</a>
+  <h1 id="page-title">Chapter 145</h1>
+</header>
+
+<div id="chapters">
+  <article id="ch-145">
+    <p>Chapter 145: Going Home (5)</p>
+    <p>Until recently, I was on the verge of throwing away the idea of giving a griffon, but upon coming to terms with this realization, I had gone back to wanting to present the gift.</p>
+    <p>I knew that Kim Hyunsung was not good at expressing himself, but who would have known that he harbored such a bright smile?</p>
+    <p>Honestly, I was on the verge of feeling pure disappointment. Though a year was only a short time, I had endured so much for Hyunsung. I was worried about my efforts being disregarded, but it appeared that I had nothing to worry about at all.</p>
+    <p>It would be weird if he didn’t return any of my affections. However, I could understand him to an extent.</p>
+    <p>Of course, when I saw his expressionless face the first time we met in the tutorial, I had to think that this guy, who had returned for a reason, had abandoned his humanity, but the power of friendship had gently melted his frozen heart.</p>
+    <p>Come to think of it, the variety of his facial expressions had increased quite a bit recently.</p>
+    <p>At first, this guy had always treated us in a businesslike manner. The proof lay in the fact that we still talked to each other formally. Though he joked with us quite a bit, I felt anxious because it felt like the distance between us wasn’t shortening at all.</p>
+    <p>But, thinking about it in the logical sense, our relationship was indeed progressing</p>
+    <p>‘It’s not good to be too inhuman.’</p>
+    <p>Between a colleague in crisis and an about to end world; if Hyunsung was given the chance to choose, all I wanted was for him to choose the former.</p>
+    <p>‘You have to save me first.’</p>
+    <p>I wanted him to prioritize me, too. I had no plans of leaving him at all. After giving the best of my allegiance, if he were to say, “I’m sorry,” and chose the world instead of me, it would feel like doing all the work and having someone else take all the credit</p>
+    <p>However, it looked like all was doing well - Hyunsung was indeed becoming affectionate towards me.</p>
+    <p>Because of this wonderful realization, I lost control over my facial expressions. Cho Hyejin noticed this and smiled in return.</p>
+    <p>“You look happy.”</p>
+    <p>“I didn’t know how Hyunsung thought of me. He doesn’t usually express his emotions well…”</p>
+    <p>“Of course, he thinks highly of you. You’re colleagues, after all.”</p>
+    <p>“I think of him as a friend or a brother rather than a colleague. Of course, I don’t know if Hyunsung feels the same, but I consider him like that anyway. The same goes for the other people who are with me in Blue.”</p>
+    <p>“Ah.”</p>
+    <p>“In fact, I can’t say that we have been together for a long time, but there is a bond that the party members have built up.”</p>
+    <p>“Bond…”</p>
+    <p>One would be amazed to find out the effort I’ve exerted to build this bond. If it wasn’t fatal, I would take a knife wound for Kim Hyunsung, Jung Hayan, and Park Deokgu.</p>
+    <p>“And that’s what I’ve been actually doing.</p>
+    <p>“I heard that there was a problem in Castle Rock, and you came here. Can I ask what happened?”</p>
+    <p>“Ah, that’s…”</p>
+    <p>My curiosity about Cho Hyejin naturally came back after a while. However, Hyejin hesitated, as if she did not want to disclose what had happened.</p>
+    <p>As she continued to stutter, I knew I wouldn’t be able to get anything out of her. This didn’t matter, however.</p>
+    <p>T’ll have to write a letter to Marlin Young-ae.’</p>
+    <p>Something indeed smelled fishy.</p>
+    <p>Her reluctance was enough for my suspicion to rise. This meant that she had either made a mistake, or had faced a situation she wanted to hide.</p>
+    <p>The fact that she had chosen a risky guild such as Blue was also strange in itself.</p>
+    <p>Of course, Kim Hyunsung had to move around to recruit her… Still, I had to think that there was something she felt guilty about.</p>
+    <p>‘Hyunsung would have still accepted her despite knowing that…’</p>
+    <p>This meant that he had thought she would be worth it.</p>
+    <p>At this, I immediately decided to try and find out. There was no need for me to be scared anymore. I could use my newly-formed connections for this kind of situation.</p>
+    <p>“If you do not want to tell, you do not have to. You don’t have to be nervous, since this isn’t an interrogation. I’ve read the profile of Cho Hyejin upstairs. It’s almost excessive for us that you came to our guild since you’ve been so active here.”</p>
+    <p>“You’re over complimenting me.”</p>
+    <p>“It seemed like I was the only one who didn’t give you the welcoming. Hyejinssi, welcome to Blue.”</p>
+    <p>“Thank you, Vice Guild Master.”</p>
+    <p>“Alright.”</p>
+    <p>That marked the end of my short conversation with her. I wouldn’t have to worry about the division of power right now. It would probably happen after a year or two… I would just have to continually remind her that I held a higher position than she did.</p>
+    <p>Not long after we’ve said our goodbyes, I saw Jung Hayan approaching me.</p>
+    <p>She was holding a plate with an original dish in hand. Not too far away, I could see Park Deokgu and Sun Hee-young quietly making their escape.</p>
+    <p>From this, I surmised that I should never eat whatever Hayan had prepared.</p>
+    <p>As I tried to look away, Jung Hayan finally reached me.</p>
+    <p>“O-Oppa. Would you like to try it?”</p>
+    <p>“Ah…”</p>
+    <p>I would gamble if necessary. However, this seemed like something that wasn’t worth even throwing a dice for.</p>
+    <p>The outcome was fixed, anyway, so I had to quickly change the subject.</p>
+    <p>“Would you like to head to the Red Mercenary now?”</p>
+    <p>“What?”</p>
+    <p>“Since the party’s reached a lull, I think it’s better to give the present today.”</p>
+    <p>“Yes…”</p>
+    <p>It was already 10 pm, and the atmosphere had changed significantly. It was quite a good time to present the griffon to our dear Hyunsung.</p>
+    <p>The problem was that Jung Hayan looked sad at having her culinary efforts ignored. Considering the fact that she herself hadn’t received any gifts from me, I knew just agreeing to take a bite of her food would make her happy.</p>
+    <p>With this in mind, I instantly picked up a nearby spoon, took a portion, and swallowed it as quickly as I could. However, the taste still lingered in my mouth.</p>
+    <p>‘Fuck</p>
+    <p>I felt worried about what I had just eaten, but there was no getting out of this situation at this point.</p>
+    <p>“It’s delicious.”</p>
+    <p>“Ah!”</p>
+    <p>“Shall we go, then?”</p>
+    <p>“Yes, of course!”</p>
+    <p>Though Jung Hayan seemed excited at the prospect of us sneaking away, we were doing this for the sake of business.</p>
+    <p>In short, we were to retrieve our gift from the Red Mercenaries.</p>
+    <p>It had been quite a long time since I’ve seen Lindel in its evening charm. The streets were still quite lively at this hour.</p>
+    <p>I thought the security would be bad, but it seems that I was mistaken. Of course, the slums were dangerous, but the plazas and areas where the guild buildings were found were as safe as the streets in the daytime.</p>
+    <p>There were shining pearls that stayed lit until dawn, and there were merchants who ran night markets. Every house had its light on, and of course, the Red Mercenary Guild was no exception.</p>
+    <p>I went back and forth for a short time, but I couldn’t call the Mercenary Queen. I stopped by the stable for a while and came out with the items left in the warehouse as well as the griffons, and then everyone’s eyes were focused on me.</p>
+    <p>“Krook.”</p>
+    <p>Everyone looked at me in amazement as I dragged my two griffons along. It was like riding a foreign car in the countryside. As there were only four griffons within Lindel, their awed expressions were natural.</p>
+    <p>‘This is the gift I’m giving you, Hyunsung.</p>
+    <p>Kim Hyunsung was no different from them. Of course, he could have ridden his own a lot of times back in the first timeline, but this was a different period.</p>
+    <p>These guys were practical and could be used in combat. The black one, which I planned to gift to him, looked quite sharp and charismatic. As Ito Souta was a man who valued his appearance, even his griffon was well-maintained.</p>
+    <p>The murmurs around me soon became louder, and people crowded around me to get a closer look. I would never have imagined to receive gazes such as these back on Earth.</p>
+    <p>I felt uncomfortable with how their gazes never left me until I arrived at the Blue Guild house, but Jung Hayan continued to look back at them with an expression of pride, as if to announce that I was her boyfriend.</p>
+    <p>‘For some reason, I feel ashamed.’</p>
+    <p>She even seemed to be enjoying it.</p>
+    <p>Once we got back, the people who were no doubt looking for us had on surprised expressions.</p>
+    <p>“Hyung-nim. Where have you been… Huh? That is…”</p>
+    <p>“Actually, I was going to tell you about it separately…But I think now is a perfect time. We’re also at a party, and I think it’s very suitable to give a gift.”</p>
+    <p>“Wow!”</p>
+    <p>No one hated gifts.</p>
+    <p>The guild staff did not have much interest, already assuming that they were not included, but obviously, I had gifts even for them.</p>
+    <p>“I couldn’t prepare a gift for the staff, so I got you simple things sold in the capital.”</p>
+    <p>“Wow!”</p>
+    <p>Even though I had phrased it like that, it wasn’t a simple gift. What I had given them were valuable items that were treated as high-end brands in the capital.</p>
+    <p>There were fountain pen sets and watches for the men, as well as cosmetic sets and bags for the women. Although they were quite expensive, they cost nothing compared to all the money that I had earned. Of course, also had handwritten letters for all of them.</p>
+    <p>It was only right for me to give them personal keepsakes, after all.</p>
+    <p>That was how one maintains his social life. Simply letting someone know that you have not forgotten them was already a huge boost.</p>
+    <p>I nodded approvingly as Jung Hayan began giving them away one by one.</p>
+    <p>“I am not discriminating, but I prepared a separate gift for the executives, so hope that the staff doesn’t get sad.”</p>
+    <p>Of course, these people had no reason to be sad. In the first place, the noncombatants would feel happy to have even received a gift in the first place.</p>
+    <p>“Deokgu obtained a shield from his last expedition, so this sword…”</p>
+    <p>“Huh? T-Thank you. Oooh!”</p>
+    <p>Park Deokgu’s eyes, who had confirmed the function of the item, were huge. The heavy weight didn’t disconcert him. He must have been surprised to see its stats.</p>
+    <p>That was a natural reaction. This was, after all, an item considered to be superior among all the heroic-grade ones.</p>
+    <p>[Giant’s Great Sword: Heroic Grade]</p>
+    <p>[Now, it is a great sword made of fragments of small daggers used by giants, a forgotten race. There aren’t many people who can handle the master Kahalas’ work properly, but you will have a sinister destructive force if you can handle this heavy greatsword in the correct manner. Just owning it will increase your strength by 6. There are no other add-ons.]</p>
+    <p>“I also prepared a heroic grade necklace to Lee Sang-hee and Jeong-yeonssi.”</p>
+    <p>“… Thank you.”</p>
+    <p>“Thank you, Kiyoung-ssi.”</p>
+    <p>[A necklace with the blessing of the Benigore’s Goddess: Heroic grade]</p>
+    <p>[This necklace contains the blessings of the Benigore’s Goddess. Intermediate curse cancellation, intermediate detoxification, and advanced healing magic are enshrined. All stats will increase by 1.]</p>
+    <p>“To our little one is a dagger…”</p>
+    <p>“Thanks…”</p>
+    <p>[Archmage Isaac’s Throwing Dagger: Heroic Grade]</p>
+    <p>[It is a dagger that can both summon and unsummon. It is not known from which path it came in, but some experts are open to the possibility of whether this dagger has crossed another dimension. It contains traces of many years. On the back, there are letters that are not recognizable. Agility stat increases by 3.]</p>
+    <p>“To Hee-young, I prepared a ring for you.”</p>
+    <p>“Thank you, Kiyoung-ssi.”</p>
+    <p>[Queen Carlena’s Wedding Ring: Heroic Level]</p>
+    <p>[It was a wedding ring that Carlena, the Queen of the Ruin, had kept her whole life. This very modest ring describes the character of Queen Carlena better than anyone else. Through the effect of Queen Carlena’s sincere prayers, it was given divine power. The effect of all holy spells slightly increases.]</p>
+    <p>All of them had received special items.</p>
+    <p>Some were received gifts from the shrine, and some were brought over here after the Yamato Guild was destroyed.</p>
+    <p>In fact, besides this, there was also the Sword of Wind that Ito Souta owned and some items used by the executives, but I thought it was right to distribute them later on.</p>
+    <p>After I gave everyone presents, only Kim Hyunsung was left.</p>
+    <p>Just remembering the fact that I used to be the one receiving gifts from him a few months ago felt absurd. Our returner definitely deserved his gift.</p>
+    <p>Only</p>
+    <p>“The gift I prepared for our Blue Guild Master is this griffon.”</p>
+    <p>“Ah!”</p>
+    <p>Whether he noticed I was talking about him, the black griffon opened his black wings widely. Kim Hyunsung looked stunned, as it was obvious that he was not used to receiving anything.</p>
+    <p>‘His mouth is almost tearing.’</p>
+    <p>I knew he would like his gift, but I never imagined that he would show this kind of reaction.</p>
+    <p>Of course, it seemed as if he was trying not to smile, but just to elicit this type of reaction from him already felt like an achievement in itself. The smile on his Tips seemed to be planning to stay stuck on his face for a while.</p>
+    <p>I’m offering you my heart, you bastard.’</p>
+    <p>This could be said to one of my proudest moments.</p>
+  </article>
+</div>
+
+<div id="merge-status"></div>
+
+<nav>
+  <span class="nav-left"><a href="144.html" rel="prev">&#8592; Ch 144</a></span>
+  <span class="nav-mid">
+    <button class="btn-merge" id="btn-merge" >Merge Next 10</button>
+  </span>
+  <span class="nav-right"><a href="146.html" rel="next">Ch 146 &#8594;</a></span>
+</nav>
+
+<script>
+  // Chapters available after this one — discovered from meta.json
+  var slug       = "regressor-instruction-manual";
+  var currentNum = 145;
+  var nextNum    = 146;
+  var maxLoaded  = currentNum;
+  var allNums    = null;   // loaded lazily from meta.json
+  var merging    = false;
+  var root       = "../../";
+
+  async function getNums() {
+    if (allNums) return allNums;
+    var res = await fetch(root + "data/" + slug + "/meta.json");
+    var meta = await res.json();
+    allNums = meta.chapters.map(function(c){ return c.num; });
+    return allNums;
+  }
+
+  document.getElementById("btn-merge").addEventListener("click", async function() {
+    if (merging) return;
+    merging = true;
+    var btn    = document.getElementById("btn-merge");
+    var status = document.getElementById("merge-status");
+    btn.textContent = "Loading…";
+    btn.disabled = true;
+
+    var nums   = await getNums();
+    var idx    = nums.indexOf(maxLoaded);
+    var toLoad = nums.slice(idx + 1, idx + 11);
+    if (!toLoad.length) { merging = false; return; }
+
+    status.style.display = "block";
+    status.textContent = "Fetching chapters " + toLoad[0] + "–" + toLoad[toLoad.length-1] + "…";
+
+    var container = document.getElementById("chapters");
+    var firstNew  = null;
+
+    for (var i = 0; i < toLoad.length; i++) {
+      var n = toLoad[i];
+      try {
+        var res  = await fetch(n + ".html");
+        var html = await res.text();
+        var doc  = new DOMParser().parseFromString(html, "text/html");
+        var art  = doc.querySelector("article");
+        var h1   = doc.querySelector("h1");
+        if (!art) continue;
+
+        // Divider
+        var divider = document.createElement("div");
+        divider.className = "ch-divider";
+        divider.textContent = "Chapter " + n;
+        container.appendChild(divider);
+
+        // Chapter title
+        if (h1) {
+          var chTitle = document.createElement("div");
+          chTitle.className = "ch-title";
+          chTitle.textContent = h1.textContent;
+          container.appendChild(chTitle);
+        }
+
+        // Content
+        var section = document.createElement("article");
+        section.id = "ch-" + n;
+        section.innerHTML = art.innerHTML;
+        container.appendChild(section);
+
+        if (!firstNew) firstNew = divider;
+        maxLoaded = n;
+      } catch(e) {
+        console.warn("Failed to load chapter " + n, e);
+      }
+    }
+
+    // Update nav next link
+    var nextIdx = nums.indexOf(maxLoaded) + 1;
+    var newNext = nextIdx < nums.length ? nums[nextIdx] : null;
+    var navRight = document.querySelector(".nav-right");
+    if (newNext) {
+      navRight.innerHTML = '<a href="' + newNext + '.html" rel="next">Ch ' + newNext + ' &#8594;</a>';
+    } else {
+      navRight.innerHTML = '<span></span>';
+    }
+
+    status.style.display = "none";
+    btn.textContent = newNext ? "⊕ Merge Next 10" : "✓ All loaded";
+    btn.disabled = !newNext;
+    merging = false;
+
+    if (firstNew) firstNew.scrollIntoView({ behavior:"smooth", block:"start" });
+  });
+</script>
+</body>
+</html>

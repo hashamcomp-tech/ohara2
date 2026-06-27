@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chapter 112 — Regressor Instruction Manual</title>
+  <style>
+    :root { --ink:#1a1a1a; --dim:#666; --bg:#fff; --gold:#8a6a1a; --border:#ddd; }
+    @media (prefers-color-scheme:dark) {
+      :root { --ink:#e9e4da; --dim:#9a9286; --bg:#111010; --gold:#c9a84c; --border:#2a2825; }
+    }
+    *{ box-sizing:border-box; margin:0; padding:0; }
+    body{ background:var(--bg); color:var(--ink); font-family:Georgia,'Times New Roman',serif;
+          font-size:1.125rem; line-height:1.85; padding:40px 24px 80px;
+          max-width:680px; margin:0 auto; }
+    header{ margin-bottom:32px; padding-bottom:20px; border-bottom:1px solid var(--border); }
+    header a{ color:var(--gold); text-decoration:none; font-size:.85rem; }
+    h1{ font-size:1.35rem; font-weight:700; margin-top:10px; line-height:1.25; }
+    article p{ margin-bottom:1.4em; text-align:justify; hyphens:auto; }
+    .ch-divider{ text-align:center; padding:28px 0 16px; color:var(--dim);
+                  font-size:.8rem; letter-spacing:.1em; text-transform:uppercase; }
+    .ch-divider::before,.ch-divider::after{ content:''; display:inline-block;
+      width:40px; height:1px; background:var(--border); vertical-align:middle; margin:0 12px; }
+    .ch-title{ font-size:1.1rem; font-weight:700; color:var(--gold); margin-bottom:16px; }
+    nav{ display:grid; grid-template-columns:1fr auto 1fr; gap:10px; align-items:center;
+          margin-top:48px; padding-top:20px; border-top:1px solid var(--border); font-size:.88rem; }
+    nav a{ color:var(--gold); text-decoration:none; }
+    nav a:hover{ text-decoration:underline; }
+    nav .nav-right{ text-align:right; }
+    nav .nav-mid{ text-align:center; }
+    .btn-merge{ background:rgba(138,106,26,.12); border:1px solid var(--gold);
+                 color:var(--gold); padding:9px 16px; border-radius:6px; cursor:pointer;
+                 font-family:Georgia,serif; font-size:.85rem; font-weight:600;
+                 transition:background .15s; white-space:nowrap; }
+    .btn-merge:hover:not(:disabled){ background:rgba(138,106,26,.25); }
+    .btn-merge:disabled{ opacity:.35; cursor:not-allowed; }
+    #merge-status{ text-align:center; padding:12px; font-size:.82rem;
+                    color:var(--dim); display:none; }
+  </style>
+</head>
+<body>
+<header>
+  <a href="../../novel.html?slug=regressor-instruction-manual">&larr; Regressor Instruction Manual</a>
+  <h1 id="page-title">Chapter 112</h1>
+</header>
+
+<div id="chapters">
+  <article id="ch-112">
+    <p>Chapter 112: Go to work! (2)</p>
+    <p>In the story, Hwang-hee asked to resign more than ten times, but Sejong unethically ordered him to work until he died.</p>
+    <p>Whenever Hwang-hee asked for resignation due to health problems, Sejong ordered him to work from home. When he asked for resignation, he sent a kiln to the palace. He even sent officials to Hwang-hee’s house to handle paperwork even as he lay on his deathbed, so the poor man really did work until he died.</p>
+    <p>‘Fuck…’</p>
+    <p>I could definitely say that this was a similar situation.</p>
+    <p>It felt like Kim Hyunsung was trying to make me conform. If his kingdom grew, and he left his name in history, it would be clear that my name would also be mentioned next to his.</p>
+    <p>Albeit, I would be known as the stupid guy who overworked himself to death.</p>
+    <p>However, this didn’t mean that I would be left with nothing. Like Hwanghee, who Sejong favored until the end, despite committing various corruptions, I will also be able to gain unprecedented power</p>
+    <p>‘Ah, power…</p>
+    <p>My position within the guild had completely shifted.</p>
+    <p>Of course, my original position wasn’t low, per se, but now? Now, I had gained enough power to control the guild itself.</p>
+    <p>‘The only problem is that I wouldn’t have the time to enjoy that power…</p>
+    <p>Considering that most of the positions entrusted to me were only temporary, I knew this would soon be resolved. However, I also knew that handling the administrative systems within Blue was a very important job to be given.</p>
+    <p>With this, I had come to realize that, once again, Kim Hyunsung was placing his trust in me. I knew that the other guild members also saw this and would now try to establish themselves in front of him.</p>
+    <p>Still, my job title would always be weighty.</p>
+    <p>Blue was not big, but it would reward me for all my work. I had become the person who would receive the most salary among everyone else, even more than Guild Master Kim Hyunsung himself.</p>
+    <p>The annual salary I received when I first came here was 10,000 gold, and with less than a year passing by, it had multiplied by 12 times, perhaps even higher.</p>
+    <p>Of course, the reality is that this would not be enough. The real problem lay in the fact that Blue’s current status meant that I wouldn’t be able to receive my full salary. Though my payroll had risen, it would be impossible to receive it so long as the guild was still in a crisis. This was due to financial and manpower shortages.</p>
+    <p>‘Alright, first things first…’</p>
+    <p>I knew I had to start with those two first.</p>
+    <p>As I read the report placed in front of me, I heard a voice speak up.</p>
+    <p>“Lee Kiyoung, this is a report from the Damage Countermeasure Committee.”</p>
+    <p>“Leave it on my desk. I’ll take care of what we’re doing now and check it out right after. Oh, and if you’re free, would you please call Jeong-yeon?”</p>
+    <p>“That… Hwang Jeong-yeon says she has something to do…”</p>
+    <p>“Yeah? I’m sure she just decided to take a break.”</p>
+    <p>“She says something urgent has come up.”</p>
+    <p>‘She definitely ran away.’</p>
+    <p>I shouldn’t have believed her when she said she was going to take a break. I had only been here for a day, yet I’ve lasted even longer.</p>
+    <p>However, I had to admit that she had made things easier, seeing as she had sorted out all the documents that had been piled up. This was a world that struggled without the existence of computers.</p>
+    <p>Still, it was impressive that she had decided to show just how resourceful she could be. Even then, I had not expected her to run away in the middle of it.</p>
+    <p>I understood that the pile of work on my shoulders was scary, but that wasn’t a valid reason.</p>
+    <p>“The guild’s promotion…”</p>
+    <p>“As I said, we will give priority to posting the story of the change within the Blue Guild in the article, and we will disclose the attack journal of the Cursed Shrine. Please allow three days for the scheduling. No, I’ll do it again. It would be nice to sell some of them after we released the free ones.”</p>
+    <p>“Are you saying that you’d be selling a strategy journal?”</p>
+    <p>“Yes, I will sell it.”</p>
+    <p>“Ah. So, this one goes to the business-“</p>
+    <p>“No. Just let it go. Business units have their work to do.”</p>
+    <p>“Yeah?”</p>
+    <p>That particular division was also under my jurisdiction, anyway. I noticed the guild member’s pitying look as he, too, realized this sad fact.</p>
+    <p>“It will have to go through a little tweaking, but it will sell. The story of the Cursed Shrine is very stimulating, after all.”</p>
+    <p>“I think I know what you’re talking about.”</p>
+    <p>“Before leaving the expedition, I think it would be better to include a story about Lee Seolho. However, I’ll need to refine it a little bit. If any people say that they write within the guild, we will collect all of them and put them into editing. Let’s start that right now.”</p>
+    <p>“It’s a good idea… It may take longer if you think about publishing and mass production, Vice Guild Master.”</p>
+    <p>“I will reschedule everything. Oh, it’ll also be a good idea to add a list of items obtained from the Cursed Shrine in the article, along with the strategy journal. I think it would be better to unravel information about Juliana.”</p>
+    <p>“The legendary item you have?”</p>
+    <p>“Yeah. Of course, I will not disclose the function of the item. Please emphasize ‘legendary item holder’ and then start the promotion. It will be fast and effective.”</p>
+    <p>“You must be more curious about the strategy journal.”</p>
+    <p>“Definitely.”</p>
+    <p>It would be better to disclose the strategy journal after informing the public about where the legendary item came from. I wasn’t entirely sure, but I had a feeling that it would make enormous sales. The public would surely have a lot of questions about it.</p>
+    <p>The story of where the item was obtained and how I had become its rightful owner would surely be the talk of the town once more.</p>
+    <p>It wasn’t every day that legendary items were found, after all.</p>
+    <p>And even then…</p>
+    <p>“The delivery time of the fantasy potion will be a little earlier than planned. For the timing, I think it would be better to unpack it at the same time as the strategy journal is sold.”</p>
+    <p>“Of course. I will adjust the schedule.”</p>
+    <p>This would also be a good promotion. The potions that worked tremendously well within the Cursed Shrine would be a huge hit.</p>
+    <p>Overall, the plan itself was not bad. I just felt like something had been severely lacking.</p>
+    <p>“Hm…”</p>
+    <p>“What’s the matter?”</p>
+    <p>“Ah, it’s nothing.”</p>
+    <p>I felt like I was somehow veering in the wrong direction. I must not only promote the guild’s products. I had to find some way to promote the guild itself. If I only focused on these, the guild would have only gained money, not influence.</p>
+    <p>That alone could increase the guild’s value. However…</p>
+    <p>‘It won’t make the people want to join forces with Blue.’</p>
+    <p>I lacked that one decisive factor.</p>
+    <p>“Ah. What is the market price for a wagon billboard?”</p>
+    <p>“I heard that if you get it for a discount, it costs about 200 gold a day. Of course, if the area had a large populace, the cost would…”</p>
+    <p>“Not bad. The cost-performance ratio is good, and above all, we can use it right away.”</p>
+    <p>“Yes, perhaps…”</p>
+    <p>“It seems like a problem that we need to consider a little more. Aside from that, have you organized all of the heroic-grade items?”</p>
+    <p>“I heard that it’s almost done.”</p>
+    <p>“There is not much left until the auction, so please tell them to bring it soon. I will sell everything that we do not need.”</p>
+    <p>“Of course.”</p>
+    <p>I hated to admit it, but the work wasn’t that bad. This was my area of expertise, after all.</p>
+    <p>If this were a typical company, these problems would have required numerous meetings to coordinate the schedule. Adjusting everything by myself meant that I did not have to go through all the tedious processes.</p>
+    <p>Of course, that didn’t mean that my work wasn’t difficult. My abilities were already limited in the first place. My head had begun to hurt from trying to do everything by myself. I wasn’t even familiar with the imperial laws of this continent.</p>
+    <p>It was easy enough to deal with the usual things, but some sensitive tax issues and imperial law-related issues were bound to take me some time to sort through.</p>
+    <p>‘Also, our lack of talent within the guild has become our biggest problem…’</p>
+    <p>Blue was never a guild that was small in size. Sure, it looked like an entertainment agency housing seven parties, but the number of plain guild members and guild staff assisting them also played a significant role.</p>
+    <p>However, it was obvious that there were no significant talents among them. This was no thanks to the old geezers, who hadn’t even thought about reforming the guild.</p>
+    <p>‘They were useless from start to finish.’</p>
+    <p>In this situation, it was only natural for me to resort to some underhanded tactics.</p>
+    <p>‘Cheap manpower.</p>
+    <p>What I needed was inexpensive yet competent manpower. The guild’s image should attract them, and the promotion and marketing would determine the guild’s future image.</p>
+    <p>I knew some capable people would apply, but their numbers would not be enough. Thus, how could I solve this?</p>
+    <p>As I massaged my temples, I heard Park Deokgu’s voice from outside the room.</p>
+    <p>“Hyung, it’s me.”</p>
+    <p>“You can come in, Deokgu.”</p>
+    <p>“No… Oh, aren’t you too busy?”</p>
+    <p>“Uh. Yes, I’ve been really busy.”</p>
+    <p>“I came because our Guild Master wanted me to pass something onto you.”</p>
+    <p>“What?”</p>
+    <p>“It looks like a fatigue recovery potion…”</p>
+    <p>“Ah…”</p>
+    <p>Kim Hyunsung, you bastard.</p>
+    <p>At this point, I must have lost to an enemy like him in my previous life. I broke out into a cold sweat as I realized I could have been the reincarnation of Hwang-hee in that story.</p>
+    <p>“I’m so concerned about my Hyung’s health… I don’t know where he got it, but it works great. With one potion, you can stay awake for about three days…”</p>
+    <p>The more Park Deokgu spoke, the more I felt scared.</p>
+    <p>‘Do not do this, you bastard…’</p>
+    <p>If Kim Hyunsung continued to play the role of Satan, I would definitely become his spawn.</p>
+    <p>‘Perhaps the best solution was simple…’</p>
+    <p>At this, I opened my mouth to speak.</p>
+    <p>“Deokgu, let’s talk for a minute.”</p>
+    <p>“Yes, what is it?”</p>
+    <p>“How is the image of our guild?”</p>
+    <p>“Well… Aren’t we a ruined guild? We’ve just started to recover again. We will definitely be successful in the future, but for now… Goodness.”</p>
+    <p>That was the perfect answer.</p>
+    <p>“Then what do you think are the strengths of our guild?”</p>
+    <p>“Even if you suddenly ask me that…”</p>
+    <p>“I didn’t ask you seriously, so you can answer in any way you want. What should I say to have competent human resources come into our guild?”</p>
+    <p>“I’m not sure about that… Well, if it’s the strength of our guild, of course, isn’t it youth, passion, and ambition? And we have a capable Hyung!”</p>
+    <p>“Uh…”</p>
+    <p>That was an answer I never expected to receive. I couldn’t believe I had not thought about this before. This made me smile, as Park Deokgu had actually helped me!</p>
+    <p>After giving him one last glance, I spoke to Park Jung-gi, sitting next to</p>
+    <p>Only me.</p>
+    <p>“Mr. Jung-gi.”</p>
+    <p>“Yes, Vice Guild Master.”</p>
+    <p>“Please contact the Lindel Shipping Association right now and have them spread flyers everywhere.”</p>
+    <p>“Of course. I knew you’d be able to recruit more people…”</p>
+    <p>“No, no. For now…”</p>
+    <p>“I think I need to recruit some interns.”</p>
+    <p>I knew I wouldn’t be able to handle all this work alone.</p>
+  </article>
+</div>
+
+<div id="merge-status"></div>
+
+<nav>
+  <span class="nav-left"><a href="111.html" rel="prev">&#8592; Ch 111</a></span>
+  <span class="nav-mid">
+    <button class="btn-merge" id="btn-merge" >Merge Next 10</button>
+  </span>
+  <span class="nav-right"><a href="113.html" rel="next">Ch 113 &#8594;</a></span>
+</nav>
+
+<script>
+  // Chapters available after this one — discovered from meta.json
+  var slug       = "regressor-instruction-manual";
+  var currentNum = 112;
+  var nextNum    = 113;
+  var maxLoaded  = currentNum;
+  var allNums    = null;   // loaded lazily from meta.json
+  var merging    = false;
+  var root       = "../../";
+
+  async function getNums() {
+    if (allNums) return allNums;
+    var res = await fetch(root + "data/" + slug + "/meta.json");
+    var meta = await res.json();
+    allNums = meta.chapters.map(function(c){ return c.num; });
+    return allNums;
+  }
+
+  document.getElementById("btn-merge").addEventListener("click", async function() {
+    if (merging) return;
+    merging = true;
+    var btn    = document.getElementById("btn-merge");
+    var status = document.getElementById("merge-status");
+    btn.textContent = "Loading…";
+    btn.disabled = true;
+
+    var nums   = await getNums();
+    var idx    = nums.indexOf(maxLoaded);
+    var toLoad = nums.slice(idx + 1, idx + 11);
+    if (!toLoad.length) { merging = false; return; }
+
+    status.style.display = "block";
+    status.textContent = "Fetching chapters " + toLoad[0] + "–" + toLoad[toLoad.length-1] + "…";
+
+    var container = document.getElementById("chapters");
+    var firstNew  = null;
+
+    for (var i = 0; i < toLoad.length; i++) {
+      var n = toLoad[i];
+      try {
+        var res  = await fetch(n + ".html");
+        var html = await res.text();
+        var doc  = new DOMParser().parseFromString(html, "text/html");
+        var art  = doc.querySelector("article");
+        var h1   = doc.querySelector("h1");
+        if (!art) continue;
+
+        // Divider
+        var divider = document.createElement("div");
+        divider.className = "ch-divider";
+        divider.textContent = "Chapter " + n;
+        container.appendChild(divider);
+
+        // Chapter title
+        if (h1) {
+          var chTitle = document.createElement("div");
+          chTitle.className = "ch-title";
+          chTitle.textContent = h1.textContent;
+          container.appendChild(chTitle);
+        }
+
+        // Content
+        var section = document.createElement("article");
+        section.id = "ch-" + n;
+        section.innerHTML = art.innerHTML;
+        container.appendChild(section);
+
+        if (!firstNew) firstNew = divider;
+        maxLoaded = n;
+      } catch(e) {
+        console.warn("Failed to load chapter " + n, e);
+      }
+    }
+
+    // Update nav next link
+    var nextIdx = nums.indexOf(maxLoaded) + 1;
+    var newNext = nextIdx < nums.length ? nums[nextIdx] : null;
+    var navRight = document.querySelector(".nav-right");
+    if (newNext) {
+      navRight.innerHTML = '<a href="' + newNext + '.html" rel="next">Ch ' + newNext + ' &#8594;</a>';
+    } else {
+      navRight.innerHTML = '<span></span>';
+    }
+
+    status.style.display = "none";
+    btn.textContent = newNext ? "⊕ Merge Next 10" : "✓ All loaded";
+    btn.disabled = !newNext;
+    merging = false;
+
+    if (firstNew) firstNew.scrollIntoView({ behavior:"smooth", block:"start" });
+  });
+</script>
+</body>
+</html>

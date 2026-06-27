@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chapter 512 — Regressor Instruction Manual</title>
+  <style>
+    :root { --ink:#1a1a1a; --dim:#666; --bg:#fff; --gold:#8a6a1a; --border:#ddd; }
+    @media (prefers-color-scheme:dark) {
+      :root { --ink:#e9e4da; --dim:#9a9286; --bg:#111010; --gold:#c9a84c; --border:#2a2825; }
+    }
+    *{ box-sizing:border-box; margin:0; padding:0; }
+    body{ background:var(--bg); color:var(--ink); font-family:Georgia,'Times New Roman',serif;
+          font-size:1.125rem; line-height:1.85; padding:40px 24px 80px;
+          max-width:680px; margin:0 auto; }
+    header{ margin-bottom:32px; padding-bottom:20px; border-bottom:1px solid var(--border); }
+    header a{ color:var(--gold); text-decoration:none; font-size:.85rem; }
+    h1{ font-size:1.35rem; font-weight:700; margin-top:10px; line-height:1.25; }
+    article p{ margin-bottom:1.4em; text-align:justify; hyphens:auto; }
+    .ch-divider{ text-align:center; padding:28px 0 16px; color:var(--dim);
+                  font-size:.8rem; letter-spacing:.1em; text-transform:uppercase; }
+    .ch-divider::before,.ch-divider::after{ content:''; display:inline-block;
+      width:40px; height:1px; background:var(--border); vertical-align:middle; margin:0 12px; }
+    .ch-title{ font-size:1.1rem; font-weight:700; color:var(--gold); margin-bottom:16px; }
+    nav{ display:grid; grid-template-columns:1fr auto 1fr; gap:10px; align-items:center;
+          margin-top:48px; padding-top:20px; border-top:1px solid var(--border); font-size:.88rem; }
+    nav a{ color:var(--gold); text-decoration:none; }
+    nav a:hover{ text-decoration:underline; }
+    nav .nav-right{ text-align:right; }
+    nav .nav-mid{ text-align:center; }
+    .btn-merge{ background:rgba(138,106,26,.12); border:1px solid var(--gold);
+                 color:var(--gold); padding:9px 16px; border-radius:6px; cursor:pointer;
+                 font-family:Georgia,serif; font-size:.85rem; font-weight:600;
+                 transition:background .15s; white-space:nowrap; }
+    .btn-merge:hover:not(:disabled){ background:rgba(138,106,26,.25); }
+    .btn-merge:disabled{ opacity:.35; cursor:not-allowed; }
+    #merge-status{ text-align:center; padding:12px; font-size:.82rem;
+                    color:var(--dim); display:none; }
+  </style>
+</head>
+<body>
+<header>
+  <a href="../../novel.html?slug=regressor-instruction-manual">&larr; Regressor Instruction Manual</a>
+  <h1 id="page-title">Chapter 512</h1>
+</header>
+
+<div id="chapters">
+  <article id="ch-512">
+    <p>Chapter 512: At Lindel (3)</p>
+    <p>“You didn’t leave, after all, Pope Basel…”</p>
+    <p>“You say that, Sir Oscar, but aren’t you also holding your post?”</p>
+    <p>“The Continental Union is holding its place despite its fears. In this world, is there a leader who will flee only to save himself? Even if I die, I will die with my country. I will die with those who are here. That’s the least that I can do as a powerless leader.”</p>
+    <p>When Oscar looked sideways, he noticed Pope Basel was quietly nodding in agreement.</p>
+    <p>Was that a face full of concern? Even traces of his fiery personality, so infamous among even the Roman Curia, could no longer be found.</p>
+    <p>Pope Basel’s face, which had aged considerably in the last couple of years, seemed to reflect his state of mind. It probably wasn’t just because of the demon attacks.</p>
+    <p>Since the incident, Pope Basel was no longer able to have a decent night of sleep.</p>
+    <p>From the moment Honorary Cardinal Lee Kiyoung had been captured by the demon, he didn’t leave the prayer room except to participate in external public affairs. As if to reflect his agony, tears of blood gushed out from the goddess’s statue, making Pope Basel deliver more sincere prayers.</p>
+    <p>He was desperate enough to ruin his health.</p>
+    <p>“It is the same for me too. I’m too old to even remember a holy spell. It is already dreadful that I can’t stand on the front line; how can I leave my country to survive alone? We will definitely… definitely overcome this.”</p>
+    <p>“You have not given up.”</p>
+    <p>“Ha, actually, a couple of days ago…”</p>
+    <p>“Yes?”</p>
+    <p>“I got in contact with the Blue Guild Master.”</p>
+    <p>“By Guild Master, you mean…”</p>
+    <p>“Yes. The sword-master of light. He asked me to believe and pray.”</p>
+    <p>“Ah…”</p>
+    <p>“He told me that Honorary Cardinal Lee Kiyoung was still fighting the demons. He heard it directly from the Cardinal and has asked me to never give up and send prayers that could give him strength.”</p>
+    <p>“I see.”</p>
+    <p>“I was embarrassed, Sir Oscar.”</p>
+    <p>“What do you mean, Pope Basel?”</p>
+    <p>“It felt as if he saw through me. The young hero noticed my wavering, despondent heart that was about to give up. It felt as if he saw my resentment towards goddess Benignore for not saving me.”</p>
+    <p>“Cardinal Lee Kiyoung will definitely, most definitely persevere.”</p>
+    <p>“I agree. Without a doubt, he will. Honorary Cardinal Lee Kiyoung will surely persevere. Goddess Benignore will never abandon her faithful servant. However, before that…”</p>
+    <p>“We must address our imminent threats.”</p>
+    <p>“Yes, I believe in our goddess, our future, our soldiers fighting for our empire, and Cardinal Lee Kiyoung, who is battling his internal turmoil harder than anyone else.”</p>
+    <p>“I also…”</p>
+    <p>“…”</p>
+    <p>“I also share that sentiment.”</p>
+    <p>He swallowed back his bitter smile and stared at the view in front of him.</p>
+    <p>There were those who weren’t running away even if they could have surely done it. There were those who clasped their hands together to pray at the capital’s square even as the darkness loomed over Lindel.</p>
+    <p>“This fight will determine the fate of our empire.”</p>
+    <p>As Pope Basel had said, the incoming battle would make or break the fate of the continent. They were the ones on the battlefield, but they weren’t the only ones fighting.</p>
+    <p>The people, who were waiting for the start of the last clash, also understood. That was why they were standing there.</p>
+    <p>A woman looked at the sky while holding her child. Young priests prayed ceaselessly as the soldiers glared at the incoming darkness. The elderly couple held each other’s hands as a young man served them. They were each fulfilling their role in their place.</p>
+    <p>‘Let us believe that the empire will be able to overcome this threat; that this time won’t be different.’</p>
+    <p>He knew that he shouldn’t display any signs of weakness. However, he couldn’t keep his eyes from watering.</p>
+    <p>‘You have to be safe, Honorary Cardinal.’</p>
+    <p>He clasped his hands in devotion.</p>
+    <p>‘Please… Please, I beg of you, Goddess Benignore.’</p>
+    <p>‘For the empire’s survival and peace…’</p>
+    <p>‘Give him the strength to endure this ordeal…’</p>
+    <p>‘For him to hear his voice calling her Lady Aris again someday.’</p>
+    <p>And…</p>
+    <p>‘For the holy army that is preparing for the battle at Lindel to overcome this great ordeal.’</p>
+    <p>There was no other option left but to give such a prayer.</p>
+    <p>* * *</p>
+    <p>“Don’t be nervous, soldiers. Goddess Benignore will be with us. The Sword-master of Sunset will also be with us. We will not fall by any means. Until the moment we bring peace to this empire, we will not give up the light we have lost.”</p>
+    <p>“Huff…Huff…”</p>
+    <p>Thud. Thud.</p>
+    <p>“Huff…”</p>
+    <p>Thud. Thud.</p>
+    <p>“Are you alright?”</p>
+    <p>“Yes, I am a-alright.”</p>
+    <p>“You must be a volunteer.”</p>
+    <p>“Yes, I am.”</p>
+    <p>“You look a bit old… no, besides that… it must have been a while since you left the field.”</p>
+    <p>“Yes, it has been some time since I retired. It’s because as I go higher, I start to feel my limit…”</p>
+    <p>“Ha, is there a reason why you are here of all places? I don’t recall if there was conscription has been mandated. But wait, isn’t your body unable to fight? That shoulder… aren’t you even feeling any aftereffects?”</p>
+    <p>“…”</p>
+    <p>“…”</p>
+    <p>“I am from Raios.”</p>
+    <p>“I see…”</p>
+    <p>He felt a bit relieved after observing the nodding soldier.</p>
+    <p>For the time being, he could understand the reason why that soldier, who was awkwardly holding his spear, would head to a place like that.</p>
+    <p>He thought that although everyone had a reason to be there, that man probably had a different reason than everybody else.</p>
+    <p>It was because he was from Raios. As expected, the man with the spear started to open his mouth slowly.</p>
+    <p>It was a story that he didn’t ask for, but he had no choice to listen.</p>
+    <p>In fact, he was also nervous. Was there anyone who could maintain their composure in front of an army of demons in the first place? The sound of their footsteps was beating along with the hearts of the Allied Forces in Lindel as the looming darkness instinctively drove them into fear.</p>
+    <p>Perhaps, he was trying to find reassurance from that army of broken soldiers.</p>
+    <p>This was because the story that the man would tell him would give strength to him, who couldn’t even move due to the way his legs trembled.</p>
+    <p>Slowly, he could hear the voice of the soldier, telling him his story. It was a story that he expected the contents of.</p>
+    <p>“The Honorary Cardinal saved my wife and daughter.”</p>
+    <p>“…”</p>
+    <p>“The Honorary Cardinal will probably not remember it. No, he probably won’t even know of my existence. To him… I’m just one of the countless number of people who owe him their lives. But I can never forget the Cardinal from that day. I can’t forget the sight of him forcing his body into ruins and drawing out his holy power to defeat the 72nd Lord to protect us.”</p>
+    <p>“That is a good enough reason to hold your weapon again. But aren’t you… afraid?”</p>
+    <p>It was a question that he was asking himself.</p>
+    <p>“I am afraid. Who wouldn’t be afraid? But… I don’t regret being in this place.”</p>
+    <p>“You are brave.”</p>
+    <p>“Rather than bravery, it’s probably guilt. If Honorary Cardinal hadn’t exerted himself to save Raios that day, maybe this wouldn’t have happened.”</p>
+    <p>“There’s no need to blame yourself for something that has already passed. Isn’t that why you are here?”</p>
+    <p>“But…”</p>
+    <p>“It’s not only you. Everyone probably has the same thought. Who hasn’t received a favor from the Cardinal in this empire? Of course, there are people who have great tales like yours, but the number of people who were indirectly helped by him is endless.</p>
+    <p>“Yes.”</p>
+    <p>“The three major guilds, citizens of Lindel, and even the believers, who follow goddess Benignore. They are all gathering to save him. The Cardinal is also fighting… Haven’t you heard that Sword-Master of Sunset had a dream that he was gifted a great power that can save the empire? I have also heard that voice.”</p>
+    <p>“Yes, me too. I definitely… heard that voice before.”</p>
+    <p>“He must also be waiting anxiously, believing in everyone here, thinking that another problem won’t arise. He must also be observing the war with us. How can we lose? We must trust in those who are here and believe those who are fighting with us.”</p>
+    <p>He tapped the soldier’s shoulder to comfort him, and the soldier nodded his head to show that he understood. As he hadn’t continued the conversation to merely console the soldier, his mind began to feel more at ease.</p>
+    <p>“Your feelings will definitely reach him.”</p>
+    <p>“I truly think it will.”</p>
+    <p>“Ah…”</p>
+    <p>“Surely, surely it will reach him. So, there’s no need to be worried.”</p>
+    <p>He turned his head toward a voice, coming from somewhere, and saw a very familiar-looking silhouette. He had a huge shield that looked like it was made to cover that immense body, and the shield looked too heavy to even be held.</p>
+    <p>However, like nothing was wrong, he held that shield and slowly stepped closer.</p>
+    <p>He felt a tap on his shoulder, lifted his head, and saw a face with a faint smile.</p>
+    <p>“Th-th-thank you so much for that time.”</p>
+    <p>It was the volunteer who was murmuring to himself.</p>
+    <p>“It wasn’t me. It was my older brother. I was there by luck. Anyways, thank you for coming here. My older brother will be happy, most definitely. Your voice will definitely reach him.”</p>
+    <p>The huge body turned to gaze outside of the castle’s walls.</p>
+    <p>As expected, they heard the sound of a huge horn, and monsters of different types appeared from the horizon with a screech. His face naturally crumpled.</p>
+    <p>Tremors came from the previously quiet grounds, and ear-splitting shouting continued. However, he couldn’t do anything other than biting his lips tightly.</p>
+    <p>He knew how important that fight was to humanity.</p>
+    <p>Like that volunteer who was howling while holding his spear in fear, everyone probably felt it to their bones. Protecting the base meant protecting the empire’s light. However…</p>
+    <p>“Can we win?”</p>
+    <p>Could humanity withstand against all of those monsters?</p>
+    <p>As the guardian of the country, the Holy Dragon roamed around the dark sky with her diseased body, and Benignore’s symbol glared down at its past site of refuge while wearing a corrupted mask.</p>
+    <p>Could they overcome that ordeal without the empire’s light?</p>
+    <p>As the enemies approached closer, unnecessary thoughts crowded his head. Faith that felt firm crumbled and became uprooted with fear and anxiety.</p>
+    <p>Legs began to tremble, and bodies became soaked in sweat.</p>
+    <p>In the end, no sound could be heard, and without knowing, he let out a scream.</p>
+    <p>Crassssssssssh!!! Crasssssssssssh!!! Crasssssssssh!!!</p>
+    <p>The sounds of explosions began to erupt. They didn’t get hit by a magical explosion. The sound came from a nearby place.</p>
+    <p>“Prepare for battle! Prepare for battle!!!</p>
+    <p>With a bit of an awkward expression, they pounded on their shields with their fists and shouted until their throats became raw.</p>
+    <p>“Prepare for battle! Prepare for battle!!!</p>
+    <p>It wasn’t unreasonable to think that they raised the atmosphere by force. The sight of them raising their voice to ready themselves looked desperate.</p>
+    <p>As they did so, the grips on their weapons weakened bit by bit.</p>
+    <p>The heroic shouting elevated his emotions to such a high degree that it became strange.</p>
+    <p>[You have been affected by an ally’s Legendary-grade Combat Morale Shout. All stats will temporarily increase significantly.]</p>
+    <p>“Ha, ha, ha, ha…”</p>
+    <p>He couldn’t understand the serene feeling inside his body. As if he couldn’t believe it, he murmured quietly, “We can win.”</p>
+    <p>Just like that…</p>
+    <p>The last battle for the survival of humanity began.</p>
+  </article>
+</div>
+
+<div id="merge-status"></div>
+
+<nav>
+  <span class="nav-left"><a href="511.html" rel="prev">&#8592; Ch 511</a></span>
+  <span class="nav-mid">
+    <button class="btn-merge" id="btn-merge" >Merge Next 10</button>
+  </span>
+  <span class="nav-right"><a href="513.html" rel="next">Ch 513 &#8594;</a></span>
+</nav>
+
+<script>
+  // Chapters available after this one — discovered from meta.json
+  var slug       = "regressor-instruction-manual";
+  var currentNum = 512;
+  var nextNum    = 513;
+  var maxLoaded  = currentNum;
+  var allNums    = null;   // loaded lazily from meta.json
+  var merging    = false;
+  var root       = "../../";
+
+  async function getNums() {
+    if (allNums) return allNums;
+    var res = await fetch(root + "data/" + slug + "/meta.json");
+    var meta = await res.json();
+    allNums = meta.chapters.map(function(c){ return c.num; });
+    return allNums;
+  }
+
+  document.getElementById("btn-merge").addEventListener("click", async function() {
+    if (merging) return;
+    merging = true;
+    var btn    = document.getElementById("btn-merge");
+    var status = document.getElementById("merge-status");
+    btn.textContent = "Loading…";
+    btn.disabled = true;
+
+    var nums   = await getNums();
+    var idx    = nums.indexOf(maxLoaded);
+    var toLoad = nums.slice(idx + 1, idx + 11);
+    if (!toLoad.length) { merging = false; return; }
+
+    status.style.display = "block";
+    status.textContent = "Fetching chapters " + toLoad[0] + "–" + toLoad[toLoad.length-1] + "…";
+
+    var container = document.getElementById("chapters");
+    var firstNew  = null;
+
+    for (var i = 0; i < toLoad.length; i++) {
+      var n = toLoad[i];
+      try {
+        var res  = await fetch(n + ".html");
+        var html = await res.text();
+        var doc  = new DOMParser().parseFromString(html, "text/html");
+        var art  = doc.querySelector("article");
+        var h1   = doc.querySelector("h1");
+        if (!art) continue;
+
+        // Divider
+        var divider = document.createElement("div");
+        divider.className = "ch-divider";
+        divider.textContent = "Chapter " + n;
+        container.appendChild(divider);
+
+        // Chapter title
+        if (h1) {
+          var chTitle = document.createElement("div");
+          chTitle.className = "ch-title";
+          chTitle.textContent = h1.textContent;
+          container.appendChild(chTitle);
+        }
+
+        // Content
+        var section = document.createElement("article");
+        section.id = "ch-" + n;
+        section.innerHTML = art.innerHTML;
+        container.appendChild(section);
+
+        if (!firstNew) firstNew = divider;
+        maxLoaded = n;
+      } catch(e) {
+        console.warn("Failed to load chapter " + n, e);
+      }
+    }
+
+    // Update nav next link
+    var nextIdx = nums.indexOf(maxLoaded) + 1;
+    var newNext = nextIdx < nums.length ? nums[nextIdx] : null;
+    var navRight = document.querySelector(".nav-right");
+    if (newNext) {
+      navRight.innerHTML = '<a href="' + newNext + '.html" rel="next">Ch ' + newNext + ' &#8594;</a>';
+    } else {
+      navRight.innerHTML = '<span></span>';
+    }
+
+    status.style.display = "none";
+    btn.textContent = newNext ? "⊕ Merge Next 10" : "✓ All loaded";
+    btn.disabled = !newNext;
+    merging = false;
+
+    if (firstNew) firstNew.scrollIntoView({ behavior:"smooth", block:"start" });
+  });
+</script>
+</body>
+</html>

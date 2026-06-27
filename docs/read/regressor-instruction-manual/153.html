@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chapter 153 — Regressor Instruction Manual</title>
+  <style>
+    :root { --ink:#1a1a1a; --dim:#666; --bg:#fff; --gold:#8a6a1a; --border:#ddd; }
+    @media (prefers-color-scheme:dark) {
+      :root { --ink:#e9e4da; --dim:#9a9286; --bg:#111010; --gold:#c9a84c; --border:#2a2825; }
+    }
+    *{ box-sizing:border-box; margin:0; padding:0; }
+    body{ background:var(--bg); color:var(--ink); font-family:Georgia,'Times New Roman',serif;
+          font-size:1.125rem; line-height:1.85; padding:40px 24px 80px;
+          max-width:680px; margin:0 auto; }
+    header{ margin-bottom:32px; padding-bottom:20px; border-bottom:1px solid var(--border); }
+    header a{ color:var(--gold); text-decoration:none; font-size:.85rem; }
+    h1{ font-size:1.35rem; font-weight:700; margin-top:10px; line-height:1.25; }
+    article p{ margin-bottom:1.4em; text-align:justify; hyphens:auto; }
+    .ch-divider{ text-align:center; padding:28px 0 16px; color:var(--dim);
+                  font-size:.8rem; letter-spacing:.1em; text-transform:uppercase; }
+    .ch-divider::before,.ch-divider::after{ content:''; display:inline-block;
+      width:40px; height:1px; background:var(--border); vertical-align:middle; margin:0 12px; }
+    .ch-title{ font-size:1.1rem; font-weight:700; color:var(--gold); margin-bottom:16px; }
+    nav{ display:grid; grid-template-columns:1fr auto 1fr; gap:10px; align-items:center;
+          margin-top:48px; padding-top:20px; border-top:1px solid var(--border); font-size:.88rem; }
+    nav a{ color:var(--gold); text-decoration:none; }
+    nav a:hover{ text-decoration:underline; }
+    nav .nav-right{ text-align:right; }
+    nav .nav-mid{ text-align:center; }
+    .btn-merge{ background:rgba(138,106,26,.12); border:1px solid var(--gold);
+                 color:var(--gold); padding:9px 16px; border-radius:6px; cursor:pointer;
+                 font-family:Georgia,serif; font-size:.85rem; font-weight:600;
+                 transition:background .15s; white-space:nowrap; }
+    .btn-merge:hover:not(:disabled){ background:rgba(138,106,26,.25); }
+    .btn-merge:disabled{ opacity:.35; cursor:not-allowed; }
+    #merge-status{ text-align:center; padding:12px; font-size:.82rem;
+                    color:var(--dim); display:none; }
+  </style>
+</head>
+<body>
+<header>
+  <a href="../../novel.html?slug=regressor-instruction-manual">&larr; Regressor Instruction Manual</a>
+  <h1 id="page-title">Chapter 153</h1>
+</header>
+
+<div id="chapters">
+  <article id="ch-153">
+    <p>Chapter 153: Marlin Young-ae (3)</p>
+    <p>‘Ah…</p>
+    <p>In front of me stood the Little Rock Guild Master, the guild who had kicked Cho Hyejin out. Instantly, I activated my Mind’s Eye in order to read into his stats and attributes.</p>
+    <p>His stats weren’t bad, but they weren’t great, either. Nothing was notable enough to be remembered. Of course, I wasn’t in a position to say that, but after seeing a lot of great people, he didn’t look impressive to me at all.</p>
+    <p>Meanwhile, his disposition was…</p>
+    <p>‘A Passionate, Ambitious Man.’</p>
+    <p>What a unique characteristic. He was definitely a leaf with different sides to him, though I had to admit it sounded awkward for some reason. It sounded like an ability that didn’t really have any bonus effects. With this, I tried to picture what kind of person he really was.</p>
+    <p>‘Aha…”</p>
+    <p>It was just a guess, but I think I knew how he got entangled with Cho Hyejin. Just looking at him talking to us in this manner gave me some sort of answer. Simply speaking, he saw an opportunity, and decided to take advantage of it. He probably wanted to make his presence known, or know more about us in turn.</p>
+    <p>He didn’t seem to know that it was rude to barge in on Marlin during this time. perhaps it was even planned. It seemed like he could choose whether or not to welcome any newcomers in the area. I wasn’t a judger, but I found it quite annoying.</p>
+    <p>“Ah, Song Jungwook-nim.”</p>
+    <p>Though she acknowledged him, she didn’t pay much attention to him. Instead, she wrapped an arm around Jung Hayan’s shoulders and passed by him. For her, it was more important to focus on us.</p>
+    <p>“Who was he?”</p>
+    <p>“Ah. He’s Little Rock Guild’s Master Song Jungwook-nim…”</p>
+    <p>As I looked back, I could see Song Jungwook harboring a bitter expression, which was natural, considering he had just been humiliated.</p>
+    <p>Obviously, I had nothing to do with it. It wasn’t as if he had spoken to me first, and it was Marlin Young-ae who had decided to run to our side alone. Meanwhile, I was just on my way to Jung Hayan. Therefore, the embarrassing situation that happened was not my doing.</p>
+    <p>Of course, he would show that face, considering that he was humiliated.</p>
+    <p>“Ah. You mean Little Rock.”</p>
+    <p>“Yes.”</p>
+    <p>“I heard about them. I heard that their scale is quite large in Castle Rock. Their adventure performance is also good. Did you say that they’ve attacked three rare dungeons and one heroic dungeon?”</p>
+    <p>“Ah… I-I don’t know the details…”</p>
+    <p>“It’s okay, Marlin Young-ae. We almost passed by a nobleman. Could you please call him if that’s okay?”</p>
+    <p>“Yes, of course. Lord Rodrick? Could you please call Song Jungwook here?”</p>
+    <p>“Yes, Young-ae.”</p>
+    <p>Song Jungwook’s complexion still hinted at how hurt his pride was. However, it could not be avoided. That was, until Marlin Young-ae called for him.</p>
+    <p>Eventually, I saw him approaching us, biting his lip in an unsure manner.</p>
+    <p>“I’m sorry for earlier, Song Jungwook. I was too busy.”</p>
+    <p>“No. It’s okay, Young-ae.”</p>
+    <p>“This is Lee Kiyoung Lee, Vice Master of the Blue Guild from Lindel. He really wants to talk with you…”</p>
+    <p>“I see.”</p>
+    <p>At this, he glanced at me with an expression that seemed to say, ‘of course you do.’ He seemed to think I had a special intention for doing so. With this, Song Jungwook held his hand out for me to shake.</p>
+    <p>“Nice to meet you. I’m Song Jungwook, Guild Master of Little Rock.”</p>
+    <p>‘Ha…’</p>
+    <p>“Where is the Blue Guild Master?”</p>
+    <p>‘This bastard…’</p>
+    <p>“I tried to greet you once officially, but that’s great timing.”</p>
+    <p>‘How dare you talk informally to me?’</p>
+    <p>“And… It’s been a while, Hyejin. I never thought you would be in Blue.”</p>
+    <p>“Ah. It’s been a while, Song Jungwook-nim.”</p>
+    <p>‘Are you looking down on me?’</p>
+    <p>It felt absurd that he was treating me in this manner. Of course, I was only the Vice Guild Master, so if I were to classify us by rank, then this meant he was a notch above me. Not only was I younger, but he had been on this continent longer than I have.</p>
+    <p>Therefore, talking to me informally would have felt okay for him.</p>
+    <p>‘Are there any humans who still don’t know that I have become an Honorary Bishop?’</p>
+    <p>It seemed that the Free People of Castle Rock had not heard of this yet. I should have that fact advertised on their newspaper at least once.</p>
+    <p>I indeed came here for business, but it didn’t mean that I would be the one to bow down. There was no law that stated that a salesman was necessarily weaker. I didn’t intend to do as he pleased, as he was not as powerful as Cha Hee-ra, or as talented as Cho Hyejin.</p>
+    <p>However, it also felt stupid to fight at this point, so I didn’t deem to answer. As if to ask silently about what was going on, I looked towards Marlin Youngae and found her looking surprised.</p>
+    <p>“P-Please do be polite.”</p>
+    <p>“Young-ae?”</p>
+    <p>“Lee Kiyoung is a guest of the Castle Rock estate. That’s just rude.”</p>
+    <p>“M-Marlin… Young-ae.”</p>
+    <p>“I didn’t see you that way, but I’m disappointed, Song Jungwook-nim.”</p>
+    <p>“That…”</p>
+    <p>“I’ll apologize instead, Lee Kiyoung-nim.”</p>
+    <p>“Ahem. Well, that’s okay. You shouldn’t be the one apologizing, Young-ae… Would you forget what I said earlier?”</p>
+    <p>“Yes?”</p>
+    <p>“The thing I said about potions. Originally, I was going to enjoy for a while and go… I think I’ve changed my mind. It would be better to leave as soon as possible after finishing my business.”</p>
+    <p>“Ah!”</p>
+    <p>Marlin Young-ae’s expression was wrinkled, while Hayan brightened up. As gently pulled Jung Hayan towards me, her expression became smug.</p>
+    <p>‘This expression doesn’t suit her at all.’</p>
+    <p>She evidently wanted to let everyone know that I belonged to her. She must have been aiming for a dangerous look, but she only looked cute in my eyes.</p>
+    <p>Naturally, Marlin Young-ae paled. It was not because of Jung Hayan. It was probably from what I had just hinted - that I didn’t care about sales, or potion-related contracts, none of that. I would just go back after doing my business. I had been so excited to travel to Castle Rock, yet it had not met my expectations, simply because of such rude people. That was the hidden meaning behind my words.</p>
+    <p>“Lee Kiyoung-nim, that’s…”</p>
+    <p>“Let’s just head back, Young-ae.”</p>
+    <p>The choice she would make was quite obvious. At this, Young-ae turned to Jungwook.</p>
+    <p>“Please formally apologize.”</p>
+    <p>“What?”</p>
+    <p>“Please formally apologize for the rudeness you just showed to Lee Kiyoungnim, Song Jungwook-nim.”</p>
+    <p>“That… To say I was rude.”</p>
+    <p>‘It’s indeed not like me to overreact.’</p>
+    <p>“I think Song Jungwook-nim knows better what I’m talking about. Please formally apologize for the rudeness you showed to Lee Kiyoung-nim earlier. If you don’t, I’ll never see your face again.”</p>
+    <p>It was fortunate that Archbishop Judah was not here. If he hadn’t been busy talking with Kim Hyunsung, Jungwook would have been surrounded by the members of the temple.</p>
+    <p>“It’s okay, Marlin Young-ae. You don’t have to do this.”</p>
+    <p>“No. Lee Kiyoung-nim is a guest of our Castle Rock.”</p>
+    <p>I didn’t come as a guest, but…’</p>
+    <p>“To show rudeness to Lee Kiyoung-nim is like showing rudeness to our family. I don’t know what your father will think, but I think he must get an apology.”</p>
+    <p>“Young-ae.”</p>
+    <p>I couldn’t help but feel impressed. She was doing so much for me, for ruining a good relationship with a guild like Little Rock would not be good for Castle Rock, either. It had just been because of her immaturity that she dared to act in this manner.</p>
+    <p>Of course, in comparison, Marlin Young-ae’s family was stronger.</p>
+    <p>‘This means it will hurt his pride.’</p>
+    <p>“Song Jungwook-nim. Really!”</p>
+    <p>“Marlin Youngae, that’s okay.”</p>
+    <p>This situation looked pretty bad. Both the free and imperial people were now looking at both of them. Song Jungwook, who at this point represented the free people, had to bow to me.</p>
+    <p>‘Good.’</p>
+    <p>It would definitely clear up the misunderstanding of power between us. The question was, would he really bow to me?</p>
+    <p>‘His pride is quite high.’</p>
+    <p>I had no choice but to think that he would try to pass this evasively. If I were him, I would have made the same choice. Cho Hyejin was also watching, along with our other guild party members.</p>
+    <p>Finally, Song Jungwook finally bowed.</p>
+    <p>‘Wow…’</p>
+    <p>I knew he would gain nothing from me by doing this, but I knew why he had done so.</p>
+    <p>‘It’s because of Marlin Young-ae…’</p>
+    <p>He just wanted to look good in front of her. There was no other reason.</p>
+    <p>“Please forgive my rudeness, Vice Guild Master Lee Kiyoung.”</p>
+    <p>“Ah. It’s okay, Song Jung-nim.”</p>
+    <p>“I’m sorry to cause you so much trouble when we’ve just met.”</p>
+    <p>“Hahaha. The same goes for me. There must have been a misunderstanding.”</p>
+    <p>“Marlin Young-ae, it’s okay now. It’s a misunderstanding caused by mistake. I think it’s only right to forgive him.”</p>
+    <p>The picture that I, the Vice Master Guild of the Blue Guild, had forgiven the Guild Master of the Little Rock Guild, would prove to be quite a beautiful scene for our onlookers.</p>
+    <p>At this point, they were probably thinking, ‘We can’t mess with that bastard.’</p>
+    <p>Of course, I had gained more than that.</p>
+    <p>“I was planning to visit the Little Rock Guild even just once, Song Jungwooknim. I hope you can visit Yeongju Tower soon and find me. No, I will go.”</p>
+    <p>“Hahahaha. It seems like I made a happy relationship today. Well, if you have nothing more to say, I’ll be going. Doesn’t Marlin Young-ae have anything more to say?”</p>
+    <p>“No, Lee Kiyoung-nim. I don’t think it’s important… Song Jungwook-nim, see you next time…”</p>
+    <p>“Hayan? Hyejin, move, quickly.”</p>
+    <p>“Yes, oppa.”</p>
+    <p>“Yes, Vice Guild Master.”</p>
+    <p>Only</p>
+    <p>“And… Well. Hyejin?”</p>
+    <p>“Yes.”</p>
+    <p>“I don’t know what happened when you were in Castle Rock, but you don’t have to look down.”</p>
+    <p>“And there is no need to treat other guilds’ Guild Masters. Hyejin is now a member of Blue. Always keep in mind that if you bow your head to another guild or clan, it means that Blue is bowing down to them.”</p>
+    <p>“Ah…”</p>
+    <p>“I don’t want for much. But that’s enough for now.”</p>
+    <p>“Yes. Okay.”</p>
+    <p>I now had a plan for Cho Hyejin. When I saw Song Jungwook failing to grab onto Marlin Young-ae, a lot of good ideas began to emerge.</p>
+  </article>
+</div>
+
+<div id="merge-status"></div>
+
+<nav>
+  <span class="nav-left"><a href="152.html" rel="prev">&#8592; Ch 152</a></span>
+  <span class="nav-mid">
+    <button class="btn-merge" id="btn-merge" >Merge Next 10</button>
+  </span>
+  <span class="nav-right"><a href="154.html" rel="next">Ch 154 &#8594;</a></span>
+</nav>
+
+<script>
+  // Chapters available after this one — discovered from meta.json
+  var slug       = "regressor-instruction-manual";
+  var currentNum = 153;
+  var nextNum    = 154;
+  var maxLoaded  = currentNum;
+  var allNums    = null;   // loaded lazily from meta.json
+  var merging    = false;
+  var root       = "../../";
+
+  async function getNums() {
+    if (allNums) return allNums;
+    var res = await fetch(root + "data/" + slug + "/meta.json");
+    var meta = await res.json();
+    allNums = meta.chapters.map(function(c){ return c.num; });
+    return allNums;
+  }
+
+  document.getElementById("btn-merge").addEventListener("click", async function() {
+    if (merging) return;
+    merging = true;
+    var btn    = document.getElementById("btn-merge");
+    var status = document.getElementById("merge-status");
+    btn.textContent = "Loading…";
+    btn.disabled = true;
+
+    var nums   = await getNums();
+    var idx    = nums.indexOf(maxLoaded);
+    var toLoad = nums.slice(idx + 1, idx + 11);
+    if (!toLoad.length) { merging = false; return; }
+
+    status.style.display = "block";
+    status.textContent = "Fetching chapters " + toLoad[0] + "–" + toLoad[toLoad.length-1] + "…";
+
+    var container = document.getElementById("chapters");
+    var firstNew  = null;
+
+    for (var i = 0; i < toLoad.length; i++) {
+      var n = toLoad[i];
+      try {
+        var res  = await fetch(n + ".html");
+        var html = await res.text();
+        var doc  = new DOMParser().parseFromString(html, "text/html");
+        var art  = doc.querySelector("article");
+        var h1   = doc.querySelector("h1");
+        if (!art) continue;
+
+        // Divider
+        var divider = document.createElement("div");
+        divider.className = "ch-divider";
+        divider.textContent = "Chapter " + n;
+        container.appendChild(divider);
+
+        // Chapter title
+        if (h1) {
+          var chTitle = document.createElement("div");
+          chTitle.className = "ch-title";
+          chTitle.textContent = h1.textContent;
+          container.appendChild(chTitle);
+        }
+
+        // Content
+        var section = document.createElement("article");
+        section.id = "ch-" + n;
+        section.innerHTML = art.innerHTML;
+        container.appendChild(section);
+
+        if (!firstNew) firstNew = divider;
+        maxLoaded = n;
+      } catch(e) {
+        console.warn("Failed to load chapter " + n, e);
+      }
+    }
+
+    // Update nav next link
+    var nextIdx = nums.indexOf(maxLoaded) + 1;
+    var newNext = nextIdx < nums.length ? nums[nextIdx] : null;
+    var navRight = document.querySelector(".nav-right");
+    if (newNext) {
+      navRight.innerHTML = '<a href="' + newNext + '.html" rel="next">Ch ' + newNext + ' &#8594;</a>';
+    } else {
+      navRight.innerHTML = '<span></span>';
+    }
+
+    status.style.display = "none";
+    btn.textContent = newNext ? "⊕ Merge Next 10" : "✓ All loaded";
+    btn.disabled = !newNext;
+    merging = false;
+
+    if (firstNew) firstNew.scrollIntoView({ behavior:"smooth", block:"start" });
+  });
+</script>
+</body>
+</html>

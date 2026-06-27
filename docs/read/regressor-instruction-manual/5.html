@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chapter 5 — Regressor Instruction Manual</title>
+  <style>
+    :root { --ink:#1a1a1a; --dim:#666; --bg:#fff; --gold:#8a6a1a; --border:#ddd; }
+    @media (prefers-color-scheme:dark) {
+      :root { --ink:#e9e4da; --dim:#9a9286; --bg:#111010; --gold:#c9a84c; --border:#2a2825; }
+    }
+    *{ box-sizing:border-box; margin:0; padding:0; }
+    body{ background:var(--bg); color:var(--ink); font-family:Georgia,'Times New Roman',serif;
+          font-size:1.125rem; line-height:1.85; padding:40px 24px 80px;
+          max-width:680px; margin:0 auto; }
+    header{ margin-bottom:32px; padding-bottom:20px; border-bottom:1px solid var(--border); }
+    header a{ color:var(--gold); text-decoration:none; font-size:.85rem; }
+    h1{ font-size:1.35rem; font-weight:700; margin-top:10px; line-height:1.25; }
+    article p{ margin-bottom:1.4em; text-align:justify; hyphens:auto; }
+    .ch-divider{ text-align:center; padding:28px 0 16px; color:var(--dim);
+                  font-size:.8rem; letter-spacing:.1em; text-transform:uppercase; }
+    .ch-divider::before,.ch-divider::after{ content:''; display:inline-block;
+      width:40px; height:1px; background:var(--border); vertical-align:middle; margin:0 12px; }
+    .ch-title{ font-size:1.1rem; font-weight:700; color:var(--gold); margin-bottom:16px; }
+    nav{ display:grid; grid-template-columns:1fr auto 1fr; gap:10px; align-items:center;
+          margin-top:48px; padding-top:20px; border-top:1px solid var(--border); font-size:.88rem; }
+    nav a{ color:var(--gold); text-decoration:none; }
+    nav a:hover{ text-decoration:underline; }
+    nav .nav-right{ text-align:right; }
+    nav .nav-mid{ text-align:center; }
+    .btn-merge{ background:rgba(138,106,26,.12); border:1px solid var(--gold);
+                 color:var(--gold); padding:9px 16px; border-radius:6px; cursor:pointer;
+                 font-family:Georgia,serif; font-size:.85rem; font-weight:600;
+                 transition:background .15s; white-space:nowrap; }
+    .btn-merge:hover:not(:disabled){ background:rgba(138,106,26,.25); }
+    .btn-merge:disabled{ opacity:.35; cursor:not-allowed; }
+    #merge-status{ text-align:center; padding:12px; font-size:.82rem;
+                    color:var(--dim); display:none; }
+  </style>
+</head>
+<body>
+<header>
+  <a href="../../novel.html?slug=regressor-instruction-manual">&larr; Regressor Instruction Manual</a>
+  <h1 id="page-title">Chapter 5</h1>
+</header>
+
+<div id="chapters">
+  <article id="ch-5">
+    <p>Chapter 5: Regressor (2)</p>
+    <p>I slowly read through his stats again.</p>
+    <p>I hadn’t misread it.</p>
+    <p>[Checking the status window and talent levels of the player Kim Hyunsung.]</p>
+    <p>[Name: Kim Hyunsung]</p>
+    <p>[Titles: The Regressor of Altanus, The Swordsman Who Started the 2nd Round, The One Who Failed, The One Who Embraced Sacrifice, The Enlightened One]</p>
+    <p>[Age: 22]</p>
+    <p>[Disposition: Well-Meaning Arbitrator]</p>
+    <p>[Class: Swordsman (Common)]</p>
+    <p>[Stats]</p>
+    <p>[Strength: 19/Growth potential: legendary or higher]</p>
+    <p>[Agility: 28/Growth potential: legendary or higher]</p>
+    <p>[Stamina: 23/Growth potential: legendary or higher]</p>
+    <p>[Intelligence: 18/Growth potential: heroic or lower]</p>
+    <p>[Endurance: 22/Growth potential: heroic or lower]</p>
+    <p>[Luck: 23/Growth potential: heroic or higher]</p>
+    <p>[Magic Power: 11/Growth potential: heroic or higher]</p>
+    <p>[Attributes: Sword Expert (Heroic)]</p>
+    <p>[Overview: Truly amazing. If you don’t agree with me even after seeing it with your own eyes, I have no words for you. This person’s strength, agility and stamina can’t be accurately measured. Their other stats also have incredible potential. Their potential for growth as a wizard is terrifying, but with a melee class they can achieve even greater heights. They already have a common grade class and new opportunities for growth are on the horizon. Compared to player Lee Kiyoung… No, this comparison itself would be blasphemous. Player Lee Kiyoung should feel honoured to even be able to exchange a few words with this person.]</p>
+    <p>‘What is this nonsense…’</p>
+    <p>Even after blinking my eyes, the title of regressor remained unchanged.</p>
+    <p>‘Time travel? Really?’</p>
+    <p>It was natural to not believe in such a thing at first.</p>
+    <p>But now, after seeing all those monsters, I was willing to suspend my disbelief even further.</p>
+    <p>The Swordsman Who Started the 2nd Round.</p>
+    <p>I was too stunned to speak.</p>
+    <p>If my unique ability, Mind’s Eye, wasn’t lying, then this person in front of me had already experienced this situation before.</p>
+    <p>It would explain why he wasn’t scared at the starting point earlier.</p>
+    <p>‘Damn…’</p>
+    <p>I couldn’t help but curse in my head.</p>
+    <p>I knew the world was unfair to some extent, but I didn’t expect to feel this unfairness even in a place like this and to this level.</p>
+    <p>High stats, high growth potential, fast class acquirement and a heroic grade attribute.</p>
+    <p>‘By the way, is it possible to check other peoples’ attributes?’</p>
+    <p>As soon as I thought about it, the information immediately appeared in front of me.</p>
+    <p>[Attribute: Sword Expert]</p>
+    <p>[Gives a damage boost for all actions performed with a sword. Increases attack power by a certain percentage in proportion to the time spent wielding a sword. ]</p>
+    <p>‘Good.’</p>
+    <p>I didn’t know what formula was used for calculating extra attack power, but it looked like a good quality attribute which allowed the user to achieve better results the longer they trained.</p>
+    <p>I had no idea what other attributes I would see in the future, but I had to admit his attribute was very good for building a foundation as a warrior.</p>
+    <p>I bit my lip, unable to shake the feeling of unfairness, but if he really went back in time, then his attractive status window could be explained.</p>
+    <p>“Hyung-ssi, who…”</p>
+    <p>“My name is Kim Hyunsung.”</p>
+    <p>“Park Deokgu.”</p>
+    <p>“And this is…?”</p>
+    <p>“I’m Lee Kiyoung.”</p>
+    <p>“This… this isn’t the first time you’ve fought, is it?”</p>
+    <p>“Yea, as you can see. Hyung-nim made this leather armor for me, and I’ve already gotten used to hunting a little. I mean, I haven’t fought much, but still. It was hyung-nim who went ahead first and smashed the head of a monster with his spear. Thanks to him I gained a bit of courage.”</p>
+    <p>“You seem to be a little… experienced with this.”</p>
+    <p>“Well, it’s all thanks to hyung-nim. Rather, it’s him who seems to be experienced with this… Didn’t you see how he stabbed that monster in the head just now?”</p>
+    <p>“I was lucky.”</p>
+    <p>At Park Deokgu’s words, this guy’s gaze turned to me.</p>
+    <p>‘Useless blabbing…’</p>
+    <p>It wasn’t easy to pretend to be innocent.</p>
+    <p>Especially when I had ulterior motives in my mind.</p>
+    <p>When I met his gaze, I felt as if he was looking right through me.</p>
+    <p>I felt like I was standing here naked, and it wasn’t a good feeling. My body trembled at this strange sensation.</p>
+    <p>‘Is it just my imagination or some kind of magic?’</p>
+    <p>I didn’t know which one it was, but it didn’t matter anyway. The one thing I did know, and could sense, was that there was something wrong.</p>
+    <p>“What…”</p>
+    <p>‘Maybe he knows that I was reading his status window…?’</p>
+    <p>If you look like you are reading something in the air, surely it would look unnatural for others.</p>
+    <p>His disposition in the status window suggested that he was “well-meaning”.</p>
+    <p>However, the human heart wasn’t just black or white.</p>
+    <p>He returned to the past for some purpose. It was unlikely, but in the moment he decides we are his enemies, he might just swing his sword at us.</p>
+    <p>No, I didn’t want him to doubt me in any way.</p>
+    <p>Just then, Park Deokgu opened his mouth with a smile.</p>
+    <p>“Hyung-nim, why do you keep staring at your status window? Did you get a class?”</p>
+    <p>‘Nice, Park Deokgu.’</p>
+    <p>“Sort of. I will tell you in a minute.”</p>
+    <p>My heart was still feeling uneasy.</p>
+    <p>Instead of talking straight to this guy, I set my eyes on that woman named Jung Hayan.</p>
+    <p>Her eyes were wide open and she breathed heavily. When she saw I was looking at her, she opened her mouth.</p>
+    <p>“Thank you.”</p>
+    <p>“It’s nothing. We were also looking for survivors.”</p>
+    <p>“Ah…”</p>
+    <p>“Get up. I will help you.”</p>
+    <p>“Oh, no. I don’t want to cause any more trouble…”</p>
+    <p>But she was already at her limit.</p>
+    <p>I reached out to her without a word, and then she held my hand as if she couldn’t help it.</p>
+    <p>My face felt sore because of Kim Hyunsung, who was looking this way.</p>
+    <p>I quietly said to him.</p>
+    <p>“Thank you for your help. I’m Lee Kiyoung. That was the first time I’d encountered three of those monsters at once… If not for you, we would’ve been in trouble.”</p>
+    <p>“I’m Kim Hyunsung. I remember your face from somewhere.”</p>
+    <p>“You helped me a little at the starting point. I’m very grateful for that.”</p>
+    <p>“Ah… it was then…”</p>
+    <p>“Yes. Back then I was running away. It was insane…”</p>
+    <p>Actually I didn’t remember much from then.</p>
+    <p>Thinking about the situation at that time, it wasn’t unreasonable to not remember.</p>
+    <p>Suddenly, the scene of a woman being eaten by monsters flashed through my head. It was that woman I couldn’t save.</p>
+    <p>I shook my head, and said.</p>
+    <p>“Are you alone? It must have been hard for you…”</p>
+    <p>“For now yes… but I’m gathering survivors. Some of them are moving in groups.”</p>
+    <p>“Yes?”</p>
+    <p>“I’m gathering survivors. I heard a scream as I was passing by… Let’s go together for now. We’ve set up camp in a safe place.”</p>
+    <p>I saw Park Deokgu looking at me quietly. He was wordlessly asking me what to do.</p>
+    <p>Kim Hyunsung opened his mouth again, as if he realized his words just now were a little rude.</p>
+    <p>“Oh, excuse me. Would you like to come with me?”</p>
+    <p>Only then did Park Deokgu nod his head.</p>
+    <p>But I still had some reservations.</p>
+    <p>“How many people are there?”</p>
+    <p>“About 30, I think.”</p>
+    <p>“What about those who can fight…?”</p>
+    <p>“Not many. If Deokgu-ssi and Kiyoung-ssi join, things will get a little better. I hope that you can come.”</p>
+    <p>‘It’s worrying…’</p>
+    <p>Just as I expected.</p>
+    <p>I didn’t know how well one’s disposition in the status window reflected the heart of the person, but he was truly fit to be a Well-Meaning Arbitrator.</p>
+    <p>‘What a slob.’</p>
+    <p>To put it nicely, he was an angel. Looking at it another way, he was a pushover.</p>
+    <p>If the only thing those people at the survivor camp could do was scream, then the situation would rapidly deteriorate.</p>
+    <p>Perhaps they have no way to eat properly there, and live in fear all the time.</p>
+    <p>Increasing the number of people wasn’t necessarily advantageous.</p>
+    <p>When five people gather, there would always be one fool amongst them. In a gathering of 30 people, the problem would be even worse.</p>
+    <p>Obviously, that’s not the end of it.</p>
+    <p>The power to cope with sudden crises will increase, but if there are too many people to protect, it will only get more chaotic.</p>
+    <p>However, in reality, I had no other choice but to nod my head.</p>
+    <p>It was because I was full of questions.</p>
+    <p>What is regression, how did you get a class, how did you manage to start in a different way compared to others, how do you use magic and what is the method of clearing this tutorial?</p>
+    <p>Kim Hyunsung knew how to attack this dungeon properly and, furthermore, had information about the continent.</p>
+    <p>No matter how you look at it, it was best to follow him.</p>
+    <p>“I will go.”</p>
+    <p>“Good decision. Let’s get going then. More monsters may come here soon.”</p>
+    <p>“Yea.”</p>
+    <p>“Oh, right. This person is…?”</p>
+    <p>“My name is Jung Hayan. Um, I…”</p>
+    <p>“Ah. Nice to meet you. I’m Kim Hyunsung. “</p>
+    <p>We roughly greeted each other.</p>
+    <p>While supporting Jung Hayan, I started to slowly read this guy’s face.</p>
+    <p>His expression seemed a little different from when he was looking at me or Park Deokgu.</p>
+    <p>His gaze remained on Jung Hayan for a long time.</p>
+    <p>It was a little surprising.</p>
+    <p>A strange sense of accomplishment was hidden in Kim Hyunsung’s gaze. I wasn’t sure if it was a good analogy, but he looked like a man who had found an oasis in the desert.</p>
+    <p>Or as if he had found his long lost family member.</p>
+    <p>Maybe she noticed his intense gaze, because Jung Hayan also looked at him with caution in her eyes.</p>
+    <p>If you stare at someone in this way, anyone would notice and become wary.</p>
+    <p>He looked as if he was thinking “I was looking for you”. No, maybe he was indeed looking for her.</p>
+    <p>“How are you feeling?”</p>
+    <p>“I’m okay.”</p>
+    <p>“Please, let me know if there’s any inconvenience.”</p>
+    <p>“N-no, I’m fine. J-Jung is really okay.”</p>
+    <p>Leaving those two to talk with each other, I started thinking.</p>
+    <p>‘Let’s assume.’</p>
+    <p>It was a little funny to think like this, but let’s just assume.</p>
+    <p>If I were to live the same life all over again.</p>
+    <p>I didn’t know how this guy ended up in his first life.</p>
+    <p>Maybe he was happy with it or maybe unhappy. However, if this regression was done on purpose, it’s very likely that this guy has regrets from his previous life.</p>
+    <p>The One Who Failed.</p>
+    <p>It was one of his titles.</p>
+    <p>Even if it wasn’t his intention.</p>
+    <p>Humans are creatures of regret. Even if it was me, I would think about the what-ifs like if I could save that woman I saw at the beginning.</p>
+    <p>If I had the strength, I might have made the choice to take that woman and escape together with Park Deokgu.</p>
+    <p>What if I knew what would happen, and also knew about all the talented individuals that will be important in the future?</p>
+    <p>In my case, I would try to change things that I regret. But of course, I wouldn’t do only that.</p>
+    <p>From the very start I would take advantage of everything I could.</p>
+    <p>I would gather talented people, treasures, classes, and all other things that could be used.</p>
+    <p>And I would eliminate all enemies or threats that I might encounter in the future.</p>
+    <p>‘It’s funny, but…’</p>
+    <p>In this sense, if he has no reaction to me and Park Deokgu, it means that we are not important characters in the future, nor are we a threat to Kim Hyunsung in the future</p>
+    <p>We must have been just passersby for him.</p>
+    <p>“May I call you Hayan-ssi?”</p>
+    <p>“Ah… yes. Thank you, and please call me as you like.”</p>
+    <p>But this woman who was blushing at me now was different.</p>
+    <p>Jung Hayan.</p>
+    <p>A woman with explosive potential as a wizard or priest.</p>
+    <p>If you think about it in connection with what I saw with my Mind’s Eye, it is immediately obvious.</p>
+    <p>‘She’s a treasure.’</p>
+    <p>Now she didn’t look like much.</p>
+    <p>However, by aggregating the minute pieces of information so far and inferring further, I could come to a plausible conclusion.</p>
+    <p>This civilian girl will rock the world in the future.</p>
+    <p>Only</p>
+    <p>I wasn’t sure what she would do, but it was guaranteed that her position would be very important.</p>
+    <p>It could also only be my delusion.</p>
+    <p>Maybe Kim Hyunsung owed her something or had regrets around not saving her in his previous life.</p>
+    <p>She might be just one of many passersby, just like me and Park Deokgu.</p>
+    <p>But it’s worth it.</p>
+    <p>‘This woman.’</p>
+    <p>She was no longer a nuisance, but rather a precious treasure which had come rolling in.</p>
+    <p>Right under my feet.</p>
+  </article>
+</div>
+
+<div id="merge-status"></div>
+
+<nav>
+  <span class="nav-left"><a href="4.html" rel="prev">&#8592; Ch 4</a></span>
+  <span class="nav-mid">
+    <button class="btn-merge" id="btn-merge" >Merge Next 10</button>
+  </span>
+  <span class="nav-right"><a href="6.html" rel="next">Ch 6 &#8594;</a></span>
+</nav>
+
+<script>
+  // Chapters available after this one — discovered from meta.json
+  var slug       = "regressor-instruction-manual";
+  var currentNum = 5;
+  var nextNum    = 6;
+  var maxLoaded  = currentNum;
+  var allNums    = null;   // loaded lazily from meta.json
+  var merging    = false;
+  var root       = "../../";
+
+  async function getNums() {
+    if (allNums) return allNums;
+    var res = await fetch(root + "data/" + slug + "/meta.json");
+    var meta = await res.json();
+    allNums = meta.chapters.map(function(c){ return c.num; });
+    return allNums;
+  }
+
+  document.getElementById("btn-merge").addEventListener("click", async function() {
+    if (merging) return;
+    merging = true;
+    var btn    = document.getElementById("btn-merge");
+    var status = document.getElementById("merge-status");
+    btn.textContent = "Loading…";
+    btn.disabled = true;
+
+    var nums   = await getNums();
+    var idx    = nums.indexOf(maxLoaded);
+    var toLoad = nums.slice(idx + 1, idx + 11);
+    if (!toLoad.length) { merging = false; return; }
+
+    status.style.display = "block";
+    status.textContent = "Fetching chapters " + toLoad[0] + "–" + toLoad[toLoad.length-1] + "…";
+
+    var container = document.getElementById("chapters");
+    var firstNew  = null;
+
+    for (var i = 0; i < toLoad.length; i++) {
+      var n = toLoad[i];
+      try {
+        var res  = await fetch(n + ".html");
+        var html = await res.text();
+        var doc  = new DOMParser().parseFromString(html, "text/html");
+        var art  = doc.querySelector("article");
+        var h1   = doc.querySelector("h1");
+        if (!art) continue;
+
+        // Divider
+        var divider = document.createElement("div");
+        divider.className = "ch-divider";
+        divider.textContent = "Chapter " + n;
+        container.appendChild(divider);
+
+        // Chapter title
+        if (h1) {
+          var chTitle = document.createElement("div");
+          chTitle.className = "ch-title";
+          chTitle.textContent = h1.textContent;
+          container.appendChild(chTitle);
+        }
+
+        // Content
+        var section = document.createElement("article");
+        section.id = "ch-" + n;
+        section.innerHTML = art.innerHTML;
+        container.appendChild(section);
+
+        if (!firstNew) firstNew = divider;
+        maxLoaded = n;
+      } catch(e) {
+        console.warn("Failed to load chapter " + n, e);
+      }
+    }
+
+    // Update nav next link
+    var nextIdx = nums.indexOf(maxLoaded) + 1;
+    var newNext = nextIdx < nums.length ? nums[nextIdx] : null;
+    var navRight = document.querySelector(".nav-right");
+    if (newNext) {
+      navRight.innerHTML = '<a href="' + newNext + '.html" rel="next">Ch ' + newNext + ' &#8594;</a>';
+    } else {
+      navRight.innerHTML = '<span></span>';
+    }
+
+    status.style.display = "none";
+    btn.textContent = newNext ? "⊕ Merge Next 10" : "✓ All loaded";
+    btn.disabled = !newNext;
+    merging = false;
+
+    if (firstNew) firstNew.scrollIntoView({ behavior:"smooth", block:"start" });
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chapter 87 — Regressor Instruction Manual</title>
+  <style>
+    :root { --ink:#1a1a1a; --dim:#666; --bg:#fff; --gold:#8a6a1a; --border:#ddd; }
+    @media (prefers-color-scheme:dark) {
+      :root { --ink:#e9e4da; --dim:#9a9286; --bg:#111010; --gold:#c9a84c; --border:#2a2825; }
+    }
+    *{ box-sizing:border-box; margin:0; padding:0; }
+    body{ background:var(--bg); color:var(--ink); font-family:Georgia,'Times New Roman',serif;
+          font-size:1.125rem; line-height:1.85; padding:40px 24px 80px;
+          max-width:680px; margin:0 auto; }
+    header{ margin-bottom:32px; padding-bottom:20px; border-bottom:1px solid var(--border); }
+    header a{ color:var(--gold); text-decoration:none; font-size:.85rem; }
+    h1{ font-size:1.35rem; font-weight:700; margin-top:10px; line-height:1.25; }
+    article p{ margin-bottom:1.4em; text-align:justify; hyphens:auto; }
+    .ch-divider{ text-align:center; padding:28px 0 16px; color:var(--dim);
+                  font-size:.8rem; letter-spacing:.1em; text-transform:uppercase; }
+    .ch-divider::before,.ch-divider::after{ content:''; display:inline-block;
+      width:40px; height:1px; background:var(--border); vertical-align:middle; margin:0 12px; }
+    .ch-title{ font-size:1.1rem; font-weight:700; color:var(--gold); margin-bottom:16px; }
+    nav{ display:grid; grid-template-columns:1fr auto 1fr; gap:10px; align-items:center;
+          margin-top:48px; padding-top:20px; border-top:1px solid var(--border); font-size:.88rem; }
+    nav a{ color:var(--gold); text-decoration:none; }
+    nav a:hover{ text-decoration:underline; }
+    nav .nav-right{ text-align:right; }
+    nav .nav-mid{ text-align:center; }
+    .btn-merge{ background:rgba(138,106,26,.12); border:1px solid var(--gold);
+                 color:var(--gold); padding:9px 16px; border-radius:6px; cursor:pointer;
+                 font-family:Georgia,serif; font-size:.85rem; font-weight:600;
+                 transition:background .15s; white-space:nowrap; }
+    .btn-merge:hover:not(:disabled){ background:rgba(138,106,26,.25); }
+    .btn-merge:disabled{ opacity:.35; cursor:not-allowed; }
+    #merge-status{ text-align:center; padding:12px; font-size:.82rem;
+                    color:var(--dim); display:none; }
+  </style>
+</head>
+<body>
+<header>
+  <a href="../../novel.html?slug=regressor-instruction-manual">&larr; Regressor Instruction Manual</a>
+  <h1 id="page-title">Chapter 87</h1>
+</header>
+
+<div id="chapters">
+  <article id="ch-87">
+    <p>Chapter 87: Together Forever (1)</p>
+    <p>Lee Sang-hee’s voice resonated within the room as I read Lee Jihye’s letter brought by Kim Ye-ri.</p>
+    <p>“Let’s get going.”</p>
+    <p>“Of course.”</p>
+    <p>I stuffed the letter into my pocket and got up from my seat, nodding. By the time we left the dungeon, my plan would be in progress.</p>
+    <p>Right now, I had to focus on the expedition itself.</p>
+    <p>The total number of members for the expedition was 14. We had six people from our party, seven people from the party managed by Hwang Jeong-yeon, and Lee Sang-hee herself, who would lead the expedition.</p>
+    <p>Though we lacked in number, we at least had some capable members.</p>
+    <p>First of all, it was important to note that Lee Sang-hee was a paladin with a stat of 90. She was a talented individual who was not a good leader but was exceptional as a combat agent. She was the best tanker of any avant-garde I’d ever seen.</p>
+    <p>Her agility level was low, but the merit of having 77 magic power and having self-healing abilities meant she was unmatched by any other tanker in Lindel.</p>
+    <p>‘The same goes for Hwang Jeong-yeon…’</p>
+    <p>The 2nd unit also had decent overall stats. They averaged the 70 to 80 levels, and their overall potential was not bad. They were the ones who had the appropriate stats to enter the hero-grade dungeons.</p>
+    <p>“Since we lack the time, we’ll brief you on the way. Please note that our priority is not to clear the dungeon.”</p>
+    <p>“Of course.”</p>
+    <p>“Our purpose is to identify and rescue the survivors. If I determine that there are no other survivors, I will immediately call for our retreat. The rescue of the survivors is important, but your safety is more important than anything else. I hope you always keep that in mind.”</p>
+    <p>“Yes, of course.”</p>
+    <p>“The level of the dungeon we are entering is of hero-grade, and the name of the dungeon is the Cursed Shrine. The types of monsters that will appear are ghosts and undead, and other detailed information has not yet been confirmed. We will search for survivors as safely as possible until backup arrives.”</p>
+    <p>“How long will this take?”</p>
+    <p>“It is a dungeon found in the undead hunting grounds within the western region of Lindel. It will take about 8 hours to get to the destination.”</p>
+    <p>“Ah, so it won’t take that long.”</p>
+    <p>Although we had prepared for the expedition in such a hurry, I still felt surprised to find out that we had scarce information about the dungeon we were entering.</p>
+    <p>I could understand why so many parties had failed.</p>
+    <p>No matter how much I thought about it, entering a hero-grade dungeon with little to no information beforehand seemed like a very risky endeavor one should not take.</p>
+    <p>If the dungeon’s grades were a rare grade, of course, it would be no problem at all.</p>
+    <p>‘Was there any reason for them to enter?’</p>
+    <p>I thought that there was a possibility that the cause of the failure could be caused by arrogantly entering with the mindset of ‘What could happen when I’m using this amount of power?’</p>
+    <p>It was only natural for me to feel curious. Hwang Jeong-yeon saw this and approached me.</p>
+    <p>“The information is a bit lacking.”</p>
+    <p>“I think it’s because we’re in a rush.”</p>
+    <p>“Is there any reason?”</p>
+    <p>“Yeah… I didn’t have enough time to prepare for the expedition. It was a mistake to think about what could happen in a hero-grade dungeon because almost all the guild’s power was put into the dungeon. Did you know that the Blue Guild Master is cursed?”</p>
+    <p>Of course, this was the first time I heard of it.</p>
+    <p>“No. This is the first time I heard it.”</p>
+    <p>“Ah. It was meant to be kept under wraps. Lee Sang-hee is most likely waiting for the perfect time to tell you.”</p>
+    <p>“Hmm…”</p>
+    <p>“It happened before you joined the party, Kiyoung. The Guild Master suffered a curse from an unknown force, and to dispel it, he forcefully entered the Cursed Shrine. In fact, I didn’t think it was impossible at the time. The guilds members who left for the expedition were veterans specializing in hero-grade dungeons or hunting large monsters.”</p>
+    <p>‘Ah…’</p>
+    <p>It was a common mistake. If the expedition were composed of veterans at least on Hwang Jeong-Yeon’s level, they must have thought they were more than capable of legendary dungeons, much less hero-grade ones.</p>
+    <p>“Is there any info to be gained from the Cursed Shrine?”</p>
+    <p>“In fact, even I’m not so sure about that. The curse that the Guild Master suffered was obtained in the process of discovering the Cursed Shrine, and of course, I thought there might be a solution to the dungeon that caused it. He was the one who reached out to open the dungeon entrance…”</p>
+    <p>“I see…”</p>
+    <p>To put it simply, the Blue Guild Master was cursed for simply discovering the dungeon, so the veterans under him went in to search for a way to dispel it.</p>
+    <p>It was as if it was the dungeon’s way of attracting more adventurers.</p>
+    <p>‘And to think, this is the dungeon we’re about to get ourselves into…’</p>
+    <p>All of a sudden, I felt a little anxious. This eerily felt just like a horror movie, where the noble guys who tried to save their fallen friend would also get caught up in the bad events.</p>
+    <p>This time, I had no choice but to hope that it wouldn’t be like that.</p>
+    <p>“You don’t seem surprised, Kiyoung.”</p>
+    <p>“No, no. I just sort of expected that there was a reason for the Guild Master’s absenteeism. I just didn’t find it in me to dig in further. I was too busy focusing on my growth.”</p>
+    <p>“Ahh, yes. Lee Sang-hee probably didn’t want you to worry about it.”</p>
+    <p>“Yeah, I guess you’re right.”</p>
+    <p>“Oppa…”</p>
+    <p>“Ah, Hayan.” Perhaps I had spent too much time talking to Hwang Jeong-yeon.</p>
+    <p>I greeted Jung Hayan and stepped up to match her stride, and her frown immediately shifted into a smile. However, given the severity of the situation, I couldn’t find it in myself to resort to hand-holding. Jung Hayan seemed to understand this since she wasn’t pulling at my sleeves.</p>
+    <p>Meanwhile, the road we were taking was an uphill that was too steep for wagons and the like.</p>
+    <p>Since I lacked in the physical category, I struggled to keep up with everyone else. However, we were still approaching our destination at a faster pace than expected.</p>
+    <p>‘It’s probably because of the sense of urgency.’</p>
+    <p>It was understandable for them not to show any consideration for the members with low stamina. For now, I had no choice but to match their stride while taking in health potions that I had brought with me.</p>
+    <p>As the enemies we were going to deal with were the undead, it seemed that the priests thought it was good to save their divine power as much as possible.</p>
+    <p>Eventually, when less than half a day had passed, we arrived at the area where the undead was located. This was the first time I encountered a monster called undead. It looked curious, snooping here and there.</p>
+    <p>“No…”</p>
+    <p>The priests were openly frowning.</p>
+    <p>In the case of Sun Hee-young, who had a job as a dark priest, it seems that she was not struggling as much as the rest of them, but she was certainly still affected.</p>
+    <p>Kim Ye-ri clung onto Kim Hyunsung as if she was timider than she initially thought. Park Deokgu, originally the timid one, had a constricted expression due to the gloomy atmosphere.</p>
+    <p>Among our party members, Jung Hayan and Kim Hyunsung were the only ones who were still in good shape. Kim Hyunsung, who knew about this area in the first place, could not understand why Jung Hayan seemed to be smiling.</p>
+    <p>The more we entered, the darker the atmosphere became.</p>
+    <p>It wasn’t just because it was nighttime. There was something about this place that seemed to press on us. It felt unpleasant to continue with the damp, humid air, but we pushed through. The undead sounds coming from god knows where only amplified the tension.</p>
+    <p>To be precise, this was a place that sparked irritation. In particular, the more we walked, the more the negative feelings within me intensified.</p>
+    <p>‘Does this have something to do with the curse?’</p>
+    <p>I couldn’t possibly know. Something about this place hindered my normally critical thinking.</p>
+    <p>“Does this place make you feel annoyed? Or is it just me…” Deokgu asked.</p>
+    <p>“I feel it too, Deokgu. It will probably get worse the deeper we get in,” I replied glumly.</p>
+    <p>“No…” Deokgu said in a miserable tone.</p>
+    <p>“I don’t want to deal with people like the undead…” he added.</p>
+    <p>“It can’t be helped,” I replied coldly.</p>
+    <p>With all the whispering and talking, it didn’t take long for us to reach our destination—a small room found inside the temple.</p>
+    <p>There was something very wrong with it.</p>
+    <p>When I flipped the bookshelf in the small room, the entrance to the dungeon came into view.</p>
+    <p>There was one more new entrance in the room. I didn’t know what exactly it was, but I noticed that it had a pendant of a beast hanging upside down, like a bad omen.</p>
+    <p>Was this a shrine?</p>
+    <p>‘It looks like a place where the devil is being worshiped.’</p>
+    <p>Looking at the basement entrance, I thought I knew the reason why the Blue Guild Master, who found this place, was cursed, especially considering how confident he was about his abilities.</p>
+    <p>‘It’s like breathing in itself can make you cursed…’</p>
+    <p>As I was looking around and assessing the atmosphere, Lee Sang-hee spoke up.</p>
+    <p>“I will be the first to enter. Unit 7 will follow, and unit 2 will enter right after. Priests, please recite the purification spell.”</p>
+    <p>“Of course.”</p>
+    <p>Sun Hee-young and a man from the second party could be seen reciting the spell. As soon as their light poured over us, the constricted feeling in my chest loosened a little.</p>
+    <p>‘It’s working.’</p>
+    <p>Everyone else nodded, and Lee Sang-hee moved.</p>
+    <p>“Let’s go, Kiyoung.”</p>
+    <p>“Oppa.”</p>
+    <p>“Yes, let’s…”</p>
+    <p>Of course, it is natural that we as we entered. The information of the place immediately spilled over.</p>
+    <p>[You have entered the heroic dungeon Cursed Shrine. The number of people [??/??] has been confirmed.]</p>
+    <p>I thought the battle would start right away, but this wasn’t the case.</p>
+    <p>Unlike the Garden of Terror, where the landscape seemed to change completely, the Cursed Shrine did not feel like it was separated from the outside. It felt like being in a huge shrine underneath the temple.</p>
+    <p>The interior in itself looked sluggish for one as tense as me. As soon as I looked around, one of the archers in our group spoke.</p>
+    <p>“There doesn’t appear to be anything nearby. We don’t know the details yet, but the other traces around here seem to be harmless.”</p>
+    <p>As the archer said, this area seemed safe. It seemed like the previous party had completed the attack here.</p>
+    <p>Though the atmosphere still felt heavy, I didn’t seem to be as affected as before.</p>
+    <p>“It looks like the coast will be clear for some time.”</p>
+    <p>“Is that so?”</p>
+    <p>“Yeah. I think we can move faster for a bit.”</p>
+    <p>“I will do as you say. Priests, please be prepared to recite spells at any time.”</p>
+    <p>“Yes, okay.”</p>
+    <p>It seemed like the party was approaching this a little faster than I thought, but that didn’t mean we would neglect our boundaries.</p>
+    <p>I couldn’t see anything dangerous just yet, but because this dungeon had already swallowed up tons of parties in the past, I wasn’t willing to let my guard down.</p>
+    <p>‘It looks like they’ve cleared this part with not a trace of evidence.’</p>
+    <p>One didn’t need to be an archer to notice this. The deeper we got in, the cleaner the interior looked. Seeing this, I figured the previous parties did not have too much of a hard time in the beginning.</p>
+    <p>“Next…”</p>
+    <p>Only</p>
+    <p>“Yes?”</p>
+    <p>“I’m going to enter the next room.”</p>
+    <p>“We’ll be right behind you.”</p>
+    <p>“Let’s go.”</p>
+    <p>It was then that I heard a voice I had never heard of until now.</p>
+    <p>The curse will fall upon you.</p>
+    <p>‘What the hell…?’</p>
+  </article>
+</div>
+
+<div id="merge-status"></div>
+
+<nav>
+  <span class="nav-left"><a href="86.html" rel="prev">&#8592; Ch 86</a></span>
+  <span class="nav-mid">
+    <button class="btn-merge" id="btn-merge" >Merge Next 10</button>
+  </span>
+  <span class="nav-right"><a href="88.html" rel="next">Ch 88 &#8594;</a></span>
+</nav>
+
+<script>
+  // Chapters available after this one — discovered from meta.json
+  var slug       = "regressor-instruction-manual";
+  var currentNum = 87;
+  var nextNum    = 88;
+  var maxLoaded  = currentNum;
+  var allNums    = null;   // loaded lazily from meta.json
+  var merging    = false;
+  var root       = "../../";
+
+  async function getNums() {
+    if (allNums) return allNums;
+    var res = await fetch(root + "data/" + slug + "/meta.json");
+    var meta = await res.json();
+    allNums = meta.chapters.map(function(c){ return c.num; });
+    return allNums;
+  }
+
+  document.getElementById("btn-merge").addEventListener("click", async function() {
+    if (merging) return;
+    merging = true;
+    var btn    = document.getElementById("btn-merge");
+    var status = document.getElementById("merge-status");
+    btn.textContent = "Loading…";
+    btn.disabled = true;
+
+    var nums   = await getNums();
+    var idx    = nums.indexOf(maxLoaded);
+    var toLoad = nums.slice(idx + 1, idx + 11);
+    if (!toLoad.length) { merging = false; return; }
+
+    status.style.display = "block";
+    status.textContent = "Fetching chapters " + toLoad[0] + "–" + toLoad[toLoad.length-1] + "…";
+
+    var container = document.getElementById("chapters");
+    var firstNew  = null;
+
+    for (var i = 0; i < toLoad.length; i++) {
+      var n = toLoad[i];
+      try {
+        var res  = await fetch(n + ".html");
+        var html = await res.text();
+        var doc  = new DOMParser().parseFromString(html, "text/html");
+        var art  = doc.querySelector("article");
+        var h1   = doc.querySelector("h1");
+        if (!art) continue;
+
+        // Divider
+        var divider = document.createElement("div");
+        divider.className = "ch-divider";
+        divider.textContent = "Chapter " + n;
+        container.appendChild(divider);
+
+        // Chapter title
+        if (h1) {
+          var chTitle = document.createElement("div");
+          chTitle.className = "ch-title";
+          chTitle.textContent = h1.textContent;
+          container.appendChild(chTitle);
+        }
+
+        // Content
+        var section = document.createElement("article");
+        section.id = "ch-" + n;
+        section.innerHTML = art.innerHTML;
+        container.appendChild(section);
+
+        if (!firstNew) firstNew = divider;
+        maxLoaded = n;
+      } catch(e) {
+        console.warn("Failed to load chapter " + n, e);
+      }
+    }
+
+    // Update nav next link
+    var nextIdx = nums.indexOf(maxLoaded) + 1;
+    var newNext = nextIdx < nums.length ? nums[nextIdx] : null;
+    var navRight = document.querySelector(".nav-right");
+    if (newNext) {
+      navRight.innerHTML = '<a href="' + newNext + '.html" rel="next">Ch ' + newNext + ' &#8594;</a>';
+    } else {
+      navRight.innerHTML = '<span></span>';
+    }
+
+    status.style.display = "none";
+    btn.textContent = newNext ? "⊕ Merge Next 10" : "✓ All loaded";
+    btn.disabled = !newNext;
+    merging = false;
+
+    if (firstNew) firstNew.scrollIntoView({ behavior:"smooth", block:"start" });
+  });
+</script>
+</body>
+</html>

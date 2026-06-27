@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chapter 77 — Regressor Instruction Manual</title>
+  <style>
+    :root { --ink:#1a1a1a; --dim:#666; --bg:#fff; --gold:#8a6a1a; --border:#ddd; }
+    @media (prefers-color-scheme:dark) {
+      :root { --ink:#e9e4da; --dim:#9a9286; --bg:#111010; --gold:#c9a84c; --border:#2a2825; }
+    }
+    *{ box-sizing:border-box; margin:0; padding:0; }
+    body{ background:var(--bg); color:var(--ink); font-family:Georgia,'Times New Roman',serif;
+          font-size:1.125rem; line-height:1.85; padding:40px 24px 80px;
+          max-width:680px; margin:0 auto; }
+    header{ margin-bottom:32px; padding-bottom:20px; border-bottom:1px solid var(--border); }
+    header a{ color:var(--gold); text-decoration:none; font-size:.85rem; }
+    h1{ font-size:1.35rem; font-weight:700; margin-top:10px; line-height:1.25; }
+    article p{ margin-bottom:1.4em; text-align:justify; hyphens:auto; }
+    .ch-divider{ text-align:center; padding:28px 0 16px; color:var(--dim);
+                  font-size:.8rem; letter-spacing:.1em; text-transform:uppercase; }
+    .ch-divider::before,.ch-divider::after{ content:''; display:inline-block;
+      width:40px; height:1px; background:var(--border); vertical-align:middle; margin:0 12px; }
+    .ch-title{ font-size:1.1rem; font-weight:700; color:var(--gold); margin-bottom:16px; }
+    nav{ display:grid; grid-template-columns:1fr auto 1fr; gap:10px; align-items:center;
+          margin-top:48px; padding-top:20px; border-top:1px solid var(--border); font-size:.88rem; }
+    nav a{ color:var(--gold); text-decoration:none; }
+    nav a:hover{ text-decoration:underline; }
+    nav .nav-right{ text-align:right; }
+    nav .nav-mid{ text-align:center; }
+    .btn-merge{ background:rgba(138,106,26,.12); border:1px solid var(--gold);
+                 color:var(--gold); padding:9px 16px; border-radius:6px; cursor:pointer;
+                 font-family:Georgia,serif; font-size:.85rem; font-weight:600;
+                 transition:background .15s; white-space:nowrap; }
+    .btn-merge:hover:not(:disabled){ background:rgba(138,106,26,.25); }
+    .btn-merge:disabled{ opacity:.35; cursor:not-allowed; }
+    #merge-status{ text-align:center; padding:12px; font-size:.82rem;
+                    color:var(--dim); display:none; }
+  </style>
+</head>
+<body>
+<header>
+  <a href="../../novel.html?slug=regressor-instruction-manual">&larr; Regressor Instruction Manual</a>
+  <h1 id="page-title">Chapter 77</h1>
+</header>
+
+<div id="chapters">
+  <article id="ch-77">
+    <p>Chapter 77: The Third Job (3)</p>
+    <p>The usually-crowded second floor of the Guild House was now strangely quiet, and I couldn’t quite get used to the feeling.</p>
+    <p>Even though my fellow party members had just left a few hours ago, I never imagined that I would feel this way. Of course, I felt lonely, but this was a natural reaction that came from a sudden change in environment.</p>
+    <p>Honestly speaking, I felt a little happy. It was undeniable that there were some strange discomforts that came with having my fellow members around.</p>
+    <p>My personal time was always cut very short because of Jung Hayan’s ever-present badgering, Park Deokgu’s surprise visits, and Sun Hee-young’s constant requests to volunteer. At that point, I was rather grateful Kim Ye-ri didn’t talk much. If she did, then I would most likely have zero percent privacy.</p>
+    <p>I’d have to do all the basic chores myself for the time being, but it also felt like a vacation at the same time.</p>
+    <p>‘</p>
+    <p>In order to get the third job and stats that Kim Hyunsung desired, I would have to start moving quickly. I didn’t know what it would take to spark my growth, but I at least had a few ideas.</p>
+    <p>In fact, I found it hard to believe that I was in a hard situation.</p>
+    <p>I had hero-grade alchemy equipment, numerous catalysts and materials, and my eventual growth was already confirmed.</p>
+    <p>My intelligence stats were no problem at all, but my problem now lay in raising all my other stats - which was a feat that seemed impossible to do.</p>
+    <p>This was why my third job was important.</p>
+    <p>I hadn’t thought about going for a combat-type job for my next one, but it seemed that following a party’s growth with a job that solely depended on intelligence would be a hard thing to do.</p>
+    <p>As we continued to grow, I had to think of other ways to expand my horizons. There had to be answers to my current problems. I had to find a way to get a combat-type job without losing my identity as an alchemist.</p>
+    <p>In fact, this would also lead me to other opportunities. Being able to deal with a creature I could treat as my pet without having to consume magic would be very advantageous at this point.</p>
+    <p>In fact, Ramus Tucker’s Introduction to Alchemy dealt with Homunculus in great depth.</p>
+    <p>[Homunculus means an artificially created creature that does not need a mother’s womb. Since each school has different interpretations on the subject, I will at least define Homunculus as a unique creation.</p>
+    <p>Of course, it doesn’t mean that it is like the chimera. Unlike the chimera that creates something out of Yu, the concept of Homunculus that our alchemist deals with is the concept of creating something out of nothing.]</p>
+    <p>Simply put, homunculus was the creation of artificial life.</p>
+    <p>Of course, one wouldn’t know what it looked like, or how to create one. Even Tucker’s book contained nothing but theories on the subject.</p>
+    <p>Although the chimera was explained comparatively in detail, chimera, a concept that manipulated genes, and Homunculus, a creature that was created, had distinct properties.</p>
+    <p>Perhaps for Tucker, Homunculus was an uncharted territory.</p>
+    <p>No, if he had actually managed to create new life, then he wouldn’t have been talking about the possibility of it in the first place. Perhaps one could think of the concept as something divine.</p>
+    <p>If one were to ask me if I would start relying on potions to master my combat ability, I would shake my head. This was just, after all, another of my theories.</p>
+    <p>The principle of magic in this continent could be briefly explained. One simply had to build the Tower of Magic and cast a spell that would bring it into reality. The completed spell would stay within the user’s arm or mind, and only the user would be able to trigger it.</p>
+    <p>Was it possible to put a Spell of Staying within a potion or a specific item, not on your body?</p>
+    <p>This was, after all, just an experiment. I knew some items could contain magic. However, this kind of item would not be a man-made item; it would already be a finished product.</p>
+    <p>In fact, some magicians have used enchantment magic on select items, but the effects proved to be lacking and severely inefficient. This study had stopped because the cost was greater than the result.</p>
+    <p>If an alchemist can use alchemy magic to contain disposable magic with such tenacity, then he or she would certainly achieve a very good commercial result as well.</p>
+    <p>Making a pet by manipulating cells or genes was highly possible. In fact, I was thinking that this would be the simplest way. In this world, monsters were an object of high interest.</p>
+    <p>To put it simply, it was supposedly quite easy to manufacture a chimera.</p>
+    <p>Some monsters had very similar genes, and even if they underwent experiments and had their genes manipulated, they could still come out alive.</p>
+    <p>However, this job would not be made possible with an alchemist’s magic, but by a warlock’s.</p>
+    <p>The problem with this plan was that I would not be able to control a chimera using my own magic.</p>
+    <p>Of course, I could find a creature that has barely grown yet and try to cultivate it, but in the end, I couldn’t guarantee that this would be a successful venture.</p>
+    <p>I didn’t want to get eaten up by my very own chimera.</p>
+    <p>There were many directions I could take. However, I had to remember that this was a matter of survival for me.</p>
+    <p>Although the risks were high, I’d also thought about experimenting on my own body, and I’ve also actually thought of ways to make the Sage’s Stone. However, I didn’t think these would work well.</p>
+    <p>It was time to postpone all my other activities and actually find a way to spark my growth.</p>
+    <p>Of course, not all of this could be done in a short time. I didn’t want to end up wasting time with failed experiments. I had to move as efficiently as possible.</p>
+    <p>It was not a bad idea. It was common sense to research or seek help if there were questions that you couldn’t answer on your own.</p>
+    <p>Magic and Alchemy were two different branches, but they all came from the same roots. It was the same for the other jobs.</p>
+    <p>At this rate, it would be best if I could seek help from an experienced magic-user.</p>
+    <p>I felt like they could become faithful workers in my lab if they were really interested in the Sage’s Stone.</p>
+    <p>Eventually, I felt myself entering the restaurant with crowded thoughts.</p>
+    <p>“Are you eating alone today?”</p>
+    <p>“Ah.”</p>
+    <p>Upon hearing someone address me, I turned and saw a woman who looked a little younger than I.</p>
+    <p>“Ah! I guess this is the first time we’ve talked. I’m Hwang Jeong-yeon, I’m in charge of the second party of the Blue Guild.”</p>
+    <p>“Ah, it’s nice to meet you! I am…”</p>
+    <p>“I know. You are Alchemist Lee Kiyoung of the seventh party. Am I right?”</p>
+    <p>“Yeah.”</p>
+    <p>“How was your visit to the Garden of Terror?”</p>
+    <p>It felt like a random question, but I eventually realized why she had asked.</p>
+    <p>After discovering the dungeon itself, Hwang Jeong-yeon was probably one of the people who chose to hand it to us instead.</p>
+    <p>“Thank you very much for the opportunity. Thanks to you, I had a great experience.”</p>
+    <p>“As I’ve heard, you’re very quick to notice things.”</p>
+    <p>“Haha, I’ll take that as a compliment.”</p>
+    <p>“Of course, it’s a compliment. Actually, I feel a little apologetic. It would have been nice if you’d had a purely good experience. I have a friend from the Black Swans who wants to apologize to you.”</p>
+    <p>“Ah! No… I have already received an apology from them, and everything has gone well. I also recognized my own shortcomings in the process.”</p>
+    <p>“Ah, that soothes me. It’s my first time talking to someone from the seventh party, and it’s been great so far.” As Hwang Jeong-yeon spoke, her tense expression relaxed. She looked better this way.</p>
+    <p>Her facial features looked a little young, but it somehow reminded me of the old times.</p>
+    <p>“In fact, I’ve been looking forward to getting to talk to you all, but it seemed like you’ve all been very busy.”</p>
+    <p>“Ah, I see.”</p>
+    <p>“We were waiting for the day when we could all have our reunion, but everything has been hectic since you guys came back. The guild has been preoccupied as a whole.”</p>
+    <p>“Ah, I heard about that. You entered a hero-grade dungeon.”</p>
+    <p>“Yes. It seems that you’ve encountered more troubles than us, though.”</p>
+    <p>“Hmm…”</p>
+    <p>Hwang Jeong-yeon looked like a wizard to me. Perhaps being on the same job type alerted me of this. Considering the fact that I was talking to the quiet successor and owner of the dungeon we had gone on, a new set of possibilities opened themselves up to me.</p>
+    <p>I didn’t even have to check her stat window. I knew she was a very competent wizard.</p>
+    <p>She did not bother covering up her magical abilities, and there was cleverness in her eyes. Her relaxed personality probably came from her confidence in terms of magical combat.</p>
+    <p>At this point, I felt like I didn’t even need to ask help from the Magic Guild anymore. I was sure Hwang Jeong-yeon wouldn’t mind if I asked her a few questions.</p>
+    <p>“It’s embarrassing to admit this, but I’ve been feeling very disoriented lately.”</p>
+    <p>“Oh, I understand. We’ve all been there.”</p>
+    <p>“There are so many options to choose from, but I don’t know which direction to take…”</p>
+    <p>“I get you. It happens to everyone, most especially for you, Mr. Kiyoung.”</p>
+    <p>“Hm?”</p>
+    <p>“You’re worrying about the Mercenary Queen and Jung Hayan, right? One is your lover from Earth, and the other is living here with us. It’s hard to choose, isn’t it?”</p>
+    <p>“Ah…”</p>
+    <p>“In fact, it may be difficult to surpass the modern ethics of monogamy, but choosing both might be the best option for you.”</p>
+    <p>“…”</p>
+    <p>My expression shifted into one of embarrassment. We were obviously thinking of different things. Upon seeing this, Hwang Jeong-yeon laughed and stopped.</p>
+    <p>“Ah. That wasn’t what you meant, was it?”</p>
+    <p>“Yes…”</p>
+    <p>“Oh, I’m so sorry! You had such a serious expression on her face that I thought…”</p>
+    <p>“…”</p>
+    <p>She flashed me an embarrassed expression. Something didn’t feel right.</p>
+    <p>I think I’ve felt something similar somewhere else.</p>
+    <p>They gave me different impressions and even looked completely different. However, the face I was imagining was a pig with a face like a bandit, and the woman in front of me very much looked like your typical modern woman.</p>
+    <p>For some reason, however, this Hwang Jeong-yeon reminded me of Park Deokgu.</p>
+    <p>It ominously felt like something bad would happen if I got myself involved in this.</p>
+    <p>While I was wondering what I could say, she spoke again.</p>
+    <p>“Look at me going off like that. I’m so sorry. I’ve been watching you guys for so long that I couldn’t help but ramble about it.”</p>
+    <p>“Ah… I see, I see…”</p>
+    <p>“I know the two of you are close. Whenever I see Jung Hayan and Lee Kiyoung together, I often find myself smiling without knowing it. I think Jung Hayan really likes Mr. Kiyoung. I guess that’s why you’re wearing that type of magic.”</p>
+    <p>“What magic?”</p>
+    <p>“Location-tracking magic. I don’t know if I should be here with you right now. I don’t want Miss Hayan thinking of the wrong thing…”</p>
+    <p>Only</p>
+    <p>“What?”</p>
+    <p>“You don’t have to act so shy. You let her cast the magic on you, didn’t you? I find that so romantic.”</p>
+    <p>“…”</p>
+    <p>“…Oh, you didn’t know about it, didn’t you…?”</p>
+    <p>“…”</p>
+    <p>“Ah… can you pretend not to have heard what I said?”</p>
+    <p>I found myself stunned with this new piece of information.</p>
+  </article>
+</div>
+
+<div id="merge-status"></div>
+
+<nav>
+  <span class="nav-left"><a href="76.html" rel="prev">&#8592; Ch 76</a></span>
+  <span class="nav-mid">
+    <button class="btn-merge" id="btn-merge" >Merge Next 10</button>
+  </span>
+  <span class="nav-right"><a href="78.html" rel="next">Ch 78 &#8594;</a></span>
+</nav>
+
+<script>
+  // Chapters available after this one — discovered from meta.json
+  var slug       = "regressor-instruction-manual";
+  var currentNum = 77;
+  var nextNum    = 78;
+  var maxLoaded  = currentNum;
+  var allNums    = null;   // loaded lazily from meta.json
+  var merging    = false;
+  var root       = "../../";
+
+  async function getNums() {
+    if (allNums) return allNums;
+    var res = await fetch(root + "data/" + slug + "/meta.json");
+    var meta = await res.json();
+    allNums = meta.chapters.map(function(c){ return c.num; });
+    return allNums;
+  }
+
+  document.getElementById("btn-merge").addEventListener("click", async function() {
+    if (merging) return;
+    merging = true;
+    var btn    = document.getElementById("btn-merge");
+    var status = document.getElementById("merge-status");
+    btn.textContent = "Loading…";
+    btn.disabled = true;
+
+    var nums   = await getNums();
+    var idx    = nums.indexOf(maxLoaded);
+    var toLoad = nums.slice(idx + 1, idx + 11);
+    if (!toLoad.length) { merging = false; return; }
+
+    status.style.display = "block";
+    status.textContent = "Fetching chapters " + toLoad[0] + "–" + toLoad[toLoad.length-1] + "…";
+
+    var container = document.getElementById("chapters");
+    var firstNew  = null;
+
+    for (var i = 0; i < toLoad.length; i++) {
+      var n = toLoad[i];
+      try {
+        var res  = await fetch(n + ".html");
+        var html = await res.text();
+        var doc  = new DOMParser().parseFromString(html, "text/html");
+        var art  = doc.querySelector("article");
+        var h1   = doc.querySelector("h1");
+        if (!art) continue;
+
+        // Divider
+        var divider = document.createElement("div");
+        divider.className = "ch-divider";
+        divider.textContent = "Chapter " + n;
+        container.appendChild(divider);
+
+        // Chapter title
+        if (h1) {
+          var chTitle = document.createElement("div");
+          chTitle.className = "ch-title";
+          chTitle.textContent = h1.textContent;
+          container.appendChild(chTitle);
+        }
+
+        // Content
+        var section = document.createElement("article");
+        section.id = "ch-" + n;
+        section.innerHTML = art.innerHTML;
+        container.appendChild(section);
+
+        if (!firstNew) firstNew = divider;
+        maxLoaded = n;
+      } catch(e) {
+        console.warn("Failed to load chapter " + n, e);
+      }
+    }
+
+    // Update nav next link
+    var nextIdx = nums.indexOf(maxLoaded) + 1;
+    var newNext = nextIdx < nums.length ? nums[nextIdx] : null;
+    var navRight = document.querySelector(".nav-right");
+    if (newNext) {
+      navRight.innerHTML = '<a href="' + newNext + '.html" rel="next">Ch ' + newNext + ' &#8594;</a>';
+    } else {
+      navRight.innerHTML = '<span></span>';
+    }
+
+    status.style.display = "none";
+    btn.textContent = newNext ? "⊕ Merge Next 10" : "✓ All loaded";
+    btn.disabled = !newNext;
+    merging = false;
+
+    if (firstNew) firstNew.scrollIntoView({ behavior:"smooth", block:"start" });
+  });
+</script>
+</body>
+</html>

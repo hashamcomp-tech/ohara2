@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chapter 182 — Regressor Instruction Manual</title>
+  <style>
+    :root { --ink:#1a1a1a; --dim:#666; --bg:#fff; --gold:#8a6a1a; --border:#ddd; }
+    @media (prefers-color-scheme:dark) {
+      :root { --ink:#e9e4da; --dim:#9a9286; --bg:#111010; --gold:#c9a84c; --border:#2a2825; }
+    }
+    *{ box-sizing:border-box; margin:0; padding:0; }
+    body{ background:var(--bg); color:var(--ink); font-family:Georgia,'Times New Roman',serif;
+          font-size:1.125rem; line-height:1.85; padding:40px 24px 80px;
+          max-width:680px; margin:0 auto; }
+    header{ margin-bottom:32px; padding-bottom:20px; border-bottom:1px solid var(--border); }
+    header a{ color:var(--gold); text-decoration:none; font-size:.85rem; }
+    h1{ font-size:1.35rem; font-weight:700; margin-top:10px; line-height:1.25; }
+    article p{ margin-bottom:1.4em; text-align:justify; hyphens:auto; }
+    .ch-divider{ text-align:center; padding:28px 0 16px; color:var(--dim);
+                  font-size:.8rem; letter-spacing:.1em; text-transform:uppercase; }
+    .ch-divider::before,.ch-divider::after{ content:''; display:inline-block;
+      width:40px; height:1px; background:var(--border); vertical-align:middle; margin:0 12px; }
+    .ch-title{ font-size:1.1rem; font-weight:700; color:var(--gold); margin-bottom:16px; }
+    nav{ display:grid; grid-template-columns:1fr auto 1fr; gap:10px; align-items:center;
+          margin-top:48px; padding-top:20px; border-top:1px solid var(--border); font-size:.88rem; }
+    nav a{ color:var(--gold); text-decoration:none; }
+    nav a:hover{ text-decoration:underline; }
+    nav .nav-right{ text-align:right; }
+    nav .nav-mid{ text-align:center; }
+    .btn-merge{ background:rgba(138,106,26,.12); border:1px solid var(--gold);
+                 color:var(--gold); padding:9px 16px; border-radius:6px; cursor:pointer;
+                 font-family:Georgia,serif; font-size:.85rem; font-weight:600;
+                 transition:background .15s; white-space:nowrap; }
+    .btn-merge:hover:not(:disabled){ background:rgba(138,106,26,.25); }
+    .btn-merge:disabled{ opacity:.35; cursor:not-allowed; }
+    #merge-status{ text-align:center; padding:12px; font-size:.82rem;
+                    color:var(--dim); display:none; }
+  </style>
+</head>
+<body>
+<header>
+  <a href="../../novel.html?slug=regressor-instruction-manual">&larr; Regressor Instruction Manual</a>
+  <h1 id="page-title">Chapter 182</h1>
+</header>
+
+<div id="chapters">
+  <article id="ch-182">
+    <p>Chapter 182: Bright Child (1)</p>
+    <p>When I went outside, I could see the scenery through the window, reflecting a completely ruined portion of the city. Of course, they intended to demolish the entire western area from the start, so seeing the slow restoration process reminded me that the battle was indeed over.</p>
+    <p>‘The underground…’</p>
+    <p>The original plan for it had been to break it down and make an entirely new pathway.</p>
+    <p>I realized that the work was being done vaguely. Of course, a simple organization would be enough, but I knew things wouldn’t always go as one would plan for it to be.</p>
+    <p>‘While the restoration work is in progress…’</p>
+    <p>I could proceed with my plan, albeit a little late.</p>
+    <p>‘My head hurts.’</p>
+    <p>In many ways, various reasons were causing me to have a headache. Though my primary objective was to head to where Dialugia was being held, I could see various tasks that needed focus on every window I passed through.</p>
+    <p>There were people still cleaning up the corpses of monsters, as well as eradicating the splattered blood from the walls and buildings. However, despite these mundane tasks, the workers were all wearing a smile.</p>
+    <p>From everyone’s standpoint, everyone had grown, one step at a time. This meant that even the low-level players would have a chance to finally level up and get themselves another class.</p>
+    <p>The same went for my fellow party members and me.</p>
+    <p>Hwang Jeong-yeon, Cho Hyejin, and Sun Hee-young, who already had high growth, may not have noticeable changes, but I knew that Jung Hayan, Kim Ye-ri, Park Deokgu, and Kim Hyunsung would have benefitted in terms of both stats and class.</p>
+    <p>“I have to talk about this with them…”</p>
+    <p>As this expedition’s purpose was to level up, everyone must have achieved a result that they would find satisfactory. Park Deokgu may have even obtained a heroic-grade class. A smile dawned on my face.</p>
+    <p>It was then that one of the guards guarding the dungeon approached me.</p>
+    <p>“Lee Kiyoung? You woke up.”</p>
+    <p>“Ah… Yes. So, you are Baran-nim.”</p>
+    <p>“Y-Yes!”</p>
+    <p>He looked surprised to find out that I knew his name. He might have felt like he wasn’t important enough to be remembered, but the truth was, I was being aided with Mind’s Eye.</p>
+    <p>This would definitely garner me some more positive reviews.</p>
+    <p>“May I ask why you came here?”</p>
+    <p>“Of course. I have some business in the dungeon.”</p>
+    <p>“Ah, perhaps…”</p>
+    <p>“Yes. It’s exactly what you’re thinking. I don’t really know how to get there, so I would appreciate it if you could guide me.”</p>
+    <p>“Ah…”</p>
+    <p>“It’s okay if you’re busy with something else.”</p>
+    <p>“No! No. Of course, I have to guide you. Just trust me and follow.”</p>
+    <p>“Hahaha.”</p>
+    <p>“By the way, coming here, as soon as you wake up, you’re really amazing. You should be resting…”</p>
+    <p>“I’ve been unconscious for too long, and I don’t want to sit around while everyone else is working.”</p>
+    <p>“It is all thanks to Lee Kiyoung and the Blue Guild that they can be like that.”</p>
+    <p>“You are over complimenting me. Rather, how are you managing that monster?”</p>
+    <p>“Actually, I do not know the details. My job is to guard this place, but other than the wizards coming and continuing to check on it, I don’t know what’s going on. At first, they put the restraints and bound them, but I know that at some point, the straps were dismantled.”</p>
+    <p>“I see.”</p>
+    <p>“It’s not a space allowed for me, but you can check it out for yourself. I think you can go in alone from here. Hey, open the way.”</p>
+    <p>“Yes. Okay.”</p>
+    <p>“Thank you.”</p>
+    <p>The guards stationed from within bowed to me before doing what they were told to do, chanting the required magic. The door began to open with a clanking sound.</p>
+    <p>I thought Dialugia’s environment would not be good, but it looked better than I thought.</p>
+    <p>Complex magical techniques were felt everywhere, but it was not the kind of magic that bursts if not stimulated.</p>
+    <p>It was then that I saw a familiar doll, with horns on her head.</p>
+    <p>‘My child is here, too.’</p>
+    <p>Dialugia was hugging the baby tightly. I was worried about them being detained separately, but everyone seemed to deduce that this would be the best solution in appealing to her docile side. Currently, Dialugia was wearing magical restraints, with numerous magic circles on both her hands and feet. It appeared that they had found other countermeasures.</p>
+    <p>There was even a complex-looking magic circle drawn onto her neck.</p>
+    <p>‘Ah, but can they really control her with all that?’</p>
+    <p>Her body was not in normal condition, so it should be okay for now.</p>
+    <p>“Kiek!”</p>
+    <p>“Ah, yes, Dad is here!”</p>
+    <p>The little dragon who cried shortly as it looked at me looked pretty cute. I didn’t know what was going on, but it felt like it was glad to see me. It appeared that my standing as Dialugia’s spouse was influencing it.</p>
+    <p>Seeing the tail waving softly gave confidence to my theory.</p>
+    <p>Of course, unlike my precious child, the woman was still wary of me, holding her child tightly. However, it was obvious that the baby wanted to come to me.</p>
+    <p>As I clapped my hands, Dialugia shrunk a little more. I could, however, see evident relief on her face. It seemed that she was worried as to whether I would die or not. If I did, then she would be in trouble.</p>
+    <p>It seems that she was worried about my death.</p>
+    <p>“Who did you say was the father last time?”</p>
+    <p>“Ah, I’m disappointed to see you’re acting like you don’t know. We’re going to be a family, and you’re still so hard on me. Ah, baby! Did you miss daddy?”</p>
+    <p>“Kiek!”</p>
+    <p>“Our Tol To-ri (bright child) is also going crazy, wanting to see me.”</p>
+    <p>“He is not Tol To-ri…”</p>
+    <p>“Have you just made up his name without consulting? I’m a little disappointed.”</p>
+    <p>“In the first place… You…”</p>
+    <p>“This all happened so suddenly, but wasn’t this your choice to do so? It won’t hurt me to become a father suddenly. This little baby is such a good boy. Well done!”</p>
+    <p>“Kiek! Kiek! Kiek!”</p>
+    <p>“Well done! Well done! Well done!”</p>
+    <p>“Kieeek!”</p>
+    <p>“The reason Dialuria is friendly with you is only because I chose you as my spouse!”</p>
+    <p>“Ah, you named it Dialuria? You should have discussed with me first… Well, that’s okay. I’m a faithful spouse, anyway. By the way, it’s really fortunate. It seems that these additional functions were also implanted in me because I became your spouse. I was worried that my child would hate me.”</p>
+    <p>“Chomp…”</p>
+    <p>“Our Dialuria should be held in daddy’s arms once!”</p>
+    <p>“Kiekeek!”</p>
+    <p>She was still holding our Tol To-ri, who was going crazy with excitement. It didn’t take long for the overly excited guy to get out of its mother’s arms. It looked pretty cute, wagging its tail and jumping in and licking my face.</p>
+    <p>Meanwhile, Dialugia sported an amusing expression of betrayal.</p>
+    <p>“Ah… Baby!”</p>
+    <p>“Oh, dear! Our Tol To-ri!”</p>
+    <p>“My baby has to come back to his mother!”</p>
+    <p>“Oh! Oh! Our Tol To-ri is so good! Well done!”</p>
+    <p>“Kieehek!”</p>
+    <p>“Baby! Can’t you hear your mom tell you to come back?!”</p>
+    <p>“Our Tol To-ri’s daddy will drive you an airplane!”</p>
+    <p>“Kiek! Kiek! Haa! Haaa!”</p>
+    <p>“Ba… Baby…”</p>
+    <p>“Oh! Oh! Are you excited? Our Tol To-ri?”</p>
+    <p>“H-He’s not Tol To-ri! D-Dialuria…”</p>
+    <p>“Tol to-ri!”</p>
+    <p>“Kiek! Kiek! Ahhh!”</p>
+    <p>‘This child likes me too much.’</p>
+    <p>I worried about it harboring a dangerous characteristic, but it seemed that even its characteristic and disposition had not yet been created when I checked with Mind’s Eye.</p>
+    <p>In the first place, I still didn’t know its gender, and I didn’t know anything about dragons, so my lack of understanding was understandable. It felt right to think that the baby felt pleased to meet its dad after such a long time. It felt more like a puppy than an actual child.</p>
+    <p>Fortunately, I already knew how to deal with these kinds of guys.</p>
+    <p>To be in this small place, it would have been bored alone with his mother, so it was understandable for it to feel excited when I showered it with treats.</p>
+    <p>In short, Tol To-ri wanted to be with me more than it wanted to be with its mother.</p>
+    <p>“B… Baby…”</p>
+    <p>However, Dialugia’s depressed appearance could not be ignored. Seeing as Tol To-ri tried to pull me towards her, it seemed as if it wanted me to get along with her.</p>
+    <p>“Isn’t this like telling us to get along? Our cute little boy…”</p>
+    <p>“It’s not Tol To-ri. It’s D-Dialuria.”</p>
+    <p>“Haha. This is only a nickname, so don’t worry. It looks so cute, doesn’t it?”</p>
+    <p>“Kiek! Haa! Kie-eh-eh-eh!”</p>
+    <p>‘Ah, it’s so cute.’</p>
+    <p>At first, I didn’t think I could get used to it, but the more I looked at it, the more I fell in love. It had adorably big eyes and a little tail that swung excitedly like a propeller. It held onto me as if it didn’t want to be separated from me.</p>
+    <p>For some reason, I felt my heart squeeze.</p>
+    <p>Eventually, Dialugia could no longer watch me act friendly with the baby.</p>
+    <p>“Why did you come here?”</p>
+    <p>“Does the breadwinner need a reason to come to see his wife and child?”</p>
+    <p>“I-I couldn’t help it back then. However, I have no intention of acknowledging a human like you as the father of Dialuria, nor as my spouse.”</p>
+    <p>“Whether you acknowledge it or not, I am already the father of this child as well as your spouse. Isn’t that your choice? I believe this type of pact is irreversible. Above all, our Tol To-ri likes me. Saying that you have no intention of acknowledging me… Tol To-ri, do you like me as your father?”</p>
+    <p>“Kiek! Haaa!”</p>
+    <p>“B… Baby…”</p>
+    <p>“Ah. I’m only curious, but is it possible to cancel the pact? I don’t know much about dragons yet.”</p>
+    <p>“…”</p>
+    <p>“So, it cannot be canceled.”</p>
+    <p>“…”</p>
+    <p>“I can’t help it. I’m still a young man with a bright future, but I can’t pretend to be aloof when I see such a cute baby.”</p>
+    <p>“You don’t have to be responsible… It was my m-mistake, and it was just an unavoidable choice for my child. In the first place, you took Dialuria and threatened me!”</p>
+    <p>“You shouldn’t say that in front of the child!”</p>
+    <p>“Ah… D-Dialuria, it’s not like that.”</p>
+    <p>“Tut-tut. Didn’t I tell you clearly that it was not us who kidnapped Tol To-ri? Even in human law, it is taboo to kidnap monster eggs or children. The criminals are already being punished well, except for a few. At that time, I was just protecting our Tol To-ri, and I never thought of doing anything.”</p>
+    <p>“You’re lying.”</p>
+    <p>“I’m serious. Why else would I care for Tol To-ri like this?”</p>
+    <p>“I can’t believe in humans.”</p>
+    <p>“Then what will you do?”</p>
+    <p>“After I recover, I will go back into the forest with Dialuria. I no longer want to be involved with humans.”</p>
+    <p>“Do you think you can get out of this place?”</p>
+    <p>“I can…”</p>
+    <p>“Ah. I see. I am very sorry about this.”</p>
+    <p>“That… What are you saying?”</p>
+    <p>“Did you know that I passed out for three days?”</p>
+    <p>“…”</p>
+    <p>“It felt really painful. The blood didn’t stop flowing just from the bite of a small monster, and I almost died from the side effects of excessive bleeding and using a lot of magic power. Isn’t the human body very, very fragile? Passing out and dying even from minor wounds…”</p>
+    <p>“Ah… “</p>
+    <p>“If you and the baby go to the woods and I suddenly end up dying, it would be very dangerous for our Tol To-ri. He would have to grow alone without a mom and dad… Now, isn’t that such a pitiful scenario?”</p>
+    <p>Dialugia’s pupils had begun to sway at this point.</p>
+  </article>
+</div>
+
+<div id="merge-status"></div>
+
+<nav>
+  <span class="nav-left"><a href="181.html" rel="prev">&#8592; Ch 181</a></span>
+  <span class="nav-mid">
+    <button class="btn-merge" id="btn-merge" >Merge Next 10</button>
+  </span>
+  <span class="nav-right"><a href="183.html" rel="next">Ch 183 &#8594;</a></span>
+</nav>
+
+<script>
+  // Chapters available after this one — discovered from meta.json
+  var slug       = "regressor-instruction-manual";
+  var currentNum = 182;
+  var nextNum    = 183;
+  var maxLoaded  = currentNum;
+  var allNums    = null;   // loaded lazily from meta.json
+  var merging    = false;
+  var root       = "../../";
+
+  async function getNums() {
+    if (allNums) return allNums;
+    var res = await fetch(root + "data/" + slug + "/meta.json");
+    var meta = await res.json();
+    allNums = meta.chapters.map(function(c){ return c.num; });
+    return allNums;
+  }
+
+  document.getElementById("btn-merge").addEventListener("click", async function() {
+    if (merging) return;
+    merging = true;
+    var btn    = document.getElementById("btn-merge");
+    var status = document.getElementById("merge-status");
+    btn.textContent = "Loading…";
+    btn.disabled = true;
+
+    var nums   = await getNums();
+    var idx    = nums.indexOf(maxLoaded);
+    var toLoad = nums.slice(idx + 1, idx + 11);
+    if (!toLoad.length) { merging = false; return; }
+
+    status.style.display = "block";
+    status.textContent = "Fetching chapters " + toLoad[0] + "–" + toLoad[toLoad.length-1] + "…";
+
+    var container = document.getElementById("chapters");
+    var firstNew  = null;
+
+    for (var i = 0; i < toLoad.length; i++) {
+      var n = toLoad[i];
+      try {
+        var res  = await fetch(n + ".html");
+        var html = await res.text();
+        var doc  = new DOMParser().parseFromString(html, "text/html");
+        var art  = doc.querySelector("article");
+        var h1   = doc.querySelector("h1");
+        if (!art) continue;
+
+        // Divider
+        var divider = document.createElement("div");
+        divider.className = "ch-divider";
+        divider.textContent = "Chapter " + n;
+        container.appendChild(divider);
+
+        // Chapter title
+        if (h1) {
+          var chTitle = document.createElement("div");
+          chTitle.className = "ch-title";
+          chTitle.textContent = h1.textContent;
+          container.appendChild(chTitle);
+        }
+
+        // Content
+        var section = document.createElement("article");
+        section.id = "ch-" + n;
+        section.innerHTML = art.innerHTML;
+        container.appendChild(section);
+
+        if (!firstNew) firstNew = divider;
+        maxLoaded = n;
+      } catch(e) {
+        console.warn("Failed to load chapter " + n, e);
+      }
+    }
+
+    // Update nav next link
+    var nextIdx = nums.indexOf(maxLoaded) + 1;
+    var newNext = nextIdx < nums.length ? nums[nextIdx] : null;
+    var navRight = document.querySelector(".nav-right");
+    if (newNext) {
+      navRight.innerHTML = '<a href="' + newNext + '.html" rel="next">Ch ' + newNext + ' &#8594;</a>';
+    } else {
+      navRight.innerHTML = '<span></span>';
+    }
+
+    status.style.display = "none";
+    btn.textContent = newNext ? "⊕ Merge Next 10" : "✓ All loaded";
+    btn.disabled = !newNext;
+    merging = false;
+
+    if (firstNew) firstNew.scrollIntoView({ behavior:"smooth", block:"start" });
+  });
+</script>
+</body>
+</html>

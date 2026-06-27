@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chapter 6 — Regressor Instruction Manual</title>
+  <style>
+    :root { --ink:#1a1a1a; --dim:#666; --bg:#fff; --gold:#8a6a1a; --border:#ddd; }
+    @media (prefers-color-scheme:dark) {
+      :root { --ink:#e9e4da; --dim:#9a9286; --bg:#111010; --gold:#c9a84c; --border:#2a2825; }
+    }
+    *{ box-sizing:border-box; margin:0; padding:0; }
+    body{ background:var(--bg); color:var(--ink); font-family:Georgia,'Times New Roman',serif;
+          font-size:1.125rem; line-height:1.85; padding:40px 24px 80px;
+          max-width:680px; margin:0 auto; }
+    header{ margin-bottom:32px; padding-bottom:20px; border-bottom:1px solid var(--border); }
+    header a{ color:var(--gold); text-decoration:none; font-size:.85rem; }
+    h1{ font-size:1.35rem; font-weight:700; margin-top:10px; line-height:1.25; }
+    article p{ margin-bottom:1.4em; text-align:justify; hyphens:auto; }
+    .ch-divider{ text-align:center; padding:28px 0 16px; color:var(--dim);
+                  font-size:.8rem; letter-spacing:.1em; text-transform:uppercase; }
+    .ch-divider::before,.ch-divider::after{ content:''; display:inline-block;
+      width:40px; height:1px; background:var(--border); vertical-align:middle; margin:0 12px; }
+    .ch-title{ font-size:1.1rem; font-weight:700; color:var(--gold); margin-bottom:16px; }
+    nav{ display:grid; grid-template-columns:1fr auto 1fr; gap:10px; align-items:center;
+          margin-top:48px; padding-top:20px; border-top:1px solid var(--border); font-size:.88rem; }
+    nav a{ color:var(--gold); text-decoration:none; }
+    nav a:hover{ text-decoration:underline; }
+    nav .nav-right{ text-align:right; }
+    nav .nav-mid{ text-align:center; }
+    .btn-merge{ background:rgba(138,106,26,.12); border:1px solid var(--gold);
+                 color:var(--gold); padding:9px 16px; border-radius:6px; cursor:pointer;
+                 font-family:Georgia,serif; font-size:.85rem; font-weight:600;
+                 transition:background .15s; white-space:nowrap; }
+    .btn-merge:hover:not(:disabled){ background:rgba(138,106,26,.25); }
+    .btn-merge:disabled{ opacity:.35; cursor:not-allowed; }
+    #merge-status{ text-align:center; padding:12px; font-size:.82rem;
+                    color:var(--dim); display:none; }
+  </style>
+</head>
+<body>
+<header>
+  <a href="../../novel.html?slug=regressor-instruction-manual">&larr; Regressor Instruction Manual</a>
+  <h1 id="page-title">Chapter 6</h1>
+</header>
+
+<div id="chapters">
+  <article id="ch-6">
+    <p>Chapter: 6 Regressor (3)</p>
+    <p>In fact, Jung Hayan wasn’t the only treasure.</p>
+    <p>The same applied to Kim Hyunsung as well.</p>
+    <p>After all, he was someone who had probably once seen the end of this world.</p>
+    <p>He knew what was going to happen and was willing to use this information to change the future.</p>
+    <p>In a fantasy novel setting, he was kind of like the ‘chosen warrior’.</p>
+    <p>There was no reason to not maintain a good relationship with him.</p>
+    <p>‘I’m jealous of this bastard though.’</p>
+    <p>I wasn’t jealous of all of the baggage he was carrying on his back.</p>
+    <p>I was jealous of what he was going to get or use.</p>
+    <p>It was already set in stone that he would climb high.</p>
+    <p>I thought I should benefit from him as much as I could.</p>
+    <p>“How much further is it? Are you sure this is the right way?”</p>
+    <p>“Yes, we are almost there.”</p>
+    <p>Park Deokgu muttered bitterly, and Kim Hyunsung answered him with a nod.</p>
+    <p>It was strangely novel for me to witness how he observed our surroundings without even slowing down.</p>
+    <p>He was also watching out for monsters.</p>
+    <p>Clearly, his stats weren’t that high for now.</p>
+    <p>Taking into account the fact that he had an attribute, class and magic power, he was already on a much higher ground than anyone else here. Yet, if a group of monsters surrounded us and attacked together, even he wouldn’t be able to cope.</p>
+    <p>‘That’s why you failed to protect those people.’</p>
+    <p>If it had been possible then he would have made sure there were no casualties at the starting point.</p>
+    <p>“By the way, there are more survivors than I imagined. I was pretty sure most of them would have died…”</p>
+    <p>“In fact, more people could have been saved. At first, I didn’t know the weak points of those monsters, so I couldn’t face them properly. If only there were more people who could fight…”</p>
+    <p>“Yea, I feel the same way. At that time, running away was all I could do… If not for hyung-nim, I would be dead right now. Are all 30 people from there?”</p>
+    <p>“Ah! Actually, no. It seems like there were other starting points at different locations. But they were quite far away from ours…”</p>
+    <p>“Mhm… So we are not the only ones here.”</p>
+    <p>“Yes. Perhaps, if we expand our search, we will hear more good news. Just now I was looking for traces of other people.”</p>
+    <p>I didn’t know how the hell you could call that good news.</p>
+    <p>“You are looking for more survivors?”</p>
+    <p>“Of course, I think that’s what we should be doing.”</p>
+    <p>From his eyes, I knew he was telling the truth.</p>
+    <p>The word “good” attached to his disposition wasn’t there only for decoration.</p>
+    <p>I had no way of knowing the full picture, but my head hurt just thinking about how those 30 people were supposed to survive together.</p>
+    <p>‘This son of a bitch…’</p>
+    <p>Just from this, I could imagine how the survivor camp was running.</p>
+    <p>“You don’t look good. A-Am I too heavy…?”</p>
+    <p>Jung Hayan asked me, after seeing my darkening expression.</p>
+    <p>“Oh, that’s not it. I just thought about something…”</p>
+    <p>“I-If you feel uncomfortable…”</p>
+    <p>“I’m fine.”</p>
+    <p>“Ah… I… I…”</p>
+    <p>“Yes?”</p>
+    <p>“I-It’s a little late, but thank you… for saving me.”</p>
+    <p>I smiled slightly at her words of gratitude.</p>
+    <p>Supporting her was quite burdensome, but it didn’t matter.</p>
+    <p>It was because I thought I should score every little point from her while there was an opportunity.</p>
+    <p>Jung Hayan’s face was strangely red. It seemed like she wasn’t used to making contact with the opposite sex.</p>
+    <p>Rather than sticking too close to her, I tried to maintain a certain distance to lower her vigilance.</p>
+    <p>While I tried to keep the smile of a good person on my face, Jung Hayan became more willing to lean on me.</p>
+    <p>After we walked a bit further, we arrived at a wide space.</p>
+    <p>‘Not bad.’</p>
+    <p>It was a pretty good place.</p>
+    <p>There was only one entrance, what wasn’t bad at all.</p>
+    <p>There seemed to be some way to prevent monsters from entering, but I couldn’t see it clearly from the outside.</p>
+    <p>“Amazing. How did you find this place?”</p>
+    <p>‘You already knew about it.’</p>
+    <p>“I somehow stumbled upon it while I was looking for the right place for survivors to stay.”</p>
+    <p>“You are very lucky…”</p>
+    <p>He probably used this place in his previous life.</p>
+    <p>It was different from the starting point where monsters could enter from every direction.</p>
+    <p>It was a little crude, but very much like a sturdy castle.</p>
+    <p>It was highly unlikely he found this place by accident. It was way too far away from the starting point.</p>
+    <p>Little by little, I was more and more confident that this guy really came back in time.</p>
+    <p>“It looks great. Doesn’t it, hyung-nim?”</p>
+    <p>I nodded slightly.</p>
+    <p>“I think this place could even fit more than a hundred people.”</p>
+    <p>“I don’t think so.”</p>
+    <p>“M-Maybe I exaggerated.”</p>
+    <p>With enough people, we should be able to stop monsters from entering. However, the lack of a way to retreat was also a weakness.</p>
+    <p>If a big number of monsters attacked us, it would end in slaughter.</p>
+    <p>All but a few lucky ones would die. I looked at Kim Hyunsung, and slowly opened my mouth.</p>
+    <p>“It’s blocked from every other side. What if a large number of monsters try to invade through this one entrance…”</p>
+    <p>“That’s why we are acting as carefully as possible. We are also dealing with monsters in the nearby area.”</p>
+    <p>“You go hunting regularly?”</p>
+    <p>“Yes. Until we can find some other clues…”</p>
+    <p>I was very curious. Just who else was up for this regular hunting?</p>
+    <p>As we gradually approached the entrance, I could see some woman coming out to greet us. She was a little short, but gave an overall charming impression.</p>
+    <p>“Hyunsung oppa, you are back? Ah, there are new people.”</p>
+    <p>I saw how she flinched a little at the sight of Park Deokgu, who had a robust body and was armed with sword and shield, but surprisingly, she didn’t lose her smile.</p>
+    <p>‘Nice reaction.’</p>
+    <p>She gave a good first impression.</p>
+    <p>“Jihye-ssi.”</p>
+    <p>“You were running a little late, so I was worried about you.”</p>
+    <p>[Checking the status window and talent levels of the player Lee Jihye.]</p>
+    <p>[Name: Lee Jihye]</p>
+    <p>[Title: None. You should try a little harder.]</p>
+    <p>[Age: 29]</p>
+    <p>[Disposition: Selfish Ambitionist]</p>
+    <p>[Class: None]</p>
+    <p>[Stats]</p>
+    <p>[Strength: 05/Potential growth: common or lower]</p>
+    <p>[Agility: 09/Potential growth: common or lower]</p>
+    <p>[Stamina: 09/Potential growth: common or lower]</p>
+    <p>[Intelligence: 18/Potential growth: rare or higher]</p>
+    <p>[Endurance: 08/Potential growth: common or lower]</p>
+    <p>[Luck: 12/Potential growth: common or lower]</p>
+    <p>[Magic Power: 00/Potential growth: common or lower]</p>
+    <p>‘Trash.’</p>
+    <p>I muttered in my heart, unknowingly. She was trash to the extent that she was even further beyond help compared to me, but at the same time she was very similar to me.</p>
+    <p>[Overview: Congratulations, player Lee Kiyoung. You have finally found your soulmate. It’s possible that the two of you will be the perfect match for each other. Low stats, low potential. Trying to wield a sword or wand is not recommended. Alternatively, it might be a different story if, captivated by each other’s lousy talents, the two of you choose to live out the rest of your lives together quietly. But I don’t want the two of you to get together. I would feel sorry for the 2nd generation born from your union.]</p>
+    <p>I tried hard to ignore all the insults packed in there. It was clear that the status window message was trying to provoke me.</p>
+    <p>I quickly turned off the status window, and then recalled this woman’s information in my mind.</p>
+    <p>Her disposition was very eye-catching when paired with her lousy talent level and poor stats.</p>
+    <p>‘Selfish Ambitionist.’</p>
+    <p>Maybe she was the same type of person as me.</p>
+    <p>Unlike other people in this place, her way of interacting with Kim Hyunsung was very conspicuous.</p>
+    <p>She had chosen to rub onto Kim Hyunsung in order to survive.</p>
+    <p>“Hehe. May I know your names?”</p>
+    <p>“Park Deokgu.”</p>
+    <p>“I’m Lee Kiyoung.”</p>
+    <p>“J-Jung Hayan. Please, take good care of me.”</p>
+    <p>“Yes, nice to meet you all. In a moment, I will lead you to a place where you can rest. Are you okay, Hyunsung-ssi?”</p>
+    <p>“Of course. Please, take care of them, Jihye-ssi.”</p>
+    <p>“Yes, leave it to me, Hyunsung oppa.”</p>
+    <p>She clenched her fist in a cute manner, but knowing her disposition, I couldn’t feel any warmth from it.</p>
+    <p>Seeing how she scanned me, Jung Hayan and Park Deokgu up and down, maybe she was also calculating what role we would play after joining this place.</p>
+    <p>In the case of Park Deokgu, who was carrying a sword and shield and had a huge body, it was an instant pass.</p>
+    <p>As for Jung Hayan, who stumbled on her legs, and the miserable I, who supported her, it was most likely a failing grade.</p>
+    <p>It was funny how she instantly stuck to Park Deokgu and chirped.</p>
+    <p>“Have you seen any monsters on your way here?”</p>
+    <p>“Not only did I see them, but I’ve already killed a few.”</p>
+    <p>“Ohhh… You weren’t scared?”</p>
+    <p>A deliberate, slightly surprised expression.</p>
+    <p>“W-Well, of course I was scared, but… In fact, if not for hyung-nim, I wouldn’t be here now.”</p>
+    <p>At the moment Park Deokgu uttered those useless words, Lee Jihye’s gaze shifted to this side again.</p>
+    <p>I didn’t know if she was the same as me, but I could see what she was doing right now.</p>
+    <p>“Ah. So you fought together with Kiyoung-ssi.”</p>
+    <p>“Sure we fought together! Every time hyung-nim stabbed with his spear, one monster bastard dropped dead.”</p>
+    <p>‘Shut up, you pig…’</p>
+    <p>I wanted to shut up Park Deokgu’s mouth.</p>
+    <p>I guess he thought he was making me look more impressive in this way, but to me, it was way too much favouritism.</p>
+    <p>At least I didn’t have to worry about being backstabbed by him, but still, it was very embarrassing for me.</p>
+    <p>Lee Jihye was amending her evaluation of my person.</p>
+    <p>As Park Deokgu’s hyung-nim, I was more important now.</p>
+    <p>“Oh, I see. I’m really glad to hear this. Our shelter will be a little safer now.”</p>
+    <p>A slightly raised tone of anticipation.</p>
+    <p>However, I didn’t feel good about it. Because, right now, other survivors were also staring at us.</p>
+    <p>Only</p>
+    <p>I checked all of them with my Mind’s Eye, but there was no one special in my field of view.</p>
+    <p>From this, I was able to identify just what kind of gaze those guys were sending our way.</p>
+    <p>‘Relief.’</p>
+    <p>They were all relieved. The appearance of two guys with a spear, sword and shield made them sigh with relief.</p>
+    <p>“Huh…”</p>
+    <p>I expected something like this, but seeing it with my own eyes made me sigh.</p>
+    <p>Kim Hyunsung made this place very safe.</p>
+    <p>For them, not for us.</p>
+  </article>
+</div>
+
+<div id="merge-status"></div>
+
+<nav>
+  <span class="nav-left"><a href="5.html" rel="prev">&#8592; Ch 5</a></span>
+  <span class="nav-mid">
+    <button class="btn-merge" id="btn-merge" >Merge Next 10</button>
+  </span>
+  <span class="nav-right"><a href="7.html" rel="next">Ch 7 &#8594;</a></span>
+</nav>
+
+<script>
+  // Chapters available after this one — discovered from meta.json
+  var slug       = "regressor-instruction-manual";
+  var currentNum = 6;
+  var nextNum    = 7;
+  var maxLoaded  = currentNum;
+  var allNums    = null;   // loaded lazily from meta.json
+  var merging    = false;
+  var root       = "../../";
+
+  async function getNums() {
+    if (allNums) return allNums;
+    var res = await fetch(root + "data/" + slug + "/meta.json");
+    var meta = await res.json();
+    allNums = meta.chapters.map(function(c){ return c.num; });
+    return allNums;
+  }
+
+  document.getElementById("btn-merge").addEventListener("click", async function() {
+    if (merging) return;
+    merging = true;
+    var btn    = document.getElementById("btn-merge");
+    var status = document.getElementById("merge-status");
+    btn.textContent = "Loading…";
+    btn.disabled = true;
+
+    var nums   = await getNums();
+    var idx    = nums.indexOf(maxLoaded);
+    var toLoad = nums.slice(idx + 1, idx + 11);
+    if (!toLoad.length) { merging = false; return; }
+
+    status.style.display = "block";
+    status.textContent = "Fetching chapters " + toLoad[0] + "–" + toLoad[toLoad.length-1] + "…";
+
+    var container = document.getElementById("chapters");
+    var firstNew  = null;
+
+    for (var i = 0; i < toLoad.length; i++) {
+      var n = toLoad[i];
+      try {
+        var res  = await fetch(n + ".html");
+        var html = await res.text();
+        var doc  = new DOMParser().parseFromString(html, "text/html");
+        var art  = doc.querySelector("article");
+        var h1   = doc.querySelector("h1");
+        if (!art) continue;
+
+        // Divider
+        var divider = document.createElement("div");
+        divider.className = "ch-divider";
+        divider.textContent = "Chapter " + n;
+        container.appendChild(divider);
+
+        // Chapter title
+        if (h1) {
+          var chTitle = document.createElement("div");
+          chTitle.className = "ch-title";
+          chTitle.textContent = h1.textContent;
+          container.appendChild(chTitle);
+        }
+
+        // Content
+        var section = document.createElement("article");
+        section.id = "ch-" + n;
+        section.innerHTML = art.innerHTML;
+        container.appendChild(section);
+
+        if (!firstNew) firstNew = divider;
+        maxLoaded = n;
+      } catch(e) {
+        console.warn("Failed to load chapter " + n, e);
+      }
+    }
+
+    // Update nav next link
+    var nextIdx = nums.indexOf(maxLoaded) + 1;
+    var newNext = nextIdx < nums.length ? nums[nextIdx] : null;
+    var navRight = document.querySelector(".nav-right");
+    if (newNext) {
+      navRight.innerHTML = '<a href="' + newNext + '.html" rel="next">Ch ' + newNext + ' &#8594;</a>';
+    } else {
+      navRight.innerHTML = '<span></span>';
+    }
+
+    status.style.display = "none";
+    btn.textContent = newNext ? "⊕ Merge Next 10" : "✓ All loaded";
+    btn.disabled = !newNext;
+    merging = false;
+
+    if (firstNew) firstNew.scrollIntoView({ behavior:"smooth", block:"start" });
+  });
+</script>
+</body>
+</html>

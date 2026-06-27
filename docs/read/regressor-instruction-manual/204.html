@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chapter 204 — Regressor Instruction Manual</title>
+  <style>
+    :root { --ink:#1a1a1a; --dim:#666; --bg:#fff; --gold:#8a6a1a; --border:#ddd; }
+    @media (prefers-color-scheme:dark) {
+      :root { --ink:#e9e4da; --dim:#9a9286; --bg:#111010; --gold:#c9a84c; --border:#2a2825; }
+    }
+    *{ box-sizing:border-box; margin:0; padding:0; }
+    body{ background:var(--bg); color:var(--ink); font-family:Georgia,'Times New Roman',serif;
+          font-size:1.125rem; line-height:1.85; padding:40px 24px 80px;
+          max-width:680px; margin:0 auto; }
+    header{ margin-bottom:32px; padding-bottom:20px; border-bottom:1px solid var(--border); }
+    header a{ color:var(--gold); text-decoration:none; font-size:.85rem; }
+    h1{ font-size:1.35rem; font-weight:700; margin-top:10px; line-height:1.25; }
+    article p{ margin-bottom:1.4em; text-align:justify; hyphens:auto; }
+    .ch-divider{ text-align:center; padding:28px 0 16px; color:var(--dim);
+                  font-size:.8rem; letter-spacing:.1em; text-transform:uppercase; }
+    .ch-divider::before,.ch-divider::after{ content:''; display:inline-block;
+      width:40px; height:1px; background:var(--border); vertical-align:middle; margin:0 12px; }
+    .ch-title{ font-size:1.1rem; font-weight:700; color:var(--gold); margin-bottom:16px; }
+    nav{ display:grid; grid-template-columns:1fr auto 1fr; gap:10px; align-items:center;
+          margin-top:48px; padding-top:20px; border-top:1px solid var(--border); font-size:.88rem; }
+    nav a{ color:var(--gold); text-decoration:none; }
+    nav a:hover{ text-decoration:underline; }
+    nav .nav-right{ text-align:right; }
+    nav .nav-mid{ text-align:center; }
+    .btn-merge{ background:rgba(138,106,26,.12); border:1px solid var(--gold);
+                 color:var(--gold); padding:9px 16px; border-radius:6px; cursor:pointer;
+                 font-family:Georgia,serif; font-size:.85rem; font-weight:600;
+                 transition:background .15s; white-space:nowrap; }
+    .btn-merge:hover:not(:disabled){ background:rgba(138,106,26,.25); }
+    .btn-merge:disabled{ opacity:.35; cursor:not-allowed; }
+    #merge-status{ text-align:center; padding:12px; font-size:.82rem;
+                    color:var(--dim); display:none; }
+  </style>
+</head>
+<body>
+<header>
+  <a href="../../novel.html?slug=regressor-instruction-manual">&larr; Regressor Instruction Manual</a>
+  <h1 id="page-title">Chapter 204</h1>
+</header>
+
+<div id="chapters">
+  <article id="ch-204">
+    <p>Chapter 204: Heroes are Made (2)</p>
+    <p>The golden light emanating from Park Deokgu’s body was so dazzling that I found it hard to keep my eyes open properly. It was similar back to when I had changed into a Dragon Alchemist, and my satisfaction doubled.</p>
+    <p>‘I did it!! Fuck!’</p>
+    <p>I was worried about whether all of these plans and stages would be meaningless, but in the end, all of this work proved to give better results than I imagined. In fact, if I hadn’t seen the black world with Yuno Kasugano, this project wouldn’t have come to mind in the first place.</p>
+    <p>At that time, I paid attention to the fact that when Park Deokgu chose to save me back then amidst the hail of magic and arrows, sacrificing his own life for my sake.</p>
+    <p>Of course, it was undeniable that he had a strong body. Even now, his endurance and stamina stats were excellent. However, that didn’t mean that Park Deokgu could’ve saved me.</p>
+    <p>No matter how strong he was, his body would’ve inevitably been destroyed. It was far from a simple miracle that he could save me from the many spells that swept away the city.</p>
+    <p>Perhaps the same thing happened back then.</p>
+    <p>If my hypothesis was correct, then it was true that he had true potential since the start.</p>
+    <p>The light engulfing his body did not stop as Park Yeon-joo’s daggers continued to hit him. Only when the brightness had begun to dim could I properly check Park Deokgu’s status window.</p>
+    <p>‘Good!’</p>
+    <p>[Checking the status window and talent levels of the player Park Deokgu]</p>
+    <p>[Name: Park Deokgu]</p>
+    <p>[Title: None. You should try a little more.]</p>
+    <p>[Age: 23]</p>
+    <p>[Disposition: Simple and Ignorant Enthusiast]</p>
+    <p>[Class: Shield of Faith (Legendary)]</p>
+    <p>[Class Effect: Acquisition of Basic Sword Knowledge]</p>
+    <p>[Class Effect: Acquisition of Basic Shielding Knowledge]</p>
+    <p>[Class Effect: Acquisition of Intermediate Shielding Knowledge]</p>
+    <p>[Class Effect: Acquisition of Advanced Shielding Knowledge]</p>
+    <p>[Class Effect: Acquisition of Advanced Magic Power Management Knowledge]</p>
+    <p>[Stats]</p>
+    <p>[Strength: 70/Growth potential: Heroic or higher]</p>
+    <p>[Agility: 35/Growth potential: Rare or lower]</p>
+    <p>[Health: 81/Growth potential: Heroic or higher]</p>
+    <p>[Intelligence: 29/Growth potential: Rare or lower]</p>
+    <p>[Durability: 90/Growth potential: Heroic or higher]</p>
+    <p>[Luck: 29/Growth potential: Common or lower]</p>
+    <p>[Magic Power: 28/Growth potential: Common or higher]</p>
+    <p>[General Review: Durability stat has reached 90. Magical power and agility stats still haven’t grown much, but his high stamina and endurance are compatible with the legendary-grade class “Shield of Faith,” so he has grown to the point where he can rise to the top. The growth potential of endurance and stamina is noticeable, but since they were determined to be higher and not lower, I can say that there is room for a little further increase depending on whether or not he tries. Of course, he will go through hell. Please do not spare support and encouragement.]</p>
+    <p>‘Awesome… Endurance stat of 90?’</p>
+    <p>It was so ridiculous that I had to clear my throat. As General Review had stated, the fact that his endurance stat had exceeded 90 was equivalent to opening the way to the top for him.</p>
+    <p>Of course, his other stats were terrible when it came to relativity, but it was certainly meaningful to have a legendary-grade class, as well as an endurance stat of 90.</p>
+    <p>Besides…</p>
+    <p>‘Advanced magic power management knowledge?’</p>
+    <p>It was also surprisingly disconcerting to learn that he possessed advanced magical power management knowledge, something that only people like Park Yeon-joo, Cha Hee-ra, the deceased Ito Souta, the old man Victor Hart, and Kim Hyunsung had.</p>
+    <p>Deokgu’s magical stat was only 28. It seemed as if the size or the amount of magic did not matter when acquiring knowledge of magic power management.</p>
+    <p>It may be hard to use this knowledge right now, but it was undeniable that it would help a lot in his climb to the stop.</p>
+    <p>Of course, the most disturbing thing was his explosive increase in endurance.</p>
+    <p>It was obvious why the endurance stat, which had not exceeded 80 when I had checked it recently, became 90. He probably got a class bonus.</p>
+    <p>[Shield of Faith (Legendary)]</p>
+    <p>[From ancient times, the shield of faith was not a name for a class, but a title created to honor great warriors. Only those warriors who threw their lives to protect others have earned the title of Shield of Faith, and they have been enshrined in the warrior’s graves and have been revered by ancient warriors for centuries. The will of these great heroes is inherited, and the title of Shield of Faith is determined as the class of player Park Deokgu. Durability stat increases by 15. All stats except for endurance stat decrease by 1. He has been blessed by heroes and thus has acquired advanced shielding knowledge and advanced magic power management knowledge. With the special class effect of the Shield of Faith, a legendary-grade attribute, the Ultimate Sacrifice, is opened.]</p>
+    <p>[Checking the attribute of the player Park Deokgu.]</p>
+    <p>[Ultimate Sacrifice 3333 (Legendary)]</p>
+    <p>[For a certain period, he has received external shock and damage instead of a selected target.]</p>
+    <p>‘Scam!’</p>
+    <p>I knew he would bloom, but it turned out that he had developed too much. I felt shocked at the rising of his endurance stats, as well as the attribute of receiving damage instead of allies.</p>
+    <p>The low level of agility that bogged him down had been solved with “Ultimate Sacrifice.” Now, he had the chance of taking damage that would originally be far for him to reach.</p>
+    <p>I didn’t know if this would be the direction he would want to grow in, but he had now finished his class change as the best tanker on the entire continent.</p>
+    <p>“Ahhhhh!”</p>
+    <p>Clang! With a shout, he moved to block my way again. Perhaps this was Park Deoukgu’s attribute, Sublime Sacrifice.</p>
+    <p>‘I cannot be right.’</p>
+    <p>There were things that I was worried about while supporting his dignified figure. If Park Deokgu knew that the black daggers didn’t do any damage, things would get very serious.</p>
+    <p>We’ve come too far at this point, so I had to hide the fact that this was a prank.</p>
+    <p>I wasn’t getting injured because of his new attribute that managed to block the attack of Park Yeon-joo, but the moment the black daggers would hit me, this prank would end.</p>
+    <p>‘This can’t happen.’</p>
+    <p>No matter how much all of this had been for Park Deokgu, I couldn’t even imagine how betrayed he would feel. I had no choice but to ask Park Yeon-joo to stop disappearing, and thus I nodded my head.</p>
+    <p>In response, Park Yeon-joo also turned her head.</p>
+    <p>However, contrary to my thoughts that she would go back; unfortunately, the place where she turned to look at was Kim Ye-ri.</p>
+    <p>‘Fuck…’</p>
+    <p>Her black daggers began to shoot at Kim Ye-ri as if she had taken my head gesture as a signal to attack Kim Ye-ri.</p>
+    <p>Even after seeing Park Deokgu’s body shining in gold, she hadn’t realized it was all over. Perhaps she had been driven by her passion for Kim Hyunsung.</p>
+    <p>‘This crazy bitch!’</p>
+    <p>“No!”</p>
+    <p>Black daggers were shot at Kim Ye-ri in an instant.</p>
+    <p>Park Deokgu also tried to reach out with surprise, but he wouldn’t be able to get to her in time.</p>
+    <p>In the end, whether he thought it was right to activate his attribute once again, a transparent shield began to intercept the daggers heading for Kim Ye-ri.</p>
+    <p>‘Sh*t!’</p>
+    <p>The moment that the dagger touched the shield, he might discover that all of this was an act. As I debated whether or not to use alchemy, I saw Ahn Ki-mo taking the dagger instead of Kim Ye-ri.</p>
+    <p>‘You’re not dead yet! That bastard!’</p>
+    <p>“Nice, Ahn Ki-mo…”</p>
+    <p>It looked like he was still alive on the setup.</p>
+    <p>“Groooan…”</p>
+    <p>“Ki… Ki-mo Hyung-ssi!”</p>
+    <p>“I can’t let a young child… die.”</p>
+    <p>He didn’t even need to say that. This was already dramatic and impressive enough.</p>
+    <p>Park Yeon-joo was not the only one who was full of passion. That bastard Ahn Ki-mo seemed too immersed in this acting.</p>
+    <p>‘Now stop.’</p>
+    <p>It was too much.</p>
+    <p>I understood the two actors’ passion, but I had no choice but to swallow hard when they were slowly exceeding the risk level.</p>
+    <p>Now the time had really come to put things to an end.</p>
+    <p>While Park Deokgu was distracted by Ahn Ki-mo, I started sending OK signs repeatedly.</p>
+    <p>Park Yeon-joo nodded as if she finally understood what I was saying.</p>
+    <p>Park Deokgu had already become noticeably stronger. As if he had received a reward for his efforts so far, he increased all of the stats that were stuck, as well as the legendary-grade class attribute and class.</p>
+    <p>However, I didn’t think he could beat Park Yeon-joo in a fight.</p>
+    <p>Of course, considering the fact that he was blocking all attacks, a draw might be possible, but his role was not about personal offense but on protecting the rear.</p>
+    <p>‘Plus, Park Yeon-joo isn’t being serious.’</p>
+    <p>It was better to have this end rather than to pretend that Park Yeon-joo lost.</p>
+    <p>Finding this to be good timing, she began to retreat, and for a good reason.</p>
+    <p>Behind us, I could hear loud voices calling out for us.</p>
+    <p>‘Black Swan.’</p>
+    <p>The rescue team had come.</p>
+    <p>“Do not miss it.”</p>
+    <p>“Rangers, start tracking right away.”</p>
+    <p>“The rest, please move the injured quickly.”</p>
+    <p>Voices were heard from everywhere, and the Black Swan’s pride, the elite rangers, disappeared, following their Guild Master. Meanwhile, the priests approached us, with the other Black Swan Guild members following suit.</p>
+    <p>Ahn Ki-mo, who had pretended to be stunned with a dagger in his chest, took the dagger instead of Jung Hayan and Kim Ye-ri.</p>
+    <p>Two or three priests began to approach Kim Ye-ri, who really seemed to be stunned.</p>
+    <p>With the reinforcements’ sudden appearance, it didn’t take long for Park Deokgu to return to his senses. At this, one of the elite Black Swan guild members addressed him.</p>
+    <p>“Park Deokgu of Blue? I have something to ask about the accident.”</p>
+    <p>“What… What?”</p>
+    <p>“You can rest assured now.”</p>
+    <p>“H-How? No, what is this?”</p>
+    <p>“Ah, we caught sight of a rescue signal.”</p>
+    <p>“Ah… Ah… Rescue signal… What about Hyung-nim? Are he and Hayan safe? And Ye-ri?”</p>
+    <p>“Out priests are now working on healing them.”</p>
+    <p>“W-Wait a minute…”</p>
+    <p>“I’m sorry, we’re currently in an emergency.”</p>
+    <p>“I-I will go with them. Let go of me!”</p>
+    <p>My body was carried into a carriage regardless of my will. Kim Ye-ri, Ahn Ki-mo, and Kim Ye-ri also started coming in, one after another.</p>
+    <p>Looking at the wagon that looked like a makeshift ambulance, I could confirm that the Black Swans had a better system than I had initially thought.</p>
+    <p>When I slightly opened my left eye, I could see Deokgu watching us getting into the carriage one after another.</p>
+    <p>Of course, he had a runny nose and a face filled with tears.</p>
+    <p>“Hic, hic… Hyung-niiim…”</p>
+    <p>He was reaching out as if the crying he had endured all this time had finally burst, seeing the actors, including myself, entering the carriage.</p>
+    <p>“Hic, hic… Hayan cannot die. If you die… No, I will go with you! Let me go with you!”</p>
+    <p>It seemed as if he was just now realizing that all the trouble was over.</p>
+    <p>With the advent of the reinforcements, the brigade’s villains escaped, and the dying colleagues were once again visible.</p>
+    <p>“Let me go! Hyung-nim! Hyung-nim! Say something. Say something! Hic hic…”</p>
+    <p>“You should not do this, Park Deokgu-ssi. The patients are in an urgent situation right now. It’s a situation where they need to be as comfortable as possible!”</p>
+    <p>“Hic-hic-hic… Please save our Hyung-nim…”</p>
+    <p>“We will do our best.”</p>
+    <p>“Please save him. Please. Haaa… Ye-ri! Ahn Ki-mo-ssi!”</p>
+    <p>“Don’t get so close to the wagon! They have to relax!”</p>
+    <p>“Hic-hic-hic… Please save them. Sir, please…”</p>
+    <p>“Yes. Please believe me.”</p>
+    <p>He sounded so sad that even my own eyes had begun to tear up. It took all of the medical experts and priests’ participation in order to calm Park Deokgu down. However, the man didn’t appear to be calming down anytime soon.</p>
+    <p>“Hic…hic…”</p>
+    <p>The sound of him crying began to bother me.</p>
+    <p>“The villains may find the wagon again. Deokgu-ssi, please pay attention to the safety of the carriage.”</p>
+    <p>In the end, seeing that he quieted down in response to this, I was able to confirm that his sense of responsibility had remained strong until the end.</p>
+    <p>Once the door of the carriage finally closed, the four of us lying down slowly started to get up. There were some indescribable emotions on each individual’s face.</p>
+    <p>‘It’s an expression I know very well.’</p>
+    <p>I knew they were feeling the emotions that I usually felt. Ahn Ki-mo’s face showed satisfaction of having done something perfectly, but that was all. There was no way he couldn’t be embarrassed to look like this. He also had some conscience. Among them, the most serious was Kim Ye-ri.</p>
+    <p>‘She was awake.’</p>
+    <p>Kim Ye-ri, who seemed very shocked, now had terrible guilt on her face.</p>
+    <p>As the four sinners looked at each other’s facial expressions without saying anything, Kim Ye-ri’s small voice echoed in the carriage.</p>
+    <p>“From now on, I don’t want to do this. I… feel like garbage.”</p>
+    <p>“Good work… Still… This whole thing is a success.”</p>
+    <p>“Uncle Lee Kiyoung.”</p>
+    <p>“Yes.”</p>
+    <p>“We did well, right?”</p>
+    <p>I nodded a little, but I couldn’t find it in myself to sound cheerful. This was because I could still hear Park Deokgu crying outside.</p>
+    <p>The innocent Kim Ye-ri had not yet overcome her guilt.</p>
+    <p>As I slowly opened my mouth to comfort her, Kim Ye-ri quietly nodded.</p>
+    <p>“There are some things that cannot be helped in life.”</p>
+    <p>“Yes… Okay…”</p>
+    <p>However, she still looked a little worried.</p>
+  </article>
+</div>
+
+<div id="merge-status"></div>
+
+<nav>
+  <span class="nav-left"><a href="203.html" rel="prev">&#8592; Ch 203</a></span>
+  <span class="nav-mid">
+    <button class="btn-merge" id="btn-merge" >Merge Next 10</button>
+  </span>
+  <span class="nav-right"><a href="205.html" rel="next">Ch 205 &#8594;</a></span>
+</nav>
+
+<script>
+  // Chapters available after this one — discovered from meta.json
+  var slug       = "regressor-instruction-manual";
+  var currentNum = 204;
+  var nextNum    = 205;
+  var maxLoaded  = currentNum;
+  var allNums    = null;   // loaded lazily from meta.json
+  var merging    = false;
+  var root       = "../../";
+
+  async function getNums() {
+    if (allNums) return allNums;
+    var res = await fetch(root + "data/" + slug + "/meta.json");
+    var meta = await res.json();
+    allNums = meta.chapters.map(function(c){ return c.num; });
+    return allNums;
+  }
+
+  document.getElementById("btn-merge").addEventListener("click", async function() {
+    if (merging) return;
+    merging = true;
+    var btn    = document.getElementById("btn-merge");
+    var status = document.getElementById("merge-status");
+    btn.textContent = "Loading…";
+    btn.disabled = true;
+
+    var nums   = await getNums();
+    var idx    = nums.indexOf(maxLoaded);
+    var toLoad = nums.slice(idx + 1, idx + 11);
+    if (!toLoad.length) { merging = false; return; }
+
+    status.style.display = "block";
+    status.textContent = "Fetching chapters " + toLoad[0] + "–" + toLoad[toLoad.length-1] + "…";
+
+    var container = document.getElementById("chapters");
+    var firstNew  = null;
+
+    for (var i = 0; i < toLoad.length; i++) {
+      var n = toLoad[i];
+      try {
+        var res  = await fetch(n + ".html");
+        var html = await res.text();
+        var doc  = new DOMParser().parseFromString(html, "text/html");
+        var art  = doc.querySelector("article");
+        var h1   = doc.querySelector("h1");
+        if (!art) continue;
+
+        // Divider
+        var divider = document.createElement("div");
+        divider.className = "ch-divider";
+        divider.textContent = "Chapter " + n;
+        container.appendChild(divider);
+
+        // Chapter title
+        if (h1) {
+          var chTitle = document.createElement("div");
+          chTitle.className = "ch-title";
+          chTitle.textContent = h1.textContent;
+          container.appendChild(chTitle);
+        }
+
+        // Content
+        var section = document.createElement("article");
+        section.id = "ch-" + n;
+        section.innerHTML = art.innerHTML;
+        container.appendChild(section);
+
+        if (!firstNew) firstNew = divider;
+        maxLoaded = n;
+      } catch(e) {
+        console.warn("Failed to load chapter " + n, e);
+      }
+    }
+
+    // Update nav next link
+    var nextIdx = nums.indexOf(maxLoaded) + 1;
+    var newNext = nextIdx < nums.length ? nums[nextIdx] : null;
+    var navRight = document.querySelector(".nav-right");
+    if (newNext) {
+      navRight.innerHTML = '<a href="' + newNext + '.html" rel="next">Ch ' + newNext + ' &#8594;</a>';
+    } else {
+      navRight.innerHTML = '<span></span>';
+    }
+
+    status.style.display = "none";
+    btn.textContent = newNext ? "⊕ Merge Next 10" : "✓ All loaded";
+    btn.disabled = !newNext;
+    merging = false;
+
+    if (firstNew) firstNew.scrollIntoView({ behavior:"smooth", block:"start" });
+  });
+</script>
+</body>
+</html>

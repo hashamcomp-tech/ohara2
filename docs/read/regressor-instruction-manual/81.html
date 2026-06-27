@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chapter 81 — Regressor Instruction Manual</title>
+  <style>
+    :root { --ink:#1a1a1a; --dim:#666; --bg:#fff; --gold:#8a6a1a; --border:#ddd; }
+    @media (prefers-color-scheme:dark) {
+      :root { --ink:#e9e4da; --dim:#9a9286; --bg:#111010; --gold:#c9a84c; --border:#2a2825; }
+    }
+    *{ box-sizing:border-box; margin:0; padding:0; }
+    body{ background:var(--bg); color:var(--ink); font-family:Georgia,'Times New Roman',serif;
+          font-size:1.125rem; line-height:1.85; padding:40px 24px 80px;
+          max-width:680px; margin:0 auto; }
+    header{ margin-bottom:32px; padding-bottom:20px; border-bottom:1px solid var(--border); }
+    header a{ color:var(--gold); text-decoration:none; font-size:.85rem; }
+    h1{ font-size:1.35rem; font-weight:700; margin-top:10px; line-height:1.25; }
+    article p{ margin-bottom:1.4em; text-align:justify; hyphens:auto; }
+    .ch-divider{ text-align:center; padding:28px 0 16px; color:var(--dim);
+                  font-size:.8rem; letter-spacing:.1em; text-transform:uppercase; }
+    .ch-divider::before,.ch-divider::after{ content:''; display:inline-block;
+      width:40px; height:1px; background:var(--border); vertical-align:middle; margin:0 12px; }
+    .ch-title{ font-size:1.1rem; font-weight:700; color:var(--gold); margin-bottom:16px; }
+    nav{ display:grid; grid-template-columns:1fr auto 1fr; gap:10px; align-items:center;
+          margin-top:48px; padding-top:20px; border-top:1px solid var(--border); font-size:.88rem; }
+    nav a{ color:var(--gold); text-decoration:none; }
+    nav a:hover{ text-decoration:underline; }
+    nav .nav-right{ text-align:right; }
+    nav .nav-mid{ text-align:center; }
+    .btn-merge{ background:rgba(138,106,26,.12); border:1px solid var(--gold);
+                 color:var(--gold); padding:9px 16px; border-radius:6px; cursor:pointer;
+                 font-family:Georgia,serif; font-size:.85rem; font-weight:600;
+                 transition:background .15s; white-space:nowrap; }
+    .btn-merge:hover:not(:disabled){ background:rgba(138,106,26,.25); }
+    .btn-merge:disabled{ opacity:.35; cursor:not-allowed; }
+    #merge-status{ text-align:center; padding:12px; font-size:.82rem;
+                    color:var(--dim); display:none; }
+  </style>
+</head>
+<body>
+<header>
+  <a href="../../novel.html?slug=regressor-instruction-manual">&larr; Regressor Instruction Manual</a>
+  <h1 id="page-title">Chapter 81</h1>
+</header>
+
+<div id="chapters">
+  <article id="ch-81">
+    <p>Chapter 81: The Third Job (7)</p>
+    <p>“…”</p>
+    <p>“It would be nice if you could fulfill my request just this once. I didn’t really mean to ask this of you, but since you insisted…”</p>
+    <p>It certainly didn’t seem like I had misheard her request.</p>
+    <p>I didn’t want to get involved in any romantic ventures that could happen between the two. However, I felt like it was only natural for me to wonder why she wanted this.</p>
+    <p>“Since when…?”</p>
+    <p>“Never mind when… It’s because Park Deokgu hasn’t left my mind…”</p>
+    <p>Was it because they had similar characteristics?</p>
+    <p>“I encountered him in the restaurant once. He looked at me so indifferently, but those eyes… I’ve been thinking about him ever since.”</p>
+    <p>It felt a little embarrassing to witness this side of Hwang Jeong-yeon. However, she did mention being into bigger guys, so I guess that was to be expected.</p>
+    <p>Objectively, Hwang Jeong-yeon was a very pretty girl. She had a soothing atmosphere that could make a person feel relaxed just by being in her presence. She had her hair tied to one side that went past her shoulders, complete with a thin, little smile. I felt like there was something different about her. At the same time, I couldn’t believe it only took Park Deokgu ten seconds to capture this woman’s heart.</p>
+    <p>Meanwhile, it had taken me quite some time to get Jung Hayan to develop feelings for me. It felt a little embarrassing to admit this, but I knew I had to accept it at one point.</p>
+    <p>“I’ll be sure to find a way.”</p>
+    <p>“Ah… I think he’s a really good person, and is someone I could come to trust. I think we’d be a good fit, don’t you think? If you could help me out…”</p>
+    <p>“…”</p>
+    <p>“Ah, but I’d be eager to help you out in exchange! I won’t interfere with your research!”</p>
+    <p>“Don’t worry, I’ll keep my word. However, you have a lot of work to do.”</p>
+    <p>“Thank you, and of course!”</p>
+    <p>With that, I had gotten myself a competent assistant.</p>
+    <p>It didn’t matter whether Park Deokgu and Hwang Jeong-yeon became lovers or not, but I thought there was a good chance that they would be. I knew Park Deokgu would react accordingly if I praised her in front of him since he trusted me completely.</p>
+    <p>Bearing this in mind, I concluded that the price was reasonable. In any case, I wouldn’t lose anything trying to play matchmaker. If they got together, then Park Deokgu would probably stop hanging around my workshop, and I would be able to do my research in peace.</p>
+    <p>“Then let’s get started, doctor.”</p>
+    <p>“Let’s do that, assistant.”</p>
+    <p>With that, we set right to work.</p>
+    <p>Very little time had passed since then.</p>
+    <p>“Did you find anything of use?”</p>
+    <p>“Not yet. But it doesn’t mean I won’t, soon enough.”</p>
+    <p>I wasn’t trying to create anything that could be called revolutionary. After all, I was using Jung Hayan’s method and reconstructing it to fit my style.</p>
+    <p>I needed this to increase my stats and to find me my new job. I had managed to increase my stats at the beginning of our research, but the progress slowed down once we reached the second half. Like before, the efficiency of stat increase by using the catalyst had begun to dwindle.</p>
+    <p>“What do you mean by that?”</p>
+    <p>“Like what I said last time, I’ve been trying to see if alchemy can also compress and maintain the magic within a catalyst, and if there’s any way to harness genetic information with this type of magic.”</p>
+    <p>“Ah, I see…”</p>
+    <p>“Your hunch about the construction and design of the spell seems correct. However, that means it’ll be hard achieving the same result through alchemy. Jung Hayan really is a genius…”</p>
+    <p>However, the things I at first found nonsensical soon began to make sense.</p>
+    <p>I now knew why Jung Hayan was called a genius. Her ideas could branch into new theories. The magic power stored within her preferred catalyst was so huge that its effects could open up a new branch of study under magical academia.</p>
+    <p>Her method of arranging the magic power, the order in which she built the Tower of Magic, and her execution were all done in a sophisticated manner.</p>
+    <p>Unlike Hwang Jeong-yeon, whose intellect enhanced her memory, Jung Hayan’s intellect was naturally predisposed for innovativeness and enhancement of magic.</p>
+    <p>Now I knew why Kim Hyunsung seemed so obsessed with Jung Hayan.</p>
+    <p>With this thought in mind, I continued my research.</p>
+    <p>My struggle in finding an answer made me undergo sleepless nights, and there were times where I even dared to skip meals. Hwang Jeong-yeon also did the same. Though she did not help much in other aspects, her presence was enough to explain the aspects I had been struggling in.</p>
+    <p>[Intellect increases by 1.]</p>
+    <p>[Intellect increases by 1.]</p>
+    <p>Though my progress went slowly, it felt pleasing to know that I was getting somewhere.</p>
+    <p>By the time my intelligence stat had exceeded the 50s, I had begun to understand just how the mechanism of increasing intelligence worked.</p>
+    <p>The first was the acquisition or understanding of new knowledge. The second was deep meditation. Sharpening one’s imagination, indulging in experiments, reevaluating theories, and continually reading books - all of these helped build one’s intellect.</p>
+    <p>Just as Park Deokgu continually underwent weight training to build his strength, I continually fed myself with the knowledge to increase my intellect.</p>
+    <p>“It’s been a while since I cleaned your room, Kiyoung.”</p>
+    <p>“Oh, please do not clean up near me. There are tons of data that I’ve not organized yet.”</p>
+    <p>“Of course. Why don’t you get some more sleep?”</p>
+    <p>“No, I don’t want to cut off my progress.”</p>
+    <p>Of course, Hwang Jeong-yeon had a point. Both my room and workspace had begun to look like a dump. All the data I had organized had begun to pile up once more, leaving little space to move.</p>
+    <p>Seeing educational materials scattered all over my bed must have looked like an interesting scene, but it didn’t mean that it was fun in actuality. Studying continuously was boring.</p>
+    <p>Even though a door of opportunity had presented itself to me, there was no guarantee that it would open for me, and that alone increased my anxiety. However, I had no choice but to carry on.</p>
+    <p>Even at this moment, I knew my fellow party members were doing their best to progress. I had to catch up before I got left too far behind.</p>
+    <p>At the same time, I knew Kim Hyunsung wouldn’t abandon me even if that happened. This was my own doing. It was natural for me to get left behind if I didn’t exert the needed effort to improve. And in a way, Kim Hyunsung had steered me in the right direction - I didn’t want just to be a simple asset.</p>
+    <p>For the time being, I was forced to stick to my plan.</p>
+    <p>“Hey, Mr. Kiyoung. How do you make use of your magic?”</p>
+    <p>“Ah. Different people have different ways of casting spells. In my case, I build up the Tower of Magic. Jung Hayan does it similarly, except hers is like a rotating watchtower. It’s like gathering all the needed parts and building something out of them.”</p>
+    <p>“I understand what you’re saying.”</p>
+    <p>“It’s actually more complicated than others. I don’t know much of anything else, so I think the most difficult part is finding genetics that match.”</p>
+    <p>“Simply interpreting the order already seems complicated… It would be stressful to have to convert to making use of a magic circle.”</p>
+    <p>“It’s really just a simple operation… All you have to do is make use of your time wisely.”</p>
+    <p>It might seem like a simple conjuring of a circle on the surface, but there was a difference. I knew I would get fruitful results with my research soon, but I was already getting impatient.</p>
+    <p>One month had passed, but Kim Hyunsung and the others had not yet returned.</p>
+    <p>Perhaps the consumables they had taken with them proved to be insufficient for the trip. Knowing their condition before they left, I knew they’d have a hard time sorting their mess.</p>
+    <p>Jung Hayan would have spent every night with tears, and Kim Ye-ri, without Kim Hyunsung’s constant commands, would be shooting arrows in the wrong direction. Park Deokgu might even revert to being a coward again.</p>
+    <p>On the other hand, Sun Hee-young would move normally, but as she would be burdened with leading the party, the whole team would feel at a loss. I felt a little better, knowing I wasn’t the only one having a hard time.</p>
+    <p>A little more time passed.</p>
+    <p>At this point, I had slowly begun understanding Jung Hayan’s magic, and my intelligence stats had exceeded 60. Personally, this felt like a very satisfying achievement.</p>
+    <p>“The results have shown themselves.”</p>
+    <p>“Yes, we’re reaching the target intellectual levels.”</p>
+    <p>“Ah. Congratulations. How about taking a little break today?”</p>
+    <p>“No, no. It would be better to rest after I’ve achieved my goal.”</p>
+    <p>After so much time devoting myself to my progress, I began to ask myself questions that I knew would aid me in my goal. This time, it wasn’t about the hidden truth of magic.</p>
+    <p>Rather, I had started thinking about the job change I was aiming for.</p>
+    <p>How could Jung Hayan have achieved such advanced creations without prior experience?</p>
+    <p>I already knew the answer.</p>
+    <p>Jung Hayan had gotten a job before she even went on a hunt. I didn’t bother wondering as to how she had gotten it. She probably understood herself far more than I did with myself and had put this knowledge to good use.</p>
+    <p>I was trying to do the same now, too.</p>
+    <p>In addition to analyzing, describing, and organizing data, I needed to understand everything that was going through my head. I knew I was taking the right direction with this.</p>
+    <p>I began to ask myself more questions because of this. ‘Why?’ questions were a constant presence. Thus I began my search for the hidden truth, rather than the visible results.</p>
+    <p>I imagined experimenting and then tried to determine why it failed, which was not as difficult as it sounded. After all, I had a very competent assistant by my side.</p>
+    <p>In addition to that, I had also lost a little weight.</p>
+    <p>Why would I, when I felt like I had just stumbled onto a valuable part of my progress?</p>
+    <p>I didn’t want a great answer to my goals. One very small piece was already enough.</p>
+    <p>How did the change in genetic traits, information values, and magic power affect the individual? Was the magic present in the transformed individual complete or incomplete?</p>
+    <p>We had not stopped experimenting with stranded DNA, and we still didn’t know which virus was deadly to some monsters and why a particular gene would not accept said virus.</p>
+    <p>None of these small pieces of information were well understood, but one thing was certain.</p>
+    <p>We were slowly finding the answers.</p>
+    <p>“What do you need this time?”</p>
+    <p>“I need catalysts from the Garden of Terror, please.”</p>
+    <p>I was far from finding the answers, and I wasn’t that smart. I wasn’t even a scientist, and I didn’t know anything about genes and the like.</p>
+    <p>However, I found the whole process of searching for answers fun.</p>
+    <p>“You must be enjoying this.”</p>
+    <p>“I am not.”</p>
+    <p>[Intellect increases by 1.]</p>
+    <p>“Isn’t it fun? I found it interesting.”</p>
+    <p>Only</p>
+    <p>“No. Honestly, I found it boring.”</p>
+    <p>[Intellect increases by 1.]</p>
+    <p>“You’re lying.”</p>
+    <p>[Intellect increases by 1.]</p>
+    <p>As more time passed, I began to make even more progress.</p>
+    <p>[You have discovered a new job.]</p>
+    <p>The results I hoped to achieve had finally come.</p>
+    <p>“Phew.”</p>
+  </article>
+</div>
+
+<div id="merge-status"></div>
+
+<nav>
+  <span class="nav-left"><a href="80.html" rel="prev">&#8592; Ch 80</a></span>
+  <span class="nav-mid">
+    <button class="btn-merge" id="btn-merge" >Merge Next 10</button>
+  </span>
+  <span class="nav-right"><a href="82.html" rel="next">Ch 82 &#8594;</a></span>
+</nav>
+
+<script>
+  // Chapters available after this one — discovered from meta.json
+  var slug       = "regressor-instruction-manual";
+  var currentNum = 81;
+  var nextNum    = 82;
+  var maxLoaded  = currentNum;
+  var allNums    = null;   // loaded lazily from meta.json
+  var merging    = false;
+  var root       = "../../";
+
+  async function getNums() {
+    if (allNums) return allNums;
+    var res = await fetch(root + "data/" + slug + "/meta.json");
+    var meta = await res.json();
+    allNums = meta.chapters.map(function(c){ return c.num; });
+    return allNums;
+  }
+
+  document.getElementById("btn-merge").addEventListener("click", async function() {
+    if (merging) return;
+    merging = true;
+    var btn    = document.getElementById("btn-merge");
+    var status = document.getElementById("merge-status");
+    btn.textContent = "Loading…";
+    btn.disabled = true;
+
+    var nums   = await getNums();
+    var idx    = nums.indexOf(maxLoaded);
+    var toLoad = nums.slice(idx + 1, idx + 11);
+    if (!toLoad.length) { merging = false; return; }
+
+    status.style.display = "block";
+    status.textContent = "Fetching chapters " + toLoad[0] + "–" + toLoad[toLoad.length-1] + "…";
+
+    var container = document.getElementById("chapters");
+    var firstNew  = null;
+
+    for (var i = 0; i < toLoad.length; i++) {
+      var n = toLoad[i];
+      try {
+        var res  = await fetch(n + ".html");
+        var html = await res.text();
+        var doc  = new DOMParser().parseFromString(html, "text/html");
+        var art  = doc.querySelector("article");
+        var h1   = doc.querySelector("h1");
+        if (!art) continue;
+
+        // Divider
+        var divider = document.createElement("div");
+        divider.className = "ch-divider";
+        divider.textContent = "Chapter " + n;
+        container.appendChild(divider);
+
+        // Chapter title
+        if (h1) {
+          var chTitle = document.createElement("div");
+          chTitle.className = "ch-title";
+          chTitle.textContent = h1.textContent;
+          container.appendChild(chTitle);
+        }
+
+        // Content
+        var section = document.createElement("article");
+        section.id = "ch-" + n;
+        section.innerHTML = art.innerHTML;
+        container.appendChild(section);
+
+        if (!firstNew) firstNew = divider;
+        maxLoaded = n;
+      } catch(e) {
+        console.warn("Failed to load chapter " + n, e);
+      }
+    }
+
+    // Update nav next link
+    var nextIdx = nums.indexOf(maxLoaded) + 1;
+    var newNext = nextIdx < nums.length ? nums[nextIdx] : null;
+    var navRight = document.querySelector(".nav-right");
+    if (newNext) {
+      navRight.innerHTML = '<a href="' + newNext + '.html" rel="next">Ch ' + newNext + ' &#8594;</a>';
+    } else {
+      navRight.innerHTML = '<span></span>';
+    }
+
+    status.style.display = "none";
+    btn.textContent = newNext ? "⊕ Merge Next 10" : "✓ All loaded";
+    btn.disabled = !newNext;
+    merging = false;
+
+    if (firstNew) firstNew.scrollIntoView({ behavior:"smooth", block:"start" });
+  });
+</script>
+</body>
+</html>

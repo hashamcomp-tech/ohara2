@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chapter 157 — Regressor Instruction Manual</title>
+  <style>
+    :root { --ink:#1a1a1a; --dim:#666; --bg:#fff; --gold:#8a6a1a; --border:#ddd; }
+    @media (prefers-color-scheme:dark) {
+      :root { --ink:#e9e4da; --dim:#9a9286; --bg:#111010; --gold:#c9a84c; --border:#2a2825; }
+    }
+    *{ box-sizing:border-box; margin:0; padding:0; }
+    body{ background:var(--bg); color:var(--ink); font-family:Georgia,'Times New Roman',serif;
+          font-size:1.125rem; line-height:1.85; padding:40px 24px 80px;
+          max-width:680px; margin:0 auto; }
+    header{ margin-bottom:32px; padding-bottom:20px; border-bottom:1px solid var(--border); }
+    header a{ color:var(--gold); text-decoration:none; font-size:.85rem; }
+    h1{ font-size:1.35rem; font-weight:700; margin-top:10px; line-height:1.25; }
+    article p{ margin-bottom:1.4em; text-align:justify; hyphens:auto; }
+    .ch-divider{ text-align:center; padding:28px 0 16px; color:var(--dim);
+                  font-size:.8rem; letter-spacing:.1em; text-transform:uppercase; }
+    .ch-divider::before,.ch-divider::after{ content:''; display:inline-block;
+      width:40px; height:1px; background:var(--border); vertical-align:middle; margin:0 12px; }
+    .ch-title{ font-size:1.1rem; font-weight:700; color:var(--gold); margin-bottom:16px; }
+    nav{ display:grid; grid-template-columns:1fr auto 1fr; gap:10px; align-items:center;
+          margin-top:48px; padding-top:20px; border-top:1px solid var(--border); font-size:.88rem; }
+    nav a{ color:var(--gold); text-decoration:none; }
+    nav a:hover{ text-decoration:underline; }
+    nav .nav-right{ text-align:right; }
+    nav .nav-mid{ text-align:center; }
+    .btn-merge{ background:rgba(138,106,26,.12); border:1px solid var(--gold);
+                 color:var(--gold); padding:9px 16px; border-radius:6px; cursor:pointer;
+                 font-family:Georgia,serif; font-size:.85rem; font-weight:600;
+                 transition:background .15s; white-space:nowrap; }
+    .btn-merge:hover:not(:disabled){ background:rgba(138,106,26,.25); }
+    .btn-merge:disabled{ opacity:.35; cursor:not-allowed; }
+    #merge-status{ text-align:center; padding:12px; font-size:.82rem;
+                    color:var(--dim); display:none; }
+  </style>
+</head>
+<body>
+<header>
+  <a href="../../novel.html?slug=regressor-instruction-manual">&larr; Regressor Instruction Manual</a>
+  <h1 id="page-title">Chapter 157</h1>
+</header>
+
+<div id="chapters">
+  <article id="ch-157">
+    <p>Chapter 157: Hypocrite (1)</p>
+    <p>“Hahahaha. I think we understood each other better than I thought.”</p>
+    <p>“I think so, too. Blue Vice Guild Master.”</p>
+    <p>“There will be a lot of business meetings in the future. You’ll be sure to benefit a lot from this agreement.”</p>
+    <p>“Yes…”</p>
+    <p>“Wow… And the stories I heard today was very interesting. In particular, the one related to Hyejin.”</p>
+    <p>“Yes. In fact, I was a little surprised that she was in Blue. I told you today, but as you heard, she is not a good quality person. Some talk as if she is an apostle of justice… Tut-tut. It must have been because of their personal grudges. Actually, our guild was cleared of its charges.”</p>
+    <p>“Ah! I see.”</p>
+    <p>“Actually, we didn’t agree with each other in almost every case. At first, I thought she was a little complacent, but she started intervening in everything as soon as she got the executive position. I didn’t know if she was asking me to raise her salary or to do something else, but it was very difficult because this happened constantly.”</p>
+    <p>“What were you accused of?”</p>
+    <p>“That’s…”</p>
+    <p>“If you don’t want to tell, there is a way for me to find out personally, Song Jungwook-ssi.”</p>
+    <p>“Ha… Haha. Of course, I can. The charges were cleared anyway. It was a monster deal.”</p>
+    <p>“Ah.”</p>
+    <p>“Apart from the tax issues… There was a problem with the treatment of the guild staff, but the most important thing was the charges of illegal monster trading.”</p>
+    <p>“I see.”</p>
+    <p>“She turned small things into big problems, and she is not flexible enough. There were a lot of problems in the dungeon and elsewhere. She also caused various troubles with other guilds.”</p>
+    <p>“Ah. She looked a little like that. There was a strong feeling of being stubborn.”</p>
+    <p>“She is a person who has a lot of problems in many ways. Ah! You should also have a drink, Hayan-ssi.”</p>
+    <p>“N-No… I’m good, Song Jungwook-nim.”</p>
+    <p>“It seems that Hayan-ssi doesn’t like alcohol very much.”</p>
+    <p>‘This guy lays flat better than expected.’</p>
+    <p>His arrogance from before had completely dissipated. He was now like a dog wagging its tail.</p>
+    <p>His ability to suck up to me certainly stimulated my sense of superiority.</p>
+    <p>‘Well, I still don’t know if it’s real or not.’</p>
+    <p>If one were to think about his unique characteristic, there was a high probability that he was planning something. He was either going to backstab me, or find a way to use me properly.</p>
+    <p>‘That’s why it’s more fun, but…’</p>
+    <p>Particularly, it felt amusing seeing him badmouthing Cho Hyejin. I’d have to filter half of it, but I could still get a rough idea of what kind of situation she had been in. Jungwook had probably manipulated the public’s opinion of her.</p>
+    <p>I thought he would have isolated Cho Hyejin with words such as ‘I don’t like her’ or ‘She a bit suspicious.’ The words of those in power garnered the most trust, after all.</p>
+    <p>It would have taken less than a few months to isolate a woman like Cho Hyejin.</p>
+    <p>As the conversation dulled, Song Jungwook glanced at me.</p>
+    <p>“It’s late. How about sleeping here tonight, Lee Kiyoung?”</p>
+    <p>“Ah! It’s already this late. Thank you for the favor, but I think it would be better to return. Marlin Young-ae will be worried. Haha.”</p>
+    <p>As expected, his expression dimmed. It was only for an instant, but the brief frown that flashed across his face was an expected reaction on my part.</p>
+    <p>“Then, we’ll be going now. I also drank a lot… We’ll talk about the unfinished stories later. Oh and… Can I trust you with the work I asked for?”</p>
+    <p>“Yes. As you said, I will contact all other guilds in Castle Rock to proceed with the contract.”</p>
+    <p>“Thank you. You’re a little more competent than I thought, Little Rock Guild Master…”</p>
+    <p>“Thank you. Ahem… Rather than that, it’s late. Should I assign you an escort…?”</p>
+    <p>“Ah. I’ll accept if it’s an escort. Hahaha. I understand what you’re worried about, but I am safe.”</p>
+    <p>“What?”</p>
+    <p>“I haven’t told you. Last time, about the Lindel terrorist incident. I don’t know if you remember, but I’ve become a bit sensitive to safety since then. My sister Hee-ra pays a lot of attention… The shadows of the Red Mercenaries are escorting me.”</p>
+    <p>“What?”</p>
+    <p>“Of course, since I came to Castle Rock, the knights of Youngju Tower and the Heretic Inquisitors of the Pope’s side have also been helping me. I am not an important person, but it seems that I am loved by many people. Hahaha. I’m joking, but if the Little Rock Guild Master would dare to harm me, you would have been in a very difficult position.”</p>
+    <p>“I-I see.”</p>
+    <p>Seeing that he was sweating, he seemed to have something planned for me.</p>
+    <p>“Of course, that won’t happen. Then I’ll be going. Hayan, let’s go.”</p>
+    <p>“Yes, oppa!”</p>
+    <p>As soon as I went outside, I saw what Castle Rock looked like at nighttime. Though it was marvelous in the day, it wasn’t bad during the evenings, too. This medieval-styled city, looking a little rugged, certainly seemed very attractive to me.</p>
+    <p>As I mulled over these nonsensical thoughts, I realized that I’d drank a little more than I expected. No, if it was Little Rock that had prepared it, it was probably stronger than what I was accustomed to.</p>
+    <p>As I slowly grabbed onto Jung Hayan, she automatically moved to support me.</p>
+    <p>“Y-You can lean on me.”</p>
+    <p>“Then, I will. When I stood up, I suddenly felt dizzy.”</p>
+    <p>“Are you having trouble walking, too?”</p>
+    <p>“No. I can still control my body. Thank you for your work today, Hayan.”</p>
+    <p>“No. That’s all I do anyway. Anyway, there’s something a little more surprising than that.”</p>
+    <p>“What?”</p>
+    <p>“I mean, Hyejin.”</p>
+    <p>“Oooh.”</p>
+    <p>Come to think of it; this was the first time that Jung Hayan had heard about Cho Hyejin. Unlike me, who knew about the situation roughly, it must’ve been fun for her hearing about Hyejin.</p>
+    <p>“I didn’t know she was such a person…”</p>
+    <p>“Ah. That’s not a bad thing. And to be precise, I’ve only heard the story from the standpoint of Little Rock. Shouldn’t I have to listen to Cho Hyejin’s words at least once?”</p>
+    <p>“Ah, yes, you’re right. That’s the right thing to do.”</p>
+    <p>“But that fact alone makes us feel a little awkward. I hate to think of this, but it sounds a little awkward to be a whistleblower.”</p>
+    <p>“Yes! I feel the same way too. It is awkward, indeed. Oppa.”</p>
+    <p>“But it’s not easy to act according to your conscience.”</p>
+    <p>“Right! Y-You still have to take care of your conscience!”</p>
+    <p>Jung Hayan hurriedly agreeing with whatever I said made me smile. I was curious as to what she really thought about the matter, but she probably wouldn’t bother with it that much. It wasn’t like her to think deeply about other people. What mattered for her was gaining my approval.</p>
+    <p>The story of Cho Hyejin I heard from Song Jungwook was simple. It was nothing more than I had already thought. If Song Jungwook hadn’t been exaggerating in some parts while telling me, the story would have become boring.</p>
+    <p>‘Of course, I don’t think he told me everything.</p>
+    <p>Anyway, what was interesting among them was that the majority of those who joined Little Rock were the companions who completed the tutorial dungeon with Cho Hyejin.</p>
+    <p>The guild was literally composed of friends and acquaintances, just like Blue. It was like having Jung Hayan expose all of Blue’s corruptions. It was easy to understand how her colleagues would’ve thought she was a traitor.</p>
+    <p>‘Illegal monster trading.’</p>
+    <p>Although they turned out to be innocent, I thought that Cho Hyejin was probably right.</p>
+    <p>I’m sure of it.</p>
+    <p>Little Rock had many things to hide. Of course, there was no evidence, but looking at the dispositions and characteristics, the answer came quickly to me.</p>
+    <p>Little Rock was illegally trading monsters through a route that I didn’t know. Some of the lord’s castles may be involved, as well as some other guilds and clans.</p>
+    <p>‘He’s a scammer.’</p>
+    <p>If possible, I would like to hear about Cho Hyejin’s statement.</p>
+    <p>As I walked while thinking about various things, we reached the square.</p>
+    <p>“Are you drunk?”</p>
+    <p>“I’m just a little dizzy, but I’m fine.”</p>
+    <p>“You seem to be very tired.”</p>
+    <p>“No, Hayan.”</p>
+    <p>“Wouldn’t it be better to rest a little and go?”</p>
+    <p>“I said I’m fine. We’re close anyway.”</p>
+    <p>“I-I’m a little tired, too.”</p>
+    <p>Following Jeong Hayan’s gaze, what I could see was a luxury motel. I instantly realized what Jung Hayan meant.</p>
+    <p>I… Oh my.</p>
+    <p>“L-Let’s take a break for a bit.”</p>
+    <p>I thought she wanted to be together with me by taking the long way, but it seemed that her real purpose was this.</p>
+    <p>“I think you are tired. You must be.”</p>
+    <p>She was even forcibly making me think I was tired. What made me embarrassed was the fact that I wanted the same thing as she did. I wondered if it would be nice to spend a little more time together.</p>
+    <p>“Hmm…”</p>
+    <p>While I was trying to make my decision, I heard a voice call out to us.</p>
+    <p>“You are here.”</p>
+    <p>“Ah…”</p>
+    <p>Jung Hayan stiffened as an unwelcome guest made itself known, yet I peered over her to find out who it was. My current position with Hayan looked somewhat tricky.</p>
+    <p>“Hyejin. What are you doing here?”</p>
+    <p>“I came to pick up Kiyoung-ssi and Hayan-ssi.”</p>
+    <p>“What?”</p>
+    <p>“To be precise, it would be right to say that the escort car came. It’s a dark night. Castle Rock is more dangerous than Lindel. There are also imperialists of poor quality in narrow alleys. Of course, it’s hard for something to happen when you think of Hayan-ssi, but I think I’ll be relieved to do this as I’m the escort.”</p>
+    <p>“There must be a knight of Youngju Tower.”</p>
+    <p>“Ah. I don’t know if you’ve heard it, but in this case, the Guild Master entrusted me with being Lee Kiyoung’s escort. He was worried about the Lindel terrorist incident.”</p>
+    <p>“Ooooh…”</p>
+    <p>I realized once more that our returner cared for me.</p>
+    <p>“Since it’s dark, I thought it was right for me to come out. I was worried… Then let’s go together.”</p>
+    <p>“Yes. Thank you for picking us up. Hmm… But when I think about it, I don’t think I had a long conversation with Hyejin.”</p>
+    <p>“Ah…”</p>
+    <p>“What do you think?”</p>
+    <p>“I’m sorry?”</p>
+    <p>“About going somewhere to spend a little time.”</p>
+    <p>I just thought it wasn’t a bad idea. Anyway, it was time to conduct at least one frank conversation with Cho Hyejin.</p>
+    <p>Only</p>
+    <p>Jung Hayan pouted her lips, but it would not be bad to drink at a nearby bar for a while.</p>
+    <p>I thought Cho Hyejin would accept my offer. However, the reaction she showed was different from what I thought.</p>
+    <p>She stared at me as she trembled.</p>
+    <p>“T-That’s rude.”</p>
+    <p>“What?”</p>
+    <p>“I didn’t see you that way. Were you such a rude person?!”</p>
+    <p>Something unexpected just happened.</p>
+    <p>‘What bullsh*t are you talking about?’</p>
+  </article>
+</div>
+
+<div id="merge-status"></div>
+
+<nav>
+  <span class="nav-left"><a href="156.html" rel="prev">&#8592; Ch 156</a></span>
+  <span class="nav-mid">
+    <button class="btn-merge" id="btn-merge" >Merge Next 10</button>
+  </span>
+  <span class="nav-right"><a href="158.html" rel="next">Ch 158 &#8594;</a></span>
+</nav>
+
+<script>
+  // Chapters available after this one — discovered from meta.json
+  var slug       = "regressor-instruction-manual";
+  var currentNum = 157;
+  var nextNum    = 158;
+  var maxLoaded  = currentNum;
+  var allNums    = null;   // loaded lazily from meta.json
+  var merging    = false;
+  var root       = "../../";
+
+  async function getNums() {
+    if (allNums) return allNums;
+    var res = await fetch(root + "data/" + slug + "/meta.json");
+    var meta = await res.json();
+    allNums = meta.chapters.map(function(c){ return c.num; });
+    return allNums;
+  }
+
+  document.getElementById("btn-merge").addEventListener("click", async function() {
+    if (merging) return;
+    merging = true;
+    var btn    = document.getElementById("btn-merge");
+    var status = document.getElementById("merge-status");
+    btn.textContent = "Loading…";
+    btn.disabled = true;
+
+    var nums   = await getNums();
+    var idx    = nums.indexOf(maxLoaded);
+    var toLoad = nums.slice(idx + 1, idx + 11);
+    if (!toLoad.length) { merging = false; return; }
+
+    status.style.display = "block";
+    status.textContent = "Fetching chapters " + toLoad[0] + "–" + toLoad[toLoad.length-1] + "…";
+
+    var container = document.getElementById("chapters");
+    var firstNew  = null;
+
+    for (var i = 0; i < toLoad.length; i++) {
+      var n = toLoad[i];
+      try {
+        var res  = await fetch(n + ".html");
+        var html = await res.text();
+        var doc  = new DOMParser().parseFromString(html, "text/html");
+        var art  = doc.querySelector("article");
+        var h1   = doc.querySelector("h1");
+        if (!art) continue;
+
+        // Divider
+        var divider = document.createElement("div");
+        divider.className = "ch-divider";
+        divider.textContent = "Chapter " + n;
+        container.appendChild(divider);
+
+        // Chapter title
+        if (h1) {
+          var chTitle = document.createElement("div");
+          chTitle.className = "ch-title";
+          chTitle.textContent = h1.textContent;
+          container.appendChild(chTitle);
+        }
+
+        // Content
+        var section = document.createElement("article");
+        section.id = "ch-" + n;
+        section.innerHTML = art.innerHTML;
+        container.appendChild(section);
+
+        if (!firstNew) firstNew = divider;
+        maxLoaded = n;
+      } catch(e) {
+        console.warn("Failed to load chapter " + n, e);
+      }
+    }
+
+    // Update nav next link
+    var nextIdx = nums.indexOf(maxLoaded) + 1;
+    var newNext = nextIdx < nums.length ? nums[nextIdx] : null;
+    var navRight = document.querySelector(".nav-right");
+    if (newNext) {
+      navRight.innerHTML = '<a href="' + newNext + '.html" rel="next">Ch ' + newNext + ' &#8594;</a>';
+    } else {
+      navRight.innerHTML = '<span></span>';
+    }
+
+    status.style.display = "none";
+    btn.textContent = newNext ? "⊕ Merge Next 10" : "✓ All loaded";
+    btn.disabled = !newNext;
+    merging = false;
+
+    if (firstNew) firstNew.scrollIntoView({ behavior:"smooth", block:"start" });
+  });
+</script>
+</body>
+</html>

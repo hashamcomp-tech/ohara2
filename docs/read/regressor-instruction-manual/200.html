@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chapter 200 — Regressor Instruction Manual</title>
+  <style>
+    :root { --ink:#1a1a1a; --dim:#666; --bg:#fff; --gold:#8a6a1a; --border:#ddd; }
+    @media (prefers-color-scheme:dark) {
+      :root { --ink:#e9e4da; --dim:#9a9286; --bg:#111010; --gold:#c9a84c; --border:#2a2825; }
+    }
+    *{ box-sizing:border-box; margin:0; padding:0; }
+    body{ background:var(--bg); color:var(--ink); font-family:Georgia,'Times New Roman',serif;
+          font-size:1.125rem; line-height:1.85; padding:40px 24px 80px;
+          max-width:680px; margin:0 auto; }
+    header{ margin-bottom:32px; padding-bottom:20px; border-bottom:1px solid var(--border); }
+    header a{ color:var(--gold); text-decoration:none; font-size:.85rem; }
+    h1{ font-size:1.35rem; font-weight:700; margin-top:10px; line-height:1.25; }
+    article p{ margin-bottom:1.4em; text-align:justify; hyphens:auto; }
+    .ch-divider{ text-align:center; padding:28px 0 16px; color:var(--dim);
+                  font-size:.8rem; letter-spacing:.1em; text-transform:uppercase; }
+    .ch-divider::before,.ch-divider::after{ content:''; display:inline-block;
+      width:40px; height:1px; background:var(--border); vertical-align:middle; margin:0 12px; }
+    .ch-title{ font-size:1.1rem; font-weight:700; color:var(--gold); margin-bottom:16px; }
+    nav{ display:grid; grid-template-columns:1fr auto 1fr; gap:10px; align-items:center;
+          margin-top:48px; padding-top:20px; border-top:1px solid var(--border); font-size:.88rem; }
+    nav a{ color:var(--gold); text-decoration:none; }
+    nav a:hover{ text-decoration:underline; }
+    nav .nav-right{ text-align:right; }
+    nav .nav-mid{ text-align:center; }
+    .btn-merge{ background:rgba(138,106,26,.12); border:1px solid var(--gold);
+                 color:var(--gold); padding:9px 16px; border-radius:6px; cursor:pointer;
+                 font-family:Georgia,serif; font-size:.85rem; font-weight:600;
+                 transition:background .15s; white-space:nowrap; }
+    .btn-merge:hover:not(:disabled){ background:rgba(138,106,26,.25); }
+    .btn-merge:disabled{ opacity:.35; cursor:not-allowed; }
+    #merge-status{ text-align:center; padding:12px; font-size:.82rem;
+                    color:var(--dim); display:none; }
+  </style>
+</head>
+<body>
+<header>
+  <a href="../../novel.html?slug=regressor-instruction-manual">&larr; Regressor Instruction Manual</a>
+  <h1 id="page-title">Chapter 200</h1>
+</header>
+
+<div id="chapters">
+  <article id="ch-200">
+    <p>Chapter 200: Lee Kiyoung’s prank</p>
+    <p>It wasn’t that he was desperate. In fact, Park Deokgu might be more desperate than anyone else. Just by looking at his relentless training, I could see how much he felt cornered.</p>
+    <p>Nevertheless, I couldn’t understand why he wouldn’t just accept my gift, but I knew there must be a reason why. Perhaps he had wanted to repay me for my trust, or that he wanted to stand by our side using his own strength, but what was more important to me right now was to make him realize that his growth should hold precedence over his pride.</p>
+    <p>‘But no, he had to be all stupid.’</p>
+    <p>Right now, he did not have the ability to make his self-diagnosis. Naturally, he felt frustrated since he didn’t know what his problem was.</p>
+    <p>From the beginning, it was unreasonable to have tried to put geniuses such as Kim Ye-ri, Kim Hyunsung, and Cho Hyejin on the same line as him.</p>
+    <p>Kim Ye-ri was right. He had his own role, and even if Park Deokgu accepted this serum, he would not be able to catch up with the geniuses in Kim Hyunsung’s party.</p>
+    <p>I, too, was similar to him. After realizing that I couldn’t catch up with geniuses from the beginning, I promptly changed my route. Though I had a great purpose and strong will, the chances of me catching up to Jung Hayan’s level were zero.</p>
+    <p>Of course, Park Deokgu had a higher possibility of reaching them when compared to me.</p>
+    <p>“So the method you thought of is this?”</p>
+    <p>“Yes, it is.”</p>
+    <p>“I don’t think it’s a bad method… If anything goes wrong, it could completely ruin a person, right? I’ve seen so many people since the tutorial, but they didn’t seem to have strong willpower. Rather they looked pretty dependent. Honestly speaking…”</p>
+    <p>“Yes?”</p>
+    <p>“To be honest, if it weren’t for Kiyoung, Park Deokgu would have died in the tutorial.”</p>
+    <p>Lee Jihye spoke this harsh fact. If Park Deokgu heard her, he would feel depressed.</p>
+    <p>Jihye herself seemed tired, which led me to believe that her work in Black Swan had been tough so far. However, she still looked relaxed and had a confident expression, as always.</p>
+    <p>“You’re one to speak.”</p>
+    <p>“Oh, I don’t know. I think I would have survived without Kiyoung-ssi and Hyunsung-ssi. Well, it’s already in the past, so let’s stop reminiscing. That’s not what matters now. And why do you keep calling me Nuna, Oppa?”</p>
+    <p>[Checking the status window and the talent levels of the player Lee Jihye.]</p>
+    <p>[Name: Lee Jihye]</p>
+    <p>[Title: Black Swan’s Head.]</p>
+    <p>[Age: 29]</p>
+    <p>[Disposition: Selfish Ambitions]</p>
+    <p>[Class: Commander]</p>
+    <p>[Stats]</p>
+    <p>[Strength: 16/Growth potential: Common or lower]</p>
+    <p>[Agility: 15/Growth potential: Common or lower]</p>
+    <p>[Stamina: 27/Growth potential: Common or lower]</p>
+    <p>[Intelligence: 67/Growth potential: Rare or higher]</p>
+    <p>[Endurance: 14/Growth potential: Common or lower]</p>
+    <p>[Luck: 44/Growth potential: Common or lower]</p>
+    <p>[Magic Power: 13/Growth potential: Common or lower]</p>
+    <p>[General Review: It’s been a long time since we saw your soulmate. As always, I hope you don’t get too intimate. You know that the possible child to be born will be really pitiful, right?]</p>
+    <p>‘It’s because you’re older.’</p>
+    <p>She didn’t seem to know that I could check her age. As I still wanted it to be a secret that only I knew, I swallowed General Review’s joke about the child to be born and quietly averted my gaze.</p>
+    <p>“I don’t even look that old… Anyway, it really is amazing.”</p>
+    <p>“What?”</p>
+    <p>“I didn’t know you would care for him like this. I thought you were more of a cold type… Do you find it hard trying to get rid of him because you’ve been together since the start?”</p>
+    <p>“Something like that.”</p>
+    <p>“That’s surprising. I knew you were all about Hyunsung-ssi, but this time you seem to be doing everything you can for that big dunce. If I hadn’t heard the news that you were with Yuno Kasugano in the Royal Castle, I would have had doubts about whether Kiyoung-ssi was a homosexual.”</p>
+    <p>“What?”</p>
+    <p>“I’m just joking. That’s because I know better than anyone else that you’re not. Still, if you really do like men, you should let me know. It’s good to feel challenged, but if that’s true, it’ll sadden me a lot.”</p>
+    <p>“It’s not like that.”</p>
+    <p>“I know. I know you’re just worried about Park Deokgu, so I just said it. There’s no reason not to throw him away, but it’s evident that you still want him around. You know that there’s been a lot of talk at other guilds and parties, right?”</p>
+    <p>“No. I’ve been quite busy with my research lately. Are there any bad rumors circulating?”</p>
+    <p>“Something like that. It is rumored that the Eight Seat members Kim Hyunsung and Lee Kiyoung of the Blue party are looking for a decent front liner.”</p>
+    <p>“That’s just a rumor.”</p>
+    <p>“It may not sound like gossip to big-mouthed people. Some people are more observant than you think. The fact that Deokgu can no longer catch up with the party is a known fact, and there are about entrusting the front liner of Blue to someone like that, right? The transfer market is moving strangely due to rumors of you seeking a capable front liner. The freelance tankers are also excited about getting contacted…”</p>
+    <p>“…”</p>
+    <p>“Of course, I understand you, but in order to succeed, you have to think carefully about the best timing to get rid of him. Well, I know you’ll do well on your own… I am not in a position to judge this. Please just think that I’m worried about my husband and had just been babbling things.”</p>
+    <p>“No. You’re actually right in some parts.”</p>
+    <p>“Really?”</p>
+    <p>“Actually, Hyunsung-ssi asked me about setting up a second party. Rather than abandoning Deokgu, we chose to prevent him from endangering himself in potentially dangerous situations. We also had the idea of recruiting a new tanker for our current party…”</p>
+    <p>“How unfortunate… for Deokgu-ssi. If you decide to raise one, is he going to recruit from the new recruits in the tutorial dungeon?”</p>
+    <p>“Probably. Although retired, Lee Sang-hee is still a Blue adviser, so it’s not really an urgent situation. But we still have to prepare. I’ll only be willing to take care of Park Deokgu to this extent. Do you understand what I mean?”</p>
+    <p>“Yes.”</p>
+    <p>“Honestly, I spent so much time and money making the Enhancement Serum even though I had a lot of other priorities to attend to. It’s not just the Red Mercenaries and Black Swans that value these new recruits.”</p>
+    <p>“Well… Since Blue has settled down a little, you would want to bring many good newcomers. I understand.”</p>
+    <p>“This is the first and the last time. If something doesn’t work or if he doesn’t change anything…”</p>
+    <p>“Will you kick him out from the guild?”</p>
+    <p>“No. It would be appropriate to leave him to the second party. We’ll either make him a training instructor or an administrator.”</p>
+    <p>“See? You definitely got softer.”</p>
+    <p>“I’ll take this as a compliment, Nuna.”</p>
+    <p>As I teased her, Lee Jihye smiled. It felt a bit uncomfortable for her to be observing me like this, but since she had promised to help me, the purpose had been completed.</p>
+    <p>“I know you must be busy, so thank you for your care, Nuna.”</p>
+    <p>“I’ll just think that you bought a few stocks. Something will come back later. Well…”</p>
+    <p>“Sooner or later, the Black Swan will also have a drop of bean sprouts.”</p>
+    <p>“I think that Yeon-joo Eunni will like it. Ah. And please ask Hyunsung-ssi to make some time.”</p>
+    <p>“What?”</p>
+    <p>“My Guild Master keeps asking me to see him, but there’s been no response.”</p>
+    <p>“Park Yeon-joo?”</p>
+    <p>“Yes. Did you hear anything?”</p>
+    <p>“Absolutely nothing…”</p>
+    <p>“I think Yeon-joo Eunni likes Hyunsung-ssi. She seems really intent on asking me to arrange a meeting. I’m just curious… he’s not a eunuch, is he?”</p>
+    <p>“I don’t think… so…”</p>
+    <p>This was a new story that I had never heard of. I thought he had been getting close to Cho Hyejin. Who would have known that he would be caught up in a dating rumor with the Black Swan’s Guild Master?</p>
+    <p>Of course, this helped Blue. Seeing that I didn’t know, Kim Hyunsung seemed to be disinterested, but still…</p>
+    <p>‘This is good news.’</p>
+    <p>“Really, it seems like you’ve been stuck in research lately. There wasn’t any official movement, but this was also a story that became popular within Lindel, much like Park Deokgu.”</p>
+    <p>“What story?”</p>
+    <p>“It is rumored that the reason why Blue Guild was able to rise to its current position is due to the womanizing of the Guild Master and the Vice Guild Master. Honestly, it’s not even wrong, right? I don’t know about Kim Hyunsung, but it’s a rumor that perfectly fits you. You don’t even have that handsome face, but women still seem to stick to you like a charm…”</p>
+    <p>I knew that was indeed a very sad story, but I didn’t dare give a substantial reply. However, Lee Jihye’s previous remark was indeed correct. I had spent too much time on my research. I had to wonder if there were any other rumors.</p>
+    <p>“Are there any other rumors I haven’t heard of?”</p>
+    <p>“I don’t know. Well, the Red Mercenary is betting life and death on acquiring newcomers from this tutorial dungeon. The Mercenary Queen hasn’t given an official statement yet. I’m guessing there’s a different reason as to why she hasn’t yet appeared, but other people think differently.”</p>
+    <p>‘That’s the correct answer.’</p>
+    <p>“And what else? There are rumors that the Eight Seats of the continent will be officially announced sooner or later. I think the Holy Empire spread this rumor. It should be viewed as a fact rather than a simple rumor.”</p>
+    <p>“Good. I knew there would be an official announcement. The timing seems right, too. Perhaps…”</p>
+    <p>“It will be after the tutorial dungeon opens, right? Ah! Also, I heard that you got engaged to Marlin Young-ae and would acquire Castle Rock soon…”</p>
+    <p>“That’s just a rumor.”</p>
+    <p>“I thought so. The source of information came from Marlin’s side.”</p>
+    <p>“You seem to know all kinds of stuff.”</p>
+    <p>“What can I say? The intelligence in Black Swan is the best in the Empire. Oh, and did you know, Oppa?”</p>
+    <p>“Yes?”</p>
+    <p>“Kim Ye-ri of your guild…”</p>
+    <p>“What about her?”</p>
+    <p>“Did you know she’s been getting close to our guild’s kid lately?”</p>
+    <p>“I don’t know much about her. It’s Hyunsung that takes care of Kim Ye-ri…”</p>
+    <p>“It would be better to tell her to stop coming to Black Swan.”</p>
+    <p>“Did she cause some trouble?”</p>
+    <p>“No. Not like that… In fact, the one that Ye-ri is close to isn’t that… safe. Of course, she doesn’t do anything bad, but… Rather than Yeri damaging the Black Swan, I’m worried that my child may become a bad influence on yours. It’s quite hard to control our kid, too…”</p>
+    <p>“What, is she a psychopath?”</p>
+    <p>“No. Her personality is good. She has both talent and ability and is actually evaluated as a talented person who can soon lead the future of Black Swan.”</p>
+    <p>“If that’s the case, you don’t have to worry too much. It seems politically beneficial that Blue’s future and the Black Swan’s future are getting along well… If you think about making friends, there is a high probability that you will become positively affected. Our guild’s little ones have always been lonely. It’s a relief to hear that she has friends. Hyunsung will also like it. You don’t have to worry too much.”</p>
+    <p>As I finished speaking, Lee Jihye began to call out, startling me.</p>
+    <p>“You’ll see. Sira? Chae Sira?”</p>
+    <p>Someone answered her call right away.</p>
+    <p>“You called because you need me? Do you admit it? Yes, you do. The fact that you called me during a meeting with Lee Kiyoung, who has been appointed as one of the Eight Seats of the continent, means that you finally acknowledge me! Awesome. This is sick. You’re calling me on a quiet night! I’m feeling surprisingly excited!”</p>
+    <p>“No. There is no need for you to come in.”</p>
+    <p>“…”</p>
+    <p>Though I couldn’t see her face, I now knew the reason why Lee Jihye had warned me about Kim Ye-ri often visiting the Black Swans.</p>
+    <p>“I know what you mean… I will stop her using all means possible.”</p>
+    <p>“Yes… Anyway, you are going to enter the dungeon soon, right? Don’t worry. We’ll have everything Oppa ordered. I will proceed according to the scenario.”</p>
+    <p>“Thank you, Nuna.”</p>
+    <p>“No need to thank me. Between us… Anyway, please do well. Park Deokgu is still a good guy, but I hope this opportunity will give him some good results.”</p>
+    <p>“Are you serious?”</p>
+    <p>“Absolutely. It’s natural for a person in power to have one or two such loyalists, right? I won’t see you off, my love.”</p>
+    <p>“Yes. See you later, my soulmate.”</p>
+    <p>The dice has already been thrown.</p>
+    <p>This was the first-ever Park Deokgu Awakening and Enhancement Plan.</p>
+    <p>I would make him Captain Lindel later on, but first, I had to enter the dungeon with him.</p>
+    <p>Of course, before that…</p>
+    <p>‘I should warn Hyunsung beforehand.’</p>
+    <p>He shouldn’t let Kim Ye-ri, the future of Blue, grow in such a lopsided direction.</p>
+  </article>
+</div>
+
+<div id="merge-status"></div>
+
+<nav>
+  <span class="nav-left"><a href="199.html" rel="prev">&#8592; Ch 199</a></span>
+  <span class="nav-mid">
+    <button class="btn-merge" id="btn-merge" >Merge Next 10</button>
+  </span>
+  <span class="nav-right"><a href="201.html" rel="next">Ch 201 &#8594;</a></span>
+</nav>
+
+<script>
+  // Chapters available after this one — discovered from meta.json
+  var slug       = "regressor-instruction-manual";
+  var currentNum = 200;
+  var nextNum    = 201;
+  var maxLoaded  = currentNum;
+  var allNums    = null;   // loaded lazily from meta.json
+  var merging    = false;
+  var root       = "../../";
+
+  async function getNums() {
+    if (allNums) return allNums;
+    var res = await fetch(root + "data/" + slug + "/meta.json");
+    var meta = await res.json();
+    allNums = meta.chapters.map(function(c){ return c.num; });
+    return allNums;
+  }
+
+  document.getElementById("btn-merge").addEventListener("click", async function() {
+    if (merging) return;
+    merging = true;
+    var btn    = document.getElementById("btn-merge");
+    var status = document.getElementById("merge-status");
+    btn.textContent = "Loading…";
+    btn.disabled = true;
+
+    var nums   = await getNums();
+    var idx    = nums.indexOf(maxLoaded);
+    var toLoad = nums.slice(idx + 1, idx + 11);
+    if (!toLoad.length) { merging = false; return; }
+
+    status.style.display = "block";
+    status.textContent = "Fetching chapters " + toLoad[0] + "–" + toLoad[toLoad.length-1] + "…";
+
+    var container = document.getElementById("chapters");
+    var firstNew  = null;
+
+    for (var i = 0; i < toLoad.length; i++) {
+      var n = toLoad[i];
+      try {
+        var res  = await fetch(n + ".html");
+        var html = await res.text();
+        var doc  = new DOMParser().parseFromString(html, "text/html");
+        var art  = doc.querySelector("article");
+        var h1   = doc.querySelector("h1");
+        if (!art) continue;
+
+        // Divider
+        var divider = document.createElement("div");
+        divider.className = "ch-divider";
+        divider.textContent = "Chapter " + n;
+        container.appendChild(divider);
+
+        // Chapter title
+        if (h1) {
+          var chTitle = document.createElement("div");
+          chTitle.className = "ch-title";
+          chTitle.textContent = h1.textContent;
+          container.appendChild(chTitle);
+        }
+
+        // Content
+        var section = document.createElement("article");
+        section.id = "ch-" + n;
+        section.innerHTML = art.innerHTML;
+        container.appendChild(section);
+
+        if (!firstNew) firstNew = divider;
+        maxLoaded = n;
+      } catch(e) {
+        console.warn("Failed to load chapter " + n, e);
+      }
+    }
+
+    // Update nav next link
+    var nextIdx = nums.indexOf(maxLoaded) + 1;
+    var newNext = nextIdx < nums.length ? nums[nextIdx] : null;
+    var navRight = document.querySelector(".nav-right");
+    if (newNext) {
+      navRight.innerHTML = '<a href="' + newNext + '.html" rel="next">Ch ' + newNext + ' &#8594;</a>';
+    } else {
+      navRight.innerHTML = '<span></span>';
+    }
+
+    status.style.display = "none";
+    btn.textContent = newNext ? "⊕ Merge Next 10" : "✓ All loaded";
+    btn.disabled = !newNext;
+    merging = false;
+
+    if (firstNew) firstNew.scrollIntoView({ behavior:"smooth", block:"start" });
+  });
+</script>
+</body>
+</html>

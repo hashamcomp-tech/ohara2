@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chapter 154 — Regressor Instruction Manual</title>
+  <style>
+    :root { --ink:#1a1a1a; --dim:#666; --bg:#fff; --gold:#8a6a1a; --border:#ddd; }
+    @media (prefers-color-scheme:dark) {
+      :root { --ink:#e9e4da; --dim:#9a9286; --bg:#111010; --gold:#c9a84c; --border:#2a2825; }
+    }
+    *{ box-sizing:border-box; margin:0; padding:0; }
+    body{ background:var(--bg); color:var(--ink); font-family:Georgia,'Times New Roman',serif;
+          font-size:1.125rem; line-height:1.85; padding:40px 24px 80px;
+          max-width:680px; margin:0 auto; }
+    header{ margin-bottom:32px; padding-bottom:20px; border-bottom:1px solid var(--border); }
+    header a{ color:var(--gold); text-decoration:none; font-size:.85rem; }
+    h1{ font-size:1.35rem; font-weight:700; margin-top:10px; line-height:1.25; }
+    article p{ margin-bottom:1.4em; text-align:justify; hyphens:auto; }
+    .ch-divider{ text-align:center; padding:28px 0 16px; color:var(--dim);
+                  font-size:.8rem; letter-spacing:.1em; text-transform:uppercase; }
+    .ch-divider::before,.ch-divider::after{ content:''; display:inline-block;
+      width:40px; height:1px; background:var(--border); vertical-align:middle; margin:0 12px; }
+    .ch-title{ font-size:1.1rem; font-weight:700; color:var(--gold); margin-bottom:16px; }
+    nav{ display:grid; grid-template-columns:1fr auto 1fr; gap:10px; align-items:center;
+          margin-top:48px; padding-top:20px; border-top:1px solid var(--border); font-size:.88rem; }
+    nav a{ color:var(--gold); text-decoration:none; }
+    nav a:hover{ text-decoration:underline; }
+    nav .nav-right{ text-align:right; }
+    nav .nav-mid{ text-align:center; }
+    .btn-merge{ background:rgba(138,106,26,.12); border:1px solid var(--gold);
+                 color:var(--gold); padding:9px 16px; border-radius:6px; cursor:pointer;
+                 font-family:Georgia,serif; font-size:.85rem; font-weight:600;
+                 transition:background .15s; white-space:nowrap; }
+    .btn-merge:hover:not(:disabled){ background:rgba(138,106,26,.25); }
+    .btn-merge:disabled{ opacity:.35; cursor:not-allowed; }
+    #merge-status{ text-align:center; padding:12px; font-size:.82rem;
+                    color:var(--dim); display:none; }
+  </style>
+</head>
+<body>
+<header>
+  <a href="../../novel.html?slug=regressor-instruction-manual">&larr; Regressor Instruction Manual</a>
+  <h1 id="page-title">Chapter 154</h1>
+</header>
+
+<div id="chapters">
+  <article id="ch-154">
+    <p>Chapter 154: Little Rock (1)</p>
+    <p>Blue had adapted well to Castle Rock. Marlin Young-ae threw a grand party for us, and we were able to take a break, complete with delicacies and good drinks. Our fatigue was slowly going down the drain.</p>
+    <p>Of course, I had a lot of work to do, but the special treatment I was receiving made the whole ordeal feel like a vacation. Of course, Kim Hyunsung was an exception.</p>
+    <p>It was understandable, though. He had his own job - to greet other influential nobles.</p>
+    <p>‘He looks tired.’</p>
+    <p>At the news that I was coming, bishops and nobles from other cities also headed to Castle Rock.</p>
+    <p>During the five-day banquet, Hyunsung had to learn about them and greet them, and as a result, exhausted himself from doing so. He was not like me, who was accustomed to this sort of thing.</p>
+    <p>Among them, it must have been a little harder, especially because of Count Castle Rock.</p>
+    <p>In the end, Kim Hyunsung had to talk with Marlin’s father the most. This was because this noble, who was more like an armed officer rather than a civilian, really liked him. In fact, his stats would put most of the free people to shame.</p>
+    <p>As a result, I had the burden of having Marlin Young-ae cling onto me.</p>
+    <p>“Ahem. I think my daughter is troubling you, Honorary Bishop.”</p>
+    <p>“It’s okay, Count Castle Rock. I also enjoy talking to your intelligent daughter. There have been many things I can laugh about these days because of Marlin Young-ae.”</p>
+    <p>“Thank you very much for saying so. Ahem… In fact, she’s the type that when she gets absorbed into something, she can’t think of anything else… Looking at her recently, it seems that she really cares about Lee Kiyoung-nim.”</p>
+    <p>“Haha…”</p>
+    <p>“I’ll say this because there’s only us, but I’m so embarrassed because of her asking me to proceed with the marriage. Oh, this is a secret from Marlin. Honorary Bishop. I was asked just to feel you out…”</p>
+    <p>“Right. I… I see.”</p>
+    <p>This was the kind of dangerous situation I did not want to entangle myself in.</p>
+    <p>“I’m ashamed to say this, too… Hmm. I can’t deal with my daughter’s stubbornness. I’m sorry to keep saying this.”</p>
+    <p>“No. I understand, Count.”</p>
+    <p>This was already my second defense. Since Marlin was his only child, Count Castle Rock would normally want to grant anything his daughter would want.</p>
+    <p>At first, he had looked at me as if I was a thief, but then proceeded to pressure me as if he wanted something from me, or had something planned. In fact, I wasn’t that bad at all. I was a Vice Guild Master of an influential guild, and I was known as an Honorary Bishop on the Pope’s side. Nobles such as him were known to be calculative people.</p>
+    <p>In Count Castle Rock’s case, he was more or less forced to grant his daughter’s wish. However, he must’ve thought it wasn’t such a bad thing to connect her to me.</p>
+    <p>“Speaking of it, I heard that you are in a relationship with the Mercenary Queen.”</p>
+    <p>“Yes. We have a small relationship.”</p>
+    <p>“Even with the mage who always hangs around with you?”</p>
+    <p>“It’s embarrassing, but yes.”</p>
+    <p>“I see. Hmm… Does my daughter…”</p>
+    <p>“She probably knows.”</p>
+    <p>Count Castle Rock had taken on a debating look. I had to speak up at this point.</p>
+    <p>“That… Marlin Young-ae may still be confused because her coming-of-age ceremony has just passed. To the imperial people, the free people look a little different and special. Of course, I would like to have your beautiful daughter as a companion, but I am very worried that a momentary mistake will ruin the future of Marlin Young-ae. The free people have a different way of living, and Marlin Young-ae’s future is bright.”</p>
+    <p>“That’s true, but…”</p>
+    <p>“As Marlin Young-ae will have to inherit Castle Rock in the future, it would be better to observe her calmly rather than proceeding too quickly.”</p>
+    <p>“Ahem.”</p>
+    <p>“I will talk to Marlin Young-ae.”</p>
+    <p>“If so, then, please do. You seem to be a better person than I thought, Honorary Bishop.”</p>
+    <p>‘Fuck… Did I get some brownie points?’</p>
+    <p>“No, Count. Anyone would do that.”</p>
+    <p>“Haha! You don’t have to be shy. Rather, how about we have dinner together? I just got a good drink… My daughter is also looking forward to it.”</p>
+    <p>“Thank you for the offering, but I have something else to do today… How about tomorrow?”</p>
+    <p>“Tomorrow sounds good, too.”</p>
+    <p>“Then I’ll be going, Count.”</p>
+    <p>“Okay, thank you. I had fun today.”</p>
+    <p>I felt exhausted as I closed the door. Most of my luncheons with Count Castle Rock had gone in this manner. Just from his expression, I could tell just how often Marlin usually harassed her father.</p>
+    <p>It wasn’t necessarily a bad thing to marry Marlin, if only there was not a precondition stating that I always had to stay at Castle Rock. On another hand, a noble meant one could also become a noble. This wasn’t that important for me, however.</p>
+    <p>I was already an Honorary Bishop of the Holy Empire, a rank above a noble position, and this position could even rival the Count’s.</p>
+    <p>If Castle Rock’s sovereignty was transferred to Marlin after Count Castle Rock’s death, I could think about it a bit, but Marlin proved to be a burden in my current situation.</p>
+    <p>The imperialists’ marriage customs were enough to give me a headache.</p>
+    <p>‘It is correct only to manage this to a certain extent.’</p>
+    <p>This was right when you were to think of Jung Hayan, Cha Hee-ra, and Lee Jihye.</p>
+    <p>As soon as I got out of the room, I saw Marlin Young-ae approaching.</p>
+    <p>Her face express she doesn’t know anything.</p>
+    <p>It’s pretty ridiculous to show that expression when she has designed everything from scratch.</p>
+    <p>“Lee Ki-young! How was your lunch with my father?”</p>
+    <p>“The Count of Castle Rock treated me comfortably, so I was able to enjoy the meal with ease.”</p>
+    <p>“T-That’s fortunate. Did he say something…”</p>
+    <p>“I’m a little embarrassed to tell you, but Count Castle Rock seems to be thinking that it would be nice for us to marry.”</p>
+    <p>“Is that true?”</p>
+    <p>“Yes. Haha…”</p>
+    <p>“Of course…my father… Please understand, Lee Kiyoung. My father seems to like Lee Kiyoung very much…”</p>
+    <p>‘Ah, that bashful face.’</p>
+    <p>“It seems that Count Castle Rock cares about Young-ae very much.”</p>
+    <p>“Yes. He does. R-Rather than that, t-the answer… How did you…”</p>
+    <p>“I told him that I should think a little more. I have my life as a free citizen, and marriage is still early for Marlin Young-ae and me.”</p>
+    <p>“What do you mean?”</p>
+    <p>“First of all, it would be better to get to know each other gradually, Young-ae.”</p>
+    <p>“Ah!! Yes… Yes!”</p>
+    <p>“And I told him to postpone today’s meal for tomorrow. I have something to do.”</p>
+    <p>“Yes, Lee Kiyoung-nim. If you ever need help, feel free to contact me.”</p>
+    <p>“Yes. Okay.”</p>
+    <p>My job here was finished. I’ve enjoyed it as much as I had to, so now it was right to go to work.</p>
+    <p>As I moved on, I caught sight of Jung Hayan. Kim Ye-ri’s voice echoed in my ears, but I tried to ignore it.</p>
+    <p>‘Womanizer.</p>
+    <p>“Oppa!”</p>
+    <p>“Let’s go, Hayan. You waited too long, right?”</p>
+    <p>“N-No, I haven’t.”</p>
+    <p>“Did you have lunch?”</p>
+    <p>“Yes. With Hyunsung, Deokgu, Ye-ri, Hee-young, Hyejin, and Jeong-yeon.”</p>
+    <p>“I’m glad. Hyunsung is…?”</p>
+    <p>“He said he would come after he finishes investigating something…”</p>
+    <p>“Wel, then. Let’s go?”</p>
+    <p>“Yes!”</p>
+    <p>“Did you bring the documents?”</p>
+    <p>“Yes!”</p>
+    <p>“You seem to be in a good mood.”</p>
+    <p>“It’s… It’s been a long time since I can go out with oppa…”</p>
+    <p>“When I think about it, it really is.”</p>
+    <p>Although I was only taking Jung Hayan as my escort, she wasn’t the only one who accompanied me. There were also Castle Rock Knights as well as some Heretic Inquisitors by my side.</p>
+    <p>However, in a way, this was also another manner of rewarding Hayan, for being able to withstand all the difficulties that came in her way.</p>
+    <p>T’ll take care of you little by little, Hayan.’</p>
+    <p>As if taming a puppy, the notion of being rewarded for her endurance had to be put into her head. It would be trouble if she ran runs away from Castle Rock.</p>
+    <p>Lee Jihye didn’t go far as to make Jung Hayan angry, and in the case of Cha Hee-ra and Yuno Kasugano, they were far stronger than Jung Hayan in the first place.</p>
+    <p>However, in the case of Marlin Young-ae, she was just a common person who had no power.</p>
+    <p>There may be cases where she could vanish depending on Hayan’s mood.</p>
+    <p>‘It’s a good thing that I kept her from having a mental breakdown in the regression case.</p>
+    <p>“Then, where are we going now?”</p>
+    <p>“Let’s have a date first, and then we’re going to Small Rock.”</p>
+    <p>“Date…”</p>
+    <p>“It’s because Hayan has been working hard.”</p>
+    <p>Hayan brightened at this looking all the more cuter.</p>
+    <p>“Then let’s go.”</p>
+    <p>“Okay.”</p>
+    <p>“I think there are more things to see near Castle Rock than I initially thought.”</p>
+    <p>“Really?”</p>
+    <p>“Of course.”</p>
+    <p>Though we were only going for a short time, I might as well enjoy our time together.</p>
+    <p>“Oppa! Look at that! The tree is shaped like a turtle.”</p>
+    <p>“Ah. Yes.”</p>
+    <p>We went to see wonderful scenery.</p>
+    <p>“So cute.”</p>
+    <p>“How much is this?”</p>
+    <p>I presented her with some pretty accessories that we happened to pass by.</p>
+    <p>“Shall we go see the play?”</p>
+    <p>“Yes… of course!”</p>
+    <p>Our course was no different than that from Earth’s.</p>
+    <p>“You can even ride a boat over there!”</p>
+    <p>“Let’s go ride that, oppa.”</p>
+    <p>“That… Let’s ride later.”</p>
+    <p>“But, I want to ride now…”</p>
+    <p>“We don’t have time; we will have another chance later on.”</p>
+    <p>Although their culture here was backwards compared to Earth, there were still plenty of things to enjoy here.</p>
+    <p>“Hehehe.”</p>
+    <p>Seeing the happy and smiling Junf Hayan, I wondered why I didn’t do this right away. Of course, I had been busy, but I thought it would be right to take a little time in the future to do this again.</p>
+    <p>‘If she gets stressed out, I can relieve it.’</p>
+    <p>“This is so good. Hehe…”</p>
+    <p>“I’m glad.”</p>
+    <p>I held her hands, hugged her occasionally, and kissed her slightly at sunset.</p>
+    <p>Only</p>
+    <p>‘Was she this pretty?’</p>
+    <p>In fact, I had been aware that I was falling for Jung Hayan since before, but when I faced her seriously like this, I felt like I was being drawn in even more.</p>
+    <p>I had recently started liking the fact that she had begun to act normally.</p>
+    <p>“I’m always grateful for you, Hayan.”</p>
+    <p>“I’ve always been grateful for you, too…”</p>
+    <p>It sounded crazy, but if I were to get married, a girl like this wouldn’t be bad, either.</p>
+    <p>“Then, shall we go to Little Rock?”</p>
+    <p>“Yes!”</p>
+  </article>
+</div>
+
+<div id="merge-status"></div>
+
+<nav>
+  <span class="nav-left"><a href="153.html" rel="prev">&#8592; Ch 153</a></span>
+  <span class="nav-mid">
+    <button class="btn-merge" id="btn-merge" >Merge Next 10</button>
+  </span>
+  <span class="nav-right"><a href="155.html" rel="next">Ch 155 &#8594;</a></span>
+</nav>
+
+<script>
+  // Chapters available after this one — discovered from meta.json
+  var slug       = "regressor-instruction-manual";
+  var currentNum = 154;
+  var nextNum    = 155;
+  var maxLoaded  = currentNum;
+  var allNums    = null;   // loaded lazily from meta.json
+  var merging    = false;
+  var root       = "../../";
+
+  async function getNums() {
+    if (allNums) return allNums;
+    var res = await fetch(root + "data/" + slug + "/meta.json");
+    var meta = await res.json();
+    allNums = meta.chapters.map(function(c){ return c.num; });
+    return allNums;
+  }
+
+  document.getElementById("btn-merge").addEventListener("click", async function() {
+    if (merging) return;
+    merging = true;
+    var btn    = document.getElementById("btn-merge");
+    var status = document.getElementById("merge-status");
+    btn.textContent = "Loading…";
+    btn.disabled = true;
+
+    var nums   = await getNums();
+    var idx    = nums.indexOf(maxLoaded);
+    var toLoad = nums.slice(idx + 1, idx + 11);
+    if (!toLoad.length) { merging = false; return; }
+
+    status.style.display = "block";
+    status.textContent = "Fetching chapters " + toLoad[0] + "–" + toLoad[toLoad.length-1] + "…";
+
+    var container = document.getElementById("chapters");
+    var firstNew  = null;
+
+    for (var i = 0; i < toLoad.length; i++) {
+      var n = toLoad[i];
+      try {
+        var res  = await fetch(n + ".html");
+        var html = await res.text();
+        var doc  = new DOMParser().parseFromString(html, "text/html");
+        var art  = doc.querySelector("article");
+        var h1   = doc.querySelector("h1");
+        if (!art) continue;
+
+        // Divider
+        var divider = document.createElement("div");
+        divider.className = "ch-divider";
+        divider.textContent = "Chapter " + n;
+        container.appendChild(divider);
+
+        // Chapter title
+        if (h1) {
+          var chTitle = document.createElement("div");
+          chTitle.className = "ch-title";
+          chTitle.textContent = h1.textContent;
+          container.appendChild(chTitle);
+        }
+
+        // Content
+        var section = document.createElement("article");
+        section.id = "ch-" + n;
+        section.innerHTML = art.innerHTML;
+        container.appendChild(section);
+
+        if (!firstNew) firstNew = divider;
+        maxLoaded = n;
+      } catch(e) {
+        console.warn("Failed to load chapter " + n, e);
+      }
+    }
+
+    // Update nav next link
+    var nextIdx = nums.indexOf(maxLoaded) + 1;
+    var newNext = nextIdx < nums.length ? nums[nextIdx] : null;
+    var navRight = document.querySelector(".nav-right");
+    if (newNext) {
+      navRight.innerHTML = '<a href="' + newNext + '.html" rel="next">Ch ' + newNext + ' &#8594;</a>';
+    } else {
+      navRight.innerHTML = '<span></span>';
+    }
+
+    status.style.display = "none";
+    btn.textContent = newNext ? "⊕ Merge Next 10" : "✓ All loaded";
+    btn.disabled = !newNext;
+    merging = false;
+
+    if (firstNew) firstNew.scrollIntoView({ behavior:"smooth", block:"start" });
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chapter 208 — Regressor Instruction Manual</title>
+  <style>
+    :root { --ink:#1a1a1a; --dim:#666; --bg:#fff; --gold:#8a6a1a; --border:#ddd; }
+    @media (prefers-color-scheme:dark) {
+      :root { --ink:#e9e4da; --dim:#9a9286; --bg:#111010; --gold:#c9a84c; --border:#2a2825; }
+    }
+    *{ box-sizing:border-box; margin:0; padding:0; }
+    body{ background:var(--bg); color:var(--ink); font-family:Georgia,'Times New Roman',serif;
+          font-size:1.125rem; line-height:1.85; padding:40px 24px 80px;
+          max-width:680px; margin:0 auto; }
+    header{ margin-bottom:32px; padding-bottom:20px; border-bottom:1px solid var(--border); }
+    header a{ color:var(--gold); text-decoration:none; font-size:.85rem; }
+    h1{ font-size:1.35rem; font-weight:700; margin-top:10px; line-height:1.25; }
+    article p{ margin-bottom:1.4em; text-align:justify; hyphens:auto; }
+    .ch-divider{ text-align:center; padding:28px 0 16px; color:var(--dim);
+                  font-size:.8rem; letter-spacing:.1em; text-transform:uppercase; }
+    .ch-divider::before,.ch-divider::after{ content:''; display:inline-block;
+      width:40px; height:1px; background:var(--border); vertical-align:middle; margin:0 12px; }
+    .ch-title{ font-size:1.1rem; font-weight:700; color:var(--gold); margin-bottom:16px; }
+    nav{ display:grid; grid-template-columns:1fr auto 1fr; gap:10px; align-items:center;
+          margin-top:48px; padding-top:20px; border-top:1px solid var(--border); font-size:.88rem; }
+    nav a{ color:var(--gold); text-decoration:none; }
+    nav a:hover{ text-decoration:underline; }
+    nav .nav-right{ text-align:right; }
+    nav .nav-mid{ text-align:center; }
+    .btn-merge{ background:rgba(138,106,26,.12); border:1px solid var(--gold);
+                 color:var(--gold); padding:9px 16px; border-radius:6px; cursor:pointer;
+                 font-family:Georgia,serif; font-size:.85rem; font-weight:600;
+                 transition:background .15s; white-space:nowrap; }
+    .btn-merge:hover:not(:disabled){ background:rgba(138,106,26,.25); }
+    .btn-merge:disabled{ opacity:.35; cursor:not-allowed; }
+    #merge-status{ text-align:center; padding:12px; font-size:.82rem;
+                    color:var(--dim); display:none; }
+  </style>
+</head>
+<body>
+<header>
+  <a href="../../novel.html?slug=regressor-instruction-manual">&larr; Regressor Instruction Manual</a>
+  <h1 id="page-title">Chapter 208</h1>
+</header>
+
+<div id="chapters">
+  <article id="ch-208">
+    <p>Chapter 208: G.T.O (4)</p>
+    <p>‘Ha…’</p>
+    <p>This situation felt so absurd that I kept laughing.</p>
+    <p>The people in front of me can be classified as newbies, no matter which angle I saw them in. At this, I quickly checked the rude girl’s status window.</p>
+    <p>She had had her first class change, but her stats weren’t even good.</p>
+    <p>‘She must have been carried.’</p>
+    <p>Her teammates must have outshined her in every way. I could easily forget about her.</p>
+    <p>Anyway, she didn’t need my help, seeing as she obviously thought of me as someone she could easily disrespect.</p>
+    <p>‘Han Sora?’</p>
+    <p>Upon not receiving a reply, the short-haired girl spoke again.</p>
+    <p>“Teacher?”</p>
+    <p>It would be natural to think that I had no idea what to do. It felt ridiculous trying to look good in front of a room full of newbies. Now that I had to worry about my appearance, it hurt my pride even to have to think about how to deal with these crazy guys.</p>
+    <p>I didn’t need to think hard as I did with Ito Souta. I could just smash them with force. In response to my emotions, Juliana struggled to free herself from her sheath.</p>
+    <p>Meanwhile, the newbies continued to laugh, thinking that I felt mortified. I couldn’t believe Jung Hayan had described them as ‘nice.’</p>
+    <p>“Teacher? Are you not starting the class?”</p>
+    <p>“I am not a teacher. Call me Instructor Lee Kiyoung.”</p>
+    <p>“Ahhh. So the noncombatant teacher should also be considered an instructor.”</p>
+    <p>At this, more laughter erupted from the class. Though I wanted to laugh alongside them, I was not the type to let such disrespect go.</p>
+    <p>“Whooo…”</p>
+    <p>As I sighed, Han Sora began to utter another insult.</p>
+    <p>“Instead of sighing, why don’t you start the cla-?”</p>
+    <p>Whing! In an instant. Juliana had unsheathed itself and aimed its blade at her.</p>
+    <p>Screams erupted as the objects in its way. Due to the presence of a legendary item, the windows began clacking from the pressure.</p>
+    <p>In the blink of an eye, Juliana’s blade was a few millimeters away from Han Sora’s throat.</p>
+    <p>“Uh…”</p>
+    <p>The short-haired nuisance couldn’t even find it in her to properly react.</p>
+    <p>The same went with everyone, who stayed quiet until Juliana calmed down and returned to me. However, Han Sora had begun trembling, realizing that she had almost died.</p>
+    <p>‘That was awesome…’</p>
+    <p>Seeing the yellow liquid dripping under her desk, it looked like she was properly scared.</p>
+    <p>“Ahhh…”</p>
+    <p>Pretending to be strong was more fun than one would think.</p>
+    <p>“This is fun. What is your name?”</p>
+    <p>“Ah…”</p>
+    <p>Han Sora hesitated. At this, Juliana threatened to approach her once more.</p>
+    <p>“I’m… Han Sora…”</p>
+    <p>“So, you’re Han Sora. Before I start this class, I think it’ll be necessary to explain its background. It seems that many people are dissatisfied with this class.”</p>
+    <p>“…”</p>
+    <p>“I know all of you are probably thinking, ‘I don’t have enough time to train… Why should we receive training conducted by a non-mainstream and production worker?’ You, sitting next to Han Sora. Do you think the same?”</p>
+    <p>“What?”</p>
+    <p>“You can answer as honestly as you want to.”</p>
+    <p>“I-it is not like that. I never thought of that…”</p>
+    <p>“No. I already told you, you can answer honestly.”</p>
+    <p>“Y-Yes I do… A-A l-little…”</p>
+    <p>“Perhaps it’s natural to think so. You don’t know what’s happened, but you’ve been thrust into a situation you never expected to be in. It’s a little early to get used to, but you should have understood this fact already.”</p>
+    <p>“…”</p>
+    <p>“If you have power, you get special treatment.”</p>
+    <p>After I finished speaking, I looked around, seeing their expressions shift into something complex.</p>
+    <p>“I think some of you have already noticed this difference. Everyone knows that the raid team who completed the attack in secret is being treated better. In fact, they deserve to be treated. That’s how fast they adapted… They’re the type of new recruits that our society likes.”</p>
+    <p>“…”</p>
+    <p>“Your thoughts are correct. This is a place where you will be treated better if you have strength. In fact, some of this world’s few strongest players enjoy privileges that are impossible to compare to common players… The goods they earn are also beyond imagination. What will be the difference in income?”</p>
+    <p>“I… do not know.”</p>
+    <p>“Some players don’t earn even 1 gold per day, while others earn over 1,000 gold per day. The corpse of a monster becomes money, and the higher its difficulty, the higher its value. The same goes for attacking higher-level dungeons. Targeting a dungeon with a heroic-grade or higher is the same as obtaining enormous goods. The problem is…”</p>
+    <p>“…”</p>
+    <p>“The problem is that there aren’t that many players who reach that level.”</p>
+    <p>I could see the trainees looking at me, their interests piqued.</p>
+    <p>“Yes. There are not so many. Everyone starts like you at first. You doubt, you overcome, and then you train. At this point, I think about whether this world is okay or not. It’s fun to level up like playing games, and it’s fun to get new equipment.”</p>
+    <p>“…”</p>
+    <p>“Then, an accident happens, or you reach your limit. You realize this is not a game. The talented and the non-talented begin to be categorized. Some will ascend upwards, and the others will be left on the ground. Perhaps some of you will feel the reality as soon as you leave this school. It’s more dangerous than you think it is. Why are there so few players going up the top?”</p>
+    <p>They already knew.</p>
+    <p>“Most of them die in the process. Even if they don’t get eaten alive by a monster or survives, they end up living in the slums. In men’s case, they are often used for human experimentation, and in women’s case, they are easily sold as slaves to other countries or become prostitutes. It’s harder than you think just to simply eat and live.”</p>
+    <p>“…”</p>
+    <p>“Those aren’t even the worst-case scenarios. Some people get kidnapped by monsters, eventually getting eaten.”</p>
+    <p>Honestly speaking, that was still a mild case. There were some worse scenarios I could still think of.</p>
+    <p>“Perhaps a similar case will happen to one of you. I’ve only met you all today, but if I tell you my personal impressions, most of you here will probably die within three years or become half-wit and wander around the slums. Perhaps I’ll even see you working at a bar. Ah… Especially people like you, Han Sora.”</p>
+    <p>“What?”</p>
+    <p>“Usually, someone like you dies first or becomes a cripple. Of course, you all look almost the same, but why… It’s a common cliché that the person who runs first reaches the end first.”</p>
+    <p>“Ah…”</p>
+    <p>“You, and you… And you, the trainee next to him… And also the trainee next to him… There is a high probability that you are all going to die away from home. I can bet not one of you will go up in a high position… Ah! Except you!”</p>
+    <p>[Checking the status window and talent levels of the player Yoo Ahyoung.]</p>
+    <p>[Name: Yoo Ahyoung]</p>
+    <p>[Title: None. You should try a little more.]</p>
+    <p>[Age: 21]</p>
+    <p>[Disposition: Timid Optimist]</p>
+    <p>[Class: Unemployed]</p>
+    <p>[Stats]</p>
+    <p>[Strength: 11/Growth potential: Heroic or higher]</p>
+    <p>[Agility: 10/Growth potential: Rare or lower]</p>
+    <p>[Stamina: 27/Growth potential: Legendary or higher]</p>
+    <p>[Intelligence: 10/Growth potential: Common or lower]</p>
+    <p>[Endurance: 12/Growth potential: Rare or higher]</p>
+    <p>[Luck: 15/Growth potential: Heroic or higher]</p>
+    <p>[Magic Power: 01/Growth potential: Rare or higher]</p>
+    <p>[General Review: The talent levels in stamina and strength are high. Although the talent levels in endurance and magic power are unfortunate, they have the potential to grow into a great front liner.]</p>
+    <p>‘It’s fine.’</p>
+    <p>I don’t think she participated in the target group, but she was much better than I thought. This was the first time I had ever seen a legendary or higher-grade of stamina.</p>
+    <p>I came here to find myself a gem, and it seemed as if I had succeeded.</p>
+    <p>Though her enormous chest area prompted me to stare at her longer, I managed to keep my gaze strictly on her face. She seemed startled by my sudden pick.</p>
+    <p>“What’s your name?”</p>
+    <p>“I’m… Yoo Ahyoung, i-instructor.”</p>
+    <p>Come to think of it. She was one of the few who didn’t laugh at me at first.</p>
+    <p>I could see everyone had turned to see her. They looked like they didn’t understand, but their comprehension had nothing to do with me. After knocking on one of the school tables with my finger, I continued to talk again, effectively recapturing their attention.</p>
+    <p>“Except for trainee Yoo Ahyoung, none of the people here will have the chance of getting to the top. Not one. Well, perhaps you can, but I’m sure that you’ll only be able to reach it after encountering a lot of near-death experiences.”</p>
+    <p>“Th… at…”</p>
+    <p>“Originally, the world is unreasonable. Let’s talk about instructor Jung Hayan for a moment. She is now one of Lindel’s leading wizards. She has achieved such high growth that even the Magic Guild is paying attention to her, and there are actually more wizards underneath her than the ones above her. How long will it take for you to achieve all of this?”</p>
+    <p>“Ah…”</p>
+    <p>“She only took a year to do so. It may seem like nothing, but this is unusual enough, even more, when you think about the fact that there are people in the city who can’t even keep up with her toes even after studying magic for over 20 years. At this point, I will be speaking bluntly.”</p>
+    <p>“…”</p>
+    <p>“You are all garbage with no potential.”</p>
+    <p>“Ah…”</p>
+    <p>“That’s why I am here. Do you ask why a noncombatant worker is acting as an instructor in one of your classes? I’m here to rescue at least one of you, seeing that most of you will die once you head to the city.”</p>
+    <p>“Y-You’re being…”</p>
+    <p>“I’m not being rude at all. Even if you go monster hunting or to war, you won’t be able to amount to anything more than a bullet trap anyway. If you can’t contribute to the city in terms of combat, then hammering or touching an alchemy kit will help the city more. Don’t try to go in a futile direction, idiots, because it’ll be a waste of time. I bet it’ll be better for guys like you to listen to me than to take another instructor’s class.”</p>
+    <p>As I finished speaking, a hostile atmosphere began to emanate from the class. It felt like the trainees wanted to interject, but they couldn’t, which was perfectly understandable, seeing that Juliana was still hovering in the air.</p>
+    <p>“I’ll see you in the next class, morons.”</p>
+    <p>As I headed outside, I found Jung Hayan waiting for me. Her sticking to me proved to be a fun ordeal, seeing as the trainees were watching us through the window.</p>
+    <p>The two guys talking about her before I entered the class shot me blank looks, which improved my mood.</p>
+    <p>“Pfffhaha.”</p>
+    <p>“Did you have fun, Oppa?”</p>
+    <p>“Oh… Yes. It was more fun than I thought. The students are okay, too…”</p>
+    <p>“Right? All the C-class kids were really nice.”</p>
+    <p>“Yes. In particular, I kept looking at Han Sora for some reason…”</p>
+    <p>“What?”</p>
+    <p>“She’s so passionate about the class…”</p>
+    <p>“Ah…”</p>
+    <p>“Her face is also cute…”</p>
+    <p>“I-I-I… I see.”</p>
+    <p>“It seemed like she was in the attacking team, but I think it would be better to recruit her in Blue. I want to have her next to me.”</p>
+    <p>“Oh? If so… Ah… I know, I r-remember her… yes, she’s indeed cute… Ah…”</p>
+    <p>Jung Hayan struggled to keep her smile intact as she responded.</p>
+    <p>I knew Jung Hayan tended to be more hostile, responding to feelings of jealousy, rather than when someone tried to insult me. Though this was such a petty method of revenge, I couldn’t help but expect Hayan’s eventual treatment of Han Sora in her next class.</p>
+    <p>‘You need to be punished, you bedwetter.’</p>
+  </article>
+</div>
+
+<div id="merge-status"></div>
+
+<nav>
+  <span class="nav-left"><a href="207.html" rel="prev">&#8592; Ch 207</a></span>
+  <span class="nav-mid">
+    <button class="btn-merge" id="btn-merge" >Merge Next 10</button>
+  </span>
+  <span class="nav-right"><a href="209.html" rel="next">Ch 209 &#8594;</a></span>
+</nav>
+
+<script>
+  // Chapters available after this one — discovered from meta.json
+  var slug       = "regressor-instruction-manual";
+  var currentNum = 208;
+  var nextNum    = 209;
+  var maxLoaded  = currentNum;
+  var allNums    = null;   // loaded lazily from meta.json
+  var merging    = false;
+  var root       = "../../";
+
+  async function getNums() {
+    if (allNums) return allNums;
+    var res = await fetch(root + "data/" + slug + "/meta.json");
+    var meta = await res.json();
+    allNums = meta.chapters.map(function(c){ return c.num; });
+    return allNums;
+  }
+
+  document.getElementById("btn-merge").addEventListener("click", async function() {
+    if (merging) return;
+    merging = true;
+    var btn    = document.getElementById("btn-merge");
+    var status = document.getElementById("merge-status");
+    btn.textContent = "Loading…";
+    btn.disabled = true;
+
+    var nums   = await getNums();
+    var idx    = nums.indexOf(maxLoaded);
+    var toLoad = nums.slice(idx + 1, idx + 11);
+    if (!toLoad.length) { merging = false; return; }
+
+    status.style.display = "block";
+    status.textContent = "Fetching chapters " + toLoad[0] + "–" + toLoad[toLoad.length-1] + "…";
+
+    var container = document.getElementById("chapters");
+    var firstNew  = null;
+
+    for (var i = 0; i < toLoad.length; i++) {
+      var n = toLoad[i];
+      try {
+        var res  = await fetch(n + ".html");
+        var html = await res.text();
+        var doc  = new DOMParser().parseFromString(html, "text/html");
+        var art  = doc.querySelector("article");
+        var h1   = doc.querySelector("h1");
+        if (!art) continue;
+
+        // Divider
+        var divider = document.createElement("div");
+        divider.className = "ch-divider";
+        divider.textContent = "Chapter " + n;
+        container.appendChild(divider);
+
+        // Chapter title
+        if (h1) {
+          var chTitle = document.createElement("div");
+          chTitle.className = "ch-title";
+          chTitle.textContent = h1.textContent;
+          container.appendChild(chTitle);
+        }
+
+        // Content
+        var section = document.createElement("article");
+        section.id = "ch-" + n;
+        section.innerHTML = art.innerHTML;
+        container.appendChild(section);
+
+        if (!firstNew) firstNew = divider;
+        maxLoaded = n;
+      } catch(e) {
+        console.warn("Failed to load chapter " + n, e);
+      }
+    }
+
+    // Update nav next link
+    var nextIdx = nums.indexOf(maxLoaded) + 1;
+    var newNext = nextIdx < nums.length ? nums[nextIdx] : null;
+    var navRight = document.querySelector(".nav-right");
+    if (newNext) {
+      navRight.innerHTML = '<a href="' + newNext + '.html" rel="next">Ch ' + newNext + ' &#8594;</a>';
+    } else {
+      navRight.innerHTML = '<span></span>';
+    }
+
+    status.style.display = "none";
+    btn.textContent = newNext ? "⊕ Merge Next 10" : "✓ All loaded";
+    btn.disabled = !newNext;
+    merging = false;
+
+    if (firstNew) firstNew.scrollIntoView({ behavior:"smooth", block:"start" });
+  });
+</script>
+</body>
+</html>

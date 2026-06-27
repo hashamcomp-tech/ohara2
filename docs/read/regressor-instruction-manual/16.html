@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chapter 16 — Regressor Instruction Manual</title>
+  <style>
+    :root { --ink:#1a1a1a; --dim:#666; --bg:#fff; --gold:#8a6a1a; --border:#ddd; }
+    @media (prefers-color-scheme:dark) {
+      :root { --ink:#e9e4da; --dim:#9a9286; --bg:#111010; --gold:#c9a84c; --border:#2a2825; }
+    }
+    *{ box-sizing:border-box; margin:0; padding:0; }
+    body{ background:var(--bg); color:var(--ink); font-family:Georgia,'Times New Roman',serif;
+          font-size:1.125rem; line-height:1.85; padding:40px 24px 80px;
+          max-width:680px; margin:0 auto; }
+    header{ margin-bottom:32px; padding-bottom:20px; border-bottom:1px solid var(--border); }
+    header a{ color:var(--gold); text-decoration:none; font-size:.85rem; }
+    h1{ font-size:1.35rem; font-weight:700; margin-top:10px; line-height:1.25; }
+    article p{ margin-bottom:1.4em; text-align:justify; hyphens:auto; }
+    .ch-divider{ text-align:center; padding:28px 0 16px; color:var(--dim);
+                  font-size:.8rem; letter-spacing:.1em; text-transform:uppercase; }
+    .ch-divider::before,.ch-divider::after{ content:''; display:inline-block;
+      width:40px; height:1px; background:var(--border); vertical-align:middle; margin:0 12px; }
+    .ch-title{ font-size:1.1rem; font-weight:700; color:var(--gold); margin-bottom:16px; }
+    nav{ display:grid; grid-template-columns:1fr auto 1fr; gap:10px; align-items:center;
+          margin-top:48px; padding-top:20px; border-top:1px solid var(--border); font-size:.88rem; }
+    nav a{ color:var(--gold); text-decoration:none; }
+    nav a:hover{ text-decoration:underline; }
+    nav .nav-right{ text-align:right; }
+    nav .nav-mid{ text-align:center; }
+    .btn-merge{ background:rgba(138,106,26,.12); border:1px solid var(--gold);
+                 color:var(--gold); padding:9px 16px; border-radius:6px; cursor:pointer;
+                 font-family:Georgia,serif; font-size:.85rem; font-weight:600;
+                 transition:background .15s; white-space:nowrap; }
+    .btn-merge:hover:not(:disabled){ background:rgba(138,106,26,.25); }
+    .btn-merge:disabled{ opacity:.35; cursor:not-allowed; }
+    #merge-status{ text-align:center; padding:12px; font-size:.82rem;
+                    color:var(--dim); display:none; }
+  </style>
+</head>
+<body>
+<header>
+  <a href="../../novel.html?slug=regressor-instruction-manual">&larr; Regressor Instruction Manual</a>
+  <h1 id="page-title">Chapter 16</h1>
+</header>
+
+<div id="chapters">
+  <article id="ch-16">
+    <p>Chapter 16: In every five-man band, there will be one dead weight (1)</p>
+    <p>‘Not bad.’</p>
+    <p>It wasn’t a bad choice to show them magic.</p>
+    <p>Kim Hyunsung and Park Deokgu were definitely strong. However, the line between whether that strength came from the system or from their own inherent physical abilities wasn’t particularly clear.</p>
+    <p>When pitching the possibility of gaining new powers right away, it was only natural that merely picking up a shield wouldn’t appeal to them as much.</p>
+    <p>Magic, on the other had, was a bit different.</p>
+    <p>A ball of fire formed from nothing.</p>
+    <p>It was a sight that completely went against common sense, enough to cause anyone to doubt what they had seen.</p>
+    <p>That was the best way to get them to stop hiding in this shelter.</p>
+    <p>When Kim Hyunsung saw the crowd quietly gaining enthusiasm, he murmured,</p>
+    <p>“It was a success.”</p>
+    <p>“There might still be difficulties lying ahead. Those adverse to fighting will still be afraid… There will also be some people who overcompensate, thinking they’ll be able to get new powers.”</p>
+    <p>“But it’s still better than them falling behind and starving, Hyung-nim.”</p>
+    <p>“Yeah. That may be true.”</p>
+    <p>Park Hyaeyoung approached the podium, receiving words of congratulation every step of the way.</p>
+    <p>“If Hyaeyoung-ssi and Hayan-ssi return successfully, perhaps the status quo will change at a faster rate than expected.”</p>
+    <p>The result of this expedition was incredibly important to Kim Hyunsung.</p>
+    <p>I wasn’t sure whether our attempt to clear the dungeon would succeed, but Kim Hyunsung was correct in thinking that he alone wouldn’t be enough.</p>
+    <p>Firstly, he was only slightly superior to Park Deokgu in terms of ability.</p>
+    <p>His mana was powerful, but not to the extent that he could deal with dozens of monsters at once.</p>
+    <p>As much as he might want to take matters into his own hands, taking care of the shelter should be left as the responsibility of the people within it.</p>
+    <p>‘It’s an unnecessary burden.’</p>
+    <p>If it weren’t for his predisposition, Kim Hyunsung might have advanced even further.</p>
+    <p>While I was lost in thought, Park Hyaeyoung had come up to us and shook our hands one by one.</p>
+    <p>“Nice to meet you.”</p>
+    <p>“Same here.”</p>
+    <p>I had to admit that she was quite good at socialising. Looking at her with a business-like smile, I could feel Park Hyaeyoung touching the back of my hand to send me a signal.</p>
+    <p>Jung Hayan was still the priority over her.</p>
+    <p>As I turned my head, I saw Jung Hayan staring at me quietly.</p>
+    <p>‘What.’</p>
+    <p>Her expression was subtly different from anything I’d seen so far.</p>
+    <p>Jung Hayan’s tranquil eyes as she watched Park Hyaeyoung sent a chill down my spine.</p>
+    <p>‘Damn it.’</p>
+    <p>I had goosebumps all over my body.</p>
+    <p>‘What. What was that just now?’</p>
+    <p>“Hyung-nim, what’s wrong? You’ve broken out in a cold sweat…”</p>
+    <p>“I’m feeling a little under the weather, so…”</p>
+    <p>“Well, tomorrow’s the day of our expedition, so get some rest. It’s not as though you need to study here every day.”</p>
+    <p>“Alright.”</p>
+    <p>“Tsk. Who said they weren’t a nerd… He’s not eating enough nowadays? I-It’s not like I’m worried about hyung-nim… Well, my share isn’t a lot but it’s a little better than nothing…”</p>
+    <p>Whatever Park Deokgu was muttering didn’t interest me much.</p>
+    <p>I quickly turned my head to glance at Jung Hayan once more.</p>
+    <p>She looked the same as usual.</p>
+    <p>I asked myself if it had just been my eyes playing a trick on me, but I was sure that hadn’t been the case. I could see her looking at me and smiling foolishly.</p>
+    <p>‘What.’</p>
+    <p>Something was wrong.</p>
+    <p>I couldn’t pinpoint it exactly, but I swallowed with a sense of unease.</p>
+    <p>* * *</p>
+    <p>“Let’s go over this one more time. Deokgu-ssi will be in front, followed by Hyunsung-ssi and Hyaeyoung-ssi. Hayan-ssi and I will bring up the rear. Our plan of attack is simple. Block them with a shield in front, and we’ll ward them off at the back. There aren’t many of them around the shelter right now, so we’ll go a little further out and hunt. Any questions?”</p>
+    <p>“Nope.”</p>
+    <p>“None.”</p>
+    <p>“None here.”</p>
+    <p>“O-okay…”</p>
+    <p>We had already run through the same briefing several times.</p>
+    <p>It was different from when Park Deogku, Kim Hyunsung, and I had first gone out.</p>
+    <p>This demonstrated the importance Kim Hyunsung placed on this expedition.</p>
+    <p>It wasn’t just about bringing along two new recruits.</p>
+    <p>The success of this hunt would impact the future course of the group in the shelter.</p>
+    <p>If everyone returned safe and sound, those in the shelter would gain a little more confidence, and as a result, more complex attack and incident response arrangements could be formed.</p>
+    <p>The hidden objective of increasing the number of people on his side would be achieved as well.</p>
+    <p>‘You want to even the odds.’</p>
+    <p>Kim Hyunsung’s goal was quite similar to mine.</p>
+    <p>To win over Jung Hayan.</p>
+    <p>Of course, logically speaking, he wasn’t actually after her specifically. His purpose was to build lasting relationships with those he knew would become strong in the future.</p>
+    <p>‘Jung Hayan.’</p>
+    <p>In conclusion, there were two objectives: the group’s safe return and becoming closer to a wizard with legendary talent.</p>
+    <p>There was no reason to oppose the current plan or to act impulsively.</p>
+    <p>‘We need to monitor the situation.’</p>
+    <p>The look I’d seen in Jung Hayan’s eyes put me on edge.</p>
+    <p>I hoped it was just my misunderstanding, but I felt a need to keep them separated and a watchful eye on Jung Hayan.</p>
+    <p>“Wouldn’t it be better to put Hayan noonim in the centre? Being in the same position as Hyung-nim is the most…”</p>
+    <p>“No, we’ll keep it as is. This is the best placement for her.”</p>
+    <p>“Well, if Hyung-nim says so, hey…”</p>
+    <p>“Hyunsung-ssi is stronger than we think. To begin with, solely hunting them from the front is ideal. If Hayanie is at the back, she’ll have Hyunsung-ssi’s protection as insurance. So long as we’re not surrounded, this will be the most efficient way to proceed.”</p>
+    <p>“Yes. That’s correct.”</p>
+    <p>Kim Hyunsung nodded as though he agreed with me.</p>
+    <p>I didn’t know if he felt otherwise, but I didn’t care.</p>
+    <p>Kim Hyunsung’s brow furrowed as he looked at Jung Hayan, then spoke quietly.</p>
+    <p>“You don’t have to worry too much.”</p>
+    <p>“Pardon? Ah… Yes.”</p>
+    <p>“Then do I just need to chill with Kiyoung-ssi?”</p>
+    <p>“Hyaeyoung-ssi, please provide assistance to Kiyoung-ssi. A spear would be a good fit for you.”</p>
+    <p>“Yes. I understand.”</p>
+    <p>“Let’s get going then. Like I told you before…”</p>
+    <p>“W-where…”</p>
+    <p>“I’ll let you know.”</p>
+    <p>I already had the layout of this place mapped out in my head.</p>
+    <p>Park Deokgu gave me a look of gratitude.</p>
+    <p>I didn’t know if it was because he lacked interest in his surroundings or if he was too reliant on me, but it seemed like he was too lazy to use his head.</p>
+    <p>He looked very reliable when he stood holding a large wooden shield.</p>
+    <p>In terms of appearance, I would give more points to Park Deokgu over Kim Hyunsung.</p>
+    <p>His equipment consisted solely of the sloppy leather armor I had put together and the shield I had picked up at the starting point, but he didn’t look too shabby.</p>
+    <p>“Let’s get started, then.”</p>
+    <p>“Let’s do our best.”</p>
+    <p>Everyone gave a slight nod.</p>
+    <p>Both Park Hyaeyoung and Jung Hayan seemed to be a little nervous.</p>
+    <p>It was only natural that they’d be afraid of meeting the monsters they had encountered at the starting point in person.</p>
+    <p>I passed some words of comfort to Park Hyaeyoung, who was right next to me.</p>
+    <p>“Don’t worry too much.”</p>
+    <p>“Is it that obvious?”</p>
+    <p>“They won’t overwhelm us like they did at the starting point. We’ve already cleared out this area to some degree, so all you need to do is remain calm and stab the monsters that Deokgu blocks with your spear and then it’ll be over. I know it’s scary but it’s possible for us to make it through fine.”</p>
+    <p>“You’re a lot nicer than I thought.”</p>
+    <p>Of course, I had to be.</p>
+    <p>‘If you panic, I’ll be the one who dies.’</p>
+    <p>Who knew what would happen in the midst of battle. It was possible that, while blindly attacking with her spear, this woman would stab me.</p>
+    <p>Glancing behind me, I saw Kim Hyunsung speaking with Jung Hayan.</p>
+    <p>As expected, he seemed to be asking about various things, but Jung Hayan didn’t look to be interested in Kim Hyunsung at all.</p>
+    <p>She looked to be having a hard time communicating, as she kept her head lowered and answered his questions with short responses.</p>
+    <p>It reminded me of how hard I had worked to get closer to Jung Hayan.</p>
+    <p>I smiled when our eyes met and Jung Hayan nodded with a happy expression.</p>
+    <p>It made me feel better, at least, to think that I had the upper hand in my relationship with her.</p>
+    <p>“Oh, are you going blind? I’m not your partner.”</p>
+    <p>“I’m just checking our rear formation for a moment. Also, don’t talk too much while we’re on the move…”</p>
+    <p>“Yes. I know.”</p>
+    <p>It was then.</p>
+    <p>“There’s one. Get ready.”</p>
+    <p>“Huh, understood.”</p>
+    <p>Kim Hyunsung’s voice came from the rear and Park Deokgu murmured a reply from in front.</p>
+    <p>Park Deokgu’s body seemed tense.</p>
+    <p>“While Deokgu-ssi is keeping it at bay, Hyaeyoung-ssi will take care of it. Kiyoung-ssi, be prepared in case anything happens.”</p>
+    <p>We nodded.</p>
+    <p>Though Park Hyaeyoung looked calm, she still showed signs of fear and tension.</p>
+    <p>We were present too, but Park Hyaeyoung was the one who would have to finish it off.</p>
+    <p>It would’ve been strange if she wasn’t afraid.</p>
+    <p>We could only hear one voice coming from the left.</p>
+    <p>“Deokgu-yah, it’ll be coming from the left.”</p>
+    <p>“I understand, Hyung-nim.”</p>
+    <p>Park Deokgu immediately rounded the corner and pushed it back with his shield.</p>
+    <p>Gwajik!</p>
+    <p>As this sound rang out, the creature was stuck between the dead-end corridor and the shield.</p>
+    <p>Park Hyaeyoung followed behind, flustered.</p>
+    <p>“Gaaaaaaeeeeeeek!”</p>
+    <p>“Sh*t… Its face is as irritating as ever.”</p>
+    <p>“What are you doing?”</p>
+    <p>Her arms trembled and her legs shook.</p>
+    <p>I could tell from a glance what had happened.</p>
+    <p>Even a dog that couldn’t piss would be more useful in this situation.</p>
+    <p>“H-how.”</p>
+    <p>“Jab it.”</p>
+    <p>“Hey, take care of it quickly. It’s hard to hold out like this.”</p>
+    <p>“Ah…”</p>
+    <p>The calm look she had been sporting earlier was nowhere to be found.</p>
+    <p>Her eyes were alive, but her body didn’t seem to react.</p>
+    <p>In this kind of situation, no matter who it was, even if they were aware that they weren’t moving, they would still be unable to act on that fact.</p>
+    <p>‘Idiot… You were only pretending to be strong.’</p>
+    <p>I loosely grasped her arm from behind. As I held Park Hyaeyoung’s trembling hand gripping the spear, the tremors in her limbs began to slow.</p>
+    <p>I figured it would be more effective to deliver my message quietly than to scream in this kind of situation, so I whispered in her ear.</p>
+    <p>“If you do something like this again next time, we’re all going to die. Do you understand?”</p>
+    <p>“Yes.”</p>
+    <p>“Strengthen your grip.”</p>
+    <p>“……”</p>
+    <p>I pressed her hand tighter…</p>
+    <p>The spear slowly moved towards the torso of the punk Park Deokgu was blocking and Park Hyaeyoung’s arm followed.</p>
+    <p>I was the one pulling it forward, but the sensation should have transmitted to her hands as well.</p>
+    <p>Puuuk!</p>
+    <p>With that sound, unknown liquids began to gush out.</p>
+    <p>Repulsed, Park Hyaeyoung tried to let go of the spear, but I grabbed her arm once again.</p>
+    <p>“It’s not dead yet. Don’t relax.”</p>
+    <p>“Gaaaaaaaaeeeeeek!”</p>
+    <p>That punk, out of pain or anger, was still struggling, and tried to scratch Park Deokgu as he kept it back.</p>
+    <p>I gripped Park Hyaeyoung’s hand again and jabbed the spear from above.</p>
+    <p>As expected, it was a horrible sensation.</p>
+    <p>“Think of it as meat.”</p>
+    <p>“Y-Yes.”</p>
+    <p>Puuk!</p>
+    <p>Gwajik!</p>
+    <p>I struck with the spear over and over again.</p>
+    <p>It had long stopped twitching but this method was effective enough in forcing her to adapt to the situation.</p>
+    <p>After a while, Park Deokgu set down his shield and moved away from the monster.</p>
+    <p>I also loosened my grip on Park Hyaeyoung’s hand.</p>
+    <p>The monster had fallen apart. Even so, she continued to stab the spear into it.</p>
+    <p>It was unknown whether it was to free herself from fear, but her lips were pressed tight and her knuckles were white around the shaft of the spear.</p>
+    <p>Only</p>
+    <p>‘I understand.’</p>
+    <p>The very act of taking away life was a foreign concept to begin with.</p>
+    <p>No matter how much you told yourself that your opponent was a monster, it wouldn’t make a difference.</p>
+    <p>It was only after a long stretch of gruesome noises that there was an exhausted gasp.</p>
+    <p>It was natural that she would have all sorts of thoughts running through her mind.</p>
+    <p>I approached Park Hyaeyoung, who had collapsed to the ground, and spoke carefully.</p>
+    <p>“Well done.”</p>
+    <p>She didn’t reply.</p>
+  </article>
+</div>
+
+<div id="merge-status"></div>
+
+<nav>
+  <span class="nav-left"><a href="15.html" rel="prev">&#8592; Ch 15</a></span>
+  <span class="nav-mid">
+    <button class="btn-merge" id="btn-merge" >Merge Next 10</button>
+  </span>
+  <span class="nav-right"><a href="17.html" rel="next">Ch 17 &#8594;</a></span>
+</nav>
+
+<script>
+  // Chapters available after this one — discovered from meta.json
+  var slug       = "regressor-instruction-manual";
+  var currentNum = 16;
+  var nextNum    = 17;
+  var maxLoaded  = currentNum;
+  var allNums    = null;   // loaded lazily from meta.json
+  var merging    = false;
+  var root       = "../../";
+
+  async function getNums() {
+    if (allNums) return allNums;
+    var res = await fetch(root + "data/" + slug + "/meta.json");
+    var meta = await res.json();
+    allNums = meta.chapters.map(function(c){ return c.num; });
+    return allNums;
+  }
+
+  document.getElementById("btn-merge").addEventListener("click", async function() {
+    if (merging) return;
+    merging = true;
+    var btn    = document.getElementById("btn-merge");
+    var status = document.getElementById("merge-status");
+    btn.textContent = "Loading…";
+    btn.disabled = true;
+
+    var nums   = await getNums();
+    var idx    = nums.indexOf(maxLoaded);
+    var toLoad = nums.slice(idx + 1, idx + 11);
+    if (!toLoad.length) { merging = false; return; }
+
+    status.style.display = "block";
+    status.textContent = "Fetching chapters " + toLoad[0] + "–" + toLoad[toLoad.length-1] + "…";
+
+    var container = document.getElementById("chapters");
+    var firstNew  = null;
+
+    for (var i = 0; i < toLoad.length; i++) {
+      var n = toLoad[i];
+      try {
+        var res  = await fetch(n + ".html");
+        var html = await res.text();
+        var doc  = new DOMParser().parseFromString(html, "text/html");
+        var art  = doc.querySelector("article");
+        var h1   = doc.querySelector("h1");
+        if (!art) continue;
+
+        // Divider
+        var divider = document.createElement("div");
+        divider.className = "ch-divider";
+        divider.textContent = "Chapter " + n;
+        container.appendChild(divider);
+
+        // Chapter title
+        if (h1) {
+          var chTitle = document.createElement("div");
+          chTitle.className = "ch-title";
+          chTitle.textContent = h1.textContent;
+          container.appendChild(chTitle);
+        }
+
+        // Content
+        var section = document.createElement("article");
+        section.id = "ch-" + n;
+        section.innerHTML = art.innerHTML;
+        container.appendChild(section);
+
+        if (!firstNew) firstNew = divider;
+        maxLoaded = n;
+      } catch(e) {
+        console.warn("Failed to load chapter " + n, e);
+      }
+    }
+
+    // Update nav next link
+    var nextIdx = nums.indexOf(maxLoaded) + 1;
+    var newNext = nextIdx < nums.length ? nums[nextIdx] : null;
+    var navRight = document.querySelector(".nav-right");
+    if (newNext) {
+      navRight.innerHTML = '<a href="' + newNext + '.html" rel="next">Ch ' + newNext + ' &#8594;</a>';
+    } else {
+      navRight.innerHTML = '<span></span>';
+    }
+
+    status.style.display = "none";
+    btn.textContent = newNext ? "⊕ Merge Next 10" : "✓ All loaded";
+    btn.disabled = !newNext;
+    merging = false;
+
+    if (firstNew) firstNew.scrollIntoView({ behavior:"smooth", block:"start" });
+  });
+</script>
+</body>
+</html>

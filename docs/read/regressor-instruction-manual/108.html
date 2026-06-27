@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chapter 108 — Regressor Instruction Manual</title>
+  <style>
+    :root { --ink:#1a1a1a; --dim:#666; --bg:#fff; --gold:#8a6a1a; --border:#ddd; }
+    @media (prefers-color-scheme:dark) {
+      :root { --ink:#e9e4da; --dim:#9a9286; --bg:#111010; --gold:#c9a84c; --border:#2a2825; }
+    }
+    *{ box-sizing:border-box; margin:0; padding:0; }
+    body{ background:var(--bg); color:var(--ink); font-family:Georgia,'Times New Roman',serif;
+          font-size:1.125rem; line-height:1.85; padding:40px 24px 80px;
+          max-width:680px; margin:0 auto; }
+    header{ margin-bottom:32px; padding-bottom:20px; border-bottom:1px solid var(--border); }
+    header a{ color:var(--gold); text-decoration:none; font-size:.85rem; }
+    h1{ font-size:1.35rem; font-weight:700; margin-top:10px; line-height:1.25; }
+    article p{ margin-bottom:1.4em; text-align:justify; hyphens:auto; }
+    .ch-divider{ text-align:center; padding:28px 0 16px; color:var(--dim);
+                  font-size:.8rem; letter-spacing:.1em; text-transform:uppercase; }
+    .ch-divider::before,.ch-divider::after{ content:''; display:inline-block;
+      width:40px; height:1px; background:var(--border); vertical-align:middle; margin:0 12px; }
+    .ch-title{ font-size:1.1rem; font-weight:700; color:var(--gold); margin-bottom:16px; }
+    nav{ display:grid; grid-template-columns:1fr auto 1fr; gap:10px; align-items:center;
+          margin-top:48px; padding-top:20px; border-top:1px solid var(--border); font-size:.88rem; }
+    nav a{ color:var(--gold); text-decoration:none; }
+    nav a:hover{ text-decoration:underline; }
+    nav .nav-right{ text-align:right; }
+    nav .nav-mid{ text-align:center; }
+    .btn-merge{ background:rgba(138,106,26,.12); border:1px solid var(--gold);
+                 color:var(--gold); padding:9px 16px; border-radius:6px; cursor:pointer;
+                 font-family:Georgia,serif; font-size:.85rem; font-weight:600;
+                 transition:background .15s; white-space:nowrap; }
+    .btn-merge:hover:not(:disabled){ background:rgba(138,106,26,.25); }
+    .btn-merge:disabled{ opacity:.35; cursor:not-allowed; }
+    #merge-status{ text-align:center; padding:12px; font-size:.82rem;
+                    color:var(--dim); display:none; }
+  </style>
+</head>
+<body>
+<header>
+  <a href="../../novel.html?slug=regressor-instruction-manual">&larr; Regressor Instruction Manual</a>
+  <h1 id="page-title">Chapter 108</h1>
+</header>
+
+<div id="chapters">
+  <article id="ch-108">
+    <p>Chapter 108: I will remember you (2)</p>
+    <p>“I’ve done my research well. Those that should be punished…”</p>
+    <p>“They were bastards who deserved to die.”</p>
+    <p>“I’ve seen a lot of sh*tty guys while living here, but this is my first time seeing real trash. The so-called terrorist attack in the middle of the city was actually to kill the new guild members. Even the innocent people who got caught up in the event feel sorry for them, but how embarrassing it must be!”</p>
+    <p>“Did you know? I heard they tried to attack the Red Mercenary Queen’s Gigolo. I heard it from a friend who works for the Red Mercenaries. It doesn’t feel right, however…”</p>
+    <p>“If so, then it’s good that war did not happen. Ah! Look over there… Hey, Mr. Kim! Have you read the newspaper today?”</p>
+    <p>“Of course, I’ve read about what happened within Blue. Thanks to you, I was able to sleep well last night.”</p>
+    <p>“Is your store, okay?”</p>
+    <p>“Of course! In addition to the insurance money, there seems to be no problem in recovering it if we add Blue’s compensation money. They actually didn’t have to do that. They were victims as well. However, they felt sorry about it. I thought I would have to throw away my shop altogether, but the reward will be more than enough to fix it back up! Hahaha.”</p>
+    <p>“Look at the smile on this man’s face.”</p>
+    <p>Resounding voices from all over the place reached my ears. Most of them were either cursing Lee Seolho or were worried about how Blue was faring.</p>
+    <p>The true problem for us would be the cost of restoration within the city. It was clear that Blue could not handle the cost alone and would need donations from numerous clans and guilds to restore their image.</p>
+    <p>Once again, we were indebted to the Black Swans and Red Mercenaries.</p>
+    <p>As I wandered around the plaza to look at the newly-established buildings, the newspaper titles on display caught my eye.</p>
+    <p>[Blue traitor Lee Seolho, apparently hiding in the Ramadel Mountains near Celia.]</p>
+    <p>Why did he make such a choice?</p>
+    <p>[The relation between Lee Seolho and his Japanese guild predicts Celia’s future relationship with Lindel.]</p>
+    <p>Everything was just as I had expected.</p>
+    <p>Everyone was already tired of the Black Swans incident, which was why they eagerly lapped up the newest media coverage. The entire city of Lindel became noisy once more, and people eagerly voice out their opinion on the matter everywhere - in bars, in restaurants, and even on the streets.</p>
+    <p>It was not an exaggeration to say that it accounted for 90% of Lindel’s current conversations. It was a story that everyone found interesting.</p>
+    <p>As I walked down the street, I gazed down at the newspaper in my hand.</p>
+    <p>[What is the future of Blue within this great ordeal?]</p>
+    <p>[Days after tracking the criminals who escaped after a terrorist incident in the city, a search team of Red Mercenaries found dozens of bodies near the Ramadel Mountains. The body’s identity is presumed to be the criminal Lee Seolho, as well as the other Blue officers who chose to follow him.]</p>
+    <p>As a result of accurate identification, Blue judged them to be the aforementioned executives, and the official search ended on the 15th.</p>
+    <p>The body was so badly damaged that it could not be recognized properly, so it seems that a professional torture engineer severely tortured the body.</p>
+    <p>Red Mercenary officials have designated the Japanese guild as the culprit who had killed them, the plausible reason being their anger over the executives’ misconduct.</p>
+    <p>While Blue’s Vice Guild Master Lee Sang-hee has not yet appeared before the masses, all attention is focused on Blue.</p>
+    <p>Once one of the guilds representing the free city of Lindel, Blue lost a lot of party members alongside Guild Master Joo Seung-jun, and it seems impossible for them to recover. Although the Red Mercenaries and the Black Swans’ alliance is still smoothly maintained, many medium-sized guilds have also announced their support for Blue.</p>
+    <p>Many of Lindel’s scouts are also paying attention to what choices the remaining Blue executives will take. While many experts expressed concern about whether the Blue Guild would eventually disappear, the Red Mercenary Queen Cha Hee-ra, 28, remarked that the Red Mercenaries are indeed the Blue’s allies and that she will do her best to help them out. Lee Jihye, the Black Swans spokesperson, also killed the buzzing rumors, and said that Blue would rise again.</p>
+    <p>The reporter cannot accurately judge what Blue would decide to do next for their future.]</p>
+    <p>‘Huh, it’s not bad at all.’</p>
+    <p>I found it to be a well-organized article. Most of all, I like the fact that it had chosen to take Blue’s side. Of course, it was natural for all media companies to bring our guild into a new light, but Lindel Daily was quite reliable compared to other media companies.</p>
+    <p>Kim Seong-gyeong is also…’</p>
+    <p>Seeing that he always wrote his articles in favor of us, he was apparently trying to get on friendly terms with us. I didn’t know if he was doing it out of benefit or loyalty, but I would be sure to reward him later on either way.</p>
+    <p>As I nodded along, I heard a familiar voice. It was Sun Hee-young’s.</p>
+    <p>“What are you reading?”</p>
+    <p>“Oh, just another article. I couldn’t really sleep well. Hee-young doesn’t seem very tired.”</p>
+    <p>“I actually feel refreshed. It’s been a long time since I had time to serve God. It feels good to witness our achievements based on the reactions of all the citizens living here.”</p>
+    <p>“I didn’t do much. Hee-young did all the hard work.”</p>
+    <p>“You prepared a lot. If I had been alone, I wouldn’t have been able to contribute so much.”</p>
+    <p>‘That’s not it.</p>
+    <p>In fact, it didn’t matter if I was with them or not. Although it had been a little quiet recently, it seemed that our dear priest felt the most rewarded with the incident regarding Lee Seolho.</p>
+    <p>I didn’t even like Seolho from the beginning, but I didn’t think he would go this far. It seemed like there was more to him than what was expected.</p>
+    <p>‘Indolent thoughts, indolent spirit, he is the evil of society. He’s as useless as a homeless peasant in the slums. Many people require help because of people like him who eat away at society. Repent. Of course, what I want is not just repentance.</p>
+    <p>‘Ahhhh!</p>
+    <p>When I recalled what happened yesterday, nausea bubbled up from within me. Personally, I wanted to praise myself for not averting my gaze halfway.</p>
+    <p>Although I felt disgusted, I was still able to look at Sun Hee-young in the eye.</p>
+    <p>“Thank you so much for saying that back then.”</p>
+    <p>“Yeah?”</p>
+    <p>“You told me we could make a beautiful Lindel together.”</p>
+    <p>“Yes, I did.”</p>
+    <p>“Of course, I was anxious at the time, but I’m happy that it’s turned out so well. We’ve been together for such a long time… Anyway, today is such a good day.”</p>
+    <p>Sun Hee-young really did act like a priest, no matter what. I felt like we had gotten closer. At the same time, I already knew how she felt towards me.</p>
+    <p>‘Don’t do this to yourself.’</p>
+    <p>Sun Hee-young and I worked best as colleagues. I was already stressed by the woman I already had around me.</p>
+    <p>At the same time, I could understand Sun Hee-young’s heart. I was her only ally and the first one who opened up her eyes to reality. What she felt for me was not love yet, but if it continued to develop, then she would only get hurt in the end.</p>
+    <p>This was a world where it was natural for people to develop feelings, even if one saw my close relationship with Jung Hayan. Monogamy, polygamy, these were taken for granted, anyway.</p>
+    <p>Even if I happened to have a lover or wife, it would not stop Sun Hee-young from trying to get closer. She wouldn’t even consider other people, like Jung Hayan or Cha Hee-ra.</p>
+    <p>I need to keep her in line and block her advances.’</p>
+    <p>“Oh, why don’t you grab a quick bite? It’s been a long time since we’ve got the time to do so.”</p>
+    <p>“Oh, let’s do that.”</p>
+    <p>Of course, it would be difficult trying to keep Sun Hee-young in line.</p>
+    <p>After entering the restaurant and getting a seat by the terrace, Sun Heeyoung began the conversation immediately after placing an order.</p>
+    <p>“How was yesterday, Kiyoung?”</p>
+    <p>“It was a rewarding time. We’ve done service all the way.”</p>
+    <p>“You’re right; it was really rewarding. It’s nice that there are people who can understand.”</p>
+    <p>“Indeed.”</p>
+    <p>“I’m really grateful to you, Kiyoung. You made me realize that I was wrong.”</p>
+    <p>“Haha…”</p>
+    <p>I knew where this conversation was going, and it was better to divert the topic as soon as possible.</p>
+    <p>“So, how is Hayan’s condition?”</p>
+    <p>“She’s still recovering. Her body’s recuperating. The priests in the Red Mercenaries are also working hard. You don’t have to worry. She’s only facing fatigue now.”</p>
+    <p>“I see. That’s very fortunate.”</p>
+    <p>“By the way, what are you going to do next?”</p>
+    <p>“Hm? What do you mean?”</p>
+    <p>“Will you still stay in Blue? You don’t seem to be too involved in the guild these days…”</p>
+    <p>“Ah.”</p>
+    <p>I knew what Sun Hee-young was talking about. I certainly hadn’t been paying much attention to Blue lately. The guild was shaking from both the external and internal problems it had received.</p>
+    <p>In fact, if I wanted to influence Blue, now would be the perfect opportunity. However, I didn’t, and it was because of Kim Hyunsung.</p>
+    <p>‘It’s better if the power is concentrated into one place.’</p>
+    <p>It honestly felt like I had handed the seat of power to Hyunsung on a silver platter.</p>
+    <p>Lee Sang-hee was close to retirement, and Hwang Jeong-yeon was never interested in anything related to power. This meant that Kim Hyunsung would undoubtedly be the next leader.</p>
+    <p>Of course, he would only serve as a regent and not a Guild Master, but he would become one anyway, as the people would put their trust and faith in him.</p>
+    <p>Right now, if I reached out to Blue, it would prove to be a counterproductive measure. I was the one who had contributed the most to the guild, after all.</p>
+    <p>‘You don’t have to ask me. I’ll take care of you.’</p>
+    <p>It would be advantageous for me to take a step back at this point. I was still a necessary talent for Kim Hyunsung’s kingdom.</p>
+    <p>“I’ve been a little busy lately. Hyunsung is always with Lee Sang-hee while the guild is in crisis, so I think it’ll be okay.”</p>
+    <p>“Ah.”</p>
+    <p>“Now that we’ve removed all the rotten people, we can now make a proper group.”</p>
+    <p>“Ahh! That’s, right. Ah… This is what Kiyoung has expected. I never thought about that…”</p>
+    <p>“Hahaha.”</p>
+    <p>“Maybe we should postpone the rest a little bit. I was expecting to have more time to serve with you, Kiyoung. Oh, don’t get me wrong! I’m not confessing or anything. I’m just saying that…”</p>
+    <p>“Ah, I think I know what you’re talking about.”</p>
+    <p>Her face reddened for some reason.</p>
+    <p>‘Ah…’</p>
+    <p>| already knew what she was imagining. She probably wanted to build a volunteer house together and be in service there for life.</p>
+    <p>‘That’s not nice at all…’</p>
+    <p>If such a house were to be completed, it would not be a house of love. It would be a house that would come straight out of a horror movie.</p>
+    <p>Sun Hee-young had a crooked mindset, not a crooked affection. She had a radically different mindset from Jung Hayan, who wanted to confine me and be with me forever.</p>
+    <p>As a priest who works for God, it seems that she did not harbor such a unique idea.</p>
+    <p>‘However, it’s still not normal…’</p>
+    <p>“What you’re thinking isn’t bad, Hee-young, but there is another important problem. There are more things to focus on for Hyunsung and me shortly, but you can call that a reward for yourself instead!”</p>
+    <p>“To put it simply, you are taking a break. We’ll have more time together because of it. l-I mean, not that I meant anything else by saying that…”</p>
+    <p>Only</p>
+    <p>“Yes, of course, I understand.”</p>
+    <p>Of course, I had no intention of making Sun Hee-young’s dream come true. I had to focus on what kind of painting Kim Hyunsung was painting for our future.</p>
+    <p>Though he was weak in politics, Kim Hyunsung is Kim Hyunsung.</p>
+    <p>Seeing as he stayed by Lee Sang-hee’s side this entire time, it was evident that he had his own thoughts about the matter.</p>
+    <p>‘Huh, Hyunsung, you really are naughty.</p>
+    <p>If I were in his shoes, I would also have aimed to gain Lee Sang-hee’s favor, too. We would probably be getting results before long.</p>
+    <p>‘What is Hyunsung really doing, though?’</p>
+    <p>Lee Jihye’s jokes about Kim Hyunsung and I resonated in my head, but the truth was, I really did have no idea about what was going on inside that guy’s head</p>
+  </article>
+</div>
+
+<div id="merge-status"></div>
+
+<nav>
+  <span class="nav-left"><a href="107.html" rel="prev">&#8592; Ch 107</a></span>
+  <span class="nav-mid">
+    <button class="btn-merge" id="btn-merge" >Merge Next 10</button>
+  </span>
+  <span class="nav-right"><a href="109.html" rel="next">Ch 109 &#8594;</a></span>
+</nav>
+
+<script>
+  // Chapters available after this one — discovered from meta.json
+  var slug       = "regressor-instruction-manual";
+  var currentNum = 108;
+  var nextNum    = 109;
+  var maxLoaded  = currentNum;
+  var allNums    = null;   // loaded lazily from meta.json
+  var merging    = false;
+  var root       = "../../";
+
+  async function getNums() {
+    if (allNums) return allNums;
+    var res = await fetch(root + "data/" + slug + "/meta.json");
+    var meta = await res.json();
+    allNums = meta.chapters.map(function(c){ return c.num; });
+    return allNums;
+  }
+
+  document.getElementById("btn-merge").addEventListener("click", async function() {
+    if (merging) return;
+    merging = true;
+    var btn    = document.getElementById("btn-merge");
+    var status = document.getElementById("merge-status");
+    btn.textContent = "Loading…";
+    btn.disabled = true;
+
+    var nums   = await getNums();
+    var idx    = nums.indexOf(maxLoaded);
+    var toLoad = nums.slice(idx + 1, idx + 11);
+    if (!toLoad.length) { merging = false; return; }
+
+    status.style.display = "block";
+    status.textContent = "Fetching chapters " + toLoad[0] + "–" + toLoad[toLoad.length-1] + "…";
+
+    var container = document.getElementById("chapters");
+    var firstNew  = null;
+
+    for (var i = 0; i < toLoad.length; i++) {
+      var n = toLoad[i];
+      try {
+        var res  = await fetch(n + ".html");
+        var html = await res.text();
+        var doc  = new DOMParser().parseFromString(html, "text/html");
+        var art  = doc.querySelector("article");
+        var h1   = doc.querySelector("h1");
+        if (!art) continue;
+
+        // Divider
+        var divider = document.createElement("div");
+        divider.className = "ch-divider";
+        divider.textContent = "Chapter " + n;
+        container.appendChild(divider);
+
+        // Chapter title
+        if (h1) {
+          var chTitle = document.createElement("div");
+          chTitle.className = "ch-title";
+          chTitle.textContent = h1.textContent;
+          container.appendChild(chTitle);
+        }
+
+        // Content
+        var section = document.createElement("article");
+        section.id = "ch-" + n;
+        section.innerHTML = art.innerHTML;
+        container.appendChild(section);
+
+        if (!firstNew) firstNew = divider;
+        maxLoaded = n;
+      } catch(e) {
+        console.warn("Failed to load chapter " + n, e);
+      }
+    }
+
+    // Update nav next link
+    var nextIdx = nums.indexOf(maxLoaded) + 1;
+    var newNext = nextIdx < nums.length ? nums[nextIdx] : null;
+    var navRight = document.querySelector(".nav-right");
+    if (newNext) {
+      navRight.innerHTML = '<a href="' + newNext + '.html" rel="next">Ch ' + newNext + ' &#8594;</a>';
+    } else {
+      navRight.innerHTML = '<span></span>';
+    }
+
+    status.style.display = "none";
+    btn.textContent = newNext ? "⊕ Merge Next 10" : "✓ All loaded";
+    btn.disabled = !newNext;
+    merging = false;
+
+    if (firstNew) firstNew.scrollIntoView({ behavior:"smooth", block:"start" });
+  });
+</script>
+</body>
+</html>

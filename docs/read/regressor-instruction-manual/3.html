@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chapter 3 — Regressor Instruction Manual</title>
+  <style>
+    :root { --ink:#1a1a1a; --dim:#666; --bg:#fff; --gold:#8a6a1a; --border:#ddd; }
+    @media (prefers-color-scheme:dark) {
+      :root { --ink:#e9e4da; --dim:#9a9286; --bg:#111010; --gold:#c9a84c; --border:#2a2825; }
+    }
+    *{ box-sizing:border-box; margin:0; padding:0; }
+    body{ background:var(--bg); color:var(--ink); font-family:Georgia,'Times New Roman',serif;
+          font-size:1.125rem; line-height:1.85; padding:40px 24px 80px;
+          max-width:680px; margin:0 auto; }
+    header{ margin-bottom:32px; padding-bottom:20px; border-bottom:1px solid var(--border); }
+    header a{ color:var(--gold); text-decoration:none; font-size:.85rem; }
+    h1{ font-size:1.35rem; font-weight:700; margin-top:10px; line-height:1.25; }
+    article p{ margin-bottom:1.4em; text-align:justify; hyphens:auto; }
+    .ch-divider{ text-align:center; padding:28px 0 16px; color:var(--dim);
+                  font-size:.8rem; letter-spacing:.1em; text-transform:uppercase; }
+    .ch-divider::before,.ch-divider::after{ content:''; display:inline-block;
+      width:40px; height:1px; background:var(--border); vertical-align:middle; margin:0 12px; }
+    .ch-title{ font-size:1.1rem; font-weight:700; color:var(--gold); margin-bottom:16px; }
+    nav{ display:grid; grid-template-columns:1fr auto 1fr; gap:10px; align-items:center;
+          margin-top:48px; padding-top:20px; border-top:1px solid var(--border); font-size:.88rem; }
+    nav a{ color:var(--gold); text-decoration:none; }
+    nav a:hover{ text-decoration:underline; }
+    nav .nav-right{ text-align:right; }
+    nav .nav-mid{ text-align:center; }
+    .btn-merge{ background:rgba(138,106,26,.12); border:1px solid var(--gold);
+                 color:var(--gold); padding:9px 16px; border-radius:6px; cursor:pointer;
+                 font-family:Georgia,serif; font-size:.85rem; font-weight:600;
+                 transition:background .15s; white-space:nowrap; }
+    .btn-merge:hover:not(:disabled){ background:rgba(138,106,26,.25); }
+    .btn-merge:disabled{ opacity:.35; cursor:not-allowed; }
+    #merge-status{ text-align:center; padding:12px; font-size:.82rem;
+                    color:var(--dim); display:none; }
+  </style>
+</head>
+<body>
+<header>
+  <a href="../../novel.html?slug=regressor-instruction-manual">&larr; Regressor Instruction Manual</a>
+  <h1 id="page-title">Chapter 3</h1>
+</header>
+
+<div id="chapters">
+  <article id="ch-3">
+    <p>Chapter 3: Adaptation</p>
+    <p>“Wha-what should we do now, hyung-ssi?</p>
+    <p>“If I knew what to do, would I still be standing around here?”</p>
+    <p>I was still in a state of shock.</p>
+    <p>When I gave him this unconfident answer, Park Deokgu shut up and quietly observed me.</p>
+    <p>Seeing that he didn’t speak anymore, despite his non-stop chattering since the starting point incident, it seemed like he decided to acknowledge my words.</p>
+    <p>“We don’t know exactly what this place is for now. We need to look around first.”</p>
+    <p>“Y-you want to go outside?”</p>
+    <p>“Not right now.”</p>
+    <p>“The-then you are saying that someday we will go outside?”</p>
+    <p>“I told you, not right now.”</p>
+    <p>We were in a hidden corner by a wall, which was hard to find in this maze.</p>
+    <p>It was a little cramped for me and him to squeeze together in here, but it wasn’t so bad.</p>
+    <p>At least for now, it seemed like it could provide us with a minimum assurance of safety.</p>
+    <p>‘Water, food and weapons.’</p>
+    <p>We had those things, but I didn’t know if it was enough.</p>
+    <p>The question is, for how long will we have to endure being here?</p>
+    <p>And is it really safe here?</p>
+    <p>I had a lot to think about.</p>
+    <p>“I never thought something like this could happen…”</p>
+    <p>“You saw the status window and the monsters. It’s not an illusion. It’s not a video game. It’s reality… but I also wish it were a dream.”</p>
+    <p>“Yeah…”</p>
+    <p>The situation we were facing was, in fact, reality. I didn’t mention the events that happened at the starting point. I’d actually seen people die, and I’d even seen monsters I couldn’t even begin to describe.</p>
+    <p>Denying reality wouldn’t change anything.</p>
+    <p>“The-the main goal of this tutorial is survival, right? I-I think that strange woman said so… Then if we keep hiding here…”</p>
+    <p>“It’s not that simple.”</p>
+    <p>“What else could it be?”</p>
+    <p>“The problem is that we don’t know how long this will last for. We took some food and water, but it’s not enough for us to sit here for a week… And there’s no guarantee that this place is safe. Who knows where those monsters we saw earlier are hiding.”</p>
+    <p>“You think so?”</p>
+    <p>“Yes, I think so. And even if we leave the tutorial now… how do we survive afterwards?”</p>
+    <p>“W-what are you talking about?”</p>
+    <p>“I’m not absolutely sure about it, but after this tutorial, we’ll enter a place called the continent. I mean, this dungeon could be like heaven compared to that. There is no guarantee that the place we will end up in later will be safer than here. Simply hanging around here isn’t going to cut it for sure…”</p>
+    <p>He clamped his mouth shut, because he couldn’t deny my words.</p>
+    <p>Of course, no one knew what would happen after this. But like that woman said, if we were really chosen to save the continent, it won’t end simply with us waiting the tutorial out.</p>
+    <p>Not only may we have to face the monsters we saw earlier, but also fight with each other.</p>
+    <p>And we might face even more dire situations in the future.</p>
+    <p>“Right now, we’re huddled up here, but when we finally leave, there’s only one outcome anyway. “</p>
+    <p>“Wha-what do you mean?”</p>
+    <p>“That we will have to fight.”</p>
+    <p>“With those monsters?”</p>
+    <p>“Have you ever played a video game?”</p>
+    <p>“I-is there anyone in the world who has never played a video game?”</p>
+    <p>“A Status Window, Stats, Titles, Equipment, Class. Don’t you think these terms sound familiar? Imagine that you are in a game now. What do you think we should do?”</p>
+    <p>“I don’t know…”</p>
+    <p>“Level-up. Become strong enough to defend ourselves. Strengthening your body and killing monsters will raise your stats and get you a class, like that woman said. The attributes will naturally unlock, and while it will be hard, we won’t have to avoid those monsters anymore.”</p>
+    <p>“Ah…”</p>
+    <p>“Before we ran away, we picked up weapons, drinking water and food. Our situation is little better than others.”</p>
+    <p>“Ye-yes, but…”</p>
+    <p>I knew he didn’t like the idea of leaving this safe corner.</p>
+    <p>In fact, all humans were the same.</p>
+    <p>What normal person would want to face man-eating monsters?</p>
+    <p>But there was no choice. Eat or be eaten. Otherwise, you won’t survive.</p>
+    <p>“This is what I think.”</p>
+    <p>“Do you have any solution for this?”</p>
+    <p>“If you don’t have a solution, you have to create one.”</p>
+    <p>If you don’t have a solution, you should create one. No, actually the solution for this problem is easier than one would think.</p>
+    <p>“We can kill them.”</p>
+    <p>“But how do you defeat a man-eating monster…?”</p>
+    <p>If you think about it, it’s not like we have no way to win against them.</p>
+    <p>I didn’t remember much from the first battle.</p>
+    <p>Anyone would be scared stiff, if a wave of monsters suddenly attacked from all over.</p>
+    <p>However, I still vividly remembered that sensation passing through my hand.</p>
+    <p>That creepy feeling when a spear pierced flesh. I didn’t stab at it with much strength.</p>
+    <p>But my spear still pierced its skin so easily.</p>
+    <p>My mind was just clouded by fear. In that moment, I was scared of monsters I’d never seen before and lost the will to fight.</p>
+    <p>I lost it, Park Deokgu next to me lost it, and everyone else also lost it.</p>
+    <p>‘But it’s not like we have no way to win against those monsters.’</p>
+    <p>If you think about it rationally, it’s not like we can’t win.</p>
+    <p>“You have to think about it in a simple way. As simple as possible.”</p>
+    <p>“What are you talking about?”</p>
+    <p>“Don’t be afraid. You need to look at them the way they are. Of course, it won’t be easy. I’m also shaking right now, and I don’t know what to do exactly. You and I are the same. But if we are not surrounded or ambushed from behind, we stand a chance. Their skin is soft and they aren’t particularly athletic. None of them followed us when we ran away. All of them rushed in at once into that room we were in before. Many people died at that starting point or whatever, because they were outnumbered. Everyone was also terrified and so couldn’t react in a timely way.”</p>
+    <p>Nothing was certain until I saw it with my own eyes.</p>
+    <p>But I think my guess might be right.</p>
+    <p>Compared to the physical abilities of humans, they were equipped with sharp jaws and claws.</p>
+    <p>Those are their physical advantages.</p>
+    <p>Unlike those butt-naked monsters, we had spears and swords within the reach of our hands. In fact, it’s no exaggeration to say that we were ahead of them in everything.</p>
+    <p>“If you think about it calmly, we can win.”</p>
+    <p>The problem was that Park Deokgu couldn’t see the big picture.</p>
+    <p>Even after my explanation, he was anxiously swallowing his saliva.</p>
+    <p>‘Idiot.’</p>
+    <p>It was then.</p>
+    <p>“Geeek.”</p>
+    <p>I heard voices from somewhere.</p>
+    <p>My natural reaction was to hold my breath. Park Deokgu did the same.</p>
+    <p>“Geeek!”</p>
+    <p>We didn’t know if they were creatures which moved in herds or separately.</p>
+    <p>But the sound was getting closer.</p>
+    <p>“It’s coming here?”</p>
+    <p>‘Sh*t…’</p>
+    <p>I cursed in my head.</p>
+    <p>‘Can I do it?’</p>
+    <p>We would have to face it anyway.</p>
+    <p>It felt like someone was squeezing onto my heart, but I ignored it and bit my lip.</p>
+    <p>Because I knew that if we avoided this now, we would never escape this predicament of fear.</p>
+    <p>[Checking the status window of Monster Crawfish.]</p>
+    <p>[Name: None]</p>
+    <p>[Title: None. You should try a little harder.]</p>
+    <p>[Age: 5]</p>
+    <p>[Disposition: Instinct]</p>
+    <p>[Class: None]</p>
+    <p>[Stats]</p>
+    <p>[Strength: 11]</p>
+    <p>[Agility: 15]</p>
+    <p>[Stamina: 14]</p>
+    <p>[Endurance: 12]</p>
+    <p>[Luck: 10]</p>
+    <p>[Magic Power: 00]</p>
+    <p>I checked its information through the narrow gap where we were hiding.</p>
+    <p>‘It worked.’</p>
+    <p>This ability could also be used on monsters.</p>
+    <p>That was a tiny piece of good news.</p>
+    <p>‘I can win.’</p>
+    <p>I had to overcome my fear.</p>
+    <p>I didn’t get a good look at it before, but now I could tell it definitely looked gross. Apart from the naked torso and lower body, it had green eyes and protruding jaws and teeth.</p>
+    <p>I recalled in my head how, earlier, the same kind of monster bit the neck of a woman whose name I didn’t know with those jaws and teeth.</p>
+    <p>‘However.’</p>
+    <p>Those are some terrible stats.</p>
+    <p>It’s not like I was in position to judge those stats as terrible, but they were definitely lower that I imagined.</p>
+    <p>That should do it.</p>
+    <p>I put more strength into the hand holding a spear.</p>
+    <p>Park Deokgu looked at me nervously, but I had no intention of backing off now.</p>
+    <p>I had to show him that we could win.</p>
+    <p>“Ma-maybe it’s better to not go out?”</p>
+    <p>“…”</p>
+    <p>I didn’t answer.</p>
+    <p>Because my back was soaked with sweat. My hands and legs trembled.</p>
+    <p>‘Damn…’</p>
+    <p>If I make a mistake here, I will die.</p>
+    <p>But I can’t stay like this forever. Sooner or later, eventually… I would have to face those guys.</p>
+    <p>“Even if I don’t go out, I will die.”</p>
+    <p>I took a deep breath, and immediately rushed out.</p>
+    <p>“Geeek!”</p>
+    <p>‘Damn it!’</p>
+    <p>I expected it to notice me at some point, but it was faster than I thought.</p>
+    <p>Naturally, I thought I should swing the spear at the same time when it moves.</p>
+    <p>But my hands didn’t move as I wished. Fear stiffened my body.</p>
+    <p>“Ahhhh!”</p>
+    <p>In the end I had no choice but to raise my spear toward the head of the approaching monster, screaming like some kind of devil-worshipper.</p>
+    <p>As if it expected this attack, the monster leaned straight down.</p>
+    <p>Changing the course of the spear wasn’t easy. As I tightened my trembling hold on the shaft and lowered the spear again, I accidentally struck it in its shoulder.</p>
+    <p>“Gaeeek!”</p>
+    <p>Phew!</p>
+    <p>The feeling of tearing through flesh was unsettling, and I almost dropped my spear, but I didn’t have time to be dazed.</p>
+    <p>“Ahhhh!”</p>
+    <p>When I pushed the spear deeper, the monster jerked and hit the wall.</p>
+    <p>I frowned at the sight of the struggling creature, but without wasting any more time, I grabbed a nearby stone and started smashing its head with it.</p>
+    <p>Although I broke my fingernails while doing it, I didn’t feel any pain.</p>
+    <p>“Sh*t! Sh*t! Sh*t!”</p>
+    <p>Smash!</p>
+    <p>Strange mucus and blood splashed on my hands and body, creeping me out.</p>
+    <p>I couldn’t stop moving my hand.</p>
+    <p>“Sh*t!”</p>
+    <p>Smash!</p>
+    <p>“Die!”</p>
+    <p>Smash!</p>
+    <p>“Gaeeek…”</p>
+    <p>Smash!</p>
+    <p>“Haah…”</p>
+    <p>After its face had turned into a bloody mess, I was finally able to drop the big stone I was gripping in my hand.</p>
+    <p>“Haah… haah…”</p>
+    <p>My heart was beating fast and my breathing was heavy. My arms were covered in its saliva and blood.</p>
+    <p>It was the first time I’d killed something alive.</p>
+    <p>When I shakily raised my head, my eyes met with Park Deokgu’s who looked at me through the narrow gap in the wall.</p>
+    <p>There was surprise in his eyes.</p>
+    <p>He really didn’t think I could do it.</p>
+    <p>I also didn’t think I could.</p>
+    <p>[Strength stat increased by 1.]</p>
+    <p>My expectations were correct.</p>
+    <p>Park Deokgu cautiously opened his mouth and asked.</p>
+    <p>“What’s your name?”</p>
+    <p>“Lee Kiyoung.”</p>
+    <p>“Ki-Kiyoung, can I call you hyung-nim?”</p>
+    <p>Instead of answering, I gave him a small nod.</p>
+    <p>Only</p>
+    <p>He was looking at me in a strange way. I looked straight at him and said.</p>
+    <p>“If I can do it, you can do it too. No, you can do it better.”</p>
+    <p>“I think I know what you mean. Kiyoung hyung-nim, leave it to me. Then, what do we do from now on?</p>
+    <p>It seems this guy I picked wasn’t so bad after all.</p>
+    <p>There was still a lot of work to do.</p>
+    <p>I looked at him, and opened my mouth.</p>
+    <p>“For now, let’s try to escape from here.”</p>
+    <p>Obtaining a class. That’s the first thing on the list.</p>
+  </article>
+</div>
+
+<div id="merge-status"></div>
+
+<nav>
+  <span class="nav-left"><a href="2.html" rel="prev">&#8592; Ch 2</a></span>
+  <span class="nav-mid">
+    <button class="btn-merge" id="btn-merge" >Merge Next 10</button>
+  </span>
+  <span class="nav-right"><a href="4.html" rel="next">Ch 4 &#8594;</a></span>
+</nav>
+
+<script>
+  // Chapters available after this one — discovered from meta.json
+  var slug       = "regressor-instruction-manual";
+  var currentNum = 3;
+  var nextNum    = 4;
+  var maxLoaded  = currentNum;
+  var allNums    = null;   // loaded lazily from meta.json
+  var merging    = false;
+  var root       = "../../";
+
+  async function getNums() {
+    if (allNums) return allNums;
+    var res = await fetch(root + "data/" + slug + "/meta.json");
+    var meta = await res.json();
+    allNums = meta.chapters.map(function(c){ return c.num; });
+    return allNums;
+  }
+
+  document.getElementById("btn-merge").addEventListener("click", async function() {
+    if (merging) return;
+    merging = true;
+    var btn    = document.getElementById("btn-merge");
+    var status = document.getElementById("merge-status");
+    btn.textContent = "Loading…";
+    btn.disabled = true;
+
+    var nums   = await getNums();
+    var idx    = nums.indexOf(maxLoaded);
+    var toLoad = nums.slice(idx + 1, idx + 11);
+    if (!toLoad.length) { merging = false; return; }
+
+    status.style.display = "block";
+    status.textContent = "Fetching chapters " + toLoad[0] + "–" + toLoad[toLoad.length-1] + "…";
+
+    var container = document.getElementById("chapters");
+    var firstNew  = null;
+
+    for (var i = 0; i < toLoad.length; i++) {
+      var n = toLoad[i];
+      try {
+        var res  = await fetch(n + ".html");
+        var html = await res.text();
+        var doc  = new DOMParser().parseFromString(html, "text/html");
+        var art  = doc.querySelector("article");
+        var h1   = doc.querySelector("h1");
+        if (!art) continue;
+
+        // Divider
+        var divider = document.createElement("div");
+        divider.className = "ch-divider";
+        divider.textContent = "Chapter " + n;
+        container.appendChild(divider);
+
+        // Chapter title
+        if (h1) {
+          var chTitle = document.createElement("div");
+          chTitle.className = "ch-title";
+          chTitle.textContent = h1.textContent;
+          container.appendChild(chTitle);
+        }
+
+        // Content
+        var section = document.createElement("article");
+        section.id = "ch-" + n;
+        section.innerHTML = art.innerHTML;
+        container.appendChild(section);
+
+        if (!firstNew) firstNew = divider;
+        maxLoaded = n;
+      } catch(e) {
+        console.warn("Failed to load chapter " + n, e);
+      }
+    }
+
+    // Update nav next link
+    var nextIdx = nums.indexOf(maxLoaded) + 1;
+    var newNext = nextIdx < nums.length ? nums[nextIdx] : null;
+    var navRight = document.querySelector(".nav-right");
+    if (newNext) {
+      navRight.innerHTML = '<a href="' + newNext + '.html" rel="next">Ch ' + newNext + ' &#8594;</a>';
+    } else {
+      navRight.innerHTML = '<span></span>';
+    }
+
+    status.style.display = "none";
+    btn.textContent = newNext ? "⊕ Merge Next 10" : "✓ All loaded";
+    btn.disabled = !newNext;
+    merging = false;
+
+    if (firstNew) firstNew.scrollIntoView({ behavior:"smooth", block:"start" });
+  });
+</script>
+</body>
+</html>

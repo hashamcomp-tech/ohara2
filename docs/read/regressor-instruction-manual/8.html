@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chapter 8 — Regressor Instruction Manual</title>
+  <style>
+    :root { --ink:#1a1a1a; --dim:#666; --bg:#fff; --gold:#8a6a1a; --border:#ddd; }
+    @media (prefers-color-scheme:dark) {
+      :root { --ink:#e9e4da; --dim:#9a9286; --bg:#111010; --gold:#c9a84c; --border:#2a2825; }
+    }
+    *{ box-sizing:border-box; margin:0; padding:0; }
+    body{ background:var(--bg); color:var(--ink); font-family:Georgia,'Times New Roman',serif;
+          font-size:1.125rem; line-height:1.85; padding:40px 24px 80px;
+          max-width:680px; margin:0 auto; }
+    header{ margin-bottom:32px; padding-bottom:20px; border-bottom:1px solid var(--border); }
+    header a{ color:var(--gold); text-decoration:none; font-size:.85rem; }
+    h1{ font-size:1.35rem; font-weight:700; margin-top:10px; line-height:1.25; }
+    article p{ margin-bottom:1.4em; text-align:justify; hyphens:auto; }
+    .ch-divider{ text-align:center; padding:28px 0 16px; color:var(--dim);
+                  font-size:.8rem; letter-spacing:.1em; text-transform:uppercase; }
+    .ch-divider::before,.ch-divider::after{ content:''; display:inline-block;
+      width:40px; height:1px; background:var(--border); vertical-align:middle; margin:0 12px; }
+    .ch-title{ font-size:1.1rem; font-weight:700; color:var(--gold); margin-bottom:16px; }
+    nav{ display:grid; grid-template-columns:1fr auto 1fr; gap:10px; align-items:center;
+          margin-top:48px; padding-top:20px; border-top:1px solid var(--border); font-size:.88rem; }
+    nav a{ color:var(--gold); text-decoration:none; }
+    nav a:hover{ text-decoration:underline; }
+    nav .nav-right{ text-align:right; }
+    nav .nav-mid{ text-align:center; }
+    .btn-merge{ background:rgba(138,106,26,.12); border:1px solid var(--gold);
+                 color:var(--gold); padding:9px 16px; border-radius:6px; cursor:pointer;
+                 font-family:Georgia,serif; font-size:.85rem; font-weight:600;
+                 transition:background .15s; white-space:nowrap; }
+    .btn-merge:hover:not(:disabled){ background:rgba(138,106,26,.25); }
+    .btn-merge:disabled{ opacity:.35; cursor:not-allowed; }
+    #merge-status{ text-align:center; padding:12px; font-size:.82rem;
+                    color:var(--dim); display:none; }
+  </style>
+</head>
+<body>
+<header>
+  <a href="../../novel.html?slug=regressor-instruction-manual">&larr; Regressor Instruction Manual</a>
+  <h1 id="page-title">Chapter 8</h1>
+</header>
+
+<div id="chapters">
+  <article id="ch-8">
+    <p>Chapter 8: Class (2)</p>
+    <p>‘A [Commander]?’</p>
+    <p>This one line glowed blue, while the other three were white.</p>
+    <p>I guess it was because of the rare grade. For now, I began reading the class descriptions from top to bottom.</p>
+    <p>[Warrior (Common)]</p>
+    <p>A capable warrior fighting at the forefront of a battle is a must-have for every party. After changing to this class, you will gain basic knowledge on using all kinds of melee weapons such as swords, spears, axes and so on. Afterwards, you will be able to unlock other melee classes, such as [Barbarian], [Knight], [Paladin], [Cavalryman], [Mercenary] and more. Strength, vitality and endurance are increased by 1 point each.</p>
+    <p>[Archer (Common)]</p>
+    <p>An archer specialises in ranged attacks. After changing to this class, you will gain basic knowledge on using bows and arrows. In addition to being able to unlock adjacent class paths such as [Thief] and [Assassin], you will also have a chance to advance to a higher grade [Archer] class such as [Spirit Archer] or [Magic Archer]. Agility is increased by 3 points.</p>
+    <p>[Wizard (Common)]</p>
+    <p>A [Wizard] is a long range class with the ability to use magic. After changing to this class, you will gain basic knowledge on using magic. Later on, you can unlock other classes such as [Warlock], [Alchemist] or [Summoner]. Magic power is increased by 3 points.</p>
+    <p>The first three options didn’t look too bad.</p>
+    <p>Choosing [Warrior] would improve my three stats that were the most difficult to raise, while choosing [Archer] would allow me to learn how to use ranged weapons… For someone like me, who just wanted to chill at the back, it was a very appealing class.</p>
+    <p>Likewise for [Wizard]. It would boost my magic power, which was still an unknown factor for me.</p>
+    <p>However, what I was the most curious about, was the rare class that appeared, [Commander].</p>
+    <p>[Commander (Rare)]</p>
+    <p>This class has little to do with combat skills. Instead of participating in actual combat, a person with this class reads the situation of the battlefield and gives orders from behind. Changing to this class would provide a wider field of view. It’s not known what other classes you could unlock later. Intelligence is increased by 1 point.</p>
+    <p>Honestly, until I read the description, my mind was set on [Commander].</p>
+    <p>However, now that I had learned the pros and cons of all the classes available, I felt a headache incoming.</p>
+    <p>A [Commander’s] abilities weren’t that bad.</p>
+    <p>‘But what’s the point of having a wider field of view here?’</p>
+    <p>And it only increased my intelligence by 1 point.</p>
+    <p>When you take into account that all other classes offered me 3 extra points, I would lose out on 2 points.</p>
+    <p>And that wasn’t all.</p>
+    <p>‘What about my path of development for the future…?’</p>
+    <p>It was unsettling that there were no mentions of any possible class to be unlocked afterwards.</p>
+    <p>I then remembered that Kim Hyunsung’s class was also a common grade one, [Swordsman].</p>
+    <p>It was very possible that he had unlocked some other classes with a rare or even heroic grade.</p>
+    <p>However, as someone with the Sword Expert attribute, he set his sights on being a [Swordsman]. He probably tried to follow the path he already knew instead of trying something new with lower efficiency.</p>
+    <p>While I was thinking about this, I saw Kim Hyunsung coming this way.</p>
+    <p>“Looks like you guys unlocked some classes.”</p>
+    <p>“Yes.”</p>
+    <p>For this guy, who already knew his own direction of growth, choosing a class was just a formality. On the other hand, I had a lot to worry about because this choice would decide my future. Park Deokgu then opened his mouth, asking for advice.</p>
+    <p>“Hyung-nim, this…”</p>
+    <p>“What is it?”</p>
+    <p>“I’m just not sure about this. I have Warrior and Priest as options, both of which are of common rank. I also see a rare grade class, Shieldman, but I don’t know if it’s good.”</p>
+    <p>“You have Priest in your options?”</p>
+    <p>“For Priest, I could change to Paladin afterwards… and it seems like Warrior can change to Berserker, but… Wouldn’t it be nice to have a rare class at first?”</p>
+    <p>Considering Park Deokgu’s potential was the highest for vitality and endurance, [Shieldman] indeed seemed like the right choice for him.</p>
+    <p>“Shieldman…”</p>
+    <p>“Well, it says that this class is all about defense. It explains that there are bonuses to using a shield, but the problem is that it’s unknown what other classes I could unlock later. Oh, and I would lose 2 points of my strength… but at the same time I would gain 3 points in endurance and vitality.”</p>
+    <p>“It doesn’t sound bad.”</p>
+    <p>It was Kim Hyunsung who spoke before I could even open my mouth. He offered his advice even though he wasn’t asked.</p>
+    <p>“You seem to be someone who has high endurance… Your strength would drop, but such a big rise in endurance and vitality would be amazing. And even if you lose 2 points of strength, you will still be 4 stat points ahead.”</p>
+    <p>‘Indeed.’</p>
+    <p>In an online game, the presence of a tanker, a warrior who fights in the forefront, would be essential.</p>
+    <p>Seeing Kim Hyunsung’s reaction, the system here wasn’t that much different.</p>
+    <p>Not only priests, but tankers were also valuable here.</p>
+    <p>“Hmm… You think so?”</p>
+    <p>“Have you unlocked any attributes yet?”</p>
+    <p>“Not yet.”</p>
+    <p>“As for me, I have a common grade class, Swordsman, and an attribute that boosts my damage. At first, I wanted to choose Warrior to increase my strength, but I had a hunch that a swordsman with great increase in agility would be a better option for me. Afterwards, I unlocked an attribute by accident, so I think my choice of class was the right one.”</p>
+    <p>“Ah.”</p>
+    <p>He was the type of guy who expressed his opinion openly.</p>
+    <p>The quality of the class itself wasn’t too important. The most important thing was how well this class balanced itself with the stats, attributes and abilities of a person.</p>
+    <p>So it was all about what had the best efficiency.</p>
+    <p>Although he didn’t insist on it too strongly, Kim Hyunsung clearly wished for Park Deokgu to choose the rare grade [Shieldman] class.</p>
+    <p>“What do you think, Hyung-nim?”</p>
+    <p>“My opinion is similar. It’s unknown if in the future you would get any attributes that increase your damage, but we have Hyunsung-ssi after all, and he can make up for your lack of attack power. And it would be nice if you could increase your stats by 4 points… But still, the choice is yours.”</p>
+    <p>“That’s right…”</p>
+    <p>“How about Priest then…?”</p>
+    <p>“That’s the worst choice.”</p>
+    <p>[Priest] was the worst option here.</p>
+    <p>I just couldn’t imagine him with this class. Maybe it could work if he later changed to something like [Paladin], but…</p>
+    <p>Park Deokgu’s talent for magic wasn’t particularly great.</p>
+    <p>After a while, for a short amount of time, Park Deokgu’s body shined with a blue light.</p>
+    <p>He had successfully changed his class.</p>
+    <p>“What did you choose?”</p>
+    <p>“Just as you said, Shieldman seems to be the most suitable class for me.”</p>
+    <p>“Is that so?”</p>
+    <p>“I think that even now I can protect you pretty well, Hyung-nim, but it would be nice if I could do so even better. And as for the offensive, I guess it’s not bad to leave it to others. Playing with magic seems to be dangerous, what if I explode because of it? That said, being on the frontlines is a little scary, but I think I can handle it.”</p>
+    <p>“It’s a good choice.”</p>
+    <p>Kim Hyunsung also approvingly nodded his head, then turned to me.</p>
+    <p>“If you don’t mind, can I ask what Kiyoung-ssi chose?”</p>
+    <p>I was silent for a moment, before answering.</p>
+    <p>“I haven’t chosen anything yet. I have three options for common grade classes: Warrior, Archer and Wizard, and also one rare grade class: Commander.”</p>
+    <p>“Commander…”</p>
+    <p>I noticed his facial muscles stiffened for a second.</p>
+    <p>‘It’s a trap card.’</p>
+    <p>This barely perceptible reaction made me convinced that [Commander] was a trap card here.</p>
+    <p>“Um… I see.”</p>
+    <p>“Oh my god, Hyung-nim! Commander! This class would be perfect for you! I just know it!”</p>
+    <p>“Y-Yes?”</p>
+    <p>“I mean, aren’t you totally like some cool commander, Hyung-nim? Just imagining you giving orders from behind like a boss… Khh… Under Hyung-nim’s command I will surely win every battle!”</p>
+    <p>Park Deokgu was full of excitement, but honestly, I didn’t see myself as a commander type.</p>
+    <p>And also…</p>
+    <p>‘I don’t know anything about war strategy.’</p>
+    <p>I had never ever read any book about the art of war.</p>
+    <p>I wasn’t very good at playing chess or Go, and I didn’t have a particularly outstanding mind compared to others.</p>
+    <p>If you asked me about my experience in this area, I could only think about this short time in the distant past, when I played some online strategy game. I don’t even remember what its name was now.</p>
+    <p>In fact, with my character, I was more fit to be a scammer rather than a commander. I guess [Thief] would be quite a fair option for me.</p>
+    <p>“I can’t wait for you to give me orders, Hyung-nim!”</p>
+    <p>‘This bastard…’</p>
+    <p>He was cute.</p>
+    <p>Apparently, he already thought I would choose [Commander].</p>
+    <p>“It says this class would provide me with a wider field of vision and 1 point increase in my intelligence. As for other classes, you guys probably know about them.”</p>
+    <p>“With this class, there’s little to no gain. At least the other three would increase your starts by 3 points…”</p>
+    <p>I felt my throat getting dry. Becoming a rare grade [Commander] was definitely a trap.</p>
+    <p>“You have to be a Commander! Commander!”</p>
+    <p>I decided to ignore this idiot who was getting all excited by himself, and pondered more deeply on this problem.</p>
+    <p>“Having a rare grade class for now would be nice, but I’m also worried whether this class would enable me to advance to something better in the future. All the other classes are of common grade, but it’s obvious they won’t stay like this. Choosing your first class is very important, so…”</p>
+    <p>“I’m telling you Hyung-nim, you should be a Commander! Commander! Please, command me!”</p>
+    <p>“…”</p>
+    <p>“I think the Archer class wouldn’t be so bad for you, Kiyoung-ssi. It would help us a lot, if you could attack from a distance… and later on you could change to something like Thief…</p>
+    <p>“Hyung-nim, choose Commander! Commander! Let me follow you!”</p>
+    <p>“For now… it would be more helpful to increase your stats.”</p>
+    <p>“There’s nothing to argue about here! Hyung-nim was born to be a commander! He has to be a Commander no matter what!”</p>
+    <p>“Archer would be better for him…”</p>
+    <p>“Commander is better!”</p>
+    <p>“Archer…”</p>
+    <p>“Commander!”</p>
+    <p>“Archer…”</p>
+    <p>“Commander!”</p>
+    <p>“Archer!”</p>
+    <p>“Commander!”</p>
+    <p>“Archer is better!”</p>
+    <p>“Commander is even better!!!”</p>
+    <p>They were just making me more confused.</p>
+    <p>‘Damn…’</p>
+    <p>I left those two guys to argue by themselves.</p>
+    <p>Kim Hyunsung seemed to know a little about the disadvantages of being a [Commander], and he wanted to recommend the [Archer] class to me. However, he didn’t know about my poor talent.</p>
+    <p>‘Should I choose [Archer].’</p>
+    <p>Choosing [Commander] went hand in hand with some potential problems, but [Wizard] was actually quite tempting for me. Although my magic power was truly a sad sight, I felt I could work around it, relying on my high intelligence.[1]</p>
+    <p>‘What should I do?’</p>
+    <p>The most important thing was to make the best use of my strong points. Anyway, my Mind’s Eye already told me that I was a hopeless case.</p>
+    <p>“Ah…”</p>
+    <p>Only</p>
+    <p>In the end, I had to choose a class that seemed to be the most efficient for me.</p>
+    <p>As I made my decision, I closed my eyes and with a flash of light I could feel how my body changed a little.</p>
+    <p>“Phew…”</p>
+    <p>I successfully changed my class.</p>
+    <p>Kim Hyunsung and Park Deokgu spoke at the same time.</p>
+    <p>“Commander?” “Archer?”</p>
+    <p>***</p>
+    <p>[1] To lessen your confusion. In chapter 1 by other translator Kiyoung’s potential for all stats was “common grade” but it wasn’t right. He has “heroic grade” for intelligence and luck. In next chapter we will have update of his status window so you can see it more clearly.</p>
+  </article>
+</div>
+
+<div id="merge-status"></div>
+
+<nav>
+  <span class="nav-left"><a href="7.html" rel="prev">&#8592; Ch 7</a></span>
+  <span class="nav-mid">
+    <button class="btn-merge" id="btn-merge" >Merge Next 10</button>
+  </span>
+  <span class="nav-right"><a href="9.html" rel="next">Ch 9 &#8594;</a></span>
+</nav>
+
+<script>
+  // Chapters available after this one — discovered from meta.json
+  var slug       = "regressor-instruction-manual";
+  var currentNum = 8;
+  var nextNum    = 9;
+  var maxLoaded  = currentNum;
+  var allNums    = null;   // loaded lazily from meta.json
+  var merging    = false;
+  var root       = "../../";
+
+  async function getNums() {
+    if (allNums) return allNums;
+    var res = await fetch(root + "data/" + slug + "/meta.json");
+    var meta = await res.json();
+    allNums = meta.chapters.map(function(c){ return c.num; });
+    return allNums;
+  }
+
+  document.getElementById("btn-merge").addEventListener("click", async function() {
+    if (merging) return;
+    merging = true;
+    var btn    = document.getElementById("btn-merge");
+    var status = document.getElementById("merge-status");
+    btn.textContent = "Loading…";
+    btn.disabled = true;
+
+    var nums   = await getNums();
+    var idx    = nums.indexOf(maxLoaded);
+    var toLoad = nums.slice(idx + 1, idx + 11);
+    if (!toLoad.length) { merging = false; return; }
+
+    status.style.display = "block";
+    status.textContent = "Fetching chapters " + toLoad[0] + "–" + toLoad[toLoad.length-1] + "…";
+
+    var container = document.getElementById("chapters");
+    var firstNew  = null;
+
+    for (var i = 0; i < toLoad.length; i++) {
+      var n = toLoad[i];
+      try {
+        var res  = await fetch(n + ".html");
+        var html = await res.text();
+        var doc  = new DOMParser().parseFromString(html, "text/html");
+        var art  = doc.querySelector("article");
+        var h1   = doc.querySelector("h1");
+        if (!art) continue;
+
+        // Divider
+        var divider = document.createElement("div");
+        divider.className = "ch-divider";
+        divider.textContent = "Chapter " + n;
+        container.appendChild(divider);
+
+        // Chapter title
+        if (h1) {
+          var chTitle = document.createElement("div");
+          chTitle.className = "ch-title";
+          chTitle.textContent = h1.textContent;
+          container.appendChild(chTitle);
+        }
+
+        // Content
+        var section = document.createElement("article");
+        section.id = "ch-" + n;
+        section.innerHTML = art.innerHTML;
+        container.appendChild(section);
+
+        if (!firstNew) firstNew = divider;
+        maxLoaded = n;
+      } catch(e) {
+        console.warn("Failed to load chapter " + n, e);
+      }
+    }
+
+    // Update nav next link
+    var nextIdx = nums.indexOf(maxLoaded) + 1;
+    var newNext = nextIdx < nums.length ? nums[nextIdx] : null;
+    var navRight = document.querySelector(".nav-right");
+    if (newNext) {
+      navRight.innerHTML = '<a href="' + newNext + '.html" rel="next">Ch ' + newNext + ' &#8594;</a>';
+    } else {
+      navRight.innerHTML = '<span></span>';
+    }
+
+    status.style.display = "none";
+    btn.textContent = newNext ? "⊕ Merge Next 10" : "✓ All loaded";
+    btn.disabled = !newNext;
+    merging = false;
+
+    if (firstNew) firstNew.scrollIntoView({ behavior:"smooth", block:"start" });
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chapter 124 — Regressor Instruction Manual</title>
+  <style>
+    :root { --ink:#1a1a1a; --dim:#666; --bg:#fff; --gold:#8a6a1a; --border:#ddd; }
+    @media (prefers-color-scheme:dark) {
+      :root { --ink:#e9e4da; --dim:#9a9286; --bg:#111010; --gold:#c9a84c; --border:#2a2825; }
+    }
+    *{ box-sizing:border-box; margin:0; padding:0; }
+    body{ background:var(--bg); color:var(--ink); font-family:Georgia,'Times New Roman',serif;
+          font-size:1.125rem; line-height:1.85; padding:40px 24px 80px;
+          max-width:680px; margin:0 auto; }
+    header{ margin-bottom:32px; padding-bottom:20px; border-bottom:1px solid var(--border); }
+    header a{ color:var(--gold); text-decoration:none; font-size:.85rem; }
+    h1{ font-size:1.35rem; font-weight:700; margin-top:10px; line-height:1.25; }
+    article p{ margin-bottom:1.4em; text-align:justify; hyphens:auto; }
+    .ch-divider{ text-align:center; padding:28px 0 16px; color:var(--dim);
+                  font-size:.8rem; letter-spacing:.1em; text-transform:uppercase; }
+    .ch-divider::before,.ch-divider::after{ content:''; display:inline-block;
+      width:40px; height:1px; background:var(--border); vertical-align:middle; margin:0 12px; }
+    .ch-title{ font-size:1.1rem; font-weight:700; color:var(--gold); margin-bottom:16px; }
+    nav{ display:grid; grid-template-columns:1fr auto 1fr; gap:10px; align-items:center;
+          margin-top:48px; padding-top:20px; border-top:1px solid var(--border); font-size:.88rem; }
+    nav a{ color:var(--gold); text-decoration:none; }
+    nav a:hover{ text-decoration:underline; }
+    nav .nav-right{ text-align:right; }
+    nav .nav-mid{ text-align:center; }
+    .btn-merge{ background:rgba(138,106,26,.12); border:1px solid var(--gold);
+                 color:var(--gold); padding:9px 16px; border-radius:6px; cursor:pointer;
+                 font-family:Georgia,serif; font-size:.85rem; font-weight:600;
+                 transition:background .15s; white-space:nowrap; }
+    .btn-merge:hover:not(:disabled){ background:rgba(138,106,26,.25); }
+    .btn-merge:disabled{ opacity:.35; cursor:not-allowed; }
+    #merge-status{ text-align:center; padding:12px; font-size:.82rem;
+                    color:var(--dim); display:none; }
+  </style>
+</head>
+<body>
+<header>
+  <a href="../../novel.html?slug=regressor-instruction-manual">&larr; Regressor Instruction Manual</a>
+  <h1 id="page-title">Chapter 124</h1>
+</header>
+
+<div id="chapters">
+  <article id="ch-124">
+    <p>Chapter 124: Soulmate (1)</p>
+    <p>‘Huh. This is comfier than I thought.’</p>
+    <p>My treatment had been quite comfortable if you think about the fact that I was considered the killer of one of Yamato guild’s members.</p>
+    <p>The place where I was lying on was a comfortable bed, not a hard floor, and the quality of the food served was excellent.</p>
+    <p>I had been worried about eating the same type of food as lowly criminals.</p>
+    <p>Seeing how I was being treated, I had no choice but to admit that both Cha Hee-ra and Yuno Kasugano were a stronger influence than I thought.</p>
+    <p>If I had just been a lowly countryman, I would’ve been hung straightaway. However, my position as the Mercenary Queen’s lover and the shaman’s client imposed a certain influence.</p>
+    <p>I like having power because of this.’</p>
+    <p>It was safe to assume that I was safe.</p>
+    <p>Of course, it was unlikely that my neck would be hanged just by my position. It would not be a pleasant story for those who want the empire’s power cut off if they were to be oppressed by both the mercenary queen and the shaman.</p>
+    <p>It was more important to protect me, than to blame me for the death of a common member of the Yamato guild.</p>
+    <p>What I needed to know was what that bastard Ito Souta would do.</p>
+    <p>The intensity of the punishment I would receive would probably be determined by how much he talks, but the conclusion was that I at least didn’t have to worry about being in a real mess.</p>
+    <p>My only problem at this point was being at a disadvantage in terms of diplomacy. My issue certainly was controversial at every angle.</p>
+    <p>After I ate, Cha Hee-ra appeared before me. Strangely enough, the woman looked unwell.</p>
+    <p>“Honestly, I feel good.”</p>
+    <p>“Huh?”</p>
+    <p>“It’s not you who’s screwed, it’s that bastard.”</p>
+    <p>“I thought I’d be scolded. I’m actually surprised.”</p>
+    <p>“Of course, it’s not that I’m not feeling bad. It’s bad enough that my plan has been ruined, and I feel even worse knowing you got humiliated after going up to the shaman’s room without informing me. You know I secretly value appearances. Nevertheless, you managed to kill a guild member of theirs. And in an audacious manner, too…”</p>
+    <p>“Thank you for that…”</p>
+    <p>“What is your relationship with the shaman?”</p>
+    <p>“I never imagined that a woman who would stand by the Yamato Guild would vouch for my honey in the end. You weren’t pulling strings behind my back, right? If so, I’d feel a little sad.”</p>
+    <p>“You are free to believe it or not, but the other day was really the first time that I met this shaman.”</p>
+    <p>“You know that if you lie to me, the things that’ll happen after won’t be sweet, right?”</p>
+    <p>“Why would I lie to you? Remember when I first met Yuno Kasugano, she saw me and cried?”</p>
+    <p>“Of course.”</p>
+    <p>“She can see the future.”</p>
+    <p>“What nons-“</p>
+    <p>“Of course, she can’t see what she wants, and even if she sees something, it’s only a fragment. However, she can certainly see the future.”</p>
+    <p>“You’re not kidding, are you?”</p>
+    <p>“I checked it myself. In fact, if you give it a little thought, you have the answer. How can a 16-year-old girl build a large guild in 4 years without that kind of ability? I kind of know why she’s obsessed with me. I will get connected to this girl in the future.”</p>
+    <p>“That’s nuts.”</p>
+    <p>“That’s why she was looking at me crying, and that’s why she defends me this determinedly. You are free to believe it or not.”</p>
+    <p>Cha Hee-ra seemed annoyed with this. Knocking on the table for no reason whatsoever, she spoke once more.</p>
+    <p>“Ha… This bastard, you are full of pheromones.”</p>
+    <p>“You know, I only have you.”</p>
+    <p>“It’s not good if you cross the line, honey.”</p>
+    <p>I could see a slightly distorted expression crossing over, striking the table. She didn’t seem to like what she had found out. In fact, anyone could see that she was angry.</p>
+    <p>“So… There is a way, right? Although I’m constantly making a fuss, the public opinion isn’t very good. It’s the first time someone died from a quarrel in the holy city of the Holy Empire. They won’t dare behead you, but the guilds from Lindel can lose ground. Even if it doesn’t seem like a big deal, the situation is actually very delicate…”</p>
+    <p>“I’ve been thinking. There will be changes in the plan, but the results will still be the same.”</p>
+    <p>“It will be good for you to behave properly. The reason I’m looking after you is that at some point, you’ll be of help. It’s always good to keep in mind that your attractiveness is only a secondary reason.”</p>
+    <p>“I know. Thanks, Hee-ra.”</p>
+    <p>“…I’ll come back in the evening. Do not get stressed. Take a break and think, honey.”</p>
+    <p>“You too.”</p>
+    <p>‘You seem to be in a good mood.’</p>
+    <p>I didn’t know if I managed to make her feel better, but a faint smile was clearly visible.</p>
+    <p>Like Jung Hayan, Cha Hee-ra’s face was quite transparent. The only problem was that her emotions changed fast, as her status window suggested.</p>
+    <p>I felt tired after dealing with all the women that came here today. In fact, it felt more difficult to deal with Jung Hayan and the shaman than it was to be investigated.</p>
+    <p>“Sniff… Oppa… Waaaah…”</p>
+    <p>As soon as Jung Hayan came, she broke down into tears, as if the sky had collapsed. She seemed to feel heartbroken upon seeing me in custody, all the while waiting to reunite.</p>
+    <p>Perhaps she thought I would receive a big punishment. It was evident from the way she was crying and touching my cheek.</p>
+    <p>Anyone who looked at us would think I was already on death row.</p>
+    <p>Of course, after I explained the situation to her, her sadness turned into anger towards Ito Souta. In addition to this, she also harbored anger towards Kasugano, as she thought that this whole incident happened because of the shaman.</p>
+    <p>Though Jung Hayan had gone into special treatment for her emotions, nevertheless, the anger did not subside, so she asked Cha Hee-ra for management</p>
+    <p>‘Isn’t she coming today?’</p>
+    <p>I shook my head as I felt as though I was waiting for Jung Hayan today.</p>
+    <p>Of course, in Kasugano Yuno’s case, the situation was not very different.</p>
+    <p>Since she had to do other activities for me, it wasn’t easy to come often, but she still found the time to report to me.</p>
+    <p>Though I felt sorry for them, I was truthfully not waiting for either Hayan or Yuno to come.</p>
+    <p>I was waiting for a lawyer who could successfully defend me.</p>
+    <p>Of course, it didn’t matter if I had to defend myself, but it would definitely be better to have one of the main pillars of a large guild act as a representative.</p>
+    <p>What I needed was a smart and capable woman.</p>
+    <p>As I got lost in my thoughts, the door to my room opened. I wondered if it was Jung Hayan or Yuno, and I looked up…</p>
+    <p>The woman in front of me turned out to be the woman I was waiting for.</p>
+    <p>‘Lee Jihye.’</p>
+    <p>She looked at me quietly lying in bed.</p>
+    <p>“Look at you… There is no better loser.”</p>
+    <p>“You got me.”</p>
+    <p>“You’ve been caught very perfectly.”</p>
+    <p>“Your pride must hurt a lot, right? It’s the first time I’ve ever seen such an angry expression on your face.”</p>
+    <p>“Is that so?”</p>
+    <p>“I can tell just by looking at it.”</p>
+    <p>I didn’t know if she really knew me that well or was just quick-witted, but I felt like I had gotten kicked.</p>
+    <p>I knew I should keep my composure as much as possible, but it was natural to feel angry for various reasons. I was the one who had a talent for backstabbing - how was it that I was the one who got backstabbed this time around?</p>
+    <p>Some other monster managed to reel me in with a lousy trick.</p>
+    <p>I may be smiling, but inwardly, I felt furious.</p>
+    <p>I also felt embarrassed that Lee Jihye was able to see what Cha Hee-ra and Jung Hayan failed to, but I felt like I knew why.</p>
+    <p>‘Soulmate.</p>
+    <p>I thought about it every time I saw her. Certainly, Lee Jihye and I were a good match.</p>
+    <p>“I thought you would already be acting, but you’re not.”</p>
+    <p>“I was waiting for you.”</p>
+    <p>“Is the title of Red Mercenary’s lover and Shaman’s client still insufficient?”</p>
+    <p>She was right</p>
+    <p>The fact that the Black Swan’s executive, also a high-ranking executive trusted by the Guild Master, would act as my representative was very significant.</p>
+    <p>That was how relationships between the powerful worked.</p>
+    <p>Considering that there was a practice in Korea that gave preferential treatment to the first trials of lawyers who were former judges or prosecutors, the answer came to me quickly.</p>
+    <p>‘Keeping appearances is important.’</p>
+    <p>“I wouldn’t say that there wasn’t such a thing, but rather than focusing on that, I needed you.”</p>
+    <p>“Well… That doesn’t sound so bad, oppa.”</p>
+    <p>“I’m glad you think so. Actually… you are right. It’d be a lie to say I’m not angry. Also, my pride was indeed hurt, and my back aches a lot.”</p>
+    <p>“Shall we cry together?”</p>
+    <p>“No. I have a plan, and I hope you can help me. I’m not going to end up simply getting back at the same level. Of course, you will be gaining something with this, too.”</p>
+    <p>“I was thinking of helping you even if I ended up not get anything, since I’m such a romantic. Personally, I’m also angry at the guy who threw dirt on my own plans… The first thing to do will be to find your rights, is that correct?”</p>
+    <p>“My fate will be in your hands, deputy.”</p>
+    <p>“Don’t you worry, my client.”</p>
+    <p>Lee Jihye stood up as she spoke. She then walked towards the guard standing by my door, and I could predict just what she was going to do.</p>
+    <p>After all, this was the role I wanted for her.</p>
+    <p>“Excuse me?”</p>
+    <p>“Yes.”</p>
+    <p>“Where is Lee Kiyoung’s weapon?”</p>
+    <p>“Ah. In the case of that armament… We are keeping it for investigation…”</p>
+    <p>“Please bring that to me right away.”</p>
+    <p>“I’m sorry?”</p>
+    <p>“I told you to bring that weapon to me right away.”</p>
+    <p>“B-but… Since it was a weapon used at the murder site, we are the ones in charge of managing it. Even if you tell me to bring it all of a sudden…”</p>
+    <p>“Isn’t the investigation done yet? The function of the item was clearly explained in words, and I know it was checked. I know they have already experimented on it several times. Is that not enough?”</p>
+    <p>“We keep it for any sudden situation that might arise. It’s still considered to be dangerous…”</p>
+    <p>“In that case, this is one of those sudden situations, and I’m telling you to bring it to me now. First of all, you must know that the Yamato Guild’s guild member threatened my client. This is directly testified by Yuno Kasugano, who was there. He is half imprisoned even when they don’t know for sure who is the victim and who is the perpetrator, and they even dared to take away his weapon!”</p>
+    <p>“Someone has died. For now, we have to follow the procedures…”</p>
+    <p>“The cursing sword, Juliana, is our client’s minimal means of protecting his body. If an accident happens to my client who has lost the means to protect his body, can you take responsibility? The Mercenary Queen will not stand and watch.”</p>
+    <p>“But…”</p>
+    <p>“You people… I’m asking nicely.”</p>
+    <p>“Do you know how much that weapon is worth? It is one of the few legendary items on the continent. Do you think you can take responsibility if a problem arose with its functions? As far as I can confirm, I know that weapons that have been separated from their owners for a long time will develop side effects. If there is any problem with Juliana, I will sue you on behalf of my client.”</p>
+    <p>“We are just moving according to the procedures of the Holy Empire. Even if you say you will sue us…”</p>
+    <p>“It’s not the Holy Empire I will be suing. I am suing you, people, for neglecting management. It’s not the Holy Empire’s fault, but it is definitely yours, the individuals who are oppressing my client.”</p>
+    <p>Only</p>
+    <p>“Ah…”</p>
+    <p>“The value of my client’s weapon is so high that it cannot be converted into a meager amount. If you don’t properly manage such weapons, do you think you can still be innocent? If I sue you, all of the guards here will quickly drown into debt, and will have to fight long court battles against large guilds to earn the money. It’s so obvious that I don’t have to say whose side the Holy Empire you believe in will take. Are you still confident with your answer?”</p>
+    <p>“I don’t know if you’re behaving this way because you believe that the Holy Empire will protect you if things go wrong, but if not, shut up and bring my boyfriend’s stuff. Tell your supervisor exactly what I said, and if the supervisor doesn’t have the authority, ask them from a higher-up to solve the problem. If that doesn’t work, you can come up with a solution yourselves and bring Juliana here right away… Otherwise, the humans involved will be bound together, and all will be sued.”</p>
+    <p>“T-that… Our authority…”</p>
+    <p>“Did you not hear me? Bring a superior or a supervisor! Who is in charge here?! Who’s doing things this way?!”</p>
+    <p>Jihye, you’re so cool…’</p>
+    <p>At least by my standards, she was worthy of being a girl-crush.</p>
+    <p>That was the only way I could express this situation.</p>
+  </article>
+</div>
+
+<div id="merge-status"></div>
+
+<nav>
+  <span class="nav-left"><a href="123.html" rel="prev">&#8592; Ch 123</a></span>
+  <span class="nav-mid">
+    <button class="btn-merge" id="btn-merge" >Merge Next 10</button>
+  </span>
+  <span class="nav-right"><a href="125.html" rel="next">Ch 125 &#8594;</a></span>
+</nav>
+
+<script>
+  // Chapters available after this one — discovered from meta.json
+  var slug       = "regressor-instruction-manual";
+  var currentNum = 124;
+  var nextNum    = 125;
+  var maxLoaded  = currentNum;
+  var allNums    = null;   // loaded lazily from meta.json
+  var merging    = false;
+  var root       = "../../";
+
+  async function getNums() {
+    if (allNums) return allNums;
+    var res = await fetch(root + "data/" + slug + "/meta.json");
+    var meta = await res.json();
+    allNums = meta.chapters.map(function(c){ return c.num; });
+    return allNums;
+  }
+
+  document.getElementById("btn-merge").addEventListener("click", async function() {
+    if (merging) return;
+    merging = true;
+    var btn    = document.getElementById("btn-merge");
+    var status = document.getElementById("merge-status");
+    btn.textContent = "Loading…";
+    btn.disabled = true;
+
+    var nums   = await getNums();
+    var idx    = nums.indexOf(maxLoaded);
+    var toLoad = nums.slice(idx + 1, idx + 11);
+    if (!toLoad.length) { merging = false; return; }
+
+    status.style.display = "block";
+    status.textContent = "Fetching chapters " + toLoad[0] + "–" + toLoad[toLoad.length-1] + "…";
+
+    var container = document.getElementById("chapters");
+    var firstNew  = null;
+
+    for (var i = 0; i < toLoad.length; i++) {
+      var n = toLoad[i];
+      try {
+        var res  = await fetch(n + ".html");
+        var html = await res.text();
+        var doc  = new DOMParser().parseFromString(html, "text/html");
+        var art  = doc.querySelector("article");
+        var h1   = doc.querySelector("h1");
+        if (!art) continue;
+
+        // Divider
+        var divider = document.createElement("div");
+        divider.className = "ch-divider";
+        divider.textContent = "Chapter " + n;
+        container.appendChild(divider);
+
+        // Chapter title
+        if (h1) {
+          var chTitle = document.createElement("div");
+          chTitle.className = "ch-title";
+          chTitle.textContent = h1.textContent;
+          container.appendChild(chTitle);
+        }
+
+        // Content
+        var section = document.createElement("article");
+        section.id = "ch-" + n;
+        section.innerHTML = art.innerHTML;
+        container.appendChild(section);
+
+        if (!firstNew) firstNew = divider;
+        maxLoaded = n;
+      } catch(e) {
+        console.warn("Failed to load chapter " + n, e);
+      }
+    }
+
+    // Update nav next link
+    var nextIdx = nums.indexOf(maxLoaded) + 1;
+    var newNext = nextIdx < nums.length ? nums[nextIdx] : null;
+    var navRight = document.querySelector(".nav-right");
+    if (newNext) {
+      navRight.innerHTML = '<a href="' + newNext + '.html" rel="next">Ch ' + newNext + ' &#8594;</a>';
+    } else {
+      navRight.innerHTML = '<span></span>';
+    }
+
+    status.style.display = "none";
+    btn.textContent = newNext ? "⊕ Merge Next 10" : "✓ All loaded";
+    btn.disabled = !newNext;
+    merging = false;
+
+    if (firstNew) firstNew.scrollIntoView({ behavior:"smooth", block:"start" });
+  });
+</script>
+</body>
+</html>
