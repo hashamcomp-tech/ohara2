@@ -1049,34 +1049,75 @@ def mark_done(novel_url: str) -> None:
 # ────────────────────────────── main ───────────────────────────
 def main() -> None:
     parser = argparse.ArgumentParser(
-        description="Scrape FreeWebNovel and export EPUBs + Ohara site JSON."
+        description=(
+            "Ohara scraper — download novels from FreeWebNovel and publish them\n"
+            "to your Ohara GitHub Pages site as JSON + static HTML.\n\n"
+            "Common workflows:\n"
+            "  Single novel:   --novel URL [--auto-push] [--no-epub]\n"
+            "  Bulk scrape:    --listing URL --pages N [--auto-push] [--no-epub]\n"
+            "  Update all:     --update [--auto-push] [--no-epub]\n"
+            "  Auto-update:    --watch [--interval 60] [--auto-push] [--no-epub]\n"
+            "  Rebuild HTML:   --rebuild-html\n"
+            "  Retry failures: --retry-failed"
+        ),
+        formatter_class=argparse.RawDescriptionHelpFormatter,
     )
     parser.add_argument("--novel", default=None, metavar="URL",
-        help="Scrape a single novel directly, e.g. https://freewebnovel.com/novel/shadow-slave")
-    parser.add_argument("--listing", default=DEFAULT_LISTING,
-        help=f"Listing URL to crawl. Default: {DEFAULT_LISTING}")
+        help=(
+            "Scrape a single novel by URL and export it to the site.\n"
+            "Example: --novel https://freewebnovel.com/novel/shadow-slave"
+        ))
+    parser.add_argument("--listing", default=DEFAULT_LISTING, metavar="URL",
+        help=(
+            "Listing page to crawl (sort or genre page). Paginates automatically.\n"
+            "Examples: freewebnovel.com/sort/most-popular\n"
+            "          freewebnovel.com/genre/Fantasy\n"
+            f"Default: {DEFAULT_LISTING}"
+        ))
     parser.add_argument("--pages", type=int, default=None, metavar="N",
-        help="Only crawl the first N pages of the listing.")
+        help="Only crawl the first N pages of the listing (useful for testing).")
     parser.add_argument("--resume", action="store_true",
-        help=f"Skip novels already listed in {PROGRESS_FILE}.")
+        help=f"Skip novels already marked done in {PROGRESS_FILE}. Use after an interrupted run.")
     parser.add_argument("--update", action="store_true",
-        help="Check every novel already in output/ for new chapters.")
-    parser.add_argument("--retry-failed", action="store_true",
-        help=f"Re-attempt all chapters logged in {FAILED_FILE}.")
-    parser.add_argument("--dry-run", action="store_true",
-        help="Print discovered URLs without scraping.")
-    parser.add_argument("--auto-push", action="store_true",
-        help="After each novel, git commit and push to GitHub automatically.")
+        help=(
+            "Check every novel in output/ and docs/data/ against the site\n"
+            "and download any new chapters. Combine with --auto-push to publish immediately."
+        ))
     parser.add_argument("--watch", action="store_true",
-        help="Run --update --auto-push in a loop forever. Use --interval to set frequency.")
+        help=(
+            "Run --update in a loop forever, sleeping --interval minutes between runs.\n"
+            "Combine with --auto-push and --no-epub for a fully automated background updater.\n"
+            "Example: --watch --auto-push --no-epub --interval 60\n"
+            "Stop with Ctrl+C."
+        ))
     parser.add_argument("--interval", type=int, default=60, metavar="MINUTES",
-        help="Minutes between updates when using --watch. Default: 60.")
+        help="Minutes to sleep between --watch update cycles. Default: 60.")
+    parser.add_argument("--auto-push", action="store_true",
+        help=(
+            "After each novel, automatically:\n"
+            "  1. Regenerate static HTML pages for Safari Reader (docs/read/<slug>/)\n"
+            "  2. git add the novel's data and HTML files\n"
+            "  3. git commit and git push to GitHub\n"
+            "Requires git to be configured with push access."
+        ))
     parser.add_argument("--rebuild-html", action="store_true",
-        help="Regenerate static HTML pages for all novels from existing JSON. No scraping.")
-    parser.add_argument("--no-site", action="store_true",
-        help=f"Skip JSON export to {SITE_DIR}/data/ (epub only).")
+        help=(
+            "Rebuild all static HTML reader pages from existing JSON in docs/data/.\n"
+            "No network requests. Run this after updating the scraper to add new\n"
+            "HTML features without re-scraping anything.\n"
+            "Then: git add docs/read/ && git commit -m 'rebuild html' && git push"
+        ))
+    parser.add_argument("--retry-failed", action="store_true",
+        help=f"Re-download all chapters logged as failed in {FAILED_FILE}.")
+    parser.add_argument("--dry-run", action="store_true",
+        help="Discover and print novel URLs from a listing without scraping anything.")
     parser.add_argument("--no-epub", action="store_true",
-        help="Skip epub generation (site JSON only).")
+        help=(
+            "Skip EPUB generation. Only exports JSON and static HTML for the site.\n"
+            "Recommended for overnight runs to save disk space."
+        ))
+    parser.add_argument("--no-site", action="store_true",
+        help=f"Skip site JSON and HTML export. Only generates EPUBs in output/.")
     args = parser.parse_args()
 
     export_site = not args.no_site
