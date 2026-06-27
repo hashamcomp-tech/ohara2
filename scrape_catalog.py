@@ -954,6 +954,65 @@ def git_push_novel(slug: str, novel_name: str) -> bool:
     return True
 
 
+def fetch_tags_for_all(auto_push: bool = False) -> None:
+    """
+    Visit every novel's landing page, scrape tags, and update
+    meta.json + index.json. No chapters are downloaded.
+    """
+    slugs = get_all_local_slugs()
+    if not slugs:
+        print("No novels found in output/ or docs/data/.")
+        return
+
+    print(f"Fetching tags for {len(slugs)} novel(s)…\n")
+
+    for idx, slug in enumerate(sorted(slugs), 1):
+        novel_url  = f"{BASE_URL}/novel/{slug}"
+        print(f"[{idx}/{len(slugs)}] {slug}")
+        info = get_novel_page_info(novel_url)
+        tags       = info.get("tags", [])
+        cover_url  = info.get("cover", "")
+        novel_name = info.get("title") or slug.replace("-", " ").title()
+
+        if tags:
+            print(f"  Tags: {', '.join(tags)}")
+        else:
+            print(f"  Tags: (none found)")
+
+        # Update meta.json with tags (preserve existing chapters)
+        meta_path = os.path.join(SITE_DIR, "data", slug, "meta.json")
+        if os.path.exists(meta_path):
+            with open(meta_path, encoding="utf-8") as f:
+                meta = json.load(f)
+            meta["tags"] = tags
+            if cover_url:
+                meta["cover"] = cover_url
+            with open(meta_path, "w", encoding="utf-8") as f:
+                json.dump(meta, f, ensure_ascii=False, indent=2)
+
+        # Update index.json entry with tags
+        index_path = os.path.join(SITE_DIR, "data", "index.json")
+        if os.path.exists(index_path):
+            with open(index_path, encoding="utf-8") as f:
+                index = json.load(f)
+            entry = next((n for n in index["novels"] if n["slug"] == slug), None)
+            if entry:
+                entry["tags"] = tags
+                if cover_url:
+                    entry["cover"] = cover_url
+            with open(index_path, "w", encoding="utf-8") as f:
+                json.dump(index, f, ensure_ascii=False, indent=2)
+
+        if auto_push:
+            git_push_novel(slug, novel_name)
+
+        time.sleep(PAGE_DELAY)
+
+    print(f"\nDone — tags updated for {len(slugs)} novel(s).")
+    if not auto_push:
+        print("Push with: git add docs/data/ && git commit -m 'add tags' && git push")
+
+
 def regenerate_static_html() -> None:
     """
     Read every chapter JSON already in docs/data/ and write the
@@ -1126,6 +1185,8 @@ def main() -> None:
             "  3. git commit and git push to GitHub\n"
             "Requires git to be configured with push access."
         ))
+    parser.add_argument("--fetch-tags", action="store_true",
+        help="Fetch and update tags for all existing novels without re-scraping chapters.")
     parser.add_argument("--rebuild-html", action="store_true",
         help=(
             "Rebuild all static HTML reader pages from existing JSON in docs/data/.\n"
@@ -1151,6 +1212,10 @@ def main() -> None:
 
     if args.rebuild_html:
         regenerate_static_html()
+        return
+
+    if args.fetch_tags:
+        fetch_tags_for_all(auto_push=args.auto_push)
         return
 
     # ── watch mode: loop forever, updating every --interval minutes ──
