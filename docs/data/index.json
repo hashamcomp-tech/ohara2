@@ -106,6 +106,19 @@
         "Sci-fi",
         "Tragedy"
       ]
+    },
+    {
+      "slug": "the-mirror-legacy",
+      "title": "The Mirror Legacy",
+      "cover": "https://freewebnovel.com/files/article/image/4/4334/4334s.jpg",
+      "tags": [
+        "Action",
+        "Adventure",
+        "Xianxia",
+        "Mature"
+      ],
+      "totalChapters": 1578,
+      "lastUpdated": "2026-06-27"
     }
   ]
 }
