@@ -85,6 +85,17 @@
         ${meta.source ? `<span><a href="${esc(meta.source)}" target="_blank" rel="noopener" style="color:var(--gold-dim)">Source ↗</a></span>` : ''}
       `;
 
+      // Tags
+      if (meta.tags && meta.tags.length) {
+        const tagsHTML = meta.tags.map(t =>
+          `<span class="tag">${esc(t)}</span>`
+        ).join('');
+        document.getElementById('hero-meta').insertAdjacentHTML(
+          'afterend',
+          `<div class="tags" style="margin-top:12px">${tagsHTML}</div>`
+        );
+      }
+
       // "Read Chapter 1" button
       if (meta.chapters && meta.chapters.length) {
         const first = meta.chapters[0].num;
