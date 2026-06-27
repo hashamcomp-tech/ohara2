@@ -634,20 +634,39 @@ def retry_failed_chapters(export_site: bool = True) -> None:
 
 # ──────────────────── local output inspection ─────────────────
 def get_local_novel_state(slug: str) -> tuple[int, int]:
-    novel_dir = os.path.join("output", slug)
-    if not os.path.isdir(novel_dir):
-        return 0, 1
+    """
+    Return (highest_chapter_on_disk, next_vol_num).
+    Checks epub files in output/<slug>/ first, then falls back to
+    docs/data/<slug>/meta.json so --no-epub runs are tracked correctly.
+    """
+    # Check epub output folder
+    novel_dir   = os.path.join("output", slug)
     max_chapter = 0
     max_vol     = 0
-    for fname in os.listdir(novel_dir):
-        if not fname.endswith(".epub"):
-            continue
-        m = re.search(r"-vol(\d+)-ch\d+-(\d+)\.epub$", fname)
-        if m:
-            vol_num = int(m.group(1))
-            end_ch  = int(m.group(2))
-            max_chapter = max(max_chapter, end_ch)
-            max_vol     = max(max_vol, vol_num)
+    if os.path.isdir(novel_dir):
+        for fname in os.listdir(novel_dir):
+            if not fname.endswith(".epub"):
+                continue
+            m = re.search(r"-vol(\d+)-ch\d+-(\d+)\.epub$", fname)
+            if m:
+                vol_num = int(m.group(1))
+                end_ch  = int(m.group(2))
+                max_chapter = max(max_chapter, end_ch)
+                max_vol     = max(max_vol, vol_num)
+
+    # If no epubs found, check site meta.json (covers --no-epub runs)
+    if max_chapter == 0:
+        meta_path = os.path.join(SITE_DIR, "data", slug, "meta.json")
+        if os.path.exists(meta_path):
+            try:
+                with open(meta_path, encoding="utf-8") as f:
+                    meta = json.load(f)
+                chapters = meta.get("chapters", [])
+                if chapters:
+                    max_chapter = max(c["num"] for c in chapters)
+            except Exception:
+                pass
+
     return max_chapter, max_vol + 1
 
 
