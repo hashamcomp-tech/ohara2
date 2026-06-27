@@ -285,15 +285,17 @@
 
   // ── Reader mode — build a clean HTML page from loaded JSON ──
   function openReader() {
-    // Collect all chapters currently loaded in the DOM
     const container = document.getElementById('merged-chapters');
     if (!container || !meta) return;
 
-    const allNums  = meta.chapters.map(c => c.num);
-    const prevNum  = allNums[allNums.indexOf(startChNum) - 1];
-    const nextNum  = allNums[allNums.indexOf(maxLoadedCh) + 1];
+    const allNums = meta.chapters.map(c => c.num);
+    const prevNum = allNums[allNums.indexOf(startChNum) - 1];
+    const nextNum = allNums[allNums.indexOf(maxLoadedCh) + 1];
 
-    // Gather rendered text back out of the DOM sections
+    // Absolute base URL so links and fetches work from the blob page
+    const base = window.location.origin + window.location.pathname.replace(/[^/]*$/, '');
+
+    // Gather rendered text out of the DOM
     let articleHTML = '';
     const sections  = container.querySelectorAll('[id^="ch-"]');
     sections.forEach((sec, i) => {
@@ -305,11 +307,14 @@
     });
 
     const prevLink = prevNum != null
-      ? `<a href="chapter.html?slug=${encodeURIComponent(slug)}&ch=${prevNum}">&#8592; Ch ${prevNum}</a>`
+      ? `<a href="${base}chapter.html?slug=${encodeURIComponent(slug)}&ch=${prevNum}">&#8592; Ch ${prevNum}</a>`
       : '<span></span>';
     const nextLink = nextNum != null
-      ? `<a href="chapter.html?slug=${encodeURIComponent(slug)}&ch=${nextNum}">Ch ${nextNum} &#8594;</a>`
+      ? `<a href="${base}chapter.html?slug=${encodeURIComponent(slug)}&ch=${nextNum}">Ch ${nextNum} &#8594;</a>`
       : '<span></span>';
+
+    const mergeDisabled = nextNum == null ? 'disabled' : '';
+    const mergeLabel    = nextNum == null ? '✓ All loaded' : '⊕ Merge Next 10';
 
     const html = `<!DOCTYPE html>
 <html lang="en">
@@ -329,30 +334,112 @@
     h2{font-size:1.1rem;font-weight:700;color:var(--gold);margin:32px 0 14px}
     article p{margin-bottom:1.4em;text-align:justify;hyphens:auto}
     .ch-divider{text-align:center;padding:24px 0 8px;color:var(--dim);font-size:.9rem;letter-spacing:.2em}
-    nav{display:flex;justify-content:space-between;margin-top:48px;padding-top:20px;
-        border-top:1px solid var(--border);font-size:.9rem}
+    #merge-status{text-align:center;padding:10px;font-size:.82rem;color:var(--dim);display:none}
+    nav{display:grid;grid-template-columns:1fr auto 1fr;gap:10px;align-items:center;
+        margin-top:48px;padding-top:20px;border-top:1px solid var(--border);font-size:.88rem}
     nav a{color:var(--gold);text-decoration:none}
     nav a:hover{text-decoration:underline}
+    .nav-right{text-align:right}
+    .nav-mid{text-align:center}
+    .btn-merge{background:rgba(138,106,26,.12);border:1px solid var(--gold);color:var(--gold);
+               padding:9px 16px;border-radius:6px;cursor:pointer;font-family:Georgia,serif;
+               font-size:.85rem;font-weight:600;white-space:nowrap;transition:background .15s}
+    .btn-merge:hover:not(:disabled){background:rgba(138,106,26,.25)}
+    .btn-merge:disabled{opacity:.35;cursor:not-allowed}
   </style>
 </head>
 <body>
 <header>
-  <a href="novel.html?slug=${encodeURIComponent(slug)}">&larr; ${meta.title}</a>
-  <h1>Chapter ${startChNum}${maxLoadedCh > startChNum ? '–' + maxLoadedCh : ''}</h1>
+  <a href="${base}novel.html?slug=${encodeURIComponent(slug)}">&larr; ${meta.title}</a>
+  <h1 id="pg-title">Chapter ${startChNum}${maxLoadedCh > startChNum ? '&ndash;' + maxLoadedCh : ''}</h1>
 </header>
-<article>${articleHTML}</article>
+<div id="chapters">${articleHTML}</div>
+<div id="merge-status"></div>
 <nav>
-  ${prevLink}
-  <a href="novel.html?slug=${encodeURIComponent(slug)}">Contents</a>
-  ${nextLink}
+  <span class="nav-left">${prevLink}</span>
+  <span class="nav-mid">
+    <button class="btn-merge" id="btn-merge" ${mergeDisabled}>${mergeLabel}</button>
+  </span>
+  <span class="nav-right" id="nav-right">${nextLink}</span>
 </nav>
+<script>
+  var BASE      = ${JSON.stringify(base)};
+  var SLUG      = ${JSON.stringify(slug)};
+  var ALL_NUMS  = ${JSON.stringify(allNums)};
+  var maxLoaded = ${maxLoadedCh};
+  var merging   = false;
+
+  document.getElementById('btn-merge').addEventListener('click', async function() {
+    if (merging) return;
+    merging = true;
+    var btn    = document.getElementById('btn-merge');
+    var status = document.getElementById('merge-status');
+    var idx    = ALL_NUMS.indexOf(maxLoaded);
+    var toLoad = ALL_NUMS.slice(idx + 1, idx + 11);
+    if (!toLoad.length) { merging = false; return; }
+
+    btn.textContent = 'Loading\u2026';
+    btn.disabled = true;
+    status.style.display = 'block';
+    status.textContent = 'Fetching chapters ' + toLoad[0] + '\u2013' + toLoad[toLoad.length-1] + '\u2026';
+
+    var container = document.getElementById('chapters');
+    var firstNew  = null;
+
+    for (var i = 0; i < toLoad.length; i++) {
+      var n = toLoad[i];
+      try {
+        var res = await fetch(BASE + 'data/' + SLUG + '/chapters/' + n + '.json');
+        var ch  = await res.json();
+
+        var divider = document.createElement('div');
+        divider.className = 'ch-divider';
+        divider.textContent = '\u2014 \u2726 \u2014';
+        container.appendChild(divider);
+
+        var h2 = document.createElement('h2');
+        h2.textContent = ch.title || ('Chapter ' + n);
+        container.appendChild(h2);
+
+        var art = document.createElement('article');
+        art.innerHTML = (ch.content || '').split(/\\n\\n+/).filter(Boolean)
+          .map(function(p){ return '<p>' + p.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;') + '</p>'; })
+          .join('');
+        container.appendChild(art);
+
+        if (!firstNew) firstNew = divider;
+        maxLoaded = n;
+      } catch(e) { console.warn('Failed ch ' + n, e); }
+    }
+
+    // Update next link and button
+    var newIdx  = ALL_NUMS.indexOf(maxLoaded) + 1;
+    var newNext = newIdx < ALL_NUMS.length ? ALL_NUMS[newIdx] : null;
+    var navRight = document.getElementById('nav-right');
+    if (newNext) {
+      navRight.innerHTML = '<a href="' + BASE + 'chapter.html?slug=' + encodeURIComponent(SLUG) + '&ch=' + newNext + '">Ch ' + newNext + ' \u2192</a>';
+    } else {
+      navRight.innerHTML = '<span></span>';
+    }
+
+    // Update page title
+    document.getElementById('pg-title').textContent = 'Chapter ${startChNum}\u2013' + maxLoaded;
+    document.title = '${meta.title} \u2014 Chapter ${startChNum}\u2013' + maxLoaded;
+
+    status.style.display = 'none';
+    btn.textContent = newNext ? '\u2295 Merge Next 10' : '\u2713 All loaded';
+    btn.disabled = !newNext;
+    merging = false;
+
+    if (firstNew) firstNew.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+<\/script>
 </body>
 </html>`;
 
     const blob = new Blob([html], { type: 'text/html' });
     const url  = URL.createObjectURL(blob);
     window.open(url, '_blank');
-    // Revoke after a short delay so the new tab has time to load it
     setTimeout(() => URL.revokeObjectURL(url), 10000);
   }
 
