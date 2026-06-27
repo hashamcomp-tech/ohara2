@@ -72,6 +72,14 @@
       <span id="bc-chapter" style="color:var(--ink-dim)">…</span>
     </nav>
     <div class="header-right font-controls">
+      <a id="btn-reader" href="#" target="_blank" title="Open static page for Safari Reader"
+         style="padding:5px 11px;border:1px solid var(--border);border-radius:var(--r);
+                font-size:.78rem;color:var(--ink-dim);background:transparent;
+                text-decoration:none;white-space:nowrap;transition:color .15s,border-color .15s"
+         onmouseover="this.style.color='var(--gold)';this.style.borderColor='var(--gold-dim)'"
+         onmouseout="this.style.color='var(--ink-dim)';this.style.borderColor='var(--border)'">
+        &#9783; Reader
+      </a>
       <button class="font-btn" id="font-down" title="Smaller text">A−</button>
       <button class="font-btn" id="font-up"   title="Larger text">A+</button>
     </div>
@@ -289,6 +297,9 @@
       bcNovel.textContent = meta.title;
       bcNovel.href = `novel.html?slug=${esc(slug)}`;
       document.getElementById('rh-title').textContent = meta.title;
+
+      // Reader button → static HTML page (Safari Reader compatible)
+      document.getElementById('btn-reader').href = `read/${esc(slug)}/${startChNum}.html`;
 
       // Determine the full range to load on this page
       // If ?end= is in the URL, restore all chapters from start→end
