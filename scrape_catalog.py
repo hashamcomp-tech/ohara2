@@ -114,6 +114,84 @@ def export_chapter_json(slug: str, num: int, title: str, content: str) -> None:
                   ensure_ascii=False, separators=(",", ":"))
 
 
+def export_chapter_html(
+    slug: str,
+    num: int,
+    title: str,
+    content: str,
+    prev_num: int | None,
+    next_num: int | None,
+    novel_title: str,
+) -> None:
+    """
+    Write a static HTML chapter page to docs/read/<slug>/<num>.html.
+    These are plain semantic pages that work perfectly with Safari Reader
+    and any other reader mode. No JavaScript required.
+    """
+    html_dir = os.path.join(SITE_DIR, "read", slug)
+    os.makedirs(html_dir, exist_ok=True)
+
+    paragraphs = "\n".join(
+        f"    <p>{html_lib.escape(p.strip())}</p>"
+        for p in content.split("\n\n") if p.strip()
+    )
+
+    root = "../../"  # docs/read/<slug>/ → docs/
+    prev_link = (
+        f'<a href="{prev_num}.html" rel="prev">&#8592; Chapter {prev_num}</a>'
+        if prev_num is not None else '<span></span>'
+    )
+    next_link = (
+        f'<a href="{next_num}.html" rel="next">Chapter {next_num} &#8594;</a>'
+        if next_num is not None else '<span></span>'
+    )
+
+    page = f"""<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{html_lib.escape(title)} — {html_lib.escape(novel_title)}</title>
+  <style>
+    :root {{ --ink:#1a1a1a; --dim:#555; --bg:#fff; --gold:#8a6a1a; }}
+    @media (prefers-color-scheme:dark) {{
+      :root {{ --ink:#e9e4da; --dim:#9a9286; --bg:#111010; --gold:#c9a84c; }}
+    }}
+    * {{ box-sizing:border-box; margin:0; padding:0; }}
+    body {{ background:var(--bg); color:var(--ink); font-family:Georgia,'Times New Roman',serif;
+            font-size:1.125rem; line-height:1.85; padding:40px 24px 80px; max-width:680px;
+            margin:0 auto; }}
+    header {{ margin-bottom:32px; padding-bottom:20px; border-bottom:1px solid #ccc; }}
+    header a {{ color:var(--gold); text-decoration:none; font-size:.85rem; }}
+    h1 {{ font-size:1.35rem; font-weight:700; margin-top:10px; line-height:1.25; }}
+    article p {{ margin-bottom:1.4em; text-align:justify; hyphens:auto; }}
+    nav {{ display:flex; justify-content:space-between; margin-top:48px;
+           padding-top:20px; border-top:1px solid #ccc; font-size:.9rem; }}
+    nav a {{ color:var(--gold); text-decoration:none; }}
+    nav a:hover {{ text-decoration:underline; }}
+  </style>
+</head>
+<body>
+<header>
+  <a href="{root}novel.html?slug={slug}">&larr; {html_lib.escape(novel_title)}</a>
+  <h1>{html_lib.escape(title)}</h1>
+</header>
+<article>
+{paragraphs}
+</article>
+<nav>
+  {prev_link}
+  <a href="{root}novel.html?slug={slug}">Contents</a>
+  {next_link}
+</nav>
+</body>
+</html>"""
+
+    path = os.path.join(html_dir, f"{num}.html")
+    with open(path, "w", encoding="utf-8") as f:
+        f.write(page)
+
+
 def upsert_novel_meta(
     slug: str,
     title: str,
@@ -563,6 +641,7 @@ def scrape_novel(
     # ── scrape each volume ───────────────────────────────────────
     total_failed  = 0
     all_ch_tuples: list[tuple[int, str]] = []   # (num, title) for meta.json
+    all_ch_data:   list[tuple[int, str, str]] = []  # (num, title, content) for HTML export
 
     for vol_num, start, end in volumes:
         print(f"\n  Volume {vol_num}: chapters {start}–{end}")
@@ -583,12 +662,13 @@ def scrape_novel(
             (i, *results.get(i, (f"Chapter {i}", ""))) for i in range(start, end + 1)
         ]
 
-        # ── export JSON per chapter ──────────────────────────────
+        # ── export JSON + static HTML per chapter ───────────────
         if export_site:
             for i, title, content in chapters_data:
                 if content:
                     export_chapter_json(slug, i, title, content)
                     all_ch_tuples.append((i, title))
+                    all_ch_data.append((i, title, content))
         else:
             all_ch_tuples.extend(
                 (i, t) for i, t, c in chapters_data if c
@@ -607,7 +687,22 @@ def scrape_novel(
                           cover_url=cover_url, source_url=novel_url)
         upsert_site_index(slug, novel_name, len(all_ch_tuples) + local_highest,
                           cover_url=cover_url)
-        print(f"  ✓ Site data written to {SITE_DIR}/data/{slug}/")
+
+        # ── generate static HTML pages (Safari Reader compatible) ─
+        # We need the full chapter list from meta to resolve prev/next correctly
+        meta_path = os.path.join(SITE_DIR, "data", slug, "meta.json")
+        with open(meta_path, encoding="utf-8") as f:
+            full_meta = json.load(f)
+        all_nums = [c["num"] for c in full_meta["chapters"]]
+
+        print(f"  Writing static HTML pages…")
+        for i, title, content in all_ch_data:
+            idx      = all_nums.index(i) if i in all_nums else -1
+            prev_num = all_nums[idx - 1] if idx > 0 else None
+            next_num = all_nums[idx + 1] if 0 <= idx < len(all_nums) - 1 else None
+            export_chapter_html(slug, i, title, content, prev_num, next_num, novel_name)
+
+        print(f"  ✓ Site data written to {SITE_DIR}/data/{slug}/ and {SITE_DIR}/read/{slug}/")
 
     if total_failed:
         print(f"\n  ⚠ {total_failed} chapter(s) failed — logged to {FAILED_FILE}")
@@ -670,6 +765,8 @@ def main() -> None:
     parser = argparse.ArgumentParser(
         description="Scrape FreeWebNovel and export EPUBs + Ohara site JSON."
     )
+    parser.add_argument("--novel", default=None, metavar="URL",
+        help="Scrape a single novel directly, e.g. https://freewebnovel.com/novel/shadow-slave")
     parser.add_argument("--listing", default=DEFAULT_LISTING,
         help=f"Listing URL to crawl. Default: {DEFAULT_LISTING}")
     parser.add_argument("--pages", type=int, default=None, metavar="N",
@@ -697,6 +794,23 @@ def main() -> None:
 
     if args.retry_failed:
         retry_failed_chapters(export_site=export_site)
+        return
+
+    # ── single novel shortcut ────────────────────────────────────
+    if args.novel:
+        url = args.novel.rstrip("/")
+        if not url.startswith("http"):
+            url = f"{BASE_URL}/novel/{url}"
+        print(f"Scraping single novel: {url}")
+        success = scrape_novel(url, export_site=export_site, export_epub=export_epub)
+        if success:
+            mark_done(url)
+            print(f"\n{'='*60}")
+            if export_epub:
+                print(f"EPUB saved in output/")
+            if export_site:
+                print(f"Site data saved in {SITE_DIR}/data/")
+                print(f"-> Run: git add docs/data/ && git commit -m 'add novel' && git push")
         return
 
     novel_urls = discover_all_novels(args.listing, max_pages=args.pages)
