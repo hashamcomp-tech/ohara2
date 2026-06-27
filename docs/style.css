@@ -464,6 +464,58 @@ img { display: block; max-width: 100%; }
 .search-input:focus { border-color: var(--gold-dim); }
 .search-input::placeholder { color: var(--ink-faint); }
 
+/* ── Tags ───────────────────────────────────────────────────── */
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 10px;
+}
+.tag {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: .72rem;
+  font-weight: 600;
+  letter-spacing: .04em;
+  background: rgba(201,168,76,.1);
+  color: var(--gold);
+  border: 1px solid rgba(201,168,76,.25);
+  cursor: pointer;
+  transition: background .15s, border-color .15s;
+  white-space: nowrap;
+}
+.tag:hover { background: rgba(201,168,76,.22); border-color: var(--gold); }
+.tag.active { background: rgba(201,168,76,.3); border-color: var(--gold); }
+
+/* Tag filter bar */
+.tag-filter {
+  padding: 12px 0 4px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  align-items: center;
+}
+.tag-filter-label {
+  font-size: .75rem;
+  color: var(--ink-faint);
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  margin-right: 4px;
+}
+.tag-clear {
+  font-size: .75rem;
+  color: var(--ink-faint);
+  cursor: pointer;
+  padding: 3px 8px;
+  border-radius: 20px;
+  border: 1px solid var(--border);
+  background: transparent;
+  font-family: inherit;
+  transition: color .15s;
+}
+.tag-clear:hover { color: var(--ink); border-color: var(--ink-faint); }
+
 /* ── Footer ─────────────────────────────────────────────────── */
 .site-footer {
   border-top: 1px solid var(--border);
