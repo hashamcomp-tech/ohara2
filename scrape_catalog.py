@@ -851,14 +851,47 @@ def scrape_novel(
 
 def git_push_novel(slug: str, novel_name: str) -> bool:
     """
-    Stage this novel's site files and push to GitHub.
+    1. Regenerate static HTML for this novel from its JSON data.
+    2. Stage docs/data/<slug>/, docs/read/<slug>/, and index.json.
+    3. Commit and push to GitHub.
     Called after each novel when --auto-push is set.
     Returns True if push succeeded.
     """
     import subprocess
 
-    data_path = os.path.join(SITE_DIR, "data", slug)
-    read_path = os.path.join(SITE_DIR, "read", slug)
+    # ── regenerate static HTML for this novel ───────────────────
+    meta_path = os.path.join(SITE_DIR, "data", slug, "meta.json")
+    if os.path.exists(meta_path):
+        print(f"  [html] Regenerating static pages for {novel_name}…")
+        try:
+            with open(meta_path, encoding="utf-8") as f:
+                meta = json.load(f)
+            chapters = meta.get("chapters", [])
+            all_nums = [c["num"] for c in chapters]
+            written  = 0
+            for idx, ch_meta in enumerate(chapters):
+                num     = ch_meta["num"]
+                ch_path = os.path.join(SITE_DIR, "data", slug, "chapters", f"{num}.json")
+                if not os.path.exists(ch_path):
+                    continue
+                with open(ch_path, encoding="utf-8") as f:
+                    ch = json.load(f)
+                prev_num = all_nums[idx - 1] if idx > 0 else None
+                next_num = all_nums[idx + 1] if idx < len(all_nums) - 1 else None
+                export_chapter_html(
+                    slug, num,
+                    ch.get("title", f"Chapter {num}"),
+                    ch.get("content", ""),
+                    prev_num, next_num, novel_name,
+                )
+                written += 1
+            print(f"  [html] ✓ {written} static page(s) written to {SITE_DIR}/read/{slug}/")
+        except Exception as e:
+            print(f"  [html] Warning: could not regenerate static HTML: {e}")
+
+    # ── git stage + commit + push ────────────────────────────────
+    data_path  = os.path.join(SITE_DIR, "data", slug)
+    read_path  = os.path.join(SITE_DIR, "read", slug)
     index_path = os.path.join(SITE_DIR, "data", "index.json")
 
     print(f"\n  [git] Pushing {novel_name} to GitHub…")
@@ -867,20 +900,17 @@ def git_push_novel(slug: str, novel_name: str) -> bool:
         result = subprocess.run(cmd, capture_output=True, text=True)
         return result.returncode, (result.stdout + result.stderr).strip()
 
-    # Stage novel data + updated index
     for path in [data_path, read_path, index_path]:
         if os.path.exists(path):
             code, out = run(["git", "add", path])
             if code != 0:
                 print(f"  [git] Warning: git add failed for {path}: {out}")
 
-    # Check if there's anything to commit
     code, out = run(["git", "status", "--porcelain"])
     if not out.strip():
         print(f"  [git] Nothing new to commit for {novel_name} — already up to date.")
         return True
 
-    # Commit
     msg = f"add/update: {novel_name}"
     code, out = run(["git", "commit", "-m", msg])
     if code != 0:
@@ -888,7 +918,6 @@ def git_push_novel(slug: str, novel_name: str) -> bool:
         return False
     print(f"  [git] Committed: {msg}")
 
-    # Push
     code, out = run(["git", "push"])
     if code != 0:
         print(f"  [git] Push failed: {out}")
