@@ -317,6 +317,7 @@ def upsert_novel_meta(
     chapters: list[tuple[int, str]],
     cover_url: str = "",
     source_url: str = "",
+    tags: list[str] | None = None,
 ) -> None:
     """
     Merge-write docs/data/<slug>/meta.json.
@@ -327,14 +328,12 @@ def upsert_novel_meta(
     meta_path = os.path.join(SITE_DIR, "data", slug, "meta.json")
     os.makedirs(os.path.dirname(meta_path), exist_ok=True)
 
-    # Load existing meta if present
     if os.path.exists(meta_path):
         with open(meta_path, encoding="utf-8") as f:
             meta = json.load(f)
     else:
         meta = {"slug": slug, "title": title, "chapters": []}
 
-    # Always refresh top-level fields
     meta["slug"]        = slug
     meta["title"]       = title
     meta["lastUpdated"] = date.today().isoformat()
@@ -342,8 +341,9 @@ def upsert_novel_meta(
         meta["cover"] = cover_url
     if source_url:
         meta["source"] = source_url
+    if tags:
+        meta["tags"] = tags
 
-    # Merge in new chapters
     existing = {c["num"]: c for c in meta.get("chapters", [])}
     for num, ch_title in chapters:
         existing[num] = {"num": num, "title": ch_title}
@@ -360,6 +360,7 @@ def upsert_site_index(
     title: str,
     total_chapters: int,
     cover_url: str = "",
+    tags: list[str] | None = None,
 ) -> None:
     """Update docs/data/index.json with this novel's summary entry."""
     index_path = os.path.join(SITE_DIR, "data", "index.json")
@@ -377,11 +378,14 @@ def upsert_site_index(
         entry["lastUpdated"]   = date.today().isoformat()
         if cover_url:
             entry["cover"] = cover_url
+        if tags:
+            entry["tags"] = tags
     else:
         index["novels"].append({
             "slug":          slug,
             "title":         title,
             "cover":         cover_url,
+            "tags":          tags or [],
             "totalChapters": total_chapters,
             "lastUpdated":   date.today().isoformat(),
         })
@@ -445,13 +449,14 @@ def get_novel_page_info(novel_url: str) -> dict:
       - total chapters (int or None)
       - cover URL (str or "")
       - title (str or "")
+      - tags (list[str])
     """
     try:
         res = requests.get(novel_url, headers=HEADERS, timeout=20)
         res.raise_for_status()
     except Exception as e:
         print(f"  [warn] Could not fetch novel page: {e}")
-        return {"total": None, "cover": "", "title": ""}
+        return {"total": None, "cover": "", "title": "", "tags": []}
 
     soup = BeautifulSoup(res.text, "html.parser")
 
@@ -465,6 +470,25 @@ def get_novel_page_info(novel_url: str) -> dict:
     # Cover image
     og_image = soup.find("meta", property="og:image")
     cover = og_image["content"].strip() if og_image and og_image.get("content") else ""
+
+    # Tags — genre links on the novel page
+    tags: list[str] = []
+    seen_tags: set[str] = set()
+    # Primary: og:novel:genre meta tag
+    og_genre = soup.find("meta", property="og:novel:genre")
+    if og_genre and og_genre.get("content"):
+        for t in og_genre["content"].split(","):
+            t = t.strip()
+            if t and t.lower() not in seen_tags:
+                tags.append(t)
+                seen_tags.add(t.lower())
+    # Fallback: genre/tag anchor links
+    if not tags:
+        for a in soup.select("a[href*='/genre/'], a[href*='/tag/']"):
+            t = a.get_text(strip=True)
+            if t and t.lower() not in seen_tags and len(t) < 40:
+                tags.append(t)
+                seen_tags.add(t.lower())
 
     # Total chapters
     total = None
@@ -482,7 +506,7 @@ def get_novel_page_info(novel_url: str) -> dict:
                 max_ch = max(max_ch, int(m.group(1)))
         total = max_ch if max_ch else None
 
-    return {"total": total, "cover": cover, "title": title}
+    return {"total": total, "cover": cover, "title": title, "tags": tags}
 
 
 # ───────────────────────── chapter scraping ────────────────────
@@ -749,11 +773,13 @@ def scrape_novel(
     total      = info["total"]
     cover_url  = info["cover"]
     novel_name = info["title"] or slug.replace("-", " ").title()
+    tags       = info.get("tags", [])
 
     if not total:
         print("  [warn] Could not determine chapter count — skipping.")
         return False
     print(f"  Title:  {novel_name}")
+    print(f"  Tags:   {', '.join(tags) if tags else '(none)'}")
     print(f"  Cover:  {cover_url or '(none)'}")
     print(f"  Remote: {total} chapter(s) available")
 
@@ -823,9 +849,9 @@ def scrape_novel(
     if export_site:
         print(f"  Updating Ohara site data…")
         upsert_novel_meta(slug, novel_name, all_ch_tuples,
-                          cover_url=cover_url, source_url=novel_url)
+                          cover_url=cover_url, source_url=novel_url, tags=tags)
         upsert_site_index(slug, novel_name, len(all_ch_tuples) + local_highest,
-                          cover_url=cover_url)
+                          cover_url=cover_url, tags=tags)
 
         # ── generate static HTML pages (Safari Reader compatible) ─
         # We need the full chapter list from meta to resolve prev/next correctly
