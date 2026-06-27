@@ -652,13 +652,14 @@ def get_local_novel_state(slug: str) -> tuple[int, int]:
 
 
 def get_all_local_slugs() -> list[str]:
-    output_dir = "output"
-    if not os.path.isdir(output_dir):
-        return []
-    return [
-        name for name in os.listdir(output_dir)
-        if os.path.isdir(os.path.join(output_dir, name))
-    ]
+    """Return every slug that has a folder under output/ OR docs/data/."""
+    slugs: set[str] = set()
+    for base in ["output", os.path.join(SITE_DIR, "data")]:
+        if os.path.isdir(base):
+            for name in os.listdir(base):
+                if os.path.isdir(os.path.join(base, name)):
+                    slugs.add(name)
+    return sorted(slugs)
 
 
 # ──────────────────────── epub builder ────────────────────────
