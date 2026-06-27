@@ -960,17 +960,21 @@ def regenerate_static_html() -> None:
     print(f"Push docs/read/ to GitHub to make them live.")
 
 
-def update_all_local_novels(export_site: bool = True, export_epub: bool = True) -> None:
+def update_all_local_novels(
+    export_site: bool = True,
+    export_epub: bool = True,
+    auto_push: bool = False,
+) -> None:
     slugs = get_all_local_slugs()
     if not slugs:
-        print("No novels found in output/ — nothing to update.")
+        print("No novels found in output/ or docs/data/ — nothing to update.")
         return
 
     print(f"Checking {len(slugs)} local novel(s) for updates…\n")
     up_to_date = updated = errors = 0
 
     for idx, slug in enumerate(sorted(slugs), 1):
-        novel_url = f"{BASE_URL}/novel/{slug}"
+        novel_url  = f"{BASE_URL}/novel/{slug}"
         print(f"[{idx}/{len(slugs)}] {slug}")
         local_highest, _ = get_local_novel_state(slug)
         info  = get_novel_page_info(novel_url)
@@ -986,9 +990,12 @@ def update_all_local_novels(export_site: bool = True, export_epub: bool = True) 
             time.sleep(PAGE_DELAY)
             continue
         print(f"  ↑ {total - local_highest} new chapter(s) (local: {local_highest}, remote: {total})")
+        novel_name = info.get("title") or slug.replace("-", " ").title()
         success = scrape_novel(novel_url, export_site=export_site, export_epub=export_epub)
         if success:
             updated += 1
+            if auto_push and export_site:
+                git_push_novel(slug, novel_name)
         else:
             errors += 1
         time.sleep(NOVEL_DELAY)
@@ -1031,6 +1038,10 @@ def main() -> None:
         help="Print discovered URLs without scraping.")
     parser.add_argument("--auto-push", action="store_true",
         help="After each novel, git commit and push to GitHub automatically.")
+    parser.add_argument("--watch", action="store_true",
+        help="Run --update --auto-push in a loop forever. Use --interval to set frequency.")
+    parser.add_argument("--interval", type=int, default=60, metavar="MINUTES",
+        help="Minutes between updates when using --watch. Default: 60.")
     parser.add_argument("--rebuild-html", action="store_true",
         help="Regenerate static HTML pages for all novels from existing JSON. No scraping.")
     parser.add_argument("--no-site", action="store_true",
@@ -1046,8 +1057,30 @@ def main() -> None:
         regenerate_static_html()
         return
 
+    # ── watch mode: loop forever, updating every --interval minutes ──
+    if args.watch:
+        interval_secs = args.interval * 60
+        print(f"Watch mode: updating every {args.interval} minute(s). Press Ctrl+C to stop.\n")
+        run = 0
+        while True:
+            run += 1
+            now = time.strftime("%Y-%m-%d %H:%M:%S")
+            print(f"\n{'═'*60}")
+            print(f"[Watch] Run #{run} started at {now}")
+            print(f"{'═'*60}")
+            update_all_local_novels(export_site=export_site, export_epub=export_epub,
+                                    auto_push=args.auto_push)
+            next_time = time.strftime("%H:%M:%S", time.localtime(time.time() + interval_secs))
+            print(f"\n[Watch] Next update at {next_time} — sleeping for {args.interval} minute(s)…")
+            try:
+                time.sleep(interval_secs)
+            except KeyboardInterrupt:
+                print("\n[Watch] Stopped.")
+                return
+
     if args.update:
-        update_all_local_novels(export_site=export_site, export_epub=export_epub)
+        update_all_local_novels(export_site=export_site, export_epub=export_epub,
+                                auto_push=args.auto_push)
         return
 
     if args.retry_failed:
