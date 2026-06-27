@@ -125,8 +125,8 @@ def export_chapter_html(
 ) -> None:
     """
     Write a static HTML chapter page to docs/read/<slug>/<num>.html.
-    These are plain semantic pages that work perfectly with Safari Reader
-    and any other reader mode. No JavaScript required.
+    Works with Safari Reader. Also includes a Merge Next 10 button
+    that fetches sibling HTML files and appends their content inline.
     """
     html_dir = os.path.join(SITE_DIR, "read", slug)
     os.makedirs(html_dir, exist_ok=True)
@@ -136,15 +136,18 @@ def export_chapter_html(
         for p in content.split("\n\n") if p.strip()
     )
 
-    root = "../../"  # docs/read/<slug>/ → docs/
+    root      = "../../"  # docs/read/<slug>/ → docs/
     prev_link = (
-        f'<a href="{prev_num}.html" rel="prev">&#8592; Chapter {prev_num}</a>'
+        f'<a href="{prev_num}.html" rel="prev">&#8592; Ch {prev_num}</a>'
         if prev_num is not None else '<span></span>'
     )
     next_link = (
-        f'<a href="{next_num}.html" rel="next">Chapter {next_num} &#8594;</a>'
+        f'<a href="{next_num}.html" rel="next">Ch {next_num} &#8594;</a>'
         if next_num is not None else '<span></span>'
     )
+    merge_disabled = 'disabled' if next_num is None else ''
+    merge_label    = 'All chapters loaded' if next_num is None else 'Merge Next 10'
+    next_num_js    = next_num if next_num is not None else 'null'
 
     page = f"""<!DOCTYPE html>
 <html lang="en">
@@ -153,37 +156,153 @@ def export_chapter_html(
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{html_lib.escape(title)} — {html_lib.escape(novel_title)}</title>
   <style>
-    :root {{ --ink:#1a1a1a; --dim:#555; --bg:#fff; --gold:#8a6a1a; }}
+    :root {{ --ink:#1a1a1a; --dim:#666; --bg:#fff; --gold:#8a6a1a; --border:#ddd; }}
     @media (prefers-color-scheme:dark) {{
-      :root {{ --ink:#e9e4da; --dim:#9a9286; --bg:#111010; --gold:#c9a84c; }}
+      :root {{ --ink:#e9e4da; --dim:#9a9286; --bg:#111010; --gold:#c9a84c; --border:#2a2825; }}
     }}
-    * {{ box-sizing:border-box; margin:0; padding:0; }}
-    body {{ background:var(--bg); color:var(--ink); font-family:Georgia,'Times New Roman',serif;
-            font-size:1.125rem; line-height:1.85; padding:40px 24px 80px; max-width:680px;
-            margin:0 auto; }}
-    header {{ margin-bottom:32px; padding-bottom:20px; border-bottom:1px solid #ccc; }}
-    header a {{ color:var(--gold); text-decoration:none; font-size:.85rem; }}
-    h1 {{ font-size:1.35rem; font-weight:700; margin-top:10px; line-height:1.25; }}
-    article p {{ margin-bottom:1.4em; text-align:justify; hyphens:auto; }}
-    nav {{ display:flex; justify-content:space-between; margin-top:48px;
-           padding-top:20px; border-top:1px solid #ccc; font-size:.9rem; }}
-    nav a {{ color:var(--gold); text-decoration:none; }}
-    nav a:hover {{ text-decoration:underline; }}
+    *{{ box-sizing:border-box; margin:0; padding:0; }}
+    body{{ background:var(--bg); color:var(--ink); font-family:Georgia,'Times New Roman',serif;
+          font-size:1.125rem; line-height:1.85; padding:40px 24px 80px;
+          max-width:680px; margin:0 auto; }}
+    header{{ margin-bottom:32px; padding-bottom:20px; border-bottom:1px solid var(--border); }}
+    header a{{ color:var(--gold); text-decoration:none; font-size:.85rem; }}
+    h1{{ font-size:1.35rem; font-weight:700; margin-top:10px; line-height:1.25; }}
+    article p{{ margin-bottom:1.4em; text-align:justify; hyphens:auto; }}
+    .ch-divider{{ text-align:center; padding:28px 0 16px; color:var(--dim);
+                  font-size:.8rem; letter-spacing:.1em; text-transform:uppercase; }}
+    .ch-divider::before,.ch-divider::after{{ content:''; display:inline-block;
+      width:40px; height:1px; background:var(--border); vertical-align:middle; margin:0 12px; }}
+    .ch-title{{ font-size:1.1rem; font-weight:700; color:var(--gold); margin-bottom:16px; }}
+    nav{{ display:grid; grid-template-columns:1fr auto 1fr; gap:10px; align-items:center;
+          margin-top:48px; padding-top:20px; border-top:1px solid var(--border); font-size:.88rem; }}
+    nav a{{ color:var(--gold); text-decoration:none; }}
+    nav a:hover{{ text-decoration:underline; }}
+    nav .nav-right{{ text-align:right; }}
+    nav .nav-mid{{ text-align:center; }}
+    .btn-merge{{ background:rgba(138,106,26,.12); border:1px solid var(--gold);
+                 color:var(--gold); padding:9px 16px; border-radius:6px; cursor:pointer;
+                 font-family:Georgia,serif; font-size:.85rem; font-weight:600;
+                 transition:background .15s; white-space:nowrap; }}
+    .btn-merge:hover:not(:disabled){{ background:rgba(138,106,26,.25); }}
+    .btn-merge:disabled{{ opacity:.35; cursor:not-allowed; }}
+    #merge-status{{ text-align:center; padding:12px; font-size:.82rem;
+                    color:var(--dim); display:none; }}
   </style>
 </head>
 <body>
 <header>
   <a href="{root}novel.html?slug={slug}">&larr; {html_lib.escape(novel_title)}</a>
-  <h1>{html_lib.escape(title)}</h1>
+  <h1 id="page-title">{html_lib.escape(title)}</h1>
 </header>
-<article>
+
+<div id="chapters">
+  <article id="ch-{num}">
 {paragraphs}
-</article>
+  </article>
+</div>
+
+<div id="merge-status"></div>
+
 <nav>
-  {prev_link}
-  <a href="{root}novel.html?slug={slug}">Contents</a>
-  {next_link}
+  <span class="nav-left">{prev_link}</span>
+  <span class="nav-mid">
+    <button class="btn-merge" id="btn-merge" {merge_disabled}>{merge_label}</button>
+  </span>
+  <span class="nav-right">{next_link}</span>
 </nav>
+
+<script>
+  // Chapters available after this one — discovered from meta.json
+  var slug       = "{slug}";
+  var currentNum = {num};
+  var nextNum    = {next_num_js};
+  var maxLoaded  = currentNum;
+  var allNums    = null;   // loaded lazily from meta.json
+  var merging    = false;
+  var root       = "{root}";
+
+  async function getNums() {{
+    if (allNums) return allNums;
+    var res = await fetch(root + "data/" + slug + "/meta.json");
+    var meta = await res.json();
+    allNums = meta.chapters.map(function(c){{ return c.num; }});
+    return allNums;
+  }}
+
+  document.getElementById("btn-merge").addEventListener("click", async function() {{
+    if (merging) return;
+    merging = true;
+    var btn    = document.getElementById("btn-merge");
+    var status = document.getElementById("merge-status");
+    btn.textContent = "Loading\u2026";
+    btn.disabled = true;
+
+    var nums   = await getNums();
+    var idx    = nums.indexOf(maxLoaded);
+    var toLoad = nums.slice(idx + 1, idx + 11);
+    if (!toLoad.length) {{ merging = false; return; }}
+
+    status.style.display = "block";
+    status.textContent = "Fetching chapters " + toLoad[0] + "\u2013" + toLoad[toLoad.length-1] + "\u2026";
+
+    var container = document.getElementById("chapters");
+    var firstNew  = null;
+
+    for (var i = 0; i < toLoad.length; i++) {{
+      var n = toLoad[i];
+      try {{
+        var res  = await fetch(n + ".html");
+        var html = await res.text();
+        var doc  = new DOMParser().parseFromString(html, "text/html");
+        var art  = doc.querySelector("article");
+        var h1   = doc.querySelector("h1");
+        if (!art) continue;
+
+        // Divider
+        var divider = document.createElement("div");
+        divider.className = "ch-divider";
+        divider.textContent = "Chapter " + n;
+        container.appendChild(divider);
+
+        // Chapter title
+        if (h1) {{
+          var chTitle = document.createElement("div");
+          chTitle.className = "ch-title";
+          chTitle.textContent = h1.textContent;
+          container.appendChild(chTitle);
+        }}
+
+        // Content
+        var section = document.createElement("article");
+        section.id = "ch-" + n;
+        section.innerHTML = art.innerHTML;
+        container.appendChild(section);
+
+        if (!firstNew) firstNew = divider;
+        maxLoaded = n;
+      }} catch(e) {{
+        console.warn("Failed to load chapter " + n, e);
+      }}
+    }}
+
+    // Update nav next link
+    var nextIdx = nums.indexOf(maxLoaded) + 1;
+    var newNext = nextIdx < nums.length ? nums[nextIdx] : null;
+    var navRight = document.querySelector(".nav-right");
+    if (newNext) {{
+      navRight.innerHTML = '<a href="' + newNext + '.html" rel="next">Ch ' + newNext + ' &#8594;</a>';
+    }} else {{
+      navRight.innerHTML = '<span></span>';
+    }}
+
+    status.style.display = "none";
+    btn.textContent = newNext ? "\u2295 Merge Next 10" : "\u2713 All loaded";
+    btn.disabled = !newNext;
+    merging = false;
+
+    if (firstNew) firstNew.scrollIntoView({{ behavior:"smooth", block:"start" }});
+  }});
+</script>
 </body>
 </html>"""
 
