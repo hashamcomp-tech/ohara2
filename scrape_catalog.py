@@ -829,6 +829,56 @@ def scrape_novel(
     return True
 
 
+def git_push_novel(slug: str, novel_name: str) -> bool:
+    """
+    Stage this novel's site files and push to GitHub.
+    Called after each novel when --auto-push is set.
+    Returns True if push succeeded.
+    """
+    import subprocess
+
+    data_path = os.path.join(SITE_DIR, "data", slug)
+    read_path = os.path.join(SITE_DIR, "read", slug)
+    index_path = os.path.join(SITE_DIR, "data", "index.json")
+
+    print(f"\n  [git] Pushing {novel_name} to GitHub…")
+
+    def run(cmd: list[str]) -> tuple[int, str]:
+        result = subprocess.run(cmd, capture_output=True, text=True)
+        return result.returncode, (result.stdout + result.stderr).strip()
+
+    # Stage novel data + updated index
+    for path in [data_path, read_path, index_path]:
+        if os.path.exists(path):
+            code, out = run(["git", "add", path])
+            if code != 0:
+                print(f"  [git] Warning: git add failed for {path}: {out}")
+
+    # Check if there's anything to commit
+    code, out = run(["git", "status", "--porcelain"])
+    if not out.strip():
+        print(f"  [git] Nothing new to commit for {novel_name} — already up to date.")
+        return True
+
+    # Commit
+    msg = f"add/update: {novel_name}"
+    code, out = run(["git", "commit", "-m", msg])
+    if code != 0:
+        print(f"  [git] Commit failed: {out}")
+        return False
+    print(f"  [git] Committed: {msg}")
+
+    # Push
+    code, out = run(["git", "push"])
+    if code != 0:
+        print(f"  [git] Push failed: {out}")
+        print(f"  [git] Files are committed locally — run 'git push' manually later.")
+        return False
+
+    print(f"  [git] ✓ Pushed to GitHub successfully.")
+    return True
+
+
 def regenerate_static_html() -> None:
     """
     Read every chapter JSON already in docs/data/ and write the
@@ -959,6 +1009,8 @@ def main() -> None:
         help=f"Re-attempt all chapters logged in {FAILED_FILE}.")
     parser.add_argument("--dry-run", action="store_true",
         help="Print discovered URLs without scraping.")
+    parser.add_argument("--auto-push", action="store_true",
+        help="After each novel, git commit and push to GitHub automatically.")
     parser.add_argument("--rebuild-html", action="store_true",
         help="Regenerate static HTML pages for all novels from existing JSON. No scraping.")
     parser.add_argument("--no-site", action="store_true",
@@ -991,12 +1043,12 @@ def main() -> None:
         success = scrape_novel(url, export_site=export_site, export_epub=export_epub)
         if success:
             mark_done(url)
-            print(f"\n{'='*60}")
-            if export_epub:
-                print(f"EPUB saved in output/")
-            if export_site:
-                print(f"Site data saved in {SITE_DIR}/data/")
-                print(f"-> Run: git add docs/data/ && git commit -m 'add novel' && git push")
+            slug = url.rstrip("/").split("/")[-1]
+            novel_name = slug.replace("-", " ").title()
+            if args.auto_push and export_site:
+                git_push_novel(slug, novel_name)
+            else:
+                print(f"-> Run: git add docs/ && git commit -m 'add novel' && git push")
         return
 
     novel_urls = discover_all_novels(args.listing, max_pages=args.pages)
@@ -1024,6 +1076,10 @@ def main() -> None:
         success = scrape_novel(url, export_site=export_site, export_epub=export_epub)
         if success:
             mark_done(url)
+            if args.auto_push and export_site:
+                slug = url.rstrip("/").split("/")[-1]
+                novel_name = slug.replace("-", " ").title()
+                git_push_novel(slug, novel_name)
         time.sleep(NOVEL_DELAY)
 
     print(f"\n{'═'*60}")
