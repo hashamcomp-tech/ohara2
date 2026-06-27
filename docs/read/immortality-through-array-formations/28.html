@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chapter 28 — Immortality Through Array Formations</title>
+  <style>
+    :root { --ink:#1a1a1a; --dim:#666; --bg:#fff; --gold:#8a6a1a; --border:#ddd; }
+    @media (prefers-color-scheme:dark) {
+      :root { --ink:#e9e4da; --dim:#9a9286; --bg:#111010; --gold:#c9a84c; --border:#2a2825; }
+    }
+    *{ box-sizing:border-box; margin:0; padding:0; }
+    body{ background:var(--bg); color:var(--ink); font-family:Georgia,'Times New Roman',serif;
+          font-size:1.125rem; line-height:1.85; padding:40px 24px 80px;
+          max-width:680px; margin:0 auto; }
+    header{ margin-bottom:32px; padding-bottom:20px; border-bottom:1px solid var(--border); }
+    header a{ color:var(--gold); text-decoration:none; font-size:.85rem; }
+    h1{ font-size:1.35rem; font-weight:700; margin-top:10px; line-height:1.25; }
+    article p{ margin-bottom:1.4em; text-align:justify; hyphens:auto; }
+    .ch-divider{ text-align:center; padding:28px 0 16px; color:var(--dim);
+                  font-size:.8rem; letter-spacing:.1em; text-transform:uppercase; }
+    .ch-divider::before,.ch-divider::after{ content:''; display:inline-block;
+      width:40px; height:1px; background:var(--border); vertical-align:middle; margin:0 12px; }
+    .ch-title{ font-size:1.1rem; font-weight:700; color:var(--gold); margin-bottom:16px; }
+    nav{ display:grid; grid-template-columns:1fr auto 1fr; gap:10px; align-items:center;
+          margin-top:48px; padding-top:20px; border-top:1px solid var(--border); font-size:.88rem; }
+    nav a{ color:var(--gold); text-decoration:none; }
+    nav a:hover{ text-decoration:underline; }
+    nav .nav-right{ text-align:right; }
+    nav .nav-mid{ text-align:center; }
+    .btn-merge{ background:rgba(138,106,26,.12); border:1px solid var(--gold);
+                 color:var(--gold); padding:9px 16px; border-radius:6px; cursor:pointer;
+                 font-family:Georgia,serif; font-size:.85rem; font-weight:600;
+                 transition:background .15s; white-space:nowrap; }
+    .btn-merge:hover:not(:disabled){ background:rgba(138,106,26,.25); }
+    .btn-merge:disabled{ opacity:.35; cursor:not-allowed; }
+    #merge-status{ text-align:center; padding:12px; font-size:.82rem;
+                    color:var(--dim); display:none; }
+  </style>
+</head>
+<body>
+<header>
+  <a href="../../novel.html?slug=immortality-through-array-formations">&larr; Immortality Through Array Formations</a>
+  <h1 id="page-title">Chapter 28</h1>
+</header>
+
+<div id="chapters">
+  <article id="ch-28">
+    <p>Chapter 28 – Idea_1</p>
+    <p>Chapter 28 Idea_1</p>
+    <p>Translator: 549690339</p>
+    <p>On the second day, Mo Shan hurried back as well.</p>
+    <p>When Mo Shan arrived at Apricot Forest Hall, his clothing was torn and smeared with mud, and his arm was wrapped in a bandage as if it had been torn open by some monster beast, with blood still seeping through.</p>
+    <p>It seemed that the Monster Hunting Team had just finished a fight to the death with the monster beasts and did not have time to treat his wounds before rushing back.</p>
+    <p>Only when Mo Shan heard that his wife’s life was not in danger did he finally breathe a sigh of relief. Old Mr. Feng, after checking Liu Ruhua’s condition, also took the time to treat the wounds on Mo Shan’s arm.</p>
+    <p>Several days later, Liu Ruhua was allowed to return home for a quiet convalescence. According to Old Mr. Feng’s instructions, she would eat a light diet, not overexert herself, take pills on time, and likewise, she was not to use her spiritual power for a month.</p>
+    <p>Mo Shan and his son stayed at home for a few days, then they were both chased out by Liu Ruhua—Mo Shan as the leader of the Monster Hunting Team had to lead his team members to hunt monster beasts, and Mo Hua, being a Sect Disciple, had to go to the Sect for cultivation and could not delay his lessons too much.</p>
+    <p>Fortunately, Liu Ruhua’s restriction was only on the use of spiritual power, and her normal life was not affected.</p>
+    <p>Mo Shan had no choice but to ask the aunties in the neighborhood for help with taking care of things. He himself would also come back whenever he had the chance, and Mo Hua, whenever he had a break every ten days, would ask his instructor for leave to come home and see her.</p>
+    <p>Instructor Yan was understanding and didn’t make it difficult for Mo Hua, just reminding him not to neglect his cultivation and the Sect’s curriculum.</p>
+    <p>After a month, Liu Ruhua’s health was almost fully recovered. Although she still had to stay at home and could not engage in activities that required the use of spiritual power lest she start coughing incessantly, there were no other impairments.</p>
+    <p>Mo Hua finally felt relieved, but soon noticed that his mother was not very happy. Although she still smiled, her expression was much more melancholic than before, and she would often sit lost in thought by herself.</p>
+    <p>Mo Hua was very worried but couldn’t understand why, so he went to ask Mo Shan.</p>
+    <p>Mo Shan sighed and said to Mo Hua, “Your mother’s thoughts are very simple. The thing she wants to do most is to save up some spirit stones for you, to support you in your cultivation, to see you grow up, get married and have children… But now your mother can’t use her spiritual power; without it, she can’t do anything, let alone earn spirit stones.”</p>
+    <p>“Having been busy for half a lifetime, to suddenly be unable to do anything and not be able to help you, she must feel a certain emptiness inside…”</p>
+    <p>Mo Hua felt uncomfortable inside and thought for a while before asking, “Does Mother have any other interests?”</p>
+    <p>“Other interests?”</p>
+    <p>“Yes, something she’s interested in, such as Dan symbols, formations, and the like…”</p>
+    <p>After thinking for a while, Mo Shan said, “Your mother never showed much interest in those, but she does like cooking quite a bit. I’m not just bragging—within ten miles of our neighborhood, no one cooks better than your mother.”</p>
+    <p>Mo Shan then sighed and said, “When your mother and I became lifelong companions and bonded as Taoist partners, I bragged about opening a Food Building for her to specialize in studying various dishes. Yet, all these years, she’s been mostly enduring hardship with me, and I never fulfilled that promise…”</p>
+    <p>Mo Hua looked at his somewhat self-reproaching father and knew he could not be blamed.</p>
+    <p>Mo Shan’s cultivation and Taoist skills were among the best of the local Monster Hunters. He risked his life fighting monster beasts for years, always returning home covered in blood. Despite that, the household finances were still tight.</p>
+    <p>Ultimately, it was the tough life of a low-level Loose Cultivator that left them barely maintaining their livelihood, let alone anything else.</p>
+    <p>Mo Hua then said, “Dad, don’t worry, I will definitely help Mother open a big Food Building in the future!”</p>
+    <p>Mo Shan knew his son was trying to comfort him, touched Mo Hua’s head, and said with some relief, “Good!”</p>
+    <p>But his wife could not use spiritual power, and even to be a Meal Master would require spiritual power. Even if they were to open a restaurant, without spiritual power, it would be difficult to work as a Meal Master.</p>
+    <p>Thinking about his wife’s despondent state, Mo Shan felt heartache and patted Mo Hua on the shoulder, “Talk to your mother more when you have time. Sometimes what you say works better than me. Don’t let your mother overthink things.”</p>
+    <p>“Yes,” Mo Hua nodded.</p>
+    <p>Whenever he was free afterward, Mo Hua would proactively talk with Liu Ruhua, and indeed, her complexion seemed to improve a bit. Yet, when she was alone, her demeanor was still one of sorrow.</p>
+    <p>“If only Mother could use spiritual power,” thought Mo Hua, knowing, however, that this was quite unlikely.</p>
+    <p>Illness comes like a thunderclap and leaves like drawing silk; moreover, with such a chronic illness built up over so many years, she could only rely on gradual recuperation. It was unlikely she would recover in the short term.</p>
+    <p>There had to be natural treasures in the Tao Cultivation World that could cure her completely. Old Mr. Feng had even mentioned a few, but for a family like Mo Hua’s, they had neither the connections to find them, nor the means to afford them if they did.</p>
+    <p>Mo Hua had no choice but to give up the thought.</p>
+    <p>Another half month passed, and the hottest month of the year arrived, with the sun high in the sky, making the ground hot enough to scald. Tongxian Gate, as usual, had a summer break, lasting a bit over a month.</p>
+    <p>A summer vacation and a winter vacation, the two longest breaks in a year.</p>
+    <p>The weather was hot, and Monster Beasts didn’t like to roam around much. Those that did venture out were usually of the Fire-series whose demonic power became stronger in such weather, making them extremely difficult to handle. Therefore, the summer holiday period was also the off-season for Monster Hunting.</p>
+    <p>Mo Shan would stay at home for longer periods, only leaving for a few days if one of the team members found some valuable Monster Beasts. He would then return with a few Spirit Stones or furs from the beasts.</p>
+    <p>One time, after being away from home for a few days, Mo Shan returned with a large parcel. Mo Hua opened it and found a big pack of tendon meat, leaving him wide-mouthed in astonishment, “Dad, this is…”</p>
+    <p>“This is meat from a wild mountain bull. It contains little Spiritual Energy and isn’t worth much money, but compared to other Monster Beasts, the quality of the meat isn’t too bad, and the gamey taste isn’t too strong either.”</p>
+    <p>“Recently the Monster Hunting Team hasn’t harvested much, only this wild mountain bull. After skinning and butchering it, we couldn’t sell the meat; everyone complained that the beef was too tough and old, too hard to cook or chew. So, we each took some home to eat,” explained Mo Shan.</p>
+    <p>Mo Hua, unsure, asked, “Dad, are you planning to cook this meat?”</p>
+    <p>Mo Shan ruffled Mo Hua’s hair, “What, you dislike your dad’s cooking?”</p>
+    <p>Mo Hua smiled and said nothing.</p>
+    <p>At noon, Mo Shan set out to cook the beef, and after much effort, he finally got it stewed and served it in a large, open-mouthed white porcelain bowl.</p>
+    <p>“Give it a taste, see how it is!”</p>
+    <p>The white porcelain bowl held stewed beef that was a rich, soy sauce color.</p>
+    <p>Upon seeing the beef, Liu Ruhua put down her chopsticks, only scooping up a spoonful of soup to slowly sip.</p>
+    <p>Mo Hua, on the other hand, picked up a piece of the beef and chewed a few times until his teeth were sore; the meat remained stubbornly unyielding, showing no signs of breaking down.</p>
+    <p>Embarrassed yet polite, Mo Hua spit out the meat and picked up a spoon for the soup, praising, “The soup is good!”</p>
+    <p>Mo Shan glared at him irritably, “The soup is good because your mother seasoned it perfectly, of course.”</p>
+    <p>Liu Ruhua pursed her lips and smiled, “It’s the thought that counts, but cooking isn’t something you can do carelessly. Even when using Spiritual Power to stoke the fire for stewing, there are many intricacies involved, like when to use high heat or low heat, when to add which seasoning, and how much to use… it’s all about proportion…”</p>
+    <p>Upon hearing this, Mo Hua suddenly asked, “So, if cooked long enough, could the beef become tender?”</p>
+    <p>Liu Ruhua replied, “Theoretically, yes, but that would require a Cultivator to watch over the pot day and night, constantly stoking the fire with Spiritual Power…”</p>
+    <p>“No ordinary Cultivator could do that, and I doubt any Cultivator who could, would be so idle to actually do it,” Mo Shan remarked.</p>
+    <p>“What if we use a Formation?” Mo Hua’s eyes lit up.</p>
+    <p>“Formation…” Pondering for a moment, Liu Ruhua said:</p>
+    <p>“I’m not sure about that, but I’ve heard from the head chef of the Food Building that some large establishments have Artifact Refiners make the stoves, then have Formation Masters inscribe Formations on them. With just Spirit Stones, it’s possible to simmer ingredients for a long time without expending the Spiritual Power of a Cultivator. However, hiring a Formation Master is very expensive, and I heard the previous restaurant couldn’t afford such a stove.”</p>
+    <p>“I see…”</p>
+    <p>Mo Hua pondered thoughtfully.</p>
+    <p>Mo Shan also tried a piece of beef and, unable to chew it, had to admit, “It is indeed hard to chew,” and then he swallowed it down, forcibly assimilating it with his Spiritual Power.</p>
+    <p>In the evening, while practicing Drawing Formations on the damaged stele, Mo Hua counted over the matter of the Food Building.</p>
+    <p>The next day, Mo Hua didn’t practice Drawing Formations at home; instead, braving the scorching sun, he headed straight out to North Street.</p>
+    <p>The intense heat caused him to sweat profusely after only a few steps. Nevertheless, some small vendors were also enduring the sun, listlessly hawking their goods.</p>
+    <p>Having reached North Street, Mo Hua found the largest restaurant in the area, Fulu Restaurant, and then asked the manager, “Is your young master surnamed An, named An Xiaopang… I mean, An Xiaofu?”</p>
+    <p>The manager didn’t look down on Mo Hua because of his plain clothes. Instead, taking note of Mo Hua’s familiarity, he suspected that Mo Hua might indeed be a friend of the Young Master, so he courteously replied:</p>
+    <p>“The Young Master says correctly; the young master is upstairs. Would you like me to send a message to him?”</p>
+    <p>Mo Hua responded politely, “Could you please convey that a fellow with the surname Mo from the same Sect is seeking him for a matter?”</p>
+  </article>
+</div>
+
+<div id="merge-status"></div>
+
+<nav>
+  <span class="nav-left"><a href="27.html" rel="prev">&#8592; Ch 27</a></span>
+  <span class="nav-mid">
+    <button class="btn-merge" id="btn-merge" >Merge Next 10</button>
+  </span>
+  <span class="nav-right"><a href="29.html" rel="next">Ch 29 &#8594;</a></span>
+</nav>
+
+<script>
+  // Chapters available after this one — discovered from meta.json
+  var slug       = "immortality-through-array-formations";
+  var currentNum = 28;
+  var nextNum    = 29;
+  var maxLoaded  = currentNum;
+  var allNums    = null;   // loaded lazily from meta.json
+  var merging    = false;
+  var root       = "../../";
+
+  async function getNums() {
+    if (allNums) return allNums;
+    var res = await fetch(root + "data/" + slug + "/meta.json");
+    var meta = await res.json();
+    allNums = meta.chapters.map(function(c){ return c.num; });
+    return allNums;
+  }
+
+  document.getElementById("btn-merge").addEventListener("click", async function() {
+    if (merging) return;
+    merging = true;
+    var btn    = document.getElementById("btn-merge");
+    var status = document.getElementById("merge-status");
+    btn.textContent = "Loading…";
+    btn.disabled = true;
+
+    var nums   = await getNums();
+    var idx    = nums.indexOf(maxLoaded);
+    var toLoad = nums.slice(idx + 1, idx + 11);
+    if (!toLoad.length) { merging = false; return; }
+
+    status.style.display = "block";
+    status.textContent = "Fetching chapters " + toLoad[0] + "–" + toLoad[toLoad.length-1] + "…";
+
+    var container = document.getElementById("chapters");
+    var firstNew  = null;
+
+    for (var i = 0; i < toLoad.length; i++) {
+      var n = toLoad[i];
+      try {
+        var res  = await fetch(n + ".html");
+        var html = await res.text();
+        var doc  = new DOMParser().parseFromString(html, "text/html");
+        var art  = doc.querySelector("article");
+        var h1   = doc.querySelector("h1");
+        if (!art) continue;
+
+        // Divider
+        var divider = document.createElement("div");
+        divider.className = "ch-divider";
+        divider.textContent = "Chapter " + n;
+        container.appendChild(divider);
+
+        // Chapter title
+        if (h1) {
+          var chTitle = document.createElement("div");
+          chTitle.className = "ch-title";
+          chTitle.textContent = h1.textContent;
+          container.appendChild(chTitle);
+        }
+
+        // Content
+        var section = document.createElement("article");
+        section.id = "ch-" + n;
+        section.innerHTML = art.innerHTML;
+        container.appendChild(section);
+
+        if (!firstNew) firstNew = divider;
+        maxLoaded = n;
+      } catch(e) {
+        console.warn("Failed to load chapter " + n, e);
+      }
+    }
+
+    // Update nav next link
+    var nextIdx = nums.indexOf(maxLoaded) + 1;
+    var newNext = nextIdx < nums.length ? nums[nextIdx] : null;
+    var navRight = document.querySelector(".nav-right");
+    if (newNext) {
+      navRight.innerHTML = '<a href="' + newNext + '.html" rel="next">Ch ' + newNext + ' &#8594;</a>';
+    } else {
+      navRight.innerHTML = '<span></span>';
+    }
+
+    status.style.display = "none";
+    btn.textContent = newNext ? "⊕ Merge Next 10" : "✓ All loaded";
+    btn.disabled = !newNext;
+    merging = false;
+
+    if (firstNew) firstNew.scrollIntoView({ behavior:"smooth", block:"start" });
+  });
+</script>
+</body>
+</html>

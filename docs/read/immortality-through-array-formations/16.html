@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chapter 16 — Immortality Through Array Formations</title>
+  <style>
+    :root { --ink:#1a1a1a; --dim:#666; --bg:#fff; --gold:#8a6a1a; --border:#ddd; }
+    @media (prefers-color-scheme:dark) {
+      :root { --ink:#e9e4da; --dim:#9a9286; --bg:#111010; --gold:#c9a84c; --border:#2a2825; }
+    }
+    *{ box-sizing:border-box; margin:0; padding:0; }
+    body{ background:var(--bg); color:var(--ink); font-family:Georgia,'Times New Roman',serif;
+          font-size:1.125rem; line-height:1.85; padding:40px 24px 80px;
+          max-width:680px; margin:0 auto; }
+    header{ margin-bottom:32px; padding-bottom:20px; border-bottom:1px solid var(--border); }
+    header a{ color:var(--gold); text-decoration:none; font-size:.85rem; }
+    h1{ font-size:1.35rem; font-weight:700; margin-top:10px; line-height:1.25; }
+    article p{ margin-bottom:1.4em; text-align:justify; hyphens:auto; }
+    .ch-divider{ text-align:center; padding:28px 0 16px; color:var(--dim);
+                  font-size:.8rem; letter-spacing:.1em; text-transform:uppercase; }
+    .ch-divider::before,.ch-divider::after{ content:''; display:inline-block;
+      width:40px; height:1px; background:var(--border); vertical-align:middle; margin:0 12px; }
+    .ch-title{ font-size:1.1rem; font-weight:700; color:var(--gold); margin-bottom:16px; }
+    nav{ display:grid; grid-template-columns:1fr auto 1fr; gap:10px; align-items:center;
+          margin-top:48px; padding-top:20px; border-top:1px solid var(--border); font-size:.88rem; }
+    nav a{ color:var(--gold); text-decoration:none; }
+    nav a:hover{ text-decoration:underline; }
+    nav .nav-right{ text-align:right; }
+    nav .nav-mid{ text-align:center; }
+    .btn-merge{ background:rgba(138,106,26,.12); border:1px solid var(--gold);
+                 color:var(--gold); padding:9px 16px; border-radius:6px; cursor:pointer;
+                 font-family:Georgia,serif; font-size:.85rem; font-weight:600;
+                 transition:background .15s; white-space:nowrap; }
+    .btn-merge:hover:not(:disabled){ background:rgba(138,106,26,.25); }
+    .btn-merge:disabled{ opacity:.35; cursor:not-allowed; }
+    #merge-status{ text-align:center; padding:12px; font-size:.82rem;
+                    color:var(--dim); display:none; }
+  </style>
+</head>
+<body>
+<header>
+  <a href="../../novel.html?slug=immortality-through-array-formations">&larr; Immortality Through Array Formations</a>
+  <h1 id="page-title">Chapter 16</h1>
+</header>
+
+<div id="chapters">
+  <article id="ch-16">
+    <p>Chapter 16: Chapter 16 Qi Refinement Level 3_1</p>
+    <p>After Mo Hua entered Tongxian Gate, a new year of sect life began.</p>
+    <p>Tongxian Gate is a First Grade sect, which is the lowest level of sects in the Tao Cultivation World.</p>
+    <p>The hierarchical system of sect rankings in the Tao Cultivation World is extremely strict.</p>
+    <p>When a sect is first established, it must undergo an assessment, which is audited and decreed by the Taoist Court.</p>
+    <p>The criteria for assessment are very stringent, including strict evaluations of the sect&#x27;s assets, the mountain ranges it occupies, the depth of its legacy, whether the Sect Leader has any moral flaws, the cultivation and number of Elders and Instructors within the sect, and the number of disciples it can accommodate.</p>
+    <p>Advancement in sect ranking is even more demanding, requiring several high-level cultivators to be present and disseminate teachings for a set number of years before applying to the Heavenly Right Pavilion of the Taoist Court for a promotion in rank.</p>
+    <p>Rank advancement is a top priority for any sect, requiring years of preparation, as well as managing relations with the Taoist Court, and spending considerable human and financial resources.</p>
+    <p>Within Tongxian Gate, only the old Sect Leader is a Foundation Building Cultivator, far from meeting the requirements for a Second Grade sect. Moreover, it is estimated that they will not qualify for rank advancement within a hundred years.</p>
+    <p>In addition, Tongxian Gate&#x27;s estate encompasses only three mountain peaks: Tongling Peak, Tongxuan Peak, and Tongming Peak.</p>
+    <p>At Tongxian Gate&#x27;s Outer Gate, disciples in the early stages of Qi Refinement, that is levels 1-3, practice and learn on Tongling Peak. Disciples at the middle phase of Qi Refinement, levels 4-6, are on Tongxuan Peak, and the few Outer Gate disciples in the latter phase of Qi Refinement, levels 7-9, are also on Tongxuan Peak. These disciples are so few in number that they are simply accommodated together.</p>
+    <p>The Inner Gate disciples including legacy students, as well as the sect&#x27;s Sect Leader, Elders, and Instructors, are all located on Tongming Peak.</p>
+    <p>It is said that there used to be a Tongxian Peak, exclusively for the Sect Leader and Elders to reside and cultivate. However, due to poor management of the Sect and insolvency, they had to sell the peak with tears in their eyes.</p>
+    <p>How could Tongxian Gate still be called &quot;Tongxian Gate&quot; without Tongxian Peak?</p>
+    <p>Generations of Sect Leaders of Tongxian Gate have vowed to redeem Tongxian Peak, but unfortunately, this grand aspiration has not yet been realized.</p>
+    <p>The disciples from each peak of Tongxian Gate are divided into four classes: A, B, C, and D, with the quality of the disciples decreasing from Class A downward. The sect&#x27;s attention to and cultivation of them decrease accordingly.</p>
+    <p>Class A usually recruits so-called &quot;heaven&#x27;s proud children&quot; with good Spiritual Roots, high aptitude, and quick cultivation progress.</p>
+    <p>Of course, if you have a relationship with the sect&#x27;s Sect Leader or Elders, or are willing to donate a significant number of Spirit Stones to the sect, you can also enter Class A.</p>
+    <p>In short, you need either talent, connections, or Spirit Stones.</p>
+    <p>Class B enrolls disciples with average Spiritual Roots but decent aptitude and perseverance, and solid performance in various disciplines.</p>
+    <p>Disciples in Class C have average Spiritual Roots, average aptitude and achievements, while those in Class D have even poorer Spiritual Roots and achievements, basically just muddling through their days.</p>
+    <p>Mo Hua was assigned to Class B, belonging to the kind of disciples with average Spiritual Roots, but relatively hardworking and with decent performance in courses.</p>
+    <p>Since Mo Hua was only at the second level of Qi Refinement, his lodgings and cultivation place were all on Tongling Peak, which housed the largest number of disciples in Tongxian Gate.</p>
+    <p>After entering the sect and greeting familiar fellow disciples, Mo Hua began a year of study and cultivation.</p>
+    <p>Even the poorest cultivators at the bottom of the hierarchy gather some Spirit Stones to send their children to the sect for cultivation, to at least lay down some foundation in cultivation and not to be too ignorant of the various knowledge in the Tao Cultivation World. Thus, the most disciples in the early stages of Qi Refinement are in Tongxian Gate.</p>
+    <p>As for reaching the middle phase of Qi Refinement, whether one can continue to cultivate depends firstly on the cultivator&#x27;s talent and secondly on their family&#x27;s wealth.</p>
+    <p>Some Loose Cultivator families simply cannot afford the Spirit Stones and have to let their children drop out of school to help in Artifact Refining or go monster hunting in the mountains to barely make ends meet. The annual stipend of one hundred Spirit Stones is no small sum. Otherwise, the family would starve to death before the child made any progress in cultivation.</p>
+    <p>Those who can continue to cultivate in the sect during the latter phase of Qi Refinement are even fewer.</p>
+    <p>Mo Hua&#x27;s familiar fellow disciples were nowhere to be seen. After asking around, he learned that several of them, due to their impoverished family conditions and some difficulties, could not afford the tuition and had to drop out of school.</p>
+    <p>Practicing Tao cultivation is diverse and profound. Without a teacher&#x27;s guidance, one cannot fathom the number of detours they might take. Dropping out during the early phase of Qi Refinement, unless blessed with an incredible stroke of fortune, it is difficult to make any significant progress in Tao cultivation.</p>
+    <p>Mo Hua let out a small sigh, feeling quite sorry for them, but his own situation wasn&#x27;t much better, leaving him little time to dwell on these feelings.</p>
+    <p>While attending classes, Mo Hua continued his cultivation practice, and in his free time, he busied himself with Drawing Formation, leading a hectic but fulfilling life.</p>
+    <p>Several months later, Mo Hua had imperceptibly broken through to the third level of Qi Refinement.</p>
+    <p>The practice of the Qi Refinement Realm relies more on persistence and accumulation. Daily dedication to cultivation, over time, along with the proper expenditure of Spirit Stones, naturally leads to breakthrough.</p>
+    <p>However, what Loose Cultivators lack the most is always Spirit Stones.</p>
+    <p>Small realm breakthroughs rely on accumulation, while breaking through the middle realms will encounter bottlenecks. These bottlenecks often require certain rare materials or Pills to aid in breaking through.</p>
+    <p>As for major realm breakthroughs like advancing from Qi Refinement to Foundation Establishment, it&#x27;s more a matter of fate. For most of the lower-tier Loose Cultivators, it&#x27;s a chasm they can never bridge in their lifetime.</p>
+    <p>Each ascension in realm brings immense benefits for a Cultivator.</p>
+    <p>Now at the third level of Qi Refinement, Mo Hua felt his Spiritual Power was more abundant, and his Divine Sense naturally stronger.</p>
+    <p>The Bright Fire Formation that used to be a strain to complete was now well within his grasp, and he didn&#x27;t even need much rest after finishing it.</p>
+    <p>Even though it was expected, Mo Hua was still pleasantly surprised.</p>
+    <p>No wonder so many Cultivators endure the tedium of cultivation with the sole focus on improving their realm; the plain joy that comes after such tedium is the true form of happiness.</p>
+    <p>At the age of ten, Mo Hua&#x27;s cultivation had reached the third level of Qi Refinement, ranking him in the upper-middle tier in his class.</p>
+    <p>Now that he had reached the third level of Qi Refinement, it was time for Mo Hua to choose his Cultivation Technique.</p>
+    <p>One day after class, Instructor Yan asked several disciples at the third level of Qi Refinement to stay behind, including Mo Hua.</p>
+    <p>Instructor Yan kept Mo Hua and others back and then got straight to the point,</p>
+    <p>&quot;This is normally handled by Old Instructor Zhou, but since he&#x27;s feeling slightly unwell, I am taking on the task temporarily to discuss the matter of Cultivation Techniques with you.&quot;</p>
+    <p>&quot;The most important thing for a Cultivator is Spiritual Power. Whether you&#x27;re a Body Cultivator or a Spiritual Cultivator, whether you work on Formation Painting, Alchemy, Artifact Refining, or Rune making, all require Spiritual Power. If your Spiritual Power is strong, you stand above others; if it is weak, you&#x27;re a notch below. The most fundamental difference among Cultivators is the difference in Spiritual Power.&quot;</p>
+    <p>&quot;The source of a Cultivator&#x27;s Spiritual Power is determined by their Cultivation Technique, and the Cultivation Technique is determined by the Spiritual Root. What kind of Spiritual Root you have dictates which Cultivation Technique you should practice, and the Technique you choose will define the abundance of your Spiritual Power.&quot;</p>
+    <p>&quot;Spiritual Roots are innate, predetermined by nature and cannot be changed later. You can&#x27;t choose your Spiritual Roots, but you can choose which Cultivation Technique to practice.&quot;</p>
+    <p>&quot;Selecting an appropriate Cultivation Technique can greatly benefit your future cultivation. Even with lesser Spiritual Roots, choosing the right Cultivation Technique can lead to a lengthy path of Tao Cultivation, whereas mismatching a superior Spiritual Root with the wrong Technique could effectively sever your eternal cultivation journey.&quot;</p>
+    <p>&quot;Thus, regardless of the quality of your Spiritual Root, the choice of Cultivation Technique must be undertaken with extreme caution...&quot;</p>
+    <p>&quot;Cultivation Technique...&quot; Mo Hua silently mulled over it in his heart.</p>
+    <p>Mo Hua possessed a second-grade, lower-tier Small Five Elements Spiritual Root, which was considered below average among his peers in Tongxian City.</p>
+    <p>He wondered what kind of Cultivation Technique his Spiritual Root would allow him to learn.</p>
+  </article>
+</div>
+
+<div id="merge-status"></div>
+
+<nav>
+  <span class="nav-left"><a href="15.html" rel="prev">&#8592; Ch 15</a></span>
+  <span class="nav-mid">
+    <button class="btn-merge" id="btn-merge" >Merge Next 10</button>
+  </span>
+  <span class="nav-right"><a href="17.html" rel="next">Ch 17 &#8594;</a></span>
+</nav>
+
+<script>
+  // Chapters available after this one — discovered from meta.json
+  var slug       = "immortality-through-array-formations";
+  var currentNum = 16;
+  var nextNum    = 17;
+  var maxLoaded  = currentNum;
+  var allNums    = null;   // loaded lazily from meta.json
+  var merging    = false;
+  var root       = "../../";
+
+  async function getNums() {
+    if (allNums) return allNums;
+    var res = await fetch(root + "data/" + slug + "/meta.json");
+    var meta = await res.json();
+    allNums = meta.chapters.map(function(c){ return c.num; });
+    return allNums;
+  }
+
+  document.getElementById("btn-merge").addEventListener("click", async function() {
+    if (merging) return;
+    merging = true;
+    var btn    = document.getElementById("btn-merge");
+    var status = document.getElementById("merge-status");
+    btn.textContent = "Loading…";
+    btn.disabled = true;
+
+    var nums   = await getNums();
+    var idx    = nums.indexOf(maxLoaded);
+    var toLoad = nums.slice(idx + 1, idx + 11);
+    if (!toLoad.length) { merging = false; return; }
+
+    status.style.display = "block";
+    status.textContent = "Fetching chapters " + toLoad[0] + "–" + toLoad[toLoad.length-1] + "…";
+
+    var container = document.getElementById("chapters");
+    var firstNew  = null;
+
+    for (var i = 0; i < toLoad.length; i++) {
+      var n = toLoad[i];
+      try {
+        var res  = await fetch(n + ".html");
+        var html = await res.text();
+        var doc  = new DOMParser().parseFromString(html, "text/html");
+        var art  = doc.querySelector("article");
+        var h1   = doc.querySelector("h1");
+        if (!art) continue;
+
+        // Divider
+        var divider = document.createElement("div");
+        divider.className = "ch-divider";
+        divider.textContent = "Chapter " + n;
+        container.appendChild(divider);
+
+        // Chapter title
+        if (h1) {
+          var chTitle = document.createElement("div");
+          chTitle.className = "ch-title";
+          chTitle.textContent = h1.textContent;
+          container.appendChild(chTitle);
+        }
+
+        // Content
+        var section = document.createElement("article");
+        section.id = "ch-" + n;
+        section.innerHTML = art.innerHTML;
+        container.appendChild(section);
+
+        if (!firstNew) firstNew = divider;
+        maxLoaded = n;
+      } catch(e) {
+        console.warn("Failed to load chapter " + n, e);
+      }
+    }
+
+    // Update nav next link
+    var nextIdx = nums.indexOf(maxLoaded) + 1;
+    var newNext = nextIdx < nums.length ? nums[nextIdx] : null;
+    var navRight = document.querySelector(".nav-right");
+    if (newNext) {
+      navRight.innerHTML = '<a href="' + newNext + '.html" rel="next">Ch ' + newNext + ' &#8594;</a>';
+    } else {
+      navRight.innerHTML = '<span></span>';
+    }
+
+    status.style.display = "none";
+    btn.textContent = newNext ? "⊕ Merge Next 10" : "✓ All loaded";
+    btn.disabled = !newNext;
+    merging = false;
+
+    if (firstNew) firstNew.scrollIntoView({ behavior:"smooth", block:"start" });
+  });
+</script>
+</body>
+</html>

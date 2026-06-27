@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chapter 15 — Immortality Through Array Formations</title>
+  <style>
+    :root { --ink:#1a1a1a; --dim:#666; --bg:#fff; --gold:#8a6a1a; --border:#ddd; }
+    @media (prefers-color-scheme:dark) {
+      :root { --ink:#e9e4da; --dim:#9a9286; --bg:#111010; --gold:#c9a84c; --border:#2a2825; }
+    }
+    *{ box-sizing:border-box; margin:0; padding:0; }
+    body{ background:var(--bg); color:var(--ink); font-family:Georgia,'Times New Roman',serif;
+          font-size:1.125rem; line-height:1.85; padding:40px 24px 80px;
+          max-width:680px; margin:0 auto; }
+    header{ margin-bottom:32px; padding-bottom:20px; border-bottom:1px solid var(--border); }
+    header a{ color:var(--gold); text-decoration:none; font-size:.85rem; }
+    h1{ font-size:1.35rem; font-weight:700; margin-top:10px; line-height:1.25; }
+    article p{ margin-bottom:1.4em; text-align:justify; hyphens:auto; }
+    .ch-divider{ text-align:center; padding:28px 0 16px; color:var(--dim);
+                  font-size:.8rem; letter-spacing:.1em; text-transform:uppercase; }
+    .ch-divider::before,.ch-divider::after{ content:''; display:inline-block;
+      width:40px; height:1px; background:var(--border); vertical-align:middle; margin:0 12px; }
+    .ch-title{ font-size:1.1rem; font-weight:700; color:var(--gold); margin-bottom:16px; }
+    nav{ display:grid; grid-template-columns:1fr auto 1fr; gap:10px; align-items:center;
+          margin-top:48px; padding-top:20px; border-top:1px solid var(--border); font-size:.88rem; }
+    nav a{ color:var(--gold); text-decoration:none; }
+    nav a:hover{ text-decoration:underline; }
+    nav .nav-right{ text-align:right; }
+    nav .nav-mid{ text-align:center; }
+    .btn-merge{ background:rgba(138,106,26,.12); border:1px solid var(--gold);
+                 color:var(--gold); padding:9px 16px; border-radius:6px; cursor:pointer;
+                 font-family:Georgia,serif; font-size:.85rem; font-weight:600;
+                 transition:background .15s; white-space:nowrap; }
+    .btn-merge:hover:not(:disabled){ background:rgba(138,106,26,.25); }
+    .btn-merge:disabled{ opacity:.35; cursor:not-allowed; }
+    #merge-status{ text-align:center; padding:12px; font-size:.82rem;
+                    color:var(--dim); display:none; }
+  </style>
+</head>
+<body>
+<header>
+  <a href="../../novel.html?slug=immortality-through-array-formations">&larr; Immortality Through Array Formations</a>
+  <h1 id="page-title">Chapter 15</h1>
+</header>
+
+<div id="chapters">
+  <article id="ch-15">
+    <p>Chapter 15: Chapter 15 Bundles of Repair_1</p>
+    <p>The Sect opened its Outer Gate to recruit disciples and to impart the knowledge and skills of cultivation. To become a disciple, to study and practice cultivation, one needed to pay a tuition fee.</p>
+    <p>The tuition fee varied depending on the grade of the Sect; the higher the grade, the more expensive the fee.</p>
+    <p>Tongxian Gate was only a first-grade Sect within the Tao Cultivation World, but in Tongxian City, where only first-grade Sects existed, it was the largest Sect. The annual tuition fee was a hundred Spirit Stones, and this did not include other miscellaneous charges.</p>
+    <p>A hundred Spirit Stones were not too expensive, but neither were they cheap. It was approximately what an ordinary Qi practicing Loose Cultivator could save in a year, assuming there were no injuries or other significant Spirit Stone expenses.</p>
+    <p>Once afflicted by illness or disaster, or encountering difficulties that required spending Spirit Stones to resolve, it was possible to end up with a year with no harvest.</p>
+    <p>The New Year had been joyous, but as it passed, the heavy burden of the cultivation life seemed to press down once again.</p>
+    <p>Mo Shan placed a Storage Bag on the table with a bit of guilt, &quot;I borrowed some Spirit Stones from a few brothers, plus what I had saved up before, there are a bit over eighty...&quot;</p>
+    <p>Liu Ruhua comforted him, &quot;Tomorrow, I will also go see the steward of the Food Building to ask him to advance me some Spirit Stones...&quot;</p>
+    <p>Before Mo Shan could say anything, he noticed Mo Hua eavesdropping at the crack of the door.</p>
+    <p>&quot;Huar!&quot;</p>
+    <p>Having been spotted, Mo Hua could only offer a sheepish smile and sat down next to his mother.</p>
+    <p>Liu Ruhua affectionately pinched Mo Hua&#x27;s ear and scolded, &quot;At such a young age, you already know how to eavesdrop!&quot;</p>
+    <p>&quot;Dad, Mom, are we still short of Spirit Stones?&quot;</p>
+    <p>Mo Shan said, &quot;Yes, we are short some, but your Uncle Ji said yesterday that he would lend me some and kept reminding me thousands of times to have you study hard at the Sect.&quot;</p>
+    <p>&quot;Uncle Ji?&quot;</p>
+    <p>&quot;That&#x27;s right, your Uncle Ji says you&#x27;re smart and always sings your praises,&quot; Liu Ruhua said as she stroked Mo Hua&#x27;s head.</p>
+    <p>&quot;But Uncle Ji&#x27;s family doesn&#x27;t have an excess of Spirit Stones either,&quot; Mo Hua said.</p>
+    <p>Mo Shan sighed softly, &quot;After the New Year I&#x27;ll pay him back early. These days, whose pockets are overflowing with Spirit Stones?&quot;</p>
+    <p>&quot;I have them!&quot; Mo Hua said with a chuckle.</p>
+    <p>Mo Shan and Liu Ruhua were taken aback.</p>
+    <p>Mo Hua trotted back into the house and then ran out again with a Storage Bag in his hand.</p>
+    <p>He opened the Storage Bag, and within it, fifty Spirit Stones glimmered and interlaced, their lustrous reflections strikingly beautiful. But the expected scene of his parents moved to tears and praising him for his understanding did not happen.</p>
+    <p>Mo Shan looked grave, and Liu Ruhua&#x27;s brows furrowed slightly as well.</p>
+    <p>Feeling uneasy, Mo Hua asked, &quot;What&#x27;s wrong?&quot;</p>
+    <p>In as calm a tone as he could muster, Mo Shan asked, &quot;Huar, who gave you these Spirit Stones?&quot;</p>
+    <p>&quot;They weren&#x27;t given to me; I earned them myself!&quot;</p>
+    <p>Mo Shan was stunned for a moment, &quot;Earned them... yourself?&quot;</p>
+    <p>Liu Ruhua&#x27;s expression eased as she gently embraced Mo Hua, &quot;Then tell Mom, how did you earn them?&quot;</p>
+    <p>&quot;I painted Formations for Fated Gathering. They&#x27;re only the simplest ones, but I earn one Spirit Stone for every completed painting.&quot;</p>
+    <p>Mo Shan and Liu Ruhua exchanged looks, remembering how their son had spent most of his time indoors before and after the New Year, rarely playing outside, and returning shortly after going out. He had been painting Formations to earn Spirit Stones.</p>
+    <p>They looked again at the Spirit Stones in the bag. One Spirit Stone for one Formation Painting, nearly fifty in the bag, meant he had to paint at least fifty...</p>
+    <p>Liu Ruhua couldn&#x27;t help but hug Mo Hua even tighter.</p>
+    <p>Mo Shan started to speak several times but stopped himself, unsure of what to say. In the end, he simply stretched out his hand and gently touched Mo Hua&#x27;s head.</p>
+    <p>&quot;These Spirit Stones are the fruit of your hard work. You keep them. Save them for cultivation or buy something tasty to eat. Dad will find a way to handle Tongxian Gate&#x27;s tuition fees.&quot;</p>
+    <p>Mo Hua knew his father was reluctant to use these Spirit Stones. His eyes twinkling, he said, &quot;Then Mom and Dad can keep these Spirit Stones for me. I&#x27;m just a kid; I don&#x27;t need that many. And they could be stolen or snatched away.&quot;</p>
+    <p>Mo Shan and Liu Ruhua looked at each other, at a loss for words of refusal.</p>
+    <p>Finally, it was Liu Ruhua who said, &quot;Alright, your Mom and Dad will hold onto them for you.&quot;</p>
+    <p>&quot;Mhm, mhm!&quot; Mo Hua nodded vehemently.</p>
+    <p>&quot;Okay, it&#x27;s getting late, and you have school tomorrow. Go to sleep early.&quot;</p>
+    <p>&quot;Mhm, goodnight Dad and Mom!&quot;</p>
+    <p>Mo Hua got up to go back to his room but then turned back and said, &quot;Dad and Mom, if you need to use them, go ahead. Don&#x27;t save on my account.&quot;</p>
+    <p>Mo Shan and his wife were at a loss whether to laugh or cry.</p>
+    <p>```</p>
+    <p>Watching Mo Hua return to the room and close the door, Mo Shan let out a sigh and said with a wry smile, &quot;As a father, I&#x27;m not even as good as my child.&quot;</p>
+    <p>Liu Ruhua consoled him, &quot;What are you talking about? It&#x27;s a good thing that Huar is considerate of his parents. We should be happy that he can earn Spirit Stones with his own abilities. It&#x27;s just that...&quot;</p>
+    <p>Liu Ruhua looked down at the Spirit Stones in front of her and then raised her head to her husband with concern, &quot;He&#x27;s so young, can he really earn Spirit Stones for others by drawing formations? And earn so many... I&#x27;m afraid someone might see his young age and want to...&quot;</p>
+    <p>&quot;I&#x27;ll go take a look tomorrow.&quot;</p>
+    <p>Mo Shan said, his eyes gradually sharpening.</p>
+    <p>The next day Mo Hua got up on time, cultivated for a while, and then went with his mother Liu Ruhua to the Outer Gate of Tongxian Gate to pay the tuition and register for school.</p>
+    <p>Mo Shan had left the house early. According to Liu Ruhua, he was to join several Monster Hunters to head for the Inner Mountain, so he had to leave earlier to prepare.</p>
+    <p>When they arrived at the Outer Gate of Tongxian Gate, Liu Ruhua paid the tuition, completed the enrollment, and couldn&#x27;t help but take a few more glances at Mo Hua.</p>
+    <p>Once he entered Tongxian Gate for cultivation, unless the Sect gave holidays during festive seasons, she wouldn&#x27;t be able to see her son on regular days.</p>
+    <p>Liu Ruhua repeated several pieces of advice to Mo Hua to cultivate well, get along with his fellow disciples, eat well, dress well, and not to bully others. Then she reluctantly went back home.</p>
+    <p>Mo Hua stood outside the gate waving his hand until Liu Ruhua&#x27;s figure disappeared at the corner, then he turned around.</p>
+    <p>Instead of entering the Sect, he first went to Fated Gathering on the North Main Street, found Fatty Steward to receive materials for twenty sets of Bright Fire Formations, agreeing to deliver them by the latest in half a month.</p>
+    <p>The Sect had a day off every ten days at the beginning, middle, and end of the month. Mo Hua planned to slip out during these breaks to trade with Fatty Steward.</p>
+    <p>For the twenty sets of materials, Fatty Steward still took only ten Spirit Stones as a deposit. Given the pleasant past cooperations with Mo Hua&#x27;s... elder brother, and the increasing quality of the formations provided, Fatty Steward was very satisfied and kept the deposit the same in consideration of Mo Hua&#x27;s face.</p>
+    <p>After negotiating with Fatty Steward, Mo Hua left Fated Gathering satisfied.</p>
+    <p>After Mo Hua left, he didn&#x27;t notice a burly man quietly watching him from outside Fated Gathering.</p>
+    <p>Once Mo Hua had departed, the man entered the entrance of Fated Gathering.</p>
+    <p>The sound of a doorbell chimed, and Fatty Steward looked up to see a plainly dressed but handsome and upright man with sharp brows and bright eyes looking at him with an inquisitive gaze that bore an aggressive edge.</p>
+    <p>Fatty Steward realized at a glance that this man was a Monster Hunter, a true Monster Hunter who had seen blood! And his attitude was not good, looking at him as if he were a Monster Beast waiting to be butchered.</p>
+    <p>Fatty Steward believed his own Cultivation was not inferior to that of this man, but if it came to a fight, it was hard to say. After all, Monster Hunters lived on the edge of blade and blood, battling for life against Monster Beasts.</p>
+    <p>Whereas he spent his years sitting in front of a counter and it had been who knows how long since he had touched a sword, his skills in combat had become rusty.</p>
+    <p>After weighing his options, Fatty Steward straightened his demeanor and cautiously asked, &quot;This Taoist friend, may I ask what formation you need?&quot;</p>
+    <p>The burly man was Mo Shan. He spread out a crumpled piece of paper, upon which a formation had been copied. There were some mistakes in the copying, thus there were erasure marks visible.</p>
+    <p>&quot;What formation is this?&quot;</p>
+    <p>Fatty Steward glanced at it and replied, &quot;It&#x27;s a Bright Fire Formation.&quot;</p>
+    <p>&quot;Do you accept this kind of formation?&quot;</p>
+    <p>The man&#x27;s tone made Fatty Steward uncomfortable. On a normal day, he would have dismissed it, but today he felt a guest who enters is a guest indeed and should be treated with courtesy and thoroughness.</p>
+    <p>&quot;Of course, we accept it. This is a commonly used formation, regularly needed by ordinary Cultivator families, so there&#x27;s a significant consumption,&quot; Fatty Steward said.</p>
+    <p>Mo Shan asked, &quot;That child who just left, does he also draw formations for you?&quot;</p>
+    <p>Fatty Steward replied, &quot;Such matters cannot be disclosed; Fated Gathering protects the privacy of its customers, which is a principle of our business.&quot;</p>
+    <p>Mo Shan&#x27;s gaze suddenly bore down like a knife, and the uncomfortable Fatty Steward pondered briefly, feeling that a Cultivator should not be too rigid; principles could be flexibly adhered to.</p>
+    <p>&quot;Not that child, it&#x27;s his elder brother.&quot;</p>
+    <p>Mo Shan frowned, &quot;Elder brother?&quot;</p>
+    <p>Fatty Steward said, &quot;Yes, how much could such a young child know about drawing formations? He&#x27;s just running errands for his elder brother; it&#x27;s his elder brother who draws the formations.&quot;</p>
+    <p>&quot;Is that what he told you himself?&quot;</p>
+    <p>&quot;Of course,&quot; Steward answered, &quot;otherwise, why would we do business with a child?&quot;</p>
+    <p>After finishing, Steward looked at Mo Shan warily:</p>
+    <p>&quot;As for the child&#x27;s surname, first name, and where he lives, I cannot possibly tell you.&quot;</p>
+    <p>Mo Shan glanced at Fatty Steward dismissively, would I, as his father, not be clear about this child&#x27;s surname, first name, and where he lives, that I would need you to tell me?</p>
+    <p>However, knowing Mo Hua was not being exploited, Mo Shan&#x27;s attitude softened, and he cupped his fists towards Fatty Steward, stating, &quot;I apologize for the disturbance, I will take my leave.&quot;</p>
+    <p>Fatty Steward let out a sigh of relief internally, showing a hint of pride as he nodded in acknowledgment.</p>
+    <p>As Mo Shan turned and left, Fatty Steward didn&#x27;t breathe easily until his figure disappeared behind the door, then he muttered discontentedly in a low voice, &quot;And he didn&#x27;t even buy anything...&quot;</p>
+    <p>```</p>
+  </article>
+</div>
+
+<div id="merge-status"></div>
+
+<nav>
+  <span class="nav-left"><a href="14.html" rel="prev">&#8592; Ch 14</a></span>
+  <span class="nav-mid">
+    <button class="btn-merge" id="btn-merge" >Merge Next 10</button>
+  </span>
+  <span class="nav-right"><a href="16.html" rel="next">Ch 16 &#8594;</a></span>
+</nav>
+
+<script>
+  // Chapters available after this one — discovered from meta.json
+  var slug       = "immortality-through-array-formations";
+  var currentNum = 15;
+  var nextNum    = 16;
+  var maxLoaded  = currentNum;
+  var allNums    = null;   // loaded lazily from meta.json
+  var merging    = false;
+  var root       = "../../";
+
+  async function getNums() {
+    if (allNums) return allNums;
+    var res = await fetch(root + "data/" + slug + "/meta.json");
+    var meta = await res.json();
+    allNums = meta.chapters.map(function(c){ return c.num; });
+    return allNums;
+  }
+
+  document.getElementById("btn-merge").addEventListener("click", async function() {
+    if (merging) return;
+    merging = true;
+    var btn    = document.getElementById("btn-merge");
+    var status = document.getElementById("merge-status");
+    btn.textContent = "Loading…";
+    btn.disabled = true;
+
+    var nums   = await getNums();
+    var idx    = nums.indexOf(maxLoaded);
+    var toLoad = nums.slice(idx + 1, idx + 11);
+    if (!toLoad.length) { merging = false; return; }
+
+    status.style.display = "block";
+    status.textContent = "Fetching chapters " + toLoad[0] + "–" + toLoad[toLoad.length-1] + "…";
+
+    var container = document.getElementById("chapters");
+    var firstNew  = null;
+
+    for (var i = 0; i < toLoad.length; i++) {
+      var n = toLoad[i];
+      try {
+        var res  = await fetch(n + ".html");
+        var html = await res.text();
+        var doc  = new DOMParser().parseFromString(html, "text/html");
+        var art  = doc.querySelector("article");
+        var h1   = doc.querySelector("h1");
+        if (!art) continue;
+
+        // Divider
+        var divider = document.createElement("div");
+        divider.className = "ch-divider";
+        divider.textContent = "Chapter " + n;
+        container.appendChild(divider);
+
+        // Chapter title
+        if (h1) {
+          var chTitle = document.createElement("div");
+          chTitle.className = "ch-title";
+          chTitle.textContent = h1.textContent;
+          container.appendChild(chTitle);
+        }
+
+        // Content
+        var section = document.createElement("article");
+        section.id = "ch-" + n;
+        section.innerHTML = art.innerHTML;
+        container.appendChild(section);
+
+        if (!firstNew) firstNew = divider;
+        maxLoaded = n;
+      } catch(e) {
+        console.warn("Failed to load chapter " + n, e);
+      }
+    }
+
+    // Update nav next link
+    var nextIdx = nums.indexOf(maxLoaded) + 1;
+    var newNext = nextIdx < nums.length ? nums[nextIdx] : null;
+    var navRight = document.querySelector(".nav-right");
+    if (newNext) {
+      navRight.innerHTML = '<a href="' + newNext + '.html" rel="next">Ch ' + newNext + ' &#8594;</a>';
+    } else {
+      navRight.innerHTML = '<span></span>';
+    }
+
+    status.style.display = "none";
+    btn.textContent = newNext ? "⊕ Merge Next 10" : "✓ All loaded";
+    btn.disabled = !newNext;
+    merging = false;
+
+    if (firstNew) firstNew.scrollIntoView({ behavior:"smooth", block:"start" });
+  });
+</script>
+</body>
+</html>

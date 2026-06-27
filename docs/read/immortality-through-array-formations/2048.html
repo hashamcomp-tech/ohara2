@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chapter 2048 — Immortality Through Array Formations</title>
+  <style>
+    :root { --ink:#1a1a1a; --dim:#666; --bg:#fff; --gold:#8a6a1a; --border:#ddd; }
+    @media (prefers-color-scheme:dark) {
+      :root { --ink:#e9e4da; --dim:#9a9286; --bg:#111010; --gold:#c9a84c; --border:#2a2825; }
+    }
+    *{ box-sizing:border-box; margin:0; padding:0; }
+    body{ background:var(--bg); color:var(--ink); font-family:Georgia,'Times New Roman',serif;
+          font-size:1.125rem; line-height:1.85; padding:40px 24px 80px;
+          max-width:680px; margin:0 auto; }
+    header{ margin-bottom:32px; padding-bottom:20px; border-bottom:1px solid var(--border); }
+    header a{ color:var(--gold); text-decoration:none; font-size:.85rem; }
+    h1{ font-size:1.35rem; font-weight:700; margin-top:10px; line-height:1.25; }
+    article p{ margin-bottom:1.4em; text-align:justify; hyphens:auto; }
+    .ch-divider{ text-align:center; padding:28px 0 16px; color:var(--dim);
+                  font-size:.8rem; letter-spacing:.1em; text-transform:uppercase; }
+    .ch-divider::before,.ch-divider::after{ content:''; display:inline-block;
+      width:40px; height:1px; background:var(--border); vertical-align:middle; margin:0 12px; }
+    .ch-title{ font-size:1.1rem; font-weight:700; color:var(--gold); margin-bottom:16px; }
+    nav{ display:grid; grid-template-columns:1fr auto 1fr; gap:10px; align-items:center;
+          margin-top:48px; padding-top:20px; border-top:1px solid var(--border); font-size:.88rem; }
+    nav a{ color:var(--gold); text-decoration:none; }
+    nav a:hover{ text-decoration:underline; }
+    nav .nav-right{ text-align:right; }
+    nav .nav-mid{ text-align:center; }
+    .btn-merge{ background:rgba(138,106,26,.12); border:1px solid var(--gold);
+                 color:var(--gold); padding:9px 16px; border-radius:6px; cursor:pointer;
+                 font-family:Georgia,serif; font-size:.85rem; font-weight:600;
+                 transition:background .15s; white-space:nowrap; }
+    .btn-merge:hover:not(:disabled){ background:rgba(138,106,26,.25); }
+    .btn-merge:disabled{ opacity:.35; cursor:not-allowed; }
+    #merge-status{ text-align:center; padding:12px; font-size:.82rem;
+                    color:var(--dim); display:none; }
+  </style>
+</head>
+<body>
+<header>
+  <a href="../../novel.html?slug=immortality-through-array-formations">&larr; Immortality Through Array Formations</a>
+  <h1 id="page-title">Chapter 2048</h1>
+</header>
+
+<div id="chapters">
+  <article id="ch-2048">
+    <p>Chapter 2048: Chapter 979: Ultimate Formation</p>
+    <p>Through the large-scale artifact refining industry, catalyzing the evolution of formation patterns, providing a multitude of changes in laws to accelerate the research of formations, this is considered an attempt by Mo Hua.</p>
+    <p>If this attempt succeeds, it can save a lot of manpower, and a great deal of time and divine sense calculation power.</p>
+    <p>In the future, when conducting the &quot;return to origin&quot; of Formation Method Origin Stream, there will be a &quot;model&quot; for reference.</p>
+    <p>Through large-scale Tao cultivation production, extensive application of formations, providing samples for formation pattern evolution, conducting formation return to origin, and comprehending the origin of Dao formations.</p>
+    <p>In this way, learning and application are integrated, benefiting all beings.</p>
+    <p>It is no longer necessary to waste a large amount of formation masters’ telekinesis, as the Five Elements Sect did in the past, to focus only on theoretical research and study.</p>
+    <p>Of course, this is only Mo Hua’s assumption.</p>
+    <p>Whether it is truly feasible still needs to be verified step by step.</p>
+    <p>To this end, the large furnace of Gu Family’s refinery shop, including the concealed &quot;Magnetic Ink Furnace&quot; formations, has been fully constructed according to Mo Hua’s plan.</p>
+    <p>Mo Hua inspected it from beginning to end again, confirmed there were no issues, and then handed it over to Master Gu.</p>
+    <p>How to seal the furnace, ignite the fire, produce, refine, and maintain secrecy, was left to Master Gu to arrange on his own.</p>
+    <p>Master Gu looked at the magnificent furnace before him, along with the profound and complex formations engraved upon the inner walls, feeling an indescribable gratitude and admiration towards Mo Hua, treating him with even greater respect.</p>
+    <p>Cultivation is used for killing.</p>
+    <p>Formations, however, can be used to save lives.</p>
+    <p>Though Mo Hua is only at Foundation Establishment, he has accomplished things that even Golden Core, and Feather Transformation Realm True Men, could not.</p>
+    <p>One thought rescues the world.</p>
+    <p>He built a fundamental support for the cultivators of an entire city.</p>
+    <p>He was indeed not mistaken; this Young Master Mo is truly their &quot;benefactor.&quot;</p>
+    <p>Yet even so, Master Gu did not expect that this benefactor could be &quot;precious&quot; to such an extent...</p>
+    <p>For Solitary Mountain City, this is almost equivalent to half an &quot;Immortal.&quot;</p>
+    <p>Master Gu invited Mo Hua aside, personally offering him tea.</p>
+    <p>The two sat in the courtyard, gazing at the now fundamentally different Solitary Mountain City, Master Gu’s heart was emotional, and he couldn’t help but say:</p>
+    <p>&quot;Thanks to Young Master Mo, Solitary Mountain City’s days will surely get better and better.&quot;</p>
+    <p>Mo Hua pondered for a moment but shook his head, &quot;Not necessarily.&quot;</p>
+    <p>Master Gu was stunned.</p>
+    <p>Mo Hua said, &quot;No matter if it’s a mine or a furnace, these are actually external objects, given by others.&quot;</p>
+    <p>&quot;Relying on them may bring prosperity for a while, but over time, issues are bound to arise. At that time, the loose cultivators of Solitary Mountain City may not be able to maintain these foundations.&quot;</p>
+    <p>Master Gu’s eyebrows slowly furrowed.</p>
+    <p>These concerns are actually buried deep in his heart; it’s not that he doesn’t know, he just got too excited seeing the changes around Solitary Mountain City, therefore he hadn’t thought deeply about it.</p>
+    <p>After thinking for a moment, Master Gu said slowly:</p>
+    <p>&quot;Then... urge the loose cultivators of Solitary Mountain City, especially the children, to strive in cultivation, learn artifact refining, and ensure that they can protect everything themselves in the future.&quot;</p>
+    <p>Mo Hua nodded and took out a booklet.</p>
+    <p>The cover page of the booklet was neatly written, yet the aura was inherently deep, with the words &quot;Formation Introduction.&quot;</p>
+    <p>Seemed quite ordinary.</p>
+    <p>&quot;This is a booklet I compiled, containing basic formation patterns, commonly used formation formations, and some advanced formation knowledge, formation principles, convenient for those children as a formation enlightenment, from nothing to something, from shallow to deep, learning formations step by step.&quot;</p>
+    <p>&quot;The formations on this booklet are primarily practical, tailored to the environment of Solitary Mountain, even if they just learn a few patterns, they can still be used frequently...&quot;</p>
+    <p>Master Gu took the booklet, though thin in hand, felt a heavy weight in heart, solemnly said:</p>
+    <p>&quot;I will definitely teach it to the children, also let them remember Young Master’s kindness, not disappointing Young Master’s expectations, and study formations well.&quot;</p>
+    <p>Mo Hua thought for a moment but shook his head, &quot;Can’t say that.&quot;</p>
+    <p>Master Gu was surprised, &quot;Can’t say that?&quot;</p>
+    <p>&quot;Yes,&quot; Mo Hua nodded, &quot;Can’t let them have the thought of learning formations for ’me.’ Formations shouldn’t be learned for others.&quot;</p>
+    <p>&quot;Then...&quot; Master Gu pondered, &quot;Learn for themselves?&quot;</p>
+    <p>Mo Hua shook his head still, &quot;No, if learned this way, over time, they easily become selfish and narrow-minded.&quot;</p>
+    <p>Learning for oneself, once accomplished, it’s easy for them to think that everything they have achieved came purely from their own effort.</p>
+    <p>They might disdain others, looking down upon those less than them.</p>
+    <p>Most likely, after mastering their skills, they will leave Solitary Mountain City, joining sects, marrying into aristocratic families, pursuing personal fame and wealth, or possibly turning back to exploit the interests of Solitary Mountain City cultivators.</p>
+    <p>People are easily blinded by temporary success, thereby ignoring that their ability to &quot;stand out&quot; actually involved a lot of help from others, and benefited from many people’s silent contributions.</p>
+    <p>Therefore, telling these orphans to cultivate for themselves, Solitary Mountain City’s future will likely not be good.</p>
+    <p>Talented children, utilizing Solitary Mountain City’s Tao cultivation resources, once accomplished, will despise their origins, discarding Solitary Mountain City like an old shoe.</p>
+    <p>In this way, they aren’t much different from Shen Shouxing.</p>
+    <p>Master Gu’s expression turned serious, falling into deep contemplation, after a while, he asked: &quot;Then... how should we speak to these children?&quot;</p>
+    <p>Mo Hua brightened slightly, slowly said: &quot;Tell them, they are learning formations for ’Solitary Mountain City.’&quot;</p>
+    <p>&quot;They have food to eat, spirit stones for cultivation, able to learn formations, all because of this city.&quot;</p>
+    <p>&quot;Once they succeed in learning, they should also contribute to Solitary Mountain City, to all the city’s cultivators, letting Solitary Mountain City become better.&quot;</p>
+  </article>
+</div>
+
+<div id="merge-status"></div>
+
+<nav>
+  <span class="nav-left"><a href="2047.html" rel="prev">&#8592; Ch 2047</a></span>
+  <span class="nav-mid">
+    <button class="btn-merge" id="btn-merge" >Merge Next 10</button>
+  </span>
+  <span class="nav-right"><a href="2049.html" rel="next">Ch 2049 &#8594;</a></span>
+</nav>
+
+<script>
+  // Chapters available after this one — discovered from meta.json
+  var slug       = "immortality-through-array-formations";
+  var currentNum = 2048;
+  var nextNum    = 2049;
+  var maxLoaded  = currentNum;
+  var allNums    = null;   // loaded lazily from meta.json
+  var merging    = false;
+  var root       = "../../";
+
+  async function getNums() {
+    if (allNums) return allNums;
+    var res = await fetch(root + "data/" + slug + "/meta.json");
+    var meta = await res.json();
+    allNums = meta.chapters.map(function(c){ return c.num; });
+    return allNums;
+  }
+
+  document.getElementById("btn-merge").addEventListener("click", async function() {
+    if (merging) return;
+    merging = true;
+    var btn    = document.getElementById("btn-merge");
+    var status = document.getElementById("merge-status");
+    btn.textContent = "Loading…";
+    btn.disabled = true;
+
+    var nums   = await getNums();
+    var idx    = nums.indexOf(maxLoaded);
+    var toLoad = nums.slice(idx + 1, idx + 11);
+    if (!toLoad.length) { merging = false; return; }
+
+    status.style.display = "block";
+    status.textContent = "Fetching chapters " + toLoad[0] + "–" + toLoad[toLoad.length-1] + "…";
+
+    var container = document.getElementById("chapters");
+    var firstNew  = null;
+
+    for (var i = 0; i < toLoad.length; i++) {
+      var n = toLoad[i];
+      try {
+        var res  = await fetch(n + ".html");
+        var html = await res.text();
+        var doc  = new DOMParser().parseFromString(html, "text/html");
+        var art  = doc.querySelector("article");
+        var h1   = doc.querySelector("h1");
+        if (!art) continue;
+
+        // Divider
+        var divider = document.createElement("div");
+        divider.className = "ch-divider";
+        divider.textContent = "Chapter " + n;
+        container.appendChild(divider);
+
+        // Chapter title
+        if (h1) {
+          var chTitle = document.createElement("div");
+          chTitle.className = "ch-title";
+          chTitle.textContent = h1.textContent;
+          container.appendChild(chTitle);
+        }
+
+        // Content
+        var section = document.createElement("article");
+        section.id = "ch-" + n;
+        section.innerHTML = art.innerHTML;
+        container.appendChild(section);
+
+        if (!firstNew) firstNew = divider;
+        maxLoaded = n;
+      } catch(e) {
+        console.warn("Failed to load chapter " + n, e);
+      }
+    }
+
+    // Update nav next link
+    var nextIdx = nums.indexOf(maxLoaded) + 1;
+    var newNext = nextIdx < nums.length ? nums[nextIdx] : null;
+    var navRight = document.querySelector(".nav-right");
+    if (newNext) {
+      navRight.innerHTML = '<a href="' + newNext + '.html" rel="next">Ch ' + newNext + ' &#8594;</a>';
+    } else {
+      navRight.innerHTML = '<span></span>';
+    }
+
+    status.style.display = "none";
+    btn.textContent = newNext ? "⊕ Merge Next 10" : "✓ All loaded";
+    btn.disabled = !newNext;
+    merging = false;
+
+    if (firstNew) firstNew.scrollIntoView({ behavior:"smooth", block:"start" });
+  });
+</script>
+</body>
+</html>
