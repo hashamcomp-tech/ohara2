@@ -55,7 +55,6 @@
 </head>
 <body>
 
-<!-- Sticky main header -->
 <header class="site-header">
   <div class="inner">
     <a href="index.html" class="logo">
@@ -88,7 +87,6 @@
   </div>
 </header>
 
-<!-- Sticky reader sub-header with chapter progress -->
 <div class="reader-header">
   <div class="reader-header-inner">
     <span id="rh-title" style="flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap"></span>
@@ -103,12 +101,10 @@
 
     <div class="prose-container">
       <div class="chapter-content-area">
-        <!-- Chapter(s) render here -->
         <div id="merged-chapters"></div>
         <div id="loading-merge"></div>
       </div>
 
-      <!-- Navigation: [Prev] [Merge Next 10] [Next] -->
       <div class="chapter-nav">
         <div class="nav-col-left">
           <button class="nav-btn prev" id="btn-prev" disabled>
@@ -303,7 +299,7 @@
       const proseEl = sec.querySelector('.chapter-prose');
       if (i > 0) articleHTML += `<div class="ch-divider">— ✦ —</div>`;
       if (titleEl) articleHTML += `<h2>${titleEl.textContent.trim()}</h2>`;
-      if (proseEl) articleHTML += proseEl.innerHTML;
+      if (proseEl) articleHTML += `<article>${proseEl.innerHTML}</article>`;
     });
 
     const prevLink = prevNum != null
@@ -321,7 +317,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>${meta.title} — Chapter ${startChNum}</title>
+  <title>\${meta.title} — Chapter \${startChNum}</title>
   <style>
     :root{--ink:#1a1a1a;--dim:#666;--bg:#fff;--gold:#8a6a1a;--border:#ddd}
     @media(prefers-color-scheme:dark){:root{--ink:#e9e4da;--dim:#9a9286;--bg:#111010;--gold:#c9a84c;--border:#2a2825}}
@@ -350,23 +346,24 @@
 </head>
 <body>
 <header>
-  <a href="${base}novel.html?slug=${encodeURIComponent(slug)}">&larr; ${meta.title}</a>
-  <h1 id="pg-title">Chapter ${startChNum}${maxLoadedCh > startChNum ? '&ndash;' + maxLoadedCh : ''}</h1>
+  <a href="\${base}novel.html?slug=\${encodeURIComponent(slug)}">&larr; \${meta.title}</a>
+  <h1 id="pg-title">Chapter \${startChNum}\${maxLoadedCh > startChNum ? '&ndash;' + maxLoadedCh : ''}</h1>
 </header>
-<div id="chapters">${articleHTML}</div>
+<div id="chapters">\${articleHTML}</div>
 <div id="merge-status"></div>
 <nav>
-  <span class="nav-left">${prevLink}</span>
+  <span class="nav-left">\${prevLink}</span>
   <span class="nav-mid">
-    <button class="btn-merge" id="btn-merge" ${mergeDisabled}>${mergeLabel}</button>
+    <button class="btn-merge" id="btn-merge" \${mergeDisabled}>\${mergeLabel}</button>
   </span>
-  <span class="nav-right" id="nav-right">${nextLink}</span>
+  <span class="nav-right" id="nav-right">\${nextLink}</span>
 </nav>
 <script>
-  var BASE      = ${JSON.stringify(base)};
-  var SLUG      = ${JSON.stringify(slug)};
-  var ALL_NUMS  = ${JSON.stringify(allNums)};
-  var maxLoaded = ${maxLoadedCh};
+  var BASE      = \${JSON.stringify(base)};
+  var SLUG      = \${JSON.stringify(slug)};
+  var ALL_NUMS  = \${JSON.stringify(allNums)};
+  var META_CH   = \${JSON.stringify(meta.chapters)};
+  var maxLoaded = \${maxLoadedCh};
   var merging   = false;
 
   document.getElementById('btn-merge').addEventListener('click', async function() {
@@ -389,8 +386,11 @@
     for (var i = 0; i < toLoad.length; i++) {
       var n = toLoad[i];
       try {
-        var res = await fetch(BASE + 'data/' + SLUG + '/chapters/' + n + '.json');
-        var ch  = await res.json();
+        var ch = META_CH.find(c => c.num === n);
+        if (!ch || !ch.content) {
+          var res = await fetch(BASE + 'data/' + SLUG + '/chapters/' + n + '.json');
+          ch  = await res.json();
+        }
 
         var divider = document.createElement('div');
         divider.className = 'ch-divider';
@@ -402,7 +402,13 @@
         container.appendChild(h2);
 
         var art = document.createElement('article');
-        art.innerHTML = (ch.content || '').split(/\\n\\n+/).filter(Boolean)
+        var contentStr = ch.content || '';
+        var paragraphs = contentStr.split(/\\\\n\\\\n+|\\\\n\\\\r?\\\\n+|\\\\n+/);
+        if (paragraphs.length <= 1) {
+          paragraphs = contentStr.split(/\\\\n/);
+        }
+
+        art.innerHTML = paragraphs.filter(Boolean)
           .map(function(p){ return '<p>' + p.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;') + '</p>'; })
           .join('');
         container.appendChild(art);
@@ -412,7 +418,6 @@
       } catch(e) { console.warn('Failed ch ' + n, e); }
     }
 
-    // Update next link and button
     var newIdx  = ALL_NUMS.indexOf(maxLoaded) + 1;
     var newNext = newIdx < ALL_NUMS.length ? ALL_NUMS[newIdx] : null;
     var navRight = document.getElementById('nav-right');
@@ -422,9 +427,8 @@
       navRight.innerHTML = '<span></span>';
     }
 
-    // Update page title
-    document.getElementById('pg-title').textContent = 'Chapter ${startChNum}\u2013' + maxLoaded;
-    document.title = '${meta.title} \u2014 Chapter ${startChNum}\u2013' + maxLoaded;
+    document.getElementById('pg-title').innerHTML = 'Chapter \${startChNum}&ndash;' + maxLoaded;
+    document.title = '\${meta.title} \u2014 Chapter \${startChNum}\u2013' + maxLoaded;
 
     status.style.display = 'none';
     btn.textContent = newNext ? '\u2295 Merge Next 10' : '\u2713 All loaded';
