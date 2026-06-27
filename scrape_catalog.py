@@ -710,6 +710,67 @@ def scrape_novel(
     return True
 
 
+def regenerate_static_html() -> None:
+    """
+    Read every chapter JSON already in docs/data/ and write the
+    corresponding static HTML to docs/read/ — no network requests needed.
+    Use this after updating the scraper to add static HTML support,
+    so existing novels get reader-compatible pages without re-scraping.
+    """
+    data_dir = os.path.join(SITE_DIR, "data")
+    if not os.path.isdir(data_dir):
+        print("No docs/data/ directory found. Run the scraper first.")
+        return
+
+    slugs = [
+        d for d in os.listdir(data_dir)
+        if os.path.isdir(os.path.join(data_dir, d)) and d != "."
+    ]
+    if not slugs:
+        print("No novels found in docs/data/.")
+        return
+
+    print(f"Regenerating static HTML for {len(slugs)} novel(s)…\n")
+    total_written = 0
+
+    for slug in sorted(slugs):
+        meta_path = os.path.join(data_dir, slug, "meta.json")
+        if not os.path.exists(meta_path):
+            print(f"  [{slug}] No meta.json — skipping.")
+            continue
+
+        with open(meta_path, encoding="utf-8") as f:
+            meta = json.load(f)
+
+        novel_name = meta.get("title", slug.replace("-", " ").title())
+        chapters   = meta.get("chapters", [])
+        all_nums   = [c["num"] for c in chapters]
+        written    = 0
+
+        print(f"  {novel_name} — {len(all_nums)} chapter(s)")
+
+        for idx, ch_meta in enumerate(chapters):
+            num       = ch_meta["num"]
+            ch_path   = os.path.join(data_dir, slug, "chapters", f"{num}.json")
+            if not os.path.exists(ch_path):
+                continue
+            with open(ch_path, encoding="utf-8") as f:
+                ch = json.load(f)
+
+            prev_num = all_nums[idx - 1] if idx > 0 else None
+            next_num = all_nums[idx + 1] if idx < len(all_nums) - 1 else None
+            export_chapter_html(slug, num, ch.get("title", f"Chapter {num}"),
+                                ch.get("content", ""), prev_num, next_num, novel_name)
+            written += 1
+            print(f"    {written}/{len(all_nums)}", end="\r", flush=True)
+
+        print(f"    ✓ {written} pages written to {SITE_DIR}/read/{slug}/")
+        total_written += written
+
+    print(f"\nDone — {total_written} static HTML page(s) written.")
+    print(f"Push docs/read/ to GitHub to make them live.")
+
+
 def update_all_local_novels(export_site: bool = True, export_epub: bool = True) -> None:
     slugs = get_all_local_slugs()
     if not slugs:
@@ -779,6 +840,8 @@ def main() -> None:
         help=f"Re-attempt all chapters logged in {FAILED_FILE}.")
     parser.add_argument("--dry-run", action="store_true",
         help="Print discovered URLs without scraping.")
+    parser.add_argument("--rebuild-html", action="store_true",
+        help="Regenerate static HTML pages for all novels from existing JSON. No scraping.")
     parser.add_argument("--no-site", action="store_true",
         help=f"Skip JSON export to {SITE_DIR}/data/ (epub only).")
     parser.add_argument("--no-epub", action="store_true",
@@ -787,6 +850,10 @@ def main() -> None:
 
     export_site = not args.no_site
     export_epub = not args.no_epub
+
+    if args.rebuild_html:
+        regenerate_static_html()
+        return
 
     if args.update:
         update_all_local_novels(export_site=export_site, export_epub=export_epub)
