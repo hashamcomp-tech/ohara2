@@ -32,6 +32,13 @@
 
     <div class="search-bar">
       <input class="search-input" type="search" id="search" placeholder="Search novels…" autocomplete="off">
+      <button id="btn-filter" onclick="toggleContentFilter()"
+        style="flex-shrink:0;padding:10px 14px;border:1px solid var(--border);border-radius:var(--r);
+               background:var(--bg-card);color:var(--ink-dim);font-family:inherit;font-size:.82rem;
+               cursor:pointer;white-space:nowrap;transition:border-color .15s,color .15s"
+        title="Hide adult/smut/harem novels">
+        🔒 Filter On
+      </button>
     </div>
 
     <div id="stats-bar" class="stats-bar hidden"></div>
@@ -56,9 +63,41 @@
 
 <script src="app.js"></script>
 <script>
-  let allNovels    = [];
-  let activeTag    = null;
-  let searchQuery  = '';
+  let allNovels   = [];
+  let activeTag   = null;
+  let searchQuery = '';
+
+  // Tags to hide when content filter is ON
+  const BLOCKED_TAGS = ['adult', 'smut', 'harem', 'ecchi', 'erotic', 'r-18', 'r18', 'sexual content'];
+
+  // Filter is ON by default; persisted in localStorage
+  let contentFilterOn = localStorage.getItem('ohara-filter') !== 'off';
+
+  function toggleContentFilter() {
+    contentFilterOn = !contentFilterOn;
+    localStorage.setItem('ohara-filter', contentFilterOn ? 'on' : 'off');
+    updateFilterBtn();
+    applyFilters();
+  }
+
+  function updateFilterBtn() {
+    const btn = document.getElementById('btn-filter');
+    if (contentFilterOn) {
+      btn.textContent = '🔒 Filter On';
+      btn.style.color = 'var(--gold)';
+      btn.style.borderColor = 'var(--gold-dim)';
+    } else {
+      btn.textContent = '🔓 Filter Off';
+      btn.style.color = 'var(--ink-faint)';
+      btn.style.borderColor = 'var(--border)';
+    }
+  }
+
+  function isBlocked(novel) {
+    if (!contentFilterOn) return false;
+    const tags = (novel.tags || []).map(t => t.toLowerCase());
+    return BLOCKED_TAGS.some(b => tags.includes(b));
+  }
 
   async function init() {
     try {
@@ -69,7 +108,8 @@
 
       if (!allNovels.length) { showState('state-empty'); return; }
 
-      // Stats bar
+      updateFilterBtn();
+
       const totalCh = allNovels.reduce((s, n) => s + (n.totalChapters || 0), 0);
       document.getElementById('stats-bar').innerHTML =
         `<strong>${allNovels.length}</strong> novels &nbsp;·&nbsp; <strong>${totalCh.toLocaleString()}</strong> chapters`;
@@ -85,7 +125,6 @@
   }
 
   function buildTagBar() {
-    // Collect all unique tags across novels
     const tagCount = {};
     allNovels.forEach(n => (n.tags || []).forEach(t => {
       tagCount[t] = (tagCount[t] || 0) + 1;
@@ -105,7 +144,6 @@
 
   function filterByTag(tag) {
     activeTag = activeTag === tag ? null : tag;
-    // Update tag button states
     document.querySelectorAll('.tag').forEach(el => {
       el.classList.toggle('active', el.dataset.tag === activeTag);
     });
@@ -124,8 +162,16 @@
 
   function applyFilters() {
     let filtered = allNovels;
-    if (activeTag)    filtered = filtered.filter(n => (n.tags || []).includes(activeTag));
-    if (searchQuery)  filtered = filtered.filter(n => n.title.toLowerCase().includes(searchQuery));
+    filtered = filtered.filter(n => !isBlocked(n));
+    if (activeTag)   filtered = filtered.filter(n => (n.tags || []).includes(activeTag));
+    if (searchQuery) filtered = filtered.filter(n => n.title.toLowerCase().includes(searchQuery));
+
+    const hidden = allNovels.filter(n => isBlocked(n)).length;
+    const bar = document.getElementById('stats-bar');
+    const totalCh = allNovels.reduce((s, n) => s + (n.totalChapters || 0), 0);
+    bar.innerHTML = `<strong>${allNovels.length}</strong> novels &nbsp;·&nbsp; <strong>${totalCh.toLocaleString()}</strong> chapters`
+      + (hidden && contentFilterOn ? ` &nbsp;·&nbsp; <span style="color:var(--ink-faint)">${hidden} hidden by filter</span>` : '');
+
     renderGrid(filtered);
   }
 
@@ -155,7 +201,6 @@
     `).join('');
   }
 
-  // Live search
   document.getElementById('search').addEventListener('input', e => {
     searchQuery = e.target.value.toLowerCase().trim();
     applyFilters();
