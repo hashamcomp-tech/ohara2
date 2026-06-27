@@ -36,6 +36,8 @@
 
     <div id="stats-bar" class="stats-bar hidden"></div>
 
+    <div id="tag-filter-bar" class="tag-filter hidden"></div>
+
     <div id="state-loading" class="state-loading">Loading library</div>
     <div id="state-error"   class="state-error   hidden"></div>
     <div id="state-empty"   class="state-empty   hidden">
@@ -54,7 +56,9 @@
 
 <script src="app.js"></script>
 <script>
-  let allNovels = [];
+  let allNovels    = [];
+  let activeTag    = null;
+  let searchQuery  = '';
 
   async function init() {
     try {
@@ -71,7 +75,8 @@
         `<strong>${allNovels.length}</strong> novels &nbsp;·&nbsp; <strong>${totalCh.toLocaleString()}</strong> chapters`;
       document.getElementById('stats-bar').classList.remove('hidden');
 
-      renderGrid(allNovels);
+      buildTagBar();
+      applyFilters();
       showState('content');
     } catch (e) {
       document.getElementById('state-error').textContent = 'Could not load library. ' + e.message;
@@ -79,8 +84,57 @@
     }
   }
 
+  function buildTagBar() {
+    // Collect all unique tags across novels
+    const tagCount = {};
+    allNovels.forEach(n => (n.tags || []).forEach(t => {
+      tagCount[t] = (tagCount[t] || 0) + 1;
+    }));
+    const tags = Object.keys(tagCount).sort();
+    if (!tags.length) return;
+
+    const bar = document.getElementById('tag-filter-bar');
+    bar.innerHTML =
+      `<span class="tag-filter-label">Tags</span>` +
+      tags.map(t =>
+        `<span class="tag" data-tag="${esc(t)}" onclick="filterByTag('${esc(t)}')">${esc(t)}</span>`
+      ).join('') +
+      `<button class="tag-clear hidden" id="tag-clear" onclick="clearTag()">✕ Clear</button>`;
+    bar.classList.remove('hidden');
+  }
+
+  function filterByTag(tag) {
+    activeTag = activeTag === tag ? null : tag;
+    // Update tag button states
+    document.querySelectorAll('.tag').forEach(el => {
+      el.classList.toggle('active', el.dataset.tag === activeTag);
+    });
+    const clearBtn = document.getElementById('tag-clear');
+    if (clearBtn) clearBtn.classList.toggle('hidden', !activeTag);
+    applyFilters();
+  }
+
+  function clearTag() {
+    activeTag = null;
+    document.querySelectorAll('.tag').forEach(el => el.classList.remove('active'));
+    const clearBtn = document.getElementById('tag-clear');
+    if (clearBtn) clearBtn.classList.add('hidden');
+    applyFilters();
+  }
+
+  function applyFilters() {
+    let filtered = allNovels;
+    if (activeTag)    filtered = filtered.filter(n => (n.tags || []).includes(activeTag));
+    if (searchQuery)  filtered = filtered.filter(n => n.title.toLowerCase().includes(searchQuery));
+    renderGrid(filtered);
+  }
+
   function renderGrid(novels) {
     const grid = document.getElementById('novel-grid');
+    if (!novels.length) {
+      grid.innerHTML = `<p style="color:var(--ink-dim);font-size:.9rem;padding:24px 0">No novels match your filters.</p>`;
+      return;
+    }
     grid.innerHTML = novels.map(n => `
       <div class="novel-card" onclick="go('novel.html', {slug:'${esc(n.slug)}'})" role="link" tabindex="0"
            onkeydown="if(event.key==='Enter')go('novel.html',{slug:'${esc(n.slug)}'})">
@@ -91,7 +145,8 @@
         </div>
         <div class="novel-card-body">
           <div class="novel-card-title">${esc(n.title)}</div>
-          <div class="novel-card-meta">
+          ${(n.tags || []).length ? `<div class="tags" style="margin-top:6px">${n.tags.slice(0,3).map(t => `<span class="tag" style="font-size:.65rem;padding:2px 7px" onclick="event.stopPropagation();filterByTag('${esc(t)}')">${esc(t)}</span>`).join('')}</div>` : ''}
+          <div class="novel-card-meta" style="margin-top:6px">
             <span class="badge badge-gold">${(n.totalChapters || 0).toLocaleString()} ch</span>
             ${n.lastUpdated ? `<br><small style="color:var(--ink-faint);font-size:.72rem">Updated ${n.lastUpdated}</small>` : ''}
           </div>
@@ -100,15 +155,10 @@
     `).join('');
   }
 
-  // Live search filter
+  // Live search
   document.getElementById('search').addEventListener('input', e => {
-    const q = e.target.value.toLowerCase().trim();
-    const filtered = q ? allNovels.filter(n => n.title.toLowerCase().includes(q)) : allNovels;
-    renderGrid(filtered);
-    if (!filtered.length && q) {
-      document.getElementById('novel-grid').innerHTML =
-        `<p style="color:var(--ink-dim);font-size:.9rem;padding:24px 0">No novels match "<strong>${esc(q)}</strong>"</p>`;
-    }
+    searchQuery = e.target.value.toLowerCase().trim();
+    applyFilters();
   });
 
   init();
