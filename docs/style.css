@@ -464,6 +464,53 @@ img { display: block; max-width: 100%; }
 .search-input:focus { border-color: var(--gold-dim); }
 .search-input::placeholder { color: var(--ink-faint); }
 
+/* ── Stars & Progress ───────────────────────────────────────── */
+.stars {
+  display: flex;
+  gap: 3px;
+  margin-top: 10px;
+}
+.star {
+  font-size: 1.3rem;
+  color: var(--ink-faint);
+  cursor: pointer;
+  transition: color .12s, transform .12s;
+  line-height: 1;
+}
+.star:hover, .star.filled { color: var(--gold); }
+.star:hover { transform: scale(1.15); }
+
+.progress-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 3px 9px;
+  border-radius: 20px;
+  font-size: .72rem;
+  font-weight: 600;
+  background: rgba(201,168,76,.1);
+  color: var(--gold);
+  border: 1px solid rgba(201,168,76,.2);
+  margin-top: 4px;
+}
+.progress-badge svg { width: 11px; height: 11px; }
+
+.btn-continue {
+  display: inline-block;
+  margin-top: 14px;
+  padding: 10px 22px;
+  background: rgba(201,168,76,.15);
+  border: 1px solid var(--gold-dim);
+  color: var(--gold);
+  border-radius: var(--r);
+  font-weight: 700;
+  font-size: .88rem;
+  cursor: pointer;
+  transition: background .15s;
+  font-family: inherit;
+}
+.btn-continue:hover { background: rgba(201,168,76,.28); }
+
 /* ── Tags ───────────────────────────────────────────────────── */
 .tags {
   display: flex;
