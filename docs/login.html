@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ohara — Login</title>
+  <style>
+    :root {
+      --ink: #e9e4da; --ink-dim: #9a9286; --ink-faint: #4a4540;
+      --bg: #111010; --bg-card: #1a1917; --border: #2a2825;
+      --gold: #c9a84c; --gold-dim: #7a6230; --red: #c0392b;
+      --r: 6px;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body {
+      height: 100%;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: Georgia, 'Times New Roman', serif;
+      -webkit-font-smoothing: antialiased;
+    }
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 24px;
+    }
+    .login-box {
+      width: 100%;
+      max-width: 360px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 40px 32px;
+      text-align: center;
+    }
+    .logo {
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--gold);
+      letter-spacing: .05em;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 6px;
+    }
+    .logo svg { width: 24px; height: 24px; }
+    .subtitle {
+      font-size: .82rem;
+      color: var(--ink-faint);
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      margin-bottom: 36px;
+    }
+    label {
+      display: block;
+      text-align: left;
+      font-size: .8rem;
+      color: var(--ink-dim);
+      margin-bottom: 6px;
+      letter-spacing: .05em;
+      text-transform: uppercase;
+    }
+    input[type="password"] {
+      width: 100%;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--r);
+      padding: 11px 14px;
+      color: var(--ink);
+      font-family: inherit;
+      font-size: 1rem;
+      outline: none;
+      transition: border-color .15s;
+      margin-bottom: 20px;
+    }
+    input[type="password"]:focus { border-color: var(--gold-dim); }
+    input[type="password"]::placeholder { color: var(--ink-faint); }
+    button {
+      width: 100%;
+      padding: 12px;
+      background: var(--gold);
+      color: #0c0b0b;
+      border: none;
+      border-radius: var(--r);
+      font-family: inherit;
+      font-size: .95rem;
+      font-weight: 700;
+      letter-spacing: .04em;
+      cursor: pointer;
+      transition: opacity .15s;
+    }
+    button:hover { opacity: .88; }
+    .error {
+      margin-top: 14px;
+      font-size: .83rem;
+      color: var(--red);
+      min-height: 20px;
+    }
+    .shake {
+      animation: shake .35s ease;
+    }
+    @keyframes shake {
+      0%,100%{ transform:translateX(0) }
+      20%    { transform:translateX(-8px) }
+      40%    { transform:translateX(8px) }
+      60%    { transform:translateX(-5px) }
+      80%    { transform:translateX(5px) }
+    }
+  </style>
+</head>
+<body>
+
+<div class="login-box" id="login-box">
+  <div class="logo">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+      <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+    </svg>
+    Ohara
+  </div>
+  <div class="subtitle">Personal Library</div>
+
+  <label for="pwd">Password</label>
+  <input type="password" id="pwd" placeholder="Enter password" autofocus
+    onkeydown="if(event.key==='Enter') login()">
+  <button onclick="login()">Enter Library</button>
+  <div class="error" id="err"></div>
+</div>
+
+<script>
+  // ── Change your password here ─────────────────────────────────
+  const PASSWORD = 'ohara1234';
+
+  // Already logged in? Skip straight to library
+  if (localStorage.getItem('ohara-authed') === '1') {
+    window.location.replace('index.html');
+  }
+
+  function login() {
+    const val = document.getElementById('pwd').value;
+    if (val === PASSWORD) {
+      localStorage.setItem('ohara-authed', '1');
+      window.location.replace('index.html');
+    } else {
+      document.getElementById('err').textContent = 'Incorrect password.';
+      const box = document.getElementById('login-box');
+      box.classList.remove('shake');
+      void box.offsetWidth; // reflow to restart animation
+      box.classList.add('shake');
+      document.getElementById('pwd').value = '';
+      document.getElementById('pwd').focus();
+    }
+  }
+</script>
+</body>
+</html>
