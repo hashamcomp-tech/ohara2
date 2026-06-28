@@ -35,10 +35,10 @@
       <!-- Hero -->
       <div class="novel-hero">
         <div class="novel-hero-cover" id="hero-cover"></div>
-        <div class="novel-hero-info">
+        <div class="novel-hero-info" id="hero-info">
           <h1 class="novel-hero-title" id="hero-title"></h1>
           <div class="novel-hero-meta" id="hero-meta"></div>
-          <a id="btn-start" class="btn-start" href="#">Read Chapter 1</a>
+          <div id="btn-area" style="margin-top:20px"></div>
         </div>
       </div>
 
@@ -66,6 +66,7 @@
   const slug = params().get('slug');
 
   async function init() {
+    checkAuth();
     if (!slug) { showState('state-empty'); return; }
     try {
       meta = await loadNovelMeta(slug);
@@ -87,19 +88,38 @@
 
       // Tags
       if (meta.tags && meta.tags.length) {
-        const tagsHTML = meta.tags.map(t =>
-          `<span class="tag">${esc(t)}</span>`
-        ).join('');
+        const tagsHTML = meta.tags.map(t => `<span class="tag">${esc(t)}</span>`).join('');
         document.getElementById('hero-meta').insertAdjacentHTML(
-          'afterend',
-          `<div class="tags" style="margin-top:12px">${tagsHTML}</div>`
+          'afterend', `<div class="tags" style="margin-top:12px">${tagsHTML}</div>`
         );
       }
 
-      // "Read Chapter 1" button
-      if (meta.chapters && meta.chapters.length) {
+      // Star rating
+      const rating = getRating(slug);
+      document.getElementById('hero-info').insertAdjacentHTML(
+        'beforeend',
+        `<div class="stars" id="stars-${esc(slug)}" style="margin-top:14px">
+          ${starsHTML(slug, rating)}
+        </div>
+        <div style="font-size:.75rem;color:var(--ink-faint);margin-top:4px">
+          ${rating ? `Your rating: ${rating}/5` : 'Rate this novel'}
+        </div>`
+      );
+
+      // Continue reading or start
+      const progress = getProgress(slug);
+      const btnArea  = document.getElementById('btn-area');
+      if (progress) {
+        btnArea.innerHTML = `
+          <a class="btn-start" href="chapter.html?slug=${esc(slug)}&ch=${progress.chapter}">
+            Continue — Ch ${progress.chapter}
+          </a>
+          <button class="btn-continue" onclick="startFromBeginning()" style="margin-left:10px">
+            Start over
+          </button>`;
+      } else if (meta.chapters && meta.chapters.length) {
         const first = meta.chapters[0].num;
-        document.getElementById('btn-start').href = `chapter.html?slug=${esc(slug)}&ch=${first}`;
+        btnArea.innerHTML = `<a class="btn-start" href="chapter.html?slug=${esc(slug)}&ch=${first}">Read Chapter 1</a>`;
       }
 
       renderPage(0);
@@ -107,6 +127,12 @@
     } catch (e) {
       document.getElementById('state-error').textContent = 'Could not load novel. ' + e.message;
       showState('state-error');
+    }
+  }
+
+  function startFromBeginning() {
+    if (meta && meta.chapters && meta.chapters.length) {
+      go('chapter.html', { slug, ch: meta.chapters[0].num });
     }
   }
 
