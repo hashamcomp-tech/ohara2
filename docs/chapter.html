@@ -452,6 +452,7 @@ ${articleHTML}
 
   // ── Init ─────────────────────────────────────────────────────
   async function init() {
+    checkAuth();
     if (!slug || !startChNum) {
       document.getElementById('state-error').textContent = 'Missing slug or chapter number.';
       showState('state-error');
@@ -485,6 +486,10 @@ ${articleHTML}
       updateNavButtons();
       showState('content');
       applyFont();
+
+      // Save reading progress
+      const firstCh = results.find(ch => ch);
+      if (firstCh) saveProgress(slug, startChNum, firstCh.title || `Chapter ${startChNum}`);
     } catch (e) {
       document.getElementById('state-error').textContent =
         'Chapter not found or failed to load. ' + e.message;
