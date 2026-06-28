@@ -66,6 +66,16 @@
       Ohara
     </a>
     <span class="header-tagline">Library</span>
+    <div style="margin-left:auto">
+      <button onclick="logout()"
+        style="background:transparent;border:1px solid var(--border);border-radius:var(--r);
+               padding:5px 12px;color:var(--ink-faint);font-family:inherit;font-size:.78rem;
+               cursor:pointer;transition:color .15s,border-color .15s"
+        onmouseover="this.style.color='var(--ink)';this.style.borderColor='var(--ink-faint)'"
+        onmouseout="this.style.color='var(--ink-faint)';this.style.borderColor='var(--border)'">
+        Sign out
+      </button>
+    </div>
   </div>
 </header>
 
@@ -149,6 +159,7 @@
 
   // ── Init ─────────────────────────────────────────────────────
   async function init() {
+    checkAuth();
     try {
       const index = await loadIndex();
       allNovels = (index.novels || []).sort((a, b) =>
@@ -234,7 +245,10 @@
       return;
     }
 
-    grid.innerHTML = slice.map(n => `
+    grid.innerHTML = slice.map(n => {
+      const prog   = getProgress(n.slug);
+      const rating = getRating(n.slug);
+      return `
       <div class="novel-card" onclick="go('novel.html',{slug:'${esc(n.slug)}'})" role="link" tabindex="0"
            onkeydown="if(event.key==='Enter')go('novel.html',{slug:'${esc(n.slug)}'})">
         <div class="novel-card-cover">
@@ -252,6 +266,11 @@
                          onclick="event.stopPropagation();filterByTag('${esc(t)}')">${esc(t)}</span>`
                 ).join('')}</div>`
             : ''}
+          ${prog ? `<div class="progress-badge" style="margin-top:6px">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+            Ch ${prog.chapter}
+          </div>` : ''}
+          ${rating ? `<div style="margin-top:4px;font-size:.85rem;color:var(--gold)">${'★'.repeat(rating)}${'☆'.repeat(5-rating)}</div>` : ''}
           <div class="novel-card-meta" style="margin-top:6px">
             <span class="badge badge-gold">${(n.totalChapters||0).toLocaleString()} ch</span>
             ${n.lastUpdated
@@ -260,7 +279,7 @@
           </div>
         </div>
       </div>
-    `).join('');
+    `}).join('');
 
     renderPagination();
     window.scrollTo({ top: 0, behavior: 'smooth' });
