@@ -25,6 +25,7 @@ Usage:
     python scrape_catalog.py --retry-failed     # retry chapters that previously errored
     python scrape_catalog.py --no-site          # skip JSON export (epub only)
     python scrape_catalog.py --no-epub          # skip epub, only export JSON for site
+    python scrape_catalog.py --chapter-limit 500  # skip novels with more than 500 chapters
 """
 
 import argparse
@@ -757,6 +758,7 @@ def scrape_novel(
     force_full: bool = False,
     export_site: bool = True,
     export_epub: bool = True,
+    chapter_limit: int | None = None,
 ) -> bool:
     slug       = novel_url.rstrip("/").split("/")[-1]
     print(f"\n{'─'*60}")
@@ -782,6 +784,11 @@ def scrape_novel(
     print(f"  Tags:   {', '.join(tags) if tags else '(none)'}")
     print(f"  Cover:  {cover_url or '(none)'}")
     print(f"  Remote: {total} chapter(s) available")
+
+    # ── chapter-limit guard ──────────────────────────────────────
+    if chapter_limit is not None and total > chapter_limit:
+        print(f"  [skip] {total} chapters exceeds --chapter-limit {chapter_limit} — skipping.")
+        return False
 
     # ── decide what to download ──────────────────────────────────
     first_needed = local_highest + 1
@@ -1045,6 +1052,7 @@ def update_all_local_novels(
     export_site: bool = True,
     export_epub: bool = True,
     auto_push: bool = False,
+    chapter_limit: int | None = None,
 ) -> None:
     slugs = get_all_local_slugs()
     if not slugs:
@@ -1065,6 +1073,10 @@ def update_all_local_novels(
             errors += 1
             time.sleep(PAGE_DELAY)
             continue
+        if chapter_limit is not None and total > chapter_limit:
+            print(f"  [skip] {total} chapters exceeds --chapter-limit {chapter_limit} — skipping.")
+            time.sleep(PAGE_DELAY)
+            continue
         if local_highest >= total:
             print(f"  ✓ Up to date ({total} chapters)")
             up_to_date += 1
@@ -1072,7 +1084,8 @@ def update_all_local_novels(
             continue
         print(f"  ↑ {total - local_highest} new chapter(s) (local: {local_highest}, remote: {total})")
         novel_name = info.get("title") or slug.replace("-", " ").title()
-        success = scrape_novel(novel_url, export_site=export_site, export_epub=export_epub)
+        success = scrape_novel(novel_url, export_site=export_site, export_epub=export_epub,
+                               chapter_limit=chapter_limit)
         if success:
             updated += 1
             if auto_push and export_site:
@@ -1172,6 +1185,12 @@ def main() -> None:
         ))
     parser.add_argument("--no-site", action="store_true",
         help=f"Skip site JSON and HTML export. Only generates EPUBs in output/.")
+    parser.add_argument("--chapter-limit", type=int, default=None, metavar="N",
+        help=(
+            "Skip any novel whose total remote chapter count exceeds N.\n"
+            "Applies in bulk-listing, --update/--watch, and --novel modes.\n"
+            "Example: --chapter-limit 500  (skip novels with more than 500 chapters)"
+        ))
     args = parser.parse_args()
 
     export_site = not args.no_site
@@ -1197,7 +1216,8 @@ def main() -> None:
             print(f"[Watch] Run #{run} started at {now}")
             print(f"{'═'*60}")
             update_all_local_novels(export_site=export_site, export_epub=export_epub,
-                                    auto_push=args.auto_push)
+                                    auto_push=args.auto_push,
+                                    chapter_limit=args.chapter_limit)
             next_time = time.strftime("%H:%M:%S", time.localtime(time.time() + interval_secs))
             print(f"\n[Watch] Next update at {next_time} — sleeping for {args.interval} minute(s)…")
             try:
@@ -1208,7 +1228,7 @@ def main() -> None:
 
     if args.update:
         update_all_local_novels(export_site=export_site, export_epub=export_epub,
-                                auto_push=args.auto_push)
+                                auto_push=args.auto_push, chapter_limit=args.chapter_limit)
         return
 
     if args.retry_failed:
@@ -1221,7 +1241,8 @@ def main() -> None:
         if not url.startswith("http"):
             url = f"{BASE_URL}/novel/{url}"
         print(f"Scraping single novel: {url}")
-        success = scrape_novel(url, export_site=export_site, export_epub=export_epub)
+        success = scrape_novel(url, export_site=export_site, export_epub=export_epub,
+                               chapter_limit=args.chapter_limit)
         if success:
             mark_done(url)
             slug = url.rstrip("/").split("/")[-1]
@@ -1254,7 +1275,8 @@ def main() -> None:
 
     for idx, url in enumerate(queue, 1):
         print(f"\n[{idx}/{len(queue)}] Starting novel: {url}")
-        success = scrape_novel(url, export_site=export_site, export_epub=export_epub)
+        success = scrape_novel(url, export_site=export_site, export_epub=export_epub,
+                               chapter_limit=args.chapter_limit)
         if success:
             mark_done(url)
             if args.auto_push and export_site:
