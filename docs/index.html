@@ -128,6 +128,7 @@
   let currentPage    = 0;    // 0-indexed
   let activeTag      = null;
   let searchQuery    = '';
+  let offlineSlugSet = new Set();
   let contentFilterOn = localStorage.getItem('ohara-filter') !== 'off';
 
   // ── Content filter ───────────────────────────────────────────
@@ -166,12 +167,23 @@
       allNovels = (index.novels || []).sort((a, b) =>
         (a.lastUpdated || '').localeCompare(b.lastUpdated || '')
       );
+      offlineSlugSet = new Set(await listOfflineSlugs());
+
       if (!allNovels.length) { showState('state-empty'); return; }
 
       updateFilterBtn();
       buildTagBar();
       applyFilters();
       showState('content');
+
+      if (!navigator.onLine) {
+        document.getElementById('stats-bar').insertAdjacentHTML(
+          'afterend',
+          `<div style="font-size:.78rem;color:var(--ink-faint);padding:8px 0">
+            📡 Offline — showing your saved novels only.
+          </div>`
+        );
+      }
     } catch (e) {
       document.getElementById('state-error').textContent = 'Could not load library. ' + e.message;
       showState('state-error');
@@ -275,6 +287,10 @@
           ${prog ? `<div class="progress-badge" style="margin-top:6px">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
             Ch ${prog.chapter}
+          </div>` : ''}
+          ${offlineSlugSet.has(n.slug) ? `<div class="progress-badge" style="margin-top:4px;background:rgba(120,180,120,.1);color:#7bc97b;border-color:rgba(120,180,120,.25)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7"/></svg>
+            Offline
           </div>` : ''}
           ${rating ? `<div style="margin-top:4px;font-size:.85rem;color:var(--gold)">${'★'.repeat(rating)}${'☆'.repeat(5-rating)}</div>` : ''}
           <div class="novel-card-meta" style="margin-top:6px">
