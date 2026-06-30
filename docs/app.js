@@ -213,6 +213,22 @@ async function removeNovelOffline(slug) {
 }
 
 /**
+ * Silently re-sync every offline-saved novel in the background —
+ * fetches fresh meta and downloads only chapters not already stored.
+ * Safe to call often since saveNovelOffline() skips existing chapters.
+ */
+async function autoSyncOfflineLibrary(onNovelDone) {
+  if (!navigator.onLine) return;
+  const slugs = await listOfflineSlugs();
+  for (const slug of slugs) {
+    try {
+      await saveNovelOffline(slug);
+    } catch (e) { /* skip — will retry on next sync */ }
+    if (onNovelDone) onNovelDone(slug);
+  }
+}
+
+/**
  * Download a novel for offline reading.
  * Fetches meta + every chapter not already stored locally.
  * Safe to call again later — it only fetches missing chapters,
