@@ -2841,10 +2841,14 @@
     {
       "num": 710,
       "title": "Chapter 710"
+    },
+    {
+      "num": 711,
+      "title": "Chapter 711"
     }
   ],
   "lastUpdated": "2026-06-30",
-  "cover": "https://freewebnovel.com/files/article/image/14/14511/14511s.jpg",
+  "cover": "data/all-jobs-and-classes-i-just-wanted-one-skill-not-them-all/cover.jpg",
   "source": "https://freewebnovel.com/novel/all-jobs-and-classes-i-just-wanted-one-skill-not-them-all",
   "tags": [
     "Action",
@@ -2855,5 +2859,5 @@
     "Mystery",
     "Slice of Life"
   ],
-  "totalChapters": 710
+  "totalChapters": 711
 }
