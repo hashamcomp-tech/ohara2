@@ -10085,10 +10085,14 @@
     {
       "num": 2521,
       "title": "Chapter 2521"
+    },
+    {
+      "num": 2522,
+      "title": "Chapter 2522"
     }
   ],
   "lastUpdated": "2026-06-30",
-  "cover": "https://freewebnovel.com/files/article/image/4/4609/4609s.jpg",
+  "cover": "data/immortality-through-array-formations/cover.jpg",
   "source": "https://freewebnovel.com/novel/immortality-through-array-formations",
   "tags": [
     "Eastern",
@@ -10096,5 +10100,5 @@
     "Action",
     "Adventure"
   ],
-  "totalChapters": 2521
+  "totalChapters": 2522
 }
