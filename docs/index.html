@@ -183,6 +183,14 @@
             📡 Offline — showing your saved novels only.
           </div>`
         );
+      } else if (offlineSlugSet.size) {
+        // Background-sync offline novels, throttled to once per 30 min
+        const THROTTLE_MS = 30 * 60 * 1000;
+        const lastSync = parseInt(localStorage.getItem('ohara-last-sync') || '0');
+        if (Date.now() - lastSync > THROTTLE_MS) {
+          localStorage.setItem('ohara-last-sync', String(Date.now()));
+          autoSyncOfflineLibrary(); // fire and forget, runs silently in background
+        }
       }
     } catch (e) {
       document.getElementById('state-error').textContent = 'Could not load library. ' + e.message;
