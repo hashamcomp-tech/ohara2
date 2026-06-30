@@ -584,6 +584,23 @@
       ],
       "totalChapters": 1616,
       "lastUpdated": "2026-06-30"
+    },
+    {
+      "slug": "a-will-eternal",
+      "title": "A Will Eternal",
+      "cover": "data/a-will-eternal/cover.jpg",
+      "tags": [
+        "Xianxia",
+        "Drama",
+        "Fantasy",
+        "Martial Arts",
+        "Action",
+        "Comedy",
+        "Adventure",
+        "Harem"
+      ],
+      "totalChapters": 1317,
+      "lastUpdated": "2026-06-30"
     }
   ]
 }
