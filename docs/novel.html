@@ -136,6 +136,12 @@
   async function initOfflineControls() {
     const offline = await isNovelOffline(slug);
     renderOfflineButton(offline);
+
+    // Auto-sync silently in the background if already saved offline —
+    // no need to click "Update" manually anymore.
+    if (offline && navigator.onLine) {
+      handleOfflineUpdate(true); // silent = true, no "Up to date" flash needed
+    }
   }
 
   function renderOfflineButton(offline) {
@@ -182,15 +188,17 @@
     }
   }
 
-  async function handleOfflineUpdate() {
+  async function handleOfflineUpdate(silent) {
     const el = document.getElementById('offline-progress');
-    if (el) el.textContent = 'Checking for new chapters…';
+    if (el && !silent) el.textContent = 'Checking for new chapters…';
     try {
-      await saveNovelOffline(slug, offlineProgress);
-      if (el) el.textContent = 'Up to date.';
-      setTimeout(() => { if (el) el.textContent = ''; }, 2500);
+      await saveNovelOffline(slug, silent ? null : offlineProgress);
+      if (el) {
+        el.textContent = 'Up to date.';
+        setTimeout(() => { if (el) el.textContent = ''; }, 2500);
+      }
     } catch (e) {
-      if (el) el.textContent = 'Update failed: ' + e.message;
+      if (el && !silent) el.textContent = 'Update failed: ' + e.message;
     }
   }
 
