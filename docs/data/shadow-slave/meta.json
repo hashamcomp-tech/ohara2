@@ -12281,12 +12281,20 @@
     {
       "num": 3070,
       "title": "Chapter 3070"
+    },
+    {
+      "num": 3071,
+      "title": "Chapter 3071"
+    },
+    {
+      "num": 3072,
+      "title": "Chapter 3072"
     }
   ],
   "lastUpdated": "2026-06-30",
-  "cover": "https://freewebnovel.com/files/article/image/1/1991/1991s.jpg",
+  "cover": "data/shadow-slave/cover.jpg",
   "source": "https://freewebnovel.com/novel/shadow-slave",
-  "totalChapters": 3070,
+  "totalChapters": 3072,
   "tags": [
     "Action",
     "Adventure",
