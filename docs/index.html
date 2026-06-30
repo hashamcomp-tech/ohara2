@@ -135,6 +135,7 @@
     contentFilterOn = !contentFilterOn;
     localStorage.setItem('ohara-filter', contentFilterOn ? 'on' : 'off');
     updateFilterBtn();
+    buildTagBar();
     applyFilters();
   }
 
@@ -183,15 +184,20 @@
     allNovels.forEach(n => (n.tags || []).forEach(t => {
       tagCount[t] = (tagCount[t] || 0) + 1;
     }));
-    const tags = Object.keys(tagCount).sort();
-    if (!tags.length) return;
+    let tags = Object.keys(tagCount).sort();
+    if (contentFilterOn) {
+      tags = tags.filter(t => !BLOCKED_TAGS.includes(t.toLowerCase()));
+      // If the active tag just got hidden, clear it
+      if (activeTag && !tags.includes(activeTag)) activeTag = null;
+    }
     const bar = document.getElementById('tag-filter-bar');
+    if (!tags.length) { bar.classList.add('hidden'); bar.innerHTML = ''; return; }
     bar.innerHTML =
       `<span class="tag-filter-label">Tags</span>` +
       tags.map(t =>
-        `<span class="tag" data-tag="${esc(t)}" onclick="filterByTag('${esc(t)}')">${esc(t)}</span>`
+        `<span class="tag ${t===activeTag?'active':''}" data-tag="${esc(t)}" onclick="filterByTag('${esc(t)}')">${esc(t)}</span>`
       ).join('') +
-      `<button class="tag-clear hidden" id="tag-clear" onclick="clearTag()">✕ Clear</button>`;
+      `<button class="tag-clear ${activeTag?'':'hidden'}" id="tag-clear" onclick="clearTag()">✕ Clear</button>`;
     bar.classList.remove('hidden');
   }
 
