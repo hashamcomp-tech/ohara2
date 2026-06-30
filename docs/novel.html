@@ -39,6 +39,7 @@
           <h1 class="novel-hero-title" id="hero-title"></h1>
           <div class="novel-hero-meta" id="hero-meta"></div>
           <div id="btn-area" style="margin-top:20px"></div>
+          <div id="offline-area" style="margin-top:14px"></div>
         </div>
       </div>
 
@@ -124,10 +125,79 @@
 
       renderPage(0);
       showState('content');
+      initOfflineControls();
     } catch (e) {
       document.getElementById('state-error').textContent = 'Could not load novel. ' + e.message;
       showState('state-error');
     }
+  }
+
+  // ── Offline save / update / remove ───────────────────────────
+  async function initOfflineControls() {
+    const offline = await isNovelOffline(slug);
+    renderOfflineButton(offline);
+  }
+
+  function renderOfflineButton(offline) {
+    const area = document.getElementById('offline-area');
+    if (offline) {
+      area.innerHTML = `
+        <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
+          <span class="progress-badge">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <path d="M5 13l4 4L19 7"/>
+            </svg>
+            Saved Offline
+          </span>
+          <button class="page-btn" onclick="handleOfflineUpdate()">↻ Update</button>
+          <button class="page-btn" onclick="handleOfflineRemove()" style="color:var(--ink-faint)">✕ Remove</button>
+        </div>
+        <div id="offline-progress" style="margin-top:8px;font-size:.78rem;color:var(--ink-faint)"></div>
+      `;
+    } else {
+      area.innerHTML = `
+        <button class="btn-continue" onclick="handleOfflineSave()">
+          ⬇ Save Offline
+        </button>
+        <div id="offline-progress" style="margin-top:8px;font-size:.78rem;color:var(--ink-faint)"></div>
+      `;
+    }
+  }
+
+  function offlineProgress(done, total) {
+    const el = document.getElementById('offline-progress');
+    if (el) el.textContent = `Downloading chapters… ${done.toLocaleString()} / ${total.toLocaleString()}`;
+  }
+
+  async function handleOfflineSave() {
+    const area = document.getElementById('offline-area');
+    area.querySelector('button').disabled = true;
+    area.querySelector('button').textContent = 'Saving…';
+    try {
+      await saveNovelOffline(slug, offlineProgress);
+      renderOfflineButton(true);
+    } catch (e) {
+      document.getElementById('offline-progress').textContent =
+        'Could not save offline: ' + e.message;
+    }
+  }
+
+  async function handleOfflineUpdate() {
+    const el = document.getElementById('offline-progress');
+    if (el) el.textContent = 'Checking for new chapters…';
+    try {
+      await saveNovelOffline(slug, offlineProgress);
+      if (el) el.textContent = 'Up to date.';
+      setTimeout(() => { if (el) el.textContent = ''; }, 2500);
+    } catch (e) {
+      if (el) el.textContent = 'Update failed: ' + e.message;
+    }
+  }
+
+  async function handleOfflineRemove() {
+    if (!confirm('Remove this novel from offline storage? You can save it again anytime.')) return;
+    await removeNovelOffline(slug);
+    renderOfflineButton(false);
   }
 
   function startFromBeginning() {
