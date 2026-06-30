@@ -147,7 +147,6 @@
   let meta      = null;
   let maxLoadedCh = 0;
   let fontSize  = parseFloat(localStorage.getItem('ohara-font') || '1.08');
-  let merging   = false;
 
   // ── Font size controls ───────────────────────────────────────
   function applyFont() {
@@ -232,7 +231,15 @@
     const btnMerge = document.getElementById('btn-merge');
     const canMerge = nextNum !== undefined;
     btnMerge.disabled = !canMerge;
-    if (!canMerge) btnMerge.textContent = '✓ All loaded';
+    if (!canMerge) {
+      btnMerge.textContent = '✓ All loaded';
+    } else {
+      // Compute the end of the next merge batch (up to 10 more chapters)
+      const nextIdx  = allNums.indexOf(maxLoadedCh) + 1;
+      const mergeEnd = allNums[Math.min(nextIdx + 9, allNums.length - 1)];
+      btnMerge.onclick = () => go('chapter.html', { slug, ch: startChNum, end: mergeEnd });
+      btnMerge.textContent = '⊕ Merge Next 10';
+    }
 
     // Progress shows range of loaded chapters
     const startIdx = allNums.indexOf(startChNum) + 1;
@@ -242,46 +249,6 @@
       : `${startIdx}–${endIdx} / ${allNums.length}`;
     document.getElementById('rh-progress').textContent = progress;
   }
-
-  // ── Merge Next 10 ────────────────────────────────────────────
-  document.getElementById('btn-merge').addEventListener('click', async () => {
-    if (merging) return;
-    merging = true;
-
-    const allNums  = meta.chapters.map(c => c.num);
-    const afterIdx = allNums.indexOf(maxLoadedCh) + 1;
-    const toLoad   = allNums.slice(afterIdx, afterIdx + 10);
-    if (!toLoad.length) { merging = false; return; }
-
-    const btn    = document.getElementById('btn-merge');
-    const loader = document.getElementById('loading-merge');
-    btn.disabled = true;
-    btn.textContent = 'Loading…';
-    loader.textContent = `Fetching chapters ${toLoad[0]}–${toLoad[toLoad.length - 1]}`;
-    loader.classList.add('visible');
-
-    const results = await Promise.all(
-      toLoad.map(n => loadChapter(slug, n).catch(() => null))
-    );
-
-    for (const ch of results) {
-      if (ch) appendChapterToDOM(ch);
-    }
-
-    loader.classList.remove('visible');
-    loader.textContent = '';
-    btn.textContent = '⊕ Merge Next 10';
-    merging = false;
-
-    // Update URL so this merged range is the new "page"
-    endChNum = maxLoadedCh;
-    syncURL();
-    updateNavButtons();
-
-    // Scroll to first newly loaded chapter
-    const firstNew = document.getElementById(`ch-${toLoad[0]}`);
-    if (firstNew) firstNew.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  });
 
   // ── Reader mode — navigate to clean reader.html page ────────
   function openReader() {
