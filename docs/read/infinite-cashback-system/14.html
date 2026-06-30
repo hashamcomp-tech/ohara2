@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chapter 14 — Infinite Cashback System</title>
+  <style>
+    :root { --ink:#1a1a1a; --dim:#666; --bg:#fff; --gold:#8a6a1a; --border:#ddd; }
+    @media (prefers-color-scheme:dark) {
+      :root { --ink:#e9e4da; --dim:#9a9286; --bg:#111010; --gold:#c9a84c; --border:#2a2825; }
+    }
+    *{ box-sizing:border-box; margin:0; padding:0; }
+    body{ background:var(--bg); color:var(--ink); font-family:Georgia,'Times New Roman',serif;
+          font-size:1.125rem; line-height:1.85; padding:40px 24px 80px;
+          max-width:680px; margin:0 auto; }
+    header{ margin-bottom:32px; padding-bottom:20px; border-bottom:1px solid var(--border); }
+    header a{ color:var(--gold); text-decoration:none; font-size:.85rem; }
+    h1{ font-size:1.35rem; font-weight:700; margin-top:10px; line-height:1.25; }
+    article p{ margin-bottom:1.4em; text-align:justify; hyphens:auto; }
+    .ch-divider{ text-align:center; padding:28px 0 16px; color:var(--dim);
+                  font-size:.8rem; letter-spacing:.1em; text-transform:uppercase; }
+    .ch-divider::before,.ch-divider::after{ content:''; display:inline-block;
+      width:40px; height:1px; background:var(--border); vertical-align:middle; margin:0 12px; }
+    .ch-title{ font-size:1.1rem; font-weight:700; color:var(--gold); margin-bottom:16px; }
+    nav{ display:grid; grid-template-columns:1fr auto 1fr; gap:10px; align-items:center;
+          margin-top:48px; padding-top:20px; border-top:1px solid var(--border); font-size:.88rem; }
+    nav a{ color:var(--gold); text-decoration:none; }
+    nav a:hover{ text-decoration:underline; }
+    nav .nav-right{ text-align:right; }
+    nav .nav-mid{ text-align:center; }
+    .btn-merge{ background:rgba(138,106,26,.12); border:1px solid var(--gold);
+                 color:var(--gold); padding:9px 16px; border-radius:6px; cursor:pointer;
+                 font-family:Georgia,serif; font-size:.85rem; font-weight:600;
+                 transition:background .15s; white-space:nowrap; }
+    .btn-merge:hover:not(:disabled){ background:rgba(138,106,26,.25); }
+    .btn-merge:disabled{ opacity:.35; cursor:not-allowed; }
+    #merge-status{ text-align:center; padding:12px; font-size:.82rem;
+                    color:var(--dim); display:none; }
+  </style>
+</head>
+<body>
+<header>
+  <a href="../../novel.html?slug=infinite-cashback-system">&larr; Infinite Cashback System</a>
+  <h1 id="page-title">Chapter 14</h1>
+</header>
+
+<div id="chapters">
+  <article id="ch-14">
+    <p>Chapter 14: 14 | A Three-Thousand-Dollar Beta Test</p>
+    <p>Jordan raised his hand. His heart hammered against his ribs like it was trying to escape.</p>
+    <p>Chloe Kim.</p>
+    <p>The name bounced around his skull, familiar in a way he couldn’t place. Maybe she’d mentioned it in a DM once? Maybe he’d seen it on a class roster somewhere? The name was common enough. Probably just overthinking.</p>
+    <p>Calypso spotted him and waved back, her masked face tilting slightly. She walked toward the bench with small, careful steps. Her hips swayed with each movement, and Jordan forced himself to look at her eyes instead.</p>
+    <p>Well, her sunglasses.</p>
+    <p>She stopped about three feet away, close enough to talk but far enough to maintain professional distance. Her chest rose and fell faster than walking warranted.</p>
+    <p>She was nervous.</p>
+    <p>She’s nervous.</p>
+    <p>Jordan hadn’t expected that. In his head, Calypso was this untouchable figure who controlled every interaction through a screen. Seeing her fidget with the strap of her small crossbody bag made her suddenly, devastatingly real.</p>
+    <p>&quot;Hey!&quot; Her voice came out slightly higher than in her videos. &quot;Hi!&quot;</p>
+    <p>&quot;Hey,&quot; Jordan said, because his brain had apparently decided to shut down all higher functions.</p>
+    <p>Chloe’s eyes tracked from his shoes up to his face. She took a full second looking at his hair.</p>
+    <p>&quot;I like your hair! It looks really nice.&quot;</p>
+    <p>&quot;Thanks.&quot; Jordan’s mouth kept moving without consulting his brain. &quot;You’re, uh, very beautiful yourself today, Calypso.&quot;</p>
+    <p>Chloe laughed behind her mask. The sound was light, genuine, nothing like the sultry voice she used in her content.</p>
+    <p>&quot;It feels weird to be called by that name in public.&quot; She glanced around like someone might overhear. &quot;Should I call you by your username?&quot;</p>
+    <p>Jordan’s username was JMcK_2006. Absolutely not.</p>
+    <p>&quot;Nah, call me Ricky.&quot;</p>
+    <p>Chloe’s head tilted. &quot;Ricky?&quot;</p>
+    <p>&quot;Long story.&quot;</p>
+    <p>&quot;Okay then.&quot; She gestured toward the restaurant entrance. &quot;Just call me Cali.&quot;</p>
+    <p>She moved past him toward the hostess stand, and Jordan caught a whiff of her perfume. Something sweet and clean, like vanilla and coconut. The kind of scent that made his monkey brain activate neurons it had no business activating.</p>
+    <p>The hostess looked up as they approached.</p>
+    <p>&quot;Hi, I have a reservation for Cali,&quot; Chloe said.</p>
+    <p>The hostess checked her tablet, nodded, and grabbed two menus. &quot;Right this way.&quot;</p>
+    <p>Jordan followed Chloe through the outdoor seating area toward a corner table with cushioned chairs and an overhead umbrella. The table was positioned perfectly for photos—natural lighting, greenery in the background, close enough to the action to feel exclusive but far enough away for privacy.</p>
+    <p>This wasn’t accidental. Chloe had picked this spot specifically because it photographed well.</p>
+    <p>They sat down across from each other. Jordan’s new boots knocked against the metal table leg.</p>
+    <p>&quot;This spot must be popular if you need a reservation,&quot; Jordan said.</p>
+    <p>&quot;Yeah, this place is really nice.&quot; Chloe placed her small purse on the chair beside her. &quot;I’ve been wanting to try it for a while.&quot;</p>
+    <p>The hostess left the menus and promised their server would be right with them. Jordan picked up his menu and scanned the prices.</p>
+    <p>Twenty-eight dollars for a salad. Thirty-six for a sandwich. Forty-two for pasta.</p>
+    <p>He had over twelve hundred dollars in his account. This was fine.</p>
+    <p>Chloe opened her menu, her sunglasses still firmly in place. Jordan couldn’t see her eyes at all. Reading her body language was like trying to solve a puzzle missing half its pieces.</p>
+    <p>&quot;So,&quot; Chloe said. &quot;This is weird, right?&quot;</p>
+    <p>&quot;Little bit,&quot; Jordan admitted.</p>
+    <p>&quot;I’ve never done this before.&quot; She turned a page in her menu. &quot;The coffee date thing, I mean. You’re the first person who actually bought it.&quot;</p>
+    <p>Jordan’s stomach did a complicated flip. He was the first. The guinea pig. The test run.</p>
+    <p>Three thousand dollars to be a beta tester for an OnlyFans package deal. Great investment.</p>
+    <p>&quot;How long have you been, uh...&quot; Jordan trailed off, realizing he had no idea how to finish that sentence politely.</p>
+    <p>&quot;Creating content?&quot; Chloe supplied. &quot;Six months. Started last summer.&quot;</p>
+    <p>Six months. That matched his subscription timeline almost exactly. He’d been there from practically the beginning, watching her go from lingerie photos to more explicit content, from three posts a week to daily uploads with personalized DMs.</p>
+    <p>He’d watched her build a business while he spiraled into depression over a girl who never liked him.</p>
+    <p>The server appeared. Young guy, maybe twenty-two, with styled hair and an apron that probably cost more than Jordan’s entire outfit.</p>
+    <p>&quot;Welcome to The Ivy. Can I start you both with something to drink?&quot;</p>
+    <p>&quot;Water’s fine,&quot; Chloe said.</p>
+    <p>&quot;Same,&quot; Jordan added.</p>
+    <p>The server nodded and disappeared.</p>
+    <p>Jordan leaned forward slightly. &quot;Hey, I know this whole thing is technically, like, a business transaction or whatever. But I’m gonna pay for the food. My treat.&quot;</p>
+    <p>Chloe’s posture stiffened. &quot;You really shouldn’t. You already paid three thousand for—&quot;</p>
+    <p>&quot;It’s my treat,&quot; Jordan interrupted. &quot;Seriously. I’m offering.&quot;</p>
+    <p>A pause. Chloe’s fingers drummed against her menu.</p>
+    <p>&quot;Okay,&quot; she said finally. &quot;Thank you.&quot;</p>
+    <p>Jordan’s phone buzzed in his pocket.</p>
+    <p>He pulled it out slightly, angling the screen away from Chloe’s line of sight.</p>
+    <p>✨ ATTRACTION UPDATE ✨</p>
+    <p>Chloe Kim: 8% → 11% (+3%)</p>
+    <p>Note: Offering to pay demonstrated provider qualities. Small gain registered.</p>
+    <p>Current Rebate Rate: 0.22x</p>
+    <p>Keep going!</p>
+    <p>Jordan slid his phone back into his pocket.</p>
+    <p>Three percent. Offering to buy her food earned him three whole percentage points.</p>
+    <p>If he’d known the formula was this simple with Eliza, he could have saved himself four thousand dollars and a Christmas Day parking lot breakdown.</p>
+    <p>The server returned with their waters, asked if they were ready to order, and looked mildly disappointed when both of them said they needed another minute.</p>
+    <p>Chloe studied her menu with the focus of someone actually reading it instead of pretending. Jordan watched her from across the table. She was pretty. Objectively, scientifically pretty. The kind of pretty that made people stop scrolling through social media feeds.</p>
+    <p>But she was also just a girl. Eighteen years old, probably stressed about school, probably worried about whether this meeting would be awkward or dangerous or both.</p>
+    <p>&quot;Can I ask you something?&quot; Jordan said.</p>
+    <p>Chloe looked up. &quot;Sure.&quot;</p>
+    <p>&quot;You go to school?&quot;</p>
+    <p>&quot;Yeah.&quot; Chloe’s voice was careful now. &quot;I’m a freshman. Communications major.&quot;</p>
+    <p>&quot;Where at?&quot;</p>
+    <p>A longer pause. Chloe’s hand moved to her water glass, turning it in small circles on the table.</p>
+    <p>&quot;I’d rather not say.&quot;</p>
+    <p>Fair. Smart, even. Jordan was a stranger to her. A paying stranger, but still a stranger.</p>
+    <p>&quot;That’s cool,&quot; Jordan said. &quot;I get it.&quot;</p>
+    <p>&quot;What about you?&quot; Chloe asked, deflecting. &quot;You in school?&quot;</p>
+    <p>&quot;Yeah. Pacific Crest. Business Econ.&quot;</p>
+    <p>&quot;Oh.&quot; Something shifted in Chloe’s posture. Subtle, but there. &quot;That’s a good school.&quot;</p>
+    <p>&quot;Expensive school,&quot; Jordan corrected. &quot;Good is still TBD.&quot;</p>
+    <p>Chloe laughed again behind her mask. The sound made Jordan’s chest do something stupid.</p>
+    <p>Stop it, he told his chest. She’s at eleven percent. Eleven percent is nothing.</p>
+    <p>The server came back. They ordered. Chloe got the grilled chicken salad, twenty-eight dollars. Jordan got a burger, thirty-two dollars.</p>
+    <p>When the server left, silence settled over the table like fog.</p>
+    <p>Chloe played with her straw wrapper. Jordan drank his water. The outdoor seating area hummed with other conversations, other people living their normal lives where they hadn’t paid three thousand dollars to sit across from someone wearing sunglasses and a mask.</p>
+    <p>&quot;So,&quot; Chloe started. &quot;What made you want to do this? The coffee date thing.&quot;</p>
+  </article>
+</div>
+
+<div id="merge-status"></div>
+
+<nav>
+  <span class="nav-left"><a href="13.html" rel="prev">&#8592; Ch 13</a></span>
+  <span class="nav-mid">
+    <button class="btn-merge" id="btn-merge" >Merge Next 10</button>
+  </span>
+  <span class="nav-right"><a href="15.html" rel="next">Ch 15 &#8594;</a></span>
+</nav>
+
+<script>
+  // Chapters available after this one — discovered from meta.json
+  var slug       = "infinite-cashback-system";
+  var currentNum = 14;
+  var nextNum    = 15;
+  var maxLoaded  = currentNum;
+  var allNums    = null;   // loaded lazily from meta.json
+  var merging    = false;
+  var root       = "../../";
+
+  async function getNums() {
+    if (allNums) return allNums;
+    var res = await fetch(root + "data/" + slug + "/meta.json");
+    var meta = await res.json();
+    allNums = meta.chapters.map(function(c){ return c.num; });
+    return allNums;
+  }
+
+  document.getElementById("btn-merge").addEventListener("click", async function() {
+    if (merging) return;
+    merging = true;
+    var btn    = document.getElementById("btn-merge");
+    var status = document.getElementById("merge-status");
+    btn.textContent = "Loading…";
+    btn.disabled = true;
+
+    var nums   = await getNums();
+    var idx    = nums.indexOf(maxLoaded);
+    var toLoad = nums.slice(idx + 1, idx + 11);
+    if (!toLoad.length) { merging = false; return; }
+
+    status.style.display = "block";
+    status.textContent = "Fetching chapters " + toLoad[0] + "–" + toLoad[toLoad.length-1] + "…";
+
+    var container = document.getElementById("chapters");
+    var firstNew  = null;
+
+    for (var i = 0; i < toLoad.length; i++) {
+      var n = toLoad[i];
+      try {
+        var res  = await fetch(n + ".html");
+        var html = await res.text();
+        var doc  = new DOMParser().parseFromString(html, "text/html");
+        var art  = doc.querySelector("article");
+        var h1   = doc.querySelector("h1");
+        if (!art) continue;
+
+        // Divider
+        var divider = document.createElement("div");
+        divider.className = "ch-divider";
+        divider.textContent = "Chapter " + n;
+        container.appendChild(divider);
+
+        // Chapter title
+        if (h1) {
+          var chTitle = document.createElement("div");
+          chTitle.className = "ch-title";
+          chTitle.textContent = h1.textContent;
+          container.appendChild(chTitle);
+        }
+
+        // Content
+        var section = document.createElement("article");
+        section.id = "ch-" + n;
+        section.innerHTML = art.innerHTML;
+        container.appendChild(section);
+
+        if (!firstNew) firstNew = divider;
+        maxLoaded = n;
+      } catch(e) {
+        console.warn("Failed to load chapter " + n, e);
+      }
+    }
+
+    // Update nav next link
+    var nextIdx = nums.indexOf(maxLoaded) + 1;
+    var newNext = nextIdx < nums.length ? nums[nextIdx] : null;
+    var navRight = document.querySelector(".nav-right");
+    if (newNext) {
+      navRight.innerHTML = '<a href="' + newNext + '.html" rel="next">Ch ' + newNext + ' &#8594;</a>';
+    } else {
+      navRight.innerHTML = '<span></span>';
+    }
+
+    status.style.display = "none";
+    btn.textContent = newNext ? "⊕ Merge Next 10" : "✓ All loaded";
+    btn.disabled = !newNext;
+    merging = false;
+
+    if (firstNew) firstNew.scrollIntoView({ behavior:"smooth", block:"start" });
+  });
+</script>
+</body>
+</html>

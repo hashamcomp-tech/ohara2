@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chapter 215 — Stardew Valley&#x27;s Farming Master</title>
+  <style>
+    :root { --ink:#1a1a1a; --dim:#666; --bg:#fff; --gold:#8a6a1a; --border:#ddd; }
+    @media (prefers-color-scheme:dark) {
+      :root { --ink:#e9e4da; --dim:#9a9286; --bg:#111010; --gold:#c9a84c; --border:#2a2825; }
+    }
+    *{ box-sizing:border-box; margin:0; padding:0; }
+    body{ background:var(--bg); color:var(--ink); font-family:Georgia,'Times New Roman',serif;
+          font-size:1.125rem; line-height:1.85; padding:40px 24px 80px;
+          max-width:680px; margin:0 auto; }
+    header{ margin-bottom:32px; padding-bottom:20px; border-bottom:1px solid var(--border); }
+    header a{ color:var(--gold); text-decoration:none; font-size:.85rem; }
+    h1{ font-size:1.35rem; font-weight:700; margin-top:10px; line-height:1.25; }
+    article p{ margin-bottom:1.4em; text-align:justify; hyphens:auto; }
+    .ch-divider{ text-align:center; padding:28px 0 16px; color:var(--dim);
+                  font-size:.8rem; letter-spacing:.1em; text-transform:uppercase; }
+    .ch-divider::before,.ch-divider::after{ content:''; display:inline-block;
+      width:40px; height:1px; background:var(--border); vertical-align:middle; margin:0 12px; }
+    .ch-title{ font-size:1.1rem; font-weight:700; color:var(--gold); margin-bottom:16px; }
+    nav{ display:grid; grid-template-columns:1fr auto 1fr; gap:10px; align-items:center;
+          margin-top:48px; padding-top:20px; border-top:1px solid var(--border); font-size:.88rem; }
+    nav a{ color:var(--gold); text-decoration:none; }
+    nav a:hover{ text-decoration:underline; }
+    nav .nav-right{ text-align:right; }
+    nav .nav-mid{ text-align:center; }
+    .btn-merge{ background:rgba(138,106,26,.12); border:1px solid var(--gold);
+                 color:var(--gold); padding:9px 16px; border-radius:6px; cursor:pointer;
+                 font-family:Georgia,serif; font-size:.85rem; font-weight:600;
+                 transition:background .15s; white-space:nowrap; }
+    .btn-merge:hover:not(:disabled){ background:rgba(138,106,26,.25); }
+    .btn-merge:disabled{ opacity:.35; cursor:not-allowed; }
+    #merge-status{ text-align:center; padding:12px; font-size:.82rem;
+                    color:var(--dim); display:none; }
+  </style>
+</head>
+<body>
+<header>
+  <a href="../../novel.html?slug=stardew-valleys-farming-master">&larr; Stardew Valley&#x27;s Farming Master</a>
+  <h1 id="page-title">Chapter 215</h1>
+</header>
+
+<div id="chapters">
+  <article id="ch-215">
+    <p>“Want to take a look first?”</p>
+    <p>Leon was the first to pick up the logbook, glancing at Gus and Willy as he asked.</p>
+    <p>“Yeah, open it. We’ll read together.”</p>
+    <p>Gus and Willy didn’t care whose hands it was in—as long as they could see what was inside.</p>
+    <p>Once the two moved in beside him, Leon flipped open the logbook. Most of its pages had been deliberately smeared, leaving only a dozen or so legible entries.</p>
+    <p>“March 6 – Sunny</p>
+    <p>Finally found the Starfruit the witch mentioned on this wretched island. Too many snakes here—I can’t tell if the one that bit me was venomous. At least for now, I feel fine. With the Starfruit, I can become a powerful warrior.”</p>
+    <p>“March 8 – Rain</p>
+    <p>After a day’s sailing, I returned to my lair. I’m feeling unwell, but I can’t pinpoint where. Maybe I’m just too tired. Perhaps I should have eaten the Starfruit sooner.”</p>
+    <p>“March 14 – Typhoon</p>
+    <p>My skin is starting to shed. It’s terrifying—like a snake molting. I’ve peeled off an entire layer. I can’t recall what happened in recent days, but my ship has sunk. It seems I can’t leave this island.”</p>
+    <p>“March 4 – Heavy Rain</p>
+    <p>It’s been half a month since I ate the Starfruit. Instead of feeling stronger, I’ve been blacking out more often. Every time I wake, there’s another layer of shed skin beside me. Scales are starting to appear on my body. Dear god, am I turning into a monster?”</p>
+    <p>“March 14 – Sunny</p>
+    <p>The witch came. She told me the Starfruit reacted with the snake venom, turning me from man to beast. If I want to keep my human form, I’ll have to work with her. I’m terrified of becoming a beast. I must cooperate.”</p>
+    <p>“April 11 – Rain</p>
+    <p>Another blackout—this one longer than before. The witch is gone; I don’t know where. But the scales seem to have vanished, and there’s no shed skin around me. I think I’m cured.”</p>
+    <p>“July 29 – Overcast</p>
+    <p>The witch returned with mixed news. I’m free from the beastly transformation, but the Starfruit’s effects are gone. All my effort was for nothing.”</p>
+    <p>“September 14 – Overcast</p>
+    <p>Damn witch lied. The beastification isn’t cured. Scales are growing again, and I’ve lost my legs—replaced by a snake’s tail. Am I even human anymore?”</p>
+    <p>“September 19 – Sunny</p>
+    <p>I’ve become a full serpent, but I still have human thought and reasoning. I can even grip a pen with my tail and write. It’s strange—could this be the Starfruit’s gift? I don’t know, but I hate it. I want to be human again.”</p>
+    <p>“November 4 – Overcast</p>
+    <p>I’ve lived as a snake for more than half a month now. I’m used to this new body. It’s powerful—I can kill a shark with ease.”</p>
+    <p>“November 8 – Rain</p>
+    <p>The witch came and was shocked. She said I’ve turned into a Child of the Wilds. I asked what that was, and she told me some common magical knowledge among wizards. Fascinating—who knew the world held magic beyond the Adventurer’s Guild?”</p>
+    <p>“November 17 – Sunny</p>
+    <p>The witch is leaving. She’s taught me a lot and said that if I can find another Starfruit, I might become human again. It’s a good thought—gives me hope.”</p>
+    <p>“November 30 – Rain</p>
+    <p>I ate the witch who came to visit me. I don’t know why. I actually ate a person. It’s horrifying. I can’t control myself. Am I even me anymore? Damn it—I ate a person.”</p>
+    <p>“December 10 – Sunny</p>
+    <p>The beast within is devouring my humanity. This might be my last entry. In the name of Old Hans, in the name of humanity—I don’t know if I’ll wake again, or if I’m even still myself. If you’re a treasure hunter and you’ve found this log, take my inheritance and leave. If you’re an adventurer—please, kill me. I’ve eaten two more pirates recently. I’m no longer human, and I refuse to live as a man-eating monster.”</p>
+    <p>Leon, Willy, and Gus exchanged complicated looks.</p>
+    <p>“I think I took down Old Hans. He was that giant python.” Leon spoke up, pulling a skeleton from his pack. “Should we take the remains back?”</p>
+    <p>“Let the sea have them. This should be the pirate’s body from the log. A pirate’s fate is to sink into the sea.”</p>
+    <p>Willy picked up the bones and tossed them into the waves.</p>
+    <p>Gus had wanted to object, but seeing Willy already finish the act, he stayed silent, only looking a little sad.</p>
+    <p>“Don’t be sad, Gus. You saw it—Old Hans wasn’t human anymore. He became a monster.” Willy put an arm around Gus’s shoulder to comfort him.</p>
+    <p>“I know.” Gus nodded, then quietly walked to the ship’s edge, staring toward the island, lost in thought.</p>
+    <p>Leon kept reading—the logbook wasn’t done. Though Old Hans had said that might be his last entry, it wasn’t.</p>
+    <p>“December 21 – Damn Rainy Day</p>
+    <p>I’m sick of fish. I crave fresh human flesh. But the witch’s dying curse binds me here. Damn her. Still, before the curse, I hid a permanent directional compass somewhere. If anyone comes for my treasure, they’ll find this place.”</p>
+    <p>“December 24 – Beautiful Sunny Day</p>
+    <p>Ah, an adventurer who’s eaten a Starfruit—lucky me. Using the knowledge the witch taught me, I lulled him into thinking I was truly a Child of the Wilds. This is too much fun. With his guard down, I swallowed him whole. I feel stronger now. Turns out eating Starfruit-fed humans can make me stronger too. I need more of them.”</p>
+    <p>The log stopped abruptly. Later pages were too blurred to read, but it didn’t matter—Leon had already pieced together the answers he sought.</p>
+    <p>So this is what it comes to. I’ve turned into the Tang Monk myself.</p>
+    <p>If you enjoyed this chapter, please consider rating the novel on Novelupdates. Your feedback helps more readers discover the story and keeps me motivated to bring you the next chapter sooner!</p>
+  </article>
+</div>
+
+<div id="merge-status"></div>
+
+<nav>
+  <span class="nav-left"><a href="214.html" rel="prev">&#8592; Ch 214</a></span>
+  <span class="nav-mid">
+    <button class="btn-merge" id="btn-merge" >Merge Next 10</button>
+  </span>
+  <span class="nav-right"><a href="216.html" rel="next">Ch 216 &#8594;</a></span>
+</nav>
+
+<script>
+  // Chapters available after this one — discovered from meta.json
+  var slug       = "stardew-valleys-farming-master";
+  var currentNum = 215;
+  var nextNum    = 216;
+  var maxLoaded  = currentNum;
+  var allNums    = null;   // loaded lazily from meta.json
+  var merging    = false;
+  var root       = "../../";
+
+  async function getNums() {
+    if (allNums) return allNums;
+    var res = await fetch(root + "data/" + slug + "/meta.json");
+    var meta = await res.json();
+    allNums = meta.chapters.map(function(c){ return c.num; });
+    return allNums;
+  }
+
+  document.getElementById("btn-merge").addEventListener("click", async function() {
+    if (merging) return;
+    merging = true;
+    var btn    = document.getElementById("btn-merge");
+    var status = document.getElementById("merge-status");
+    btn.textContent = "Loading…";
+    btn.disabled = true;
+
+    var nums   = await getNums();
+    var idx    = nums.indexOf(maxLoaded);
+    var toLoad = nums.slice(idx + 1, idx + 11);
+    if (!toLoad.length) { merging = false; return; }
+
+    status.style.display = "block";
+    status.textContent = "Fetching chapters " + toLoad[0] + "–" + toLoad[toLoad.length-1] + "…";
+
+    var container = document.getElementById("chapters");
+    var firstNew  = null;
+
+    for (var i = 0; i < toLoad.length; i++) {
+      var n = toLoad[i];
+      try {
+        var res  = await fetch(n + ".html");
+        var html = await res.text();
+        var doc  = new DOMParser().parseFromString(html, "text/html");
+        var art  = doc.querySelector("article");
+        var h1   = doc.querySelector("h1");
+        if (!art) continue;
+
+        // Divider
+        var divider = document.createElement("div");
+        divider.className = "ch-divider";
+        divider.textContent = "Chapter " + n;
+        container.appendChild(divider);
+
+        // Chapter title
+        if (h1) {
+          var chTitle = document.createElement("div");
+          chTitle.className = "ch-title";
+          chTitle.textContent = h1.textContent;
+          container.appendChild(chTitle);
+        }
+
+        // Content
+        var section = document.createElement("article");
+        section.id = "ch-" + n;
+        section.innerHTML = art.innerHTML;
+        container.appendChild(section);
+
+        if (!firstNew) firstNew = divider;
+        maxLoaded = n;
+      } catch(e) {
+        console.warn("Failed to load chapter " + n, e);
+      }
+    }
+
+    // Update nav next link
+    var nextIdx = nums.indexOf(maxLoaded) + 1;
+    var newNext = nextIdx < nums.length ? nums[nextIdx] : null;
+    var navRight = document.querySelector(".nav-right");
+    if (newNext) {
+      navRight.innerHTML = '<a href="' + newNext + '.html" rel="next">Ch ' + newNext + ' &#8594;</a>';
+    } else {
+      navRight.innerHTML = '<span></span>';
+    }
+
+    status.style.display = "none";
+    btn.textContent = newNext ? "⊕ Merge Next 10" : "✓ All loaded";
+    btn.disabled = !newNext;
+    merging = false;
+
+    if (firstNew) firstNew.scrollIntoView({ behavior:"smooth", block:"start" });
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chapter 11 — Infinite Cashback System</title>
+  <style>
+    :root { --ink:#1a1a1a; --dim:#666; --bg:#fff; --gold:#8a6a1a; --border:#ddd; }
+    @media (prefers-color-scheme:dark) {
+      :root { --ink:#e9e4da; --dim:#9a9286; --bg:#111010; --gold:#c9a84c; --border:#2a2825; }
+    }
+    *{ box-sizing:border-box; margin:0; padding:0; }
+    body{ background:var(--bg); color:var(--ink); font-family:Georgia,'Times New Roman',serif;
+          font-size:1.125rem; line-height:1.85; padding:40px 24px 80px;
+          max-width:680px; margin:0 auto; }
+    header{ margin-bottom:32px; padding-bottom:20px; border-bottom:1px solid var(--border); }
+    header a{ color:var(--gold); text-decoration:none; font-size:.85rem; }
+    h1{ font-size:1.35rem; font-weight:700; margin-top:10px; line-height:1.25; }
+    article p{ margin-bottom:1.4em; text-align:justify; hyphens:auto; }
+    .ch-divider{ text-align:center; padding:28px 0 16px; color:var(--dim);
+                  font-size:.8rem; letter-spacing:.1em; text-transform:uppercase; }
+    .ch-divider::before,.ch-divider::after{ content:''; display:inline-block;
+      width:40px; height:1px; background:var(--border); vertical-align:middle; margin:0 12px; }
+    .ch-title{ font-size:1.1rem; font-weight:700; color:var(--gold); margin-bottom:16px; }
+    nav{ display:grid; grid-template-columns:1fr auto 1fr; gap:10px; align-items:center;
+          margin-top:48px; padding-top:20px; border-top:1px solid var(--border); font-size:.88rem; }
+    nav a{ color:var(--gold); text-decoration:none; }
+    nav a:hover{ text-decoration:underline; }
+    nav .nav-right{ text-align:right; }
+    nav .nav-mid{ text-align:center; }
+    .btn-merge{ background:rgba(138,106,26,.12); border:1px solid var(--gold);
+                 color:var(--gold); padding:9px 16px; border-radius:6px; cursor:pointer;
+                 font-family:Georgia,serif; font-size:.85rem; font-weight:600;
+                 transition:background .15s; white-space:nowrap; }
+    .btn-merge:hover:not(:disabled){ background:rgba(138,106,26,.25); }
+    .btn-merge:disabled{ opacity:.35; cursor:not-allowed; }
+    #merge-status{ text-align:center; padding:12px; font-size:.82rem;
+                    color:var(--dim); display:none; }
+  </style>
+</head>
+<body>
+<header>
+  <a href="../../novel.html?slug=infinite-cashback-system">&larr; Infinite Cashback System</a>
+  <h1 id="page-title">Chapter 11</h1>
+</header>
+
+<div id="chapters">
+  <article id="ch-11">
+    <p>Chapter 11: 11 | My Bank Account Just Leveled Up</p>
+    <p>Jordan sat in his Honda Civic, engine off, staring at his reflection in the rearview mirror.</p>
+    <p>Holy shit.</p>
+    <p>The top section of his hair had returned to something close to his natural dirty blonde. Light brown with hints of gold when the afternoon sun hit it right. Marcus had kept the sides and back darker, almost black, creating contrast that actually looked intentional. Like Jordan had walked into a real salon and asked for a fade with color instead of panic-buying box dye at CVS at two in the morning.</p>
+    <p>He turned his head left and right. The cut was clean. Sharp. The kind of haircut that said &quot;I have my life together&quot; instead of &quot;I’ve been crying in my apartment for two weeks.&quot;</p>
+    <p>Jordan pulled out his phone. The golden interface materialized across his screen, responsive and smooth.</p>
+    <p>TUTORIAL QUEST: Ground Zero</p>
+    <p>TIME LIMIT:</p>
+    <p>11:47:23</p>
+    <p>OBJECTIVES:</p>
+    <p>[✓]</p>
+    <p>Environmental Purge:</p>
+    <p>Deep clean the apartment</p>
+    <p>[✓]</p>
+    <p>Textile Decontamination:</p>
+    <p>Wash all clothes and bedsheets</p>
+    <p>[✓]</p>
+    <p>Damage Control (Physical):</p>
+    <p>Visit salon and fix hair disaster</p>
+    <p>[X]</p>
+    <p>Damage Control (Social):</p>
+    <p>Call David McKnight (Father)</p>
+    <p>Four objectives. Three complete. One remaining.</p>
+    <p>The last one.</p>
+    <p>Jordan’s stomach twisted. His thumb hovered over the quest log, reading the requirement again.</p>
+    <p>Apologize for recent behavior. State commitment to change. Do not ask for money. Speak clearly. Mean it.</p>
+    <p>His father’s voice echoed in his head. Disappointed but not surprised. The kind of tone that hurt worse than yelling ever could.</p>
+    <p>Throwing money at your problems is making you smaller, Jordan. Not bigger.</p>
+    <p>His phone buzzed with a new notification. Not the System this time. A text message.</p>
+    <p>OnlyFans:</p>
+    <p>New message from Calypso</p>
+    <p>Jordan’s chest tightened. He’d forgotten. Completely fucking forgotten.</p>
+    <p>He opened the message.</p>
+    <p>Calypso: Hey! Just confirming our meet today at 3pm. The Ivy in Long Beach. Can’t wait to finally meet you in person! Thanks again for being such an amazing supporter. See you soon 💙</p>
+    <p>Today. Three PM.</p>
+    <p>Jordan checked the date on his phone. January 11th. 1:38 PM.</p>
+    <p>&quot;Fuck,&quot; Jordan said out loud in his car.</p>
+    <p>Long Beach was at least an hour drive from here. Maybe more depending on traffic. The Ivy was expensive. Like actually expensive. Not Panera expensive. He’d looked at the menu when he’d bought the package during his two-week breakdown, thinking three thousand dollars meant he could afford to eat there too.</p>
+    <p>Wrong. Entrees started at forty-five dollars.</p>
+    <p>Available Balance: $47.21</p>
+    <p>Plus the sixty-four dollars cash in his wallet from the ATM run last week. One hundred eleven dollars total. Enough for maybe two drinks and an appetizer if he was lucky and didn’t tip.</p>
+    <p>This was fine. Everything was fine. He’d spent three thousand dollars for a forty-five minute coffee date with an OnlyFans model and now he had to drive to Long Beach with barely enough money to buy her a latte.</p>
+    <p>Cool. Great. Fantastic life choices, Jordan.</p>
+    <p>But first he had to call his father.</p>
+    <p>Jordan stared at his contact list. David McKnight. The number sat there like a landmine waiting to detonate. He could call later. After the Calypso thing. His dad was probably at work anyway.</p>
+    <p>There is no tomorrow.</p>
+    <p>Jordan’s own voice from last night came back to him. Standing in his filthy apartment, declaring he was done being this version of himself. That this morning was ground zero.</p>
+    <p>Eleven hours and forty-five minutes remained on his quest timer. If he failed, the System disappeared forever. He’d go right back to being the guy crying in a parking lot on Christmas while Cameron Mitchell groped his girlfriend.</p>
+    <p>Ex-girlfriend.</p>
+    <p>Whatever.</p>
+    <p>Jordan selected his father’s contact and pressed call before his brain could stop him.</p>
+    <p>The phone rang once. Twice. Three times.</p>
+    <p>Maybe he wouldn’t answer. Maybe Jordan could leave a voicemail and that would count. The System tracked effort, right? Trying was what mattered.</p>
+    <p>&quot;Jordan.&quot; His father’s voice came through on the fourth ring. Not a question. A statement. Flat and tired.</p>
+    <p>&quot;Hey, Dad.&quot; Jordan’s mouth went dry. &quot;Is this a bad time?&quot;</p>
+    <p>&quot;I’m at the store. Give me a second.&quot;</p>
+    <p>Jordan heard background noise. The beep of a cash register. Someone asking about cigarettes behind the counter. His father’s footsteps moving away from the noise, a door closing, then quiet.</p>
+    <p>&quot;Alright,&quot; David McKnight said. &quot;I’m in the office. What’s going on? You need something?&quot;</p>
+    <p>You need something.</p>
+    <p>&quot;No,&quot; Jordan said. &quot;I don’t need anything. I called to apologize.&quot;</p>
+    <p>Silence on the other end. Long enough that Jordan checked his phone to make sure the call hadn’t dropped.</p>
+    <p>&quot;...For what?&quot;</p>
+    <p>Jordan gripped the steering wheel with his free hand. &quot;For the last four months. For being a fuck-up. For spending your money on stupid shit and lying about it. For not going to class. For not answering when you called. For making Mom worry.&quot;</p>
+    <p>More silence.</p>
+    <p>&quot;I’m not asking for anything,&quot; Jordan continued. His reflection stared back at him in the rearview mirror. &quot;I just wanted you to know I’m done being that person. I cleaned my apartment today. All of it. Threw out eight trash bags of garbage. Got my hair fixed. I’m going to my classes this semester. I’m going to stop wasting the chances you gave me.&quot;</p>
+    <p>&quot;Jordan.&quot; His father’s voice cracked slightly. &quot;Are you okay? Did something happen?&quot;</p>
+    <p>&quot;Yeah,&quot; Jordan said. &quot;Something happened. I hit bottom. And I’m climbing back up now.&quot;</p>
+    <p>&quot;Where are you right now?&quot;</p>
+    <p>&quot;Sitting in my car outside a barbershop.&quot; Jordan almost laughed. &quot;In a neighborhood you’d probably tell me to leave immediately if you knew where it was.&quot;</p>
+    <p>&quot;Then leave.&quot;</p>
+    <p>&quot;Already done. Hair’s fixed. Looks good, actually.&quot;</p>
+    <p>David McKnight exhaled slowly. &quot;Your mother’s been worried sick,&quot; his father said finally. &quot;She thinks I was too hard on you. Cutting your allowance, telling you to figure it out yourself.&quot;</p>
+    <p>&quot;You weren’t too hard on me,&quot; Jordan said. &quot;You were right. I was using your money like a credit card with unlimited funds. Thought I could buy my way into maturity or whatever. Didn’t work.&quot;</p>
+    <p>&quot;No,&quot; his father agreed. &quot;It usually doesn’t.&quot;</p>
+    <p>Jordan watched a group of kids ride bikes past his car. Laughing about something, completely unconcerned with their surroundings. He’d forgotten what that felt like. Being light.</p>
+    <p>&quot;I’m not saying I’m fixed,&quot; Jordan continued. &quot;I’m probably going to mess up again. But I’m trying now.&quot;</p>
+    <p>&quot;That’s all I wanted to hear,&quot; David said. His voice had gone softer. &quot;You don’t need to be perfect, Jordan. You just need to be honest with yourself about where you are and where you’re going.&quot;</p>
+    <p>&quot;I know.&quot; Jordan checked the time on his dashboard. 1:46 PM. He needed to leave soon if he wanted to make the Calypso thing. &quot;I should let you get back to work.&quot;</p>
+    <p>&quot;Call your mother tonight,&quot; his father said. &quot;She needs to hear this too. And Jordan?&quot;</p>
+    <p>&quot;Yeah?&quot;</p>
+    <p>&quot;I’m proud of you for calling. That took guts.&quot;</p>
+    <p>The line went dead before Jordan could respond.</p>
+    <p>He sat in his car, phone still pressed to his ear, processing what had just happened. His father had said he was proud. When was the last time Jordan had heard those words? High school maybe. Before he’d started the slow slide into pathetic.</p>
+    <p>His phone buzzed.</p>
+    <p>🎊 QUEST COMPLETED 🎊</p>
+    <p>&quot;Ground Zero&quot;</p>
+    <p>Reward:</p>
+    <p>10 Quest Tickets</p>
+    <p>System Sign-On Bonus:</p>
+    <p>$1,500 deposited to secure System Account</p>
+    <p>Total Balance: $1,547.21</p>
+    <p>Jordan stared at the notification. The golden interface glowed against his palm, numbers updating in real time. His banking app refreshed automatically, showing the new balance like magic.</p>
+    <p>Fifteen hundred dollars. Just appeared. Because he’d cleaned his apartment and fixed his hair and called his father.</p>
+    <p>The System was real. Completely, absolutely real.</p>
+    <p>Jordan started his car. The engine turned over with its usual reliable Honda hum. He pulled up Google Maps and typed in The Ivy, Long Beach.</p>
+    <p>Estimated arrival time: 2:42 PM</p>
+    <p>Eighteen minutes to spare if traffic cooperated.</p>
+    <p>Jordan pulled out of his parking spot and merged into afternoon traffic. His hair looked good in every mirror he passed. The streets gradually improved as he drove, going from barred windows and graffiti to clean storefronts and palm trees.</p>
+    <p>His phone sat in the cupholder, Calypso’s message still open on the screen.</p>
+    <p>Can’t wait to finally meet you in person!</p>
+    <p>Jordan had subscribed to her channel six months ago. October, right before he’d met Eliza and convinced himself he had a girlfriend. Calypso posted three times a week. Solo content mostly. Lingerie photos, artistic shots with creative lighting, occasional cosplay. Her face was always blurred or covered with a mask, but her body was ridiculous. Hourglass figure, toned stomach, perfect proportions that looked professionally maintained.</p>
+    <p>And that blue streak in her black hair. Her signature look. Every photo, every video, that electric blue visible even when everything else was hidden.</p>
+    <p>Jordan had spent probably two thousand dollars on her content over six months. Custom videos, tips, private DMs where she responded with personalized messages that made him feel seen. Not like Eliza, who’d used him as an ATM and fucked Cameron Mitchell in a love hotel.</p>
+    <p>The $3,000 coffee date package had appeared in December. &quot;Exclusive IRL Meet &amp; Greet - Limited Availability - Top Supporters Only.&quot;</p>
+    <p>Jordan had bought it the day after Christmas. Sitting in his disgusting apartment, credit card in hand, thinking maybe this would fix the hole Eliza had torn open.</p>
+    <p>Now he was driving to meet her with a new haircut, a clean apartment, and a magical phone app that tracked women’s attraction to him like a video game stat.</p>
+    <p>His life had become a simulation. Or a pornhwa. One of those Korean manwha where the loser protagonist gets a second chance through some supernatural system.</p>
+    <p>Jordan merged onto the freeway. Traffic moved smoothly for a Saturday afternoon. The ocean appeared in the distance, dark blue against lighter sky.</p>
+    <p>The Ivy sat in a wealthy section of Long Beach. White tablecloths, valet parking, people dressed like they had board meetings to attend after brunch. Jordan’s Honda Civic was going to look pathetic in that parking lot.</p>
+    <p>Whatever, Calypso had his money. The least she could do was drink coffee with him for forty-five minutes.</p>
+    <p>===</p>
+    <p>[A/N:]</p>
+    <p>If you enjoyed this Chapter, please consider adding this story to your library and leaving a vote. Your support helps me keep writing, release more Chapters from my backlog, and speed up my updates.</p>
+    <p>And if you have any thoughts, suggestions, or just want to share what you think about this Chapter, feel free to drop me a message. I’d love to hear from you!</p>
+    <p>See you in the next Chapter!</p>
+    <p>☜(⌒▽⌒)☞</p>
+  </article>
+</div>
+
+<div id="merge-status"></div>
+
+<nav>
+  <span class="nav-left"><a href="10.html" rel="prev">&#8592; Ch 10</a></span>
+  <span class="nav-mid">
+    <button class="btn-merge" id="btn-merge" >Merge Next 10</button>
+  </span>
+  <span class="nav-right"><a href="12.html" rel="next">Ch 12 &#8594;</a></span>
+</nav>
+
+<script>
+  // Chapters available after this one — discovered from meta.json
+  var slug       = "infinite-cashback-system";
+  var currentNum = 11;
+  var nextNum    = 12;
+  var maxLoaded  = currentNum;
+  var allNums    = null;   // loaded lazily from meta.json
+  var merging    = false;
+  var root       = "../../";
+
+  async function getNums() {
+    if (allNums) return allNums;
+    var res = await fetch(root + "data/" + slug + "/meta.json");
+    var meta = await res.json();
+    allNums = meta.chapters.map(function(c){ return c.num; });
+    return allNums;
+  }
+
+  document.getElementById("btn-merge").addEventListener("click", async function() {
+    if (merging) return;
+    merging = true;
+    var btn    = document.getElementById("btn-merge");
+    var status = document.getElementById("merge-status");
+    btn.textContent = "Loading…";
+    btn.disabled = true;
+
+    var nums   = await getNums();
+    var idx    = nums.indexOf(maxLoaded);
+    var toLoad = nums.slice(idx + 1, idx + 11);
+    if (!toLoad.length) { merging = false; return; }
+
+    status.style.display = "block";
+    status.textContent = "Fetching chapters " + toLoad[0] + "–" + toLoad[toLoad.length-1] + "…";
+
+    var container = document.getElementById("chapters");
+    var firstNew  = null;
+
+    for (var i = 0; i < toLoad.length; i++) {
+      var n = toLoad[i];
+      try {
+        var res  = await fetch(n + ".html");
+        var html = await res.text();
+        var doc  = new DOMParser().parseFromString(html, "text/html");
+        var art  = doc.querySelector("article");
+        var h1   = doc.querySelector("h1");
+        if (!art) continue;
+
+        // Divider
+        var divider = document.createElement("div");
+        divider.className = "ch-divider";
+        divider.textContent = "Chapter " + n;
+        container.appendChild(divider);
+
+        // Chapter title
+        if (h1) {
+          var chTitle = document.createElement("div");
+          chTitle.className = "ch-title";
+          chTitle.textContent = h1.textContent;
+          container.appendChild(chTitle);
+        }
+
+        // Content
+        var section = document.createElement("article");
+        section.id = "ch-" + n;
+        section.innerHTML = art.innerHTML;
+        container.appendChild(section);
+
+        if (!firstNew) firstNew = divider;
+        maxLoaded = n;
+      } catch(e) {
+        console.warn("Failed to load chapter " + n, e);
+      }
+    }
+
+    // Update nav next link
+    var nextIdx = nums.indexOf(maxLoaded) + 1;
+    var newNext = nextIdx < nums.length ? nums[nextIdx] : null;
+    var navRight = document.querySelector(".nav-right");
+    if (newNext) {
+      navRight.innerHTML = '<a href="' + newNext + '.html" rel="next">Ch ' + newNext + ' &#8594;</a>';
+    } else {
+      navRight.innerHTML = '<span></span>';
+    }
+
+    status.style.display = "none";
+    btn.textContent = newNext ? "⊕ Merge Next 10" : "✓ All loaded";
+    btn.disabled = !newNext;
+    merging = false;
+
+    if (firstNew) firstNew.scrollIntoView({ behavior:"smooth", block:"start" });
+  });
+</script>
+</body>
+</html>

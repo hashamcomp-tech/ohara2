@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chapter 20 — Infinite Cashback System</title>
+  <style>
+    :root { --ink:#1a1a1a; --dim:#666; --bg:#fff; --gold:#8a6a1a; --border:#ddd; }
+    @media (prefers-color-scheme:dark) {
+      :root { --ink:#e9e4da; --dim:#9a9286; --bg:#111010; --gold:#c9a84c; --border:#2a2825; }
+    }
+    *{ box-sizing:border-box; margin:0; padding:0; }
+    body{ background:var(--bg); color:var(--ink); font-family:Georgia,'Times New Roman',serif;
+          font-size:1.125rem; line-height:1.85; padding:40px 24px 80px;
+          max-width:680px; margin:0 auto; }
+    header{ margin-bottom:32px; padding-bottom:20px; border-bottom:1px solid var(--border); }
+    header a{ color:var(--gold); text-decoration:none; font-size:.85rem; }
+    h1{ font-size:1.35rem; font-weight:700; margin-top:10px; line-height:1.25; }
+    article p{ margin-bottom:1.4em; text-align:justify; hyphens:auto; }
+    .ch-divider{ text-align:center; padding:28px 0 16px; color:var(--dim);
+                  font-size:.8rem; letter-spacing:.1em; text-transform:uppercase; }
+    .ch-divider::before,.ch-divider::after{ content:''; display:inline-block;
+      width:40px; height:1px; background:var(--border); vertical-align:middle; margin:0 12px; }
+    .ch-title{ font-size:1.1rem; font-weight:700; color:var(--gold); margin-bottom:16px; }
+    nav{ display:grid; grid-template-columns:1fr auto 1fr; gap:10px; align-items:center;
+          margin-top:48px; padding-top:20px; border-top:1px solid var(--border); font-size:.88rem; }
+    nav a{ color:var(--gold); text-decoration:none; }
+    nav a:hover{ text-decoration:underline; }
+    nav .nav-right{ text-align:right; }
+    nav .nav-mid{ text-align:center; }
+    .btn-merge{ background:rgba(138,106,26,.12); border:1px solid var(--gold);
+                 color:var(--gold); padding:9px 16px; border-radius:6px; cursor:pointer;
+                 font-family:Georgia,serif; font-size:.85rem; font-weight:600;
+                 transition:background .15s; white-space:nowrap; }
+    .btn-merge:hover:not(:disabled){ background:rgba(138,106,26,.25); }
+    .btn-merge:disabled{ opacity:.35; cursor:not-allowed; }
+    #merge-status{ text-align:center; padding:12px; font-size:.82rem;
+                    color:var(--dim); display:none; }
+  </style>
+</head>
+<body>
+<header>
+  <a href="../../novel.html?slug=infinite-cashback-system">&larr; Infinite Cashback System</a>
+  <h1 id="page-title">Chapter 20</h1>
+</header>
+
+<div id="chapters">
+  <article id="ch-20">
+    <p>Chapter 20: 20 | Ground Rules for the Girl Next Door</p>
+    <p>Jordan slid his phone back into his pocket.</p>
+    <p>Chloe tilted her head. &quot;What was that?&quot;</p>
+    <p>&quot;Nothing.&quot;</p>
+    <p>&quot;Your phone lit up.&quot;</p>
+    <p>&quot;Just a notification.&quot;</p>
+    <p>&quot;Show me.&quot;</p>
+    <p>&quot;It’s not important.&quot;</p>
+    <p>Chloe reached for his pocket. Jordan stepped back.</p>
+    <p>She froze with her hand extended. Her eyes went wide.</p>
+    <p>Oh god. She thinks you’re scared of her. Say something. Anything.</p>
+    <p>&quot;I’m not scared of you.&quot;</p>
+    <p>&quot;Then why did you just back up?&quot;</p>
+    <p>&quot;Because personal space is a thing?&quot;</p>
+    <p>Chloe’s hand dropped. She stepped back and crossed her arms again. The pout returned.</p>
+    <p>&quot;Fine. Don’t show me.&quot;</p>
+    <p>Jordan’s brain scrambled for a way to change the subject. &quot;Your apartment is really nice.&quot;</p>
+    <p>&quot;Thank you.&quot;</p>
+    <p>&quot;Like really nice. Mine used to look like a crime scene compared to this.&quot;</p>
+    <p>&quot;I saw your trash bags this morning.&quot;</p>
+    <p>Jordan felt his face heat up. &quot;Yeah. That was. That was a thing.&quot;</p>
+    <p>Chloe’s lips twitched. Not quite a smile. Close though.</p>
+    <p>&quot;How many bags was it? Eight?&quot;</p>
+    <p>&quot;Eight.&quot;</p>
+    <p>&quot;That’s impressive.&quot;</p>
+    <p>&quot;Not in a good way.&quot;</p>
+    <p>&quot;No. Not in a good way.&quot;</p>
+    <p>She was definitely smiling now. Small, but there. The glare had disappeared entirely.</p>
+    <p>Jordan relaxed slightly. Maybe she wasn’t going to throw him off the balcony after all.</p>
+    <p>Chloe uncrossed her arms and moved to the gray sectional. She sat down and pulled a throw pillow into her lap. &quot;So you really didn’t know.&quot;</p>
+    <p>&quot;I really didn’t know.&quot;</p>
+    <p>&quot;And you’re not some creepy stalker who engineered this whole thing.&quot;</p>
+    <p>&quot;I’m not smart enough to engineer something like this.&quot;</p>
+    <p>Chloe laughed. &quot;That’s probably true.&quot;</p>
+    <p>&quot;Hey!&quot;</p>
+    <p>&quot;You knocked on my door and said my fake name in the hallway. You’re not exactly a criminal mastermind.&quot;</p>
+    <p>Fair point.</p>
+    <p>Jordan stayed by the door because sitting down felt presumptuous. &quot;For the record, I was going to ask to borrow sugar.&quot;</p>
+    <p>&quot;Sugar.&quot;</p>
+    <p>&quot;Yeah. Like a normal neighbor.&quot;</p>
+    <p>&quot;Do you even bake?&quot;</p>
+    <p>&quot;No.&quot;</p>
+    <p>&quot;Then why would you need sugar?&quot;</p>
+    <p>&quot;I don’t know! It’s what people do in movies!&quot;</p>
+    <p>Chloe shook her head but she was still smiling. &quot;You’re ridiculous.&quot;</p>
+    <p>&quot;I’m aware.&quot;</p>
+    <p>His phone buzzed again. Jordan ignored it.</p>
+    <p>Chloe noticed. &quot;You can check that.&quot;</p>
+    <p>&quot;It’s fine.&quot;</p>
+    <p>&quot;It’s clearly not fine. You keep fidgeting.&quot;</p>
+    <p>Jordan pulled out his phone.</p>
+    <p>✨ ATTRACTION UPDATE ✨</p>
+    <p>Chloe Kim: 12% → 17% (+5%)</p>
+    <p>He closed the app and shoved the phone back in his pocket.</p>
+    <p>Chloe watched him carefully. &quot;Is it important?&quot;</p>
+    <p>&quot;Just spam.&quot;</p>
+    <p>&quot;You’re a terrible liar.&quot;</p>
+    <p>&quot;I know.&quot;</p>
+    <p>She patted the couch cushion next to her. &quot;Sit down. You’re making me nervous standing by the door like you’re about to run.&quot;</p>
+    <p>Jordan hesitated.</p>
+    <p>Chloe raised an eyebrow. &quot;I’m not going to bite.&quot;</p>
+    <p>That’s not helping.</p>
+    <p>He crossed the apartment and sat on the opposite end of the sectional, keeping a full cushion between them. The couch was incredibly comfortable. Like sitting on an expensive cloud.</p>
+    <p>Chloe pulled her knees up and wrapped her arms around them.</p>
+    <p>&quot;This is weird,&quot; she said.</p>
+    <p>&quot;Yeah.&quot;</p>
+    <p>&quot;We had lunch today.&quot;</p>
+    <p>&quot;I know.&quot;</p>
+    <p>&quot;And now you’re in my apartment.&quot;</p>
+    <p>&quot;I know.&quot;</p>
+    <p>&quot;And we live next door to each other.&quot;</p>
+    <p>&quot;I’m very aware.&quot;</p>
+    <p>Chloe rested her chin on her knees. &quot;What are we supposed to do now?&quot;</p>
+    <p>Jordan had no idea. His brain was still processing the fact that he was sitting on a couch in a girl’s apartment and the girl was someone he’d spent two thousand dollars on over six months and also his next-door neighbor and also currently looking at him like he was supposed to have answers.</p>
+    <p>&quot;We could pretend this never happened,&quot; Jordan offered.</p>
+    <p>&quot;Can you do that?&quot;</p>
+    <p>&quot;Probably not.&quot;</p>
+    <p>&quot;Me neither.&quot;</p>
+    <p>Silence again. Less tense this time. More thoughtful.</p>
+    <p>Chloe picked at a loose thread. &quot;You can’t tell anyone.&quot;</p>
+    <p>&quot;I won’t.&quot;</p>
+    <p>&quot;I’m serious. Not your friends. Not your roommate.&quot;</p>
+    <p>&quot;I don’t have a roommate.&quot;</p>
+    <p>&quot;Not anyone.&quot;</p>
+    <p>&quot;I get it. Your secret’s safe.&quot;</p>
+    <p>Chloe studied his face like she was trying to determine if he was telling the truth. Jordan kept his expression open.</p>
+    <p>He had zero intention of revealing Chloe’s identity to anyone because doing that would make him an absolute piece of garbage and also she knew where he lived.</p>
+    <p>Finally, Chloe nodded. &quot;Okay.&quot;</p>
+    <p>&quot;Okay.&quot;</p>
+    <p>&quot;But if you yell out my OF name again, I’m calling the cops.&quot;</p>
+    <p>Jordan raised both hands. &quot;Understood. No more door knocking. I’ll pretend you don’t exist.&quot;</p>
+    <p>&quot;Good.&quot;</p>
+    <p>&quot;Even though we share a wall.&quot;</p>
+    <p>&quot;Especially because we share a wall.&quot;</p>
+    <p>Jordan’s phone buzzed a third time. He checked it before Chloe could ask.</p>
+    <p>✨ ATTRACTION UPDATE ✨</p>
+    <p>Chloe Kim: 17% → 20% (+3%)</p>
+    <p>Chloe leaned forward slightly. &quot;Good news?&quot;</p>
+    <p>&quot;Something like that.&quot;</p>
+    <p>&quot;You’re being mysterious.&quot;</p>
+    <p>&quot;It’s complicated.&quot;</p>
+    <p>&quot;Try me.&quot;</p>
+    <p>Jordan considered explaining the System. The attraction meters. The cashback mechanics. The slots he couldn’t change once registered. All of it sounded completely insane when he tried to put it into words.</p>
+    <p>&quot;I’m just trying to get my life together,&quot; Jordan said instead. &quot;One step at a time.&quot;</p>
+    <p>Chloe’s expression softened. &quot;That’s a good goal.&quot;</p>
+    <p>&quot;What about you?&quot;</p>
+    <p>&quot;What about me?&quot;</p>
+    <p>&quot;Are you trying to get your life together too?&quot;</p>
+    <p>Chloe laughed quietly. &quot;I don’t think my life was ever together to begin with.&quot;</p>
+    <p>She stood up and walked to the kitchen. &quot;Do you want water?&quot;</p>
+    <p>&quot;Sure.&quot;</p>
+    <p>She pulled two glasses from a cabinet and filled them at the sink. She handed one glass to Jordan and kept the other.</p>
+    <p>&quot;Thanks.&quot;</p>
+    <p>Chloe leaned against the counter. &quot;So. Neighbors.&quot;</p>
+    <p>&quot;Neighbors.&quot;</p>
+    <p>&quot;This is going to be awkward.&quot;</p>
+    <p>&quot;Extremely.&quot;</p>
+    <p>&quot;We should set ground rules.&quot;</p>
+    <p>Jordan took a sip of water. &quot;Like what?&quot;</p>
+    <p>&quot;No knocking unless it’s an emergency.&quot;</p>
+    <p>&quot;Agreed.&quot;</p>
+    <p>&quot;No mentioning anything about today if we see each other on campus.&quot;</p>
+    <p>&quot;Obviously.&quot;</p>
+    <p>&quot;And no weird looks in the hallway.&quot;</p>
+    <p>&quot;Define weird.&quot;</p>
+    <p>Chloe shot him a look. &quot;You know what I mean.&quot;</p>
+    <p>Jordan grinned. &quot;Yeah. I know what you mean.&quot;</p>
+    <p>She rolled her eyes but she was smiling again. &quot;You’re annoying.&quot;</p>
+    <p>&quot;I’ve been told that before.&quot;</p>
+    <p>&quot;I believe it.&quot;</p>
+    <p>Jordan finished his water and set the glass on the coffee table. He should probably leave. Give Chloe her space back. Stop taking up room in her apartment like some kind of awkward intruder.</p>
+    <p>But he didn’t want to leave.</p>
+    <p>Which was a problem.</p>
+    <p>Chloe checked her phone. &quot;I have homework.&quot;</p>
+    <p>&quot;Right. Yeah. I should go.&quot;</p>
+    <p>Jordan stood up. His legs worked perfectly now. No soreness. No exhaustion. Just normal functional legs like he hadn’t spent five hours hauling trash and scrubbing grout earlier.</p>
+    <p>Chloe walked him to the door and unlocked it. She kept the chain on for a second, peering through the gap to make sure the hallway was empty.</p>
+    <p>Coast clear.</p>
+    <p>She opened the door fully and Jordan stepped into the hallway.</p>
+    <p>They looked at each other.</p>
+    <p>&quot;This stays between us,&quot; Chloe said.</p>
+    <p>&quot;Completely.&quot;</p>
+    <p>&quot;I mean it.&quot;</p>
+    <p>&quot;I know.&quot;</p>
+    <p>She started to close the door, then stopped. &quot;Ricky?&quot;</p>
+    <p>&quot;Yeah?&quot;</p>
+    <p>&quot;Thanks. For not being weird about this.&quot;</p>
+    <p>&quot;I’m being extremely weird about this.&quot;</p>
+    <p>Chloe smiled. &quot;You know what I mean.&quot;</p>
+    <p>&quot;Yeah. I know what you mean.&quot;</p>
+    <p>The door closed softly.</p>
+    <p>Jordan stood in the hallway staring at Unit 403. His phone buzzed one more time.</p>
+    <p>New milestone approaching: 25% (Increased interaction comfort)</p>
+    <p>Continue current behavior pattern for optimal results.</p>
+    <p>Jordan walked back to Unit 404 and locked himself inside.</p>
+    <p>His apartment was clean. His face had sixty dollars worth of skincare on it. His hair looked intentional instead of like a cry for help.</p>
+    <p>And his OnlyFans crush lived next door.</p>
+    <p>Jordan lay down on his couch and stared at the ceiling.</p>
+    <p>Today had been the longest day of his life and it wasn’t even six PM yet.</p>
+    <p>===</p>
+    <p>[A/N:]</p>
+    <p>If you enjoyed this Chapter, please consider adding this story to your library and leaving a vote. Your support helps me keep writing, release more Chapters from my backlog, and speed up my updates.</p>
+    <p>And if you have any thoughts, suggestions, or just want to share what you think about this Chapter, feel free to drop me a message. I’d love to hear from you!</p>
+    <p>See you in the next Chapter!</p>
+    <p>☜(⌒▽⌒)☞</p>
+  </article>
+</div>
+
+<div id="merge-status"></div>
+
+<nav>
+  <span class="nav-left"><a href="19.html" rel="prev">&#8592; Ch 19</a></span>
+  <span class="nav-mid">
+    <button class="btn-merge" id="btn-merge" >Merge Next 10</button>
+  </span>
+  <span class="nav-right"><a href="21.html" rel="next">Ch 21 &#8594;</a></span>
+</nav>
+
+<script>
+  // Chapters available after this one — discovered from meta.json
+  var slug       = "infinite-cashback-system";
+  var currentNum = 20;
+  var nextNum    = 21;
+  var maxLoaded  = currentNum;
+  var allNums    = null;   // loaded lazily from meta.json
+  var merging    = false;
+  var root       = "../../";
+
+  async function getNums() {
+    if (allNums) return allNums;
+    var res = await fetch(root + "data/" + slug + "/meta.json");
+    var meta = await res.json();
+    allNums = meta.chapters.map(function(c){ return c.num; });
+    return allNums;
+  }
+
+  document.getElementById("btn-merge").addEventListener("click", async function() {
+    if (merging) return;
+    merging = true;
+    var btn    = document.getElementById("btn-merge");
+    var status = document.getElementById("merge-status");
+    btn.textContent = "Loading…";
+    btn.disabled = true;
+
+    var nums   = await getNums();
+    var idx    = nums.indexOf(maxLoaded);
+    var toLoad = nums.slice(idx + 1, idx + 11);
+    if (!toLoad.length) { merging = false; return; }
+
+    status.style.display = "block";
+    status.textContent = "Fetching chapters " + toLoad[0] + "–" + toLoad[toLoad.length-1] + "…";
+
+    var container = document.getElementById("chapters");
+    var firstNew  = null;
+
+    for (var i = 0; i < toLoad.length; i++) {
+      var n = toLoad[i];
+      try {
+        var res  = await fetch(n + ".html");
+        var html = await res.text();
+        var doc  = new DOMParser().parseFromString(html, "text/html");
+        var art  = doc.querySelector("article");
+        var h1   = doc.querySelector("h1");
+        if (!art) continue;
+
+        // Divider
+        var divider = document.createElement("div");
+        divider.className = "ch-divider";
+        divider.textContent = "Chapter " + n;
+        container.appendChild(divider);
+
+        // Chapter title
+        if (h1) {
+          var chTitle = document.createElement("div");
+          chTitle.className = "ch-title";
+          chTitle.textContent = h1.textContent;
+          container.appendChild(chTitle);
+        }
+
+        // Content
+        var section = document.createElement("article");
+        section.id = "ch-" + n;
+        section.innerHTML = art.innerHTML;
+        container.appendChild(section);
+
+        if (!firstNew) firstNew = divider;
+        maxLoaded = n;
+      } catch(e) {
+        console.warn("Failed to load chapter " + n, e);
+      }
+    }
+
+    // Update nav next link
+    var nextIdx = nums.indexOf(maxLoaded) + 1;
+    var newNext = nextIdx < nums.length ? nums[nextIdx] : null;
+    var navRight = document.querySelector(".nav-right");
+    if (newNext) {
+      navRight.innerHTML = '<a href="' + newNext + '.html" rel="next">Ch ' + newNext + ' &#8594;</a>';
+    } else {
+      navRight.innerHTML = '<span></span>';
+    }
+
+    status.style.display = "none";
+    btn.textContent = newNext ? "⊕ Merge Next 10" : "✓ All loaded";
+    btn.disabled = !newNext;
+    merging = false;
+
+    if (firstNew) firstNew.scrollIntoView({ behavior:"smooth", block:"start" });
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chapter 22 — Stardew Valley&#x27;s Farming Master</title>
+  <style>
+    :root { --ink:#1a1a1a; --dim:#666; --bg:#fff; --gold:#8a6a1a; --border:#ddd; }
+    @media (prefers-color-scheme:dark) {
+      :root { --ink:#e9e4da; --dim:#9a9286; --bg:#111010; --gold:#c9a84c; --border:#2a2825; }
+    }
+    *{ box-sizing:border-box; margin:0; padding:0; }
+    body{ background:var(--bg); color:var(--ink); font-family:Georgia,'Times New Roman',serif;
+          font-size:1.125rem; line-height:1.85; padding:40px 24px 80px;
+          max-width:680px; margin:0 auto; }
+    header{ margin-bottom:32px; padding-bottom:20px; border-bottom:1px solid var(--border); }
+    header a{ color:var(--gold); text-decoration:none; font-size:.85rem; }
+    h1{ font-size:1.35rem; font-weight:700; margin-top:10px; line-height:1.25; }
+    article p{ margin-bottom:1.4em; text-align:justify; hyphens:auto; }
+    .ch-divider{ text-align:center; padding:28px 0 16px; color:var(--dim);
+                  font-size:.8rem; letter-spacing:.1em; text-transform:uppercase; }
+    .ch-divider::before,.ch-divider::after{ content:''; display:inline-block;
+      width:40px; height:1px; background:var(--border); vertical-align:middle; margin:0 12px; }
+    .ch-title{ font-size:1.1rem; font-weight:700; color:var(--gold); margin-bottom:16px; }
+    nav{ display:grid; grid-template-columns:1fr auto 1fr; gap:10px; align-items:center;
+          margin-top:48px; padding-top:20px; border-top:1px solid var(--border); font-size:.88rem; }
+    nav a{ color:var(--gold); text-decoration:none; }
+    nav a:hover{ text-decoration:underline; }
+    nav .nav-right{ text-align:right; }
+    nav .nav-mid{ text-align:center; }
+    .btn-merge{ background:rgba(138,106,26,.12); border:1px solid var(--gold);
+                 color:var(--gold); padding:9px 16px; border-radius:6px; cursor:pointer;
+                 font-family:Georgia,serif; font-size:.85rem; font-weight:600;
+                 transition:background .15s; white-space:nowrap; }
+    .btn-merge:hover:not(:disabled){ background:rgba(138,106,26,.25); }
+    .btn-merge:disabled{ opacity:.35; cursor:not-allowed; }
+    #merge-status{ text-align:center; padding:12px; font-size:.82rem;
+                    color:var(--dim); display:none; }
+  </style>
+</head>
+<body>
+<header>
+  <a href="../../novel.html?slug=stardew-valleys-farming-master">&larr; Stardew Valley&#x27;s Farming Master</a>
+  <h1 id="page-title">Chapter 22</h1>
+</header>
+
+<div id="chapters">
+  <article id="ch-22">
+    <p>After enjoying a proper dinner, Leon finished the last sip of his peach juice. Leaning contentedly against the bar counter, he quietly watched Emily tidying up.</p>
+    <p>Emily soon became aware of his gaze. At first, she didn’t think much of it, but as his eyes lingered, her movements grew more and more stiff.</p>
+    <p>Eventually, unable to bear his stare, Emily set down the plate in her hands, glared at him in shy irritation, and asked, “Why do you keep staring at me?”</p>
+    <p>“My stomach’s full, my material needs have been met, so shouldn’t my spiritual needs follow?” Leon didn’t seem at all concerned and teased her with a grin. “You’re not going to kick me out just for that, are you?”</p>
+    <p>Emily was at a loss for words. She simply turned her head away in frustration, refusing to meet his eyes as if to protest in silence.</p>
+    <p>But the next moment, out of the corner of her eye, she saw Leon stand up. It looked like he was about to leave the saloon.</p>
+    <p>This surprised her. She asked without thinking, “You’re leaving already?”</p>
+    <p>“Yeah. Goodbye, Emily. Oh, and tell Gus I said his fish rolls were delicious.” Leon gave a small nod, waved, and left the Starfruit Saloon in his usual casual manner.</p>
+    <p>Emily watched his retreating figure until he completely disappeared from sight. Only then did she come back to her senses. She glanced at the door, then at the yellow daffodil stuck in the wine bottle, and muttered under her breath while biting her lip, “What a strange guy.”</p>
+    <p>…</p>
+    <p>Instead of heading straight back to the farm, Leon strolled leisurely through Pelican Town. There was nothing pressing to do at the farm anyway, so wandering around was both a way to walk off dinner and to familiarize himself with the town—helpful for avoiding getting lost later.</p>
+    <p>A short walk downhill from the Starfruit Saloon brought him to a small garden. Spring had only just begun, yet some flowers were already in bloom.</p>
+    <p>An elderly lady in a red sweater was there, carefully watering the flowers. From her meticulous care, Leon could tell she truly loved these plants.</p>
+    <p>“Good afternoon, ma’am.” With nothing better to do, Leon decided to strike up a conversation. “Your flowers are in great shape. You must be an excellent gardener.”</p>
+    <p>“Haha, what a sweet-talking young man. I only water them, really. It’s Stardew Valley’s climate and environment that let them grow so well. Here, every plant gets the most comfortable growing conditions.” The old lady smiled, her eyes narrowing pleasantly as she turned to look at Leon.</p>
+    <p>“I haven’t seen you before. Are you visiting Stardew Valley?”</p>
+    <p>“No, I’m the new owner of the farm just outside Pelican Town. My name’s Leon,” he introduced himself.</p>
+    <p>“The farm’s new owner, eh? I think I heard Lewis mention you. So the previous owner was your grandfather?” She studied Leon closely. “You two look alike.”</p>
+    <p>“You knew my grandfather?” Leon asked curiously.</p>
+    <p>“Of course. I was already living in Pelican Town when he first arrived. I still remember his booming voice when he came. I can’t believe how much time has passed.” She looked a little wistful and a little lonely as she spoke.</p>
+    <p>“Child, if you ever run into trouble, come find me. I live in that big house in town. You can call me Evelyn—or just Grandma if you like. Your grandfather and I were the best of friends.” Evelyn’s voice was warm and welcoming.</p>
+    <p>“I’m glad to see that old man’s farm up and running again.”</p>
+    <p>“Alright, Grandma.” Leon didn’t feel shy about the address, but he hesitated over whether to ask her the question that had been nagging at him.</p>
+    <p>In the end, he decided not to.</p>
+    <p>Evelyn beamed at being called “Grandma.” She bent down and rummaged under a flowerpot, pulling out a small packet of seeds. “Here’s a welcome gift. These will grow into beautiful flowers. I know a farm usually focuses on crops, but flowers are just as important. If you’re planning to stay in Stardew Valley for the long haul, I hope these will be useful to you.”</p>
+    <p>“Oh, tulip seeds.” With the help of the system, Leon identified the flower at once. “Why tulip seeds, Grandma?”</p>
+    <p>“My dear, you recognized them right away? That’s impressive. Seems the old fellow made the right choice in leaving the farm to you.” Evelyn was genuinely surprised he could identify unlabeled flower seeds.</p>
+    <p>Smiling, she explained, “Tulips are very popular here in Pelican Town, especially among young women. Giving a freshly bloomed tulip to a girl can be the first step toward a wonderful relationship. So now do you understand why I want you to plant them?”</p>
+    <p>Leon certainly understood—this was matchmaking advice, plain and simple. Were all elders this fond of meddling in the love lives of their juniors? He could only nod helplessly. “I get it. But for now, I’m not looking for a partner. The farm’s only just starting up.”</p>
+    <p>Evelyn blinked in surprise, watching him for a long moment before sighing. “That’s exactly what your grandfather said back then. But take it from someone who’s been there—work and love don’t have to clash. The right person is like a flower in full bloom. If you don’t pick it when it’s at its best, you might look back one day and find it’s already withered.”</p>
+    <p>Her voice grew a little tired. “I’m feeling a bit worn out, child. I’ll head home for now. You’re welcome to visit me anytime—I’ll make sure you’re well taken care of. I hope your days on the farm are happy ones.”</p>
+    <p>Leon watched Evelyn leave, turning over her words in his mind. The question he’d been wondering about now had its answer.</p>
+    <p>It seemed he’d remembered correctly—at the start of the game, in the scene where the grandfather leaves the player a letter, there had been a photo of a girl on the fireplace mantle. That girl was none other than this kind, white-haired old lady. From what she’d said and what he knew of her family, it was clear the two of them hadn’t ended up together.</p>
+    <p>That explained the meaning behind her words. Leon’s expression turned a little odd. It looked like his grandfather had his fair share of stories in Stardew Valley.</p>
+  </article>
+</div>
+
+<div id="merge-status"></div>
+
+<nav>
+  <span class="nav-left"><a href="21.html" rel="prev">&#8592; Ch 21</a></span>
+  <span class="nav-mid">
+    <button class="btn-merge" id="btn-merge" >Merge Next 10</button>
+  </span>
+  <span class="nav-right"><a href="23.html" rel="next">Ch 23 &#8594;</a></span>
+</nav>
+
+<script>
+  // Chapters available after this one — discovered from meta.json
+  var slug       = "stardew-valleys-farming-master";
+  var currentNum = 22;
+  var nextNum    = 23;
+  var maxLoaded  = currentNum;
+  var allNums    = null;   // loaded lazily from meta.json
+  var merging    = false;
+  var root       = "../../";
+
+  async function getNums() {
+    if (allNums) return allNums;
+    var res = await fetch(root + "data/" + slug + "/meta.json");
+    var meta = await res.json();
+    allNums = meta.chapters.map(function(c){ return c.num; });
+    return allNums;
+  }
+
+  document.getElementById("btn-merge").addEventListener("click", async function() {
+    if (merging) return;
+    merging = true;
+    var btn    = document.getElementById("btn-merge");
+    var status = document.getElementById("merge-status");
+    btn.textContent = "Loading…";
+    btn.disabled = true;
+
+    var nums   = await getNums();
+    var idx    = nums.indexOf(maxLoaded);
+    var toLoad = nums.slice(idx + 1, idx + 11);
+    if (!toLoad.length) { merging = false; return; }
+
+    status.style.display = "block";
+    status.textContent = "Fetching chapters " + toLoad[0] + "–" + toLoad[toLoad.length-1] + "…";
+
+    var container = document.getElementById("chapters");
+    var firstNew  = null;
+
+    for (var i = 0; i < toLoad.length; i++) {
+      var n = toLoad[i];
+      try {
+        var res  = await fetch(n + ".html");
+        var html = await res.text();
+        var doc  = new DOMParser().parseFromString(html, "text/html");
+        var art  = doc.querySelector("article");
+        var h1   = doc.querySelector("h1");
+        if (!art) continue;
+
+        // Divider
+        var divider = document.createElement("div");
+        divider.className = "ch-divider";
+        divider.textContent = "Chapter " + n;
+        container.appendChild(divider);
+
+        // Chapter title
+        if (h1) {
+          var chTitle = document.createElement("div");
+          chTitle.className = "ch-title";
+          chTitle.textContent = h1.textContent;
+          container.appendChild(chTitle);
+        }
+
+        // Content
+        var section = document.createElement("article");
+        section.id = "ch-" + n;
+        section.innerHTML = art.innerHTML;
+        container.appendChild(section);
+
+        if (!firstNew) firstNew = divider;
+        maxLoaded = n;
+      } catch(e) {
+        console.warn("Failed to load chapter " + n, e);
+      }
+    }
+
+    // Update nav next link
+    var nextIdx = nums.indexOf(maxLoaded) + 1;
+    var newNext = nextIdx < nums.length ? nums[nextIdx] : null;
+    var navRight = document.querySelector(".nav-right");
+    if (newNext) {
+      navRight.innerHTML = '<a href="' + newNext + '.html" rel="next">Ch ' + newNext + ' &#8594;</a>';
+    } else {
+      navRight.innerHTML = '<span></span>';
+    }
+
+    status.style.display = "none";
+    btn.textContent = newNext ? "⊕ Merge Next 10" : "✓ All loaded";
+    btn.disabled = !newNext;
+    merging = false;
+
+    if (firstNew) firstNew.scrollIntoView({ behavior:"smooth", block:"start" });
+  });
+</script>
+</body>
+</html>

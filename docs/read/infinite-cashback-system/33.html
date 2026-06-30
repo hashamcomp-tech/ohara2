@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chapter 33 — Infinite Cashback System</title>
+  <style>
+    :root { --ink:#1a1a1a; --dim:#666; --bg:#fff; --gold:#8a6a1a; --border:#ddd; }
+    @media (prefers-color-scheme:dark) {
+      :root { --ink:#e9e4da; --dim:#9a9286; --bg:#111010; --gold:#c9a84c; --border:#2a2825; }
+    }
+    *{ box-sizing:border-box; margin:0; padding:0; }
+    body{ background:var(--bg); color:var(--ink); font-family:Georgia,'Times New Roman',serif;
+          font-size:1.125rem; line-height:1.85; padding:40px 24px 80px;
+          max-width:680px; margin:0 auto; }
+    header{ margin-bottom:32px; padding-bottom:20px; border-bottom:1px solid var(--border); }
+    header a{ color:var(--gold); text-decoration:none; font-size:.85rem; }
+    h1{ font-size:1.35rem; font-weight:700; margin-top:10px; line-height:1.25; }
+    article p{ margin-bottom:1.4em; text-align:justify; hyphens:auto; }
+    .ch-divider{ text-align:center; padding:28px 0 16px; color:var(--dim);
+                  font-size:.8rem; letter-spacing:.1em; text-transform:uppercase; }
+    .ch-divider::before,.ch-divider::after{ content:''; display:inline-block;
+      width:40px; height:1px; background:var(--border); vertical-align:middle; margin:0 12px; }
+    .ch-title{ font-size:1.1rem; font-weight:700; color:var(--gold); margin-bottom:16px; }
+    nav{ display:grid; grid-template-columns:1fr auto 1fr; gap:10px; align-items:center;
+          margin-top:48px; padding-top:20px; border-top:1px solid var(--border); font-size:.88rem; }
+    nav a{ color:var(--gold); text-decoration:none; }
+    nav a:hover{ text-decoration:underline; }
+    nav .nav-right{ text-align:right; }
+    nav .nav-mid{ text-align:center; }
+    .btn-merge{ background:rgba(138,106,26,.12); border:1px solid var(--gold);
+                 color:var(--gold); padding:9px 16px; border-radius:6px; cursor:pointer;
+                 font-family:Georgia,serif; font-size:.85rem; font-weight:600;
+                 transition:background .15s; white-space:nowrap; }
+    .btn-merge:hover:not(:disabled){ background:rgba(138,106,26,.25); }
+    .btn-merge:disabled{ opacity:.35; cursor:not-allowed; }
+    #merge-status{ text-align:center; padding:12px; font-size:.82rem;
+                    color:var(--dim); display:none; }
+  </style>
+</head>
+<body>
+<header>
+  <a href="../../novel.html?slug=infinite-cashback-system">&larr; Infinite Cashback System</a>
+  <h1 id="page-title">Chapter 33</h1>
+</header>
+
+<div id="chapters">
+  <article id="ch-33">
+    <p>Chapter 33: 33 | A First Date in Aisle Five</p>
+    <p>They took the elevator down in silence. Chloe kept her eyes on the descending floor numbers while Jordan leaned against the wall. The lobby was empty when they crossed to the parking garage.</p>
+    <p>&quot;We can take my car,&quot; Jordan said.</p>
+    <p>&quot;Are you sure? I can drive.&quot;</p>
+    <p>&quot;I’m sure.&quot;</p>
+    <p>His white Civic sat in its usual spot three spaces away from Chloe’s. Jordan unlocked it and climbed into the driver’s seat. Chloe got in the passenger side and immediately noticed how clean the interior was. No fast food bags. No empty energy drinks. Just a phone charger plugged into the console and a pair of sunglasses in the cupholder.</p>
+    <p>Jordan started the engine and backed out of the space. &quot;Which Walgreens?&quot;</p>
+    <p>&quot;There’s one on PCH near the Ralph’s. About ten minutes from here.&quot;</p>
+    <p>&quot;Got it.&quot;</p>
+    <p>He pulled out of the garage and turned left onto the street. Chloe watched the buildings pass through the window and tried to think of something to say that wasn’t completely insane.</p>
+    <p>&quot;Your car is really clean,&quot; she said.</p>
+    <p>Okay that was stupid.</p>
+    <p>&quot;I cleaned it yesterday,&quot; Jordan said. &quot;Same time I cleaned the apartment.&quot;</p>
+    <p>&quot;Oh. The eight trash bags.&quot;</p>
+    <p>&quot;Yeah.&quot;</p>
+    <p>Chloe risked a glance at him. His jaw was sharper than she remembered from yesterday. His hands on the steering wheel were relaxed.</p>
+    <p>&quot;Thanks for sticking up for me,&quot; Jordan said. &quot;Back at the student union.&quot;</p>
+    <p>&quot;Oh.&quot; Chloe looked down at her hands. &quot;That was nothing. Alexis is my friend but sometimes she’s a total nightmare. What she said was cruel.&quot;</p>
+    <p>&quot;She wasn’t wrong though.&quot;</p>
+    <p>&quot;What?&quot;</p>
+    <p>&quot;I did spend twenty-eight hundred dollars on a Prada bag. I did think it would make Eliza like me. And she did cheat on me anyway.&quot; His voice was flat. Matter-of-fact.</p>
+    <p>&quot;So the joke’s pretty accurate.&quot;</p>
+    <p>Chloe’s chest tightened. &quot;That doesn’t make it okay to laugh about.&quot;</p>
+    <p>&quot;Doesn’t make it not funny either.&quot;</p>
+    <p>&quot;It’s not funny.&quot;</p>
+    <p>Jordan glanced at her, then back at the road. &quot;You’re weirdly defensive about this.&quot;</p>
+    <p>&quot;Because you shouldn’t let people treat you like a punchline.&quot;</p>
+    <p>&quot;Pretty sure I became the punchline the second I handed over my credit card.&quot;</p>
+    <p>&quot;You were trying to make someone happy. That’s not pathetic. That’s just, I don’t know, hopeful or something.&quot; Chloe’s voice came out sharper than she intended. &quot;The pathetic part is Eliza taking your money and then cheating on you. She’s the villain in this story, not you.&quot;</p>
+    <p>Silence filled the car. Jordan’s knuckles were white on the steering wheel.</p>
+    <p>&quot;Sorry,&quot; Chloe said quietly. &quot;I’m getting worked up about something that’s none of my business.&quot;</p>
+    <p>&quot;No, it’s.&quot; Jordan paused. &quot;It’s nice. Having someone get worked up on my behalf.&quot;</p>
+    <p>The Walgreens parking lot appeared on their right. Jordan pulled in and found a spot near the entrance. They both got out and walked toward the automatic doors.</p>
+    <p>Inside, the fluorescent lights buzzed overhead. A bored cashier stood at the register scrolling through her phone. The store was mostly empty except for an old woman examining vitamin bottles near the pharmacy counter.</p>
+    <p>&quot;Snack aisle?&quot; Jordan said.</p>
+    <p>&quot;This way.&quot;</p>
+    <p>Chloe led him past the seasonal clearance section and the greeting cards to the aisle marked Snacks and Candy. Rows of chips and cookies and chocolate stretched from floor to ceiling.</p>
+    <p>&quot;Okay.&quot; Chloe stopped in front of the popcorn options. &quot;What kind of movie are we watching?&quot;</p>
+    <p>&quot;I don’t know. You invited me.&quot;</p>
+    <p>&quot;Right.&quot; She grabbed a box of microwave popcorn. Movie theater butter. &quot;Comedy? Horror? Action?&quot;</p>
+    <p>&quot;You pick.&quot;</p>
+    <p>&quot;That’s not helpful.&quot;</p>
+    <p>&quot;I’m not picky.&quot;</p>
+    <p>Chloe added a bag of sour gummy worms to the basket she’d grabbed from the front. Then Reese’s Pieces. Then a bag of white cheddar popcorn because the microwave kind would take too long.</p>
+    <p>Jordan picked up a bag of beef jerky and tossed it in the basket. &quot;This okay?&quot;</p>
+    <p>&quot;Sure.&quot;</p>
+    <p>&quot;You want anything to drink?&quot;</p>
+    <p>&quot;Like soda?&quot;</p>
+    <p>&quot;Or water. Whatever.&quot;</p>
+    <p>They walked to the refrigerated section. Chloe grabbed two bottles of water and Jordan added a Coke.</p>
+    <p>They wandered through the store without any real destination. Jordan stopped to look at phone chargers. Chloe pretended to examine a display of travel-sized toiletries.</p>
+    <p>Her phone buzzed. A subscriber asking when her next post was going up. She ignored it.</p>
+    <p>&quot;You need anything else?&quot; Jordan asked.</p>
+    <p>&quot;No, I think we’re good.&quot;</p>
+    <p>They turned down another aisle. Chloe was looking at the selection of chips when her gaze drifted to the shelf above.</p>
+    <p>Condoms.</p>
+    <p>Her face heated immediately.</p>
+    <p>A wall of them. Different brands, different colors, different sizes. The boxes stared at her with their cheerful fonts and promises of protection.</p>
+    <p>Chloe looked away fast. Focused very hard on a bag of Doritos.</p>
+    <p>But her brain was already spiraling.</p>
+    <p>Should she buy some? Just in case?</p>
+    <p>No. Absolutely not. Nothing was going to happen. This was just neighbors watching Netflix. She’d said that explicitly. Not a date. Just two people sitting on a couch eating snacks.</p>
+    <p>But.</p>
+    <p>What if something did happen?</p>
+    <p>Better to be prepared than caught without, right? That was just being responsible. Adult. Practical.</p>
+    <p>Except if she bought them now, with Jordan standing five feet away, that would be insane. That would be broadcasting her intentions. That would be her basically announcing that she expected them to have sex tonight.</p>
+    <p>Which she didn’t.</p>
+    <p>Definitely didn’t.</p>
+    <p>Chloe’s hands were shaking slightly as she held the basket.</p>
+    <p>Jordan was looking at something on his phone. Not paying attention. She could just grab a box. Slip it under the popcorn. Pay separately at the register if she had to.</p>
+    <p>No.</p>
+    <p>That was crazy.</p>
+    <p>This was neighbors hanging out. Chloe had made that extremely clear. Jordan had agreed. There were rules. Boundaries. She’d slammed the door in his face yesterday for showing up unannounced.</p>
+    <p>But then she’d seen him shirtless and sweaty and her entire brain had short-circuited.</p>
+    <p>Stop.</p>
+    <p>Chloe forced herself to move past the condom display without touching anything. Jordan fell into step beside her as they headed toward the checkout.</p>
+    <p>The cashier scanned their items without comment. Jordan paid before Chloe could pull out her wallet.</p>
+    <p>&quot;I can get it,&quot; she said.</p>
+    <p>&quot;I got it.&quot;</p>
+    <p>&quot;Jordan.&quot;</p>
+    <p>&quot;It’s like fifteen bucks. Don’t worry about it.&quot;</p>
+    <p>They walked back to the car with the plastic bag of snacks. Jordan tossed it in the backseat and started the engine. The drive back to the Cooper Garment Lofts took eight minutes. Jordan parked in his usual spot and they took the elevator up in silence.</p>
+    <p>Chloe’s heart was beating too fast. Her palms were sweating. She wiped them on her jeans as they walked down the fourth floor hallway.</p>
+    <p>&quot;You can still bail,&quot; she said when they reached her door. &quot;If you want. No pressure.&quot;</p>
+    <p>Jordan looked at her. His hazel eyes were tired but something else lived behind them now. Something that hadn’t been there thirty minutes ago.</p>
+    <p>&quot;I’m not bailing,&quot; he said.</p>
+    <p>Chloe unlocked her door. &quot;Okay then.&quot;</p>
+  </article>
+</div>
+
+<div id="merge-status"></div>
+
+<nav>
+  <span class="nav-left"><a href="32.html" rel="prev">&#8592; Ch 32</a></span>
+  <span class="nav-mid">
+    <button class="btn-merge" id="btn-merge" >Merge Next 10</button>
+  </span>
+  <span class="nav-right"><a href="34.html" rel="next">Ch 34 &#8594;</a></span>
+</nav>
+
+<script>
+  // Chapters available after this one — discovered from meta.json
+  var slug       = "infinite-cashback-system";
+  var currentNum = 33;
+  var nextNum    = 34;
+  var maxLoaded  = currentNum;
+  var allNums    = null;   // loaded lazily from meta.json
+  var merging    = false;
+  var root       = "../../";
+
+  async function getNums() {
+    if (allNums) return allNums;
+    var res = await fetch(root + "data/" + slug + "/meta.json");
+    var meta = await res.json();
+    allNums = meta.chapters.map(function(c){ return c.num; });
+    return allNums;
+  }
+
+  document.getElementById("btn-merge").addEventListener("click", async function() {
+    if (merging) return;
+    merging = true;
+    var btn    = document.getElementById("btn-merge");
+    var status = document.getElementById("merge-status");
+    btn.textContent = "Loading…";
+    btn.disabled = true;
+
+    var nums   = await getNums();
+    var idx    = nums.indexOf(maxLoaded);
+    var toLoad = nums.slice(idx + 1, idx + 11);
+    if (!toLoad.length) { merging = false; return; }
+
+    status.style.display = "block";
+    status.textContent = "Fetching chapters " + toLoad[0] + "–" + toLoad[toLoad.length-1] + "…";
+
+    var container = document.getElementById("chapters");
+    var firstNew  = null;
+
+    for (var i = 0; i < toLoad.length; i++) {
+      var n = toLoad[i];
+      try {
+        var res  = await fetch(n + ".html");
+        var html = await res.text();
+        var doc  = new DOMParser().parseFromString(html, "text/html");
+        var art  = doc.querySelector("article");
+        var h1   = doc.querySelector("h1");
+        if (!art) continue;
+
+        // Divider
+        var divider = document.createElement("div");
+        divider.className = "ch-divider";
+        divider.textContent = "Chapter " + n;
+        container.appendChild(divider);
+
+        // Chapter title
+        if (h1) {
+          var chTitle = document.createElement("div");
+          chTitle.className = "ch-title";
+          chTitle.textContent = h1.textContent;
+          container.appendChild(chTitle);
+        }
+
+        // Content
+        var section = document.createElement("article");
+        section.id = "ch-" + n;
+        section.innerHTML = art.innerHTML;
+        container.appendChild(section);
+
+        if (!firstNew) firstNew = divider;
+        maxLoaded = n;
+      } catch(e) {
+        console.warn("Failed to load chapter " + n, e);
+      }
+    }
+
+    // Update nav next link
+    var nextIdx = nums.indexOf(maxLoaded) + 1;
+    var newNext = nextIdx < nums.length ? nums[nextIdx] : null;
+    var navRight = document.querySelector(".nav-right");
+    if (newNext) {
+      navRight.innerHTML = '<a href="' + newNext + '.html" rel="next">Ch ' + newNext + ' &#8594;</a>';
+    } else {
+      navRight.innerHTML = '<span></span>';
+    }
+
+    status.style.display = "none";
+    btn.textContent = newNext ? "⊕ Merge Next 10" : "✓ All loaded";
+    btn.disabled = !newNext;
+    merging = false;
+
+    if (firstNew) firstNew.scrollIntoView({ behavior:"smooth", block:"start" });
+  });
+</script>
+</body>
+</html>
