@@ -538,6 +538,22 @@
       ],
       "totalChapters": 95,
       "lastUpdated": "2026-06-29"
+    },
+    {
+      "slug": "omniscient-readers-viewpoint-novel",
+      "title": "Omniscient Reader's Viewpoint",
+      "cover": "data/omniscient-readers-viewpoint-novel/cover.jpg",
+      "tags": [
+        "Drama",
+        "Mature",
+        "Psychological",
+        "Adventure",
+        "Martial Arts",
+        "Action",
+        "Fantasy"
+      ],
+      "totalChapters": 552,
+      "lastUpdated": "2026-06-30"
     }
   ]
 }
