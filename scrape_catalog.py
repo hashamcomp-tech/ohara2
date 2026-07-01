@@ -25,7 +25,6 @@ Usage:
     python scrape_catalog.py --retry-failed     # retry chapters that previously errored
     python scrape_catalog.py --no-site          # skip JSON export (epub only)
     python scrape_catalog.py --no-epub          # skip epub, only export JSON for site
-    python scrape_catalog.py --chapter-limit 500  # skip novels with more than 500 chapters
 """
 
 import argparse
@@ -758,7 +757,6 @@ def scrape_novel(
     force_full: bool = False,
     export_site: bool = True,
     export_epub: bool = True,
-    chapter_limit: int | None = None,
 ) -> bool:
     slug       = novel_url.rstrip("/").split("/")[-1]
     print(f"\n{'─'*60}")
@@ -784,11 +782,6 @@ def scrape_novel(
     print(f"  Tags:   {', '.join(tags) if tags else '(none)'}")
     print(f"  Cover:  {cover_url or '(none)'}")
     print(f"  Remote: {total} chapter(s) available")
-
-    # ── chapter-limit guard ──────────────────────────────────────
-    if chapter_limit is not None and total > chapter_limit:
-        print(f"  [skip] {total} chapters exceeds --chapter-limit {chapter_limit} — skipping.")
-        return False
 
     # ── decide what to download ──────────────────────────────────
     first_needed = local_highest + 1
@@ -885,6 +878,8 @@ def scrape_novel(
 def git_push_novel(slug: str, novel_name: str) -> bool:
     """
     Stage docs/data/<slug>/ and index.json, commit and push to GitHub.
+    Pulls remote changes first (rebase) so code updates from GitHub
+    are always merged in before pushing novel data.
     Called after each novel when --auto-push is set.
     Returns True if push succeeded.
     """
@@ -909,6 +904,8 @@ def git_push_novel(slug: str, novel_name: str) -> bool:
     code, out = run(["git", "status", "--porcelain"])
     if not out.strip():
         print(f"  [git] Nothing new to commit for {novel_name} — already up to date.")
+        # Still pull in case there are remote code updates
+        run(["git", "pull", "--rebase", "--autostash", "origin", "main"])
         return True
 
     msg = f"add/update: {novel_name}"
@@ -917,6 +914,20 @@ def git_push_novel(slug: str, novel_name: str) -> bool:
         print(f"  [git] Commit failed: {out}")
         return False
     print(f"  [git] Committed: {msg}")
+
+    # ── Pull remote changes before pushing ───────────────────────
+    # --autostash: temporarily stashes any unstaged changes so rebase
+    #              doesn't abort, then restores them after.
+    print(f"  [git] Pulling remote updates…")
+    code, out = run(["git", "pull", "--rebase", "--autostash", "origin", "main"])
+    if code != 0:
+        print(f"  [git] Pull/rebase failed: {out}")
+        print(f"  [git] Attempting push anyway…")
+    else:
+        if "Already up to date" in out or not out.strip():
+            print(f"  [git] Already up to date.")
+        else:
+            print(f"  [git] Pulled and rebased: {out.splitlines()[0]}")
 
     code, out = run(["git", "push"])
     if code != 0:
@@ -987,6 +998,118 @@ def fetch_tags_for_all(auto_push: bool = False) -> None:
         print("Push with: git add docs/data/ && git commit -m 'add tags' && git push")
 
 
+def delete_by_genre(genres: list[str], dry_run: bool = False, auto_push: bool = False) -> None:
+    """
+    Delete all novels whose tags contain any of the given genres.
+    Removes:
+      - docs/data/<slug>/   (JSON data)
+      - docs/read/<slug>/   (static HTML, if exists)
+      - output/<slug>/      (epubs, if exists)
+    Also updates docs/data/index.json to remove the entry.
+    """
+    import shutil
+
+    # Normalise input genres for case-insensitive matching
+    target = {g.strip().lower() for g in genres}
+    print(f"\nLooking for novels tagged with: {', '.join(sorted(target))}\n")
+
+    index_path = os.path.join(SITE_DIR, "data", "index.json")
+    if not os.path.exists(index_path):
+        print("No index.json found — nothing to do.")
+        return
+
+    with open(index_path, encoding="utf-8") as f:
+        index = json.load(f)
+
+    to_delete = []
+    to_keep   = []
+
+    for novel in index.get("novels", []):
+        novel_tags = {t.strip().lower() for t in novel.get("tags", [])}
+        if novel_tags & target:   # any overlap
+            to_delete.append(novel)
+        else:
+            to_keep.append(novel)
+
+    if not to_delete:
+        print("No novels found with those tags.")
+        return
+
+    print(f"Found {len(to_delete)} novel(s) to delete:")
+    for n in to_delete:
+        matched = [t for t in n.get("tags", []) if t.lower() in target]
+        print(f"  - {n['title']} ({n['slug']}) — matched tags: {', '.join(matched)}")
+
+    if dry_run:
+        print(f"\n[Dry run] Nothing deleted. Remove --dry-run to actually delete.")
+        return
+
+    # Confirm unless running non-interactively
+    try:
+        confirm = input(f"\nDelete these {len(to_delete)} novel(s)? [y/N] ").strip().lower()
+    except EOFError:
+        confirm = 'y'
+
+    if confirm != 'y':
+        print("Aborted.")
+        return
+
+    deleted = []
+    for novel in to_delete:
+        slug = novel["slug"]
+        novel_name = novel.get("title", slug)
+
+        # Remove docs/data/<slug>/
+        data_dir = os.path.join(SITE_DIR, "data", slug)
+        if os.path.isdir(data_dir):
+            shutil.rmtree(data_dir)
+            print(f"  ✓ Removed {data_dir}")
+
+        # Remove docs/read/<slug>/ if exists
+        read_dir = os.path.join(SITE_DIR, "read", slug)
+        if os.path.isdir(read_dir):
+            shutil.rmtree(read_dir)
+            print(f"  ✓ Removed {read_dir}")
+
+        # Remove output/<slug>/ if exists
+        epub_dir = os.path.join("output", slug)
+        if os.path.isdir(epub_dir):
+            shutil.rmtree(epub_dir)
+            print(f"  ✓ Removed {epub_dir}")
+
+        deleted.append(slug)
+
+    # Update index.json
+    index["novels"] = to_keep
+    with open(index_path, "w", encoding="utf-8") as f:
+        json.dump(index, f, ensure_ascii=False, indent=2)
+    print(f"\n✓ Removed {len(deleted)} novel(s) from index.json")
+
+    if auto_push and deleted:
+        import subprocess
+        print("\n[git] Staging and pushing deletions…")
+
+        def run(cmd):
+            r = subprocess.run(cmd, capture_output=True, text=True)
+            return r.returncode, (r.stdout + r.stderr).strip()
+
+        run(["git", "add", "-A", os.path.join(SITE_DIR, "data")])
+        run(["git", "add", "-A", os.path.join(SITE_DIR, "read")])
+        run(["git", "add", "-A", "output"])
+        run(["git", "add", index_path])
+
+        msg = f"delete novels with genre(s): {', '.join(sorted(target))}"
+        code, out = run(["git", "commit", "-m", msg])
+        if code != 0:
+            print(f"  Commit failed: {out}")
+            return
+        code, out = run(["git", "push"])
+        if code == 0:
+            print(f"  ✓ Pushed to GitHub.")
+        else:
+            print(f"  Push failed: {out}")
+
+
 def regenerate_static_html() -> None:
     """
     Read every chapter JSON already in docs/data/ and write the
@@ -1052,7 +1175,6 @@ def update_all_local_novels(
     export_site: bool = True,
     export_epub: bool = True,
     auto_push: bool = False,
-    chapter_limit: int | None = None,
 ) -> None:
     slugs = get_all_local_slugs()
     if not slugs:
@@ -1073,10 +1195,6 @@ def update_all_local_novels(
             errors += 1
             time.sleep(PAGE_DELAY)
             continue
-        if chapter_limit is not None and total > chapter_limit:
-            print(f"  [skip] {total} chapters exceeds --chapter-limit {chapter_limit} — skipping.")
-            time.sleep(PAGE_DELAY)
-            continue
         if local_highest >= total:
             print(f"  ✓ Up to date ({total} chapters)")
             up_to_date += 1
@@ -1084,8 +1202,7 @@ def update_all_local_novels(
             continue
         print(f"  ↑ {total - local_highest} new chapter(s) (local: {local_highest}, remote: {total})")
         novel_name = info.get("title") or slug.replace("-", " ").title()
-        success = scrape_novel(novel_url, export_site=export_site, export_epub=export_epub,
-                               chapter_limit=chapter_limit)
+        success = scrape_novel(novel_url, export_site=export_site, export_epub=export_epub)
         if success:
             updated += 1
             if auto_push and export_site:
@@ -1176,8 +1293,16 @@ def main() -> None:
         ))
     parser.add_argument("--retry-failed", action="store_true",
         help=f"Re-download all chapters logged as failed in {FAILED_FILE}.")
+    parser.add_argument("--delete-genre", nargs="+", metavar="GENRE",
+        help=(
+            "Delete all novels tagged with any of the given genres.\n"
+            "Case-insensitive. Removes JSON data, static HTML, and epubs.\n"
+            "Example: --delete-genre harem smut adult\n"
+            "Add --dry-run to preview without deleting anything.\n"
+            "Add --auto-push to commit and push the deletions automatically."
+        ))
     parser.add_argument("--dry-run", action="store_true",
-        help="Discover and print novel URLs from a listing without scraping anything.")
+        help="With --delete-genre: preview what would be deleted without actually deleting.")
     parser.add_argument("--no-epub", action="store_true",
         help=(
             "Skip EPUB generation. Only exports JSON and static HTML for the site.\n"
@@ -1185,16 +1310,14 @@ def main() -> None:
         ))
     parser.add_argument("--no-site", action="store_true",
         help=f"Skip site JSON and HTML export. Only generates EPUBs in output/.")
-    parser.add_argument("--chapter-limit", type=int, default=None, metavar="N",
-        help=(
-            "Skip any novel whose total remote chapter count exceeds N.\n"
-            "Applies in bulk-listing, --update/--watch, and --novel modes.\n"
-            "Example: --chapter-limit 500  (skip novels with more than 500 chapters)"
-        ))
     args = parser.parse_args()
 
     export_site = not args.no_site
     export_epub = not args.no_epub
+
+    if args.delete_genre:
+        delete_by_genre(args.delete_genre, dry_run=args.dry_run, auto_push=args.auto_push)
+        return
 
     if args.rebuild_html:
         regenerate_static_html()
@@ -1216,8 +1339,7 @@ def main() -> None:
             print(f"[Watch] Run #{run} started at {now}")
             print(f"{'═'*60}")
             update_all_local_novels(export_site=export_site, export_epub=export_epub,
-                                    auto_push=args.auto_push,
-                                    chapter_limit=args.chapter_limit)
+                                    auto_push=args.auto_push)
             next_time = time.strftime("%H:%M:%S", time.localtime(time.time() + interval_secs))
             print(f"\n[Watch] Next update at {next_time} — sleeping for {args.interval} minute(s)…")
             try:
@@ -1228,7 +1350,7 @@ def main() -> None:
 
     if args.update:
         update_all_local_novels(export_site=export_site, export_epub=export_epub,
-                                auto_push=args.auto_push, chapter_limit=args.chapter_limit)
+                                auto_push=args.auto_push)
         return
 
     if args.retry_failed:
@@ -1241,8 +1363,7 @@ def main() -> None:
         if not url.startswith("http"):
             url = f"{BASE_URL}/novel/{url}"
         print(f"Scraping single novel: {url}")
-        success = scrape_novel(url, export_site=export_site, export_epub=export_epub,
-                               chapter_limit=args.chapter_limit)
+        success = scrape_novel(url, export_site=export_site, export_epub=export_epub)
         if success:
             mark_done(url)
             slug = url.rstrip("/").split("/")[-1]
@@ -1275,8 +1396,7 @@ def main() -> None:
 
     for idx, url in enumerate(queue, 1):
         print(f"\n[{idx}/{len(queue)}] Starting novel: {url}")
-        success = scrape_novel(url, export_site=export_site, export_epub=export_epub,
-                               chapter_limit=args.chapter_limit)
+        success = scrape_novel(url, export_site=export_site, export_epub=export_epub)
         if success:
             mark_done(url)
             if args.auto_push and export_site:
