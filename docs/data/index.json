@@ -138,7 +138,7 @@
     {
       "slug": "regressor-instruction-manual",
       "title": "Regressor Instruction Manual",
-      "cover": "data/regressor-instruction-manual/cover.jpg",
+      "cover": "https://freewebnovel.com/files/article/image/1/1615/1615s.jpg",
       "tags": [
         "Action",
         "Adventure",
@@ -149,8 +149,8 @@
         "Psychological",
         "Seinen"
       ],
-      "totalChapters": 1582,
-      "lastUpdated": "2026-06-30"
+      "totalChapters": 1583,
+      "lastUpdated": "2026-07-01"
     },
     {
       "slug": "immortality-through-array-formations",

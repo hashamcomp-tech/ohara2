@@ -6329,10 +6329,14 @@
     {
       "num": 1582,
       "title": "Chapter 1582"
+    },
+    {
+      "num": 1583,
+      "title": "Chapter 1583"
     }
   ],
-  "lastUpdated": "2026-06-30",
-  "cover": "data/regressor-instruction-manual/cover.jpg",
+  "lastUpdated": "2026-07-01",
+  "cover": "https://freewebnovel.com/files/article/image/1/1615/1615s.jpg",
   "source": "https://freewebnovel.com/novel/regressor-instruction-manual",
   "tags": [
     "Action",
@@ -6344,5 +6348,5 @@
     "Psychological",
     "Seinen"
   ],
-  "totalChapters": 1582
+  "totalChapters": 1583
 }
