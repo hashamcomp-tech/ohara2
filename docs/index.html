@@ -129,6 +129,7 @@
   let activeTag      = null;
   let searchQuery    = '';
   let offlineSlugSet = new Set();
+  let offlineCoverURLs = {};
   let contentFilterOn = localStorage.getItem('ohara-filter') !== 'off';
 
   // ── Content filter ───────────────────────────────────────────
@@ -168,6 +169,15 @@
         (a.lastUpdated || '').localeCompare(b.lastUpdated || '')
       );
       offlineSlugSet = new Set(await listOfflineSlugs());
+
+      // Pre-load offline cover blob URLs for saved novels so they show offline
+      offlineCoverURLs = {};
+      if (!navigator.onLine) {
+        await Promise.all([...offlineSlugSet].map(async slug => {
+          const url = await getCoverURL(slug, '');
+          if (url) offlineCoverURLs[slug] = url;
+        }));
+      }
 
       if (!allNovels.length) { showState('state-empty'); return; }
 
@@ -278,10 +288,13 @@
       <div class="novel-card" onclick="go('novel.html',{slug:'${esc(n.slug)}'})" role="link" tabindex="0"
            onkeydown="if(event.key==='Enter')go('novel.html',{slug:'${esc(n.slug)}'})">
         <div class="novel-card-cover">
-          ${n.cover
-            ? `<img src="${esc(n.cover)}" alt="${esc(n.title)}" loading="lazy"
-                    onerror="this.parentElement.innerHTML='<span class=cover-fallback>📖</span>'">`
-            : `<span class="cover-fallback">📖</span>`}
+          ${(() => {
+            const src = offlineCoverURLs[n.slug] || n.cover;
+            return src
+              ? `<img src="${esc(src)}" alt="${esc(n.title)}" loading="lazy"
+                      onerror="this.parentElement.innerHTML='<span class=cover-fallback>📖</span>'">`
+              : `<span class="cover-fallback">📖</span>`;
+          })()}
         </div>
         <div class="novel-card-body">
           <div class="novel-card-title">${esc(n.title)}</div>
