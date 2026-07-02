@@ -1259,7 +1259,23 @@ def main() -> None:
             "  Update all:     --update [--auto-push] [--no-epub]\n"
             "  Auto-update:    --watch [--interval 60] [--auto-push] [--no-epub]\n"
             "  Rebuild HTML:   --rebuild-html\n"
-            "  Retry failures: --retry-failed"
+            "  Retry failures: --retry-failed\n"
+            "  Delete genre:   --delete-genre harem smut [--dry-run] [--auto-push]\n"
+            "  Skip genre:     --exclude-genre harem smut\n\n"
+            "Running in the background with nohup:\n"
+            "  # Single novel, background:\n"
+            "  nohup python3 scrape_catalog.py --novel URL --no-epub --auto-push > output.log 2>&1 &\n\n"
+            "  # Auto-update every hour, background:\n"
+            "  nohup python3 scrape_catalog.py --watch --auto-push --no-epub > watch.log 2>&1 &\n\n"
+            "  # Bulk batch in background (chain novels sequentially):\n"
+            "  nohup bash -c '\n"
+            "    python3 scrape_catalog.py --novel URL1 --no-epub --auto-push\n"
+            "    python3 scrape_catalog.py --novel URL2 --no-epub --auto-push\n"
+            "  ' > batch.log 2>&1 &\n\n"
+            "Monitoring background jobs:\n"
+            "  tail -f watch.log           # live log output\n"
+            "  ps aux | grep scrape        # check if still running\n"
+            "  pkill -f scrape_catalog.py  # stop all scraper processes"
         ),
         formatter_class=argparse.RawDescriptionHelpFormatter,
     )
@@ -1320,6 +1336,7 @@ def main() -> None:
             "To permanently exclude genres without typing this every time,\n"
             f"edit DEFAULT_EXCLUDED_GENRES at the top of {__file__}."
         ))
+    parser.add_argument("--delete-genre", nargs="+", metavar="GENRE",
         help=(
             "Delete all novels tagged with any of the given genres.\n"
             "Case-insensitive. Removes JSON data, static HTML, and epubs.\n"
