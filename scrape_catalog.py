@@ -44,6 +44,7 @@ from ebooklib import epub
 
 # ─────────────────────────── config ───────────────────────────
 BASE_URL          = "https://freewebnovel.com"
+NOVELFIRE_URL     = "https://novelfire.net"
 DEFAULT_LISTING   = f"{BASE_URL}/sort/latest-novel"
 CHAPTERS_PER_VOL  = 5000
 CHAPTER_WORKERS   = 8       # parallel chapter fetches per novel
@@ -400,6 +401,203 @@ def upsert_site_index(
         json.dump(index, f, ensure_ascii=False, indent=2)
 
 
+# ─────────────────────── site detection ────────────────────────
+def detect_site(url: str) -> str:
+    """Return 'novelfire' or 'freewebnovel' based on URL."""
+    if "novelfire.net" in url:
+        return "novelfire"
+    return "freewebnovel"
+
+
+def slug_from_url(url: str) -> str:
+    """Extract the novel slug from any supported URL."""
+    url = url.rstrip("/")
+    for prefix in ("/book/", "/novel/"):
+        if prefix in url:
+            return url.split(prefix)[-1].split("/")[0]
+    return url.split("/")[-1]
+
+
+def url_for_slug(slug: str) -> str:
+    """
+    Return the canonical novel URL for a slug.
+    Reads the 'source' field from meta.json if available
+    so novelfire novels get the right base URL.
+    Falls back to freewebnovel.
+    """
+    meta_path = os.path.join(SITE_DIR, "data", slug, "meta.json")
+    if os.path.exists(meta_path):
+        try:
+            with open(meta_path, encoding="utf-8") as f:
+                meta = json.load(f)
+            src = meta.get("source", "")
+            if src:
+                return src
+        except Exception:
+            pass
+    return f"{BASE_URL}/novel/{slug}"
+
+
+# ──────────────────── NovelFire adapter ────────────────────────
+def _nf_clean_text(text: str) -> str:
+    lines = [line.strip() for line in text.splitlines()]
+    skip  = {"novelfire.net", "novelfire", "novel fire"}
+    lines = [l for l in lines if not any(s in normalize(l) for s in skip)]
+    lines = [l for l in lines if not (len(l) < 40 and ".net" in normalize(l))]
+    merged = []
+    for line in lines:
+        if (merged and merged[-1]
+                and not merged[-1].endswith((".", "!", "?", ":", '"', "'"))
+                and line and line[0].islower()):
+            merged[-1] += " " + line
+        else:
+            merged.append(line)
+    result, prev_blank = [], False
+    for line in merged:
+        if not line:
+            if not prev_blank:
+                result.append("")
+            prev_blank = True
+        else:
+            result.append(line)
+            prev_blank = False
+    return "\n\n".join(l for l in result if l)
+
+
+def nf_get_novel_page_info(novel_url: str) -> dict:
+    try:
+        res = requests.get(novel_url, headers=HEADERS, timeout=20)
+        res.raise_for_status()
+    except Exception as e:
+        print(f"  [warn] Could not fetch novel page: {e}")
+        return {"total": None, "cover": "", "title": "", "tags": []}
+
+    soup = BeautifulSoup(res.text, "html.parser")
+
+    og_title = soup.find("meta", property="og:title")
+    title = og_title["content"].replace(" - Novel Fire", "").strip() if og_title else ""
+    if not title:
+        h1 = soup.find("h1")
+        title = h1.get_text(strip=True) if h1 else ""
+
+    og_image = soup.find("meta", property="og:image")
+    cover = og_image["content"].strip() if og_image and og_image.get("content") else ""
+
+    tags: list[str] = []
+    seen_tags: set[str] = set()
+    for a in soup.select("a[href*='/genre-']"):
+        m = re.search(r"/genre-([^/]+)/", a.get("href", ""))
+        if m:
+            tag = m.group(1).replace("-", " ").title()
+            if tag.lower() not in seen_tags and tag.lower() != "all":
+                tags.append(tag)
+                seen_tags.add(tag.lower())
+
+    total = None
+    for tag in soup.find_all(string=re.compile(r"\d+\s*Chapters?")):
+        m = re.search(r"(\d+)", tag)
+        if m:
+            total = int(m.group(1))
+            break
+    if not total:
+        max_ch = 0
+        for a in soup.select("a[href*='/chapter-']"):
+            m = re.search(r"/chapter-(\d+)", a.get("href", ""))
+            if m:
+                max_ch = max(max_ch, int(m.group(1)))
+        total = max_ch if max_ch else None
+
+    return {"total": total, "cover": cover, "title": title, "tags": tags}
+
+
+def nf_fetch_chapter_once(i: int, url: str) -> tuple[int, str, str]:
+    res = requests.get(url, headers=HEADERS, timeout=20)
+    res.raise_for_status()
+    time.sleep(CHAPTER_DELAY)
+    soup = BeautifulSoup(res.text, "html.parser")
+
+    h1 = soup.find("h1")
+    if h1:
+        for a in h1.find_all("a"):
+            a.decompose()
+        title_text = h1.get_text(strip=True).strip() or f"Chapter {i}"
+    else:
+        title_text = f"Chapter {i}"
+
+    content_div = (
+        soup.select_one("div.chapter-content")
+        or soup.select_one("div#chapter-content")
+        or soup.select_one("div.content")
+    )
+    if content_div:
+        for tag in content_div.select("script,style,ins,iframe,h1,h2,h3,a,.ads"):
+            tag.decompose()
+        text = content_div.get_text(separator="\n")
+    else:
+        body = soup.find("body")
+        paras = []
+        if body:
+            for p in body.find_all("p"):
+                t = p.get_text(strip=True)
+                if t and len(t) > 20:
+                    paras.append(t)
+        text = "\n\n".join(paras)
+
+    cleaned = _nf_clean_text(text)
+    if not cleaned:
+        raise ValueError("Chapter content empty after cleaning")
+    return i, title_text, cleaned
+
+
+def nf_get_listing_page_novels(page_url: str) -> list[str]:
+    try:
+        res = requests.get(page_url, headers=HEADERS, timeout=20)
+        res.raise_for_status()
+    except Exception as e:
+        print(f"  [warn] Could not fetch listing page {page_url}: {e}")
+        return []
+    soup = BeautifulSoup(res.text, "html.parser")
+    urls = []
+    seen: set[str] = set()
+    for a in soup.select("a[href]"):
+        href = a["href"]
+        if re.match(r"^/book/[^/]+/?$", href) or re.match(
+            r"^https://novelfire\.net/book/[^/]+/?$", href
+        ):
+            full = href if href.startswith("http") else NOVELFIRE_URL + href
+            full = full.rstrip("/")
+            if full not in seen:
+                seen.add(full)
+                urls.append(full)
+    return urls
+
+
+def nf_discover_all_novels(listing_base: str, max_pages: int | None = None) -> list[str]:
+    all_urls: list[str] = []
+    seen: set[str] = set()
+    page = 1
+    base = re.sub(r"\?page=\d+", "", listing_base).rstrip("/")
+    print(f"Discovering novels from: {base}")
+    while True:
+        if max_pages and page > max_pages:
+            print(f"  Reached page limit ({max_pages}).")
+            break
+        page_url = base if page == 1 else f"{base}?page={page}"
+        print(f"  Fetching listing page {page}: {page_url}")
+        novels = nf_get_listing_page_novels(page_url)
+        new = [u for u in novels if u not in seen]
+        if not new:
+            print(f"  No new novels on page {page} — done discovering.")
+            break
+        seen.update(new)
+        all_urls.extend(new)
+        print(f"  Found {len(new)} novel(s) on page {page} ({len(all_urls)} total so far)")
+        page += 1
+        time.sleep(PAGE_DELAY)
+    print(f"\nTotal novels discovered: {len(all_urls)}\n")
+    return all_urls
+
+
 # ─────────────────────── listing crawler ───────────────────────
 def get_listing_page_novels(page_url: str) -> list[str]:
     """Return novel URLs found on one listing page."""
@@ -424,6 +622,9 @@ def get_listing_page_novels(page_url: str) -> list[str]:
 
 
 def discover_all_novels(listing_base: str, max_pages: int | None = None) -> list[str]:
+    if detect_site(listing_base) == "novelfire":
+        return nf_discover_all_novels(listing_base, max_pages)
+    # ── freewebnovel ─────────────────────────────────────────────
     all_urls: list[str] = []
     seen: set[str] = set()
     page = 1
@@ -456,7 +657,10 @@ def get_novel_page_info(novel_url: str) -> dict:
       - cover URL (str or "")
       - title (str or "")
       - tags (list[str])
+    Routes to the correct site adapter automatically.
     """
+    if detect_site(novel_url) == "novelfire":
+        return nf_get_novel_page_info(novel_url)
     try:
         res = requests.get(novel_url, headers=HEADERS, timeout=20)
         res.raise_for_status()
@@ -517,6 +721,8 @@ def get_novel_page_info(novel_url: str) -> dict:
 
 # ───────────────────────── chapter scraping ────────────────────
 def _fetch_chapter_once(i: int, url: str) -> tuple[int, str, str]:
+    if detect_site(url) == "novelfire":
+        return nf_fetch_chapter_once(i, url)
     res = requests.get(url, headers=HEADERS, timeout=20)
     res.raise_for_status()
     time.sleep(CHAPTER_DELAY)
@@ -597,7 +803,7 @@ def retry_failed_chapters(export_site: bool = True) -> None:
 
     for slug, chapters in by_slug.items():
         novel_name = slug.replace("-", " ").title()
-        novel_url  = f"{BASE_URL}/novel/{slug}"
+        novel_url  = url_for_slug(slug)
         print(f"Novel: {novel_name} — retrying {len(chapters)} chapter(s)")
         tasks = [(num, url, slug) for num, url in chapters]
         recovered: list[tuple[int, str, str]] = []
@@ -766,10 +972,17 @@ def scrape_novel(
     excluded_genres: set[str] | None = None,
 ) -> bool:
     excluded_genres = excluded_genres or set()
-    slug       = novel_url.rstrip("/").split("/")[-1]
+    site = detect_site(novel_url)
+    slug = slug_from_url(novel_url)
     print(f"\n{'─'*60}")
-    print(f"Novel: {slug}")
+    print(f"Novel: {slug}  [{site}]")
     print(f"URL:   {novel_url}")
+
+    # Chapter URL pattern differs by site
+    def chapter_url(n: int) -> str:
+        if site == "novelfire":
+            return f"{NOVELFIRE_URL}/book/{slug}/chapter-{n}"
+        return f"{BASE_URL}/novel/{slug}/chapter-{n}"
 
     # ── what we already have locally ────────────────────────────
     local_highest, next_vol_num = (0, 1) if force_full else get_local_novel_state(slug)
@@ -826,7 +1039,7 @@ def scrape_novel(
 
     for vol_num, start, end in volumes:
         print(f"\n  Volume {vol_num}: chapters {start}–{end}")
-        tasks = [(i, f"{novel_url}/chapter-{i}", slug) for i in range(start, end + 1)]
+        tasks = [(i, chapter_url(i), slug) for i in range(start, end + 1)]
         results: dict[int, tuple[str, str]] = {}
 
         with ThreadPoolExecutor(max_workers=CHAPTER_WORKERS) as executor:
@@ -968,7 +1181,7 @@ def fetch_tags_for_all(auto_push: bool = False) -> None:
     print(f"Fetching tags for {len(slugs)} novel(s)…\n")
 
     for idx, slug in enumerate(sorted(slugs), 1):
-        novel_url  = f"{BASE_URL}/novel/{slug}"
+        novel_url  = url_for_slug(slug)
         print(f"[{idx}/{len(slugs)}] {slug}")
         info = get_novel_page_info(novel_url)
         tags       = info.get("tags", [])
@@ -1203,7 +1416,7 @@ def update_all_local_novels(
     up_to_date = updated = errors = 0
 
     for idx, slug in enumerate(sorted(slugs), 1):
-        novel_url  = f"{BASE_URL}/novel/{slug}"
+        novel_url  = url_for_slug(slug)
         print(f"[{idx}/{len(slugs)}] {slug}")
         local_highest, _ = get_local_novel_state(slug)
         info  = get_novel_page_info(novel_url)
