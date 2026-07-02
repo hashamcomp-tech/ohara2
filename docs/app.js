@@ -238,7 +238,20 @@ async function autoSyncOfflineLibrary(onNovelDone) {
 async function saveNovelOffline(slug, progressCb) {
   const db   = await openOharaDB();
   const meta = await networkLoadNovelMeta(slug);
-  await idbPut(db, 'novels', { slug, meta, savedAt: Date.now() });
+
+  // Fetch and store the cover image as a blob
+  if (meta.cover) {
+    try {
+      const res  = await fetch(meta.cover);
+      const blob = await res.blob();
+      await idbPut(db, 'novels', { slug, meta, coverBlob: blob, savedAt: Date.now() });
+    } catch (e) {
+      // Cover fetch failed (network error, CORS, etc.) — store without it
+      await idbPut(db, 'novels', { slug, meta, savedAt: Date.now() });
+    }
+  } else {
+    await idbPut(db, 'novels', { slug, meta, savedAt: Date.now() });
+  }
 
   const chapters = meta.chapters || [];
   const existing = await idbGetAllByIndex(db, 'chapters', 'bySlug', slug);
@@ -248,7 +261,7 @@ async function saveNovelOffline(slug, progressCb) {
   let done = chapters.length - toFetch.length;
   if (progressCb) progressCb(done, chapters.length);
 
-  const BATCH = 6; // fetch a handful in parallel at a time
+  const BATCH = 6;
   for (let i = 0; i < toFetch.length; i += BATCH) {
     const batch = toFetch.slice(i, i + BATCH);
     await Promise.all(batch.map(async c => {
@@ -265,6 +278,25 @@ async function saveNovelOffline(slug, progressCb) {
   }
 
   return meta;
+}
+
+/**
+ * Get the best available cover URL for a novel.
+ * Online: returns the remote URL directly.
+ * Offline: returns an object URL created from the stored blob,
+ *          or the remote URL as fallback if no blob was saved.
+ * Call URL.revokeObjectURL() on the returned URL when done if it starts with 'blob:'.
+ */
+async function getCoverURL(slug, remoteURL) {
+  if (navigator.onLine) return remoteURL || '';
+  try {
+    const db  = await openOharaDB();
+    const rec = await idbGet(db, 'novels', slug);
+    if (rec && rec.coverBlob) {
+      return URL.createObjectURL(rec.coverBlob);
+    }
+  } catch (e) { /* fall through */ }
+  return remoteURL || '';
 }
 
 // ── Offline-aware loaders (drop-in replacements) ─────────────
