@@ -53,6 +53,12 @@ NOVEL_DELAY       = 3       # seconds between novels
 PROGRESS_FILE     = "scraped_novels.txt"   # tracks completed novels for --resume
 FAILED_FILE       = "failed_chapters.txt"  # tracks chapters that failed after all retries
 RETRY_ATTEMPTS    = 3                      # how many times to retry a failed chapter
+
+# Genres to skip by default when scraping listings/updates.
+# Add genres here (lowercase) to permanently exclude them without
+# needing to type --exclude-genre every time.
+# Example: DEFAULT_EXCLUDED_GENRES = {"harem", "smut", "adult"}
+DEFAULT_EXCLUDED_GENRES: set[str] = set()
 RETRY_BACKOFF     = [10, 30, 60]           # seconds to wait before each retry attempt
 
 # Ohara site output — this folder becomes your GitHub Pages source
@@ -757,7 +763,9 @@ def scrape_novel(
     force_full: bool = False,
     export_site: bool = True,
     export_epub: bool = True,
+    excluded_genres: set[str] | None = None,
 ) -> bool:
+    excluded_genres = excluded_genres or set()
     slug       = novel_url.rstrip("/").split("/")[-1]
     print(f"\n{'─'*60}")
     print(f"Novel: {slug}")
@@ -782,6 +790,14 @@ def scrape_novel(
     print(f"  Tags:   {', '.join(tags) if tags else '(none)'}")
     print(f"  Cover:  {cover_url or '(none)'}")
     print(f"  Remote: {total} chapter(s) available")
+
+    # ── genre filter ─────────────────────────────────────────────
+    if excluded_genres:
+        tag_lower = {t.lower() for t in tags}
+        matched   = excluded_genres & tag_lower
+        if matched:
+            print(f"  [skip] Excluded genre(s): {', '.join(sorted(matched))}")
+            return False
 
     # ── decide what to download ──────────────────────────────────
     first_needed = local_highest + 1
@@ -1175,7 +1191,9 @@ def update_all_local_novels(
     export_site: bool = True,
     export_epub: bool = True,
     auto_push: bool = False,
+    excluded_genres: set[str] | None = None,
 ) -> None:
+    excluded_genres = excluded_genres or set()
     slugs = get_all_local_slugs()
     if not slugs:
         print("No novels found in output/ or docs/data/ — nothing to update.")
@@ -1202,7 +1220,8 @@ def update_all_local_novels(
             continue
         print(f"  ↑ {total - local_highest} new chapter(s) (local: {local_highest}, remote: {total})")
         novel_name = info.get("title") or slug.replace("-", " ").title()
-        success = scrape_novel(novel_url, export_site=export_site, export_epub=export_epub)
+        success = scrape_novel(novel_url, export_site=export_site, export_epub=export_epub,
+                               excluded_genres=excluded_genres)
         if success:
             updated += 1
             if auto_push and export_site:
@@ -1293,7 +1312,14 @@ def main() -> None:
         ))
     parser.add_argument("--retry-failed", action="store_true",
         help=f"Re-download all chapters logged as failed in {FAILED_FILE}.")
-    parser.add_argument("--delete-genre", nargs="+", metavar="GENRE",
+    parser.add_argument("--exclude-genre", nargs="+", metavar="GENRE", default=[],
+        help=(
+            "Skip any novel whose tags include any of these genres.\n"
+            "Case-insensitive. Works with --novel, --listing, --update, --watch.\n"
+            "Example: --exclude-genre harem smut adult\n"
+            "To permanently exclude genres without typing this every time,\n"
+            f"edit DEFAULT_EXCLUDED_GENRES at the top of {__file__}."
+        ))
         help=(
             "Delete all novels tagged with any of the given genres.\n"
             "Case-insensitive. Removes JSON data, static HTML, and epubs.\n"
@@ -1314,6 +1340,11 @@ def main() -> None:
 
     export_site = not args.no_site
     export_epub = not args.no_epub
+
+    # Merge CLI --exclude-genre with any permanently configured DEFAULT_EXCLUDED_GENRES
+    excluded_genres = DEFAULT_EXCLUDED_GENRES | {g.lower() for g in args.exclude_genre}
+    if excluded_genres:
+        print(f"Genre filter active — skipping novels tagged: {', '.join(sorted(excluded_genres))}")
 
     if args.delete_genre:
         delete_by_genre(args.delete_genre, dry_run=args.dry_run, auto_push=args.auto_push)
@@ -1339,7 +1370,7 @@ def main() -> None:
             print(f"[Watch] Run #{run} started at {now}")
             print(f"{'═'*60}")
             update_all_local_novels(export_site=export_site, export_epub=export_epub,
-                                    auto_push=args.auto_push)
+                                    auto_push=args.auto_push, excluded_genres=excluded_genres)
             next_time = time.strftime("%H:%M:%S", time.localtime(time.time() + interval_secs))
             print(f"\n[Watch] Next update at {next_time} — sleeping for {args.interval} minute(s)…")
             try:
@@ -1350,7 +1381,7 @@ def main() -> None:
 
     if args.update:
         update_all_local_novels(export_site=export_site, export_epub=export_epub,
-                                auto_push=args.auto_push)
+                                auto_push=args.auto_push, excluded_genres=excluded_genres)
         return
 
     if args.retry_failed:
@@ -1363,7 +1394,8 @@ def main() -> None:
         if not url.startswith("http"):
             url = f"{BASE_URL}/novel/{url}"
         print(f"Scraping single novel: {url}")
-        success = scrape_novel(url, export_site=export_site, export_epub=export_epub)
+        success = scrape_novel(url, export_site=export_site, export_epub=export_epub,
+                               excluded_genres=excluded_genres)
         if success:
             mark_done(url)
             slug = url.rstrip("/").split("/")[-1]
@@ -1396,7 +1428,8 @@ def main() -> None:
 
     for idx, url in enumerate(queue, 1):
         print(f"\n[{idx}/{len(queue)}] Starting novel: {url}")
-        success = scrape_novel(url, export_site=export_site, export_epub=export_epub)
+        success = scrape_novel(url, export_site=export_site, export_epub=export_epub,
+                               excluded_genres=excluded_genres)
         if success:
             mark_done(url)
             if args.auto_push and export_site:
