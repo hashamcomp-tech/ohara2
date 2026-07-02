@@ -74,10 +74,11 @@
       document.title = `${meta.title} — Ohara`;
       document.getElementById('bc-title').textContent = meta.title;
 
-      // Cover
-      const coverEl = document.getElementById('hero-cover');
-      coverEl.innerHTML = meta.cover
-        ? `<img src="${esc(meta.cover)}" alt="${esc(meta.title)}" onerror="this.parentElement.innerHTML='<span class=cover-fallback>📖</span>'">`
+      // Cover — use blob URL when offline
+      const coverEl  = document.getElementById('hero-cover');
+      const coverURL = await getCoverURL(slug, meta.cover);
+      coverEl.innerHTML = coverURL
+        ? `<img src="${esc(coverURL)}" alt="${esc(meta.title)}" onerror="this.parentElement.innerHTML='<span class=cover-fallback>📖</span>'">`
         : `<span class="cover-fallback">📖</span>`;
 
       document.getElementById('hero-title').textContent = meta.title;
