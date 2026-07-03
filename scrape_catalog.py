@@ -1,8 +1,5 @@
 """
-FreeWebNovel — Catalog Scraper  +  Ohara site exporter
-=======================================================
-Scrapes every novel listed on a sort/genre/search page and turns each into:
- """
+
 FreeWebNovel — Catalog Scraper  +  Ohara site exporter
 =======================================================
 Scrapes every novel listed on a sort/genre/search page and turns each into:
