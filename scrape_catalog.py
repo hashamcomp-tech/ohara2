@@ -497,7 +497,7 @@ def _blob_headers(content_type: str = "application/json; charset=utf-8") -> dict
         "Authorization":       f"Bearer {BLOB_TOKEN}",
         "x-api-version":       BLOB_API_VER,
         "content-type":        content_type,
-        "x-add-random-suffix": "0",
+        "x-add-random-suffix": "false",
     }
 
 
@@ -517,7 +517,10 @@ def cloud_upload(blob_path: str, data: bytes,
         )
     url  = f"{BLOB_UPLOAD_URL}/{blob_path}"
     resp = requests.put(url, data=data, headers=_blob_headers(content_type), timeout=60)
-    resp.raise_for_status()
+    try:
+        resp.raise_for_status()
+    except requests.exceptions.HTTPError as e:
+        raise RuntimeError(f"Vercel Blob API error: {resp.status_code} - {resp.text}") from e
     result     = resp.json()
     public_url = result.get("url", "")
     _cache_blob_url_from_response(public_url)
@@ -1478,6 +1481,7 @@ def scrape_novel(
         _save_blob_config()
         print(f"  ✓ Cloud upload complete  ({_blob_base_url})")
 
+    if export_site:
         # ── generate static HTML pages (Safari Reader compatible) ─
         # We need the full chapter list from meta to resolve prev/next correctly
         meta_path = os.path.join(SITE_DIR, "data", slug, "meta.json")
