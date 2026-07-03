@@ -35,6 +35,12 @@ import re
 import sys
 import time
 import html as html_lib
+
+try:
+    from dotenv import load_dotenv as _load_dotenv
+    _load_dotenv()
+except ImportError:
+    pass  # python-dotenv not installed; env vars must be set manually
 import unicodedata
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import date
@@ -400,6 +406,347 @@ def upsert_site_index(
 
     with open(index_path, "w", encoding="utf-8") as f:
         json.dump(index, f, ensure_ascii=False, indent=2)
+
+
+# ──────────────────── Vercel Blob cloud upload ────────────────────
+#
+# Activated via --cloud (local + Blob) or --cloud-only (Blob only).
+# Requires: BLOB_READ_WRITE_TOKEN in .env or environment.
+#   pip install python-dotenv   (optional, for .env file support)
+# ─────────────────────────────────────────────────────────────────
+BLOB_TOKEN      = os.getenv("BLOB_READ_WRITE_TOKEN", "")
+BLOB_UPLOAD_URL = "https://blob.vercel-storage.com"
+BLOB_API_VER    = "7"
+
+_blob_base_url: str | None = None   # cached after first successful upload or config read
+
+
+def _load_blob_base_url() -> str:
+    """
+    Discover the public Blob store base URL using three strategies (in order):
+      1. Cached in memory
+      2. docs/data/config.json on disk  (written by a prior --cloud run)
+      3. Derived from the BLOB_READ_WRITE_TOKEN structure
+    """
+    global _blob_base_url
+    if _blob_base_url is not None:
+        return _blob_base_url
+
+    config_path = os.path.join(SITE_DIR, "data", "config.json")
+    if os.path.exists(config_path):
+        try:
+            with open(config_path, encoding="utf-8") as f:
+                cfg = json.load(f)
+            base = cfg.get("blobBase", "")
+            if base:
+                _blob_base_url = base
+                return _blob_base_url
+        except Exception:
+            pass
+
+    if BLOB_TOKEN:
+        m = re.match(r"vercel_blob_rw_([A-Za-z0-9]+)_", BLOB_TOKEN)
+        if m:
+            store_id = m.group(1).lower()
+            _blob_base_url = f"https://{store_id}.public.blob.vercel-storage.com"
+            return _blob_base_url
+
+    _blob_base_url = ""
+    return _blob_base_url
+
+
+def _cache_blob_url_from_response(public_url: str) -> None:
+    """Extract and cache the Blob base URL from an upload response URL."""
+    global _blob_base_url
+    if not public_url or _blob_base_url:
+        return
+    # URL looks like: https://xxxx.public.blob.vercel-storage.com/data/slug/...
+    for marker in ["/data/", "/read/"]:
+        idx = public_url.find(marker)
+        if idx != -1:
+            _blob_base_url = public_url[:idx]
+            _save_blob_config()
+            return
+    # Generic fallback
+    parts = public_url.rsplit("/", 1)
+    if len(parts) == 2:
+        _blob_base_url = parts[0]
+        _save_blob_config()
+
+
+def _save_blob_config() -> None:
+    """Persist the Blob base URL to docs/data/config.json."""
+    if not _blob_base_url:
+        return
+    config_path = os.path.join(SITE_DIR, "data", "config.json")
+    os.makedirs(os.path.dirname(config_path), exist_ok=True)
+    try:
+        existing: dict = {}
+        if os.path.exists(config_path):
+            with open(config_path, encoding="utf-8") as f:
+                existing = json.load(f)
+        existing["blobBase"] = _blob_base_url
+        with open(config_path, "w", encoding="utf-8") as f:
+            json.dump(existing, f, ensure_ascii=False, indent=2)
+    except Exception as e:
+        print(f"  [cloud] Warning: could not save config.json: {e}")
+
+
+def _blob_headers(content_type: str = "application/json; charset=utf-8") -> dict:
+    return {
+        "Authorization":       f"Bearer {BLOB_TOKEN}",
+        "x-api-version":       BLOB_API_VER,
+        "content-type":        content_type,
+        "x-add-random-suffix": "0",
+    }
+
+
+def cloud_upload(blob_path: str, data: bytes,
+                 content_type: str = "application/json; charset=utf-8") -> str:
+    """
+    Upload raw bytes to Vercel Blob at the given path.
+    Returns the public URL of the uploaded file.
+    Raises RuntimeError if BLOB_READ_WRITE_TOKEN is not set.
+    """
+    if not BLOB_TOKEN:
+        raise RuntimeError(
+            "BLOB_READ_WRITE_TOKEN is not set.\n"
+            "Create a .env file in the project root:\n"
+            "  BLOB_READ_WRITE_TOKEN=vercel_blob_rw_...\n"
+            "or export it as an environment variable."
+        )
+    url  = f"{BLOB_UPLOAD_URL}/{blob_path}"
+    resp = requests.put(url, data=data, headers=_blob_headers(content_type), timeout=60)
+    resp.raise_for_status()
+    result     = resp.json()
+    public_url = result.get("url", "")
+    _cache_blob_url_from_response(public_url)
+    return public_url
+
+
+def cloud_upload_json(blob_path: str, obj: dict) -> str:
+    """Serialize a dict to compact JSON and upload to Vercel Blob."""
+    data = json.dumps(obj, ensure_ascii=False, separators=(",", ":")).encode("utf-8")
+    return cloud_upload(blob_path, data)
+
+
+def cloud_download_json(blob_path: str) -> dict | None:
+    """
+    Download a JSON file from Vercel Blob.
+    Returns the parsed dict, or None if the file does not exist (404).
+    """
+    base = _load_blob_base_url()
+    if not base:
+        return None
+    try:
+        resp = requests.get(f"{base}/{blob_path}", timeout=20)
+        if resp.status_code == 404:
+            return None
+        resp.raise_for_status()
+        return resp.json()
+    except Exception:
+        return None
+
+
+def cloud_export_chapter_json(slug: str, num: int, title: str, content: str) -> None:
+    """Upload a single chapter JSON to Vercel Blob."""
+    blob_path = f"data/{slug}/chapters/{num}.json"
+    try:
+        cloud_upload_json(blob_path, {"num": num, "title": title, "content": content})
+    except Exception as e:
+        print(f"  [cloud] Warning: failed to upload chapter {num}: {e}")
+
+
+def cloud_upsert_novel_meta(
+    slug: str,
+    title: str,
+    chapters: list[tuple[int, str]],
+    cover_url: str = "",
+    source_url: str = "",
+    tags: list[str] | None = None,
+) -> None:
+    """
+    Merge-write data/<slug>/meta.json to Vercel Blob.
+    Downloads the current Blob version first (if available) so existing
+    chapters not in this batch are preserved — mirrors upsert_novel_meta().
+    """
+    blob_path = f"data/{slug}/meta.json"
+
+    meta = cloud_download_json(blob_path)
+    if meta is None:
+        local_path = os.path.join(SITE_DIR, "data", slug, "meta.json")
+        if os.path.exists(local_path):
+            with open(local_path, encoding="utf-8") as f:
+                meta = json.load(f)
+        else:
+            meta = {"slug": slug, "title": title, "chapters": []}
+
+    meta["slug"]        = slug
+    meta["title"]       = title
+    meta["lastUpdated"] = date.today().isoformat()
+    if cover_url:
+        meta["cover"] = cover_url
+    if source_url:
+        meta["source"] = source_url
+    if tags:
+        meta["tags"] = tags
+
+    existing = {c["num"]: c for c in meta.get("chapters", [])}
+    for num, ch_title in chapters:
+        existing[num] = {"num": num, "title": ch_title}
+
+    meta["chapters"]      = sorted(existing.values(), key=lambda c: c["num"])
+    meta["totalChapters"] = len(meta["chapters"])
+
+    try:
+        cloud_upload_json(blob_path, meta)
+    except Exception as e:
+        print(f"  [cloud] Warning: failed to upload meta.json for {slug}: {e}")
+
+
+def cloud_upsert_index(
+    slug: str,
+    title: str,
+    total_chapters: int,
+    cover_url: str = "",
+    tags: list[str] | None = None,
+) -> None:
+    """
+    Merge-write data/index.json to Vercel Blob.
+    Same merge logic as upsert_site_index() but reads/writes from Blob.
+    """
+    blob_path = "data/index.json"
+
+    index = cloud_download_json(blob_path)
+    if index is None:
+        local_path = os.path.join(SITE_DIR, "data", "index.json")
+        if os.path.exists(local_path):
+            with open(local_path, encoding="utf-8") as f:
+                index = json.load(f)
+        else:
+            index = {"novels": []}
+
+    entry = next((n for n in index["novels"] if n["slug"] == slug), None)
+    if entry:
+        entry["totalChapters"] = total_chapters
+        entry["lastUpdated"]   = date.today().isoformat()
+        if cover_url:
+            entry["cover"] = cover_url
+        if tags:
+            entry["tags"] = tags
+    else:
+        index["novels"].append({
+            "slug":          slug,
+            "title":         title,
+            "cover":         cover_url,
+            "tags":          tags or [],
+            "totalChapters": total_chapters,
+            "lastUpdated":   date.today().isoformat(),
+        })
+
+    try:
+        cloud_upload_json(blob_path, index)
+    except Exception as e:
+        print(f"  [cloud] Warning: failed to upload index.json: {e}")
+
+
+def cloud_get_novel_state(slug: str) -> tuple[int, int]:
+    """
+    Like get_local_novel_state() but reads from Vercel Blob.
+    Used in --cloud-only mode to find the highest chapter already uploaded.
+    Returns (highest_chapter_num, next_vol_num).
+    """
+    meta = cloud_download_json(f"data/{slug}/meta.json")
+    if meta:
+        chapters = meta.get("chapters", [])
+        if chapters:
+            return max(c["num"] for c in chapters), 1
+    return 0, 1
+
+
+def cloud_get_all_slugs() -> list[str]:
+    """
+    Return all novel slugs from Blob's data/index.json.
+    Used by --update in --cloud-only mode.
+    """
+    index = cloud_download_json("data/index.json")
+    if index:
+        return sorted(n["slug"] for n in index.get("novels", []))
+    return []
+
+
+def cloud_upload_existing() -> None:
+    """
+    Upload all existing local docs/data/ JSON files to Vercel Blob.
+    Run once with --upload-existing to seed the Blob store from your
+    current local library without re-scraping anything.
+    """
+    if not BLOB_TOKEN:
+        print("Error: BLOB_READ_WRITE_TOKEN not set in .env — cannot upload.")
+        return
+
+    data_dir = os.path.join(SITE_DIR, "data")
+    if not os.path.isdir(data_dir):
+        print("No docs/data/ directory found. Run the scraper first.")
+        return
+
+    print("Uploading existing local data to Vercel Blob…\n")
+    total_uploaded = 0
+
+    # Upload index.json first
+    index_path = os.path.join(data_dir, "index.json")
+    if os.path.exists(index_path):
+        with open(index_path, encoding="utf-8") as f:
+            index_obj = json.load(f)
+        url = cloud_upload_json("data/index.json", index_obj)
+        print(f"  ✓ index.json  →  {url}")
+        total_uploaded += 1
+
+    # Upload each novel's meta + chapters
+    slugs = sorted(
+        d for d in os.listdir(data_dir)
+        if os.path.isdir(os.path.join(data_dir, d))
+    )
+    for slug in slugs:
+        slug_dir = os.path.join(data_dir, slug)
+
+        meta_path = os.path.join(slug_dir, "meta.json")
+        if os.path.exists(meta_path):
+            with open(meta_path, encoding="utf-8") as f:
+                meta = json.load(f)
+            try:
+                cloud_upload_json(f"data/{slug}/meta.json", meta)
+                print(f"  [{slug}] meta.json uploaded")
+                total_uploaded += 1
+            except Exception as e:
+                print(f"  [{slug}] meta.json upload failed: {e}")
+
+        ch_dir = os.path.join(slug_dir, "chapters")
+        if not os.path.isdir(ch_dir):
+            continue
+        ch_files = sorted(f for f in os.listdir(ch_dir) if f.endswith(".json"))
+        uploaded_chs = 0
+        for fname in ch_files:
+            with open(os.path.join(ch_dir, fname), encoding="utf-8") as f:
+                ch = json.load(f)
+            num = ch.get("num") or int(fname.replace(".json", ""))
+            try:
+                cloud_upload_json(f"data/{slug}/chapters/{num}.json", ch)
+                uploaded_chs  += 1
+                total_uploaded += 1
+                print(f"  [{slug}] {uploaded_chs}/{len(ch_files)} chapters", end="\r", flush=True)
+            except Exception as e:
+                print(f"\n  [{slug}] Chapter {num} upload failed: {e}")
+        if ch_files:
+            print(f"  [{slug}] ✓ {uploaded_chs}/{len(ch_files)} chapters uploaded")
+
+    _save_blob_config()
+    if _blob_base_url:
+        print(f"\n  Blob base URL: {_blob_base_url}")
+        print(f"  Saved to docs/data/config.json")
+        print(f"  → git add docs/data/config.json && git commit -m 'add blob config' && git push")
+
+    print(f"\nDone — {total_uploaded} file(s) uploaded to Vercel Blob.")
 
 
 # ─────────────────────── site detection ────────────────────────
@@ -817,7 +1164,7 @@ def clear_failed_log() -> None:
         os.remove(FAILED_FILE)
 
 
-def retry_failed_chapters(export_site: bool = True) -> None:
+def retry_failed_chapters(export_site: bool = True, cloud: bool = False) -> None:
     failures = load_failed_chapters()
     if not failures:
         print("No failed chapters on record.")
@@ -846,6 +1193,8 @@ def retry_failed_chapters(export_site: bool = True) -> None:
                     recovered.append((num, title, content))
                     if export_site:
                         export_chapter_json(slug, num, title, content)
+                    if cloud:
+                        cloud_export_chapter_json(slug, num, title, content)
                     print(f"  ✓ Recovered chapter {num}")
                 else:
                     orig = next((u for n, u in chapters if n == num), f"{novel_url}/chapter-{num}")
@@ -888,6 +1237,9 @@ def retry_failed_chapters(export_site: bool = True) -> None:
             if export_site:
                 upsert_novel_meta(slug, novel_name,
                                   [(n, t) for n, t, _ in recovered])
+            if cloud:
+                cloud_upsert_novel_meta(slug, novel_name,
+                                        [(n, t) for n, t, _ in recovered])
 
     clear_failed_log()
     if still_failed:
@@ -999,6 +1351,7 @@ def scrape_novel(
     force_full: bool = False,
     export_site: bool = True,
     export_epub: bool = True,
+    cloud: bool = False,
     excluded_genres: set[str] | None = None,
 ) -> bool:
     excluded_genres = excluded_genres or set()
@@ -1015,7 +1368,12 @@ def scrape_novel(
         return f"{BASE_URL}/novel/{slug}/chapter-{n}"
 
     # ── what we already have locally ────────────────────────────
-    local_highest, next_vol_num = (0, 1) if force_full else get_local_novel_state(slug)
+    if force_full:
+        local_highest, next_vol_num = 0, 1
+    elif cloud and not export_site:
+        local_highest, next_vol_num = cloud_get_novel_state(slug)
+    else:
+        local_highest, next_vol_num = get_local_novel_state(slug)
     if local_highest:
         print(f"  Local:  {local_highest} chapter(s) already on disk (next vol → Vol.{next_vol_num})")
 
@@ -1087,16 +1445,16 @@ def scrape_novel(
         ]
 
         # ── export JSON + static HTML per chapter ───────────────
-        if export_site:
-            for i, title, content in chapters_data:
-                if content:
-                    export_chapter_json(slug, i, title, content)
-                    all_ch_tuples.append((i, title))
-                    all_ch_data.append((i, title, content))
-        else:
-            all_ch_tuples.extend(
-                (i, t) for i, t, c in chapters_data if c
-            )
+        for i, title, content in chapters_data:
+            if not content:
+                continue
+            if export_site:
+                export_chapter_json(slug, i, title, content)
+            if cloud:
+                cloud_export_chapter_json(slug, i, title, content)
+            all_ch_tuples.append((i, title))
+            if export_site:
+                all_ch_data.append((i, title, content))
 
         # ── write epub ───────────────────────────────────────────
         if export_epub:
@@ -1111,6 +1469,14 @@ def scrape_novel(
                           cover_url=cover_url, source_url=novel_url, tags=tags)
         upsert_site_index(slug, novel_name, len(all_ch_tuples) + local_highest,
                           cover_url=cover_url, tags=tags)
+    if cloud:
+        print(f"  Uploading to Vercel Blob…")
+        cloud_upsert_novel_meta(slug, novel_name, all_ch_tuples,
+                                cover_url=cover_url, source_url=novel_url, tags=tags)
+        cloud_upsert_index(slug, novel_name, len(all_ch_tuples) + local_highest,
+                           cover_url=cover_url, tags=tags)
+        _save_blob_config()
+        print(f"  ✓ Cloud upload complete  ({_blob_base_url})")
 
         # ── generate static HTML pages (Safari Reader compatible) ─
         # We need the full chapter list from meta to resolve prev/next correctly
@@ -1434,13 +1800,20 @@ def update_all_local_novels(
     export_site: bool = True,
     export_epub: bool = True,
     auto_push: bool = False,
+    cloud: bool = False,
     excluded_genres: set[str] | None = None,
 ) -> None:
     excluded_genres = excluded_genres or set()
-    slugs = get_all_local_slugs()
-    if not slugs:
-        print("No novels found in output/ or docs/data/ — nothing to update.")
-        return
+    if cloud and not export_site:
+        slugs = cloud_get_all_slugs()
+        if not slugs:
+            print("No novels found in Vercel Blob index — nothing to update.")
+            return
+    else:
+        slugs = get_all_local_slugs()
+        if not slugs:
+            print("No novels found in output/ or docs/data/ — nothing to update.")
+            return
 
     print(f"Checking {len(slugs)} local novel(s) for updates…\n")
     up_to_date = updated = errors = 0
@@ -1448,7 +1821,10 @@ def update_all_local_novels(
     for idx, slug in enumerate(sorted(slugs), 1):
         novel_url  = url_for_slug(slug)
         print(f"[{idx}/{len(slugs)}] {slug}")
-        local_highest, _ = get_local_novel_state(slug)
+        if cloud and not export_site:
+            local_highest, _ = cloud_get_novel_state(slug)
+        else:
+            local_highest, _ = get_local_novel_state(slug)
         info  = get_novel_page_info(novel_url)
         total = info["total"]
         if not total:
@@ -1464,7 +1840,7 @@ def update_all_local_novels(
         print(f"  ↑ {total - local_highest} new chapter(s) (local: {local_highest}, remote: {total})")
         novel_name = info.get("title") or slug.replace("-", " ").title()
         success = scrape_novel(novel_url, export_site=export_site, export_epub=export_epub,
-                               excluded_genres=excluded_genres)
+                               cloud=cloud, excluded_genres=excluded_genres)
         if success:
             updated += 1
             if auto_push and export_site:
@@ -1596,10 +1972,43 @@ def main() -> None:
         ))
     parser.add_argument("--no-site", action="store_true",
         help=f"Skip site JSON and HTML export. Only generates EPUBs in output/.")
+    parser.add_argument("--cloud", action="store_true",
+        help=(
+            "Upload scraped JSON to Vercel Blob storage IN ADDITION to writing local files.\n"
+            "Requires BLOB_READ_WRITE_TOKEN in .env.\n"
+            "Example: --novel URL --cloud --no-epub"
+        ))
+    parser.add_argument("--cloud-only", action="store_true",
+        help=(
+            "Upload scraped JSON to Vercel Blob storage ONLY — skip writing local docs/data/ files.\n"
+            "Requires BLOB_READ_WRITE_TOKEN in .env.\n"
+            "Ideal when running from a machine without the full repo checked out.\n"
+            "Example: --novel URL --cloud-only --no-epub"
+        ))
+    parser.add_argument("--upload-existing", action="store_true",
+        help=(
+            "Upload all existing local docs/data/ JSON files to Vercel Blob.\n"
+            "Run this once to seed the Blob store from your current library.\n"
+            "No re-scraping — reads from disk only."
+        ))
     args = parser.parse_args()
 
     export_site = not args.no_site
     export_epub = not args.no_epub
+
+    cloud      = args.cloud or args.cloud_only
+    cloud_only = args.cloud_only
+    if cloud_only:
+        export_site = False
+
+    if cloud and not BLOB_TOKEN:
+        print(
+            "Error: --cloud / --cloud-only requires BLOB_READ_WRITE_TOKEN.\n"
+            "Create a .env file in the project root and add:\n"
+            "  BLOB_READ_WRITE_TOKEN=vercel_blob_rw_...\n"
+            "then run:  pip install python-dotenv"
+        )
+        sys.exit(1)
 
     # Merge CLI --exclude-genre with any permanently configured DEFAULT_EXCLUDED_GENRES
     excluded_genres = DEFAULT_EXCLUDED_GENRES | {g.lower() for g in args.exclude_genre}
@@ -1608,6 +2017,10 @@ def main() -> None:
 
     if args.delete_genre:
         delete_by_genre(args.delete_genre, dry_run=args.dry_run, auto_push=args.auto_push)
+        return
+
+    if args.upload_existing:
+        cloud_upload_existing()
         return
 
     if args.rebuild_html:
@@ -1630,7 +2043,8 @@ def main() -> None:
             print(f"[Watch] Run #{run} started at {now}")
             print(f"{'═'*60}")
             update_all_local_novels(export_site=export_site, export_epub=export_epub,
-                                    auto_push=args.auto_push, excluded_genres=excluded_genres)
+                                    auto_push=args.auto_push, cloud=cloud,
+                                    excluded_genres=excluded_genres)
             next_time = time.strftime("%H:%M:%S", time.localtime(time.time() + interval_secs))
             print(f"\n[Watch] Next update at {next_time} — sleeping for {args.interval} minute(s)…")
             try:
@@ -1641,11 +2055,12 @@ def main() -> None:
 
     if args.update:
         update_all_local_novels(export_site=export_site, export_epub=export_epub,
-                                auto_push=args.auto_push, excluded_genres=excluded_genres)
+                                auto_push=args.auto_push, cloud=cloud,
+                                excluded_genres=excluded_genres)
         return
 
     if args.retry_failed:
-        retry_failed_chapters(export_site=export_site)
+        retry_failed_chapters(export_site=export_site, cloud=cloud)
         return
 
     # ── single novel shortcut ────────────────────────────────────
@@ -1655,7 +2070,7 @@ def main() -> None:
             url = f"{BASE_URL}/novel/{url}"
         print(f"Scraping single novel: {url}")
         success = scrape_novel(url, export_site=export_site, export_epub=export_epub,
-                               excluded_genres=excluded_genres)
+                               cloud=cloud, excluded_genres=excluded_genres)
         if success:
             mark_done(url)
             slug = url.rstrip("/").split("/")[-1]
@@ -1689,7 +2104,7 @@ def main() -> None:
     for idx, url in enumerate(queue, 1):
         print(f"\n[{idx}/{len(queue)}] Starting novel: {url}")
         success = scrape_novel(url, export_site=export_site, export_epub=export_epub,
-                               excluded_genres=excluded_genres)
+                               cloud=cloud, excluded_genres=excluded_genres)
         if success:
             mark_done(url)
             if args.auto_push and export_site:

@@ -1,6 +1,33 @@
-/* ── Ohara · app.js — shared utilities ──────────────────────── */
+/* ── Ohara · app.js — shared utilities ────────────────────────────────── */
 
 const DATA = './data';
+
+// ── Vercel Blob cloud fallback ────────────────────────────────────
+// When a local fetch fails (e.g. the file lives in Blob storage
+// rather than the repo), the loaders below automatically retry the
+// request against the Blob base URL stored in docs/data/config.json
+// (written automatically by the scraper’s --cloud run).
+let _cloudBase = null; // null = not yet fetched, '' = no cloud configured
+async function _getCloudBase() {
+  if (_cloudBase !== null) return _cloudBase;
+  try {
+    const res = await fetch('./data/config.json');
+    if (!res.ok) { _cloudBase = ''; return ''; }
+    const cfg = await res.json();
+    _cloudBase = cfg.blobBase || '';
+  } catch { _cloudBase = ''; }
+  return _cloudBase;
+}
+
+async function _fetchWithCloudFallback(localPath, blobRelPath) {
+  try {
+    return await fetchJSON(localPath);
+  } catch {
+    const base = await _getCloudBase();
+    if (!base) throw new Error(`Not found and no cloud configured: ${localPath}`);
+    return fetchJSON(`${base}/${blobRelPath}`);
+  }
+}
 
 // ── Auth ─────────────────────────────────────────────────────
 function checkAuth() {
@@ -67,9 +94,9 @@ async function fetchJSON(url) {
   return res.json();
 }
 
-async function networkLoadIndex()          { return fetchJSON(`${DATA}/index.json`); }
-async function networkLoadNovelMeta(slug)  { return fetchJSON(`${DATA}/${slug}/meta.json`); }
-async function networkLoadChapter(slug, n) { return fetchJSON(`${DATA}/${slug}/chapters/${n}.json`); }
+async function networkLoadIndex()          { return _fetchWithCloudFallback(`${DATA}/index.json`, 'data/index.json'); }
+async function networkLoadNovelMeta(slug)  { return _fetchWithCloudFallback(`${DATA}/${slug}/meta.json`, `data/${slug}/meta.json`); }
+async function networkLoadChapter(slug, n) { return _fetchWithCloudFallback(`${DATA}/${slug}/chapters/${n}.json`, `data/${slug}/chapters/${n}.json`); }
 
 // ── IndexedDB — offline storage ─────────────────────────────
 const OFFLINE_DB_NAME    = 'ohara-offline';
