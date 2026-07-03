@@ -94,7 +94,26 @@ async function fetchJSON(url) {
   return res.json();
 }
 
-async function networkLoadIndex()          { return _fetchWithCloudFallback(`${DATA}/index.json`, 'data/index.json'); }
+async function networkLoadIndex() {
+  let localData = { novels: [] };
+  let cloudData = { novels: [] };
+
+  try { localData = await fetchJSON(`${DATA}/index.json`); } catch (e) {}
+
+  const base = await _getCloudBase();
+  if (base) {
+    try { cloudData = await fetchJSON(`${base}/data/index.json`); } catch (e) {}
+  }
+
+  // Merge (cloud takes precedence if a novel exists in both)
+  const merged = new Map();
+  for (const n of localData.novels || []) merged.set(n.slug, n);
+  for (const n of cloudData.novels || []) merged.set(n.slug, n);
+
+  if (merged.size === 0) throw new Error("Could not load index from local or cloud.");
+
+  return { novels: Array.from(merged.values()) };
+}
 async function networkLoadNovelMeta(slug)  { return _fetchWithCloudFallback(`${DATA}/${slug}/meta.json`, `data/${slug}/meta.json`); }
 async function networkLoadChapter(slug, n) { return _fetchWithCloudFallback(`${DATA}/${slug}/chapters/${n}.json`, `data/${slug}/chapters/${n}.json`); }
 
