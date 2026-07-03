@@ -2,6 +2,10 @@
 FreeWebNovel — Catalog Scraper  +  Ohara site exporter
 =======================================================
 Scrapes every novel listed on a sort/genre/search page and turns each into:
+ """
+FreeWebNovel — Catalog Scraper  +  Ohara site exporter
+=======================================================
+Scrapes every novel listed on a sort/genre/search page and turns each into:
   1. EPUB files  →  output/<slug>/
   2. JSON files  →  docs/data/<slug>/   (served by Ohara on GitHub Pages)
 
@@ -440,12 +444,35 @@ def url_for_slug(slug: str) -> str:
 
 # ──────────────────── NovelFire adapter ────────────────────────
 def _nf_clean_text(text: str) -> str:
+    """Clean scraped novelfire text, stripping watermarks and site notices."""
+    JUNK_PHRASES = [
+        "novelfire.net", "novel fire", "made with ♥ for novel lovers",
+        "if you find any errors", "please let us know so we can fix",
+        "non-standard content, ads redirect",
+        "to continue serving our readers",
+        "i have removed korean novels due to copyright",
+        "thank you for your continued support",
+        "still working hard to bring you more great novels",
+        "tip: you can use left, right keyboard keys",
+        "tap the middle of the screen to reveal",
+        "share to your friends",
+        "restore scroll position",
+        "javascript:;",
+    ]
     lines = [line.strip() for line in text.splitlines()]
-    skip  = {"novelfire.net", "novelfire", "novel fire"}
-    lines = [l for l in lines if not any(s in normalize(l) for s in skip)]
-    lines = [l for l in lines if not (len(l) < 40 and ".net" in normalize(l))]
-    merged = []
+    filtered = []
     for line in lines:
+        lo = line.lower()
+        if any(j in lo for j in JUNK_PHRASES):
+            continue
+        if not line:
+            filtered.append("")
+            continue
+        if len(line) < 15 and not line.endswith((".", "!", "?", "…", '"', "'")):
+            continue
+        filtered.append(line)
+    merged = []
+    for line in filtered:
         if (merged and merged[-1]
                 and not merged[-1].endswith((".", "!", "?", ":", '"', "'"))
                 and line and line[0].islower()):
@@ -516,31 +543,37 @@ def nf_fetch_chapter_once(i: int, url: str) -> tuple[int, str, str]:
     time.sleep(CHAPTER_DELAY)
     soup = BeautifulSoup(res.text, "html.parser")
 
+    # Title: h1 format is "[Novel Name](link) Chapter N - N: Title[ ... words ]"
     h1 = soup.find("h1")
+    title_text = f"Chapter {i}"
     if h1:
         for a in h1.find_all("a"):
             a.decompose()
-        title_text = h1.get_text(strip=True).strip() or f"Chapter {i}"
-    else:
-        title_text = f"Chapter {i}"
+        raw = h1.get_text(strip=True)
+        # Strip "[ ... words ]" word count badge
+        raw = re.sub(r"\[\s*\.{{3}}\s*words?\s*\]", "", raw, flags=re.IGNORECASE).strip()
+        raw = raw.strip(" -")
+        if raw:
+            title_text = raw
 
+    # Content: try dedicated div selectors first
     content_div = (
         soup.select_one("div.chapter-content")
         or soup.select_one("div#chapter-content")
-        or soup.select_one("div.content")
+        or soup.select_one("div.text-left")
+        or soup.select_one("div#chapter-container")
     )
     if content_div:
-        for tag in content_div.select("script,style,ins,iframe,h1,h2,h3,a,.ads"):
+        for tag in content_div.select("script,style,ins,iframe,h1,h2,h3,a,.ads,noscript"):
             tag.decompose()
         text = content_div.get_text(separator="\n")
     else:
-        body = soup.find("body")
+        # Fallback: collect <p> tags longer than 40 chars
         paras = []
-        if body:
-            for p in body.find_all("p"):
-                t = p.get_text(strip=True)
-                if t and len(t) > 20:
-                    paras.append(t)
+        for p in soup.find_all("p"):
+            t = p.get_text(strip=True)
+            if t and len(t) > 40:
+                paras.append(t)
         text = "\n\n".join(paras)
 
     cleaned = _nf_clean_text(text)
