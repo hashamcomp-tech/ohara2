@@ -1355,6 +1355,7 @@ def scrape_novel(
     export_site: bool = True,
     export_epub: bool = True,
     cloud: bool = False,
+    cloud_only: bool = False,
     excluded_genres: set[str] | None = None,
 ) -> bool:
     excluded_genres = excluded_genres or set()
@@ -1440,6 +1441,12 @@ def scrape_novel(
                 results[i] = (title, content)
                 if not ok:
                     total_failed += 1
+                elif cloud_only and content:
+                    # Upload right away, chapter by chapter, while the other
+                    # worker threads are still fetching the rest of the volume —
+                    # overlapping network I/O instead of waiting for the whole
+                    # batch to finish before uploading anything.
+                    cloud_export_chapter_json(slug, i, title, content)
                 print(f"  ✓ Chapter {i}/{total}", end="\r", flush=True)
         print()
 
@@ -1453,7 +1460,10 @@ def scrape_novel(
                 continue
             if export_site:
                 export_chapter_json(slug, i, title, content)
-            if cloud:
+            if cloud and not cloud_only:
+                # --cloud (not --cloud-only) also writes local files, so we
+                # upload here once content is confirmed non-empty. --cloud-only
+                # already uploaded this chapter above as soon as it was fetched.
                 cloud_export_chapter_json(slug, i, title, content)
             all_ch_tuples.append((i, title))
             if export_site:
@@ -1890,6 +1900,7 @@ def update_all_local_novels(
     export_epub: bool = True,
     auto_push: bool = False,
     cloud: bool = False,
+    cloud_only: bool = False,
     excluded_genres: set[str] | None = None,
 ) -> None:
     excluded_genres = excluded_genres or set()
@@ -1929,7 +1940,7 @@ def update_all_local_novels(
         print(f"  ↑ {total - local_highest} new chapter(s) (local: {local_highest}, remote: {total})")
         novel_name = info.get("title") or slug.replace("-", " ").title()
         success = scrape_novel(novel_url, export_site=export_site, export_epub=export_epub,
-                               cloud=cloud, excluded_genres=excluded_genres)
+                               cloud=cloud, cloud_only=cloud_only, excluded_genres=excluded_genres)
         if success:
             updated += 1
             if auto_push and export_site:
@@ -2147,7 +2158,7 @@ def main() -> None:
             print(f"[Watch] Run #{run} started at {now}")
             print(f"{'═'*60}")
             update_all_local_novels(export_site=export_site, export_epub=export_epub,
-                                    auto_push=args.auto_push, cloud=cloud,
+                                    auto_push=args.auto_push, cloud=cloud, cloud_only=cloud_only,
                                     excluded_genres=excluded_genres)
             next_time = time.strftime("%H:%M:%S", time.localtime(time.time() + interval_secs))
             print(f"\n[Watch] Next update at {next_time} — sleeping for {args.interval} minute(s)…")
@@ -2159,7 +2170,7 @@ def main() -> None:
 
     if args.update:
         update_all_local_novels(export_site=export_site, export_epub=export_epub,
-                                auto_push=args.auto_push, cloud=cloud,
+                                auto_push=args.auto_push, cloud=cloud, cloud_only=cloud_only,
                                 excluded_genres=excluded_genres)
         return
 
@@ -2174,7 +2185,7 @@ def main() -> None:
             url = f"{BASE_URL}/novel/{url}"
         print(f"Scraping single novel: {url}")
         success = scrape_novel(url, export_site=export_site, export_epub=export_epub,
-                               cloud=cloud, excluded_genres=excluded_genres)
+                               cloud=cloud, cloud_only=cloud_only, excluded_genres=excluded_genres)
         if success:
             mark_done(url)
             slug = slug_from_url(url)
@@ -2208,7 +2219,7 @@ def main() -> None:
     for idx, url in enumerate(queue, 1):
         print(f"\n[{idx}/{len(queue)}] Starting novel: {url}")
         success = scrape_novel(url, export_site=export_site, export_epub=export_epub,
-                               cloud=cloud, excluded_genres=excluded_genres)
+                               cloud=cloud, cloud_only=cloud_only, excluded_genres=excluded_genres)
         if success:
             mark_done(url)
             if args.auto_push and export_site:
