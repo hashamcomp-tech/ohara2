@@ -1100,6 +1100,22 @@ def get_novel_page_info(novel_url: str) -> dict:
 
 
 # ───────────────────────── chapter scraping ────────────────────
+def _clean_fwn_title(raw: str, novel_title_hint: str = "") -> str:
+    """
+    Clean a freewebnovel chapter title string, stripping site/novel name
+    suffixes that sometimes appear (e.g. "Chapter 94 - Ghosts - FreeWebNovel").
+    """
+    raw = raw.strip()
+    # Strip trailing site name variants
+    for suffix in (" - FreeWebNovel", " - Free Web Novel", " | FreeWebNovel", " - freewebnovel.com"):
+        if raw.lower().endswith(suffix.lower()):
+            raw = raw[: -len(suffix)].strip()
+    # Strip a leading "NovelTitle - " prefix if we know the novel's title
+    if novel_title_hint and raw.lower().startswith(novel_title_hint.lower() + " - "):
+        raw = raw[len(novel_title_hint) + 3:].strip()
+    return raw
+
+
 def _fetch_chapter_once(i: int, url: str) -> tuple[int, str, str]:
     if detect_site(url) == "novelfire":
         return nf_fetch_chapter_once(i, url)
@@ -1107,8 +1123,37 @@ def _fetch_chapter_once(i: int, url: str) -> tuple[int, str, str]:
     res.raise_for_status()
     time.sleep(CHAPTER_DELAY)
     soup = BeautifulSoup(res.text, "html.parser")
-    title_tag  = soup.select_one("h2")
-    title_text = title_tag.get_text(strip=True) if title_tag else f"Chapter {i}"
+
+    # ── Title ────────────────────────────────────────────────────
+    # Primary source: the on-page <h2>, which normally holds the full
+    # descriptive chapter title, e.g. "Chapter 94 - Ghosts".
+    title_text = ""
+    h2 = soup.select_one("h2")
+    if h2:
+        title_text = h2.get_text(strip=True)
+
+    # If h2 is missing, or only contains the bare chapter number with no
+    # descriptive name (e.g. just "Chapter 94"), fall back to the page's
+    # <title> tag, which reliably includes the full chapter name.
+    bare_pattern = re.compile(r"^chapter\s*\d+\.?$", re.IGNORECASE)
+    if not title_text or bare_pattern.match(title_text):
+        title_tag = soup.find("title")
+        if title_tag:
+            page_title = title_tag.get_text(strip=True)
+            # Page title is typically: "Novel Name - Chapter N - Name - FreeWebNovel"
+            # Extract the "Chapter N - Name" portion if present.
+            m = re.search(r"(Chapter\s*\d+[^-|]*(?:-[^-|]+)?)", page_title, re.IGNORECASE)
+            if m:
+                candidate = _clean_fwn_title(m.group(1))
+                if candidate and not bare_pattern.match(candidate):
+                    title_text = candidate
+
+    if not title_text:
+        title_text = f"Chapter {i}"
+    else:
+        title_text = _clean_fwn_title(title_text)
+
+    # ── Content ──────────────────────────────────────────────────
     content_div = soup.select_one("div.txt")
     if not content_div:
         return i, title_text, ""
@@ -1355,7 +1400,6 @@ def scrape_novel(
     export_site: bool = True,
     export_epub: bool = True,
     cloud: bool = False,
-    cloud_only: bool = False,
     excluded_genres: set[str] | None = None,
 ) -> bool:
     excluded_genres = excluded_genres or set()
@@ -1441,12 +1485,6 @@ def scrape_novel(
                 results[i] = (title, content)
                 if not ok:
                     total_failed += 1
-                elif cloud_only and content:
-                    # Upload right away, chapter by chapter, while the other
-                    # worker threads are still fetching the rest of the volume —
-                    # overlapping network I/O instead of waiting for the whole
-                    # batch to finish before uploading anything.
-                    cloud_export_chapter_json(slug, i, title, content)
                 print(f"  ✓ Chapter {i}/{total}", end="\r", flush=True)
         print()
 
@@ -1460,10 +1498,7 @@ def scrape_novel(
                 continue
             if export_site:
                 export_chapter_json(slug, i, title, content)
-            if cloud and not cloud_only:
-                # --cloud (not --cloud-only) also writes local files, so we
-                # upload here once content is confirmed non-empty. --cloud-only
-                # already uploaded this chapter above as soon as it was fetched.
+            if cloud:
                 cloud_export_chapter_json(slug, i, title, content)
             all_ch_tuples.append((i, title))
             if export_site:
@@ -1900,7 +1935,6 @@ def update_all_local_novels(
     export_epub: bool = True,
     auto_push: bool = False,
     cloud: bool = False,
-    cloud_only: bool = False,
     excluded_genres: set[str] | None = None,
 ) -> None:
     excluded_genres = excluded_genres or set()
@@ -1940,7 +1974,7 @@ def update_all_local_novels(
         print(f"  ↑ {total - local_highest} new chapter(s) (local: {local_highest}, remote: {total})")
         novel_name = info.get("title") or slug.replace("-", " ").title()
         success = scrape_novel(novel_url, export_site=export_site, export_epub=export_epub,
-                               cloud=cloud, cloud_only=cloud_only, excluded_genres=excluded_genres)
+                               cloud=cloud, excluded_genres=excluded_genres)
         if success:
             updated += 1
             if auto_push and export_site:
@@ -2158,7 +2192,7 @@ def main() -> None:
             print(f"[Watch] Run #{run} started at {now}")
             print(f"{'═'*60}")
             update_all_local_novels(export_site=export_site, export_epub=export_epub,
-                                    auto_push=args.auto_push, cloud=cloud, cloud_only=cloud_only,
+                                    auto_push=args.auto_push, cloud=cloud,
                                     excluded_genres=excluded_genres)
             next_time = time.strftime("%H:%M:%S", time.localtime(time.time() + interval_secs))
             print(f"\n[Watch] Next update at {next_time} — sleeping for {args.interval} minute(s)…")
@@ -2170,7 +2204,7 @@ def main() -> None:
 
     if args.update:
         update_all_local_novels(export_site=export_site, export_epub=export_epub,
-                                auto_push=args.auto_push, cloud=cloud, cloud_only=cloud_only,
+                                auto_push=args.auto_push, cloud=cloud,
                                 excluded_genres=excluded_genres)
         return
 
@@ -2185,7 +2219,7 @@ def main() -> None:
             url = f"{BASE_URL}/novel/{url}"
         print(f"Scraping single novel: {url}")
         success = scrape_novel(url, export_site=export_site, export_epub=export_epub,
-                               cloud=cloud, cloud_only=cloud_only, excluded_genres=excluded_genres)
+                               cloud=cloud, excluded_genres=excluded_genres)
         if success:
             mark_done(url)
             slug = slug_from_url(url)
@@ -2219,7 +2253,7 @@ def main() -> None:
     for idx, url in enumerate(queue, 1):
         print(f"\n[{idx}/{len(queue)}] Starting novel: {url}")
         success = scrape_novel(url, export_site=export_site, export_epub=export_epub,
-                               cloud=cloud, cloud_only=cloud_only, excluded_genres=excluded_genres)
+                               cloud=cloud, excluded_genres=excluded_genres)
         if success:
             mark_done(url)
             if args.auto_push and export_site:
