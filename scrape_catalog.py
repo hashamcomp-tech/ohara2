@@ -898,7 +898,7 @@ def nf_fetch_chapter_once(i: int, url: str) -> tuple[int, str, str]:
             a.decompose()
         raw = h1.get_text(strip=True)
         # Strip "[ ... words ]" word count badge
-        raw = re.sub(r"\[\s*\.{{3}}\s*words?\s*\]", "", raw, flags=re.IGNORECASE).strip()
+        raw = re.sub(r"\[\s*\.{3}\s*words?\s*\]", "", raw, flags=re.IGNORECASE).strip()
         raw = raw.strip(" -")
         if raw:
             title_text = raw
@@ -1627,6 +1627,108 @@ def fetch_tags_for_all(auto_push: bool = False) -> None:
         print("Push with: git add docs/data/ && git commit -m 'add tags' && git push")
 
 
+# ──────────────────── novel deletion (single + by genre) ────────
+def remove_slug_from_progress(slug: str) -> None:
+    """Remove any line referencing this slug from PROGRESS_FILE (scraped_novels.txt)."""
+    if not os.path.exists(PROGRESS_FILE):
+        return
+    with open(PROGRESS_FILE) as f:
+        lines = f.readlines()
+    kept = [l for l in lines if slug_from_url(l.strip()) != slug]
+    if len(kept) != len(lines):
+        with open(PROGRESS_FILE, "w") as f:
+            f.writelines(kept)
+
+
+def remove_slug_from_failed(slug: str) -> None:
+    """Remove any failed-chapter entries for this slug from FAILED_FILE."""
+    if not os.path.exists(FAILED_FILE):
+        return
+    with open(FAILED_FILE) as f:
+        lines = f.readlines()
+    kept = [l for l in lines if not l.startswith(f"{slug}\t")]
+    if len(kept) != len(lines):
+        with open(FAILED_FILE, "w") as f:
+            f.writelines(kept)
+
+
+def delete_novel_files(slug: str) -> None:
+    """
+    Fully remove a novel from disk and from all tracking logs:
+      - docs/data/<slug>/     (JSON data)
+      - docs/read/<slug>/     (static HTML, if exists)
+      - output/<slug>/        (epubs, if exists)
+      - scraped_novels.txt    (removes this novel's progress entry)
+      - failed_chapters.txt   (removes this novel's failed-chapter entries)
+    Does NOT touch index.json — caller is responsible for that so batch
+    deletes (like --delete-genre) only rewrite the index once at the end.
+    After this, the novel is fully "forgotten" and can be freshly
+    re-downloaded from scratch, or left deleted permanently.
+    """
+    import shutil
+
+    for base in (os.path.join(SITE_DIR, "data", slug),
+                 os.path.join(SITE_DIR, "read", slug),
+                 os.path.join("output", slug)):
+        if os.path.isdir(base):
+            shutil.rmtree(base)
+            print(f"  ✓ Removed {base}")
+
+    remove_slug_from_progress(slug)
+    remove_slug_from_failed(slug)
+    print(f"  ✓ Cleared progress/failed-chapter logs for {slug}")
+
+
+def delete_novel(slug: str, auto_push: bool = False) -> None:
+    """Delete a single novel by slug — used by --delete-novel."""
+    index_path = os.path.join(SITE_DIR, "data", "index.json")
+    novel_name = slug
+
+    if os.path.exists(index_path):
+        with open(index_path, encoding="utf-8") as f:
+            index = json.load(f)
+        match = next((n for n in index.get("novels", []) if n["slug"] == slug), None)
+        if match:
+            novel_name = match.get("title", slug)
+        index["novels"] = [n for n in index.get("novels", []) if n["slug"] != slug]
+        with open(index_path, "w", encoding="utf-8") as f:
+            json.dump(index, f, ensure_ascii=False, indent=2)
+
+    data_exists = os.path.isdir(os.path.join(SITE_DIR, "data", slug))
+    if not data_exists and not os.path.isdir(os.path.join("output", slug)):
+        print(f"No novel found locally with slug '{slug}'.")
+        return
+
+    print(f"\nDeleting: {novel_name} ({slug})")
+    delete_novel_files(slug)
+    print(f"\n✓ '{novel_name}' fully removed. You can download it again anytime with --novel.")
+
+    if auto_push:
+        import subprocess
+        print("\n[git] Staging and pushing deletion…")
+
+        def run(cmd):
+            r = subprocess.run(cmd, capture_output=True, text=True)
+            return r.returncode, (r.stdout + r.stderr).strip()
+
+        run(["git", "add", "-A", os.path.join(SITE_DIR, "data")])
+        run(["git", "add", "-A", os.path.join(SITE_DIR, "read")])
+        run(["git", "add", "-A", "output"])
+
+        code, out = run(["git", "commit", "-m", f"delete novel: {novel_name}"])
+        if code != 0:
+            print(f"  Commit failed (maybe nothing to commit): {out}")
+            return
+        code, out = run(["git", "pull", "--rebase", "--autostash", "origin", "main"])
+        if code != 0:
+            print(f"  Pull/rebase failed: {out}")
+        code, out = run(["git", "push"])
+        if code == 0:
+            print(f"  ✓ Pushed to GitHub.")
+        else:
+            print(f"  Push failed: {out}")
+
+
 def delete_by_genre(genres: list[str], dry_run: bool = False, auto_push: bool = False) -> None:
     """
     Delete all novels whose tags contain any of the given genres.
@@ -1634,10 +1736,11 @@ def delete_by_genre(genres: list[str], dry_run: bool = False, auto_push: bool = 
       - docs/data/<slug>/   (JSON data)
       - docs/read/<slug>/   (static HTML, if exists)
       - output/<slug>/      (epubs, if exists)
-    Also updates docs/data/index.json to remove the entry.
+      - progress/failed-chapter log entries for each deleted novel
+    Also updates docs/data/index.json to remove the entries.
+    Deleted novels are fully "forgotten" so they can be freely
+    re-downloaded and re-deleted anytime.
     """
-    import shutil
-
     # Normalise input genres for case-insensitive matching
     target = {g.strip().lower() for g in genres}
     print(f"\nLooking for novels tagged with: {', '.join(sorted(target))}\n")
@@ -1686,29 +1789,11 @@ def delete_by_genre(genres: list[str], dry_run: bool = False, auto_push: bool = 
     deleted = []
     for novel in to_delete:
         slug = novel["slug"]
-        novel_name = novel.get("title", slug)
-
-        # Remove docs/data/<slug>/
-        data_dir = os.path.join(SITE_DIR, "data", slug)
-        if os.path.isdir(data_dir):
-            shutil.rmtree(data_dir)
-            print(f"  ✓ Removed {data_dir}")
-
-        # Remove docs/read/<slug>/ if exists
-        read_dir = os.path.join(SITE_DIR, "read", slug)
-        if os.path.isdir(read_dir):
-            shutil.rmtree(read_dir)
-            print(f"  ✓ Removed {read_dir}")
-
-        # Remove output/<slug>/ if exists
-        epub_dir = os.path.join("output", slug)
-        if os.path.isdir(epub_dir):
-            shutil.rmtree(epub_dir)
-            print(f"  ✓ Removed {epub_dir}")
-
+        print(f"\nDeleting: {novel.get('title', slug)} ({slug})")
+        delete_novel_files(slug)
         deleted.append(slug)
 
-    # Update index.json
+    # Update index.json once at the end
     index["novels"] = to_keep
     with open(index_path, "w", encoding="utf-8") as f:
         json.dump(index, f, ensure_ascii=False, indent=2)
@@ -1883,6 +1968,7 @@ def main() -> None:
             "  Auto-update:    --watch [--interval 60] [--auto-push] [--no-epub]\n"
             "  Rebuild HTML:   --rebuild-html\n"
             "  Retry failures: --retry-failed\n"
+            "  Delete novel:   --delete-novel shadow-slave [--auto-push]\n"
             "  Delete genre:   --delete-genre harem smut [--dry-run] [--auto-push]\n"
             "  Skip genre:     --exclude-genre harem smut\n\n"
             "Running in the background with nohup:\n"
@@ -1959,10 +2045,20 @@ def main() -> None:
             "To permanently exclude genres without typing this every time,\n"
             f"edit DEFAULT_EXCLUDED_GENRES at the top of {__file__}."
         ))
+    parser.add_argument("--delete-novel", metavar="SLUG",
+        help=(
+            "Delete a single novel by its slug (the name in the URL).\n"
+            "Removes JSON data, static HTML, epubs, and clears its\n"
+            "progress/failed-chapter log entries so it can be freely\n"
+            "re-downloaded or re-deleted anytime.\n"
+            "Example: --delete-novel shadow-slave\n"
+            "Add --auto-push to commit and push the deletion automatically."
+        ))
     parser.add_argument("--delete-genre", nargs="+", metavar="GENRE",
         help=(
             "Delete all novels tagged with any of the given genres.\n"
-            "Case-insensitive. Removes JSON data, static HTML, and epubs.\n"
+            "Case-insensitive. Removes JSON data, static HTML, epubs,\n"
+            "and clears progress/failed-chapter logs for each novel.\n"
             "Example: --delete-genre harem smut adult\n"
             "Add --dry-run to preview without deleting anything.\n"
             "Add --auto-push to commit and push the deletions automatically."
@@ -2018,6 +2114,10 @@ def main() -> None:
     excluded_genres = DEFAULT_EXCLUDED_GENRES | {g.lower() for g in args.exclude_genre}
     if excluded_genres:
         print(f"Genre filter active — skipping novels tagged: {', '.join(sorted(excluded_genres))}")
+
+    if args.delete_novel:
+        delete_novel(args.delete_novel, auto_push=args.auto_push)
+        return
 
     if args.delete_genre:
         delete_by_genre(args.delete_genre, dry_run=args.dry_run, auto_push=args.auto_push)
@@ -2077,7 +2177,7 @@ def main() -> None:
                                cloud=cloud, excluded_genres=excluded_genres)
         if success:
             mark_done(url)
-            slug = url.rstrip("/").split("/")[-1]
+            slug = slug_from_url(url)
             novel_name = slug.replace("-", " ").title()
             if args.auto_push and export_site:
                 git_push_novel(slug, novel_name)
@@ -2112,7 +2212,7 @@ def main() -> None:
         if success:
             mark_done(url)
             if args.auto_push and export_site:
-                slug = url.rstrip("/").split("/")[-1]
+                slug = slug_from_url(url)
                 novel_name = slug.replace("-", " ").title()
                 git_push_novel(slug, novel_name)
         time.sleep(NOVEL_DELAY)
