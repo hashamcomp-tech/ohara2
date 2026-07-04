@@ -1613,14 +1613,45 @@ def git_push_novel(slug: str, novel_name: str) -> bool:
     return True
 
 
+def get_freewebnovel_chapter_list(novel_url: str) -> dict[int, str]:
+    """
+    Fetch a freewebnovel.com novel page and extract every chapter's title
+    directly from its on-page chapter list, in a single request — far
+    faster than visiting every individual chapter page.
+    Returns {chapter_num: title}. If the site ever paginates the list for
+    very long novels, some numbers may be missing; the caller falls back
+    to per-chapter fetching for anything not found here.
+    """
+    try:
+        res = requests.get(novel_url, headers=HEADERS, timeout=20)
+        res.raise_for_status()
+    except Exception as e:
+        print(f"  [warn] Could not fetch novel page for chapter list: {e}")
+        return {}
+
+    soup = BeautifulSoup(res.text, "html.parser")
+    chapter_map: dict[int, str] = {}
+    for a in soup.select("a[href*='/chapter-']"):
+        href = a.get("href", "")
+        m = re.search(r"/chapter-(\d+)", href)
+        if not m:
+            continue
+        num   = int(m.group(1))
+        title = a.get_text(strip=True) or a.get("title", "").strip()
+        if title:
+            chapter_map[num] = title
+    return chapter_map
+
+
 def update_chapter_names(target_slug: str | None = None, auto_push: bool = False) -> None:
     """
-    Re-visit every chapter page of one novel (or all local novels) and
-    refresh the stored title using the improved title-extraction logic.
-    Content is re-saved alongside the title since the page is fetched
-    anyway, so this also refreshes chapter text if it changed on the
-    source site — but the primary purpose is fixing generic "Chapter N"
-    titles left over from before the title-extraction fix.
+    Refresh stored chapter titles for one novel (or all local novels).
+
+    For freewebnovel: reads the novel's on-page chapter list in a single
+    request to get every chapter's title at once — no need to visit each
+    chapter page individually. Only the title is updated; existing
+    content is preserved untouched. Any chapter numbers missing from the
+    list (rare) fall back to a per-chapter fetch, same as novelfire.
     """
     slugs = [target_slug] if target_slug else get_all_local_slugs()
     if not slugs:
@@ -1655,28 +1686,62 @@ def update_chapter_names(target_slug: str | None = None, auto_push: bool = False
 
         print(f"[{s_idx}/{len(slugs)}] {novel_name} ({slug})  [{site}]  —  {len(chapters)} chapter(s)")
 
-        tasks = [(c["num"], chapter_url(c["num"]), slug) for c in chapters]
         all_ch_tuples: list[tuple[int, str]] = []
         changed = 0
         failed  = 0
 
-        with ThreadPoolExecutor(max_workers=CHAPTER_WORKERS) as executor:
-            futures = {executor.submit(scrape_chapter, t): t for t in tasks}
-            done = 0
-            for future in as_completed(futures):
-                num, title, content, ok = future.result()
-                done += 1
-                if ok and content:
-                    export_chapter_json(slug, num, title, content)
-                    all_ch_tuples.append((num, title))
-                    if title != old_titles.get(num, ""):
-                        changed += 1
-                else:
-                    failed += 1
-                    # Keep the old title so it isn't lost from meta.json
-                    all_ch_tuples.append((num, old_titles.get(num, f"Chapter {num}")))
-                print(f"  {done}/{len(chapters)} checked, {changed} title(s) updated", end="\r", flush=True)
-        print()
+        # ── Fast path: freewebnovel chapter list in one request ──────
+        chapter_map: dict[int, str] = {}
+        if site == "freewebnovel":
+            print(f"  Fetching chapter list from novel page…")
+            chapter_map = get_freewebnovel_chapter_list(novel_url)
+            print(f"  Found {len(chapter_map)} title(s) in the chapter list.")
+
+        need_fetch: list[int] = []  # chapter nums not covered by the fast path
+
+        for c in chapters:
+            num       = c["num"]
+            old_title = old_titles.get(num, "")
+
+            if num in chapter_map:
+                new_title = chapter_map[num]
+                if new_title != old_title:
+                    # Update only the title, preserving existing content untouched
+                    ch_path = os.path.join(SITE_DIR, "data", slug, "chapters", f"{num}.json")
+                    content = ""
+                    if os.path.exists(ch_path):
+                        with open(ch_path, encoding="utf-8") as f:
+                            content = json.load(f).get("content", "")
+                    export_chapter_json(slug, num, new_title, content)
+                    changed += 1
+                all_ch_tuples.append((num, new_title))
+            else:
+                need_fetch.append(num)
+                all_ch_tuples.append((num, old_title))  # placeholder, replaced below if fetched
+
+        # ── Fallback: per-chapter fetch for anything the fast path missed ──
+        if need_fetch:
+            print(f"  {len(need_fetch)} chapter(s) not in the list — fetching individually…")
+            tasks = [(num, chapter_url(num), slug) for num in need_fetch]
+            title_by_num = {num: t for num, t in all_ch_tuples}
+
+            with ThreadPoolExecutor(max_workers=CHAPTER_WORKERS) as executor:
+                futures = {executor.submit(scrape_chapter, t): t for t in tasks}
+                done = 0
+                for future in as_completed(futures):
+                    num, title, content, ok = future.result()
+                    done += 1
+                    if ok and content:
+                        export_chapter_json(slug, num, title, content)
+                        title_by_num[num] = title
+                        if title != old_titles.get(num, ""):
+                            changed += 1
+                    else:
+                        failed += 1
+                    print(f"  {done}/{len(need_fetch)} fetched individually", end="\r", flush=True)
+            print()
+            all_ch_tuples = [(num, title_by_num.get(num, old_titles.get(num, f"Chapter {num}")))
+                              for num, _ in all_ch_tuples]
 
         upsert_novel_meta(slug, novel_name, all_ch_tuples, source_url=novel_url)
         upsert_site_index(slug, novel_name, len(all_ch_tuples))
