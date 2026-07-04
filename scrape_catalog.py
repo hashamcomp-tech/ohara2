@@ -1613,6 +1613,82 @@ def git_push_novel(slug: str, novel_name: str) -> bool:
     return True
 
 
+def update_chapter_names(target_slug: str | None = None, auto_push: bool = False) -> None:
+    """
+    Re-visit every chapter page of one novel (or all local novels) and
+    refresh the stored title using the improved title-extraction logic.
+    Content is re-saved alongside the title since the page is fetched
+    anyway, so this also refreshes chapter text if it changed on the
+    source site — but the primary purpose is fixing generic "Chapter N"
+    titles left over from before the title-extraction fix.
+    """
+    slugs = [target_slug] if target_slug else get_all_local_slugs()
+    if not slugs:
+        print("No novels found in output/ or docs/data/.")
+        return
+
+    print(f"Updating chapter names for {len(slugs)} novel(s)…\n")
+
+    for s_idx, slug in enumerate(slugs, 1):
+        meta_path = os.path.join(SITE_DIR, "data", slug, "meta.json")
+        if not os.path.exists(meta_path):
+            print(f"[{s_idx}/{len(slugs)}] {slug} — no meta.json found, skipping.")
+            continue
+
+        with open(meta_path, encoding="utf-8") as f:
+            meta = json.load(f)
+
+        chapters   = meta.get("chapters", [])
+        old_titles = {c["num"]: c.get("title", "") for c in chapters}
+        if not chapters:
+            print(f"[{s_idx}/{len(slugs)}] {slug} — no chapters recorded, skipping.")
+            continue
+
+        novel_url  = url_for_slug(slug)
+        site       = detect_site(novel_url)
+        novel_name = meta.get("title", slug.replace("-", " ").title())
+
+        def chapter_url(n: int) -> str:
+            if site == "novelfire":
+                return f"{NOVELFIRE_URL}/book/{slug}/chapter-{n}"
+            return f"{BASE_URL}/novel/{slug}/chapter-{n}"
+
+        print(f"[{s_idx}/{len(slugs)}] {novel_name} ({slug})  [{site}]  —  {len(chapters)} chapter(s)")
+
+        tasks = [(c["num"], chapter_url(c["num"]), slug) for c in chapters]
+        all_ch_tuples: list[tuple[int, str]] = []
+        changed = 0
+        failed  = 0
+
+        with ThreadPoolExecutor(max_workers=CHAPTER_WORKERS) as executor:
+            futures = {executor.submit(scrape_chapter, t): t for t in tasks}
+            done = 0
+            for future in as_completed(futures):
+                num, title, content, ok = future.result()
+                done += 1
+                if ok and content:
+                    export_chapter_json(slug, num, title, content)
+                    all_ch_tuples.append((num, title))
+                    if title != old_titles.get(num, ""):
+                        changed += 1
+                else:
+                    failed += 1
+                    # Keep the old title so it isn't lost from meta.json
+                    all_ch_tuples.append((num, old_titles.get(num, f"Chapter {num}")))
+                print(f"  {done}/{len(chapters)} checked, {changed} title(s) updated", end="\r", flush=True)
+        print()
+
+        upsert_novel_meta(slug, novel_name, all_ch_tuples, source_url=novel_url)
+        upsert_site_index(slug, novel_name, len(all_ch_tuples))
+
+        print(f"  ✓ {changed} title(s) updated" + (f", {failed} chapter(s) failed to refresh" if failed else ""))
+
+        if auto_push:
+            git_push_novel(slug, novel_name)
+
+    print(f"\nDone.")
+
+
 def fetch_tags_for_all(auto_push: bool = False) -> None:
     """
     Visit every novel's landing page, scrape tags, and update
@@ -2073,6 +2149,18 @@ def main() -> None:
         ))
     parser.add_argument("--fetch-tags", action="store_true",
         help="Fetch and update tags for all existing novels without re-scraping chapters.")
+    parser.add_argument("--update-chapternames", nargs="?", const="__ALL__",
+        default=None, metavar="SLUG",
+        help=(
+            "Re-visit every chapter of a novel and refresh its stored title\n"
+            "using the improved title-extraction logic (fixes generic\n"
+            "'Chapter N' titles left over from before the title fix).\n"
+            "Content is refreshed too since the page is fetched anyway.\n"
+            "Use alone to update ALL local novels, or pass a slug for one:\n"
+            "  --update-chapternames                (all novels)\n"
+            "  --update-chapternames shadow-slave    (one novel)\n"
+            "Add --auto-push to commit and push the fixes automatically."
+        ))
     parser.add_argument("--rebuild-html", action="store_true",
         help=(
             "Rebuild all static HTML reader pages from existing JSON in docs/data/.\n"
@@ -2178,6 +2266,11 @@ def main() -> None:
 
     if args.fetch_tags:
         fetch_tags_for_all(auto_push=args.auto_push)
+        return
+
+    if args.update_chapternames is not None:
+        target = None if args.update_chapternames == "__ALL__" else args.update_chapternames
+        update_chapter_names(target_slug=target, auto_push=args.auto_push)
         return
 
     # ── watch mode: loop forever, updating every --interval minutes ──
