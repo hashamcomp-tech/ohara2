@@ -121,11 +121,7 @@
 <script src="app.js"></script>
 <script>
   const PER_PAGE    = 50;
-<<<<<<< Updated upstream
-  const BLOCKED_TAGS = ['adult', 'smut', 'harem', 'ecchi', 'erotic', 'r-18', 'r18', 'sexual content', '18+', '18plus', 'josei'];
-=======
   const BLOCKED_TAGS = ['adult', 'smut', 'harem', 'ecchi', 'erotic', 'r-18', 'r18', 'sexual content', 'nsfw', '18+', '18plus', 'josei'];
->>>>>>> Stashed changes
 
   let allNovels      = [];   // full list, never mutated
   let filteredNovels = [];   // result after search + tag + content filter
@@ -285,9 +281,13 @@
       return;
     }
 
-    grid.innerHTML = slice.map(n => {
+    grid.innerHTML = slice.map((n, idx) => {
       const prog   = getProgress(n.slug);
       const rating = getRating(n.slug);
+      // Eagerly load the first row (roughly the first 6 cards) so the
+      // above-the-fold covers appear immediately; lazy-load the rest so
+      // the browser only fetches them as the user scrolls down.
+      const loadingAttr = idx < 6 ? 'eager' : 'lazy';
       return `
       <div class="novel-card" onclick="go('novel.html',{slug:'${esc(n.slug)}'})" role="link" tabindex="0"
            onkeydown="if(event.key==='Enter')go('novel.html',{slug:'${esc(n.slug)}'})">
@@ -295,7 +295,7 @@
           ${(() => {
             const src = offlineCoverURLs[n.slug] || n.cover;
             return src
-              ? `<img src="${esc(src)}" alt="${esc(n.title)}" loading="lazy"
+              ? `<img src="${esc(src)}" alt="${esc(n.title)}" loading="${loadingAttr}" decoding="async"
                       onerror="this.parentElement.innerHTML='<span class=cover-fallback>📖</span>'">`
               : `<span class="cover-fallback">📖</span>`;
           })()}
