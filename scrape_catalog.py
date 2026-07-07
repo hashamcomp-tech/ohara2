@@ -1100,22 +1100,6 @@ def get_novel_page_info(novel_url: str) -> dict:
 
 
 # ───────────────────────── chapter scraping ────────────────────
-def _clean_fwn_title(raw: str, novel_title_hint: str = "") -> str:
-    """
-    Clean a freewebnovel chapter title string, stripping site/novel name
-    suffixes that sometimes appear (e.g. "Chapter 94 - Ghosts - FreeWebNovel").
-    """
-    raw = raw.strip()
-    # Strip trailing site name variants
-    for suffix in (" - FreeWebNovel", " - Free Web Novel", " | FreeWebNovel", " - freewebnovel.com"):
-        if raw.lower().endswith(suffix.lower()):
-            raw = raw[: -len(suffix)].strip()
-    # Strip a leading "NovelTitle - " prefix if we know the novel's title
-    if novel_title_hint and raw.lower().startswith(novel_title_hint.lower() + " - "):
-        raw = raw[len(novel_title_hint) + 3:].strip()
-    return raw
-
-
 def _fetch_chapter_once(i: int, url: str) -> tuple[int, str, str]:
     if detect_site(url) == "novelfire":
         return nf_fetch_chapter_once(i, url)
@@ -1124,45 +1108,42 @@ def _fetch_chapter_once(i: int, url: str) -> tuple[int, str, str]:
     time.sleep(CHAPTER_DELAY)
     soup = BeautifulSoup(res.text, "html.parser")
 
-    # ── Title ────────────────────────────────────────────────────
-    # Primary source: the on-page <h2>, which normally holds the full
-    # descriptive chapter title, e.g. "Chapter 94 - Ghosts".
+    # ── Title ──────────────────────────────────────────────────────
+    # Primary: <h2>, which normally has the full descriptive title.
+    bare_pattern = re.compile(r"^chapter\s*\d+\.?$", re.IGNORECASE)
     title_text = ""
     h2 = soup.select_one("h2")
     if h2:
         title_text = h2.get_text(strip=True)
 
-    # If h2 is missing, or only contains the bare chapter number with no
-    # descriptive name (e.g. just "Chapter 94"), fall back to the page's
-    # <title> tag, which reliably includes the full chapter name.
-    bare_pattern = re.compile(r"^chapter\s*\d+\.?$", re.IGNORECASE)
+    # Fall back to <title> if h2 is missing or is a bare "Chapter N"
     if not title_text or bare_pattern.match(title_text):
         title_tag = soup.find("title")
         if title_tag:
             page_title = title_tag.get_text(strip=True)
-            # Page title is typically: "Novel Name - Chapter N - Name - FreeWebNovel"
-            # Extract the "Chapter N - Name" portion if present.
             m = re.search(r"(Chapter\s*\d+[^-|]*(?:-[^-|]+)?)", page_title, re.IGNORECASE)
             if m:
                 candidate = _clean_fwn_title(m.group(1))
                 if candidate and not bare_pattern.match(candidate):
                     title_text = candidate
 
-    if not title_text:
-        title_text = f"Chapter {i}"
-    else:
-        title_text = _clean_fwn_title(title_text)
+    title_text = _clean_fwn_title(title_text) if title_text else f"Chapter {i}"
 
-    # ── Content ──────────────────────────────────────────────────
+    # ── Content ────────────────────────────────────────────────────
     content_div = soup.select_one("div.txt")
     if not content_div:
-        return i, title_text, ""
+        # Raise so scrape_chapter()'s retry loop fires and the failure
+        # is logged to failed_chapters.txt — never silently return "".
+        raise ValueError(
+            f"Chapter {i}: content div (div.txt) not found — "
+            "possible captcha, block, or markup change"
+        )
     for tag in content_div.select("script, style, ins, iframe, h1, h2, h3"):
         tag.decompose()
     text    = content_div.get_text(separator="\n")
     cleaned = clean_text(text)
     if not cleaned:
-        raise ValueError("Content div found but cleaned text is empty")
+        raise ValueError(f"Chapter {i}: content div found but cleaned text is empty")
     return i, title_text, cleaned
 
 
@@ -1400,6 +1381,7 @@ def scrape_novel(
     export_site: bool = True,
     export_epub: bool = True,
     cloud: bool = False,
+    cloud_only: bool = False,
     excluded_genres: set[str] | None = None,
 ) -> bool:
     excluded_genres = excluded_genres or set()
@@ -1418,7 +1400,10 @@ def scrape_novel(
     # ── what we already have locally ────────────────────────────
     if force_full:
         local_highest, next_vol_num = 0, 1
-    elif cloud and not export_site:
+    elif cloud_only:
+        # Explicit cloud-only: read prior state from Blob, not local disk.
+        # This avoids the --cloud --no-site ambiguity where export_site=False
+        # for two different reasons (user chose cloud-only vs just skipping HTML).
         local_highest, next_vol_num = cloud_get_novel_state(slug)
     else:
         local_highest, next_vol_num = get_local_novel_state(slug)
@@ -1485,6 +1470,12 @@ def scrape_novel(
                 results[i] = (title, content)
                 if not ok:
                     total_failed += 1
+                elif cloud_only and content:
+                    # Upload to Blob immediately as each chapter finishes,
+                    # overlapping upload I/O with threads still fetching the
+                    # rest of the volume — instead of a sequential post-batch
+                    # upload that blocks until every chapter is done first.
+                    cloud_export_chapter_json(slug, i, title, content)
                 print(f"  ✓ Chapter {i}/{total}", end="\r", flush=True)
         print()
 
@@ -1498,7 +1489,9 @@ def scrape_novel(
                 continue
             if export_site:
                 export_chapter_json(slug, i, title, content)
-            if cloud:
+            if cloud and not cloud_only:
+                # --cloud (not --cloud-only): upload after confirming non-empty
+                # content. cloud_only already uploaded in as_completed above.
                 cloud_export_chapter_json(slug, i, title, content)
             all_ch_tuples.append((i, title))
             if export_site:
@@ -1560,8 +1553,10 @@ def git_push_novel(slug: str, novel_name: str) -> bool:
     import subprocess
 
     # ── git stage + commit + push ────────────────────────────────
-    data_path  = os.path.join(SITE_DIR, "data", slug)
-    index_path = os.path.join(SITE_DIR, "data", "index.json")
+    data_path   = os.path.join(SITE_DIR, "data", slug)
+    read_path   = os.path.join(SITE_DIR, "read", slug)
+    index_path  = os.path.join(SITE_DIR, "data", "index.json")
+    config_path = os.path.join(SITE_DIR, "data", "config.json")
 
     print(f"\n  [git] Pushing {novel_name} to GitHub…")
 
@@ -1569,7 +1564,7 @@ def git_push_novel(slug: str, novel_name: str) -> bool:
         result = subprocess.run(cmd, capture_output=True, text=True)
         return result.returncode, (result.stdout + result.stderr).strip()
 
-    for path in [data_path, index_path]:
+    for path in [data_path, read_path, index_path, config_path]:
         if os.path.exists(path):
             code, out = run(["git", "add", path])
             if code != 0:
@@ -1613,155 +1608,17 @@ def git_push_novel(slug: str, novel_name: str) -> bool:
     return True
 
 
-def get_freewebnovel_chapter_list(novel_url: str) -> dict[int, str]:
-    """
-    Fetch a freewebnovel.com novel page and extract every chapter's title
-    directly from its on-page chapter list, in a single request — far
-    faster than visiting every individual chapter page.
-    Returns {chapter_num: title}. If the site ever paginates the list for
-    very long novels, some numbers may be missing; the caller falls back
-    to per-chapter fetching for anything not found here.
-    """
-    try:
-        res = requests.get(novel_url, headers=HEADERS, timeout=20)
-        res.raise_for_status()
-    except Exception as e:
-        print(f"  [warn] Could not fetch novel page for chapter list: {e}")
-        return {}
-
-    soup = BeautifulSoup(res.text, "html.parser")
-    chapter_map: dict[int, str] = {}
-    for a in soup.select("a[href*='/chapter-']"):
-        href = a.get("href", "")
-        m = re.search(r"/chapter-(\d+)", href)
-        if not m:
-            continue
-        num   = int(m.group(1))
-        title = a.get_text(strip=True) or a.get("title", "").strip()
-        if title:
-            chapter_map[num] = title
-    return chapter_map
-
-
-def update_chapter_names(target_slug: str | None = None, auto_push: bool = False) -> None:
-    """
-    Refresh stored chapter titles for one novel (or all local novels).
-
-    For freewebnovel: reads the novel's on-page chapter list in a single
-    request to get every chapter's title at once — no need to visit each
-    chapter page individually. Only the title is updated; existing
-    content is preserved untouched. Any chapter numbers missing from the
-    list (rare) fall back to a per-chapter fetch, same as novelfire.
-    """
-    slugs = [target_slug] if target_slug else get_all_local_slugs()
-    if not slugs:
-        print("No novels found in output/ or docs/data/.")
-        return
-
-    print(f"Updating chapter names for {len(slugs)} novel(s)…\n")
-
-    for s_idx, slug in enumerate(slugs, 1):
-        meta_path = os.path.join(SITE_DIR, "data", slug, "meta.json")
-        if not os.path.exists(meta_path):
-            print(f"[{s_idx}/{len(slugs)}] {slug} — no meta.json found, skipping.")
-            continue
-
-        with open(meta_path, encoding="utf-8") as f:
-            meta = json.load(f)
-
-        chapters   = meta.get("chapters", [])
-        old_titles = {c["num"]: c.get("title", "") for c in chapters}
-        if not chapters:
-            print(f"[{s_idx}/{len(slugs)}] {slug} — no chapters recorded, skipping.")
-            continue
-
-        novel_url  = url_for_slug(slug)
-        site       = detect_site(novel_url)
-        novel_name = meta.get("title", slug.replace("-", " ").title())
-
-        def chapter_url(n: int) -> str:
-            if site == "novelfire":
-                return f"{NOVELFIRE_URL}/book/{slug}/chapter-{n}"
-            return f"{BASE_URL}/novel/{slug}/chapter-{n}"
-
-        print(f"[{s_idx}/{len(slugs)}] {novel_name} ({slug})  [{site}]  —  {len(chapters)} chapter(s)")
-
-        all_ch_tuples: list[tuple[int, str]] = []
-        changed = 0
-        failed  = 0
-
-        # ── Fast path: freewebnovel chapter list in one request ──────
-        chapter_map: dict[int, str] = {}
-        if site == "freewebnovel":
-            print(f"  Fetching chapter list from novel page…")
-            chapter_map = get_freewebnovel_chapter_list(novel_url)
-            print(f"  Found {len(chapter_map)} title(s) in the chapter list.")
-
-        need_fetch: list[int] = []  # chapter nums not covered by the fast path
-
-        for c in chapters:
-            num       = c["num"]
-            old_title = old_titles.get(num, "")
-
-            if num in chapter_map:
-                new_title = chapter_map[num]
-                if new_title != old_title:
-                    # Update only the title, preserving existing content untouched
-                    ch_path = os.path.join(SITE_DIR, "data", slug, "chapters", f"{num}.json")
-                    content = ""
-                    if os.path.exists(ch_path):
-                        with open(ch_path, encoding="utf-8") as f:
-                            content = json.load(f).get("content", "")
-                    export_chapter_json(slug, num, new_title, content)
-                    changed += 1
-                all_ch_tuples.append((num, new_title))
-            else:
-                need_fetch.append(num)
-                all_ch_tuples.append((num, old_title))  # placeholder, replaced below if fetched
-
-        # ── Fallback: per-chapter fetch for anything the fast path missed ──
-        if need_fetch:
-            print(f"  {len(need_fetch)} chapter(s) not in the list — fetching individually…")
-            tasks = [(num, chapter_url(num), slug) for num in need_fetch]
-            title_by_num = {num: t for num, t in all_ch_tuples}
-
-            with ThreadPoolExecutor(max_workers=CHAPTER_WORKERS) as executor:
-                futures = {executor.submit(scrape_chapter, t): t for t in tasks}
-                done = 0
-                for future in as_completed(futures):
-                    num, title, content, ok = future.result()
-                    done += 1
-                    if ok and content:
-                        export_chapter_json(slug, num, title, content)
-                        title_by_num[num] = title
-                        if title != old_titles.get(num, ""):
-                            changed += 1
-                    else:
-                        failed += 1
-                    print(f"  {done}/{len(need_fetch)} fetched individually", end="\r", flush=True)
-            print()
-            all_ch_tuples = [(num, title_by_num.get(num, old_titles.get(num, f"Chapter {num}")))
-                              for num, _ in all_ch_tuples]
-
-        upsert_novel_meta(slug, novel_name, all_ch_tuples, source_url=novel_url)
-        upsert_site_index(slug, novel_name, len(all_ch_tuples))
-
-        print(f"  ✓ {changed} title(s) updated" + (f", {failed} chapter(s) failed to refresh" if failed else ""))
-
-        if auto_push:
-            git_push_novel(slug, novel_name)
-
-    print(f"\nDone.")
-
-
-def fetch_tags_for_all(auto_push: bool = False) -> None:
+def fetch_tags_for_all(auto_push: bool = False, cloud: bool = False) -> None:
     """
     Visit every novel's landing page, scrape tags, and update
-    meta.json + index.json. No chapters are downloaded.
+    meta.json + index.json (local and/or Blob). No chapters are downloaded.
     """
-    slugs = get_all_local_slugs()
+    if cloud and not get_all_local_slugs():
+        slugs = cloud_get_all_slugs()
+    else:
+        slugs = get_all_local_slugs()
     if not slugs:
-        print("No novels found in output/ or docs/data/.")
+        print("No novels found in output/, docs/data/, or Vercel Blob.")
         return
 
     print(f"Fetching tags for {len(slugs)} novel(s)…\n")
@@ -1779,7 +1636,7 @@ def fetch_tags_for_all(auto_push: bool = False) -> None:
         else:
             print(f"  Tags: (none found)")
 
-        # Update meta.json with tags (preserve existing chapters)
+        # Update local meta.json with tags (preserve existing chapters)
         meta_path = os.path.join(SITE_DIR, "data", slug, "meta.json")
         if os.path.exists(meta_path):
             with open(meta_path, encoding="utf-8") as f:
@@ -1790,7 +1647,7 @@ def fetch_tags_for_all(auto_push: bool = False) -> None:
             with open(meta_path, "w", encoding="utf-8") as f:
                 json.dump(meta, f, ensure_ascii=False, indent=2)
 
-        # Update index.json entry with tags
+        # Update local index.json entry with tags
         index_path = os.path.join(SITE_DIR, "data", "index.json")
         if os.path.exists(index_path):
             with open(index_path, encoding="utf-8") as f:
@@ -1802,6 +1659,20 @@ def fetch_tags_for_all(auto_push: bool = False) -> None:
                     entry["cover"] = cover_url
             with open(index_path, "w", encoding="utf-8") as f:
                 json.dump(index, f, ensure_ascii=False, indent=2)
+
+        # Mirror tag updates to Vercel Blob when requested
+        if cloud:
+            chapters_for_meta: list[tuple[int, str]] = []
+            # Try local meta first; fall back to Blob
+            if os.path.exists(meta_path):
+                with open(meta_path, encoding="utf-8") as f:
+                    local_meta = json.load(f)
+                chapters_for_meta = [(c["num"], c["title"]) for c in local_meta.get("chapters", [])]
+            cloud_upsert_novel_meta(slug, novel_name, chapters_for_meta,
+                                    cover_url=cover_url, tags=tags)
+            total_ch = len(chapters_for_meta)
+            cloud_upsert_index(slug, novel_name, total_ch, cover_url=cover_url, tags=tags)
+            print(f"  [cloud] ✓ Tags synced to Vercel Blob")
 
         if auto_push:
             git_push_novel(slug, novel_name)
@@ -1865,7 +1736,37 @@ def delete_novel_files(slug: str) -> None:
     print(f"  ✓ Cleared progress/failed-chapter logs for {slug}")
 
 
-def delete_novel(slug: str, auto_push: bool = False) -> None:
+def cloud_delete_novel(slug: str) -> bool:
+    """
+    Remove a novel's chapters and meta from Vercel Blob by updating
+    the Blob index.json to exclude the slug.
+    Individual chapter blobs cannot be individually deleted without
+    listing APIs, so we remove the novel from the index (making it
+    invisible to the site) and overwrite meta.json with a tombstone.
+    Returns True if the novel was found and removed from the index.
+    """
+    if not BLOB_TOKEN:
+        print("  [cloud] Cannot delete from Blob: BLOB_READ_WRITE_TOKEN not set.")
+        return False
+    blob_index = cloud_download_json("data/index.json")
+    if not blob_index:
+        return False
+    original_count = len(blob_index.get("novels", []))
+    blob_index["novels"] = [n for n in blob_index.get("novels", []) if n["slug"] != slug]
+    removed = len(blob_index["novels"]) < original_count
+    if removed:
+        try:
+            cloud_upload_json("data/index.json", blob_index)
+            # Overwrite meta with tombstone so loaders get a clean 404-like state
+            cloud_upload_json(f"data/{slug}/meta.json",
+                              {"slug": slug, "title": "", "chapters": [], "deleted": True})
+            print(f"  [cloud] ✓ Removed {slug} from Blob index.")
+        except Exception as e:
+            print(f"  [cloud] Warning: could not update Blob index: {e}")
+    return removed
+
+
+def delete_novel(slug: str, auto_push: bool = False, cloud: bool = False) -> None:
     """Delete a single novel by slug — used by --delete-novel."""
     index_path = os.path.join(SITE_DIR, "data", "index.json")
     novel_name = slug
@@ -1881,12 +1782,21 @@ def delete_novel(slug: str, auto_push: bool = False) -> None:
             json.dump(index, f, ensure_ascii=False, indent=2)
 
     data_exists = os.path.isdir(os.path.join(SITE_DIR, "data", slug))
-    if not data_exists and not os.path.isdir(os.path.join("output", slug)):
-        print(f"No novel found locally with slug '{slug}'.")
+    has_local   = data_exists or os.path.isdir(os.path.join("output", slug))
+
+    if cloud:
+        found_in_blob = cloud_delete_novel(slug)
+        if not has_local and not found_in_blob:
+            print(f"No novel found locally or in Vercel Blob with slug '{slug}'.")
+            return
+    elif not has_local:
+        print(f"No novel found locally with slug '{slug}'. "
+              f"(If it's cloud-only, re-run with --cloud to also remove from Blob.)")
         return
 
     print(f"\nDeleting: {novel_name} ({slug})")
-    delete_novel_files(slug)
+    if has_local:
+        delete_novel_files(slug)
     print(f"\n✓ '{novel_name}' fully removed. You can download it again anytime with --novel.")
 
     if auto_push:
@@ -1901,10 +1811,15 @@ def delete_novel(slug: str, auto_push: bool = False) -> None:
         run(["git", "add", "-A", os.path.join(SITE_DIR, "read")])
         run(["git", "add", "-A", "output"])
 
+        code, out = run(["git", "status", "--porcelain"])
+        if not out.strip():
+            print("  [git] Nothing to commit.")
+            return
         code, out = run(["git", "commit", "-m", f"delete novel: {novel_name}"])
         if code != 0:
-            print(f"  Commit failed (maybe nothing to commit): {out}")
+            print(f"  Commit failed: {out}")
             return
+        # Pull before push (matches git_push_novel behavior)
         code, out = run(["git", "pull", "--rebase", "--autostash", "origin", "main"])
         if code != 0:
             print(f"  Pull/rebase failed: {out}")
@@ -1912,7 +1827,7 @@ def delete_novel(slug: str, auto_push: bool = False) -> None:
         if code == 0:
             print(f"  ✓ Pushed to GitHub.")
         else:
-            print(f"  Push failed: {out}")
+            print(f"  Push failed: {out}\n  Files committed locally — run 'git push' manually.")
 
 
 def delete_by_genre(genres: list[str], dry_run: bool = False, auto_push: bool = False) -> None:
@@ -2076,10 +1991,11 @@ def update_all_local_novels(
     export_epub: bool = True,
     auto_push: bool = False,
     cloud: bool = False,
+    cloud_only: bool = False,
     excluded_genres: set[str] | None = None,
 ) -> None:
     excluded_genres = excluded_genres or set()
-    if cloud and not export_site:
+    if cloud_only:
         slugs = cloud_get_all_slugs()
         if not slugs:
             print("No novels found in Vercel Blob index — nothing to update.")
@@ -2096,7 +2012,7 @@ def update_all_local_novels(
     for idx, slug in enumerate(sorted(slugs), 1):
         novel_url  = url_for_slug(slug)
         print(f"[{idx}/{len(slugs)}] {slug}")
-        if cloud and not export_site:
+        if cloud_only:
             local_highest, _ = cloud_get_novel_state(slug)
         else:
             local_highest, _ = get_local_novel_state(slug)
@@ -2115,7 +2031,8 @@ def update_all_local_novels(
         print(f"  ↑ {total - local_highest} new chapter(s) (local: {local_highest}, remote: {total})")
         novel_name = info.get("title") or slug.replace("-", " ").title()
         success = scrape_novel(novel_url, export_site=export_site, export_epub=export_epub,
-                               cloud=cloud, excluded_genres=excluded_genres)
+                               cloud=cloud, cloud_only=cloud_only,
+                               excluded_genres=excluded_genres)
         if success:
             updated += 1
             if auto_push and export_site:
@@ -2139,6 +2056,57 @@ def load_progress() -> set[str]:
 def mark_done(novel_url: str) -> None:
     with open(PROGRESS_FILE, "a") as f:
         f.write(novel_url + "\n")
+
+
+def _print_status(cloud: bool = False) -> None:
+    """
+    Print a summary of the local (and optionally Blob) library:
+    each novel, its chapter count, last-updated date, and any
+    pending failed chapters. Also shows the failed-chapter count.
+    """
+    index_path = os.path.join(SITE_DIR, "data", "index.json")
+    novels: list[dict] = []
+
+    if os.path.exists(index_path):
+        with open(index_path, encoding="utf-8") as f:
+            novels = json.load(f).get("novels", [])
+
+    if cloud and not novels:
+        blob_index = cloud_download_json("data/index.json")
+        if blob_index:
+            novels = blob_index.get("novels", [])
+
+    failed = load_failed_chapters()
+    failed_by_slug: dict[str, int] = {}
+    for slug, _, _, _ in failed:
+        failed_by_slug[slug] = failed_by_slug.get(slug, 0) + 1
+
+    if not novels:
+        print("Library is empty — no novels found.")
+        return
+
+    novels_sorted = sorted(novels, key=lambda n: n.get("lastUpdated", ""), reverse=True)
+    total_ch = sum(n.get("totalChapters", 0) for n in novels_sorted)
+
+    print(f"\n{'═'*62}")
+    print(f"  Ohara library status — {len(novels_sorted)} novel(s), "
+          f"{total_ch:,} total chapters")
+    print(f"{'═'*62}")
+    for n in novels_sorted:
+        slug    = n.get("slug", "?")
+        title   = n.get("title", slug)[:45]
+        chs     = n.get("totalChapters", 0)
+        updated = n.get("lastUpdated", "—")
+        fail    = failed_by_slug.get(slug, 0)
+        fail_str = f"  ⚠ {fail} failed" if fail else ""
+        print(f"  {title:<46} {chs:>5} ch   {updated}{fail_str}")
+    print(f"{'─'*62}")
+    if failed:
+        print(f"  ⚠ {len(failed)} chapter(s) pending retry — run --retry-failed")
+    else:
+        print(f"  ✓ No failed chapters pending")
+    print(f"{'═'*62}\n")
+
 
 
 # ────────────────────────────── main ───────────────────────────
@@ -2214,18 +2182,6 @@ def main() -> None:
         ))
     parser.add_argument("--fetch-tags", action="store_true",
         help="Fetch and update tags for all existing novels without re-scraping chapters.")
-    parser.add_argument("--update-chapternames", nargs="?", const="__ALL__",
-        default=None, metavar="SLUG",
-        help=(
-            "Re-visit every chapter of a novel and refresh its stored title\n"
-            "using the improved title-extraction logic (fixes generic\n"
-            "'Chapter N' titles left over from before the title fix).\n"
-            "Content is refreshed too since the page is fetched anyway.\n"
-            "Use alone to update ALL local novels, or pass a slug for one:\n"
-            "  --update-chapternames                (all novels)\n"
-            "  --update-chapternames shadow-slave    (one novel)\n"
-            "Add --auto-push to commit and push the fixes automatically."
-        ))
     parser.add_argument("--rebuild-html", action="store_true",
         help=(
             "Rebuild all static HTML reader pages from existing JSON in docs/data/.\n"
@@ -2262,7 +2218,18 @@ def main() -> None:
             "Add --auto-push to commit and push the deletions automatically."
         ))
     parser.add_argument("--dry-run", action="store_true",
-        help="With --delete-genre: preview what would be deleted without actually deleting.")
+        help=(
+            "Preview mode — nothing is deleted or downloaded.\n"
+            "Works with: --delete-genre (show what would be deleted)\n"
+            "            --delete-novel (show what would be removed)\n"
+            "            --listing      (just print discovered URLs)"
+        ))
+    parser.add_argument("--status", action="store_true",
+        help=(
+            "Print a summary of your local library: each novel, chapter count,\n"
+            "last-updated date, and any pending failed chapters.\n"
+            "Add --cloud to also check Vercel Blob."
+        ))
     parser.add_argument("--no-epub", action="store_true",
         help=(
             "Skip EPUB generation. Only exports JSON and static HTML for the site.\n"
@@ -2308,13 +2275,47 @@ def main() -> None:
         )
         sys.exit(1)
 
+    if cloud and BLOB_TOKEN and not re.match(r"^vercel_blob_rw_[A-Za-z0-9]+_[A-Za-z0-9]+$", BLOB_TOKEN):
+        print(
+            "Error: BLOB_READ_WRITE_TOKEN doesn't look like a valid Vercel Blob token.\n"
+            "Expected format: vercel_blob_rw_<store_id>_<secret>\n"
+            f"Got: {BLOB_TOKEN[:20]}{'...' if len(BLOB_TOKEN) > 20 else ''}\n"
+            "Double-check the value copied from your Vercel Blob store settings."
+        )
+        sys.exit(1)
+
     # Merge CLI --exclude-genre with any permanently configured DEFAULT_EXCLUDED_GENRES
     excluded_genres = DEFAULT_EXCLUDED_GENRES | {g.lower() for g in args.exclude_genre}
     if excluded_genres:
         print(f"Genre filter active — skipping novels tagged: {', '.join(sorted(excluded_genres))}")
 
+    if args.status:
+        _print_status(cloud=cloud)
+        return
+
     if args.delete_novel:
-        delete_novel(args.delete_novel, auto_push=args.auto_push)
+        if args.dry_run:
+            # Preview what would be deleted without doing anything
+            slug = args.delete_novel
+            index_path = os.path.join(SITE_DIR, "data", "index.json")
+            name = slug
+            if os.path.exists(index_path):
+                with open(index_path, encoding="utf-8") as fh:
+                    idx = json.load(fh)
+                m = next((n for n in idx.get("novels", []) if n["slug"] == slug), None)
+                if m:
+                    name = m.get("title", slug)
+            local_data  = os.path.isdir(os.path.join(SITE_DIR, "data", slug))
+            local_epub  = os.path.isdir(os.path.join("output", slug))
+            blob_meta   = cloud_download_json(f"data/{slug}/meta.json") if cloud else None
+            print(f"[Dry run] Would delete: {name} ({slug})")
+            print(f"  Local data (docs/data/): {'yes' if local_data else 'no'}")
+            print(f"  Local epubs (output/):   {'yes' if local_epub else 'no'}")
+            if cloud:
+                print(f"  Vercel Blob:             {'yes' if blob_meta and not blob_meta.get('deleted') else 'no'}")
+            print("Remove --dry-run to actually delete.")
+            return
+        delete_novel(args.delete_novel, auto_push=args.auto_push, cloud=cloud)
         return
 
     if args.delete_genre:
@@ -2330,12 +2331,7 @@ def main() -> None:
         return
 
     if args.fetch_tags:
-        fetch_tags_for_all(auto_push=args.auto_push)
-        return
-
-    if args.update_chapternames is not None:
-        target = None if args.update_chapternames == "__ALL__" else args.update_chapternames
-        update_chapter_names(target_slug=target, auto_push=args.auto_push)
+        fetch_tags_for_all(auto_push=args.auto_push, cloud=cloud)
         return
 
     # ── watch mode: loop forever, updating every --interval minutes ──
@@ -2351,6 +2347,7 @@ def main() -> None:
             print(f"{'═'*60}")
             update_all_local_novels(export_site=export_site, export_epub=export_epub,
                                     auto_push=args.auto_push, cloud=cloud,
+                                    cloud_only=cloud_only,
                                     excluded_genres=excluded_genres)
             next_time = time.strftime("%H:%M:%S", time.localtime(time.time() + interval_secs))
             print(f"\n[Watch] Next update at {next_time} — sleeping for {args.interval} minute(s)…")
@@ -2363,6 +2360,7 @@ def main() -> None:
     if args.update:
         update_all_local_novels(export_site=export_site, export_epub=export_epub,
                                 auto_push=args.auto_push, cloud=cloud,
+                                cloud_only=cloud_only,
                                 excluded_genres=excluded_genres)
         return
 
@@ -2377,7 +2375,8 @@ def main() -> None:
             url = f"{BASE_URL}/novel/{url}"
         print(f"Scraping single novel: {url}")
         success = scrape_novel(url, export_site=export_site, export_epub=export_epub,
-                               cloud=cloud, excluded_genres=excluded_genres)
+                               cloud=cloud, cloud_only=cloud_only,
+                               excluded_genres=excluded_genres)
         if success:
             mark_done(url)
             slug = slug_from_url(url)
@@ -2411,7 +2410,8 @@ def main() -> None:
     for idx, url in enumerate(queue, 1):
         print(f"\n[{idx}/{len(queue)}] Starting novel: {url}")
         success = scrape_novel(url, export_site=export_site, export_epub=export_epub,
-                               cloud=cloud, excluded_genres=excluded_genres)
+                               cloud=cloud, cloud_only=cloud_only,
+                               excluded_genres=excluded_genres)
         if success:
             mark_done(url)
             if args.auto_push and export_site:
