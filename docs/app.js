@@ -95,15 +95,12 @@ async function fetchJSON(url) {
 }
 
 async function networkLoadIndex() {
-  let localData = { novels: [] };
-  let cloudData = { novels: [] };
+  const localPromise = fetchJSON(`${DATA}/index.json`).catch(() => ({ novels: [] }));
+  const cloudPromise = _getCloudBase().then(base => 
+    base ? fetchJSON(`${base}/data/index.json`).catch(() => ({ novels: [] })) : { novels: [] }
+  );
 
-  try { localData = await fetchJSON(`${DATA}/index.json`); } catch (e) {}
-
-  const base = await _getCloudBase();
-  if (base) {
-    try { cloudData = await fetchJSON(`${base}/data/index.json`); } catch (e) {}
-  }
+  const [localData, cloudData] = await Promise.all([localPromise, cloudPromise]);
 
   // Merge (cloud takes precedence if a novel exists in both)
   const merged = new Map();
