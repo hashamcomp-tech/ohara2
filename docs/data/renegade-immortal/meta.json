@@ -1,0 +1,8379 @@
+{
+  "slug": "renegade-immortal",
+  "title": "Renegade Immortal",
+  "chapters": [
+    {
+      "num": 1,
+      "title": "Chapter 1 — Leaving Home"
+    },
+    {
+      "num": 2,
+      "title": "Chapter 2 — Immortals"
+    },
+    {
+      "num": 3,
+      "title": "Chapter 3 — Test"
+    },
+    {
+      "num": 4,
+      "title": "Chapter 4 — Heartless"
+    },
+    {
+      "num": 5,
+      "title": "Chapter 5 — The Return"
+    },
+    {
+      "num": 6,
+      "title": "Chapter 6 — Insults"
+    },
+    {
+      "num": 7,
+      "title": "Chapter 7 — Leaving Home"
+    },
+    {
+      "num": 8,
+      "title": "Chapter 8 — Stone Bead"
+    },
+    {
+      "num": 9,
+      "title": "Chapter 9 — Down the cliff"
+    },
+    {
+      "num": 10,
+      "title": "Chapter 10 — Entering the Sect"
+    },
+    {
+      "num": 11,
+      "title": "Chapter 11 — Zhang Hu"
+    },
+    {
+      "num": 12,
+      "title": "Chapter 12 — Immortal Talisman"
+    },
+    {
+      "num": 13,
+      "title": "Chapter 13 — The Elder"
+    },
+    {
+      "num": 14,
+      "title": "Chapter 14 — Unexpected Transformation"
+    },
+    {
+      "num": 15,
+      "title": "Chapter 15 — Suspicion"
+    },
+    {
+      "num": 16,
+      "title": "Chapter 16 — Disciple"
+    },
+    {
+      "num": 17,
+      "title": "Chapter 17 — Cultivation"
+    },
+    {
+      "num": 18,
+      "title": "Chapter 18 — Gourd"
+    },
+    {
+      "num": 19,
+      "title": "Chapter 19 — Chased out"
+    },
+    {
+      "num": 20,
+      "title": "Chapter 20 — Nine Clouds"
+    },
+    {
+      "num": 21,
+      "title": "Chapter 21 — Qi Gathering Pill"
+    },
+    {
+      "num": 22,
+      "title": "Chapter 22 — Scattering Technique"
+    },
+    {
+      "num": 23,
+      "title": "Chapter 23 — Tenth Cloud"
+    },
+    {
+      "num": 24,
+      "title": "Chapter 24 — Cultivation"
+    },
+    {
+      "num": 25,
+      "title": "Chapter 25 — Qi Condensation"
+    },
+    {
+      "num": 26,
+      "title": "Chapter 26 — Malicious Thoughts"
+    },
+    {
+      "num": 27,
+      "title": "Chapter 27 — Visit"
+    },
+    {
+      "num": 28,
+      "title": "Chapter 28 — Chores"
+    },
+    {
+      "num": 29,
+      "title": "Chapter 29 — Locked Door"
+    },
+    {
+      "num": 30,
+      "title": "Chapter 30 — Wang Hao"
+    },
+    {
+      "num": 31,
+      "title": "Chapter 31 — Snow Water"
+    },
+    {
+      "num": 32,
+      "title": "Chapter 32 — Exchange"
+    },
+    {
+      "num": 33,
+      "title": "Chapter 33 — Main Text"
+    },
+    {
+      "num": 34,
+      "title": "Chapter 34 — Training"
+    },
+    {
+      "num": 35,
+      "title": "Chapter 35 — Back Mountain"
+    },
+    {
+      "num": 36,
+      "title": "Chapter 36 — Quarrel"
+    },
+    {
+      "num": 37,
+      "title": "Chapter 37 — Four Years"
+    },
+    {
+      "num": 38,
+      "title": "Chapter 38 — Light Speck"
+    },
+    {
+      "num": 39,
+      "title": "Chapter 39 — Wealth"
+    },
+    {
+      "num": 40,
+      "title": "Chapter 40 — Guest"
+    },
+    {
+      "num": 41,
+      "title": "Chapter 41 — Centipede"
+    },
+    {
+      "num": 42,
+      "title": "Chapter 42 — Centipede’s Poison"
+    },
+    {
+      "num": 43,
+      "title": "Chapter 43 — Old Friend"
+    },
+    {
+      "num": 44,
+      "title": "Chapter 44 — Li Shan"
+    },
+    {
+      "num": 45,
+      "title": "Chapter 45 — Low Life"
+    },
+    {
+      "num": 46,
+      "title": "Chapter 46 — Strange Old Man"
+    },
+    {
+      "num": 47,
+      "title": "Chapter 47 — Exchange (1)"
+    },
+    {
+      "num": 48,
+      "title": "Chapter 48 — Exchange (2)"
+    },
+    {
+      "num": 49,
+      "title": "Chapter 49 — Exchange (3)"
+    },
+    {
+      "num": 50,
+      "title": "Chapter 50 — Exchange (4)"
+    },
+    {
+      "num": 51,
+      "title": "Chapter 51 — Entering the Stage (1)"
+    },
+    {
+      "num": 52,
+      "title": "Chapter 52 — Entering the Stage (2)"
+    },
+    {
+      "num": 53,
+      "title": "Chapter 53 — Entering the Stage (3)"
+    },
+    {
+      "num": 54,
+      "title": "Chapter 54 — Entering the Stage (4)"
+    },
+    {
+      "num": 55,
+      "title": "Chapter 55 — Entering the Stage (5)"
+    },
+    {
+      "num": 56,
+      "title": "Chapter 56 — Entering the Stage (6)"
+    },
+    {
+      "num": 57,
+      "title": "Chapter 57 — Entering the Stage (7)"
+    },
+    {
+      "num": 58,
+      "title": "Chapter 58 — Finished"
+    },
+    {
+      "num": 59,
+      "title": "Chapter 59 — Questioning"
+    },
+    {
+      "num": 60,
+      "title": "Chapter 60 — Elder"
+    },
+    {
+      "num": 61,
+      "title": "Chapter 61 — Ancestor"
+    },
+    {
+      "num": 62,
+      "title": "Chapter 62 — Calamity"
+    },
+    {
+      "num": 63,
+      "title": "Chapter 63 — Powerful"
+    },
+    {
+      "num": 64,
+      "title": "Chapter 64 — Sect Scatters"
+    },
+    {
+      "num": 65,
+      "title": "Chapter 65 — Sect Mourning"
+    },
+    {
+      "num": 66,
+      "title": "Chapter 66 — (Untitled)"
+    },
+    {
+      "num": 67,
+      "title": "Chapter 67 — (Untitled)"
+    },
+    {
+      "num": 68,
+      "title": "Chapter 68 — (Untitled)"
+    },
+    {
+      "num": 69,
+      "title": "Chapter 69 — (Untitled)"
+    },
+    {
+      "num": 70,
+      "title": "Chapter 70 — Returning Home"
+    },
+    {
+      "num": 71,
+      "title": "Chapter 71 — Four Years"
+    },
+    {
+      "num": 72,
+      "title": "Chapter 72 — Seizing Foundation"
+    },
+    {
+      "num": 73,
+      "title": "Chapter 73 — Tian Shui City"
+    },
+    {
+      "num": 74,
+      "title": "Chapter 74 — Bloody Disaster"
+    },
+    {
+      "num": 75,
+      "title": "Chapter 75 — Encountering the Enemy Again"
+    },
+    {
+      "num": 76,
+      "title": "Chapter 76 — The Strange Flying Sword"
+    },
+    {
+      "num": 77,
+      "title": "Chapter 77 — Old Man Jimo"
+    },
+    {
+      "num": 78,
+      "title": "Chapter 78 — Teng Family City"
+    },
+    {
+      "num": 79,
+      "title": "Chapter 79 — Refining The Flying Sword"
+    },
+    {
+      "num": 80,
+      "title": "Chapter 80 — Blood Refining Technique"
+    },
+    {
+      "num": 81,
+      "title": "Chapter 81 — Stealing Foundation (1)"
+    },
+    {
+      "num": 82,
+      "title": "Chapter 82 — Stealing Foundation (2)"
+    },
+    {
+      "num": 83,
+      "title": "Chapter 83 — Stealing Foundation (3)"
+    },
+    {
+      "num": 84,
+      "title": "Chapter 84 — Stealing Foundation (4)"
+    },
+    {
+      "num": 85,
+      "title": "Chapter 85 — Stealing Foundation (5)"
+    },
+    {
+      "num": 86,
+      "title": "Chapter 86 — Forest Ruins"
+    },
+    {
+      "num": 87,
+      "title": "Chapter 87 — The Abyssal Cold Core"
+    },
+    {
+      "num": 88,
+      "title": "Chapter 88 — The Strange Blue Skinned Person"
+    },
+    {
+      "num": 89,
+      "title": "Chapter 89 — Bluffing Magic Treasure"
+    },
+    {
+      "num": 90,
+      "title": "Chapter 90 — The First Indication"
+    },
+    {
+      "num": 91,
+      "title": "Chapter 91 — Extreme Yin Spiritual Energy"
+    },
+    {
+      "num": 92,
+      "title": "Chapter 92 — Corpse Yin Sect (1)"
+    },
+    {
+      "num": 93,
+      "title": "Chapter 93 — Corpse Yin Sect (2)"
+    },
+    {
+      "num": 94,
+      "title": "Chapter 94 — Corpse Yin Sect (3)"
+    },
+    {
+      "num": 95,
+      "title": "Chapter 95 — Enter the Sect"
+    },
+    {
+      "num": 96,
+      "title": "Chapter 96 — Furnace"
+    },
+    {
+      "num": 97,
+      "title": "Chapter 97 — Great Change"
+    },
+    {
+      "num": 98,
+      "title": "Chapter 98 — Introduction to the Foreign Battleground"
+    },
+    {
+      "num": 99,
+      "title": "Chapter 99 — The Stone Bead Changes"
+    },
+    {
+      "num": 100,
+      "title": "Chapter 100 — Refining the Sword Sheath"
+    },
+    {
+      "num": 101,
+      "title": "Chapter 101 — Soul Jade"
+    },
+    {
+      "num": 102,
+      "title": "Chapter 102 — Calamity Mourning (1)"
+    },
+    {
+      "num": 103,
+      "title": "Chapter 103 — Calamity Mourning (2)"
+    },
+    {
+      "num": 104,
+      "title": "Chapter 104 — Calamity Mourning (Final)"
+    },
+    {
+      "num": 105,
+      "title": "Chapter 105 — Ji Realm of a Past Era"
+    },
+    {
+      "num": 106,
+      "title": "Chapter 106 — Rank"
+    },
+    {
+      "num": 107,
+      "title": "Chapter 107 — Shining Grain"
+    },
+    {
+      "num": 108,
+      "title": "Chapter 108 — Old Friend"
+    },
+    {
+      "num": 109,
+      "title": "Chapter 109 — Untitled"
+    },
+    {
+      "num": 110,
+      "title": "Chapter 110 — Liu Mei"
+    },
+    {
+      "num": 111,
+      "title": "Chapter 111 — Untitled"
+    },
+    {
+      "num": 112,
+      "title": "Chapter 112 — Untitled"
+    },
+    {
+      "num": 113,
+      "title": "Chapter 113 — Untitled"
+    },
+    {
+      "num": 114,
+      "title": "Chapter 114 — Untitled"
+    },
+    {
+      "num": 115,
+      "title": "Chapter 115 — Untitled"
+    },
+    {
+      "num": 116,
+      "title": "Chapter 116 — Untitled"
+    },
+    {
+      "num": 117,
+      "title": "Chapter 117"
+    },
+    {
+      "num": 118,
+      "title": "Chapter 118 — Foreign Battleground"
+    },
+    {
+      "num": 119,
+      "title": "Chapter 119 — Soul Awakens"
+    },
+    {
+      "num": 120,
+      "title": "Chapter 120 — Return of Wang Lin"
+    },
+    {
+      "num": 121,
+      "title": "Chapter 121 — Acting Recklessly"
+    },
+    {
+      "num": 122,
+      "title": "Chapter 122 — Kill Him"
+    },
+    {
+      "num": 123,
+      "title": "Chapter 123 — Devil"
+    },
+    {
+      "num": 124,
+      "title": "Chapter 124 — Law of the World"
+    },
+    {
+      "num": 125,
+      "title": "Chapter 125 — Ji Realm Divine Sense"
+    },
+    {
+      "num": 126,
+      "title": "Chapter 126 — Foreign Country"
+    },
+    {
+      "num": 127,
+      "title": "Chapter 127 — Closed Door Cultivation at a Volcano"
+    },
+    {
+      "num": 128,
+      "title": "Chapter 128 — Burning Gold Mountain Range"
+    },
+    {
+      "num": 129,
+      "title": "Chapter 129 — Homemade Devil"
+    },
+    {
+      "num": 130,
+      "title": "Chapter 130 — Sudden Arrival of Nascent Soul"
+    },
+    {
+      "num": 131,
+      "title": "Chapter 131 — Is He a Fat Sheep?"
+    },
+    {
+      "num": 132,
+      "title": "Chapter 132 — Upheaval in Hou Fen (1)"
+    },
+    {
+      "num": 133,
+      "title": "Chapter 133 — Upheaval in Hou Fen (2)"
+    },
+    {
+      "num": 134,
+      "title": "Chapter 134 — National Migration"
+    },
+    {
+      "num": 135,
+      "title": "Chapter 135 — The Wind Changes"
+    },
+    {
+      "num": 136,
+      "title": "Chapter 136 — Middle Aged scholar"
+    },
+    {
+      "num": 137,
+      "title": "Chapter 137 — Country Sealing Array"
+    },
+    {
+      "num": 138,
+      "title": "Chapter 138 — Distant Heaven Pill"
+    },
+    {
+      "num": 139,
+      "title": "Chapter 139 — Pseudo Core Formation Stage"
+    },
+    {
+      "num": 140,
+      "title": "Chapter 140 — Sea of Devils"
+    },
+    {
+      "num": 141,
+      "title": "Chapter 141 — Fighting Evil Sect"
+    },
+    {
+      "num": 142,
+      "title": "Chapter 142 — A Body of Treasures"
+    },
+    {
+      "num": 143,
+      "title": "Chapter 143 — Three Cold Cores"
+    },
+    {
+      "num": 144,
+      "title": "Chapter 144 — Core Formation (1)"
+    },
+    {
+      "num": 145,
+      "title": "Chapter 145 — Core Formation (2)"
+    },
+    {
+      "num": 146,
+      "title": "Chapter 146 — Core Formation (3)"
+    },
+    {
+      "num": 147,
+      "title": "Chapter 147 — Core Formation (4)"
+    },
+    {
+      "num": 148,
+      "title": "Chapter 148 — Core Formation (5)"
+    },
+    {
+      "num": 149,
+      "title": "Chapter 149 — Core Formation (5)"
+    },
+    {
+      "num": 150,
+      "title": "Chapter 150 — Kill"
+    },
+    {
+      "num": 151,
+      "title": "Chapter 151 — Ten Thousand Devil Hundred Day Kill Order"
+    },
+    {
+      "num": 152,
+      "title": "Chapter 152 — Carving a Bloody Path"
+    },
+    {
+      "num": 153,
+      "title": "Chapter 153 — A Show of Strength at Nan Dou"
+    },
+    {
+      "num": 154,
+      "title": "Chapter 154 — The Great Battle Dragon Formation"
+    },
+    {
+      "num": 155,
+      "title": "Chapter 155 — After Image Sword Cultivation"
+    },
+    {
+      "num": 156,
+      "title": "Chapter 156 — I’ll Fight Him to the Death"
+    },
+    {
+      "num": 157,
+      "title": "Chapter 157 — A Sad and Beautiful Complexion"
+    },
+    {
+      "num": 158,
+      "title": "Chapter 158 — The Fog Turns to Sea"
+    },
+    {
+      "num": 159,
+      "title": "Chapter 159 — The Green Robed Old Man"
+    },
+    {
+      "num": 160,
+      "title": "Chapter 160 — Cultivating the Core"
+    },
+    {
+      "num": 161,
+      "title": "Chapter 161 — Eight Clawed Divine Sense"
+    },
+    {
+      "num": 162,
+      "title": "Chapter 162 — Reaching an Agreement"
+    },
+    {
+      "num": 163,
+      "title": "Chapter 163 — The Divine Path"
+    },
+    {
+      "num": 164,
+      "title": "Chapter 164 — The Mysterious Corpse"
+    },
+    {
+      "num": 165,
+      "title": "Chapter 165 — Palpitating with Eagerness"
+    },
+    {
+      "num": 166,
+      "title": "Chapter 166 — Ancient Transfer Array"
+    },
+    {
+      "num": 167,
+      "title": "Chapter 167 — Gathering of Devils"
+    },
+    {
+      "num": 168,
+      "title": "Chapter 168 — Land of the Ancient God"
+    },
+    {
+      "num": 169,
+      "title": "Chapter 169 — Obtaining the Marrow"
+    },
+    {
+      "num": 170,
+      "title": "Chapter 170 — Splitting from the team"
+    },
+    {
+      "num": 171,
+      "title": "Chapter 171 — The Jade Li Muwan Left"
+    },
+    {
+      "num": 172,
+      "title": "Chapter 172 — Earth Trial"
+    },
+    {
+      "num": 173,
+      "title": "Chapter 173 — The second devil"
+    },
+    {
+      "num": 174,
+      "title": "Chapter 174 — The devil’s mutation"
+    },
+    {
+      "num": 175,
+      "title": "Chapter 175 —Stealing Treasure"
+    },
+    {
+      "num": 176,
+      "title": "Chapter 176 — Capturing the wind pack"
+    },
+    {
+      "num": 177,
+      "title": "Chapter 177 — King poison cauldron"
+    },
+    {
+      "num": 178,
+      "title": "Chapter 178 — Restriction mountain"
+    },
+    {
+      "num": 179,
+      "title": "Chapter 179 — Studying Restrictions"
+    },
+    {
+      "num": 180,
+      "title": "Chapter 180 — The Unlucky Ancient Emperor"
+    },
+    {
+      "num": 181,
+      "title": "Chapter 181 — The Outbreak of Restrictions"
+    },
+    {
+      "num": 182,
+      "title": "Chapter 182 — The Ancient God Tu Si"
+    },
+    {
+      "num": 183,
+      "title": "Chapter 183 — The Sudden Change"
+    },
+    {
+      "num": 184,
+      "title": "Chapter 184 — The Blood Sea of the Demon God"
+    },
+    {
+      "num": 185,
+      "title": "Chapter 185 — Master of the Blood Sea"
+    },
+    {
+      "num": 186,
+      "title": "Chapter 186 — Beyond the Qi Sea"
+    },
+    {
+      "num": 187,
+      "title": "Chapter 187 — The Ancient God’s Inheritance (part 1)"
+    },
+    {
+      "num": 188,
+      "title": "Chapter 188 — The Ancient God’s Inheritance (part 2)"
+    },
+    {
+      "num": 189,
+      "title": "Chapter 189 — The Ancient God’s Inheritance (part 3)"
+    },
+    {
+      "num": 190,
+      "title": "Chapter 190 — The Ancient God’s Inheritance (part 4)"
+    },
+    {
+      "num": 191,
+      "title": "Chapter 191 — Dead Soul Sea"
+    },
+    {
+      "num": 192,
+      "title": "Chapter 192 — Unexpected"
+    },
+    {
+      "num": 193,
+      "title": "Chapter 193 — Seal of the Blood Sea"
+    },
+    {
+      "num": 194,
+      "title": "Chapter 194 — Opening the Seal"
+    },
+    {
+      "num": 195,
+      "title": "Chapter 195 — Doubts about the Dead Sea"
+    },
+    {
+      "num": 196,
+      "title": "Chapter 196 — Agreement Broken"
+    },
+    {
+      "num": 197,
+      "title": "Chapter 197 — The True Inheritance"
+    },
+    {
+      "num": 198,
+      "title": "Chapter 198 — Body Reconstruction"
+    },
+    {
+      "num": 199,
+      "title": "Chapter 199 — Land of the Ancient God (Final)"
+    },
+    {
+      "num": 200,
+      "title": "Chapter 200 — Yun Fei"
+    },
+    {
+      "num": 201,
+      "title": "Chapter 201 — 200 Years"
+    },
+    {
+      "num": 202,
+      "title": "Chapter 202 — Wiped out Completely"
+    },
+    {
+      "num": 203,
+      "title": "Chapter 203 — Qi Lin City"
+    },
+    {
+      "num": 204,
+      "title": "Chapter 204 — The Ancient Mirror and The Restriction Flag"
+    },
+    {
+      "num": 205,
+      "title": "Chapter 205 — The Nascent Soul within Gui Xi"
+    },
+    {
+      "num": 206,
+      "title": "Chapter 206 — Divine Retribution"
+    },
+    {
+      "num": 207,
+      "title": "Chapter 207 — Killing people for their core!"
+    },
+    {
+      "num": 208,
+      "title": "Chapter 208 — Final Destination of the Ji realm"
+    },
+    {
+      "num": 209,
+      "title": "Chapter 209 — The Method Without Destroying His Cultivation"
+    },
+    {
+      "num": 210,
+      "title": "Chapter 210 — Learning the avatar technique"
+    },
+    {
+      "num": 211,
+      "title": "Chapter 211 — Cloud Sky Sect"
+    },
+    {
+      "num": 212,
+      "title": "Chapter 212 — Luxury"
+    },
+    {
+      "num": 213,
+      "title": "Chapter 213 — Old Friend"
+    },
+    {
+      "num": 214,
+      "title": "Chapter 214 — Melancholy"
+    },
+    {
+      "num": 215,
+      "title": "Chapter 215 — Lou Yue"
+    },
+    {
+      "num": 216,
+      "title": "Chapter 216 — Main Body, Appear!"
+    },
+    {
+      "num": 217,
+      "title": "Chapter 217 — Meet Up"
+    },
+    {
+      "num": 218,
+      "title": "Chapter 218 — Decisiveness"
+    },
+    {
+      "num": 219,
+      "title": "Chapter 219 — Two Months"
+    },
+    {
+      "num": 220,
+      "title": "Chapter 220 — Pills"
+    },
+    {
+      "num": 221,
+      "title": "Chapter 221 — Soaring Cultivation"
+    },
+    {
+      "num": 222,
+      "title": "Chapter 222 — Heaven Stealing Seven Furnace"
+    },
+    {
+      "num": 223,
+      "title": "Chapter 223 — Opening the Pill Seal"
+    },
+    {
+      "num": 224,
+      "title": "Chapter 224 — Forming Nascent Soul"
+    },
+    {
+      "num": 225,
+      "title": "Chapter 225 — Take This To Refine A Pill"
+    },
+    {
+      "num": 226,
+      "title": "Chapter 226 — Leave The Country of Chu"
+    },
+    {
+      "num": 227,
+      "title": "Chapter 227 — Meeting an Old Friend Again"
+    },
+    {
+      "num": 228,
+      "title": "Chapter 228 — Receiving Favor"
+    },
+    {
+      "num": 229,
+      "title": "Chapter 229 — Mosquito Beast"
+    },
+    {
+      "num": 230,
+      "title": "Chapter 230 —Killing for a Token"
+    },
+    {
+      "num": 231,
+      "title": "Chapter 231 — Location of Zhao"
+    },
+    {
+      "num": 232,
+      "title": "Chapter 232 — Sword Sheath"
+    },
+    {
+      "num": 233,
+      "title": "Chapter 233 — Stop"
+    },
+    {
+      "num": 234,
+      "title": "Chapter 234 — Teng Huayuan"
+    },
+    {
+      "num": 235,
+      "title": "Chapter 235 — Because His Name is Teng"
+    },
+    {
+      "num": 236,
+      "title": "Chapter 236 — Killing One Thousand"
+    },
+    {
+      "num": 237,
+      "title": "Chapter 237 — Wang… Wang Lin?"
+    },
+    {
+      "num": 238,
+      "title": "Chapter 238 — Core Family Members"
+    },
+    {
+      "num": 239,
+      "title": "Chapter 239 — Large Tree Wish to Fall"
+    },
+    {
+      "num": 240,
+      "title": "Chapter 240 — Teng Three"
+    },
+    {
+      "num": 241,
+      "title": "Chapter 241 — Wang Zhuo"
+    },
+    {
+      "num": 242,
+      "title": "Chapter 242 — Punnan Zi"
+    },
+    {
+      "num": 243,
+      "title": "Chapter 243 — Teng One"
+    },
+    {
+      "num": 244,
+      "title": "Chapter 244 — Exterminating Teng (1)"
+    },
+    {
+      "num": 245,
+      "title": "Chapter 245 — Exterminating Teng (2)"
+    },
+    {
+      "num": 246,
+      "title": "Chapter 246 — Exterminating Teng (End)"
+    },
+    {
+      "num": 247,
+      "title": "Chapter 247 — The Evil Looking Young Man"
+    },
+    {
+      "num": 248,
+      "title": "Chapter 248 — The Cultivation Planet Crystal"
+    },
+    {
+      "num": 249,
+      "title": "Chapter 249 — Turning Mortal"
+    },
+    {
+      "num": 250,
+      "title": "Chapter 250 — Condensing Evil"
+    },
+    {
+      "num": 251,
+      "title": "Chapter 251 — Spiritual Retreat"
+    },
+    {
+      "num": 252,
+      "title": "Chapter 252 — Magic Treasure"
+    },
+    {
+      "num": 253,
+      "title": "Chapter 253 — Carving of a Dragon"
+    },
+    {
+      "num": 254,
+      "title": "Chapter 254 — Never Seen It Before"
+    },
+    {
+      "num": 255,
+      "title": "Chapter 255 — Robber"
+    },
+    {
+      "num": 256,
+      "title": "Chapter 256 — Coldness"
+    },
+    {
+      "num": 257,
+      "title": "Chapter 257 — It’s You!"
+    },
+    {
+      "num": 258,
+      "title": "Chapter 258 — Trashing Sects"
+    },
+    {
+      "num": 259,
+      "title": "Chapter 259 — Domain"
+    },
+    {
+      "num": 260,
+      "title": "Chapter 260 — Ancestral Spirit Token"
+    },
+    {
+      "num": 261,
+      "title": "Chapter 261 — Latter Years"
+    },
+    {
+      "num": 262,
+      "title": "Chapter 262 — Candy"
+    },
+    {
+      "num": 263,
+      "title": "Chapter 263 — Will die within 100 years"
+    },
+    {
+      "num": 264,
+      "title": "Chapter 264 — Life and Death Domain"
+    },
+    {
+      "num": 265,
+      "title": "Chapter 265 — Changing Snow"
+    },
+    {
+      "num": 266,
+      "title": "Chapter 266 — Cultivator of Xue Yu"
+    },
+    {
+      "num": 267,
+      "title": "Chapter 267 — Killing People"
+    },
+    {
+      "num": 268,
+      "title": "Chapter 268 — Rain Cauldron"
+    },
+    {
+      "num": 269,
+      "title": "Chapter 269 — The Heaven’s Dao Are Ruthless"
+    },
+    {
+      "num": 270,
+      "title": "Chapter 270 — The Lovely Lady Blessed By The Heavens"
+    },
+    {
+      "num": 271,
+      "title": "Chapter 271 — 10 Years To Soul Formation"
+    },
+    {
+      "num": 272,
+      "title": "Chapter 272 — Zhang Daniu"
+    },
+    {
+      "num": 273,
+      "title": "Chapter 273 — Xue Yu Descends"
+    },
+    {
+      "num": 274,
+      "title": "Chapter 274 — Underground Ice Sculpture"
+    },
+    {
+      "num": 275,
+      "title": "Chapter 275 — Black Dragon"
+    },
+    {
+      "num": 276,
+      "title": "Chapter 276 — Stealing The Earth Spirit"
+    },
+    {
+      "num": 277,
+      "title": "Chapter 277 — Red Butterfly"
+    },
+    {
+      "num": 278,
+      "title": "Chapter 278 — Divine Retribution"
+    },
+    {
+      "num": 279,
+      "title": "Chapter 279 — Heaven Defying Bead Changes"
+    },
+    {
+      "num": 280,
+      "title": "Chapter 280 — Master"
+    },
+    {
+      "num": 281,
+      "title": "Chapter 281 — Honor"
+    },
+    {
+      "num": 282,
+      "title": "Chapter 282 — Returning to Zhao to Reach the Soul Formation Stage"
+    },
+    {
+      "num": 283,
+      "title": "Chapter 283 — Insight"
+    },
+    {
+      "num": 284,
+      "title": "Chapter 284 — Peeling the Top"
+    },
+    {
+      "num": 285,
+      "title": "Chapter 285 — Point of Transformation"
+    },
+    {
+      "num": 286,
+      "title": "Chapter 286 — Beginning Transformation"
+    },
+    {
+      "num": 287,
+      "title": "Chapter 287 — Reincarnation"
+    },
+    {
+      "num": 288,
+      "title": "Chapter 288 — The First Sword Sheath"
+    },
+    {
+      "num": 289,
+      "title": "Chapter 289 — Ancient God’s Tactic Treasure"
+    },
+    {
+      "num": 290,
+      "title": "Chapter 290 — No Name (1)"
+    },
+    {
+      "num": 291,
+      "title": "Chapter 291 — No Name (2)"
+    },
+    {
+      "num": 292,
+      "title": "Chapter 292 — Return"
+    },
+    {
+      "num": 293,
+      "title": "Chapter 293 — The Celestial Gate Opens"
+    },
+    {
+      "num": 294,
+      "title": "Chapter 294 — Intimation"
+    },
+    {
+      "num": 295,
+      "title": "Chapter 295 — The Broken Celestial Realm"
+    },
+    {
+      "num": 296,
+      "title": "Chapter 296 — Celestial Spiritual Energy"
+    },
+    {
+      "num": 297,
+      "title": "Chapter 297 — Died before it was borned"
+    },
+    {
+      "num": 298,
+      "title": "Chapter 298 — Phantom"
+    },
+    {
+      "num": 299,
+      "title": "Chapter 299 — Battling Red Butterfly"
+    },
+    {
+      "num": 300,
+      "title": "Chapter 300 — Celestial Jade (1)"
+    },
+    {
+      "num": 301,
+      "title": "Chapter 301 — Celestial Jade (2)"
+    },
+    {
+      "num": 302,
+      "title": "Chapter 302 — Further Exploration"
+    },
+    {
+      "num": 303,
+      "title": "Chapter 303 — Everyone has their own agenda"
+    },
+    {
+      "num": 304,
+      "title": "Chapter 304 — The Collapse of a Celestial Realm Fragment"
+    },
+    {
+      "num": 305,
+      "title": "Chapter 305 — Wandering Souls Show Their Might"
+    },
+    {
+      "num": 306,
+      "title": "Chapter 306 — Location of the Cave"
+    },
+    {
+      "num": 307,
+      "title": "Chapter 307 — God Slaying Chariot"
+    },
+    {
+      "num": 308,
+      "title": "Chapter 308 — Loving a Dead Woman"
+    },
+    {
+      "num": 309,
+      "title": "Chapter 309 — Fight"
+    },
+    {
+      "num": 310,
+      "title": "Chapter 310 — Overlapping Fragments"
+    },
+    {
+      "num": 311,
+      "title": "Chapter 311 — Star Compass"
+    },
+    {
+      "num": 312,
+      "title": "Chapter 312 — Looking for trouble"
+    },
+    {
+      "num": 313,
+      "title": "Chapter 313 — Female Corpse is Better"
+    },
+    {
+      "num": 314,
+      "title": "Chapter 314 — Possession"
+    },
+    {
+      "num": 315,
+      "title": "Chapter 315 — Stealing Corpse"
+    },
+    {
+      "num": 316,
+      "title": "Chapter 316 — Ceng Niu, you dare to kill me!"
+    },
+    {
+      "num": 317,
+      "title": "Chapter 317 -Those who seek Dao are willing to die at sunset if they could gain the right path in the morning"
+    },
+    {
+      "num": 318,
+      "title": "Chapter 318 — Two gifts"
+    },
+    {
+      "num": 319,
+      "title": "Chapter 319 — Biting the master"
+    },
+    {
+      "num": 320,
+      "title": "Chapter 320 — Compass"
+    },
+    {
+      "num": 321,
+      "title": "Chapter 321 — Swords gone mad"
+    },
+    {
+      "num": 322,
+      "title": "Chapter 322 — Future senior apprentice brother"
+    },
+    {
+      "num": 323,
+      "title": "Chapter 323 — Sword Saint Ling Tianhou"
+    },
+    {
+      "num": 324,
+      "title": "Chapter 324 — The celestial spell can’t hide your thousands of years of obsession"
+    },
+    {
+      "num": 325,
+      "title": "Chapter 325 — Breakthrough"
+    },
+    {
+      "num": 326,
+      "title": "Chapter 326 — The new star of Suzaku"
+    },
+    {
+      "num": 327,
+      "title": "Chapter 327 — Return"
+    },
+    {
+      "num": 328,
+      "title": "Chapter 328 — Heart Trembles"
+    },
+    {
+      "num": 329,
+      "title": "Chapter 329 — I… am Wang Lin (1)"
+    },
+    {
+      "num": 330,
+      "title": "Chapter 330 — I… am Wang Lin (2)"
+    },
+    {
+      "num": 331,
+      "title": "Chapter 331 — Reckless?"
+    },
+    {
+      "num": 332,
+      "title": "Chapter 332 — Seclusion"
+    },
+    {
+      "num": 333,
+      "title": "Chapter 333 — New Home"
+    },
+    {
+      "num": 334,
+      "title": "Chapter 334 — Lifting a Mountain"
+    },
+    {
+      "num": 335,
+      "title": "Chapter 335 — Soul Formation Cultivator of the Treasure Refining Pavilion"
+    },
+    {
+      "num": 336,
+      "title": "Chapter 336 — Rank 6 Pill Recipe"
+    },
+    {
+      "num": 337,
+      "title": "Chapter 337 — Not Giving Up"
+    },
+    {
+      "num": 338,
+      "title": "Chapter 338 — Li Muwan"
+    },
+    {
+      "num": 339,
+      "title": "Chapter 339 — To Be Reincarnated"
+    },
+    {
+      "num": 340,
+      "title": "Chapter 340 — Messenger of Suzaku"
+    },
+    {
+      "num": 341,
+      "title": "Chapter 341 — Three Message From Mount Suzaku"
+    },
+    {
+      "num": 342,
+      "title": "Chapter 342 — Remnant of the Savages"
+    },
+    {
+      "num": 343,
+      "title": "Chapter 343 — Country of Suzaku"
+    },
+    {
+      "num": 344,
+      "title": "Chapter 344 — Do you still remember Wealth?"
+    },
+    {
+      "num": 345,
+      "title": "Chapter 345 — Savages"
+    },
+    {
+      "num": 346,
+      "title": "Chapter 346 — Shaman"
+    },
+    {
+      "num": 347,
+      "title": "Chapter 347 — Forsaken Immortal Clan"
+    },
+    {
+      "num": 348,
+      "title": "Chapter 348 — Reincarnation Tree"
+    },
+    {
+      "num": 349,
+      "title": "Chapter 349 — Half An Hour"
+    },
+    {
+      "num": 350,
+      "title": "Chapter 350 — Power of the God Slaying Chariot"
+    },
+    {
+      "num": 351,
+      "title": "Chapter 351 — Escape"
+    },
+    {
+      "num": 352,
+      "title": "Chapter 352 — Tattoo Puppet"
+    },
+    {
+      "num": 353,
+      "title": "Chapter 353 — Wood Element"
+    },
+    {
+      "num": 354,
+      "title": "Chapter 354 — Cutting Your Escape Path"
+    },
+    {
+      "num": 355,
+      "title": "Chapter 355 — Remaining people"
+    },
+    {
+      "num": 356,
+      "title": "Chapter 356 — Leaving"
+    },
+    {
+      "num": 357,
+      "title": "Chapter 357 — Uncle"
+    },
+    {
+      "num": 358,
+      "title": "Chapter 358 — Situ Nan"
+    },
+    {
+      "num": 359,
+      "title": "Chapter 359"
+    },
+    {
+      "num": 360,
+      "title": "Chapter 360 — The 10 year appointment"
+    },
+    {
+      "num": 361,
+      "title": "Chapter 361 — Country of Suzaku"
+    },
+    {
+      "num": 362,
+      "title": "Chapter 362 — Battle with Red Butterfly"
+    },
+    {
+      "num": 363,
+      "title": "Chapter 363 — Soul Lasher"
+    },
+    {
+      "num": 364,
+      "title": "Chapter 364 — Fury of the Chariot"
+    },
+    {
+      "num": 365,
+      "title": "Chapter 365 — Power of Domains"
+    },
+    {
+      "num": 366,
+      "title": "Chapter 366 — The Conspiracy Reveals Itself"
+    },
+    {
+      "num": 367,
+      "title": "Chapter 367 — Liu Mei and Qian Feng"
+    },
+    {
+      "num": 368,
+      "title": "Chapter 368 — Big Calamity!"
+    },
+    {
+      "num": 369,
+      "title": "Chapter 369 — The Reason"
+    },
+    {
+      "num": 370,
+      "title": "Chapter 370 — Mutual Destruction"
+    },
+    {
+      "num": 371,
+      "title": "Chapter 371 — Mortal"
+    },
+    {
+      "num": 372,
+      "title": "Chapter 372 — Fire Cloud Village"
+    },
+    {
+      "num": 373,
+      "title": "Chapter 373 — Mosquito beast"
+    },
+    {
+      "num": 374,
+      "title": "Chapter 374 — Object in the water"
+    },
+    {
+      "num": 375,
+      "title": "Chapter 375 — Soul Refining Sect"
+    },
+    {
+      "num": 376,
+      "title": "Chapter 376 — The last day of the new year"
+    },
+    {
+      "num": 377,
+      "title": "Chapter 377 — Gathering Spirits"
+    },
+    {
+      "num": 378,
+      "title": "Chapter 378 — Crazy Recovery (1)"
+    },
+    {
+      "num": 379,
+      "title": "Chapter 379 — Crazy Recovery (2)"
+    },
+    {
+      "num": 380,
+      "title": "Chapter 380 — Search"
+    },
+    {
+      "num": 381,
+      "title": "Chapter 381 — First clash with Liu Mei"
+    },
+    {
+      "num": 382,
+      "title": "Chapter 382 — Ji Realm and the Death Spell"
+    },
+    {
+      "num": 383,
+      "title": "Chapter 383 — Inner Sect of the Soul Refining Sect"
+    },
+    {
+      "num": 384,
+      "title": "Chapter 384 — Three method of the Soul Flag"
+    },
+    {
+      "num": 385,
+      "title": "Chapter 385 — Golden Soul Flag"
+    },
+    {
+      "num": 386,
+      "title": "Chapter 386 — Second encounter with Liu Mei"
+    },
+    {
+      "num": 387,
+      "title": "Chapter 387 — Main Battle Soul"
+    },
+    {
+      "num": 388,
+      "title": "Chapter 388 — Collecting Qilin Soul Flag"
+    },
+    {
+      "num": 389,
+      "title": "Chapter 389 — Little friend, this old man has waited a long time for you"
+    },
+    {
+      "num": 390,
+      "title": "Chapter 390 — Three amazing gifts"
+    },
+    {
+      "num": 391,
+      "title": "Chapter 391 — Yunque Zi"
+    },
+    {
+      "num": 392,
+      "title": "Chapter 392— Rank 6 cultivation country"
+    },
+    {
+      "num": 393,
+      "title": "Chapter 393 — The power of one word"
+    },
+    {
+      "num": 394,
+      "title": "Chapter 394 — The weakest soul transformation and the real Wang Lin"
+    },
+    {
+      "num": 395,
+      "title": "Chapter 395 — The most talented person on planet Suzaku"
+    },
+    {
+      "num": 396,
+      "title": "Chapter 396 — One billion soul soul flag"
+    },
+    {
+      "num": 397,
+      "title": "Chapter 397 — Giant Demon Clan"
+    },
+    {
+      "num": 398,
+      "title": "Chapter 398 — Chi Hu’s choice"
+    },
+    {
+      "num": 399,
+      "title": "Chapter 399 — The ancestor appears"
+    },
+    {
+      "num": 400,
+      "title": "Chapter 400 — Xu Liguo"
+    },
+    {
+      "num": 401,
+      "title": "Chapter 401 — Zhou Wutai"
+    },
+    {
+      "num": 402,
+      "title": "Chapter 402 — The ancestor dies!"
+    },
+    {
+      "num": 403,
+      "title": "Chapter 403 — Mei Ji"
+    },
+    {
+      "num": 404,
+      "title": "Chapter 404 — Zhou Ru"
+    },
+    {
+      "num": 405,
+      "title": "Chapter 405 — Little White"
+    },
+    {
+      "num": 406,
+      "title": "Chapter 406 — Shocking change"
+    },
+    {
+      "num": 407,
+      "title": "Chapter 407 — Arrival of the heaven’s messenger"
+    },
+    {
+      "num": 408,
+      "title": "Chapter 408 — Fates Cruel Teasing"
+    },
+    {
+      "num": 409,
+      "title": "Chapter 409 — Dao Heart"
+    },
+    {
+      "num": 410,
+      "title": "Chapter 410 — Soul Transformation (1)"
+    },
+    {
+      "num": 411,
+      "title": "Chapter 411 — An old friend"
+    },
+    {
+      "num": 412,
+      "title": "Chapter 412 — Remaining Treasure"
+    },
+    {
+      "num": 413,
+      "title": "Chapter 413 — Ancestor"
+    },
+    {
+      "num": 414,
+      "title": "Chapter 414 — Wealth"
+    },
+    {
+      "num": 415,
+      "title": "Chapter 415 — Soul Transformation (2)"
+    },
+    {
+      "num": 416,
+      "title": "Chapter 416 — Tradition"
+    },
+    {
+      "num": 417,
+      "title": "Chapter 417 — The second battle with the Forsaken Immortal Clan begins"
+    },
+    {
+      "num": 418,
+      "title": "Chapter 418 — The true power of the 1 billion soul soul flag"
+    },
+    {
+      "num": 419,
+      "title": "Chapter 419 — Second generation Suzaku? Situ Nan?"
+    },
+    {
+      "num": 420,
+      "title": "Chapter 420 — Qian Feng"
+    },
+    {
+      "num": 421,
+      "title": "Chapter 421 — Soul Transformation"
+    },
+    {
+      "num": 422,
+      "title": "Chapter 422 — Zhuque Zi"
+    },
+    {
+      "num": 423,
+      "title": "Chapter 423 — The Wise and Sorrowful King"
+    },
+    {
+      "num": 424,
+      "title": "Chapter 424 — Situ Nan"
+    },
+    {
+      "num": 425,
+      "title": "Chapter 425 — Boy"
+    },
+    {
+      "num": 426,
+      "title": "Chapter 426 — Cultivation Planet Crystal"
+    },
+    {
+      "num": 427,
+      "title": "Chapter 427 — Ancestral Spirit Tree"
+    },
+    {
+      "num": 428,
+      "title": "Chapter 428 — Little Northern Flame Land"
+    },
+    {
+      "num": 429,
+      "title": "Chapter 429 — The secret of the Cultivation Planet Crystal"
+    },
+    {
+      "num": 430,
+      "title": "Chapter 430 — Messenger"
+    },
+    {
+      "num": 431,
+      "title": "Chapter 431 — The dove took over the magpie’s nest"
+    },
+    {
+      "num": 432,
+      "title": "Chapter 432 — Ancestral Tattoo Skull"
+    },
+    {
+      "num": 433,
+      "title": "Chapter 433 — The third ancestor is her"
+    },
+    {
+      "num": 434,
+      "title": "Chapter 434 — Do you wish to lie with me?"
+    },
+    {
+      "num": 435,
+      "title": "Chapter 435 — The giant under the Corpse Sect"
+    },
+    {
+      "num": 436,
+      "title": "Chapter 436 — Cao Yidou"
+    },
+    {
+      "num": 437,
+      "title": "Chapter 437 — Save me…"
+    },
+    {
+      "num": 438,
+      "title": "Chapter 438 — Lei Ji"
+    },
+    {
+      "num": 439,
+      "title": "Chapter 439 — Difference in Dao"
+    },
+    {
+      "num": 440,
+      "title": "Chapter 440 — Above ascendant"
+    },
+    {
+      "num": 441,
+      "title": "Chapter 441 — Zhuque Zi’s madness (1)"
+    },
+    {
+      "num": 442,
+      "title": "Chapter 442 — Zhuque Zi’s madness (2)"
+    },
+    {
+      "num": 443,
+      "title": "Chapter 443 — Who is this person?"
+    },
+    {
+      "num": 444,
+      "title": "Chapter 444 — Scorched Earth Spirit"
+    },
+    {
+      "num": 445,
+      "title": "Chapter 445 — Murong Yun"
+    },
+    {
+      "num": 446,
+      "title": "Chapter 446 — Alter"
+    },
+    {
+      "num": 447,
+      "title": "Chapter 447 — A beauty that can’t be replicated"
+    },
+    {
+      "num": 448,
+      "title": "Chapter 448 — The third encounter with Liu Mei"
+    },
+    {
+      "num": 449,
+      "title": "Chapter 449 — The last illusion"
+    },
+    {
+      "num": 450,
+      "title": "Chapter 450 — Thousand Illusion Lust Domain"
+    },
+    {
+      "num": 451,
+      "title": "Chapter 451 — Wan Er’s Soul Piece"
+    },
+    {
+      "num": 452,
+      "title": "Chapter 452 — Stealing the soul"
+    },
+    {
+      "num": 453,
+      "title": "Chapter 453 — Tuo Sen’s messenger"
+    },
+    {
+      "num": 454,
+      "title": "Chapter 454 — Strange Treasure"
+    },
+    {
+      "num": 455,
+      "title": "Chapter 455 — Red Butterfly"
+    },
+    {
+      "num": 456,
+      "title": "Chapter 456 — Rose Red"
+    },
+    {
+      "num": 457,
+      "title": "Chapter 457 — Like a butterfly"
+    },
+    {
+      "num": 458,
+      "title": "Chapter 458 — All gathered"
+    },
+    {
+      "num": 459,
+      "title": "Chapter 459 — Man of iron and stone"
+    },
+    {
+      "num": 460,
+      "title": "Chapter 460 — The Metal Armored Burly man"
+    },
+    {
+      "num": 461,
+      "title": "Chapter 461 — Killing Intent"
+    },
+    {
+      "num": 462,
+      "title": "Chapter 462 — Ye Wuyou"
+    },
+    {
+      "num": 463,
+      "title": "Chapter 463 — Rob"
+    },
+    {
+      "num": 464,
+      "title": "Chapter 464 — Suzaku’s Inheritance"
+    },
+    {
+      "num": 465,
+      "title": "Chapter 465 — Battling Qian Feng"
+    },
+    {
+      "num": 466,
+      "title": "Chapter 466 — Tuo Sen’s Killing Intent"
+    },
+    {
+      "num": 467,
+      "title": "Chapter 467 — Cultivation alliance messenger"
+    },
+    {
+      "num": 468,
+      "title": "Chapter 468 — Suzaku Tomb"
+    },
+    {
+      "num": 469,
+      "title": "Chapter 469 — One Year"
+    },
+    {
+      "num": 470,
+      "title": "Chapter 470 — Our fateful connection ends"
+    },
+    {
+      "num": 471,
+      "title": "Chapter 471 — Refining Treasure"
+    },
+    {
+      "num": 472,
+      "title": "Chapter 472 — Planet Suzaku"
+    },
+    {
+      "num": 473,
+      "title": "Chapter 473 — Trading Planet"
+    },
+    {
+      "num": 474,
+      "title": "Chapter 474 — Void Wood Stone"
+    },
+    {
+      "num": 475,
+      "title": "Chapter 475 — Bai Wei"
+    },
+    {
+      "num": 476,
+      "title": "Chapter 476 — Solo Journey"
+    },
+    {
+      "num": 477,
+      "title": "Chapter 477 — Arriving at Tian Yun"
+    },
+    {
+      "num": 478,
+      "title": "Chapter 478 — Seeking Dao"
+    },
+    {
+      "num": 479,
+      "title": "Chapter 479 — Dao"
+    },
+    {
+      "num": 480,
+      "title": "Chapter 480 — Purple Cloud Pavilion"
+    },
+    {
+      "num": 481,
+      "title": "Chapter 481 — Domineering"
+    },
+    {
+      "num": 482,
+      "title": "Chapter 482 — Purple Forest Palace"
+    },
+    {
+      "num": 483,
+      "title": "Chapter 483 — Demonic Finger"
+    },
+    {
+      "num": 484,
+      "title": "Chapter 484 — All—Seer"
+    },
+    {
+      "num": 485,
+      "title": "Chapter 485 — Celestial Spell"
+    },
+    {
+      "num": 486,
+      "title": "Chapter 486 — The 7 true disciples of the All—Seer"
+    },
+    {
+      "num": 487,
+      "title": "Chapter 487 — Sword Intent"
+    },
+    {
+      "num": 488,
+      "title": "Chapter 488 — Cultivating while trapped"
+    },
+    {
+      "num": 489,
+      "title": "Chapter 489 — Birthday Celebration"
+    },
+    {
+      "num": 490,
+      "title": "Chapter 490 — Purple Qi From the East"
+    },
+    {
+      "num": 491,
+      "title": "Chapter 491 — Crashing the celebration"
+    },
+    {
+      "num": 492,
+      "title": "Chapter 492 — Ancient Demon"
+    },
+    {
+      "num": 493,
+      "title": "Chapter 493 — Nine Cycle Celestial Refining Tactic"
+    },
+    {
+      "num": 494,
+      "title": "Chapter 494 — Elder Sun!"
+    },
+    {
+      "num": 495,
+      "title": "Chapter 495 — He!"
+    },
+    {
+      "num": 496,
+      "title": "Chapter 496 — Meeting Ling Tianhou again"
+    },
+    {
+      "num": 497,
+      "title": "Chapter 497 — Celestial Guidance Spell"
+    },
+    {
+      "num": 498,
+      "title": "Chapter 498 — Zhao Xinmeng"
+    },
+    {
+      "num": 499,
+      "title": "Chapter 499 — The Purple Division’s Sixth Brother"
+    },
+    {
+      "num": 500,
+      "title": "Chapter 500 — Battling an Ascendant"
+    },
+    {
+      "num": 501,
+      "title": "Chapter 501 — Shatter Land of Celestials"
+    },
+    {
+      "num": 502,
+      "title": "Chapter 502 — Domain Enters the Body"
+    },
+    {
+      "num": 503,
+      "title": "Chapter 503 — One More"
+    },
+    {
+      "num": 504,
+      "title": "Chapter 504 — Celestial Slaughter Art"
+    },
+    {
+      "num": 505,
+      "title": "Chapter 505 — Xuan Yuan Sect"
+    },
+    {
+      "num": 506,
+      "title": "Chapter 506 — Messenger"
+    },
+    {
+      "num": 507,
+      "title": "Chapter 507 — Earth Northern Demonic Lands"
+    },
+    {
+      "num": 508,
+      "title": "Chapter 508 — Evolution of the mosquito beast"
+    },
+    {
+      "num": 509,
+      "title": "Chapter 509 — Nine Multitude Bug"
+    },
+    {
+      "num": 510,
+      "title": "Chapter 510 — Collapse! Break Down!"
+    },
+    {
+      "num": 511,
+      "title": "Chapter 511 — Battle!"
+    },
+    {
+      "num": 512,
+      "title": "Chapter 512 — Kill!"
+    },
+    {
+      "num": 513,
+      "title": "Chapter 513 — Golden Spirit Root"
+    },
+    {
+      "num": 514,
+      "title": "Chapter 514 — Destination, Eastern Sea!"
+    },
+    {
+      "num": 515,
+      "title": "Chapter 515 — Why The East Sea"
+    },
+    {
+      "num": 516,
+      "title": "Chapter 516 — Greed’s Trip"
+    },
+    {
+      "num": 517,
+      "title": "Chapter 517 — Greed’s Thoughts"
+    },
+    {
+      "num": 518,
+      "title": "Chapter 518 — Tide Phase"
+    },
+    {
+      "num": 519,
+      "title": "Chapter 519 — Token"
+    },
+    {
+      "num": 520,
+      "title": "Chapter 520 — East Demon Spirit Sea"
+    },
+    {
+      "num": 521,
+      "title": "Chapter 521 — Mountain Valley"
+    },
+    {
+      "num": 522,
+      "title": "Chapter 522 — Elder Inside The Valley"
+    },
+    {
+      "num": 523,
+      "title": "Chapter 523 — Breaking The Formation"
+    },
+    {
+      "num": 524,
+      "title": "Chapter 524 — Huang Long"
+    },
+    {
+      "num": 525,
+      "title": "Chapter 525 — Sky Demon Country"
+    },
+    {
+      "num": 526,
+      "title": "Chapter 526 — Man In Black"
+    },
+    {
+      "num": 527,
+      "title": "Chapter 527 — Life Force Seals"
+    },
+    {
+      "num": 528,
+      "title": "Chapter 528 — Forbidden Devil"
+    },
+    {
+      "num": 529,
+      "title": "Chapter 529 — Erased"
+    },
+    {
+      "num": 530,
+      "title": "Chapter 530 — Soul Search Spell"
+    },
+    {
+      "num": 531,
+      "title": "Chapter 531 — Shi Realm"
+    },
+    {
+      "num": 532,
+      "title": "Chapter 532 — The New Soul Refining Sect"
+    },
+    {
+      "num": 533,
+      "title": "Chapter 533 — demonic spiritual energy Crystal"
+    },
+    {
+      "num": 534,
+      "title": "Chapter 534 — Thirteen"
+    },
+    {
+      "num": 535,
+      "title": "Chapter 535 — Raising Soul Fragments"
+    },
+    {
+      "num": 536,
+      "title": "Chapter 536 — Challenge Letter"
+    },
+    {
+      "num": 537,
+      "title": "Chapter 537 — Untitled"
+    },
+    {
+      "num": 538,
+      "title": "Chapter 538"
+    },
+    {
+      "num": 539,
+      "title": "Chapter 539 — Expansion"
+    },
+    {
+      "num": 540,
+      "title": "Chapter 540 — Leaving"
+    },
+    {
+      "num": 541,
+      "title": "Chapter 541 — Entering The City"
+    },
+    {
+      "num": 542,
+      "title": "Chapter 542 — The Demon General’s Test"
+    },
+    {
+      "num": 543,
+      "title": "Chapter 543 — The Enlightenment During Battle"
+    },
+    {
+      "num": 544,
+      "title": "Chapter 544 — Demonic Ideals"
+    },
+    {
+      "num": 545,
+      "title": "Chapter 545 — Commander"
+    },
+    {
+      "num": 546,
+      "title": "Chapter 546 — Demon Soldiers"
+    },
+    {
+      "num": 547,
+      "title": "Chapter 547 — Black Armor Barrack"
+    },
+    {
+      "num": 548,
+      "title": "Chapter 548 — The Terror Of Silence"
+    },
+    {
+      "num": 549,
+      "title": "Chapter 549 — Displaying Might"
+    },
+    {
+      "num": 550,
+      "title": "Chapter 550 — Yao Xixue"
+    },
+    {
+      "num": 551,
+      "title": "Chapter 551 — Transaction"
+    },
+    {
+      "num": 552,
+      "title": "Chapter 552 — Blood Soul Pill"
+    },
+    {
+      "num": 553,
+      "title": "Chapter 553 — Celestial Crystal"
+    },
+    {
+      "num": 554,
+      "title": "Chapter 554 — The Six Stroke Golden Symbol"
+    },
+    {
+      "num": 555,
+      "title": "Chapter 555 — Three Strokes Fuse Into One"
+    },
+    {
+      "num": 556,
+      "title": "Chapter 556 — Reversing The Heavens"
+    },
+    {
+      "num": 557,
+      "title": "Chapter 557 — Reversing the Heavens (Part 2)"
+    },
+    {
+      "num": 558,
+      "title": "Chapter 558 — Reversing The Heavens (Part 3)"
+    },
+    {
+      "num": 559,
+      "title": "Chapter 559 — Reception Pavilion"
+    },
+    {
+      "num": 560,
+      "title": "Chapter 560 — Deep Sleep"
+    },
+    {
+      "num": 561,
+      "title": "Chapter 561 — Harvest"
+    },
+    {
+      "num": 562,
+      "title": "Chapter 562 — The Power Of Peak Soul Transformation"
+    },
+    {
+      "num": 563,
+      "title": "Chapter 563 — Saving Thirteen"
+    },
+    {
+      "num": 564,
+      "title": "Chapter 564 — One Palm"
+    },
+    {
+      "num": 565,
+      "title": "Chapter 565 — The Ancestor Returns"
+    },
+    {
+      "num": 566,
+      "title": "Chapter 566 — Hu Pao, The Old Man, And The Armor"
+    },
+    {
+      "num": 567,
+      "title": "Chapter 567 — Question Yao Xixue The Second Time"
+    },
+    {
+      "num": 568,
+      "title": "Chapter 568 — Acquaintance"
+    },
+    {
+      "num": 569,
+      "title": "Chapter 569 — Chaos In the Capital, Prologue"
+    },
+    {
+      "num": 570,
+      "title": "Chapter 570 — Zither Music"
+    },
+    {
+      "num": 571,
+      "title": "Chapter 571 — Unyielding"
+    },
+    {
+      "num": 572,
+      "title": "Chapter 572 — Celestial Slaughter Art (Part 1)"
+    },
+    {
+      "num": 573,
+      "title": "Chapter 573 — Celestial Slaughter Art (Part 2)"
+    },
+    {
+      "num": 574,
+      "title": "Chapter 574 — Celestial Slaughter Art (Part 3)"
+    },
+    {
+      "num": 575,
+      "title": "Chapter 575 — The Emperor’s Sword’s Grievance"
+    },
+    {
+      "num": 576,
+      "title": "Chapter 576 — Wang Lin, Attack Me At Full Power!"
+    },
+    {
+      "num": 577,
+      "title": "Chapter 577 — Undercurrent"
+    },
+    {
+      "num": 578,
+      "title": "Chapter 578 — Dao Of Slaughter!"
+    },
+    {
+      "num": 579,
+      "title": "Chapter 579 — Ling Tianhou’s Sword Energy (Part 1)"
+    },
+    {
+      "num": 580,
+      "title": "Chapter 580 — Ling Tianhou’s Sword Energy (Part 2)"
+    },
+    {
+      "num": 581,
+      "title": "Chapter 581 — Demon General Competition"
+    },
+    {
+      "num": 582,
+      "title": "Chapter 582 — Wang Lin Steps out"
+    },
+    {
+      "num": 583,
+      "title": "Chapter 583 — Xu Liguo (Part 1)"
+    },
+    {
+      "num": 584,
+      "title": "Chapter 584 — Xu Liguo (Part 2)"
+    },
+    {
+      "num": 585,
+      "title": "Chapter 585 — Xu Liguos Rebellion Fails! (Part 1)"
+    },
+    {
+      "num": 586,
+      "title": "Chapter 586 — Xu Liguo’s Rebellion Fails! (Part 2)"
+    },
+    {
+      "num": 587,
+      "title": "Chapter 587 — Xu Liguo’s Rebellion Fails! (Part 3)"
+    },
+    {
+      "num": 588,
+      "title": "Chapter 588 — Bet (Part 1)"
+    },
+    {
+      "num": 589,
+      "title": "Chapter 589 — Bet (Part 2)"
+    },
+    {
+      "num": 590,
+      "title": "Chapter 590 — Words That Evoke Laws"
+    },
+    {
+      "num": 591,
+      "title": "Chapter 591 — The Heaven Commander—in—Chief Is Moved"
+    },
+    {
+      "num": 592,
+      "title": "Chapter 592 — I Want Ascendant"
+    },
+    {
+      "num": 593,
+      "title": "Chapter 593 — Defying"
+    },
+    {
+      "num": 594,
+      "title": "Chapter 594 — Death Of The Golden Armor"
+    },
+    {
+      "num": 595,
+      "title": "Chapter 595 — The Simplest Divine Retribution? No!"
+    },
+    {
+      "num": 596,
+      "title": "Chapter 596 — Heaven’s Might"
+    },
+    {
+      "num": 597,
+      "title": "Chapter 597 — Demon Drum"
+    },
+    {
+      "num": 598,
+      "title": "Chapter 598 — Ascendant Crystal"
+    },
+    {
+      "num": 599,
+      "title": "Chapter 599 — Early Stage Ascendant"
+    },
+    {
+      "num": 600,
+      "title": "Chapter 600 — Celestial Ascension Fruit"
+    },
+    {
+      "num": 601,
+      "title": "Chapter 601 — One Drop"
+    },
+    {
+      "num": 602,
+      "title": "Chapter 602 — Crazy Battle Intent"
+    },
+    {
+      "num": 603,
+      "title": "Chapter 603 — There is Killing Intent…"
+    },
+    {
+      "num": 604,
+      "title": "Chapter 604 — Ten Years of Enlightenment, the Dao Transforms Into the Underworld"
+    },
+    {
+      "num": 605,
+      "title": "Chapter 605 — Demon Guardian"
+    },
+    {
+      "num": 606,
+      "title": "Chapter 606 — Awaken"
+    },
+    {
+      "num": 607,
+      "title": "Chapter 607 — Condensing The River’s Soul"
+    },
+    {
+      "num": 608,
+      "title": "Chapter 608 — Blood Soul Pill"
+    },
+    {
+      "num": 609,
+      "title": "Chapter 609 — Ancient Demon’s Blood Shadow"
+    },
+    {
+      "num": 610,
+      "title": "Chapter 610 — Mission Accomplished"
+    },
+    {
+      "num": 611,
+      "title": "Chapter 611 — Don’t Forget The First Scene Of Suzaku"
+    },
+    {
+      "num": 612,
+      "title": "Chapter 612 — Second Origin Soul"
+    },
+    {
+      "num": 613,
+      "title": "Chapter 613 — Zishu’s Sword Energy"
+    },
+    {
+      "num": 614,
+      "title": "Chapter 614 — The Third Ray of Sword Energy"
+    },
+    {
+      "num": 615,
+      "title": "Chapter 615 — Whereabouts of Greed"
+    },
+    {
+      "num": 616,
+      "title": "Chapter 616 — Celestial Emperor Qing Lin"
+    },
+    {
+      "num": 617,
+      "title": "Chapter 617 — The Second Seal"
+    },
+    {
+      "num": 618,
+      "title": "Chapter 618 — A New Change, The Silver Horn Thunder Beast"
+    },
+    {
+      "num": 619,
+      "title": "Chapter 619 — Get Down For Me!"
+    },
+    {
+      "num": 620,
+      "title": "Chapter 620 — Object From The Celestial Realm"
+    },
+    {
+      "num": 621,
+      "title": "Chapter 621 — Respect Scholar of a Generation"
+    },
+    {
+      "num": 622,
+      "title": "Chapter 622 — Celestial Beast Grain"
+    },
+    {
+      "num": 623,
+      "title": "Chapter 623 — I’m Begging You Celestial Capture Net…"
+    },
+    {
+      "num": 624,
+      "title": "Chapter 624 — Tie Him Up"
+    },
+    {
+      "num": 625,
+      "title": "Chapter 625 — Qing Shuang"
+    },
+    {
+      "num": 626,
+      "title": "Chapter 626 — Identity of the White-Robed Female Corpse"
+    },
+    {
+      "num": 627,
+      "title": "Chapter 627 — Leaving Closed Door Cultivation"
+    },
+    {
+      "num": 628,
+      "title": "Chapter 628 — One Million Slaughter"
+    },
+    {
+      "num": 629,
+      "title": "Chapter 629 — Battle of the Ancient Demons"
+    },
+    {
+      "num": 630,
+      "title": "Chapter 630 — The Grey Figure"
+    },
+    {
+      "num": 631,
+      "title": "Chapter 631 — Its Companion"
+    },
+    {
+      "num": 632,
+      "title": "Chapter 632 — The Seed to Break Relations With the All-Seer"
+    },
+    {
+      "num": 633,
+      "title": "Chapter 633 — Bumpkin"
+    },
+    {
+      "num": 634,
+      "title": "Chapter 634 — To Bring Trouble on Oneself"
+    },
+    {
+      "num": 635,
+      "title": "Chapter 635 — Location of Zhou Yi"
+    },
+    {
+      "num": 636,
+      "title": "Chapter 636 — Location of The Seal"
+    },
+    {
+      "num": 637,
+      "title": "Chapter 637 — Saving Zhou Yi"
+    },
+    {
+      "num": 638,
+      "title": "Chapter 638 — Dead Heart"
+    },
+    {
+      "num": 639,
+      "title": "Chapter 639 — Zhou Yi’s Life Sword Energy"
+    },
+    {
+      "num": 640,
+      "title": "Chapter 640 — Grand Gift! Small hole!"
+    },
+    {
+      "num": 641,
+      "title": "Chapter 641 — Celestial Cloud Cultivation Couple - Wang Wei, Hu Juan"
+    },
+    {
+      "num": 642,
+      "title": "Chapter 642 — Purple Mist Mosquito Beast"
+    },
+    {
+      "num": 643,
+      "title": "Chapter 643 — Wang Lin’s Wisdom"
+    },
+    {
+      "num": 644,
+      "title": "Chapter 644 — The Purple Mist Fuse Into One"
+    },
+    {
+      "num": 645,
+      "title": "Chapter 645 — Decisive!"
+    },
+    {
+      "num": 646,
+      "title": "Chapter 646 — Greed’s Spell"
+    },
+    {
+      "num": 647,
+      "title": "Chapter 647 — Furnace"
+    },
+    {
+      "num": 648,
+      "title": "Chapter 648 — Ancient Thunder Dragon"
+    },
+    {
+      "num": 649,
+      "title": "Chapter 649 — The Other Side of Peril is Endless Opportunity"
+    },
+    {
+      "num": 650,
+      "title": "Chapter 650 — Variant Origin Soul"
+    },
+    {
+      "num": 651,
+      "title": "Chapter 651 — Gray Robe"
+    },
+    {
+      "num": 652,
+      "title": "Chapter 652 — Refining A Celestial Guard"
+    },
+    {
+      "num": 653,
+      "title": "Chapter 653 — Powerful Puppet"
+    },
+    {
+      "num": 654,
+      "title": "Chapter 654 — The Hidden Danger of the Celestial Slaughter Art"
+    },
+    {
+      "num": 655,
+      "title": "Chapter 655 — The Third Ability"
+    },
+    {
+      "num": 656,
+      "title": "Chapter 656 — Solving the Secret of the Scroll"
+    },
+    {
+      "num": 657,
+      "title": "Chapter 657 — The Old Monsters Descend (part 1)"
+    },
+    {
+      "num": 658,
+      "title": "Chapter 658 — The Old Monsters Descend (part 2)"
+    },
+    {
+      "num": 659,
+      "title": "Chapter 659 — Leaving"
+    },
+    {
+      "num": 660,
+      "title": "Chapter 660 — Arriving in Allheaven"
+    },
+    {
+      "num": 661,
+      "title": "Chapter 661 — Mei Er"
+    },
+    {
+      "num": 662,
+      "title": "Chapter 662 — Scheming Jade"
+    },
+    {
+      "num": 663,
+      "title": "Chapter 663 — Sun Lao"
+    },
+    {
+      "num": 664,
+      "title": "Chapter 664 — Missed"
+    },
+    {
+      "num": 665,
+      "title": "Chapter 665 — Warning"
+    },
+    {
+      "num": 666,
+      "title": "Chapter 666 — Woman Dressed as a Man"
+    },
+    {
+      "num": 667,
+      "title": "Chapter 667 — A Special Magical Treasure Just for Wang Lin"
+    },
+    {
+      "num": 668,
+      "title": "Chapter 668 — The Cause from Four Years Ago"
+    },
+    {
+      "num": 669,
+      "title": "Chapter 669 — Sun Tai"
+    },
+    {
+      "num": 670,
+      "title": "Chapter 670 — Above Life and Death, There is Karma"
+    },
+    {
+      "num": 671,
+      "title": "Chapter 671 — The Celestial Wind Blows Gently, the Trees are Not Silent"
+    },
+    {
+      "num": 672,
+      "title": "Chapter 672 — The Karmatic Cycle, Seaking Life and Death"
+    },
+    {
+      "num": 673,
+      "title": "Chapter 673 — There is Metal Under the Red Clouds, Five Elements Missing One"
+    },
+    {
+      "num": 674,
+      "title": "Chapter 674 — Smell the Wind and Listen to the Rain. The Soul Knows and Remembers…"
+    },
+    {
+      "num": 675,
+      "title": "Chapter 675 — Situ Nan Enters Closed Door Cultivation Once More"
+    },
+    {
+      "num": 676,
+      "title": "Chapter 676 — Huan Mei Approaches"
+    },
+    {
+      "num": 677,
+      "title": "Chapter 677 — Smoke Signal"
+    },
+    {
+      "num": 678,
+      "title": "Chapter 678 — Coming…"
+    },
+    {
+      "num": 679,
+      "title": "Chapter 679 — Ten Thousand Illusion Heavenly Devil Dao"
+    },
+    {
+      "num": 680,
+      "title": "Chapter 680 — Liu Mei’s Special Treasure"
+    },
+    {
+      "num": 681,
+      "title": "Chapter 681 — Wang Ping"
+    },
+    {
+      "num": 682,
+      "title": "Chapter 682 — Duty"
+    },
+    {
+      "num": 683,
+      "title": "Chapter 683 — Shocking Qian Kuizi Into Retreat"
+    },
+    {
+      "num": 684,
+      "title": "Chapter 684 — The Huan Family Fractures"
+    },
+    {
+      "num": 685,
+      "title": "Chapter 685 — Heaven Chop"
+    },
+    {
+      "num": 686,
+      "title": "Chapter 686 — Scatter Devil Appears"
+    },
+    {
+      "num": 687,
+      "title": "Chapter 687 — Devour"
+    },
+    {
+      "num": 688,
+      "title": "Chapter 688 — Let Dirt Return to Dirt, Let Dust Return to Dust"
+    },
+    {
+      "num": 689,
+      "title": "Chapter 689 — Never Cultivate in Your Life"
+    },
+    {
+      "num": 690,
+      "title": "Chapter 690 — Removing the Shell"
+    },
+    {
+      "num": 691,
+      "title": "Chapter 691 — Leaving"
+    },
+    {
+      "num": 692,
+      "title": "Chapter 692 — Evolution"
+    },
+    {
+      "num": 693,
+      "title": "Chapter 693 — Qing Yi"
+    },
+    {
+      "num": 694,
+      "title": "Chapter 694 — Just This Once"
+    },
+    {
+      "num": 695,
+      "title": "Chapter 695 — Wang Ping’s Request"
+    },
+    {
+      "num": 696,
+      "title": "Chapter 696 — Separation"
+    },
+    {
+      "num": 697,
+      "title": "Chapter 697 — Passage of time"
+    },
+    {
+      "num": 698,
+      "title": "Chapter 698 — Mother"
+    },
+    {
+      "num": 699,
+      "title": "Chapter 699 — A Real Messenger From the Thunder Celestial Temple"
+    },
+    {
+      "num": 700,
+      "title": "Chapter 700 — Startling Change"
+    },
+    {
+      "num": 701,
+      "title": "Chapter 701 — Cultivation"
+    },
+    {
+      "num": 702,
+      "title": "Chapter 702 — Shut up"
+    },
+    {
+      "num": 703,
+      "title": "Chapter 703 — Spell of the Second Step"
+    },
+    {
+      "num": 704,
+      "title": "Chapter 704 — A Reincarnation Cycle Ends"
+    },
+    {
+      "num": 705,
+      "title": "Chapter 705 — Second Celestial Guard"
+    },
+    {
+      "num": 706,
+      "title": "Chapter 706 — Pitiful Greed"
+    },
+    {
+      "num": 707,
+      "title": "Chapter 707 — The Incomplete Celestial Spell Book That Shocked Wang Lin"
+    },
+    {
+      "num": 708,
+      "title": "Chapter 708 — Original Body, Ta Sen, Zhou Ru"
+    },
+    {
+      "num": 709,
+      "title": "Chapter 709 — Fourth Step of Cultivation, Does it Exist…"
+    },
+    {
+      "num": 710,
+      "title": "Chapter 710 — Attachment"
+    },
+    {
+      "num": 711,
+      "title": "Chapter 711 — Excretion"
+    },
+    {
+      "num": 712,
+      "title": "Chapter 712 — Greed’s Little Treasure"
+    },
+    {
+      "num": 713,
+      "title": "Chapter 713 — Extracting the Bone of the Moongazer Serpent"
+    },
+    {
+      "num": 714,
+      "title": "Chapter 714 — The Moongazer Serpent Awakens"
+    },
+    {
+      "num": 715,
+      "title": "Chapter 715 — Escape Escape Escape!"
+    },
+    {
+      "num": 716,
+      "title": "Chapter 716 — Moongazer’s Wrath, The Finger of the Ancient God"
+    },
+    {
+      "num": 717,
+      "title": "Chapter 717 — Escaping alive (1)"
+    },
+    {
+      "num": 718,
+      "title": "Chapter 717 - Thunder Prison (2)"
+    },
+    {
+      "num": 719,
+      "title": "Chapter 718 — Forming Flesh"
+    },
+    {
+      "num": 720,
+      "title": "Chapter 719 — Heaven Defying Bead Absorption and Greed’s Treasure"
+    },
+    {
+      "num": 721,
+      "title": "Chapter 720 — Heaven Defying Bead Completed"
+    },
+    {
+      "num": 722,
+      "title": "Chapter 721 — Heaven Defying Bead’s Beckoning"
+    },
+    {
+      "num": 723,
+      "title": "Chapter 722 — Heaven Defying Bead’s Shocking Change"
+    },
+    {
+      "num": 724,
+      "title": "Chapter 723 — Those who seek dao understand during death, pitiful…"
+    },
+    {
+      "num": 725,
+      "title": "Chapter 724 — Seeing the Third Step!"
+    },
+    {
+      "num": 726,
+      "title": "Chapter 725 — The First Person to Pledge"
+    },
+    {
+      "num": 727,
+      "title": "Chapter 726 — Condensing Thunder Origin"
+    },
+    {
+      "num": 728,
+      "title": "Chapter 727 — Law of Thunder"
+    },
+    {
+      "num": 729,
+      "title": "Chapter 728 — Doubt"
+    },
+    {
+      "num": 730,
+      "title": "Chapter 729 — I’m So Badass"
+    },
+    {
+      "num": 731,
+      "title": "Chapter 730 — My Cultivation Planet"
+    },
+    {
+      "num": 732,
+      "title": "Chapter 731 — A Tool for Understanding the Karma Domain"
+    },
+    {
+      "num": 733,
+      "title": "Chapter 732 — Reaching the Peak and Xu Liguo’s Evil Interests"
+    },
+    {
+      "num": 734,
+      "title": "Chapter 733 — Stealing Furnace"
+    },
+    {
+      "num": 735,
+      "title": "Chapter 734 — Got a Great Bargain"
+    },
+    {
+      "num": 736,
+      "title": "Chapter 735 — Unprecedented Ancient People"
+    },
+    {
+      "num": 737,
+      "title": "Chapter 736 — Thunder Celestial Realm"
+    },
+    {
+      "num": 738,
+      "title": "Chapter 737 — Fated Person"
+    },
+    {
+      "num": 739,
+      "title": "Chapter 738 — Want to Kill!"
+    },
+    {
+      "num": 740,
+      "title": "Chapter 739 — Dong Lin’s Xu family"
+    },
+    {
+      "num": 741,
+      "title": "Chapter 740 — Peerless, Battle of Dao"
+    },
+    {
+      "num": 742,
+      "title": "Chapter 741 — Stealing One’s Spot"
+    },
+    {
+      "num": 743,
+      "title": "Chapter 742 — Devil Lotus"
+    },
+    {
+      "num": 744,
+      "title": "Chapter 743 — Li Yuan"
+    },
+    {
+      "num": 745,
+      "title": "Chapter 744 — Sword Tip"
+    },
+    {
+      "num": 746,
+      "title": "Chapter 745 — Very Good, Very Good"
+    },
+    {
+      "num": 747,
+      "title": "Chapter 746 — How Much…"
+    },
+    {
+      "num": 748,
+      "title": "Chapter 747 — Burning"
+    },
+    {
+      "num": 749,
+      "title": "Chapter 748 — To Raise a Difficult Question"
+    },
+    {
+      "num": 750,
+      "title": "Chapter 749 — The Hilt and the Tip of the Sword"
+    },
+    {
+      "num": 751,
+      "title": "Chapter 750 — Slave Imprint"
+    },
+    {
+      "num": 752,
+      "title": "Chapter 751 — Arrival of the Blood Ancestor"
+    },
+    {
+      "num": 753,
+      "title": "Chapter 752 — Karma"
+    },
+    {
+      "num": 754,
+      "title": "Chapter 753 — There was no Answer"
+    },
+    {
+      "num": 755,
+      "title": "Chapter 754 — Ancient God Leather Armor"
+    },
+    {
+      "num": 756,
+      "title": "Chapter 755 — Shocking Change"
+    },
+    {
+      "num": 757,
+      "title": "Chapter 756 — Trap"
+    },
+    {
+      "num": 758,
+      "title": "Chapter 757 — Beast Bones"
+    },
+    {
+      "num": 759,
+      "title": "Chapter 758 — Relics of Celestials"
+    },
+    {
+      "num": 760,
+      "title": "Chapter 759 — Precise and Ready"
+    },
+    {
+      "num": 761,
+      "title": "Chapter 760 — Finally Arrived"
+    },
+    {
+      "num": 762,
+      "title": "Chapter 761 — Killing God"
+    },
+    {
+      "num": 763,
+      "title": "Chapter 762 — Chance (1)"
+    },
+    {
+      "num": 764,
+      "title": "Chapter 763 — Chance (2)"
+    },
+    {
+      "num": 765,
+      "title": "Chapter 764 — Chance (3)"
+    },
+    {
+      "num": 766,
+      "title": "Chapter 765 — Blood Planet"
+    },
+    {
+      "num": 767,
+      "title": "Chapter 766 — Treasure Refined by the Heavens"
+    },
+    {
+      "num": 768,
+      "title": "Chapter 767 — Illusory Yin!"
+    },
+    {
+      "num": 769,
+      "title": "Chapter 768 — Corporeal Yang! Counter Attack!"
+    },
+    {
+      "num": 770,
+      "title": "Chapter 769 — Confidence"
+    },
+    {
+      "num": 771,
+      "title": "Chapter 770 — Yao Family (1)"
+    },
+    {
+      "num": 772,
+      "title": "Chapter 771 — Yao Family (2)"
+    },
+    {
+      "num": 773,
+      "title": "Chapter 772 — Yao Family (3)"
+    },
+    {
+      "num": 774,
+      "title": "Chapter 773 — 13 days"
+    },
+    {
+      "num": 775,
+      "title": "Chapter 774 — Withered Dao Pair"
+    },
+    {
+      "num": 776,
+      "title": "Chapter 775 — Dark Hole"
+    },
+    {
+      "num": 777,
+      "title": "Chapter 776 — 10,000 Feet Forbidden Area, Trespassers Will Die!"
+    },
+    {
+      "num": 778,
+      "title": "Chapter 777 — My Name is Xu Mu"
+    },
+    {
+      "num": 779,
+      "title": "Chapter 778 — Upheaval of Order"
+    },
+    {
+      "num": 780,
+      "title": "Chapter 779 — Ji Realm Reappears!"
+    },
+    {
+      "num": 781,
+      "title": "Chapter 780 — Zhan Konglie"
+    },
+    {
+      "num": 782,
+      "title": "Chapter 781 — Qualification"
+    },
+    {
+      "num": 783,
+      "title": "Chapter 782 — The Qualification of a Rank 9 Celestial Lord"
+    },
+    {
+      "num": 784,
+      "title": "Chapter 783 — The Celestial Emperor’s spell"
+    },
+    {
+      "num": 785,
+      "title": "Chapter 784 — Collection Pavilion"
+    },
+    {
+      "num": 786,
+      "title": "Chapter 785 — Resurrection"
+    },
+    {
+      "num": 787,
+      "title": "Chapter 786 — No One Can Leave!"
+    },
+    {
+      "num": 788,
+      "title": "Chapter 787 — Master, Please Act! (1)"
+    },
+    {
+      "num": 789,
+      "title": "Chapter 788 — Master, Please Act! (2)"
+    },
+    {
+      "num": 790,
+      "title": "Chapter 789 — Acting"
+    },
+    {
+      "num": 791,
+      "title": "Chapter 790 — Fire, Blaze, Flame"
+    },
+    {
+      "num": 792,
+      "title": "Chapter 791 — Objective"
+    },
+    {
+      "num": 793,
+      "title": "Chapter 792 — The Place Closest to the Ancient Celestial Realm"
+    },
+    {
+      "num": 794,
+      "title": "Chapter 793 — Master Flamespark"
+    },
+    {
+      "num": 795,
+      "title": "Chapter 794 — Celestial Lord Qing Shui"
+    },
+    {
+      "num": 796,
+      "title": "Chapter 795 — Agreement"
+    },
+    {
+      "num": 797,
+      "title": "Chapter 796 — Senior Apprentice Brother?"
+    },
+    {
+      "num": 798,
+      "title": "Chapter 797 — Rush Out (1)"
+    },
+    {
+      "num": 799,
+      "title": "Chapter 798 — Rush Out (2)"
+    },
+    {
+      "num": 800,
+      "title": "Chapter 799 — Rush Out (3)"
+    },
+    {
+      "num": 801,
+      "title": "Chapter 800 — The Power of Desperation"
+    },
+    {
+      "num": 802,
+      "title": "Chapter 801 — This Big Debt Will Not Be Forgotten"
+    },
+    {
+      "num": 803,
+      "title": "Chapter 802 — Strange Domain"
+    },
+    {
+      "num": 804,
+      "title": "Chapter 803 — Upper Celestial"
+    },
+    {
+      "num": 805,
+      "title": "Chapter 804 — The Chosen Immortal Clan"
+    },
+    {
+      "num": 806,
+      "title": "Chapter 805 — Fog Beast"
+    },
+    {
+      "num": 807,
+      "title": "Chapter 806 — Mysterious Yin Furnace"
+    },
+    {
+      "num": 808,
+      "title": "Chapter 807 — Small Transfer Array"
+    },
+    {
+      "num": 809,
+      "title": "Chapter 808 — Seven Tattoos"
+    },
+    {
+      "num": 810,
+      "title": "Chapter 809 — This Lowly One’s Inferior Clan"
+    },
+    {
+      "num": 811,
+      "title": "Chapter 810 — Wings of the Butterfly (1)"
+    },
+    {
+      "num": 812,
+      "title": "Chapter 811 — Wings of the Butterfly (2)"
+    },
+    {
+      "num": 813,
+      "title": "Chapter 812 — Ancient God Leather Armor"
+    },
+    {
+      "num": 814,
+      "title": "Chapter 813 — Celestial Sealing Stamp is born!"
+    },
+    {
+      "num": 815,
+      "title": "Chapter 814 — Ta Shan, Celestial Guard"
+    },
+    {
+      "num": 816,
+      "title": "Chapter 815 — Crystal Coffin"
+    },
+    {
+      "num": 817,
+      "title": "Chapter 816 — Bones"
+    },
+    {
+      "num": 818,
+      "title": "Chapter 817 — Heaven-Avoiding Coffin (1)"
+    },
+    {
+      "num": 819,
+      "title": "Chapter 818 — Heaven Avoiding Coffin (2)"
+    },
+    {
+      "num": 820,
+      "title": "Chapter 819 — Heaven-Avoiding Coffin (3)"
+    },
+    {
+      "num": 821,
+      "title": "Chapter 820 — Two Big Events"
+    },
+    {
+      "num": 822,
+      "title": "Chapter 821— Xu Mu!"
+    },
+    {
+      "num": 823,
+      "title": "Chapter 822 — Two Sticks of Incense"
+    },
+    {
+      "num": 824,
+      "title": "Chapter 823 — Yao Changdong"
+    },
+    {
+      "num": 825,
+      "title": "Chapter 824 — Blood God’s Thoughts (1)"
+    },
+    {
+      "num": 826,
+      "title": "Chapter 825 — Blood God’s Thoughts (2)"
+    },
+    {
+      "num": 827,
+      "title": "Chapter 826 — Blood God’s Thoughts (3)"
+    },
+    {
+      "num": 828,
+      "title": "Chapter 827 — Yao Bingyun"
+    },
+    {
+      "num": 829,
+      "title": "Chapter 828 — Master Demon"
+    },
+    {
+      "num": 830,
+      "title": "Chapter 829 — Nine Deaths Perish Formation"
+    },
+    {
+      "num": 831,
+      "title": "Chapter 830 — Big Plan"
+    },
+    {
+      "num": 832,
+      "title": "Chapter 831 — Moongazer Serpent"
+    },
+    {
+      "num": 833,
+      "title": "Chapter 832 — Moongazer Serpent’s Joy"
+    },
+    {
+      "num": 834,
+      "title": "Chapter 833 — Awakening"
+    },
+    {
+      "num": 835,
+      "title": "Chapter 834 — Master Flamespark Reappears"
+    },
+    {
+      "num": 836,
+      "title": "Chapter 835 — Aura of the Leather Armor"
+    },
+    {
+      "num": 837,
+      "title": "Chapter 836 — The Moongazer Serpent’s Secret"
+    },
+    {
+      "num": 838,
+      "title": "Chapter 837 — Furnace"
+    },
+    {
+      "num": 839,
+      "title": "Chapter 838 — Bingyun"
+    },
+    {
+      "num": 840,
+      "title": "Chapter 839 — Perfect Seal"
+    },
+    {
+      "num": 841,
+      "title": "Chapter 840 — The Call From Inside the Moongazer Serpent’s Body"
+    },
+    {
+      "num": 842,
+      "title": "Chapter 841 — Shattered Star of an Ancient God"
+    },
+    {
+      "num": 843,
+      "title": "Chapter 842 — Sealing the Moongazer Serpent"
+    },
+    {
+      "num": 844,
+      "title": "Chapter 843 — Return to Planet Qing Ling"
+    },
+    {
+      "num": 845,
+      "title": "Chapter 844 — Devour"
+    },
+    {
+      "num": 846,
+      "title": "Chapter 845 — Dream Dao"
+    },
+    {
+      "num": 847,
+      "title": "Chapter 846 — Are You Enlightened?"
+    },
+    {
+      "num": 848,
+      "title": "Chapter 847 — Change"
+    },
+    {
+      "num": 849,
+      "title": "Chapter 848 — Yao Bingyun’s Dao"
+    },
+    {
+      "num": 850,
+      "title": "Chapter 849 — Retreat One Step"
+    },
+    {
+      "num": 851,
+      "title": "Chapter 850 — Change in Origin Energy"
+    },
+    {
+      "num": 852,
+      "title": "Chapter 851 — Nirvana Scryer"
+    },
+    {
+      "num": 853,
+      "title": "Chapter 852 — Blood God"
+    },
+    {
+      "num": 854,
+      "title": "Chapter 853 — Blood Swallow"
+    },
+    {
+      "num": 855,
+      "title": "Chapter 854 — You’re Not Qualified"
+    },
+    {
+      "num": 856,
+      "title": "Chapter 855 — Crane’s Wind Roar, Plants Transform to Weapons"
+    },
+    {
+      "num": 857,
+      "title": "Chapter 856 — Magical Arsenal"
+    },
+    {
+      "num": 858,
+      "title": "Chapter 857 — Third Step"
+    },
+    {
+      "num": 859,
+      "title": "Chapter 858 — Target - The 108 Celestial Titles"
+    },
+    {
+      "num": 860,
+      "title": "Chapter 859 — Arrival"
+    },
+    {
+      "num": 861,
+      "title": "Chapter 860 — I Want First Place"
+    },
+    {
+      "num": 862,
+      "title": "Chapter 861 — Repaying Gratitude"
+    },
+    {
+      "num": 863,
+      "title": "Chapter 862 — Nine Tune Heavenly Blade"
+    },
+    {
+      "num": 864,
+      "title": "Chapter 863 — I, Your Father, Give Up"
+    },
+    {
+      "num": 865,
+      "title": "Chapter 864— The Last Person"
+    },
+    {
+      "num": 866,
+      "title": "Chapter 865 — Planet Dong Lin’s Xu Family"
+    },
+    {
+      "num": 867,
+      "title": "Chapter 866 — Xi Zifeng"
+    },
+    {
+      "num": 868,
+      "title": "Chapter 867 — Not qualified (1)"
+    },
+    {
+      "num": 869,
+      "title": "Chapter 868 — Not Qualified (2)"
+    },
+    {
+      "num": 870,
+      "title": "Chapter 869 — Divine Sense Technique"
+    },
+    {
+      "num": 871,
+      "title": "Chapter 870 — Qing Shui’s Bias"
+    },
+    {
+      "num": 872,
+      "title": "Chapter 871 — Child"
+    },
+    {
+      "num": 873,
+      "title": "Chapter 872 — Who Devours Who"
+    },
+    {
+      "num": 874,
+      "title": "Chapter 873 — Exercising the Power of Thunder"
+    },
+    {
+      "num": 875,
+      "title": "Chapter 874 — Heaven Trial"
+    },
+    {
+      "num": 876,
+      "title": "Chapter 875 — Evolution of the Third Eye"
+    },
+    {
+      "num": 877,
+      "title": "Chapter 876 — A Line to the Heavens"
+    },
+    {
+      "num": 878,
+      "title": "Chapter 877 — Thunder, Destroy"
+    },
+    {
+      "num": 879,
+      "title": "Chapter 878 — The Third Eye"
+    },
+    {
+      "num": 880,
+      "title": "Chapter 879 — Celestial Bestowment"
+    },
+    {
+      "num": 881,
+      "title": "Chapter 880 — Wan Er"
+    },
+    {
+      "num": 882,
+      "title": "Chapter 881 — “I Agree!”"
+    },
+    {
+      "num": 883,
+      "title": "Chapter 882 — Spatial Barrier, Open!"
+    },
+    {
+      "num": 884,
+      "title": "Chapter 883 — Planet Dong Lin"
+    },
+    {
+      "num": 885,
+      "title": "Chapter 884 — Life Force"
+    },
+    {
+      "num": 886,
+      "title": "Chapter 885 — Qing Shui’s Gift"
+    },
+    {
+      "num": 887,
+      "title": "Chapter 886 — Situ Nan Leaves Closed Door Cultivation"
+    },
+    {
+      "num": 888,
+      "title": "Chapter 887 — Suzaku"
+    },
+    {
+      "num": 889,
+      "title": "Chapter 888 — Statue of Wang Lin"
+    },
+    {
+      "num": 890,
+      "title": "Chapter 889 — Return"
+    },
+    {
+      "num": 891,
+      "title": "Chapter 890 — Big-headed Boy"
+    },
+    {
+      "num": 892,
+      "title": "Chapter 891 — Servant"
+    },
+    {
+      "num": 893,
+      "title": "Chapter 892 — Returning Home"
+    },
+    {
+      "num": 894,
+      "title": "Chapter 893 — Thank You All"
+    },
+    {
+      "num": 895,
+      "title": "Chapter 894 — Great Wang Dynasty"
+    },
+    {
+      "num": 896,
+      "title": "Chapter 895 — Wrath"
+    },
+    {
+      "num": 897,
+      "title": "Chapter 896 — Corpse Sect"
+    },
+    {
+      "num": 898,
+      "title": "Chapter 897 — The Wind Swept Away the Remaining Leaves"
+    },
+    {
+      "num": 899,
+      "title": "Chapter 898 — Lei Ji"
+    },
+    {
+      "num": 900,
+      "title": "Chapter 899 — Resentment Hall Vice Hall Master (1)"
+    },
+    {
+      "num": 901,
+      "title": "Chapter 900 — Resentment Hall Vice Hall Master (2)"
+    },
+    {
+      "num": 902,
+      "title": "Chapter 901 — Clearing All Karma (1)"
+    },
+    {
+      "num": 903,
+      "title": "Chapter 902 — Clearing All Karma (2)"
+    },
+    {
+      "num": 904,
+      "title": "Chapter 903 — Clearing All Karma (3)"
+    },
+    {
+      "num": 905,
+      "title": "Chapter 904 — Exploring the Immortal Graveyard"
+    },
+    {
+      "num": 906,
+      "title": "Chapter 905 — Celestial Punishment"
+    },
+    {
+      "num": 907,
+      "title": "Chapter 906 — Huanglong Arrivies"
+    },
+    {
+      "num": 908,
+      "title": "Chapter 907 — Vermillion Bird Series"
+    },
+    {
+      "num": 909,
+      "title": "Chapter 908 — Leaving"
+    },
+    {
+      "num": 910,
+      "title": "Chapter 909 — I’ll Give You a Miracle"
+    },
+    {
+      "num": 911,
+      "title": "Chapter 910 — Strongest Fusion"
+    },
+    {
+      "num": 912,
+      "title": "Chapter 911 — Slaughter Domain"
+    },
+    {
+      "num": 913,
+      "title": "Chapter 912 — Question One’s Wrongs"
+    },
+    {
+      "num": 914,
+      "title": "Chapter 913 — Summon the Rain"
+    },
+    {
+      "num": 915,
+      "title": "Chapter 914 — Plan to Slaughter Allheaven"
+    },
+    {
+      "num": 916,
+      "title": "Chapter 915 — 18 Layers of Hell"
+    },
+    {
+      "num": 917,
+      "title": "Chapter 916 — Alliance’s Style"
+    },
+    {
+      "num": 918,
+      "title": "Chapter 917 — Allheaven’s Counter-attack"
+    },
+    {
+      "num": 919,
+      "title": "Chapter 918 — Zhou Tian (1)"
+    },
+    {
+      "num": 920,
+      "title": "Chapter 919 — Zhou Tian (2)"
+    },
+    {
+      "num": 921,
+      "title": "Chapter 920 — Zhou Tian (3)"
+    },
+    {
+      "num": 922,
+      "title": "Chapter 921 — Green Jade"
+    },
+    {
+      "num": 923,
+      "title": "Chapter 922 — Ji Xiantian"
+    },
+    {
+      "num": 924,
+      "title": "Chapter 923 — Expression Sincerity"
+    },
+    {
+      "num": 925,
+      "title": "Chapter 924 — Big Achievement"
+    },
+    {
+      "num": 926,
+      "title": "Chapter 925 — Million Beast Blood Soul Seal"
+    },
+    {
+      "num": 927,
+      "title": "Chapter 926 — Self-destruction of a 10,000 Foot Giant Demon Clan"
+    },
+    {
+      "num": 928,
+      "title": "Chapter 927 — Lord Doesn’t Know Me"
+    },
+    {
+      "num": 929,
+      "title": "Chapter 928 — Five Element Golden Corpse"
+    },
+    {
+      "num": 930,
+      "title": "Chapter 929 — Wang Lin’s Thing"
+    },
+    {
+      "num": 931,
+      "title": "Chapter 930 — Alliance Elder Group"
+    },
+    {
+      "num": 932,
+      "title": "Chapter 931 — Pseudo Nirvana Void"
+    },
+    {
+      "num": 933,
+      "title": "Chapter 932 — Aura of the Ancient God"
+    },
+    {
+      "num": 934,
+      "title": "Chapter 933 — Qing Shui Arrives"
+    },
+    {
+      "num": 935,
+      "title": "Chapter 934 — Chasing into the Mouth of the Moongazer Serpent"
+    },
+    {
+      "num": 936,
+      "title": "Chapter 935 — The Wronged Thunder Beast"
+    },
+    {
+      "num": 937,
+      "title": "Chapter 936 — Fishing for Advantages"
+    },
+    {
+      "num": 938,
+      "title": "Chapter 937 — Earth Prison"
+    },
+    {
+      "num": 939,
+      "title": "Chapter 938 — Ancient God Puppet Spell"
+    },
+    {
+      "num": 940,
+      "title": "Chapter 940"
+    },
+    {
+      "num": 941,
+      "title": "Chapter 940 — Four Star Royal Ancient God"
+    },
+    {
+      "num": 942,
+      "title": "Chapter 941 — Treasure of the Royal Clan"
+    },
+    {
+      "num": 943,
+      "title": "Chapter 942 — Heaven Defying Bead Trembles"
+    },
+    {
+      "num": 944,
+      "title": "Chapter 943 — Heavens’ Dao?"
+    },
+    {
+      "num": 945,
+      "title": "Chapter 944 — Heaven Defying Bead Reappears!"
+    },
+    {
+      "num": 946,
+      "title": "Chapter 945 — Secret"
+    },
+    {
+      "num": 947,
+      "title": "Chapter 946 — The Child Who Pointed at the Apricot Flower Village"
+    },
+    {
+      "num": 948,
+      "title": "Chapter 947 — Qualification"
+    },
+    {
+      "num": 949,
+      "title": "Chapter 948 — Secret of the Battle Scrolls"
+    },
+    {
+      "num": 950,
+      "title": "Chapter 949 — Nether Guide"
+    },
+    {
+      "num": 951,
+      "title": "Chapter 950 — Slaughter Realm"
+    },
+    {
+      "num": 952,
+      "title": "Chapter 951 — Yield for Me!"
+    },
+    {
+      "num": 953,
+      "title": "Chapter 952 — Trace of Nirvana Cleanser"
+    },
+    {
+      "num": 954,
+      "title": "Chapter 953 — Hairpin"
+    },
+    {
+      "num": 955,
+      "title": "Chapter 954 — Young Master"
+    },
+    {
+      "num": 956,
+      "title": "Chapter 955 — Inner Disciple of the Corpse Sect"
+    },
+    {
+      "num": 957,
+      "title": "Chapter 956 — The Woman in Pink"
+    },
+    {
+      "num": 958,
+      "title": "Chapter 957 — Arrival"
+    },
+    {
+      "num": 959,
+      "title": "Chapter 958 — Recognition"
+    },
+    {
+      "num": 960,
+      "title": "Chapter 959 — All-Seer’s Secret"
+    },
+    {
+      "num": 961,
+      "title": "Chapter 960 — First Glimpse of Source Origin"
+    },
+    {
+      "num": 962,
+      "title": "Chapter 961 — Wang Lin’s Embarrassment"
+    },
+    {
+      "num": 963,
+      "title": "Chapter 962 — Xu Liguo’s Favorite"
+    },
+    {
+      "num": 964,
+      "title": "Chapter 963 — The Three Chen Brothers"
+    },
+    {
+      "num": 965,
+      "title": "Chapter 964 — Converting an Enemy to a Friend"
+    },
+    {
+      "num": 966,
+      "title": "Chapter 965 — Ling Er"
+    },
+    {
+      "num": 967,
+      "title": "Chapter 966 — Understanding the Truth"
+    },
+    {
+      "num": 968,
+      "title": "Chapter 967 — Let the All-Seer Foresee Wrong Once!"
+    },
+    {
+      "num": 969,
+      "title": "Chapter 968 — One Finger to Pierce the Heavenly Fate"
+    },
+    {
+      "num": 970,
+      "title": "Chapter 969 — Approach"
+    },
+    {
+      "num": 971,
+      "title": "Chapter 970 — Break the Finger"
+    },
+    {
+      "num": 972,
+      "title": "Chapter 971 — Deadlock"
+    },
+    {
+      "num": 973,
+      "title": "Chapter 972 — Grey Robed All-Seer"
+    },
+    {
+      "num": 974,
+      "title": "Chapter 973 — Heaven Defying Bead’s Yin and Yang"
+    },
+    {
+      "num": 975,
+      "title": "Chapter 974 — The Saintress of Brilliant Void"
+    },
+    {
+      "num": 976,
+      "title": "Chapter 975 — Frightened Spirit"
+    },
+    {
+      "num": 977,
+      "title": "Chapter 976— Heaven Defying Bead Opens Once More (2)"
+    },
+    {
+      "num": 978,
+      "title": "Chapter 977 — Heaven Defying Bead Opens Once More (3)"
+    },
+    {
+      "num": 979,
+      "title": "Chapter 978 — Narrow Road"
+    },
+    {
+      "num": 980,
+      "title": "Chapter 979 — Master Hollow Wind (1)"
+    },
+    {
+      "num": 981,
+      "title": "Chapter 980 — Master Hollow Wind (2)"
+    },
+    {
+      "num": 982,
+      "title": "Chapter 981 — Do You Still Remember Ling Er"
+    },
+    {
+      "num": 983,
+      "title": "Chapter 982 — Azure Light Shield!"
+    },
+    {
+      "num": 984,
+      "title": "Chapter 983 — Ancient God Life Saving Spell"
+    },
+    {
+      "num": 985,
+      "title": "Chapter 984 — Dream is Like Reincarnation"
+    },
+    {
+      "num": 986,
+      "title": "Chapter 985 — Treasured Bottle"
+    },
+    {
+      "num": 987,
+      "title": "Chapter 986 — Starting Condition"
+    },
+    {
+      "num": 988,
+      "title": "Chapter 987 — Self Created Spell, Sundered Night"
+    },
+    {
+      "num": 989,
+      "title": "Chapter 988 — The Power of Sundered Night"
+    },
+    {
+      "num": 990,
+      "title": "Chapter 989 — The Strongest Moment"
+    },
+    {
+      "num": 991,
+      "title": "Chapter 990 — Kidnap"
+    },
+    {
+      "num": 992,
+      "title": "Chapter 991 — Reunion(1)"
+    },
+    {
+      "num": 993,
+      "title": "Chapter 992 — Reunion(2)"
+    },
+    {
+      "num": 994,
+      "title": "Chapter 993 — Poison"
+    },
+    {
+      "num": 995,
+      "title": "Chapter 994 — Drunk"
+    },
+    {
+      "num": 996,
+      "title": "Chapter 995 — Soul"
+    },
+    {
+      "num": 997,
+      "title": "Chapter 996 — Arrived"
+    },
+    {
+      "num": 998,
+      "title": "Chapter 997 — Master Void"
+    },
+    {
+      "num": 999,
+      "title": "Chapter 998 — Yao Xixue’s Hatred (1)"
+    },
+    {
+      "num": 1000,
+      "title": "Chapter 999 — Yao Xixue’s hatred (2)"
+    },
+    {
+      "num": 1001,
+      "title": "Chapter 1000 — The Strange Black Statue"
+    },
+    {
+      "num": 1002,
+      "title": "Chapter 1001 — Second Avatar (1)"
+    },
+    {
+      "num": 1003,
+      "title": "Chapter 1002 — Second Avatar (2)"
+    },
+    {
+      "num": 1004,
+      "title": "Chapter 1003 — Emperor Tuo Gu"
+    },
+    {
+      "num": 1005,
+      "title": "Chapter 1004 — The Existence in the Depths of the Celestial Cave"
+    },
+    {
+      "num": 1006,
+      "title": "Chapter 1005 — Flower Celestial"
+    },
+    {
+      "num": 1007,
+      "title": "Chapter 1006 — Crisis"
+    },
+    {
+      "num": 1008,
+      "title": "Chapter 1007 — Warning"
+    },
+    {
+      "num": 1009,
+      "title": "Chapter 1008 — Burial Flower"
+    },
+    {
+      "num": 1010,
+      "title": "Chapter 1009 — Whose Statue?"
+    },
+    {
+      "num": 1011,
+      "title": "Chapter 1010 — Flower Imperial Concubine"
+    },
+    {
+      "num": 1012,
+      "title": "Chapter 1011 — Celestial Spirit Heaven Realm"
+    },
+    {
+      "num": 1013,
+      "title": "Chapter 1012 — Celestial Cave Opens"
+    },
+    {
+      "num": 1014,
+      "title": "Chapter 1013 — Specter"
+    },
+    {
+      "num": 1015,
+      "title": "Chapter 1014 — Pursue (1)"
+    },
+    {
+      "num": 1016,
+      "title": "Chapter 1015 — Pursue (2)"
+    },
+    {
+      "num": 1017,
+      "title": "Chapter 1016 — Lonely Desert Smoke"
+    },
+    {
+      "num": 1018,
+      "title": "Chapter 1017 — Nirvana (1)"
+    },
+    {
+      "num": 1019,
+      "title": "Chapter 1018 — Nirvana (2)"
+    },
+    {
+      "num": 1020,
+      "title": "Chapter 1019 — Nirvana (3)"
+    },
+    {
+      "num": 1021,
+      "title": "Chapter 1020 — Qing Lin?"
+    },
+    {
+      "num": 1022,
+      "title": "Chapter 1021 — Vermillion Bird Awakening"
+    },
+    {
+      "num": 1023,
+      "title": "Chapter 1022 — Break (1)"
+    },
+    {
+      "num": 1024,
+      "title": "Chapter 1023 — Escape by Breaking the Bottle"
+    },
+    {
+      "num": 1025,
+      "title": "Chapter 1024 — She, the Buried Celestial"
+    },
+    {
+      "num": 1026,
+      "title": "Chapter 1025 — Tattoo Clan Divine Ancestor"
+    },
+    {
+      "num": 1027,
+      "title": "Chapter 1026 — Qing Lin, You Lied to Me"
+    },
+    {
+      "num": 1028,
+      "title": "Chapter 1027 — Vermillion Bird Divine Planet"
+    },
+    {
+      "num": 1029,
+      "title": "Chapter 1028 — Stop Spell"
+    },
+    {
+      "num": 1030,
+      "title": "Chapter 1029 — Scattered Like Birds"
+    },
+    {
+      "num": 1031,
+      "title": "Chapter 1030 — The Eternity Between True and False"
+    },
+    {
+      "num": 1032,
+      "title": "Chapter 1031 — Wither Tattoo"
+    },
+    {
+      "num": 1033,
+      "title": "Chapter 1032 — Was I Wrong?"
+    },
+    {
+      "num": 1034,
+      "title": "Chapter 1033 — The Completion of Karma (1)"
+    },
+    {
+      "num": 1035,
+      "title": "Chapter 1034 — The completion of karma (2)"
+    },
+    {
+      "num": 1036,
+      "title": "Chapter 1035 — Generations"
+    },
+    {
+      "num": 1037,
+      "title": "Chapter 1036 — Your Name is Yao Xixue"
+    },
+    {
+      "num": 1038,
+      "title": "Chapter 1037 — Meeting"
+    },
+    {
+      "num": 1039,
+      "title": "Chapter 1038 — Peak of Nirvana Scryer"
+    },
+    {
+      "num": 1040,
+      "title": "Chapter 1039 — Liu Mei (1)"
+    },
+    {
+      "num": 1041,
+      "title": "Chapter 1040 — Liu Mei (2)"
+    },
+    {
+      "num": 1042,
+      "title": "Chapter 1041 — Inside the Deep Pit"
+    },
+    {
+      "num": 1043,
+      "title": "Chapter 1042 — Iron Sword"
+    },
+    {
+      "num": 1044,
+      "title": "Chapter 1043 — Obtaining the Sword Through Danger"
+    },
+    {
+      "num": 1045,
+      "title": "Chapter 1044 — Confusion"
+    },
+    {
+      "num": 1046,
+      "title": "Chapter 1045 — Pseudo Nirvana Void"
+    },
+    {
+      "num": 1047,
+      "title": "Chapter 1046 — Master Void’s Killing Intent"
+    },
+    {
+      "num": 1048,
+      "title": "Chapter 1047 — Resistance"
+    },
+    {
+      "num": 1049,
+      "title": "Chapter 1048 — Precious Treasure"
+    },
+    {
+      "num": 1050,
+      "title": "Chapter 1049 — If You Want My Treasure, Then Feel Free to Come at Me!"
+    },
+    {
+      "num": 1051,
+      "title": "Chapter 1050 — The Sixth Floor"
+    },
+    {
+      "num": 1052,
+      "title": "Chapter 1051 — Zhou Yi Reappears"
+    },
+    {
+      "num": 1053,
+      "title": "Chapter 1052 — The Identity of the Celestial Cloud Cultivation Couple"
+    },
+    {
+      "num": 1054,
+      "title": "Chapter 1053 — Master Void’s Cold Sweat"
+    },
+    {
+      "num": 1055,
+      "title": "Chapter 1054 — Forcing Master Void"
+    },
+    {
+      "num": 1056,
+      "title": "Chapter 1055 — Mountain Crumbles"
+    },
+    {
+      "num": 1057,
+      "title": "Chapter 1057"
+    },
+    {
+      "num": 1058,
+      "title": "Chapter 1058"
+    },
+    {
+      "num": 1059,
+      "title": "Chapter 1059"
+    },
+    {
+      "num": 1060,
+      "title": "Chapter 1060"
+    },
+    {
+      "num": 1061,
+      "title": "Chapter 1061"
+    },
+    {
+      "num": 1062,
+      "title": "Chapter 1062"
+    },
+    {
+      "num": 1063,
+      "title": "Chapter 1062 — Power of the Ancient Demon"
+    },
+    {
+      "num": 1064,
+      "title": "Chapter 1063 — Qing Lin’s Words Before Being Possessed"
+    },
+    {
+      "num": 1065,
+      "title": "Chapter 1064 — The Identity of the Man in Black"
+    },
+    {
+      "num": 1066,
+      "title": "Chapter 1065 — The Three Ancient Order Clans Reunite"
+    },
+    {
+      "num": 1067,
+      "title": "Chapter 1067"
+    },
+    {
+      "num": 1068,
+      "title": "Chapter 1068"
+    },
+    {
+      "num": 1069,
+      "title": "Chapter 1069"
+    },
+    {
+      "num": 1070,
+      "title": "Chapter 1070"
+    },
+    {
+      "num": 1071,
+      "title": "Chapter 1071"
+    },
+    {
+      "num": 1072,
+      "title": "Chapter 1071 — Arrival"
+    },
+    {
+      "num": 1073,
+      "title": "Chapter 1072 — The Most Powerful Spell"
+    },
+    {
+      "num": 1074,
+      "title": "Chapter 1073 — All Out"
+    },
+    {
+      "num": 1075,
+      "title": "Chapter 1074 — The Supreme’s Power"
+    },
+    {
+      "num": 1076,
+      "title": "Chapter 1075 — Fusion of True Spirit"
+    },
+    {
+      "num": 1077,
+      "title": "Chapter 1076 — The Decisive Battle Begins"
+    },
+    {
+      "num": 1078,
+      "title": "Chapter 1077 — Battle Between Teacher and Disciple"
+    },
+    {
+      "num": 1079,
+      "title": "Chapter 1078 — Ta Shan Appears"
+    },
+    {
+      "num": 1080,
+      "title": "Chapter 1079 — Mu Bingmei"
+    },
+    {
+      "num": 1081,
+      "title": "Chapter 1080 — I Don’t Need You to Save Me"
+    },
+    {
+      "num": 1082,
+      "title": "Chapter 1081 — Dream of Ancient Times"
+    },
+    {
+      "num": 1083,
+      "title": "Chapter 1083"
+    },
+    {
+      "num": 1084,
+      "title": "Chapter 1083 — The Four Holy Treasures"
+    },
+    {
+      "num": 1085,
+      "title": "Chapter 1084 — Ill Fate"
+    },
+    {
+      "num": 1086,
+      "title": "Chapter 1085 — Two Years"
+    },
+    {
+      "num": 1087,
+      "title": "Chapter 1086 — News of Qing Shui"
+    },
+    {
+      "num": 1088,
+      "title": "Chapter 1087 — First Transformation of the Nine Mysterious Transformations"
+    },
+    {
+      "num": 1089,
+      "title": "Chapter 1088 — New Divine Emperor (1)"
+    },
+    {
+      "num": 1090,
+      "title": "Chapter 1089 — New Divine Emperor (2)"
+    },
+    {
+      "num": 1091,
+      "title": "Chapter 1090 — Reappearance of Mo Zhi"
+    },
+    {
+      "num": 1092,
+      "title": "Chapter 1091 — Rise Three Realm Flame Origin"
+    },
+    {
+      "num": 1093,
+      "title": "Chapter 1092 — Wang Lin’s Plan"
+    },
+    {
+      "num": 1094,
+      "title": "Chapter 1093 — You Want Wang Lin?"
+    },
+    {
+      "num": 1095,
+      "title": "Chapter 1094 — Mistaken"
+    },
+    {
+      "num": 1096,
+      "title": "Chapter 1095 — I Wonder What Rank This Corpse Would Be"
+    },
+    {
+      "num": 1097,
+      "title": "Chapter 1096 — A Heaven-shaking Secret"
+    },
+    {
+      "num": 1098,
+      "title": "Chapter 1097 — The Chaos Caused by Tuo Sen"
+    },
+    {
+      "num": 1099,
+      "title": "Chapter 1098 — Broken Sword"
+    },
+    {
+      "num": 1100,
+      "title": "Chapter 1099 — Outsider"
+    },
+    {
+      "num": 1101,
+      "title": "Chapter 1100 — Have You Seen Through It"
+    },
+    {
+      "num": 1102,
+      "title": "Chapter 1102"
+    },
+    {
+      "num": 1103,
+      "title": "Chapter 1103"
+    },
+    {
+      "num": 1104,
+      "title": "Chapter 1103 — Cloud Sea"
+    },
+    {
+      "num": 1105,
+      "title": "Chapter 1104 — Divine Retribution"
+    },
+    {
+      "num": 1106,
+      "title": "Chapter 1105 - Mountain Crumbles"
+    },
+    {
+      "num": 1107,
+      "title": "Chapter 1106 - One Mountain Two Crumbles"
+    },
+    {
+      "num": 1108,
+      "title": "Chapter 1107 - Battling Against Heaven"
+    },
+    {
+      "num": 1109,
+      "title": "Chapter 1108 - Aura of the Ancient Celestial Realm"
+    },
+    {
+      "num": 1110,
+      "title": "Chapter 1109 - The Divine Emperor Dies"
+    },
+    {
+      "num": 1111,
+      "title": "Chapter 1110 - Rain Celestial Realm Opens Once More!"
+    },
+    {
+      "num": 1112,
+      "title": "Chapter 1111 - Tuo Sen"
+    },
+    {
+      "num": 1113,
+      "title": "Chapter 1112 - The Call for Help in the Rain Celestial Realm"
+    },
+    {
+      "num": 1114,
+      "title": "Chapter 1114"
+    },
+    {
+      "num": 1115,
+      "title": "Chapter 1115"
+    },
+    {
+      "num": 1116,
+      "title": "Chapter 1116"
+    },
+    {
+      "num": 1117,
+      "title": "Chapter 1117"
+    },
+    {
+      "num": 1118,
+      "title": "Chapter 1118"
+    },
+    {
+      "num": 1119,
+      "title": "Chapter 1118 - Ancient Devil Dao Mark"
+    },
+    {
+      "num": 1120,
+      "title": "Chapter 1119 - Silently"
+    },
+    {
+      "num": 1121,
+      "title": "Chapter 1120 - New Rain Celestial Realm"
+    },
+    {
+      "num": 1122,
+      "title": "Chapter 1121 - No Worries About Consequences"
+    },
+    {
+      "num": 1123,
+      "title": "Chapter 1122 - Zhou Ru"
+    },
+    {
+      "num": 1124,
+      "title": "Chapter 1123 - I’m Sorry"
+    },
+    {
+      "num": 1125,
+      "title": "Chapter 1124 - Parting"
+    },
+    {
+      "num": 1126,
+      "title": "Chapter 1125 - Ji Qiong"
+    },
+    {
+      "num": 1127,
+      "title": "Chapter 1126 - Battling Ji Qiong"
+    },
+    {
+      "num": 1128,
+      "title": "Chapter 1127 - One Head"
+    },
+    {
+      "num": 1129,
+      "title": "Chapter 1128 - Avatar Dies"
+    },
+    {
+      "num": 1130,
+      "title": "Chapter 1129 - Exalted One"
+    },
+    {
+      "num": 1131,
+      "title": "Chapter 1130 - Corpse Sect’s Eight Kings"
+    },
+    {
+      "num": 1132,
+      "title": "Chapter 1132"
+    },
+    {
+      "num": 1133,
+      "title": "Chapter 1132 - Master Wuji"
+    },
+    {
+      "num": 1134,
+      "title": "Chapter 1133 - Three Trials Seven Calamities"
+    },
+    {
+      "num": 1135,
+      "title": "Chapter 1134 - Tuo Sen Appears"
+    },
+    {
+      "num": 1136,
+      "title": "Chapter 1135 - Might of the Ancient God"
+    },
+    {
+      "num": 1137,
+      "title": "Chapter 1136 - Escape to the Other End of the World"
+    },
+    {
+      "num": 1138,
+      "title": "Chapter 1137 - Snow"
+    },
+    {
+      "num": 1139,
+      "title": "Chapter 1138 - Rain"
+    },
+    {
+      "num": 1140,
+      "title": "Chapter 1139 - Ceng Niu"
+    },
+    {
+      "num": 1141,
+      "title": "Chapter 1140 - Origin Sect"
+    },
+    {
+      "num": 1142,
+      "title": "Chapter 1141 - Lu Yanfei"
+    },
+    {
+      "num": 1143,
+      "title": "Chapter 1142 - Spirit"
+    },
+    {
+      "num": 1144,
+      "title": "Chapter 1143 - Purple Qi From the West"
+    },
+    {
+      "num": 1145,
+      "title": "Chapter 1144 - Rainbow"
+    },
+    {
+      "num": 1146,
+      "title": "Chapter 1145 -  One Strand of Hair"
+    },
+    {
+      "num": 1147,
+      "title": "Chapter 1146 - The Hope of the Heaven Defying Bead Reaching Completion a Second Time"
+    },
+    {
+      "num": 1148,
+      "title": "Chapter 1147 - Xu Yun’s Heartache"
+    },
+    {
+      "num": 1149,
+      "title": "Chapter 1148 - Wild Continent"
+    },
+    {
+      "num": 1150,
+      "title": "Chapter 1149 - Mobilization and Control"
+    },
+    {
+      "num": 1151,
+      "title": "Chapter 1150 - Shocking Change"
+    },
+    {
+      "num": 1152,
+      "title": "Chapter 1151 - Came So Quickly"
+    },
+    {
+      "num": 1153,
+      "title": "Chapter 1152 - Inside the Valley"
+    },
+    {
+      "num": 1154,
+      "title": "Chapter 1153 - There is Silence Before Every Major Event"
+    },
+    {
+      "num": 1155,
+      "title": "Chapter 1154 - On the Verge"
+    },
+    {
+      "num": 1156,
+      "title": "Chapter 1155 - Continuous Chop"
+    },
+    {
+      "num": 1157,
+      "title": "Chapter 1156 - Leaving the Vortex"
+    },
+    {
+      "num": 1158,
+      "title": "Chapter 1157 - One Trial Two Calamities"
+    },
+    {
+      "num": 1159,
+      "title": "Chapter 1158 - Repeated Bone Refinement"
+    },
+    {
+      "num": 1160,
+      "title": "Chapter 1159 - Might"
+    },
+    {
+      "num": 1161,
+      "title": "Chapter 1160 - Li Qianmei"
+    },
+    {
+      "num": 1162,
+      "title": "Chapter 1161 - Devour Pill, Vast Dao"
+    },
+    {
+      "num": 1163,
+      "title": "Chapter 1162 - Those Who Harm Others are Constantly Hurting Themselves"
+    },
+    {
+      "num": 1164,
+      "title": "Chapter 1163 - Please Forgive Us"
+    },
+    {
+      "num": 1165,
+      "title": "Chapter 1164 - Three Questions"
+    },
+    {
+      "num": 1166,
+      "title": "Chapter 1165 - Lu Yuncong Can’t Compare!"
+    },
+    {
+      "num": 1167,
+      "title": "Chapter 1166 - The Lie of Heaven"
+    },
+    {
+      "num": 1168,
+      "title": "Chapter 1167 - Looking Back With a Smile"
+    },
+    {
+      "num": 1169,
+      "title": "Chapter 1168 - The Mysterious starfield Behind the Rank 9 Region"
+    },
+    {
+      "num": 1170,
+      "title": "Chapter 1169 - Who Are You?"
+    },
+    {
+      "num": 1171,
+      "title": "Chapter 1170 - What is It"
+    },
+    {
+      "num": 1172,
+      "title": "Chapter 1171 - Puzzled"
+    },
+    {
+      "num": 1173,
+      "title": "Chapter 1172 - The Circle of Nirvana Shatterer"
+    },
+    {
+      "num": 1174,
+      "title": "Chapter 1173 - The Wind of Desire Begins to Move"
+    },
+    {
+      "num": 1175,
+      "title": "Chapter 1174 - You’re Late"
+    },
+    {
+      "num": 1176,
+      "title": "Chapter 1175 - Member of the God Sect"
+    },
+    {
+      "num": 1177,
+      "title": "Chapter 1176 - Wouldn’t It Be Better to Forget About Each Other"
+    },
+    {
+      "num": 1178,
+      "title": "Chapter 1177 - Divine Devil Armor"
+    },
+    {
+      "num": 1179,
+      "title": "Chapter 1178 - Qualification"
+    },
+    {
+      "num": 1180,
+      "title": "Chapter 1179 - Crowd of Devils Gathers"
+    },
+    {
+      "num": 1181,
+      "title": "Chapter 1180 - Extraordinary"
+    },
+    {
+      "num": 1182,
+      "title": "Chapter 1181 - Master Cloud Soul is Lost"
+    },
+    {
+      "num": 1183,
+      "title": "Chapter 1182 - Seven"
+    },
+    {
+      "num": 1184,
+      "title": "Chapter 1183 - Don’t Move"
+    },
+    {
+      "num": 1185,
+      "title": "Chapter 1184 - Await the Path of Cultivation"
+    },
+    {
+      "num": 1186,
+      "title": "Chapter 1185 - Nine Step Heaven"
+    },
+    {
+      "num": 1187,
+      "title": "Chapter 1186 - As It Should Be"
+    },
+    {
+      "num": 1188,
+      "title": "Chapter 1187 - Harvest"
+    },
+    {
+      "num": 1189,
+      "title": "Chapter 1188 - Dao Scripture"
+    },
+    {
+      "num": 1190,
+      "title": "Chapter 1189 - The Many Treasures of Master Ashen Pine"
+    },
+    {
+      "num": 1191,
+      "title": "Chapter 1190 - The Bottle Under the Bone"
+    },
+    {
+      "num": 1192,
+      "title": "Chapter 1191 - Heavenly Fate Appears Once More"
+    },
+    {
+      "num": 1193,
+      "title": "Chapter 1192 - Trident"
+    },
+    {
+      "num": 1194,
+      "title": "Chapter 1193 - A Bloody Battle Against Master Ashen Pine!"
+    },
+    {
+      "num": 1195,
+      "title": "Chapter 1194 - Shattering the Compass"
+    },
+    {
+      "num": 1196,
+      "title": "Chapter 1195 - Seven"
+    },
+    {
+      "num": 1197,
+      "title": "Chapter 1196 - Sima Mo’s Secret"
+    },
+    {
+      "num": 1198,
+      "title": "Chapter 1197 - Sovereign"
+    },
+    {
+      "num": 1199,
+      "title": "Chapter 1198 - Pill"
+    },
+    {
+      "num": 1200,
+      "title": "Chapter 1199 - Seeking Dao"
+    },
+    {
+      "num": 1201,
+      "title": "Chapter 1200 - Dao Scatter"
+    },
+    {
+      "num": 1202,
+      "title": "Chapter 1201 - Guardian"
+    },
+    {
+      "num": 1203,
+      "title": "Chapter 1202 - Planting Dao"
+    },
+    {
+      "num": 1204,
+      "title": "Chapter 1203 - Dao Essence"
+    },
+    {
+      "num": 1205,
+      "title": "Chapter 1204 - The Plan of the Heavenly Dao"
+    },
+    {
+      "num": 1206,
+      "title": "Chapter 1205 - Pride"
+    },
+    {
+      "num": 1207,
+      "title": "Chapter 1206 - Cultivators Like Us Never Shrink From a Fight!"
+    },
+    {
+      "num": 1208,
+      "title": "Chapter 1207 - Thunder? Fire?"
+    },
+    {
+      "num": 1209,
+      "title": "Chapter 1208 - Resolve the Ancient Covenant"
+    },
+    {
+      "num": 1210,
+      "title": "Chapter 1209 - Would You?"
+    },
+    {
+      "num": 1211,
+      "title": "Chapter 1210 - Blue Vermillion Bird"
+    },
+    {
+      "num": 1212,
+      "title": "Chapter 1211 - Azure Dragon Divine Emperor"
+    },
+    {
+      "num": 1213,
+      "title": "Chapter 1212 - Sealing Extermination Clan"
+    },
+    {
+      "num": 1214,
+      "title": "Chapter 1213 - Dao Spell"
+    },
+    {
+      "num": 1215,
+      "title": "Chapter 1214 - Tie Zhu"
+    },
+    {
+      "num": 1216,
+      "title": "Chapter 1215 - Beautiful Taste and Anticipation"
+    },
+    {
+      "num": 1217,
+      "title": "Chapter 1216 - Seven"
+    },
+    {
+      "num": 1218,
+      "title": "Chapter 1217 - Awakening"
+    },
+    {
+      "num": 1219,
+      "title": "Chapter 1218 - The Realm"
+    },
+    {
+      "num": 1220,
+      "title": "Chapter 1219 - Eighth Spirit Appear"
+    },
+    {
+      "num": 1221,
+      "title": "Chapter 1220 - Owner of the Heaven Defying Bead"
+    },
+    {
+      "num": 1222,
+      "title": "Chapter 1221 - The Identity of the Lord of the Sealed Realm"
+    },
+    {
+      "num": 1223,
+      "title": "Chapter 1222 - Master Cloud Soul Yields"
+    },
+    {
+      "num": 1224,
+      "title": "Chapter 1223 - Shocking Change"
+    },
+    {
+      "num": 1225,
+      "title": "Chapter 1224 - Palm"
+    },
+    {
+      "num": 1226,
+      "title": "Chapter 1225 - Breaking Fingers"
+    },
+    {
+      "num": 1227,
+      "title": "Chapter 1226 - Are You the Sovereign?"
+    },
+    {
+      "num": 1228,
+      "title": "Chapter 1227 - The Blessing From 100 Years Ago"
+    },
+    {
+      "num": 1229,
+      "title": "Chapter 1228 - This Old Mans Name is Liu Jinbiao!!"
+    },
+    {
+      "num": 1230,
+      "title": "Chapter 1229 - Target, Wind Celestial Realm!"
+    },
+    {
+      "num": 1231,
+      "title": "Chapter 1230 - Strong"
+    },
+    {
+      "num": 1232,
+      "title": "Chapter 1231 - Fire Centipede"
+    },
+    {
+      "num": 1233,
+      "title": "Chapter 1232 - Shocked Appearance"
+    },
+    {
+      "num": 1234,
+      "title": "Chapter 1233 - Movement of Wind"
+    },
+    {
+      "num": 1235,
+      "title": "Chapter 1234 - Welcome"
+    },
+    {
+      "num": 1236,
+      "title": "Chapter 1235 - Gathering Red Mosquito Beasts"
+    },
+    {
+      "num": 1237,
+      "title": "Chapter 1236 - Another Mosquito King"
+    },
+    {
+      "num": 1238,
+      "title": "Chapter 1237 - Closing In"
+    },
+    {
+      "num": 1239,
+      "title": "Chapter 1238 - New King"
+    },
+    {
+      "num": 1240,
+      "title": "Chapter 1239 - Origin Sect"
+    },
+    {
+      "num": 1241,
+      "title": "Chapter 1240 - Li Qianmei"
+    },
+    {
+      "num": 1242,
+      "title": "Chapter 1241 - Did He Come?"
+    },
+    {
+      "num": 1243,
+      "title": "Chapter 1242 - After Sundered Night"
+    },
+    {
+      "num": 1244,
+      "title": "Chapter 1243 - The Ninth Law"
+    },
+    {
+      "num": 1245,
+      "title": "Chapter 1244 - Flowing Time"
+    },
+    {
+      "num": 1246,
+      "title": "Chapter 1245 - 100 Years in An Instant"
+    },
+    {
+      "num": 1247,
+      "title": "Chapter 1246 - Defying Mosquito Beast"
+    },
+    {
+      "num": 1248,
+      "title": "Chapter 1247 - The Mosquito King’s Mutation"
+    },
+    {
+      "num": 1249,
+      "title": "Chapter 1248 - Accept"
+    },
+    {
+      "num": 1250,
+      "title": "Chapter 1249 - Mu Bingmei"
+    },
+    {
+      "num": 1251,
+      "title": "Chapter 1250 - Rebuking the Everlasting Sect (1)"
+    },
+    {
+      "num": 1252,
+      "title": "Chapter 1251 - Rebuking the Everlasting Sect (2)"
+    },
+    {
+      "num": 1253,
+      "title": "Chapter 1252 - Rebuking the Everlasting Sect (3)"
+    },
+    {
+      "num": 1254,
+      "title": "Chapter 1253 - Rebuking the Everlasting Sect (4)"
+    },
+    {
+      "num": 1255,
+      "title": "Chapter 1254 - Rebuking the Everlasting Sect (5)"
+    },
+    {
+      "num": 1256,
+      "title": "Chapter 1255 - Rebuking the Everlasting Sect (6)"
+    },
+    {
+      "num": 1257,
+      "title": "Chapter 1256 - Rebuking the Everlasting Sect (7)"
+    },
+    {
+      "num": 1258,
+      "title": "Chapter 1257 - Rebuking the Everlasting Sect (8)"
+    },
+    {
+      "num": 1259,
+      "title": "Chapter 1258 - Rebuking the Everlasting Sect, Sundered Night"
+    },
+    {
+      "num": 1260,
+      "title": "Chapter 1259 - Rebuking the Everlasting Sect, Flowing Time"
+    },
+    {
+      "num": 1261,
+      "title": "Chapter 1260 - Glimpse of a Life and Death Trial"
+    },
+    {
+      "num": 1262,
+      "title": "Chapter 1261 - The Calamity From the God Sect"
+    },
+    {
+      "num": 1263,
+      "title": "Chapter 1262 - Came Back"
+    },
+    {
+      "num": 1264,
+      "title": "Chapter 1263 - The Fish and the Bird"
+    },
+    {
+      "num": 1265,
+      "title": "Chapter 1264 - To Know"
+    },
+    {
+      "num": 1266,
+      "title": "Chapter 1265 - Shocking Change!"
+    },
+    {
+      "num": 1267,
+      "title": "Chapter 1266 - A Chance of Survival"
+    },
+    {
+      "num": 1268,
+      "title": "Chapter 1267 - Youre Liu Jinbiao?"
+    },
+    {
+      "num": 1269,
+      "title": "Chapter 1268 - The Heaven Defying Bead Disappears!"
+    },
+    {
+      "num": 1270,
+      "title": "Chapter 1269 - Without a Home (1)"
+    },
+    {
+      "num": 1271,
+      "title": "Chapter 1270 - Without a Home (2)"
+    },
+    {
+      "num": 1272,
+      "title": "Chapter 1271 - Awaiting Your Arrival"
+    },
+    {
+      "num": 1273,
+      "title": "Chapter 1272 - The God Slaying Chariot Appears Once More"
+    },
+    {
+      "num": 1274,
+      "title": "Chapter 1273 - Arrival!"
+    },
+    {
+      "num": 1275,
+      "title": "Chapter 1274 - Expression Changed"
+    },
+    {
+      "num": 1276,
+      "title": "Chapter 1275 - The Four Void Realms"
+    },
+    {
+      "num": 1277,
+      "title": "Chapter 1276 - Counter Attack!"
+    },
+    {
+      "num": 1278,
+      "title": "Chapter 1277 - Rebirth"
+    },
+    {
+      "num": 1279,
+      "title": "Chapter 1278 - 100 punches"
+    },
+    {
+      "num": 1280,
+      "title": "Chapter 1279 - Injured"
+    },
+    {
+      "num": 1281,
+      "title": "Chapter 1280 - Three Essences!!"
+    },
+    {
+      "num": 1282,
+      "title": "Chapter 1281 - Jade of the Sealed Realm"
+    },
+    {
+      "num": 1283,
+      "title": "Chapter 1282 - Beginning of a Great Opportunity"
+    },
+    {
+      "num": 1284,
+      "title": "Chapter 1283 - Lord of the Sealed Realm"
+    },
+    {
+      "num": 1285,
+      "title": "Chapter 1284 - The Origin of the Heaven Defying Bead"
+    },
+    {
+      "num": 1286,
+      "title": "Chapter 1285 - Awakening! (1)"
+    },
+    {
+      "num": 1287,
+      "title": "Chapter 1286 - Awakening! (2)"
+    },
+    {
+      "num": 1288,
+      "title": "Chapter 1287 - Even If Tens of Thousands of People Try to Stop Me, Ill Still Charge Forward!"
+    },
+    {
+      "num": 1289,
+      "title": "Chapter 1288 - Fame From 10 Years Ago!"
+    },
+    {
+      "num": 1290,
+      "title": "Chapter 1289 - The Strong are Respected!"
+    },
+    {
+      "num": 1291,
+      "title": "Chapter 1290 - One Line!"
+    },
+    {
+      "num": 1292,
+      "title": "Chapter 1291 - The Spatial Crack at the Demon Sect"
+    },
+    {
+      "num": 1293,
+      "title": "Chapter 1292 - The White Figure Under the Red Light"
+    },
+    {
+      "num": 1294,
+      "title": "Chapter 1293 - Become My Mount and Ill Spare Your Life!"
+    },
+    {
+      "num": 1295,
+      "title": "Chapter 1294 - Dao Spell"
+    },
+    {
+      "num": 1296,
+      "title": "Chapter 1295 - Lead About Li Qianmei"
+    },
+    {
+      "num": 1297,
+      "title": "Chapter 1296 - Laughter!"
+    },
+    {
+      "num": 1298,
+      "title": "Chapter 1297 - Rush!!!"
+    },
+    {
+      "num": 1299,
+      "title": "Chapter 1298 - Tearing Off the Seal!"
+    },
+    {
+      "num": 1300,
+      "title": "Chapter 1299 - Rank 13"
+    },
+    {
+      "num": 1301,
+      "title": "Chapter 1300 - Ancient God Altar"
+    },
+    {
+      "num": 1302,
+      "title": "Chapter 1301 - Divine Retribution Arrives"
+    },
+    {
+      "num": 1303,
+      "title": "Chapter 1302 - Cover the Sky With One Hand"
+    },
+    {
+      "num": 1304,
+      "title": "Chapter 1303 - Sealed Realm Formation"
+    },
+    {
+      "num": 1305,
+      "title": "Chapter 1304 - Nine Palace, Eight Diagram"
+    },
+    {
+      "num": 1306,
+      "title": "Chapter 1305 - Divine Retribution is a Calamity But Also a Fortune"
+    },
+    {
+      "num": 1307,
+      "title": "Chapter 1306 - Birth of the Ji Realm"
+    },
+    {
+      "num": 1308,
+      "title": "Chapter 1307 - Devour the Body and Soul, Heaven Extinction Spell!"
+    },
+    {
+      "num": 1309,
+      "title": "Chapter 1308 - Tuo Sen"
+    },
+    {
+      "num": 1310,
+      "title": "Chapter 1309 - Hunt!!"
+    },
+    {
+      "num": 1311,
+      "title": "Chapter 1310 - Association"
+    },
+    {
+      "num": 1312,
+      "title": "Chapter 1311 - The First Predestined Battle (1)"
+    },
+    {
+      "num": 1313,
+      "title": "Chapter 1312 - The First Predestined Battle (2)"
+    },
+    {
+      "num": 1314,
+      "title": "Chapter 1313 - The First Predestined Battle (3)"
+    },
+    {
+      "num": 1315,
+      "title": "Chapter 1314 - The First Predestined Battle (4)"
+    },
+    {
+      "num": 1316,
+      "title": "Chapter 1315 - The First Predestined Battle (5)"
+    },
+    {
+      "num": 1317,
+      "title": "Chapter 1316 - Give Her to Me"
+    },
+    {
+      "num": 1318,
+      "title": "Chapter 1317 - Continue"
+    },
+    {
+      "num": 1319,
+      "title": "Chapter 1318 - The Woman in White"
+    },
+    {
+      "num": 1320,
+      "title": "Chapter 1319 - Choice"
+    },
+    {
+      "num": 1321,
+      "title": "Chapter 1320 - Fuse"
+    },
+    {
+      "num": 1322,
+      "title": "Chapter 1321 - The Barrier to the Third Step"
+    },
+    {
+      "num": 1323,
+      "title": "Chapter 1322 - Sudden Change"
+    },
+    {
+      "num": 1324,
+      "title": "Chapter 1323 - Joss Flame"
+    },
+    {
+      "num": 1325,
+      "title": "Chapter 1324 - Leaving the Blue Silk Clan"
+    },
+    {
+      "num": 1326,
+      "title": "Chapter 1325 - Projection Avatar"
+    },
+    {
+      "num": 1327,
+      "title": "Chapter 1326 - Hunt"
+    },
+    {
+      "num": 1328,
+      "title": "Chapter 1327 - Scam"
+    },
+    {
+      "num": 1329,
+      "title": "Chapter 1328 - Possession"
+    },
+    {
+      "num": 1330,
+      "title": "Chapter 1329 - Scatter Thunder Clan"
+    },
+    {
+      "num": 1331,
+      "title": "Chapter 1330 - Scatter Thunder Ranking"
+    },
+    {
+      "num": 1332,
+      "title": "Chapter 1331 - For Senior"
+    },
+    {
+      "num": 1333,
+      "title": "Chapter 1332 - Arch"
+    },
+    {
+      "num": 1334,
+      "title": "Chapter 1333 - This is the Life"
+    },
+    {
+      "num": 1335,
+      "title": "Chapter 1334 - A Terrifying Guess"
+    },
+    {
+      "num": 1336,
+      "title": "Chapter 1335 - Thunder Crystal Temple"
+    },
+    {
+      "num": 1337,
+      "title": "Chapter 1336 - Promoting into the Scatter Thunder Ranking"
+    },
+    {
+      "num": 1338,
+      "title": "Chapter 1337 - The Secret of the Scatter Thunder Clan"
+    },
+    {
+      "num": 1339,
+      "title": "Chapter 1338 - Killing Master Zhou Tian"
+    },
+    {
+      "num": 1340,
+      "title": "Chapter 1339 - Malicious Intent"
+    },
+    {
+      "num": 1341,
+      "title": "Chapter 1340 - So This is Divine Retribution"
+    },
+    {
+      "num": 1342,
+      "title": "Chapter 1341 - I’m Divine Retribution"
+    },
+    {
+      "num": 1343,
+      "title": "Chapter 1342 - The Path of a Powerful Thunder Cultivator!"
+    },
+    {
+      "num": 1344,
+      "title": "Chapter 1343 - Bait"
+    },
+    {
+      "num": 1345,
+      "title": "Chapter 1344 - Daoist Scattered Spirit"
+    },
+    {
+      "num": 1346,
+      "title": "Chapter 1345 - The End of the World"
+    },
+    {
+      "num": 1347,
+      "title": "Chapter 1346 - Where is Master?"
+    },
+    {
+      "num": 1348,
+      "title": "Chapter 1347 - Battle at the Scatter Thunder Clan! (1)"
+    },
+    {
+      "num": 1349,
+      "title": "Chapter 1348 - Battle at the Scatter Thunder Clan! (2)"
+    },
+    {
+      "num": 1350,
+      "title": "Chapter 1349 - Battle at the Scatter Thunder Clan! (3)"
+    },
+    {
+      "num": 1351,
+      "title": "Chapter 1350 - Battle at the Scatter Thunder Clan! (4)"
+    },
+    {
+      "num": 1352,
+      "title": "Chapter 1351 - Battle at the Scatter Thunder Clan! (5)"
+    },
+    {
+      "num": 1353,
+      "title": "Chapter 1352 - Battle at the Scatter Thunder Clan! (6)"
+    },
+    {
+      "num": 1354,
+      "title": "Chapter 1353 - Battle at the Scatter Thunder Clan! (7)"
+    },
+    {
+      "num": 1355,
+      "title": "Chapter 1354 - Seven Sword Chops the Heavenly Mountain (1)"
+    },
+    {
+      "num": 1356,
+      "title": "Chapter 1355 - Seven Sword Chops the Heavenly Mountain (2)"
+    },
+    {
+      "num": 1357,
+      "title": "Chapter 1356 - Seven Sword Chops the Heavenly Mountain (3)"
+    },
+    {
+      "num": 1358,
+      "title": "Chapter 1357 - Seven Sword Chops the Heavenly Mountain (4)"
+    },
+    {
+      "num": 1359,
+      "title": "Chapter 1358 - Seven Sword Chops the Heavenly Mountain (5)"
+    },
+    {
+      "num": 1360,
+      "title": "Chapter 1359 - Legend"
+    },
+    {
+      "num": 1361,
+      "title": "Chapter 1360 - Spiritual Support Collapses"
+    },
+    {
+      "num": 1362,
+      "title": "Chapter 1361 - Get Down Here"
+    },
+    {
+      "num": 1363,
+      "title": "Chapter 1362 - Earth Escape, Thunder Refining"
+    },
+    {
+      "num": 1364,
+      "title": "Chapter 1363 - Long Silence"
+    },
+    {
+      "num": 1365,
+      "title": "Chapter 1364 - Ancient Star System Order"
+    },
+    {
+      "num": 1366,
+      "title": "Chapter 1365 - Three Images"
+    },
+    {
+      "num": 1367,
+      "title": "Chapter 1366 - Five"
+    },
+    {
+      "num": 1368,
+      "title": "Chapter 1367 - Master Simo"
+    },
+    {
+      "num": 1369,
+      "title": "Chapter 1368 - The Great Void Gate"
+    },
+    {
+      "num": 1370,
+      "title": "Chapter 1369 - Thunder Tattoo Shakes The Heavens"
+    },
+    {
+      "num": 1371,
+      "title": "Chapter 1370 - I Was Wrong About Him"
+    },
+    {
+      "num": 1372,
+      "title": "Chapter 1371 - I Can’t Endure It"
+    },
+    {
+      "num": 1373,
+      "title": "Chapter 1372 - Blazing Fire Mutation Crystal (1)"
+    },
+    {
+      "num": 1374,
+      "title": "Chapter 1373 - Blazing Fire Mutation Crystal (2)"
+    },
+    {
+      "num": 1375,
+      "title": "Chapter 1374 - Arrival of Master Simo"
+    },
+    {
+      "num": 1376,
+      "title": "Chapter 1375 - First Encounter With Fire Sparrow"
+    },
+    {
+      "num": 1377,
+      "title": "Chapter 1376 - Do you dare to fight (1)"
+    },
+    {
+      "num": 1378,
+      "title": "Chapter 1377 - Do You Dare to Fight (2)"
+    },
+    {
+      "num": 1379,
+      "title": "Chapter 1378 - A Generation of Masters"
+    },
+    {
+      "num": 1380,
+      "title": "Chapter 1379 - Great Emperor"
+    },
+    {
+      "num": 1381,
+      "title": "Chapter 1380 - Four Breaths!"
+    },
+    {
+      "num": 1382,
+      "title": "Chapter 1381 - Young Emperor"
+    },
+    {
+      "num": 1383,
+      "title": "Chapter 1382 - Old Friend"
+    },
+    {
+      "num": 1384,
+      "title": "Chapter 1383 - Greed"
+    },
+    {
+      "num": 1385,
+      "title": "Chapter 1384 - Frightened Bird (1)"
+    },
+    {
+      "num": 1386,
+      "title": "Chapter 1385 - Frightened Bird (2)"
+    },
+    {
+      "num": 1387,
+      "title": "Chapter 1386 - Collecting Treasure"
+    },
+    {
+      "num": 1388,
+      "title": "Chapter 1387 - Clue"
+    },
+    {
+      "num": 1389,
+      "title": "Chapter 1388 - Don’t Be Afraid!"
+    },
+    {
+      "num": 1390,
+      "title": "Chapter 1389 - The Identity and Origin of the Statue (1)"
+    },
+    {
+      "num": 1391,
+      "title": "Chapter 1390 - The Identity and Origin of the Statue (2)"
+    },
+    {
+      "num": 1392,
+      "title": "Chapter 1391 - Obtained Through Deceiving"
+    },
+    {
+      "num": 1393,
+      "title": "Chapter 1392 - Sixth Generation Vermillion Bird"
+    },
+    {
+      "num": 1394,
+      "title": "Chapter 1393 - Seven Colors Again (1)"
+    },
+    {
+      "num": 1395,
+      "title": "Chapter 1394 - Seven Colors Again (2)"
+    },
+    {
+      "num": 1396,
+      "title": "Chapter 1395 - Wind Rises"
+    },
+    {
+      "num": 1397,
+      "title": "Chapter 1396 - Waves Surges"
+    },
+    {
+      "num": 1398,
+      "title": "Chapter 1397 - Thump"
+    },
+    {
+      "num": 1399,
+      "title": "Chapter 1398 - Cheeky Little Girl"
+    },
+    {
+      "num": 1400,
+      "title": "Chapter 1399 - Ancient Soul Restriction"
+    },
+    {
+      "num": 1401,
+      "title": "Chapter 1400 - Moon Concealed at the Heart of the Lake"
+    },
+    {
+      "num": 1402,
+      "title": "Chapter 1401 - Fishing Dragon"
+    },
+    {
+      "num": 1403,
+      "title": "Chapter 1402 - Vermillion Bird Ancestor"
+    },
+    {
+      "num": 1404,
+      "title": "Chapter 1403 - Stepping Into the Proper Dao of Power"
+    },
+    {
+      "num": 1405,
+      "title": "Chapter 1404 - The Biased Old Vermillion Bird"
+    },
+    {
+      "num": 1406,
+      "title": "Chapter 1405 - Dream like life"
+    },
+    {
+      "num": 1407,
+      "title": "Chapter 1406 - Like the Soul of Sadness"
+    },
+    {
+      "num": 1408,
+      "title": "Chapter 1407 - I’m Not Willing!"
+    },
+    {
+      "num": 1409,
+      "title": "Chapter 1408 - Karma Fire Rise In the Soul"
+    },
+    {
+      "num": 1410,
+      "title": "Chapter 1409 - Fragrant Blue Signal Smoke Burns!"
+    },
+    {
+      "num": 1411,
+      "title": "Chapter 1410 - Shocking Change"
+    },
+    {
+      "num": 1412,
+      "title": "Chapter 1411 - Fourth Awakening!"
+    },
+    {
+      "num": 1413,
+      "title": "Chapter 1412 - Nine Colors Fuse Into One!"
+    },
+    {
+      "num": 1414,
+      "title": "Chapter 1413 - Change To The Heaven Defying Bead!"
+    },
+    {
+      "num": 1415,
+      "title": "Chapter 1414 - Fame of the Fallen Land"
+    },
+    {
+      "num": 1416,
+      "title": "Chapter 1415 - Ancient Order Tomb Opens!"
+    },
+    {
+      "num": 1417,
+      "title": "Chapter 1416 - Traitorous Third Vermillion Bird"
+    },
+    {
+      "num": 1418,
+      "title": "Chapter 1417 - Cultivation is Like a Hand"
+    },
+    {
+      "num": 1419,
+      "title": "Chapter 1418 - Can Do It As Well!"
+    },
+    {
+      "num": 1420,
+      "title": "Chapter 1419 - Come!!"
+    },
+    {
+      "num": 1421,
+      "title": "Chapter 1420 - Battle!!"
+    },
+    {
+      "num": 1422,
+      "title": "Chapter 1421 - Joss Flame Worship!"
+    },
+    {
+      "num": 1423,
+      "title": "Chapter 1422 - Seal the Joss Flame Realm!"
+    },
+    {
+      "num": 1424,
+      "title": "Chapter 1423 - Illustrious Individual"
+    },
+    {
+      "num": 1425,
+      "title": "Chapter 1424 - Dream Dao Plants Inner Demon"
+    },
+    {
+      "num": 1426,
+      "title": "Chapter 1425 - Perhaps That Day Will Come"
+    },
+    {
+      "num": 1427,
+      "title": "Chapter 1426 - Will Leave"
+    },
+    {
+      "num": 1428,
+      "title": "Chapter 1427 - Engraved Ambition"
+    },
+    {
+      "num": 1429,
+      "title": "Chapter 1428 - Crazy Idea!"
+    },
+    {
+      "num": 1430,
+      "title": "Chapter 1429 - Fishing the Moon in the Well!"
+    },
+    {
+      "num": 1431,
+      "title": "Chapter 1430 - Umbrella Opens to Destroy the Realm!"
+    },
+    {
+      "num": 1432,
+      "title": "Chapter 1431 - This Day Arrived!"
+    },
+    {
+      "num": 1433,
+      "title": "Chapter 1432 - Love and Gratitude"
+    },
+    {
+      "num": 1434,
+      "title": "Chapter 1433 - Was He Really the Sovereign?"
+    },
+    {
+      "num": 1435,
+      "title": "Chapter 1434 - Esteemed Heavenly Wolf"
+    },
+    {
+      "num": 1436,
+      "title": "Chapter 1435 - Wang Lin’s Ambush"
+    },
+    {
+      "num": 1437,
+      "title": "Chapter 1436 - Ancient Order Tomb Opens!"
+    },
+    {
+      "num": 1438,
+      "title": "Chapter 1437 - Terrifying Clue!"
+    },
+    {
+      "num": 1439,
+      "title": "Chapter 1438 - Third Older Sister, Fourth Younger Sister"
+    },
+    {
+      "num": 1440,
+      "title": "Chapter 1439 - Emotional Language, Slaughter Calamity"
+    },
+    {
+      "num": 1441,
+      "title": "Chapter 1440 - Three People, Three People, and Three People Again"
+    },
+    {
+      "num": 1442,
+      "title": "Chapter 1441 - Rumors, Rumors, and More Rumors"
+    },
+    {
+      "num": 1443,
+      "title": "Chapter 1442 - Opportunity to Heal!"
+    },
+    {
+      "num": 1444,
+      "title": "Chapter 1443 - Ethereal Fire Cultivator!!"
+    },
+    {
+      "num": 1445,
+      "title": "Chapter 1444 - Enemy Approaches"
+    },
+    {
+      "num": 1446,
+      "title": "Chapter 1445 - Second Order Platform"
+    },
+    {
+      "num": 1447,
+      "title": "Chapter 1446 - Mantis Hunting Cicada"
+    },
+    {
+      "num": 1448,
+      "title": "Chapter 1447 - Who is the Yellow Finch?"
+    },
+    {
+      "num": 1449,
+      "title": "Chapter 1448 - Taking Advantage of the Illness to Kill!"
+    },
+    {
+      "num": 1450,
+      "title": "Chapter 1449 - Secret of the Platform"
+    },
+    {
+      "num": 1451,
+      "title": "Chapter 1450 - Given the Name Ancient Slave!"
+    },
+    {
+      "num": 1452,
+      "title": "Chapter 1451 - Answer!"
+    },
+    {
+      "num": 1453,
+      "title": "Chapter 1452 - Great Desolation Old Poison"
+    },
+    {
+      "num": 1454,
+      "title": "Chapter 1453 - Looked at the Sky With a Cold Gaze"
+    },
+    {
+      "num": 1455,
+      "title": "Chapter 1454 - Points!"
+    },
+    {
+      "num": 1456,
+      "title": "Chapter 1455 - Giant Hand Appears Once More"
+    },
+    {
+      "num": 1457,
+      "title": "Chapter 1456 - Three Chances to Kill"
+    },
+    {
+      "num": 1458,
+      "title": "Chapter 1457 - Missing One?"
+    },
+    {
+      "num": 1459,
+      "title": "Chapter 1458 - Assumption"
+    },
+    {
+      "num": 1460,
+      "title": "Chapter 1459 - Granting Dao"
+    },
+    {
+      "num": 1461,
+      "title": "Chapter 1460 - Four Joy"
+    },
+    {
+      "num": 1462,
+      "title": "Chapter 1461 - Making Enemies!"
+    },
+    {
+      "num": 1463,
+      "title": "Chapter 1462 - Breaking The Rules"
+    },
+    {
+      "num": 1464,
+      "title": "Chapter 1463 - Cheating"
+    },
+    {
+      "num": 1465,
+      "title": "Chapter 1464 - Who’s Faster?"
+    },
+    {
+      "num": 1466,
+      "title": "Chapter 1465 - Living Ancient Demon"
+    },
+    {
+      "num": 1467,
+      "title": "Chapter 1466 - Clap Once"
+    },
+    {
+      "num": 1468,
+      "title": "Chapter 1467 - Upheaval in the Ancient Order Tomb"
+    },
+    {
+      "num": 1469,
+      "title": "Chapter 1468 - Borrowed Power!!"
+    },
+    {
+      "num": 1470,
+      "title": "Chapter 1469 - Inheritance (1)"
+    },
+    {
+      "num": 1471,
+      "title": "Chapter 1470 - Inheritance (2)"
+    },
+    {
+      "num": 1472,
+      "title": "Chapter 1471 - Inheritance (3)"
+    },
+    {
+      "num": 1473,
+      "title": "Chapter 1472 - 7"
+    },
+    {
+      "num": 1474,
+      "title": "Chapter 1473 - The Power of A Roar!!"
+    },
+    {
+      "num": 1475,
+      "title": "Chapter 1474 - Proactive"
+    },
+    {
+      "num": 1476,
+      "title": "Chapter 1475 - The Second Destined Battle (1)"
+    },
+    {
+      "num": 1477,
+      "title": "Chapter 1476 - The Second Destined Battle (2)"
+    },
+    {
+      "num": 1478,
+      "title": "Chapter 1477 - Ancient Order Inheritance!"
+    },
+    {
+      "num": 1479,
+      "title": "Chapter 1478 - Returning Home!"
+    },
+    {
+      "num": 1480,
+      "title": "Chapter 1479 - The Allheaven Star System That is Preparing for War"
+    },
+    {
+      "num": 1481,
+      "title": "Chapter 1480 - The most difficult trial and old friend return"
+    },
+    {
+      "num": 1482,
+      "title": "Chapter 1481 - Yesterday and Today Will Have Clouds and Rain"
+    },
+    {
+      "num": 1483,
+      "title": "Chapter 1482 - Planet Dong Ling’s Xiang Family!"
+    },
+    {
+      "num": 1484,
+      "title": "Chapter 1483 - This Matter, No Problem!"
+    },
+    {
+      "num": 1485,
+      "title": "Chapter 1484 - Master Lu Fu’s mistake!"
+    },
+    {
+      "num": 1486,
+      "title": "Chapter 1485 - The Ancient Imperial Order"
+    },
+    {
+      "num": 1487,
+      "title": "Chapter 1486 - Elder Shen!!"
+    },
+    {
+      "num": 1488,
+      "title": "Chapter 1487 - Beautiful Dream of the Past"
+    },
+    {
+      "num": 1489,
+      "title": "Chapter 1488 - The Hazy Tears of the Present"
+    },
+    {
+      "num": 1490,
+      "title": "Chapter 1489 - Indifferent Xi Zi"
+    },
+    {
+      "num": 1491,
+      "title": "Chapter 1490 - Sword Finger Master Lu Fu!"
+    },
+    {
+      "num": 1492,
+      "title": "Chapter 1491 - Call One Fellow Cultivator"
+    },
+    {
+      "num": 1493,
+      "title": "Chapter 1492 - Literary Battle!"
+    },
+    {
+      "num": 1494,
+      "title": "Chapter 1493 - No Harm in Giving it a Try!"
+    },
+    {
+      "num": 1495,
+      "title": "Chapter 1494 - Ling Dong Appears!"
+    },
+    {
+      "num": 1496,
+      "title": "Chapter 1495 - Not Just One!"
+    },
+    {
+      "num": 1497,
+      "title": "Chapter 1496 - Those People!"
+    },
+    {
+      "num": 1498,
+      "title": "Chapter 1497 - Royal Demon Blade"
+    },
+    {
+      "num": 1499,
+      "title": "Chapter 1498 - A Chance Meeting"
+    },
+    {
+      "num": 1500,
+      "title": "Chapter 1499 - Hidden Danger of the Seven"
+    },
+    {
+      "num": 1501,
+      "title": "Chapter 1500 - Slowly Waiting for it to Arrive"
+    },
+    {
+      "num": 1502,
+      "title": "Chapter 1501 - Hunting Nether Beast 1"
+    },
+    {
+      "num": 1503,
+      "title": "Chapter 1502 - Hunting Nether Beast 2"
+    },
+    {
+      "num": 1504,
+      "title": "Chapter 1503 - Hunting Nether Beast 3"
+    },
+    {
+      "num": 1505,
+      "title": "Chapter 1504 - Hunting Nether Beast 4"
+    },
+    {
+      "num": 1506,
+      "title": "Chapter 1505 - Refine!"
+    },
+    {
+      "num": 1507,
+      "title": "Chapter 1506 - Life Essence Beast!"
+    },
+    {
+      "num": 1508,
+      "title": "Chapter 1507 - Seal Extermination Clan Altar"
+    },
+    {
+      "num": 1509,
+      "title": "Chapter 1508 - Despicable!!"
+    },
+    {
+      "num": 1510,
+      "title": "Chapter 1509 - This Battle!!"
+    },
+    {
+      "num": 1511,
+      "title": "Chapter 1510 - Glory of the Cloud Sea!"
+    },
+    {
+      "num": 1512,
+      "title": "Chapter 1511 - Weak Weak Weak!"
+    },
+    {
+      "num": 1513,
+      "title": "Chapter 1512 - Golden Bell!"
+    },
+    {
+      "num": 1514,
+      "title": "Chapter 1513 - Golden Storm!"
+    },
+    {
+      "num": 1515,
+      "title": "Chapter 1514 - A Mantis Trying to Stop a Chariot!"
+    },
+    {
+      "num": 1516,
+      "title": "Chapter 1515 - Sealed Lord!!"
+    },
+    {
+      "num": 1517,
+      "title": "Chapter 1516 - First Battle in the Inner Realm!"
+    },
+    {
+      "num": 1518,
+      "title": "Chapter 1517 - Breaking the Formation!"
+    },
+    {
+      "num": 1519,
+      "title": "Chapter 1518 - Can’t Retreat!!"
+    },
+    {
+      "num": 1520,
+      "title": "Chapter 1519 - Counter Attack!!"
+    },
+    {
+      "num": 1521,
+      "title": "Chapter 1520 - Spirit Soul!"
+    },
+    {
+      "num": 1522,
+      "title": "Chapter 1521 - This Shirt is Not a Shirt!"
+    },
+    {
+      "num": 1523,
+      "title": "Chapter 1522 - Three Seals!"
+    },
+    {
+      "num": 1524,
+      "title": "Chapter 1523 - Routed!"
+    },
+    {
+      "num": 1525,
+      "title": "Chapter 1524 - Holding the Heaven Splitting Axe!"
+    },
+    {
+      "num": 1526,
+      "title": "Chapter 1525 - No One Remembers!"
+    },
+    {
+      "num": 1527,
+      "title": "Chapter 1526 - Nan Zhao Dies!"
+    },
+    {
+      "num": 1528,
+      "title": "Chapter 1527 - Allheaven and Summoned River Move!"
+    },
+    {
+      "num": 1529,
+      "title": "Chapter 1528 - Female Cultivators from the Summoned River!"
+    },
+    {
+      "num": 1530,
+      "title": "Chapter 1529 - Deadlock!"
+    },
+    {
+      "num": 1531,
+      "title": "Chapter 1530 - Li Quang Bow!"
+    },
+    {
+      "num": 1532,
+      "title": "Chapter 1531 - The Bow is Here"
+    },
+    {
+      "num": 1533,
+      "title": "Chapter 1532 - Old Ghost Zhan!"
+    },
+    {
+      "num": 1534,
+      "title": "Chapter 1533 - Nether Beast Awakens!"
+    },
+    {
+      "num": 1535,
+      "title": "Chapter 1534 - Search"
+    },
+    {
+      "num": 1536,
+      "title": "Chapter 1535 - Madman!"
+    },
+    {
+      "num": 1537,
+      "title": "Chapter 1536 - All of you wait, this king will rest first"
+    },
+    {
+      "num": 1538,
+      "title": "Chapter 1537 - Immortal Celestial Clan Body!"
+    },
+    {
+      "num": 1539,
+      "title": "Chapter 1538 - Golden Sky Black Earth!"
+    },
+    {
+      "num": 1540,
+      "title": "Chapter 1539 - Ancient Nation’s Three Clans!"
+    },
+    {
+      "num": 1541,
+      "title": "Chapter 1540 - Spell!"
+    },
+    {
+      "num": 1542,
+      "title": "Chapter 1541 - A Bit Shameless"
+    },
+    {
+      "num": 1543,
+      "title": "Chapter 1542 - Shocked!"
+    },
+    {
+      "num": 1544,
+      "title": "Chapter 1543 - Take Me As Your Disciple!"
+    },
+    {
+      "num": 1545,
+      "title": "Chapter 1544 - Leaving!"
+    },
+    {
+      "num": 1546,
+      "title": "Chapter 1545 - Three Treasures"
+    },
+    {
+      "num": 1547,
+      "title": "Chapter 1546 - I Have Returned!"
+    },
+    {
+      "num": 1548,
+      "title": "Chapter 1547 - Decades of Changes"
+    },
+    {
+      "num": 1549,
+      "title": "Chapter 1548 - Wang Lin’s excess prestige!"
+    },
+    {
+      "num": 1550,
+      "title": "Chapter 1549 - Ask the Heavens Who Can Control Life and Death!"
+    },
+    {
+      "num": 1551,
+      "title": "Chapter 1550 - Master Long Pan!"
+    },
+    {
+      "num": 1552,
+      "title": "Chapter 1551 - Mountain and River Painting!"
+    },
+    {
+      "num": 1553,
+      "title": "Chapter 1552 - What Did You Say?"
+    },
+    {
+      "num": 1554,
+      "title": "Chapter 1553 - Master Zhong Xuan"
+    },
+    {
+      "num": 1555,
+      "title": "Chapter 1554 - Black Tortoise"
+    },
+    {
+      "num": 1556,
+      "title": "Chapter 1555 - Qing Shui!"
+    },
+    {
+      "num": 1557,
+      "title": "Chapter 1556 - Strange Gaze"
+    },
+    {
+      "num": 1558,
+      "title": "Chapter 1557 - Pulling the Thorns!"
+    },
+    {
+      "num": 1559,
+      "title": "Chapter 1558 - Seven"
+    },
+    {
+      "num": 1560,
+      "title": "Chapter 1559 - Thanks"
+    },
+    {
+      "num": 1561,
+      "title": "Chapter 1560 - Strong Wine!"
+    },
+    {
+      "num": 1562,
+      "title": "Chapter 1561 - Emotional Injury, Gifted Treasure!"
+    },
+    {
+      "num": 1563,
+      "title": "Chapter 1562 - Summoned River"
+    },
+    {
+      "num": 1564,
+      "title": "Chapter 1563 - The Third Dao Fruit!"
+    },
+    {
+      "num": 1565,
+      "title": "Chapter 1564 - Thirteen"
+    },
+    {
+      "num": 1566,
+      "title": "Chapter 1565 - She is Zhou Zihong"
+    },
+    {
+      "num": 1567,
+      "title": "Chapter 1566 - The Madman’s Roar"
+    },
+    {
+      "num": 1568,
+      "title": "Chapter 1567 - Didn’t Do Anything"
+    },
+    {
+      "num": 1569,
+      "title": "Chapter 1568 - Dealing With Evil Servants"
+    },
+    {
+      "num": 1570,
+      "title": "Chapter 1569 - Planet Suzaku"
+    },
+    {
+      "num": 1571,
+      "title": "Chapter 1570 - The Fallen Leaf Searches for Its Roots"
+    },
+    {
+      "num": 1572,
+      "title": "Chapter 1571 - The Leaf Has Roots"
+    },
+    {
+      "num": 1573,
+      "title": "Chapter 1572 - The Past is Like Smoke"
+    },
+    {
+      "num": 1574,
+      "title": "Chapter 1573 - Soul within the long hair"
+    },
+    {
+      "num": 1575,
+      "title": "Chapter 1574 - The Secret at the 19th Layer"
+    },
+    {
+      "num": 1576,
+      "title": "Chapter 1575 - Point of Origin"
+    },
+    {
+      "num": 1577,
+      "title": "Chapter 1576 - Reason"
+    },
+    {
+      "num": 1578,
+      "title": "Chapter 1577 - Foreign"
+    },
+    {
+      "num": 1579,
+      "title": "Chapter 1578 - Heavenly Change!"
+    },
+    {
+      "num": 1580,
+      "title": "Chapter 1579 - The Lord of the Sealed Realm’s Calamity!"
+    },
+    {
+      "num": 1581,
+      "title": "Chapter 1580 - Fierce Battle!"
+    },
+    {
+      "num": 1582,
+      "title": "Chapter 1581 - Kill One Person"
+    },
+    {
+      "num": 1583,
+      "title": "Chapter 1582 - Dark Moon Clear Sky!"
+    },
+    {
+      "num": 1584,
+      "title": "Chapter 1583 - Immortal Celestial Body!"
+    },
+    {
+      "num": 1585,
+      "title": "Chapter 1584 - Heavenly Master Possession!"
+    },
+    {
+      "num": 1586,
+      "title": "Chapter 1585 - The Might of an Arrow!"
+    },
+    {
+      "num": 1587,
+      "title": "Chapter 1586 - Celestial and Ancient Separate!"
+    },
+    {
+      "num": 1588,
+      "title": "Chapter 1587 - Kindness Ends!"
+    },
+    {
+      "num": 1589,
+      "title": "Chapter 1588 - Life and Death"
+    },
+    {
+      "num": 1590,
+      "title": "Chapter 1589 - Dream of Celestial or Celestial Dream!"
+    },
+    {
+      "num": 1591,
+      "title": "Chapter 1590 - A Dream is Like Life"
+    },
+    {
+      "num": 1592,
+      "title": "Chapter 1591 - When You Don’t Wake Up"
+    },
+    {
+      "num": 1593,
+      "title": "Chapter 1592 - Life is Like a Play, Who Am I?"
+    },
+    {
+      "num": 1594,
+      "title": "Chapter 1593 - The Soul Returns to the Ancient Temple on a Rainy Night"
+    },
+    {
+      "num": 1595,
+      "title": "Chapter 1594 - Looking Back and There is Reincarnation"
+    },
+    {
+      "num": 1596,
+      "title": "Chapter 1595 - Soul Refining Sect’s Karmic Cause"
+    },
+    {
+      "num": 1597,
+      "title": "Chapter 1596 - Soul Refining Sect’s Karmic Effect"
+    },
+    {
+      "num": 1598,
+      "title": "Chapter 1597 - The One Line From Hundreds of Years Ago"
+    },
+    {
+      "num": 1599,
+      "title": "Chapter 1598 - A Meeting"
+    },
+    {
+      "num": 1600,
+      "title": "Chapter 1599 - Su Dao"
+    },
+    {
+      "num": 1601,
+      "title": "Chapter 1600 - 10 Years"
+    },
+    {
+      "num": 1602,
+      "title": "Chapter 1601 - Letter Home"
+    },
+    {
+      "num": 1603,
+      "title": "Chapter 1602 - You Dare!"
+    },
+    {
+      "num": 1604,
+      "title": "Chapter 1603 - Home is Under the Heng Yue Mountain"
+    },
+    {
+      "num": 1605,
+      "title": "Chapter 1604 - In My Heart, This Old Man Understands"
+    },
+    {
+      "num": 1606,
+      "title": "Chapter 1605 - Liu Mei"
+    },
+    {
+      "num": 1607,
+      "title": "Chapter 1606 - A Guest From Xue Yue"
+    },
+    {
+      "num": 1608,
+      "title": "Chapter 1607 - Li Muwan"
+    },
+    {
+      "num": 1609,
+      "title": "Chapter 1608 - This Gaze"
+    },
+    {
+      "num": 1610,
+      "title": "Chapter 1609 - The Dream Questions You"
+    },
+    {
+      "num": 1611,
+      "title": "Chapter 1610 - Origin of Void"
+    },
+    {
+      "num": 1612,
+      "title": "Chapter 1611 - A Beautiful Woman"
+    },
+    {
+      "num": 1613,
+      "title": "Chapter 1612 - A Meeting With Yourself"
+    },
+    {
+      "num": 1614,
+      "title": "Chapter 1613 - Awaken From Dream!"
+    },
+    {
+      "num": 1615,
+      "title": "Chapter 1614 - Karma Print"
+    },
+    {
+      "num": 1616,
+      "title": "Chapter 1615 - Many Cultivators Witness the Void Gate"
+    },
+    {
+      "num": 1617,
+      "title": "Chapter 1616 - Essences That Shocked Everyone"
+    },
+    {
+      "num": 1618,
+      "title": "Chapter 1617 - This is the Celestial Immortal Continent"
+    },
+    {
+      "num": 1619,
+      "title": "Chapter 1618 - Breaking the Gate Means Reaching the Third Step"
+    },
+    {
+      "num": 1620,
+      "title": "Chapter 1619 - One Word and the Thunder Surges Like the Sea"
+    },
+    {
+      "num": 1621,
+      "title": "Chapter 1620 - The Thunder Gate Opens to a Shocking Ring"
+    },
+    {
+      "num": 1622,
+      "title": "Chapter 1621 - Ten Thousand Void Bone Gate"
+    },
+    {
+      "num": 1623,
+      "title": "Chapter 1622 - Attacking With Grand Dao"
+    },
+    {
+      "num": 1624,
+      "title": "Chapter 1623 - Heaven Master Void God"
+    },
+    {
+      "num": 1625,
+      "title": "Chapter 1624 - Three Steps to Draw the Bow"
+    },
+    {
+      "num": 1626,
+      "title": "Chapter 1625 - Restoring Past Treasures"
+    },
+    {
+      "num": 1627,
+      "title": "Chapter 1626 - The Third One?"
+    },
+    {
+      "num": 1628,
+      "title": "Chapter 1627 - My Retribution"
+    },
+    {
+      "num": 1629,
+      "title": "Chapter 1628 - Fantasy Reality Retribution"
+    },
+    {
+      "num": 1630,
+      "title": "Chapter 1629 - Unable to Withstand a Single Blow"
+    },
+    {
+      "num": 1631,
+      "title": "Chapter 1630 - Fate Sealing Ring"
+    },
+    {
+      "num": 1632,
+      "title": "Chapter 1631 - Ancient Celestial Realm"
+    },
+    {
+      "num": 1633,
+      "title": "Chapter 1632 - Self Divine Retribution"
+    },
+    {
+      "num": 1634,
+      "title": "Chapter 1633 - Punish Myself"
+    },
+    {
+      "num": 1635,
+      "title": "Chapter 1634 - A Cave"
+    },
+    {
+      "num": 1636,
+      "title": "Chapter 1635 - Controlling Fate"
+    },
+    {
+      "num": 1637,
+      "title": "Chapter 1636 - The Recovering Remnant Celestials"
+    },
+    {
+      "num": 1638,
+      "title": "Chapter 1637 - Void Stop Spell"
+    },
+    {
+      "num": 1639,
+      "title": "Chapter 1638 - The Seal Appears"
+    },
+    {
+      "num": 1640,
+      "title": "Chapter 1639 - Memory of the celestials"
+    },
+    {
+      "num": 1641,
+      "title": "Chapter 1640 - Seven Dao Sect"
+    },
+    {
+      "num": 1642,
+      "title": "Chapter 1641 - Celestials Aren’t Anything Special"
+    },
+    {
+      "num": 1643,
+      "title": "Chapter 1642 - Tiger Roar Sweeps the Mountains and Rivers"
+    },
+    {
+      "num": 1644,
+      "title": "Chapter 1643 - If You Ride a Tiger, It’s Hard to Get Off"
+    },
+    {
+      "num": 1645,
+      "title": "Chapter 1644 - Calm!"
+    },
+    {
+      "num": 1646,
+      "title": "Chapter 1645 - Deal"
+    },
+    {
+      "num": 1647,
+      "title": "Chapter 1646 - Being Drunk With Situ"
+    },
+    {
+      "num": 1648,
+      "title": "Chapter 1647 - Taking Responsibility!"
+    },
+    {
+      "num": 1649,
+      "title": "Chapter 1648 - Too Quiet"
+    },
+    {
+      "num": 1650,
+      "title": "Chapter 1649 - Still Not Enough!"
+    },
+    {
+      "num": 1651,
+      "title": "Chapter 1650 - Kill Third Step!"
+    },
+    {
+      "num": 1652,
+      "title": "Chapter 1651 - Method of Validation"
+    },
+    {
+      "num": 1653,
+      "title": "Chapter 1652 - Strong!"
+    },
+    {
+      "num": 1654,
+      "title": "Chapter 1653 - Heading to Allheaven"
+    },
+    {
+      "num": 1655,
+      "title": "Chapter 1654 - Qing Shui’s Daughter"
+    },
+    {
+      "num": 1656,
+      "title": "Chapter 1655 - Sovereign Appears!"
+    },
+    {
+      "num": 1657,
+      "title": "Chapter 1656 - Grand Eruption!!"
+    },
+    {
+      "num": 1658,
+      "title": "Chapter 1657 - Decisive Battle 1"
+    },
+    {
+      "num": 1659,
+      "title": "Chapter 1658 - Decisive Battle 2"
+    },
+    {
+      "num": 1660,
+      "title": "Chapter 1659 - Decisive Battle 3"
+    },
+    {
+      "num": 1661,
+      "title": "Chapter 1660 - Decisive Battle 4"
+    },
+    {
+      "num": 1662,
+      "title": "Chapter 1661 - Rest"
+    },
+    {
+      "num": 1663,
+      "title": "Chapter 1662 - Eight Imperial Concubine"
+    },
+    {
+      "num": 1664,
+      "title": "Chapter 1663 - Destroying the Formation!"
+    },
+    {
+      "num": 1665,
+      "title": "Chapter 1664 - A New Era!"
+    },
+    {
+      "num": 1666,
+      "title": "Chapter 1665 - Establish!"
+    },
+    {
+      "num": 1667,
+      "title": "Chapter 1666 - Memorial"
+    },
+    {
+      "num": 1668,
+      "title": "Chapter 1667 - Redrawing the Boundaries"
+    },
+    {
+      "num": 1669,
+      "title": "Chapter 1668 - The One Year That Belongs to Xi Zi"
+    },
+    {
+      "num": 1670,
+      "title": "Chapter 1669 - The Wine is Not Warm Enough"
+    },
+    {
+      "num": 1671,
+      "title": "Chapter 1670 - Ancient Fierce Beasts"
+    },
+    {
+      "num": 1672,
+      "title": "Chapter 1671 - Is it the Left Eye?"
+    },
+    {
+      "num": 1673,
+      "title": "Chapter 1672 - Ancient Clan Battle Mark"
+    },
+    {
+      "num": 1674,
+      "title": "Chapter 1673 - Ye Mo Had No Child!"
+    },
+    {
+      "num": 1675,
+      "title": "Chapter 1674 - Tearing the Heavens!!"
+    },
+    {
+      "num": 1676,
+      "title": "Chapter 1675- One Year!"
+    },
+    {
+      "num": 1677,
+      "title": "Chapter 1676 - Skinny Li Qianmei"
+    },
+    {
+      "num": 1678,
+      "title": "Chapter 1677 - Second Year, Another Six Months"
+    },
+    {
+      "num": 1679,
+      "title": "Chapter 1678 - Still Should Accept It"
+    },
+    {
+      "num": 1680,
+      "title": "Chapter 1679 - Reunion With the Mosquito Beasts"
+    },
+    {
+      "num": 1681,
+      "title": "Chapter 1680 - Unexpected Discovery"
+    },
+    {
+      "num": 1682,
+      "title": "Chapter 1681 - The Tip of the Sword That Entered the Immortal Astral Continent!"
+    },
+    {
+      "num": 1683,
+      "title": "Chapter 1682 - Outsiders"
+    },
+    {
+      "num": 1684,
+      "title": "Chapter 1683 - The Trip to Defy the Celestials!"
+    },
+    {
+      "num": 1685,
+      "title": "Chapter 1684 - Celestial Dragon Reveals Dao"
+    },
+    {
+      "num": 1686,
+      "title": "Chapter 1685 - A Snake!"
+    },
+    {
+      "num": 1687,
+      "title": "Chapter 1686 - Little Red!"
+    },
+    {
+      "num": 1688,
+      "title": "Chapter 1687 - The Ancient Celestial Realm Opens"
+    },
+    {
+      "num": 1689,
+      "title": "Chapter 1688 - Get Out!"
+    },
+    {
+      "num": 1690,
+      "title": "Chapter 1689 - The Power of Two Arrows!!"
+    },
+    {
+      "num": 1691,
+      "title": "Chapter 1690 - Can’t Be Wrong!"
+    },
+    {
+      "num": 1692,
+      "title": "Chapter 1691 - Can’t Be Wrong?"
+    },
+    {
+      "num": 1693,
+      "title": "Chapter 1692 - The Agreement From Back Then"
+    },
+    {
+      "num": 1694,
+      "title": "Chapter 1693 - Seven"
+    },
+    {
+      "num": 1695,
+      "title": "Chapter 1694 - Fan Shanmeng!"
+    },
+    {
+      "num": 1696,
+      "title": "Chapter 1695 - Three Souls, Seven Fragments!"
+    },
+    {
+      "num": 1697,
+      "title": "Chapter 1696 - The Guest Becomes the Host"
+    },
+    {
+      "num": 1698,
+      "title": "Chapter 1697 - The Ghostly Face on the Sail"
+    },
+    {
+      "num": 1699,
+      "title": "Chapter 1698 - Fake, Eh!"
+    },
+    {
+      "num": 1700,
+      "title": "Chapter 1699 - Illusion Within Illusion!"
+    },
+    {
+      "num": 1701,
+      "title": "Chapter 1700 - Decisive"
+    },
+    {
+      "num": 1702,
+      "title": "Chapter 1701 - Reason!"
+    },
+    {
+      "num": 1703,
+      "title": "Chapter 1702 - Roar Shocks Seven"
+    },
+    {
+      "num": 1704,
+      "title": "Chapter 1703 - Greed Appears Once More!"
+    },
+    {
+      "num": 1705,
+      "title": "Chapter 1704 - As Miserable as Before!"
+    },
+    {
+      "num": 1706,
+      "title": "Chapter 1705 - Eight"
+    },
+    {
+      "num": 1707,
+      "title": "Chapter 1706 - Ancient Race Heavenly Blood"
+    },
+    {
+      "num": 1708,
+      "title": "Chapter 1707 - Expectations from the Immortal Astral Contient"
+    },
+    {
+      "num": 1709,
+      "title": "Chapter 1708 - First One!"
+    },
+    {
+      "num": 1710,
+      "title": "Chapter 1709 - Emperor’s Envy!"
+    },
+    {
+      "num": 1711,
+      "title": "Chapter 1710 - A Wisp of Soul"
+    },
+    {
+      "num": 1712,
+      "title": "Chapter 1711 - Ancient Dao Defying"
+    },
+    {
+      "num": 1713,
+      "title": "Chapter 1712 - Three Life Spell!"
+    },
+    {
+      "num": 1714,
+      "title": "Chapter 1713 - Chopping the Ghostly Sail!"
+    },
+    {
+      "num": 1715,
+      "title": "Chapter 1714 - Restriction Essence"
+    },
+    {
+      "num": 1716,
+      "title": "Chapter 1715 - Blood Lines in the Eye as the Rule"
+    },
+    {
+      "num": 1717,
+      "title": "Chapter 1716 - Scheme Again All"
+    },
+    {
+      "num": 1718,
+      "title": "Chapter 1717 - All"
+    },
+    {
+      "num": 1719,
+      "title": "Chapter 1718 - Reincarnation Integration"
+    },
+    {
+      "num": 1720,
+      "title": "Chapter 1719 - Strange!"
+    },
+    {
+      "num": 1721,
+      "title": "Chapter 1720 - All"
+    },
+    {
+      "num": 1722,
+      "title": "Chapter 1721 - The All"
+    },
+    {
+      "num": 1723,
+      "title": "Chapter 1722 - His Identity!!"
+    },
+    {
+      "num": 1724,
+      "title": "Chapter 1723 - Heavenly Dao!"
+    },
+    {
+      "num": 1725,
+      "title": "Chapter 1724 - The All"
+    },
+    {
+      "num": 1726,
+      "title": "Chapter 1725 - The Qualifications to Vie for Supremacy!"
+    },
+    {
+      "num": 1727,
+      "title": "Chapter 1726 - Reforming Essences"
+    },
+    {
+      "num": 1728,
+      "title": "Chapter 1727 - Blocked!"
+    },
+    {
+      "num": 1729,
+      "title": "Chapter 1728 - Xuan Luo Enters the Cave!"
+    },
+    {
+      "num": 1730,
+      "title": "Chapter 1729 - Planet Five Elements"
+    },
+    {
+      "num": 1731,
+      "title": "Chapter 1730 - Earth essence!"
+    },
+    {
+      "num": 1732,
+      "title": "Chapter 1731 - Lord of Fire!"
+    },
+    {
+      "num": 1733,
+      "title": "Chapter 1732 - So HisName is Wang Lin!"
+    },
+    {
+      "num": 1734,
+      "title": "Chapter 1733 - One Drop of the Universe!"
+    },
+    {
+      "num": 1735,
+      "title": "Chapter 1734 - Such a Great Favor!"
+    },
+    {
+      "num": 1736,
+      "title": "Chapter 1735 - One Step the Arm Breaks!"
+    },
+    {
+      "num": 1737,
+      "title": "Chapter 1736 - Nine Cycle Heart Wheel!"
+    },
+    {
+      "num": 1738,
+      "title": "Chapter 1737 - My Heart Happens to Stir!"
+    },
+    {
+      "num": 1739,
+      "title": "Chapter 1738 - Calm Body Guides the Heart!"
+    },
+    {
+      "num": 1740,
+      "title": "Chapter 1739 - The Walls Have Ears"
+    },
+    {
+      "num": 1741,
+      "title": "Chapter 1740 - Double Elements Armor (1)"
+    },
+    {
+      "num": 1742,
+      "title": "Chapter 1740 (2) - Double Elements Armor (2)"
+    },
+    {
+      "num": 1743,
+      "title": "Chapter 1741 - Grand Empyrean Xuan Luo!"
+    },
+    {
+      "num": 1744,
+      "title": "Chapter 1742 - A Special Day"
+    },
+    {
+      "num": 1745,
+      "title": "Chapter 1743 - The Joy in the Dream"
+    },
+    {
+      "num": 1746,
+      "title": "Chapter 1744 - Search for the Third Soul!"
+    },
+    {
+      "num": 1747,
+      "title": "Chapter 1745 - Location of the Seven Fragments!"
+    },
+    {
+      "num": 1748,
+      "title": "Chapter 1746 - Three Souls Return!"
+    },
+    {
+      "num": 1749,
+      "title": "Chapter 1747 - The Third Soul is Him!"
+    },
+    {
+      "num": 1750,
+      "title": "Chapter 1748 - Mutation!"
+    },
+    {
+      "num": 1751,
+      "title": "Chapter 1749 - Void Extinction Appears!"
+    },
+    {
+      "num": 1752,
+      "title": "Chapter 1750 - The Cave Opens!"
+    },
+    {
+      "num": 1753,
+      "title": "Chapter 1751 - People Gather"
+    },
+    {
+      "num": 1754,
+      "title": "Chapter 1752 - Hunting Ground!"
+    },
+    {
+      "num": 1755,
+      "title": "Chapter 1753 - 300 Destroyed Worlds"
+    },
+    {
+      "num": 1756,
+      "title": "Chapter 1754 - Establishing the Laws"
+    },
+    {
+      "num": 1757,
+      "title": "Chapter 1755 - Zi Xia"
+    },
+    {
+      "num": 1758,
+      "title": "Chapter 1756 - Bet"
+    },
+    {
+      "num": 1759,
+      "title": "Chapter 1757 - State of the Game!"
+    },
+    {
+      "num": 1760,
+      "title": "Chapter 1758 - Waiting for the Blade!"
+    },
+    {
+      "num": 1761,
+      "title": "Chapter 1759 - Seven"
+    },
+    {
+      "num": 1762,
+      "title": "Chapter 1760 - Scheming!"
+    },
+    {
+      "num": 1763,
+      "title": "Chapter 1761 - Seven Ambushes"
+    },
+    {
+      "num": 1764,
+      "title": "Chapter 1762 - Small Decisive Battle"
+    },
+    {
+      "num": 1765,
+      "title": "Chapter 1763 - Ambushed!"
+    },
+    {
+      "num": 1766,
+      "title": "Chapter 1764 - Seven"
+    },
+    {
+      "num": 1767,
+      "title": "Chapter 1765 - Daofei Appears!"
+    },
+    {
+      "num": 1768,
+      "title": "Chapter 1766 - Dong Ling Sect"
+    },
+    {
+      "num": 1769,
+      "title": "Chapter 1767 - Seize the Remanent Soul"
+    },
+    {
+      "num": 1770,
+      "title": "Chapter 1768 - Ye Mo’s Left Arm"
+    },
+    {
+      "num": 1771,
+      "title": "Chapter 1769 - Entering the Ancient Tomb Once More!"
+    },
+    {
+      "num": 1772,
+      "title": "Chapter 1770 - Yi Si Puppet!"
+    },
+    {
+      "num": 1773,
+      "title": "Chapter 1771 - Do You Dare to Fight Me Head On?"
+    },
+    {
+      "num": 1774,
+      "title": "Chapter 1772 - Xuan Luo Acts!"
+    },
+    {
+      "num": 1775,
+      "title": "Chapter 1773 - Struggle of the Trapped Beast!"
+    },
+    {
+      "num": 1776,
+      "title": "Chapter 1774 - The Sovereign’s Soul!"
+    },
+    {
+      "num": 1777,
+      "title": "Chapter 1775 - Ancient Tomb Inheritance!"
+    },
+    {
+      "num": 1778,
+      "title": "Chapter 1776 - Group Against Old Ghost Zhan!"
+    },
+    {
+      "num": 1779,
+      "title": "Chapter 1777 - Heart"
+    },
+    {
+      "num": 1780,
+      "title": "Chapter 1778 - Ancient Dao, No Celestials!"
+    },
+    {
+      "num": 1781,
+      "title": "Chapter 1779 - The Rain Falls to the East and the Smoke Rises!"
+    },
+    {
+      "num": 1782,
+      "title": "Chapter 1780 - With the Flip of a Hand the Cloud Dao is Turned Upside Down!"
+    },
+    {
+      "num": 1783,
+      "title": "Chapter 1781 - Devouring the Clouds and Spitting Out the Fog to Make the Door Appear"
+    },
+    {
+      "num": 1784,
+      "title": "Chapter 1782 - The First Trial of the Evil Power of the Universe"
+    },
+    {
+      "num": 1785,
+      "title": "Chapter 1783 - The Change of Su’s Memory Causes the World to Collapse"
+    },
+    {
+      "num": 1786,
+      "title": "Chapter 1784 - The Fish Turns Into a Dragon Inside the Dong Lin Pool!"
+    },
+    {
+      "num": 1787,
+      "title": "Chapter 1785 - Burning Wings of Desire to Reach the Immortal Astral Continent"
+    },
+    {
+      "num": 1788,
+      "title": "Chapter 1786 - One Clasp of the Hands to Pay Respects as the Dust Settles"
+    },
+    {
+      "num": 1789,
+      "title": "Chapter 1787 - I’d Rather Be With My Wife Forever"
+    },
+    {
+      "num": 1790,
+      "title": "Chapter 1788 - No Regrets About the Promise Made"
+    },
+    {
+      "num": 1791,
+      "title": "Chapter 1789 - Difficult Goodbye"
+    },
+    {
+      "num": 1792,
+      "title": "Chapter 1790 - The Dragon Emperor Appears, the Path to Immortal Astral Continent Opens"
+    },
+    {
+      "num": 1793,
+      "title": "Chapter 1791 - The Four Spirits Pave the Way for the Dream Dao"
+    },
+    {
+      "num": 1794,
+      "title": "Chapter 1792 - This Evening, the Wang Family Will Be Delivered Reincarnation!"
+    },
+    {
+      "num": 1795,
+      "title": "Chapter 1793 - Shake the Entire Immortal Astral Continent"
+    },
+    {
+      "num": 1796,
+      "title": "Chapter 1794 - A Promise to Teacher to Guard the Ancient Race"
+    },
+    {
+      "num": 1797,
+      "title": "Chapter 1795 - A Thought of the Emperor, Roots of Trouble Appear"
+    },
+    {
+      "num": 1798,
+      "title": "Chapter 1796 - Powerful Will!"
+    },
+    {
+      "num": 1799,
+      "title": "Chapter 1797 - Strange White Light"
+    },
+    {
+      "num": 1800,
+      "title": "Chapter 1798 - The Strongest Avatar in the Future!"
+    },
+    {
+      "num": 1801,
+      "title": "Chapter 1799 - Immortal Astral Continent Trembles!"
+    },
+    {
+      "num": 1802,
+      "title": "Chapter 1800 - Immortal Astral Continent, I’m Coming!"
+    },
+    {
+      "num": 1803,
+      "title": "Chapter 1801 - There is Something Strange, There is a Problem, There is a Treasure!"
+    },
+    {
+      "num": 1804,
+      "title": "Chapter 1802 - Bring It Back to the Cave"
+    },
+    {
+      "num": 1805,
+      "title": "Chapter 1803 - The Earth Fire is Changing!"
+    },
+    {
+      "num": 1806,
+      "title": "Chapter 1804 - First Battle On the Immortal Astral Continent!"
+    },
+    {
+      "num": 1807,
+      "title": "Chapter 1805 - The Old Ancestor Returns!"
+    },
+    {
+      "num": 1808,
+      "title": "Chapter 1806 - The Problem With the Storage Space"
+    },
+    {
+      "num": 1809,
+      "title": "Chapter 1807 - Missing Greed!"
+    },
+    {
+      "num": 1810,
+      "title": "Chapter 1808 - Large Supplement!"
+    },
+    {
+      "num": 1811,
+      "title": "Chapter 1809 - Du Qing’s Horror!"
+    },
+    {
+      "num": 1812,
+      "title": "Chapter 1810 - Pack of Dragons, One Vermillion Bird Devours the Earth Vein!"
+    },
+    {
+      "num": 1813,
+      "title": "Chapter 1811 - Scaring Du Qing!"
+    },
+    {
+      "num": 1814,
+      "title": "Chapter 1812 - Comparing Essences With Wang Lin"
+    },
+    {
+      "num": 1815,
+      "title": "Chapter 1813 - Too Vicious!"
+    },
+    {
+      "num": 1816,
+      "title": "Chapter 1814 - Xuan Luo’s Senses"
+    },
+    {
+      "num": 1817,
+      "title": "Chapter 1815 - Forming an Essence True Body!"
+    },
+    {
+      "num": 1818,
+      "title": "Chapter 1816 - Emotions about the essence true body"
+    },
+    {
+      "num": 1819,
+      "title": "Chapter 1817 - Esteemed Green Bull"
+    },
+    {
+      "num": 1820,
+      "title": "Chapter 1818 - Overestimating your own capabilities?"
+    },
+    {
+      "num": 1821,
+      "title": "Chapter 1819 - Snow on the Heavenly Mountain"
+    },
+    {
+      "num": 1822,
+      "title": "Chapter 1820 - Great Soul Sect"
+    },
+    {
+      "num": 1823,
+      "title": "Chapter 1821 - He Meets Someone From His Hometown"
+    },
+    {
+      "num": 1824,
+      "title": "Chapter 1822 - Main Earth Fire Vein"
+    },
+    {
+      "num": 1825,
+      "title": "Chapter 1823 - The Young Woman’s Miscalculation!"
+    },
+    {
+      "num": 1826,
+      "title": "Chapter 1824 - Will of the Main Fire!"
+    },
+    {
+      "num": 1827,
+      "title": "Chapter 1825 - Eight Signs of the Celestial Ancestor!"
+    },
+    {
+      "num": 1828,
+      "title": "Chapter 1826 - Terrifying Avatar!"
+    },
+    {
+      "num": 1829,
+      "title": "Chapter 1827 - Three Words!"
+    },
+    {
+      "num": 1830,
+      "title": "Chapter 1828 - Elder of the Great Soul Sect!"
+    },
+    {
+      "num": 1831,
+      "title": "Chapter 1829 - The Dead Soul of the Heavenly Bull!"
+    },
+    {
+      "num": 1832,
+      "title": "Chapter 1830 - Curse Him to Death!"
+    },
+    {
+      "num": 1833,
+      "title": "Chapter 1831 - Soul Eye Dao Thunder!"
+    },
+    {
+      "num": 1834,
+      "title": "Chapter 1832 - Concealed Soul!"
+    },
+    {
+      "num": 1835,
+      "title": "Chapter 1833 - Bet!"
+    },
+    {
+      "num": 1836,
+      "title": "Chapter 1834 - Desire to Step on the Clear Sky!"
+    },
+    {
+      "num": 1837,
+      "title": "Chapter 1835 - Another Bet!"
+    },
+    {
+      "num": 1838,
+      "title": "Chapter 1836 - Avatar’s Suppression!!"
+    },
+    {
+      "num": 1839,
+      "title": "Chapter 1837 - Soul Eye Dao!"
+    },
+    {
+      "num": 1840,
+      "title": "Chapter 1838 - Three Gifts!"
+    },
+    {
+      "num": 1841,
+      "title": "Chapter 1839 - Eighth Eessence!"
+    },
+    {
+      "num": 1842,
+      "title": "Chapter 1840 - Extreme Sky Prairie"
+    },
+    {
+      "num": 1843,
+      "title": "Chapter 1841 - Shocking Change!"
+    },
+    {
+      "num": 1844,
+      "title": "Chapter 1842 - Cultivators of the Green Devil Continent!"
+    },
+    {
+      "num": 1845,
+      "title": "Chapter 1843 - Breakthrough!"
+    },
+    {
+      "num": 1846,
+      "title": "Chapter 1844 - An Opportunity!"
+    },
+    {
+      "num": 1847,
+      "title": "Chapter 1845 - The Eastern Continent’s Genius Void Cloud!"
+    },
+    {
+      "num": 1848,
+      "title": "Chapter 1846 - Meeting for the First Time!"
+    },
+    {
+      "num": 1849,
+      "title": "Chapter 1847 - Sudden Trust!"
+    },
+    {
+      "num": 1850,
+      "title": "Chapter 1848 - Concealed"
+    },
+    {
+      "num": 1851,
+      "title": "Chapter 1849 - Pill Sea’s Celestial Pill!"
+    },
+    {
+      "num": 1852,
+      "title": "Chapter 1850 - Celestial Pill Collapses!"
+    },
+    {
+      "num": 1853,
+      "title": "Chapter 1851 - Soul Order"
+    },
+    {
+      "num": 1854,
+      "title": "Chapter 1852 - Speculation!"
+    },
+    {
+      "num": 1855,
+      "title": "Chapter 1853 - Haunted"
+    },
+    {
+      "num": 1856,
+      "title": "Chapter 1854 - Lu Wenran"
+    },
+    {
+      "num": 1857,
+      "title": "Chapter 1855 - Heavenly Bull’s Third Meridian"
+    },
+    {
+      "num": 1858,
+      "title": "Chapter 1856 - Facing slaughter"
+    },
+    {
+      "num": 1859,
+      "title": "Chapter 1857 - Liu Zhiyuang"
+    },
+    {
+      "num": 1860,
+      "title": "Chapter 1858 - Ambush!"
+    },
+    {
+      "num": 1861,
+      "title": "Chapter 1859 - A Person Called Wang Lin"
+    },
+    {
+      "num": 1862,
+      "title": "Chapter 1860 - Uninvited Guest!"
+    },
+    {
+      "num": 1863,
+      "title": "Chapter 1861 - Heart of the Night"
+    },
+    {
+      "num": 1864,
+      "title": "Chapter 1862 - Xu Decai"
+    },
+    {
+      "num": 1865,
+      "title": "Chapter 1863 - Devour the Heavenly Dao!"
+    },
+    {
+      "num": 1866,
+      "title": "Chapter 1864 - The Cicada Sheds its Carapace"
+    },
+    {
+      "num": 1867,
+      "title": "Chapter 1865 - Trapped!"
+    },
+    {
+      "num": 1868,
+      "title": "Chapter 1866 - Lantern!"
+    },
+    {
+      "num": 1869,
+      "title": "Chapter 1867 - Rapid Spell Art!"
+    },
+    {
+      "num": 1870,
+      "title": "Chapter 1868 - Zhang Daozong!!"
+    },
+    {
+      "num": 1871,
+      "title": "Chapter 1869 - Upheaval!"
+    },
+    {
+      "num": 1872,
+      "title": "Chapter 1870 - Soul Armor!"
+    },
+    {
+      "num": 1873,
+      "title": "Chapter 1871 - I Don’t Agree!"
+    },
+    {
+      "num": 1874,
+      "title": "Chapter 1872 - Head!"
+    },
+    {
+      "num": 1875,
+      "title": "Chapter 1873 - Fly Into Rage Out of Humiliation!"
+    },
+    {
+      "num": 1876,
+      "title": "Chapter 1874 - The Soul Armor Recognize Its Master!"
+    },
+    {
+      "num": 1877,
+      "title": "Chapter 1875 - Killing Lu Wenran!"
+    },
+    {
+      "num": 1878,
+      "title": "Chapter 1876 - Seven"
+    },
+    {
+      "num": 1879,
+      "title": "Chapter 1877 - Sundered Night changes!"
+    },
+    {
+      "num": 1880,
+      "title": "Chapter 1878 - Faith Spell"
+    },
+    {
+      "num": 1881,
+      "title": "Chapter 1879 - Soul Armor Dissipates"
+    },
+    {
+      "num": 1882,
+      "title": "Chapter 1880 - Top Secret Plan!"
+    },
+    {
+      "num": 1883,
+      "title": "Chapter 1881 - Skirt Chaser"
+    },
+    {
+      "num": 1884,
+      "title": "Chapter 1882 - Unfair!"
+    },
+    {
+      "num": 1885,
+      "title": "Chapter 1883 - Betraying the Heavenly Bull Continent!"
+    },
+    {
+      "num": 1886,
+      "title": "Chapter 1884 - Heavenly Bull’s Peak"
+    },
+    {
+      "num": 1887,
+      "title": "Chapter 1885 - That Sentence!"
+    },
+    {
+      "num": 1888,
+      "title": "Chapter 1886 - The Compensated Reward"
+    },
+    {
+      "num": 1889,
+      "title": "Chapter 1887 - Blockade"
+    },
+    {
+      "num": 1890,
+      "title": "Chapter 1888 - Oath!"
+    },
+    {
+      "num": 1891,
+      "title": "Chapter 1889 - Devil Dao Sect’s Sect Master!"
+    },
+    {
+      "num": 1892,
+      "title": "Chapter 1890 - Calamity? Fortune?"
+    },
+    {
+      "num": 1893,
+      "title": "Chapter 1891 - Borrowing Thunder to Erase the Soul"
+    },
+    {
+      "num": 1894,
+      "title": "Chapter 1892 - The Dream of the Past Comes True!"
+    },
+    {
+      "num": 1895,
+      "title": "Chapter 1893 - Each With Their Own Plots!"
+    },
+    {
+      "num": 1896,
+      "title": "Chapter 1894 - A Passage of Time"
+    },
+    {
+      "num": 1897,
+      "title": "Chapter 1895 - The Ninth Essence"
+    },
+    {
+      "num": 1898,
+      "title": "Chapter 1896 - A Crazed Fortune!"
+    },
+    {
+      "num": 1899,
+      "title": "Chapter 1897 - Green Devil Furnace"
+    },
+    {
+      "num": 1900,
+      "title": "Chapter 1898 - Last Breath!!"
+    },
+    {
+      "num": 1901,
+      "title": "Chapter 1899 - Offering!"
+    },
+    {
+      "num": 1902,
+      "title": "Chapter 1900 - A Surge in Cultivation!!"
+    },
+    {
+      "num": 1903,
+      "title": "Chapter 1901 - Thunder!"
+    },
+    {
+      "num": 1904,
+      "title": "Chapter 1902 - Viewing the Arcane Tribulants From Above"
+    },
+    {
+      "num": 1905,
+      "title": "Chapter 1903 - Too Weak!"
+    },
+    {
+      "num": 1906,
+      "title": "Chapter 1904 - Let’s See What Else the Arcane Tribulants Have Left!"
+    },
+    {
+      "num": 1907,
+      "title": "Chapter 1905 - Three Soul Tribulants!"
+    },
+    {
+      "num": 1908,
+      "title": "Chapter 1906 - Void Tribulant"
+    },
+    {
+      "num": 1909,
+      "title": "Chapter 1907 - Heaven Defying Gate!"
+    },
+    {
+      "num": 1910,
+      "title": "Chapter 1908 - Missing One!"
+    },
+    {
+      "num": 1911,
+      "title": "Chapter 1909 - Golden, Empyrean, Ascendant!"
+    },
+    {
+      "num": 1912,
+      "title": "Chapter 1910 - Devil Dao Sect’s Calamity!"
+    },
+    {
+      "num": 1913,
+      "title": "Chapter 1911 - The Final Battle Between Two Continents"
+    },
+    {
+      "num": 1914,
+      "title": "Chapter 1912 Imperial Edict Arrives!"
+    },
+    {
+      "num": 1915,
+      "title": "Chapter 1913 - Old Ancestors Sea Dragon!"
+    },
+    {
+      "num": 1916,
+      "title": "Chapter 1914 - Refusing the Edict?"
+    },
+    {
+      "num": 1917,
+      "title": "Chapter 1915 - Vision Goes Black!"
+    },
+    {
+      "num": 1918,
+      "title": "Chapter 1916 - Waiting for the Empyrean Exalt to Arrive!"
+    },
+    {
+      "num": 1919,
+      "title": "Chapter 1917 - Celestial Clans Grand Empyreans"
+    },
+    {
+      "num": 1920,
+      "title": "Chapter 1918 - The Body is Dao!"
+    },
+    {
+      "num": 1921,
+      "title": "Chapter 1919 - Wearing the Soul Armor!"
+    },
+    {
+      "num": 1922,
+      "title": "Chapter 1920 - I Won’t Die, You Won’t die!"
+    },
+    {
+      "num": 1923,
+      "title": "Chapter 1921 - Empyrean Exalt Training Ground"
+    },
+    {
+      "num": 1924,
+      "title": "Chapter 1922 - The First Old Friend"
+    },
+    {
+      "num": 1925,
+      "title": "Chapter 1923 - Meeting"
+    },
+    {
+      "num": 1926,
+      "title": "Chapter 1924 - Waiting for the Autumn Wind"
+    },
+    {
+      "num": 1927,
+      "title": "Chapter 1925 - Heaven Sect"
+    },
+    {
+      "num": 1928,
+      "title": "Chapter 1926 - 50 years!"
+    },
+    {
+      "num": 1929,
+      "title": "Chapter 1927 - Empyrean Trial"
+    },
+    {
+      "num": 1930,
+      "title": "Chapter 1928 - Charge through!"
+    },
+    {
+      "num": 1931,
+      "title": "Chapter 1929 - Hai Zi"
+    },
+    {
+      "num": 1932,
+      "title": "Chapter 1930 - Spirit not of the Immortal Astral Continent!"
+    },
+    {
+      "num": 1933,
+      "title": "Chapter 1931 - Face!"
+    },
+    {
+      "num": 1934,
+      "title": "Chapter 1932 - Broken Palm!"
+    },
+    {
+      "num": 1935,
+      "title": "Chapter 1933 - Change"
+    },
+    {
+      "num": 1936,
+      "title": "Chapter 1934 - One Man One Woman"
+    },
+    {
+      "num": 1937,
+      "title": "Chapter 1935 - Whose broken palm!"
+    },
+    {
+      "num": 1938,
+      "title": "Chapter 1936 - Five Feet"
+    },
+    {
+      "num": 1939,
+      "title": "Chapter 1937 - Let the Grand Empyrean See!"
+    },
+    {
+      "num": 1940,
+      "title": "Chapter 1938 - Dedication With No Regret"
+    },
+    {
+      "num": 1941,
+      "title": "Chapter 1939 - Great Celestial Jin!"
+    },
+    {
+      "num": 1942,
+      "title": "Chapter 1940 - Cheat the Heavens to Cross the Sea"
+    },
+    {
+      "num": 1943,
+      "title": "Chapter 1941 - My Master"
+    },
+    {
+      "num": 1944,
+      "title": "Chapter 1942 - Who Are You?"
+    },
+    {
+      "num": 1945,
+      "title": "Chapter 1943 - Under the Rain"
+    },
+    {
+      "num": 1946,
+      "title": "Chapter 1944 - Dream Blocks Reincarnation"
+    },
+    {
+      "num": 1947,
+      "title": "Chapter 1945 - Dead Sect"
+    },
+    {
+      "num": 1948,
+      "title": "Chapter 1946 - All"
+    },
+    {
+      "num": 1949,
+      "title": "Chapter 1947 - Bubble of Annihilation"
+    },
+    {
+      "num": 1950,
+      "title": "Chapter 1948 - Dong Lin Pool"
+    },
+    {
+      "num": 1951,
+      "title": "Chapter 1949 - The Beginning and the End"
+    },
+    {
+      "num": 1952,
+      "title": "Chapter 1950 - Come Again!"
+    },
+    {
+      "num": 1953,
+      "title": "Chapter 1951 - A Single Brilliant Feat! (1)"
+    },
+    {
+      "num": 1954,
+      "title": "Chapter 1952 - A Single Brilliant Feat! (2)"
+    },
+    {
+      "num": 1955,
+      "title": "Chapter 1953 - A Single Brilliant Feat! (3)"
+    },
+    {
+      "num": 1956,
+      "title": "Chapter 1954 - A Single Brilliant Feat! (4)"
+    },
+    {
+      "num": 1957,
+      "title": "Chapter 1955 - A Single Brilliant Feat! (5)"
+    },
+    {
+      "num": 1958,
+      "title": "Chapter 1956 - A Single Brilliant Feat! (6)"
+    },
+    {
+      "num": 1959,
+      "title": "Chapter 1957 - A Single Brilliant Feat! (7)"
+    },
+    {
+      "num": 1960,
+      "title": "Chapter 1958 - A Single Brilliant Feat! (8)"
+    },
+    {
+      "num": 1961,
+      "title": "Chapter 1959 - A Single Brilliant Feat! (9)"
+    },
+    {
+      "num": 1962,
+      "title": "Chapter 1960 - Are You Not Going to Keep Going?"
+    },
+    {
+      "num": 1963,
+      "title": "Chapter 1961 - Sudden Turn!"
+    },
+    {
+      "num": 1964,
+      "title": "Chapter 1962 - Who Is It?"
+    },
+    {
+      "num": 1965,
+      "title": "Chapter 1963 - Send Back!"
+    },
+    {
+      "num": 1966,
+      "title": "Chapter 1964 - Number One Under the Grand Empyreans!"
+    },
+    {
+      "num": 1967,
+      "title": "Chapter 1965 - Do You See It?"
+    },
+    {
+      "num": 1968,
+      "title": "Chapter 1966 - The Grand Empyrean’s recruitment"
+    },
+    {
+      "num": 1969,
+      "title": "Chapter 1967 - Little Wang Lin!"
+    },
+    {
+      "num": 1970,
+      "title": "Chapter 1968 - Fake, Fake"
+    },
+    {
+      "num": 1971,
+      "title": "Chapter 1969 - The Celestial Emperor’s Scheme!"
+    },
+    {
+      "num": 1972,
+      "title": "Chapter 1970 - The Celestial Clan’s Number One City!"
+    },
+    {
+      "num": 1973,
+      "title": "Chapter 1971 - Li Mansion!"
+    },
+    {
+      "num": 1974,
+      "title": "Chapter 1972 - Arrow!"
+    },
+    {
+      "num": 1975,
+      "title": "Chapter 1973 - White"
+    },
+    {
+      "num": 1976,
+      "title": "Chapter 1974 - Times Tail"
+    },
+    {
+      "num": 1977,
+      "title": "Chapter 1975 - Treasures Bestowed by the Celestial Emperor"
+    },
+    {
+      "num": 1978,
+      "title": "Chapter 1976 - Madman"
+    },
+    {
+      "num": 1979,
+      "title": "Chapter 1977 - The Killing Intent Hidden in the Wind and Snow"
+    },
+    {
+      "num": 1980,
+      "title": "Chapter 1978 - Long Street!"
+    },
+    {
+      "num": 1981,
+      "title": "Chapter 1979 - Bloody Battle!"
+    },
+    {
+      "num": 1982,
+      "title": "Chapter 1980 - Not Going!"
+    },
+    {
+      "num": 1983,
+      "title": "Chapter 1981 - Black"
+    },
+    {
+      "num": 1984,
+      "title": "Chapter 1982 - Hai Zi’s Silence"
+    },
+    {
+      "num": 1985,
+      "title": "Chapter 1983 - There are Tigers in the Mountain!"
+    },
+    {
+      "num": 1986,
+      "title": "Chapter 1984 - Arriving!"
+    },
+    {
+      "num": 1987,
+      "title": "Chapter 1985 - Imperial Teacher!"
+    },
+    {
+      "num": 1988,
+      "title": "Chapter 1986 - Believe Me Once!"
+    },
+    {
+      "num": 1989,
+      "title": "Chapter 1987 - The Celestial Skull Turns Into a Mountain!"
+    },
+    {
+      "num": 1990,
+      "title": "Chapter 1988 - Celestial Mountain!"
+    },
+    {
+      "num": 1991,
+      "title": "Chapter 1989 - He, Lian Yunjue!"
+    },
+    {
+      "num": 1992,
+      "title": "Chapter 1990 - Release Dao Wang!"
+    },
+    {
+      "num": 1993,
+      "title": "Chapter 1991 - The Celestial Emperor’s Self"
+    },
+    {
+      "num": 1994,
+      "title": "Chapter 1992 - Five Grand Empyreans!"
+    },
+    {
+      "num": 1995,
+      "title": "Chapter 1993 - The Real Imperial Teacher!"
+    },
+    {
+      "num": 1996,
+      "title": "Chapter 1994 - Ancestral Curse!"
+    },
+    {
+      "num": 1997,
+      "title": "Chapter 1995 - This Thing, This Person, I, Wang Lin, Will Take Them!"
+    },
+    {
+      "num": 1998,
+      "title": "Chapter 1996 - Impudent!"
+    },
+    {
+      "num": 1999,
+      "title": "Chapter 1997 - Sun of the Grand Empyrean!"
+    },
+    {
+      "num": 2000,
+      "title": "Chapter 1998 - Leave Behind Dao Fei!"
+    },
+    {
+      "num": 2001,
+      "title": "Chapter 1999 - The Person in the Song Scatters Into the Sunset!"
+    },
+    {
+      "num": 2002,
+      "title": "Chapter 2000 - The Plead From Ancient Times!"
+    },
+    {
+      "num": 2003,
+      "title": "Chapter 2001 - Sea"
+    },
+    {
+      "num": 2004,
+      "title": "Chapter 2002 - Road"
+    },
+    {
+      "num": 2005,
+      "title": "Chapter 2003 - Ancient Dao Ambassadors"
+    },
+    {
+      "num": 2006,
+      "title": "Chapter 2004 - Star of Disaster for the Prince"
+    },
+    {
+      "num": 2007,
+      "title": "Chapter 2005 - There’s a Woman, Song Zhi!!"
+    },
+    {
+      "num": 2008,
+      "title": "Chapter 2006 - Vision Obscured By a Single Leaf."
+    },
+    {
+      "num": 2009,
+      "title": "Chapter 2007 - Back up!"
+    },
+    {
+      "num": 2010,
+      "title": "Chapter 2008 - Worshiping the Incense Stove"
+    },
+    {
+      "num": 2011,
+      "title": "Chapter 2009 - A Cup of Hot Tea is as Warm as Home"
+    },
+    {
+      "num": 2012,
+      "title": "Chapter 2010 - The Teacher is Like a Father!"
+    },
+    {
+      "num": 2013,
+      "title": "Chapter 2011 - The Bell Rings on Top of Mount Gu Dao"
+    },
+    {
+      "num": 2014,
+      "title": "Chapter 2012 - A Step Up the Mountain!"
+    },
+    {
+      "num": 2015,
+      "title": "Chapter 2013 - Who is He?"
+    },
+    {
+      "num": 2016,
+      "title": "Chapter 2014 - Golden Opportunity!"
+    },
+    {
+      "num": 2017,
+      "title": "Chapter 2015 - Nine Songs Three Signs (1)"
+    },
+    {
+      "num": 2018,
+      "title": "Chapter 2016 - Nine Songs Three Signs (2)"
+    },
+    {
+      "num": 2019,
+      "title": "Chapter 2017 - Invitation From the Imperial Palace!"
+    },
+    {
+      "num": 2020,
+      "title": "Chapter 2018 - One Finger of the Ancient Ancestor"
+    },
+    {
+      "num": 2021,
+      "title": "Chapter 2019 - Wind Swept Across the Ancient Dao"
+    },
+    {
+      "num": 2022,
+      "title": "Chapter 2020 - Banquet"
+    },
+    {
+      "num": 2023,
+      "title": "Chapter 2021 - Suddenly Looking Back!"
+    },
+    {
+      "num": 2024,
+      "title": "Chapter 2022 - Filled With Rage (1)"
+    },
+    {
+      "num": 2025,
+      "title": "Chapter 2023 - Filled with Rage (2)"
+    },
+    {
+      "num": 2026,
+      "title": "Chapter 2024 - Filled With Rage (3)"
+    },
+    {
+      "num": 2027,
+      "title": "Chapter 2025 - Filled With Rage (4)"
+    },
+    {
+      "num": 2028,
+      "title": "Chapter 2026 - Filled With Rage (5)"
+    },
+    {
+      "num": 2029,
+      "title": "Chapter 2027 - Filled With Rage (6)"
+    },
+    {
+      "num": 2030,
+      "title": "Chapter 2028 - Filled With Rage (7)"
+    },
+    {
+      "num": 2031,
+      "title": "Chapter 2029 - Filled With Rage (8)"
+    },
+    {
+      "num": 2032,
+      "title": "Chapter 2030 - Filled With Rage (9)"
+    },
+    {
+      "num": 2033,
+      "title": "Chapter 2031 - Filled With Rage (10)"
+    },
+    {
+      "num": 2034,
+      "title": "Chapter 2032 - Filled With Rage (11)"
+    },
+    {
+      "num": 2035,
+      "title": "Chapter 2033 - Death of the Emperor!"
+    },
+    {
+      "num": 2036,
+      "title": "Chapter 2034 - Old"
+    },
+    {
+      "num": 2037,
+      "title": "Chapter 2035 - Future Emperor"
+    },
+    {
+      "num": 2038,
+      "title": "Chapter 2036 - Ancient Dao Imperial Teacher"
+    },
+    {
+      "num": 2039,
+      "title": "Chapter 2037 - Breaking the Line!"
+    },
+    {
+      "num": 2040,
+      "title": "Chapter 2038 - Immemorial God Realm!"
+    },
+    {
+      "num": 2041,
+      "title": "Chapter 2039 - Decision"
+    },
+    {
+      "num": 2042,
+      "title": "Chapter 2040 - Don’t Talk About It!"
+    },
+    {
+      "num": 2043,
+      "title": "Chapter 2041 - Tomorrow"
+    },
+    {
+      "num": 2044,
+      "title": "Chapter 2042 - Soul Complete!"
+    },
+    {
+      "num": 2045,
+      "title": "Chapter 2043 - Time"
+    },
+    {
+      "num": 2046,
+      "title": "Chapter 2044 - Heavenly Sign!"
+    },
+    {
+      "num": 2047,
+      "title": "Chapter 2045 - Fusion of True Body!"
+    },
+    {
+      "num": 2048,
+      "title": "Chapter 2046 - Punishment Slaughter!"
+    },
+    {
+      "num": 2049,
+      "title": "Chapter 2047 - Trample the Heavenly Path, Void Extinction Dao!"
+    },
+    {
+      "num": 2050,
+      "title": "Chapter 2048 - The Plead of the 108 souls!"
+    },
+    {
+      "num": 2051,
+      "title": "Chapter 2049 - Stopped"
+    },
+    {
+      "num": 2052,
+      "title": "Chapter 2050 - Black, White, Gold!"
+    },
+    {
+      "num": 2053,
+      "title": "Chapter 2051 - Tenth Sun!"
+    },
+    {
+      "num": 2054,
+      "title": "Chapter 2052 - Battle Song Tian!"
+    },
+    {
+      "num": 2055,
+      "title": "Chapter 2053 - Help succeed!"
+    },
+    {
+      "num": 2056,
+      "title": "Chapter 2054 - Third Trial, Second Calamity"
+    },
+    {
+      "num": 2057,
+      "title": "Chapter 2055 - Ancient Dao Three Soul Splits!"
+    },
+    {
+      "num": 2058,
+      "title": "Chapter 2056 - Perfection!"
+    },
+    {
+      "num": 2059,
+      "title": "Chapter 2057 - Failed"
+    },
+    {
+      "num": 2060,
+      "title": "Chapter 2058 - That Figure"
+    },
+    {
+      "num": 2061,
+      "title": "Chapter 2059 - Seen Before"
+    },
+    {
+      "num": 2062,
+      "title": "Chapter 2060 - Heaven and Earth"
+    },
+    {
+      "num": 2063,
+      "title": "Chapter 2061 - Intent to Leave"
+    },
+    {
+      "num": 2064,
+      "title": "Chapter 2062 - Battle for Number One of the Immortal Astral Continent!"
+    },
+    {
+      "num": 2065,
+      "title": "Chapter 2063 - Removing the Fog!"
+    },
+    {
+      "num": 2066,
+      "title": "Chapter 2064 - Taking a Step to Trample the Heavens!"
+    },
+    {
+      "num": 2067,
+      "title": "Chapter 2065 - Complete Nine Songs and Three Signs!"
+    },
+    {
+      "num": 2068,
+      "title": "Chapter 2066 - Agreement"
+    },
+    {
+      "num": 2069,
+      "title": "Chapter 2067 - Can’t Find Her"
+    },
+    {
+      "num": 2070,
+      "title": "Chapter 2068 - Happiness and Responsibility"
+    },
+    {
+      "num": 2071,
+      "title": "Chapter 2069 Si Nan!"
+    },
+    {
+      "num": 2072,
+      "title": "Chapter 2070 - You Are Situ Nan"
+    },
+    {
+      "num": 2073,
+      "title": "Chapter 2071 - The Rainbow in the Rain"
+    },
+    {
+      "num": 2074,
+      "title": "Chapter 2072 - Hearts Dead, Already Forgotten"
+    },
+    {
+      "num": 2075,
+      "title": "Chapter 2073 - Cave World"
+    },
+    {
+      "num": 2076,
+      "title": "Chapter 2074 - Master Scarlet Soul!"
+    },
+    {
+      "num": 2077,
+      "title": "Chapter 2075 - Agreement"
+    },
+    {
+      "num": 2078,
+      "title": "Chapter 2076 - Dreaming"
+    },
+    {
+      "num": 2079,
+      "title": "Chapter 2077 - Knows Dao Yi!"
+    },
+    {
+      "num": 2080,
+      "title": "Chapter 2078 - Two Points"
+    },
+    {
+      "num": 2081,
+      "title": "Chapter 2079 - When You Open Your Eyes Again"
+    },
+    {
+      "num": 2082,
+      "title": "Chapter 2080 - What is the Truth?"
+    },
+    {
+      "num": 2083,
+      "title": "Chapter 2081 - Overlooking the Sea"
+    },
+    {
+      "num": 2084,
+      "title": "Chapter 2082 - Shocking Change"
+    },
+    {
+      "num": 2085,
+      "title": "Chapter 2083 - Qualification to Enter"
+    },
+    {
+      "num": 2086,
+      "title": "Chapter 2084 - That Woman, Dong Mei"
+    },
+    {
+      "num": 2087,
+      "title": "Chapter 2085 - The Missing One"
+    },
+    {
+      "num": 2088,
+      "title": "Chapter 2086 - Reincarnation is Right There"
+    },
+    {
+      "num": 2089,
+      "title": "Chapter 2087 - Wan Er, Wake Up"
+    },
+    {
+      "num": 2090,
+      "title": "Chapter 2088 - Suddenly Looking Back"
+    }
+  ],
+  "lastUpdated": "2026-07-12",
+  "cover": "https://freewebnovel.com/files/article/image/0/353/353s.jpg",
+  "source": "https://freewebnovel.com/novel/renegade-immortal",
+  "tags": [
+    "Xianxia",
+    "Mature",
+    "Tragedy",
+    "Adventure",
+    "Drama",
+    "Action",
+    "Fantasy"
+  ],
+  "totalChapters": 2090
+}
