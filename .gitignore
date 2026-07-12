@@ -5,3 +5,6 @@ __pycache__/
 *.pyc
 *.pyo
 .env
+proxies.txt
+.proxies_cache
+venv/

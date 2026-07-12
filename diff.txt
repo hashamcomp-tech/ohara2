@@ -1,0 +1,47 @@
+--- ohara.py	2026-07-11 14:33:25
++++ scrape_catalog.py	2026-07-11 14:33:25
+@@ -2089,18 +2089,40 @@
+     Print a summary of the local (and optionally Blob) library:
+     each novel, its chapter count, last-updated date, and any
+     pending failed chapters. Also shows the failed-chapter count.
++
++    FIX: previously this only consulted Vercel Blob when the local
++    index.json's novel list was completely empty. That meant any
++    novel scraped with --cloud-only (which never writes a local
++    index.json entry) was invisible here whenever *any* novel had
++    ever been scraped locally, since the local list was non-empty
++    and the Blob branch was skipped entirely.
++
++    Now: always read the local index.json (if present), and — when
++    --cloud is passed — always also fetch the Blob index.json and
++    merge the two by slug, so novels that exist in either place show
++    up exactly once, and the counts match what your site (which reads
++    straight from Blob) actually shows.
+     """
+     index_path = os.path.join(SITE_DIR, "data", "index.json")
+-    novels: list[dict] = []
++    local_novels: list[dict] = []
+ 
+     if os.path.exists(index_path):
+         with open(index_path, encoding="utf-8") as f:
+-            novels = json.load(f).get("novels", [])
++            local_novels = json.load(f).get("novels", [])
+ 
+-    if cloud and not novels:
++    novels = local_novels
++
++    if cloud:
+         blob_index = cloud_download_json("data/index.json")
+         if blob_index:
+-            novels = blob_index.get("novels", [])
++            blob_novels = blob_index.get("novels", [])
++            # Merge by slug. Blob is treated as the source of truth for any
++            # novel it knows about (it's what the live site reads), but we
++            # keep local-only entries too in case they haven't synced yet.
++            merged: dict[str, dict] = {n["slug"]: n for n in local_novels}
++            for n in blob_novels:
++                merged[n["slug"]] = n
++            novels = list(merged.values())
+ 
+     failed = load_failed_chapters()
+     failed_by_slug: dict[str, int] = {}

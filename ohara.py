@@ -35,7 +35,7 @@ import re
 import sys
 import time
 import html as html_lib
-
+import threading
 try:
     from dotenv import load_dotenv as _load_dotenv
     _load_dotenv()
@@ -1101,6 +1101,24 @@ def get_novel_page_info(novel_url: str) -> dict:
 
 
 # ───────────────────────── chapter scraping ────────────────────
+def _clean_fwn_title(raw: str, novel_title_hint: str = "") -> str:
+    """
+    Clean a freewebnovel chapter title string, stripping site/novel name
+    suffixes that sometimes appear (e.g. "Chapter 94 - Ghosts - FreeWebNovel").
+    """
+    if not raw:
+        return ""
+    raw = raw.strip()
+    # Strip trailing site name variants
+    for suffix in (" - FreeWebNovel", " - Free Web Novel", " | FreeWebNovel", " - freewebnovel.com"):
+        if raw.lower().endswith(suffix.lower()):
+            raw = raw[: -len(suffix)].strip()
+    # Strip a leading "NovelTitle - " prefix if we know the novel's title
+    if novel_title_hint and raw.lower().startswith(novel_title_hint.lower() + " - "):
+        raw = raw[len(novel_title_hint) + 3:].strip()
+    return raw
+
+
 def _fetch_chapter_once(i: int, url: str) -> tuple[int, str, str]:
     if detect_site(url) == "novelfire":
         return nf_fetch_chapter_once(i, url)
@@ -1170,9 +1188,12 @@ def scrape_chapter(args: tuple[int, str, str]) -> tuple[int, str, str, bool]:
 
 
 # ──────────────────── failed-chapter tracking ──────────────────
+_failed_log_lock = threading.Lock()
+
 def log_failed_chapter(novel_slug: str, chapter_num: int, url: str, reason: str) -> None:
-    with open(FAILED_FILE, "a") as f:
-        f.write(f"{novel_slug}\t{chapter_num}\t{url}\t{reason}\n")
+    with _failed_log_lock:
+        with open(FAILED_FILE, "a") as f:
+            f.write(f"{novel_slug}\t{chapter_num}\t{url}\t{reason}\n")
 
 
 def load_failed_chapters() -> list[tuple[str, int, str, str]]:
@@ -1471,7 +1492,7 @@ def scrape_novel(
 
         with ThreadPoolExecutor(max_workers=CHAPTER_WORKERS) as executor:
             futures = {executor.submit(scrape_chapter, t): t for t in tasks}
-            for future in as_completed(futures):
+            for idx, future in enumerate(as_completed(futures), 1):
                 i, title, content, ok = future.result()
                 results[i] = (title, content)
                 if not ok:
@@ -1482,7 +1503,7 @@ def scrape_novel(
                     # rest of the volume — instead of a sequential post-batch
                     # upload that blocks until every chapter is done first.
                     cloud_export_chapter_json(slug, i, title, content)
-                print(f"  ✓ Chapter {i}/{total}", end="\r", flush=True)
+                print(f"  ✓ Fetched {idx}/{len(tasks)} chapters for Volume {vol_num}   ", end="\r", flush=True)
         print()
 
         chapters_data = [
@@ -2071,18 +2092,40 @@ def _print_status(cloud: bool = False) -> None:
     Print a summary of the local (and optionally Blob) library:
     each novel, its chapter count, last-updated date, and any
     pending failed chapters. Also shows the failed-chapter count.
+
+    FIX: previously this only consulted Vercel Blob when the local
+    index.json's novel list was completely empty. That meant any
+    novel scraped with --cloud-only (which never writes a local
+    index.json entry) was invisible here whenever *any* novel had
+    ever been scraped locally, since the local list was non-empty
+    and the Blob branch was skipped entirely.
+
+    Now: always read the local index.json (if present), and — when
+    --cloud is passed — always also fetch the Blob index.json and
+    merge the two by slug, so novels that exist in either place show
+    up exactly once, and the counts match what your site (which reads
+    straight from Blob) actually shows.
     """
     index_path = os.path.join(SITE_DIR, "data", "index.json")
-    novels: list[dict] = []
+    local_novels: list[dict] = []
 
     if os.path.exists(index_path):
         with open(index_path, encoding="utf-8") as f:
-            novels = json.load(f).get("novels", [])
+            local_novels = json.load(f).get("novels", [])
 
-    if cloud and not novels:
+    novels = local_novels
+
+    if cloud:
         blob_index = cloud_download_json("data/index.json")
         if blob_index:
-            novels = blob_index.get("novels", [])
+            blob_novels = blob_index.get("novels", [])
+            # Merge by slug. Blob is treated as the source of truth for any
+            # novel it knows about (it's what the live site reads), but we
+            # keep local-only entries too in case they haven't synced yet.
+            merged: dict[str, dict] = {n["slug"]: n for n in local_novels}
+            for n in blob_novels:
+                merged[n["slug"]] = n
+            novels = list(merged.values())
 
     failed = load_failed_chapters()
     failed_by_slug: dict[str, int] = {}
