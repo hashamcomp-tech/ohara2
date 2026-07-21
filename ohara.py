@@ -33,9 +33,13 @@ import json
 import os
 import re
 import sys
+import random
+import itertools
+from concurrent.futures import ThreadPoolExecutor
+import threading
 import time
 import html as html_lib
-import threading
+
 try:
     from dotenv import load_dotenv as _load_dotenv
     _load_dotenv()
@@ -73,10 +77,176 @@ RETRY_BACKOFF     = [10, 30, 60]           # seconds to wait before each retry a
 SITE_DIR          = "docs"
 
 HEADERS = {
-    "User-Agent":      "Mozilla/5.0 (iPhone; CPU iPhone OS 17_0 like Mac OS X) AppleWebKit/605.1.15",
+    
     "Accept":          "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
     "Accept-Language": "en-US,en;q=0.9",
 }
+
+
+BASE_URL = "https://freewebnovel.com"
+_UA_POOL = [
+    "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+    "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:125.0) Gecko/20100101 Firefox/125.0",
+    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:125.0) Gecko/20100101 Firefox/125.0",
+    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.4.1 Safari/605.1.15",
+    "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36 Edg/125.0.0.0",
+    "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+    "Mozilla/5.0 (iPhone; CPU iPhone OS 17_4_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.4.1 Mobile/15E148 Safari/604.1"
+]
+
+_proxy_list: list[dict[str, str]] = []
+_all_proxies: list[dict[str, str]] = []
+_proxy_cycle = None
+_proxy_lock = threading.Lock()
+_proxy_strikes: dict[str, int] = {}   # ip -> consecutive failure count
+_STRIKE_LIMIT = 3                      # drop after this many consecutive fails
+
+def _load_proxies(path: str) -> None:
+    global _proxy_list, _all_proxies, _proxy_cycle, _proxy_strikes
+    import hashlib
+    raw_proxies = []
+    try:
+        with open(path) as f:
+            raw_content = f.read()
+        for raw_line in raw_content.splitlines():
+            line = raw_line.strip()
+            if not line or line.startswith("#"): continue
+            if not line.startswith(("http://", "https://", "socks5://", "socks4://")):
+                line = f"socks5://{line}"
+            raw_proxies.append({"http": line, "https": line})
+    except Exception as e:
+        print(f"  [error] Could not load proxy file {path}: {e}")
+        return
+        
+    if not raw_proxies: return
+
+    # ── check cache ──────────────────────────────────────────────
+    file_hash = hashlib.md5(raw_content.encode()).hexdigest()
+    cache_path = ".proxies_cache"
+    cached_working = []
+    try:
+        with open(cache_path) as cf:
+            lines = cf.read().splitlines()
+        if lines and lines[0] == file_hash:
+            for cline in lines[1:]:
+                cline = cline.strip()
+                if cline:
+                    cached_working.append({"http": cline, "https": cline})
+    except FileNotFoundError:
+        pass
+
+    if cached_working:
+        print(f"  ✓ Loaded {len(cached_working)} cached working proxies (proxy file unchanged)")
+        _all_proxies = list(raw_proxies)
+        _proxy_list = list(cached_working)
+        _proxy_cycle = itertools.cycle(_proxy_list)
+        _proxy_strikes = {}
+        return
+
+    # ── test all proxies ─────────────────────────────────────────
+    print(f"  Testing {len(raw_proxies)} proxies for connectivity to {BASE_URL}...")
+    import requests
+    working_proxies = []
+    
+    def _check_proxy(p: dict[str, str]) -> dict[str, str] | None:
+        try:
+            res = requests.get(BASE_URL, proxies=p, timeout=10, headers={"User-Agent": random.choice(_UA_POOL)})
+            if res.status_code in (200, 404): return p
+        except Exception: pass
+        return None
+
+    with ThreadPoolExecutor(max_workers=min(32, len(raw_proxies))) as executor:
+        for result in executor.map(_check_proxy, raw_proxies):
+            if result: working_proxies.append(result)
+
+    if not working_proxies:
+        print(f"  [warn] All {len(raw_proxies)} proxies failed the startup test. Will blindly cycle through all of them anyway to protect your IP.")
+        working_proxies = list(raw_proxies)
+
+    # ── save cache ───────────────────────────────────────────────
+    try:
+        with open(cache_path, "w") as cf:
+            cf.write(file_hash + "\n")
+            for p in working_proxies:
+                cf.write(p["http"] + "\n")
+        print(f"  💾 Saved {len(working_proxies)} working proxies to {cache_path}")
+    except Exception as e:
+        print(f"  [warn] Could not write proxy cache: {e}")
+
+    _all_proxies = list(raw_proxies)
+    _proxy_list = list(working_proxies)
+    _proxy_cycle = itertools.cycle(_proxy_list)
+    _proxy_strikes = {}
+    print(f"  Loaded {len(_proxy_list)} proxy/proxies from {path}")
+
+def _next_proxy() -> dict[str, str] | None:
+    if _proxy_cycle is None: return None
+    with _proxy_lock: return next(_proxy_cycle)
+
+def _drop_proxy(proxy: dict[str, str], reason: str = "blocked") -> None:
+    """Permanently remove a dead/blocked proxy from rotation."""
+    global _proxy_list, _proxy_cycle
+    with _proxy_lock:
+        if proxy in _proxy_list:
+            _proxy_list.remove(proxy)
+            if not _proxy_list:
+                print(f"  [proxy dead] Removed {proxy.get('http')} ({reason}). Pool empty — restarting from backup.")
+                _proxy_list = list(_all_proxies)
+                _proxy_strikes.clear()
+            else:
+                print(f"  [proxy dead] Removed {proxy.get('http')} ({reason}). {len(_proxy_list)} remaining.")
+            _proxy_cycle = itertools.cycle(_proxy_list)
+
+def _strike_proxy(proxy: dict[str, str]) -> None:
+    """Record a connection failure. Drop after _STRIKE_LIMIT consecutive fails."""
+    key = proxy.get("http", "")
+    with _proxy_lock:
+        _proxy_strikes[key] = _proxy_strikes.get(key, 0) + 1
+        if _proxy_strikes[key] >= _STRIKE_LIMIT:
+            _proxy_strikes.pop(key, None)
+    # drop outside lock to avoid nested locking
+    if _proxy_strikes.get(key) is None and proxy in _proxy_list:
+        _drop_proxy(proxy, reason=f"{_STRIKE_LIMIT} consecutive failures")
+
+def _clear_strikes(proxy: dict[str, str]) -> None:
+    """Reset strike counter on a successful request."""
+    key = proxy.get("http", "")
+    with _proxy_lock:
+        _proxy_strikes.pop(key, None)
+
+def _get(url: str, *, timeout: int = 20, use_proxy: bool = True, max_retries: int = 5):
+    import requests
+    last_err = None
+    for attempt in range(max_retries):
+        headers = {**HEADERS, "User-Agent": random.choice(_UA_POOL)}
+        proxy = _next_proxy() if use_proxy else None
+        try:
+            res = requests.get(url, headers=headers, timeout=timeout, proxies=proxy)
+            if res.status_code == 403 and proxy:
+                print(f"  [proxy retry] Attempt {attempt + 1}/{max_retries} failed using {proxy.get('http')}: 403 Forbidden")
+                _drop_proxy(proxy, reason="403")
+                last_err = requests.exceptions.HTTPError(f"403 Forbidden via {proxy.get('http')}")
+                continue
+            if res.status_code == 429:
+                wait = 5 + attempt * 5  # 5s, 10s, 15s, 20s, 25s
+                label = proxy.get('http') if proxy else 'direct'
+                print(f"  [rate limit] 429 via {label} — backing off {wait}s (attempt {attempt + 1}/{max_retries})")
+                time.sleep(wait)
+                last_err = requests.exceptions.HTTPError(f"429 Too Many Requests")
+                continue
+            if proxy:
+                _clear_strikes(proxy)
+            return res
+        except requests.RequestException as e:
+            last_err = e
+            if proxy:
+                print(f"  [proxy retry] Attempt {attempt + 1}/{max_retries} failed using {proxy.get('http')}: {type(e).__name__}")
+                _strike_proxy(proxy)
+            else: break
+    if last_err: raise last_err
+    raise requests.exceptions.RequestException(f"Failed to fetch {url}")
+
 
 # ──────────────────────────── helpers ──────────────────────────
 def normalize(text: str) -> str:
@@ -841,7 +1011,7 @@ def _nf_clean_text(text: str) -> str:
 
 def nf_get_novel_page_info(novel_url: str) -> dict:
     try:
-        res = requests.get(novel_url, headers=HEADERS, timeout=20)
+        res = _get(novel_url, timeout=20)
         res.raise_for_status()
     except Exception as e:
         print(f"  [warn] Could not fetch novel page: {e}")
@@ -886,7 +1056,7 @@ def nf_get_novel_page_info(novel_url: str) -> dict:
 
 
 def nf_fetch_chapter_once(i: int, url: str) -> tuple[int, str, str]:
-    res = requests.get(url, headers=HEADERS, timeout=20)
+    res = _get(url, timeout=20)
     res.raise_for_status()
     time.sleep(CHAPTER_DELAY)
     soup = BeautifulSoup(res.text, "html.parser")
@@ -932,7 +1102,7 @@ def nf_fetch_chapter_once(i: int, url: str) -> tuple[int, str, str]:
 
 def nf_get_listing_page_novels(page_url: str) -> list[str]:
     try:
-        res = requests.get(page_url, headers=HEADERS, timeout=20)
+        res = _get(page_url, timeout=20)
         res.raise_for_status()
     except Exception as e:
         print(f"  [warn] Could not fetch listing page {page_url}: {e}")
@@ -983,7 +1153,7 @@ def nf_discover_all_novels(listing_base: str, max_pages: int | None = None) -> l
 def get_listing_page_novels(page_url: str) -> list[str]:
     """Return novel URLs found on one listing page."""
     try:
-        res = requests.get(page_url, headers=HEADERS, timeout=20)
+        res = _get(page_url, timeout=20)
         res.raise_for_status()
     except Exception as e:
         print(f"  [warn] Could not fetch listing page {page_url}: {e}")
@@ -1043,7 +1213,7 @@ def get_novel_page_info(novel_url: str) -> dict:
     if detect_site(novel_url) == "novelfire":
         return nf_get_novel_page_info(novel_url)
     try:
-        res = requests.get(novel_url, headers=HEADERS, timeout=20)
+        res = _get(novel_url, timeout=20)
         res.raise_for_status()
     except Exception as e:
         print(f"  [warn] Could not fetch novel page: {e}")
@@ -1118,11 +1288,10 @@ def _clean_fwn_title(raw: str, novel_title_hint: str = "") -> str:
         raw = raw[len(novel_title_hint) + 3:].strip()
     return raw
 
-
 def _fetch_chapter_once(i: int, url: str) -> tuple[int, str, str]:
     if detect_site(url) == "novelfire":
         return nf_fetch_chapter_once(i, url)
-    res = requests.get(url, headers=HEADERS, timeout=20)
+    res = _get(url, timeout=20)
     res.raise_for_status()
     time.sleep(CHAPTER_DELAY)
     soup = BeautifulSoup(res.text, "html.parser")
@@ -1188,12 +1357,9 @@ def scrape_chapter(args: tuple[int, str, str]) -> tuple[int, str, str, bool]:
 
 
 # ──────────────────── failed-chapter tracking ──────────────────
-_failed_log_lock = threading.Lock()
-
 def log_failed_chapter(novel_slug: str, chapter_num: int, url: str, reason: str) -> None:
-    with _failed_log_lock:
-        with open(FAILED_FILE, "a") as f:
-            f.write(f"{novel_slug}\t{chapter_num}\t{url}\t{reason}\n")
+    with open(FAILED_FILE, "a") as f:
+        f.write(f"{novel_slug}\t{chapter_num}\t{url}\t{reason}\n")
 
 
 def load_failed_chapters() -> list[tuple[str, int, str, str]]:
@@ -1492,7 +1658,7 @@ def scrape_novel(
 
         with ThreadPoolExecutor(max_workers=CHAPTER_WORKERS) as executor:
             futures = {executor.submit(scrape_chapter, t): t for t in tasks}
-            for idx, future in enumerate(as_completed(futures), 1):
+            for future in as_completed(futures):
                 i, title, content, ok = future.result()
                 results[i] = (title, content)
                 if not ok:
@@ -1503,7 +1669,7 @@ def scrape_novel(
                     # rest of the volume — instead of a sequential post-batch
                     # upload that blocks until every chapter is done first.
                     cloud_export_chapter_json(slug, i, title, content)
-                print(f"  ✓ Fetched {idx}/{len(tasks)} chapters for Volume {vol_num}   ", end="\r", flush=True)
+                print(f"  ✓ Chapter {i}/{total}", end="\r", flush=True)
         print()
 
         chapters_data = [
@@ -2162,6 +2328,7 @@ def _print_status(cloud: bool = False) -> None:
 
 # ────────────────────────────── main ───────────────────────────
 def main() -> None:
+    global CHAPTER_WORKERS, CHAPTER_DELAY, PAGE_DELAY, NOVEL_DELAY
     parser = argparse.ArgumentParser(
         description=(
             "Ohara scraper — download novels from FreeWebNovel and publish them\n"
@@ -2223,14 +2390,7 @@ def main() -> None:
         ))
     parser.add_argument("--interval", type=int, default=60, metavar="MINUTES",
         help="Minutes to sleep between --watch update cycles. Default: 60.")
-    parser.add_argument("--auto-push", action="store_true",
-        help=(
-            "After each novel, automatically:\n"
-            "  1. git add the novel's data files (docs/data/<slug>/, index.json),\n"
-            "     plus docs/read/<slug>/ too if --html was also passed\n"
-            "  2. git commit and git push to GitHub\n"
-            "Requires git to be configured with push access."
-        ))
+    parser.add_argument("--no-auto-push", action="store_false", dest="auto_push", help="Skip automatically committing and pushing to GitHub (auto-push is ON by default).")
     parser.add_argument("--fetch-tags", action="store_true",
         help="Fetch and update tags for all existing novels without re-scraping chapters.")
     parser.add_argument("--html", action="store_true",
@@ -2290,10 +2450,20 @@ def main() -> None:
             "last-updated date, and any pending failed chapters.\n"
             "Add --cloud to also check Vercel Blob."
         ))
-    parser.add_argument("--no-epub", action="store_true",
+    parser.add_argument("--epub", action="store_false", dest="no_epub",
         help=(
-            "Skip EPUB generation. Only exports JSON for the site.\n"
-            "Recommended for overnight runs to save disk space."
+            "Generate EPUB files in output/."
+            "Off by default to save space on overnight runs."
+        ))
+    parser.add_argument("--fast", action="store_true", help="Speed mode: reduces delays, workers=16.")
+    parser.add_argument("--workers", type=int, default=8, metavar="N", help="Parallel chapter threads per novel.")
+    parser.add_argument("--delay", type=float, default=5, metavar="SECS", help="Delay after each chapter request.")
+    parser.add_argument("--proxy-file", metavar="FILE", help="Path to proxy list for rotation.")
+    parser.add_argument("--parallel", action="store_true",
+        help=(
+            "Parallel proxy mode: keeps normal delays but multiplies workers\n"
+            "by the number of working proxies. E.g. 8 workers × 5 proxies = 40\n"
+            "total threads, each proxy handling its own batch. Requires --proxy-file."
         ))
     parser.add_argument("--no-site", action="store_true",
         help=f"Skip site JSON export. Only generates EPUBs in output/.")
@@ -2317,6 +2487,38 @@ def main() -> None:
             "No re-scraping — reads from disk only."
         ))
     args = parser.parse_args()
+
+    # ── Apply speed / proxy settings ─────────────────────────────
+    global CHAPTER_WORKERS, CHAPTER_DELAY, PAGE_DELAY, NOVEL_DELAY
+
+    if args.fast:
+        CHAPTER_DELAY   = 1
+        PAGE_DELAY      = 0.5
+        NOVEL_DELAY     = 1
+        CHAPTER_WORKERS = 16
+        print("⚡ Fast mode enabled  (delay=1s, page_delay=0.5s, novel_delay=1s, workers=16)")
+
+    if args.workers != 8:
+        CHAPTER_WORKERS = args.workers
+    if args.delay != 5:
+        CHAPTER_DELAY = args.delay
+
+    if args.proxy_file:
+        _load_proxies(args.proxy_file)
+
+    if args.parallel:
+        if not _proxy_list:
+            print("  [warn] --parallel requires --proxy-file with working proxies. Ignoring.")
+        else:
+            base_workers = CHAPTER_WORKERS
+            CHAPTER_WORKERS = base_workers * len(_proxy_list)
+            print(f"🔀 Parallel mode: {base_workers} workers × {len(_proxy_list)} proxies = {CHAPTER_WORKERS} total threads")
+
+    if args.proxy_file or args.fast or args.workers != 8 or args.delay != 5 or args.parallel:
+        print(f"  Workers: {CHAPTER_WORKERS}  |  Chapter delay: {CHAPTER_DELAY}s  |  Page delay: {PAGE_DELAY}s  |  Novel delay: {NOVEL_DELAY}s")
+        if _proxy_list:
+            print(f"  Proxies: {len(_proxy_list)} loaded (round-robin)")
+
 
     export_site = not args.no_site
     export_epub = not args.no_epub
