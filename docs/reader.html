@@ -117,6 +117,9 @@
   <span class="nav-right" id="nav-next"></span>
 </nav>
 
+<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-auth-compat.js"></script>
+<script src="firebase-config.js"></script>
 <script src="app.js"></script>
 <script>
   const slug     = params().get('slug');
@@ -125,7 +128,7 @@
   const DATA_URL = './data';
 
   async function init() {
-    checkAuth();
+    await checkAuth();
     if (!slug) { showError('Missing novel slug.'); return; }
 
     try {

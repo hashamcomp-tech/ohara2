@@ -1,0 +1,20 @@
+#!/usr/bin/expect -f
+set timeout 120
+
+spawn npx -y firebase-tools@latest login --no-localhost
+
+# Handle initial prompts automatically
+expect "Gemini"
+send "n\r"
+expect "collect"
+send "n\r"
+
+# Wait for URL to appear
+expect -re "https://auth.firebase.tools/\[^\r\n\]+"
+
+# Wait for the auth code prompt
+expect "authorization code"
+
+# Keep process alive - wait a long time for manual input
+set timeout 600
+interact

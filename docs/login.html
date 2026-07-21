@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ohara — Login</title>
+  <title>Ohara — Sign In</title>
   <style>
     :root {
       --ink: #e9e4da; --ink-dim: #9a9286; --ink-faint: #4a4540;
@@ -29,11 +29,11 @@
     }
     .login-box {
       width: 100%;
-      max-width: 360px;
+      max-width: 380px;
       background: var(--bg-card);
       border: 1px solid var(--border);
       border-radius: 12px;
-      padding: 40px 32px;
+      padding: 40px 32px 32px;
       text-align: center;
     }
     .logo {
@@ -53,17 +53,18 @@
       color: var(--ink-faint);
       letter-spacing: .08em;
       text-transform: uppercase;
-      margin-bottom: 36px;
+      margin-bottom: 32px;
     }
     label {
       display: block;
       text-align: left;
-      font-size: .8rem;
+      font-size: .78rem;
       color: var(--ink-dim);
-      margin-bottom: 6px;
+      margin-bottom: 5px;
       letter-spacing: .05em;
       text-transform: uppercase;
     }
+    input[type="email"],
     input[type="password"] {
       width: 100%;
       background: var(--bg);
@@ -72,14 +73,14 @@
       padding: 11px 14px;
       color: var(--ink);
       font-family: inherit;
-      font-size: 1rem;
+      font-size: .95rem;
       outline: none;
       transition: border-color .15s;
-      margin-bottom: 20px;
+      margin-bottom: 14px;
     }
-    input[type="password"]:focus { border-color: var(--gold-dim); }
-    input[type="password"]::placeholder { color: var(--ink-faint); }
-    button {
+    input:focus { border-color: var(--gold-dim); }
+    input::placeholder { color: var(--ink-faint); }
+    .btn-primary {
       width: 100%;
       padding: 12px;
       background: var(--gold);
@@ -93,16 +94,78 @@
       cursor: pointer;
       transition: opacity .15s;
     }
-    button:hover { opacity: .88; }
+    .btn-primary:hover { opacity: .88; }
+    .btn-primary:disabled { opacity: .5; cursor: not-allowed; }
+    .divider {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin: 20px 0;
+      color: var(--ink-faint);
+      font-size: .78rem;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+    }
+    .divider::before, .divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+    .btn-google {
+      width: 100%;
+      padding: 11px;
+      background: transparent;
+      border: 1px solid var(--border);
+      border-radius: var(--r);
+      color: var(--ink);
+      font-family: inherit;
+      font-size: .9rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      transition: border-color .15s, background .15s;
+    }
+    .btn-google:hover { border-color: var(--ink-faint); background: rgba(255,255,255,.03); }
+    .btn-google svg { width: 18px; height: 18px; flex-shrink: 0; }
+    .toggle-row {
+      margin-top: 18px;
+      font-size: .82rem;
+      color: var(--ink-dim);
+    }
+    .toggle-row a {
+      color: var(--gold);
+      text-decoration: none;
+      cursor: pointer;
+      font-weight: 600;
+    }
+    .toggle-row a:hover { text-decoration: underline; }
+    .forgot-link {
+      display: inline-block;
+      margin-top: 8px;
+      font-size: .78rem;
+      color: var(--ink-faint);
+      text-decoration: none;
+      cursor: pointer;
+      transition: color .15s;
+    }
+    .forgot-link:hover { color: var(--gold-dim); }
     .error {
       margin-top: 14px;
-      font-size: .83rem;
+      font-size: .82rem;
       color: var(--red);
       min-height: 20px;
     }
-    .shake {
-      animation: shake .35s ease;
+    .success {
+      margin-top: 14px;
+      font-size: .82rem;
+      color: #2ecc71;
+      min-height: 20px;
     }
+    .shake { animation: shake .35s ease; }
     @keyframes shake {
       0%,100%{ transform:translateX(0) }
       20%    { transform:translateX(-8px) }
@@ -110,6 +173,20 @@
       60%    { transform:translateX(-5px) }
       80%    { transform:translateX(5px) }
     }
+    /* Loading spinner on button */
+    .btn-primary.loading { position: relative; color: transparent; }
+    .btn-primary.loading::after {
+      content: '';
+      position: absolute;
+      width: 18px; height: 18px;
+      border: 2px solid rgba(12,11,11,.3);
+      border-top-color: #0c0b0b;
+      border-radius: 50%;
+      animation: spin .6s linear infinite;
+      top: 50%; left: 50%;
+      margin: -9px 0 0 -9px;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
   </style>
 </head>
 <body>
@@ -124,36 +201,151 @@
   </div>
   <div class="subtitle">Personal Library</div>
 
-  <label for="pwd">Password</label>
-  <input type="password" id="pwd" placeholder="Enter password" autofocus
-    onkeydown="if(event.key==='Enter') login()">
-  <button onclick="login()">Enter Library</button>
+  <form id="auth-form" onsubmit="handleEmailAuth(event)">
+    <label for="email">Email</label>
+    <input type="email" id="email" placeholder="you@example.com" required autofocus>
+
+    <label for="password">Password</label>
+    <input type="password" id="password" placeholder="Enter password" required minlength="6">
+
+    <button type="submit" class="btn-primary" id="btn-submit">Sign In</button>
+  </form>
+
+  <div class="toggle-row">
+    <span id="mode-text">Don't have an account?</span>
+    <a id="mode-link" onclick="toggleMode(event)">Sign Up</a>
+  </div>
+  <a class="forgot-link" id="forgot-link" onclick="handleForgot(event)">Forgot password?</a>
+
+  <div class="divider"><span>or</span></div>
+
+  <button class="btn-google" onclick="handleGoogleSignIn()">
+    <svg viewBox="0 0 48 48">
+      <path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/>
+      <path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/>
+      <path fill="#FBBC05" d="M10.53 28.59a14.5 14.5 0 0 1 0-9.18l-7.98-6.19a24.0 24.0 0 0 0 0 21.56l7.98-6.19z"/>
+      <path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/>
+    </svg>
+    Continue with Google
+  </button>
+
   <div class="error" id="err"></div>
+  <div class="success" id="msg"></div>
 </div>
 
+<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-auth-compat.js"></script>
+<script src="firebase-config.js"></script>
 <script>
-  // ── Change your password here ─────────────────────────────────
-  const PASSWORD = 'Dark-Dream';
+  // ── Auto-redirect if already signed in ─────────────────────
+  auth.onAuthStateChanged(user => {
+    if (user) window.location.replace('index.html');
+  });
 
-  // Already logged in? Skip straight to library
-  if (localStorage.getItem('ohara-authed') === '1') {
-    window.location.replace('index.html');
+  let isSignUp = false;
+  const btnSubmit  = document.getElementById('btn-submit');
+  const errEl      = document.getElementById('err');
+  const msgEl      = document.getElementById('msg');
+  const box        = document.getElementById('login-box');
+
+  function showError(msg) {
+    errEl.textContent = msg;
+    msgEl.textContent = '';
+    box.classList.remove('shake');
+    void box.offsetWidth;
+    box.classList.add('shake');
   }
 
-  function login() {
-    const val = document.getElementById('pwd').value;
-    if (val === PASSWORD) {
-      localStorage.setItem('ohara-authed', '1');
-      window.location.replace('index.html');
-    } else {
-      document.getElementById('err').textContent = 'Incorrect password.';
-      const box = document.getElementById('login-box');
-      box.classList.remove('shake');
-      void box.offsetWidth; // reflow to restart animation
-      box.classList.add('shake');
-      document.getElementById('pwd').value = '';
-      document.getElementById('pwd').focus();
+  function showSuccess(msg) {
+    msgEl.textContent = msg;
+    errEl.textContent = '';
+  }
+
+  function setLoading(on) {
+    btnSubmit.disabled = on;
+    btnSubmit.classList.toggle('loading', on);
+  }
+
+  // ── Toggle sign-in / sign-up ────────────────────────────────
+  function toggleMode(e) {
+    e.preventDefault();
+    isSignUp = !isSignUp;
+    btnSubmit.textContent = isSignUp ? 'Create Account' : 'Sign In';
+    document.getElementById('mode-text').textContent =
+      isSignUp ? 'Already have an account?' : "Don't have an account?";
+    document.getElementById('mode-link').textContent =
+      isSignUp ? 'Sign In' : 'Sign Up';
+    document.getElementById('forgot-link').style.display =
+      isSignUp ? 'none' : '';
+    errEl.textContent = '';
+    msgEl.textContent = '';
+  }
+
+  // ── Email / Password auth ──────────────────────────────────
+  async function handleEmailAuth(e) {
+    e.preventDefault();
+    const email = document.getElementById('email').value.trim();
+    const pwd   = document.getElementById('password').value;
+    setLoading(true);
+    errEl.textContent = '';
+    try {
+      if (isSignUp) {
+        await auth.createUserWithEmailAndPassword(email, pwd);
+      } else {
+        await auth.signInWithEmailAndPassword(email, pwd);
+      }
+      // onAuthStateChanged handles redirect
+    } catch (err) {
+      setLoading(false);
+      showError(friendlyError(err.code));
     }
+  }
+
+  // ── Google sign-in ─────────────────────────────────────────
+  async function handleGoogleSignIn() {
+    errEl.textContent = '';
+    try {
+      const provider = new firebase.auth.GoogleAuthProvider();
+      await auth.signInWithPopup(provider);
+    } catch (err) {
+      if (err.code !== 'auth/popup-closed-by-user') {
+        showError(friendlyError(err.code));
+      }
+    }
+  }
+
+  // ── Forgot password ────────────────────────────────────────
+  async function handleForgot(e) {
+    e.preventDefault();
+    const email = document.getElementById('email').value.trim();
+    if (!email) {
+      showError('Enter your email first, then click "Forgot password?"');
+      return;
+    }
+    try {
+      await auth.sendPasswordResetEmail(email);
+      showSuccess('Password reset email sent! Check your inbox.');
+    } catch (err) {
+      showError(friendlyError(err.code));
+    }
+  }
+
+  // ── Friendly error messages ────────────────────────────────
+  function friendlyError(code) {
+    const map = {
+      'auth/invalid-email':            'Invalid email address.',
+      'auth/user-disabled':            'This account has been disabled.',
+      'auth/user-not-found':           'No account found with this email.',
+      'auth/wrong-password':           'Incorrect password.',
+      'auth/invalid-credential':       'Invalid email or password.',
+      'auth/email-already-in-use':     'An account with this email already exists.',
+      'auth/weak-password':            'Password must be at least 6 characters.',
+      'auth/too-many-requests':        'Too many attempts. Try again later.',
+      'auth/network-request-failed':   'Network error. Check your connection.',
+      'auth/popup-blocked':            'Pop-up blocked. Allow pop-ups and try again.',
+      'auth/operation-not-allowed':    'This sign-in method is not enabled.',
+    };
+    return map[code] || 'Something went wrong. Please try again.';
   }
 </script>
 </body>

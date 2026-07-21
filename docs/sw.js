@@ -4,7 +4,7 @@
    separately via IndexedDB in app.js (see saveNovelOffline).
 */
 
-const CACHE_NAME = 'ohara-shell-v2';
+const CACHE_NAME = 'ohara-shell-v3';
 
 const SHELL_FILES = [
   'index.html',
@@ -14,6 +14,7 @@ const SHELL_FILES = [
   'login.html',
   'style.css',
   'app.js',
+  'firebase-config.js',
 ];
 
 self.addEventListener('install', (event) => {

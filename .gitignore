@@ -8,3 +8,7 @@ __pycache__/
 proxies.txt
 .proxies_cache
 venv/
+node_modules/
+.vercel
+.env.local
+service-account.json

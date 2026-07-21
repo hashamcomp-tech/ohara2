@@ -136,6 +136,9 @@
   <div class="container">Ohara · personal library</div>
 </footer>
 
+<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-auth-compat.js"></script>
+<script src="firebase-config.js"></script>
 <script src="app.js"></script>
 <script>
   // ── State ────────────────────────────────────────────────────
@@ -261,7 +264,7 @@
 
   // ── Init ─────────────────────────────────────────────────────
   async function init() {
-    checkAuth();
+    await checkAuth();
     if (!slug || !startChNum) {
       document.getElementById('state-error').textContent = 'Missing slug or chapter number.';
       showState('state-error');

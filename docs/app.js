@@ -29,23 +29,33 @@ async function _fetchWithCloudFallback(localPath, blobRelPath) {
   }
 }
 
-// ── Auth ─────────────────────────────────────────────────────
+// ── Auth (Firebase) ──────────────────────────────────────────
 function checkAuth() {
-  if (localStorage.getItem('ohara-authed') !== '1') {
-    window.location.replace('login.html');
-  }
+  return new Promise((resolve) => {
+    const unsub = auth.onAuthStateChanged(user => {
+      unsub();
+      if (!user) {
+        window.location.replace('login.html');
+      } else {
+        resolve(user);
+      }
+    });
+  });
 }
 
-function logout() {
-  localStorage.removeItem('ohara-authed');
+async function logout() {
+  try { await auth.signOut(); } catch (e) { /* ignore */ }
   window.location.href = 'login.html';
 }
+
+function getCurrentUser() { return auth.currentUser; }
 
 // ── Progress ─────────────────────────────────────────────────
 function saveProgress(slug, num, title) {
   const all = JSON.parse(localStorage.getItem('ohara-progress') || '{}');
   all[slug] = { chapter: num, title, timestamp: Date.now() };
   localStorage.setItem('ohara-progress', JSON.stringify(all));
+  _scheduleSyncToCloud();
 }
 
 function getProgress(slug) {
@@ -62,6 +72,7 @@ function saveRating(slug, rating) {
   const all = JSON.parse(localStorage.getItem('ohara-ratings') || '{}');
   all[slug] = rating;
   localStorage.setItem('ohara-ratings', JSON.stringify(all));
+  _scheduleSyncToCloud();
 }
 
 function getRating(slug) {
@@ -85,6 +96,63 @@ function rateNovel(slug, rating) {
   saveRating(slug, newRating);
   const container = document.getElementById(`stars-${slug}`);
   if (container) container.innerHTML = starsHTML(slug, newRating);
+}
+
+// ── Cloud sync (Vercel Blob via /api/progress) ───────────────
+let _syncTimer = null;
+const _SYNC_DEBOUNCE_MS = 3000;
+
+function _scheduleSyncToCloud() {
+  if (!navigator.onLine) return;
+  if (_syncTimer) clearTimeout(_syncTimer);
+  _syncTimer = setTimeout(_pushToCloud, _SYNC_DEBOUNCE_MS);
+}
+
+async function _pushToCloud() {
+  const user = auth.currentUser;
+  if (!user || !navigator.onLine) return;
+  try {
+    const token = await user.getIdToken();
+    const progress = getAllProgress();
+    const ratings = JSON.parse(localStorage.getItem('ohara-ratings') || '{}');
+    await fetch('https://ohara-tau.vercel.app/api/progress', {
+      method: 'POST',
+      headers: { 'Authorization': `Bearer ${token}`, 'Content-Type': 'application/json' },
+      body: JSON.stringify({ progress, ratings })
+    });
+  } catch (e) { console.warn('[ohara] cloud push failed:', e); }
+}
+
+async function pullFromCloud() {
+  const user = auth.currentUser;
+  if (!user || !navigator.onLine) return;
+  try {
+    const token = await user.getIdToken();
+    const res = await fetch('https://ohara-tau.vercel.app/api/progress', {
+      headers: { 'Authorization': `Bearer ${token}` }
+    });
+    if (!res.ok) return;
+    const cloud = await res.json();
+
+    // Merge progress — latest timestamp wins per novel
+    const local = getAllProgress();
+    const merged = { ...local };
+    for (const [slug, entry] of Object.entries(cloud.progress || {})) {
+      const cur = merged[slug];
+      if (!cur || (entry.timestamp || 0) > (cur.timestamp || 0)) {
+        merged[slug] = entry;
+      }
+    }
+    localStorage.setItem('ohara-progress', JSON.stringify(merged));
+
+    // Merge ratings — cloud wins on conflict
+    const localRatings = JSON.parse(localStorage.getItem('ohara-ratings') || '{}');
+    const mergedRatings = { ...localRatings, ...(cloud.ratings || {}) };
+    localStorage.setItem('ohara-ratings', JSON.stringify(mergedRatings));
+
+    // Push merged result back so cloud has the full picture
+    _scheduleSyncToCloud();
+  } catch (e) { console.warn('[ohara] cloud pull failed:', e); }
 }
 
 // ── Network fetch ────────────────────────────────────────────
