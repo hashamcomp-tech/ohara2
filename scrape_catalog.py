@@ -1,4 +1,4 @@
-"""
+ """
 
 FreeWebNovel — Catalog Scraper  +  Ohara site exporter
 =======================================================
@@ -26,6 +26,7 @@ Usage:
     python scrape_catalog.py --retry-failed     # retry chapters that previously errored
     python scrape_catalog.py --no-site          # skip JSON export (epub only)
     python scrape_catalog.py --no-epub          # skip epub, only export JSON for site
+    python scrape_catalog.py --output-dir /media/you/USB/Novels   # write epubs straight to a USB drive
 """
 
 import argparse
@@ -75,6 +76,10 @@ RETRY_BACKOFF     = [10, 30, 60]           # seconds to wait before each retry a
 
 # Ohara site output — this folder becomes your GitHub Pages source
 SITE_DIR          = "docs"
+
+# Where EPUBs get written. Defaults to ./output, but --output-dir
+# (e.g. a USB drive path) overrides this at startup — see main().
+OUTPUT_DIR        = "output"
 
 HEADERS = {
     
@@ -1441,7 +1446,7 @@ def retry_failed_chapters(export_site: bool = True, cloud: bool = False) -> None
             book.add_item(epub.EpubNcx())
             book.add_item(epub.EpubNav())
             book.spine = spine
-            novel_dir = os.path.join("output", slug)
+            novel_dir = os.path.join(OUTPUT_DIR, slug)
             os.makedirs(novel_dir, exist_ok=True)
             filepath = os.path.join(novel_dir, f"{slug}-recovered-ch{start_ch}-{end_ch}.epub")
             try:
@@ -1475,7 +1480,7 @@ def get_local_novel_state(slug: str) -> tuple[int, int]:
     docs/data/<slug>/meta.json so --no-epub runs are tracked correctly.
     """
     # Check epub output folder
-    novel_dir   = os.path.join("output", slug)
+    novel_dir   = os.path.join(OUTPUT_DIR, slug)
     max_chapter = 0
     max_vol     = 0
     if os.path.isdir(novel_dir):
@@ -1508,7 +1513,7 @@ def get_local_novel_state(slug: str) -> tuple[int, int]:
 def get_all_local_slugs() -> list[str]:
     """Return every slug that has a folder under output/ OR docs/data/."""
     slugs: set[str] = set()
-    for base in ["output", os.path.join(SITE_DIR, "data")]:
+    for base in [OUTPUT_DIR, os.path.join(SITE_DIR, "data")]:
         if os.path.isdir(base):
             for name in os.listdir(base):
                 if os.path.isdir(os.path.join(base, name)):
@@ -1552,7 +1557,7 @@ def make_epub(
     book.add_item(epub.EpubNav())
     book.spine = spine
 
-    novel_dir = os.path.join("output", slug)
+    novel_dir = os.path.join(OUTPUT_DIR, slug)
     os.makedirs(novel_dir, exist_ok=True)
     filepath = os.path.join(novel_dir, f"{slug}-vol{vol_num}-ch{start_ch}-{end_ch}.epub")
     try:
@@ -1921,7 +1926,7 @@ def delete_novel_files(slug: str) -> None:
 
     for base in (os.path.join(SITE_DIR, "data", slug),
                  os.path.join(SITE_DIR, "read", slug),
-                 os.path.join("output", slug)):
+                 os.path.join(OUTPUT_DIR, slug)):
         if os.path.isdir(base):
             shutil.rmtree(base)
             print(f"  ✓ Removed {base}")
@@ -1977,7 +1982,7 @@ def delete_novel(slug: str, auto_push: bool = False, cloud: bool = False) -> Non
             json.dump(index, f, ensure_ascii=False, indent=2)
 
     data_exists = os.path.isdir(os.path.join(SITE_DIR, "data", slug))
-    has_local   = data_exists or os.path.isdir(os.path.join("output", slug))
+    has_local   = data_exists or os.path.isdir(os.path.join(OUTPUT_DIR, slug))
 
     if cloud:
         found_in_blob = cloud_delete_novel(slug)
@@ -2467,6 +2472,12 @@ def main() -> None:
         ))
     parser.add_argument("--no-site", action="store_true",
         help=f"Skip site JSON export. Only generates EPUBs in output/.")
+    parser.add_argument("--output-dir", metavar="PATH", default=None,
+        help=(
+            "Write EPUBs here instead of ./output — e.g. a USB drive path\n"
+            "like /media/you/USB/Novels or E:\\Novels. The path must already\n"
+            "exist (plug in / mount the drive first); it will not be created."
+        ))
     parser.add_argument("--cloud", action="store_true",
         help=(
             "Upload scraped JSON to Vercel Blob storage IN ADDITION to writing local files.\n"
@@ -2487,6 +2498,29 @@ def main() -> None:
             "No re-scraping — reads from disk only."
         ))
     args = parser.parse_args()
+
+    # ── Apply custom output location (e.g. a USB drive) ───────────
+    global OUTPUT_DIR
+    if args.output_dir:
+        target = args.output_dir
+        if not os.path.isdir(target):
+            print(
+                f"Error: --output-dir path does not exist: {target}\n"
+                "Make sure the drive is plugged in / mounted, and that the\n"
+                "folder itself already exists (it won't be created for you)."
+            )
+            sys.exit(1)
+        # Fail fast on read-only / disconnected drives rather than mid-scrape.
+        probe = os.path.join(target, ".ohara_write_test")
+        try:
+            with open(probe, "w") as f:
+                f.write("ok")
+            os.remove(probe)
+        except OSError as e:
+            print(f"Error: --output-dir is not writable: {target}\n  ({e})")
+            sys.exit(1)
+        OUTPUT_DIR = target
+        print(f"📀 EPUB output redirected to: {OUTPUT_DIR}")
 
     # ── Apply speed / proxy settings ─────────────────────────────
     global CHAPTER_WORKERS, CHAPTER_DELAY, PAGE_DELAY, NOVEL_DELAY
@@ -2568,7 +2602,7 @@ def main() -> None:
                 if m:
                     name = m.get("title", slug)
             local_data  = os.path.isdir(os.path.join(SITE_DIR, "data", slug))
-            local_epub  = os.path.isdir(os.path.join("output", slug))
+            local_epub  = os.path.isdir(os.path.join(OUTPUT_DIR, slug))
             blob_meta   = cloud_download_json(f"data/{slug}/meta.json") if cloud else None
             print(f"[Dry run] Would delete: {name} ({slug})")
             print(f"  Local data (docs/data/): {'yes' if local_data else 'no'}")
@@ -2684,7 +2718,7 @@ def main() -> None:
 
     print(f"\n{'═'*60}")
     if export_epub:
-        print(f"EPUBs saved in output/")
+        print(f"EPUBs saved in {OUTPUT_DIR}/")
     if export_site:
         print(f"Site data saved in {SITE_DIR}/data/")
         print(f"→ Push {SITE_DIR}/ to GitHub and enable GitHub Pages from that folder.")
