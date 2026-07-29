@@ -177,7 +177,12 @@
     const user = await checkAuth();
     const ui = document.getElementById('user-info');
     if (ui) ui.textContent = user.displayName || user.email;
-    await pullFromCloud();
+
+    // Fetch cloud progress in background so it doesn't block the UI
+    pullFromCloud().then(() => {
+      if (allNovels.length > 0) applyFilters();
+    });
+
     try {
       const index = await loadIndex();
       allNovels = (index.novels || []).sort((a, b) =>
