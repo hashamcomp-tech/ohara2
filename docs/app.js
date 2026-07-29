@@ -112,14 +112,14 @@ async function _pushToCloud() {
   const user = auth.currentUser;
   if (!user || !navigator.onLine) return;
   try {
-    const token = await user.getIdToken();
     const progress = getAllProgress();
     const ratings = JSON.parse(localStorage.getItem('ohara-ratings') || '{}');
-    await fetch('https://ohara-tau.vercel.app/api/progress', {
-      method: 'POST',
-      headers: { 'Authorization': `Bearer ${token}`, 'Content-Type': 'application/json' },
-      body: JSON.stringify({ progress, ratings })
-    });
+    
+    // Push directly to Firestore
+    await db.collection('users').doc(user.uid).set({
+      progress,
+      ratings
+    }, { merge: true });
   } catch (e) { console.warn('[ohara] cloud push failed:', e); }
 }
 
@@ -127,12 +127,9 @@ async function pullFromCloud() {
   const user = auth.currentUser;
   if (!user || !navigator.onLine) return;
   try {
-    const token = await user.getIdToken();
-    const res = await fetch('https://ohara-tau.vercel.app/api/progress', {
-      headers: { 'Authorization': `Bearer ${token}` }
-    });
-    if (!res.ok) return;
-    const cloud = await res.json();
+    const doc = await db.collection('users').doc(user.uid).get();
+    if (!doc.exists) return;
+    const cloud = doc.data();
 
     // Merge progress — latest timestamp wins per novel
     const local = getAllProgress();
