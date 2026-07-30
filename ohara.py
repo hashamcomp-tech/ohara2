@@ -1343,13 +1343,12 @@ def fwn_get_chapter_list(novel_url: str) -> list[tuple[int, str]]:
     res = _get(novel_url, timeout=20)
     res.raise_for_status()
     soup = BeautifulSoup(res.text, "html.parser")
-    div = soup.find("div", class_="m-newest2")
-    if not div:
-        return []
     
     chapters = []
-    for a in div.find_all("a", href=True):
-        href = a["href"]
+    # FreeWebNovel splits the list across multiple elements (m-newest1, m-newest2, etc)
+    # The safest way is to just grab every single chapter link on the entire page
+    for a in soup.select("a[href*='/chapter-']"):
+        href = a.get("href", "")
         m = re.search(r"chapter-(\d+)", href)
         if not m:
             continue
@@ -1658,7 +1657,7 @@ def scrape_novel(
         print(f"  ✓ Found {len(fast_chapters)} chapter titles on index page.")
         
         # Merge with local
-        meta_path = f"{OUTPUT_DIR}/data/{slug}/meta.json"
+        meta_path = f"{SITE_DIR}/data/{slug}/meta.json"
         if not os.path.exists(meta_path):
             print("  [warn] No local meta.json found to update. Run a standard scrape first.")
             return False
