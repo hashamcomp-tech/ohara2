@@ -2419,7 +2419,7 @@ def main() -> None:
             "To permanently exclude genres without typing this every time,\n"
             f"edit DEFAULT_EXCLUDED_GENRES at the top of {__file__}."
         ))
-    parser.add_argument("--delete-novel", metavar="SLUG",
+    parser.add_argument("--rm", "--delete-novel", dest="delete_novel", metavar="SLUG",
         help=(
             "Delete a single novel by its slug (the name in the URL).\n"
             "Removes JSON data, epubs, and clears its\n"
