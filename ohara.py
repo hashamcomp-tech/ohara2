@@ -1335,6 +1335,35 @@ def _fetch_chapter_once(i: int, url: str) -> tuple[int, str, str]:
     return i, title_text, cleaned
 
 
+def fwn_get_chapter_list(novel_url: str) -> list[tuple[int, str]]:
+    """
+    Highly efficient FreeWebNovel chapter list extraction directly from the novel index page.
+    Returns: [(chapter_num, title), ...]
+    """
+    res = _get(novel_url, timeout=20)
+    res.raise_for_status()
+    soup = BeautifulSoup(res.text, "html.parser")
+    div = soup.find("div", class_="m-newest2")
+    if not div:
+        return []
+    
+    chapters = []
+    for a in div.find_all("a", href=True):
+        href = a["href"]
+        m = re.search(r"chapter-(\d+)", href)
+        if not m:
+            continue
+        num = int(m.group(1))
+        
+        # Grab title text, try 'title' attr first for full title, then text
+        raw = a.get("title", "") or a.get_text(strip=True)
+        title = _clean_fwn_title(raw)
+        chapters.append((num, title))
+        
+    # Sort to ensure sequential order just in case the DOM is weird
+    chapters.sort(key=lambda x: x[0])
+    return chapters
+
 def scrape_chapter(args: tuple[int, str, str]) -> tuple[int, str, str, bool]:
     i, url, novel_slug = args
     last_err = None
@@ -1572,6 +1601,7 @@ def scrape_novel(
     cloud_only: bool = False,
     html: bool = False,
     excluded_genres: set[str] | None = None,
+    update_chapternames: bool = False,
 ) -> bool:
     excluded_genres = excluded_genres or set()
     site = detect_site(novel_url)
@@ -1614,6 +1644,53 @@ def scrape_novel(
     print(f"  Cover:  {cover_url or '(none)'}")
     print(f"  Remote: {total} chapter(s) available")
 
+    if update_chapternames:
+        if site != "freewebnovel":
+            print(f"  [warn] --update-chapternames is only optimized for freewebnovel. Skipping.")
+            return False
+            
+        print("  → Fast chapter-name update mode engaged. Fetching chapter index...")
+        fast_chapters = fwn_get_chapter_list(novel_url)
+        if not fast_chapters:
+            print("  [error] Could not parse chapter list from index page.")
+            return False
+            
+        print(f"  ✓ Found {len(fast_chapters)} chapter titles on index page.")
+        
+        # Merge with local
+        meta_path = f"{OUTPUT_DIR}/data/{slug}/meta.json"
+        if not os.path.exists(meta_path):
+            print("  [warn] No local meta.json found to update. Run a standard scrape first.")
+            return False
+            
+        with open(meta_path, "r", encoding="utf-8") as f:
+            meta = json.load(f)
+            
+        existing_chaps = {c["num"]: c for c in meta.get("chapters", [])}
+        updated_count = 0
+        
+        for num, fast_title in fast_chapters:
+            if num in existing_chaps and existing_chaps[num]["title"] != fast_title:
+                existing_chaps[num]["title"] = fast_title
+                updated_count += 1
+        
+        if updated_count == 0:
+            print("  ✓ All local chapter titles are already up to date!")
+            return True
+            
+        # Write back to meta.json
+        meta["chapters"] = sorted(existing_chaps.values(), key=lambda x: x["num"])
+        with open(meta_path, "w", encoding="utf-8") as f:
+            json.dump(meta, f, indent=2, ensure_ascii=False)
+            
+        print(f"  ✓ Updated {updated_count} chapter title(s) in meta.json")
+        
+        if cloud:
+            # Reformat into expected tuple
+            ch_tuples = [(c["num"], c.get("title", f"Chapter {c['num']}")) for c in meta["chapters"]]
+            cloud_upsert_novel_meta(slug, novel_name, tags, total, cover_url, ch_tuples)
+            
+        return True
     # ── genre filter ─────────────────────────────────────────────
     if excluded_genres:
         tag_lower = {t.lower() for t in tags}
@@ -2189,6 +2266,7 @@ def update_all_local_novels(
     html: bool = False,
     excluded_genres: set[str] | None = None,
     force_update: bool = False,
+    update_chapternames: bool = False,
 ) -> None:
     excluded_genres = excluded_genres or set()
     if cloud_only:
@@ -2228,7 +2306,7 @@ def update_all_local_novels(
         novel_name = info.get("title") or slug.replace("-", " ").title()
         success = scrape_novel(novel_url, force_full=force_update, export_site=export_site, export_epub=export_epub,
                                cloud=cloud, cloud_only=cloud_only, html=html,
-                               excluded_genres=excluded_genres)
+                               excluded_genres=excluded_genres, update_chapternames=update_chapternames)
         if success:
             updated += 1
             if auto_push and export_site:
@@ -2387,6 +2465,8 @@ def main() -> None:
             "Combine with --update to force re-scraping and overwriting all chapters\n"
             "for every existing novel, ignoring current progress."
         ))
+    parser.add_argument("--update-chapternames", action="store_true",
+        help="Highly optimized: fetch index page to quickly overwrite local chapter titles without downloading contents. (FreeWebNovel only)")
     parser.add_argument("--watch", action="store_true",
         help=(
             "Run --update in a loop forever, sleeping --interval minutes between runs.\n"
@@ -2630,7 +2710,8 @@ def main() -> None:
                                 auto_push=args.auto_push, cloud=cloud,
                                 cloud_only=cloud_only, html=args.html,
                                 excluded_genres=excluded_genres,
-                                force_update=args.force_update)
+                                force_update=args.force_update,
+                                update_chapternames=args.update_chapternames)
         return
 
     if args.retry_failed:
@@ -2645,7 +2726,7 @@ def main() -> None:
         print(f"Scraping single novel: {url}")
         success = scrape_novel(url, export_site=export_site, export_epub=export_epub,
                                cloud=cloud, cloud_only=cloud_only, html=args.html,
-                               excluded_genres=excluded_genres)
+                               excluded_genres=excluded_genres, update_chapternames=args.update_chapternames)
         if success:
             mark_done(url)
             slug = slug_from_url(url)
@@ -2680,7 +2761,7 @@ def main() -> None:
         print(f"\n[{idx}/{len(queue)}] Starting novel: {url}")
         success = scrape_novel(url, export_site=export_site, export_epub=export_epub,
                                cloud=cloud, cloud_only=cloud_only, html=args.html,
-                               excluded_genres=excluded_genres)
+                               excluded_genres=excluded_genres, update_chapternames=args.update_chapternames)
         if success:
             mark_done(url)
             if args.auto_push and export_site:
