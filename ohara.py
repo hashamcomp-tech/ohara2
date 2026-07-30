@@ -2188,6 +2188,7 @@ def update_all_local_novels(
     cloud_only: bool = False,
     html: bool = False,
     excluded_genres: set[str] | None = None,
+    force_update: bool = False,
 ) -> None:
     excluded_genres = excluded_genres or set()
     if cloud_only:
@@ -2218,14 +2219,14 @@ def update_all_local_novels(
             errors += 1
             time.sleep(PAGE_DELAY)
             continue
-        if local_highest >= total:
+        if not force_update and local_highest >= total:
             print(f"  ✓ Up to date ({total} chapters)")
             up_to_date += 1
             time.sleep(PAGE_DELAY)
             continue
         print(f"  ↑ {total - local_highest} new chapter(s) (local: {local_highest}, remote: {total})")
         novel_name = info.get("title") or slug.replace("-", " ").title()
-        success = scrape_novel(novel_url, export_site=export_site, export_epub=export_epub,
+        success = scrape_novel(novel_url, force_full=force_update, export_site=export_site, export_epub=export_epub,
                                cloud=cloud, cloud_only=cloud_only, html=html,
                                excluded_genres=excluded_genres)
         if success:
@@ -2380,6 +2381,11 @@ def main() -> None:
         help=(
             "Check every novel in output/ and docs/data/ against the site\n"
             "and download any new chapters. Combine with --auto-push to publish immediately."
+        ))
+    parser.add_argument("--force-update", action="store_true",
+        help=(
+            "Combine with --update to force re-scraping and overwriting all chapters\n"
+            "for every existing novel, ignoring current progress."
         ))
     parser.add_argument("--watch", action="store_true",
         help=(
@@ -2623,7 +2629,8 @@ def main() -> None:
         update_all_local_novels(export_site=export_site, export_epub=export_epub,
                                 auto_push=args.auto_push, cloud=cloud,
                                 cloud_only=cloud_only, html=args.html,
-                                excluded_genres=excluded_genres)
+                                excluded_genres=excluded_genres,
+                                force_update=args.force_update)
         return
 
     if args.retry_failed:
