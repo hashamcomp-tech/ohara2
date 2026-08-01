@@ -179,7 +179,7 @@
     {
       "slug": "the-authors-pov",
       "title": "The Author's POV",
-      "cover": "data/the-authors-pov/cover.jpg",
+      "cover": "https://freewebnovel.com/files/article/image/1/1904/1904s.jpg",
       "tags": [
         "Action",
         "Adventure",
@@ -188,7 +188,7 @@
         "Romance"
       ],
       "totalChapters": 862,
-      "lastUpdated": "2026-06-30"
+      "lastUpdated": "2026-08-01"
     },
     {
       "slug": "i-shall-seal-the-heavens",
