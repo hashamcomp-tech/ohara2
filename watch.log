@@ -2,126 +2,34 @@
   (public proxies are unvetted and often unreliable — use --proxy-file for a source you trust, or --no-proxy to skip)
   Fetched 400 candidate proxies from https://spys.me/proxy.txt
   Testing 400 proxies for connectivity to https://freewebnovel.com...
-  💾 Saved 18 working proxies to .proxies_cache
-  Loaded 18 proxy/proxies from https://spys.me/proxy.txt
+  💾 Saved 14 working proxies to .proxies_cache
+  Loaded 14 proxy/proxies from https://spys.me/proxy.txt
   Workers: 8  |  Chapter delay: 5s  |  Page delay: 2s  |  Novel delay: 3s
-  Proxies: 18 loaded (round-robin)
+  Proxies: 14 loaded (round-robin)
 Watch mode: updating every 60 minute(s). Press Ctrl+C to stop.
 
 
 ════════════════════════════════════════════════════════════
-[Watch] Run #1 started at 2026-07-27 04:54:34
+[Watch] Run #1 started at 2026-08-02 23:34:15
 ════════════════════════════════════════════════════════════
 Checking 18 local novel(s) for updates…
 
 [1/18] cultivation-online-novel
-  [proxy retry] Attempt 1/5 failed using http://45.175.137.253:999: ProxyError
-  [proxy retry] Attempt 2/5 failed using http://27.147.177.74:55: ProxyError
-  [proxy retry] Attempt 3/5 failed using http://193.43.149.85:8080: ProxyError
-  ✓ Up to date (2551 chapters)
-[2/18] i-shall-seal-the-heavens
-  [proxy retry] Attempt 1/5 failed using http://45.112.52.26:8080: ProxyError
-  [proxy retry] Attempt 2/5 failed using http://185.94.164.182:8080: ConnectionError
-  [proxy retry] Attempt 3/5 failed using http://154.18.255.102:8080: ProxyError
-  ✓ Up to date (1616 chapters)
-[3/18] immortality-through-array-formations
-  [proxy retry] Attempt 1/5 failed using http://212.34.138.89:8080: ProxyError
-  [proxy retry] Attempt 2/5 failed using http://140.245.238.56:53: ReadTimeout
-  [proxy retry] Attempt 3/5 failed using http://178.104.234.144:8118: ProxyError
-  [proxy retry] Attempt 4/5 failed using http://212.113.104.29:10801: ProxyError
-  [proxy retry] Attempt 5/5 failed using http://95.163.234.50:10808: ProxyError
-  [warn] Could not fetch novel page: HTTPSConnectionPool(host='freewebnovel.com', port=443): Max retries exceeded with url: /novel/immortality-through-array-formations (Caused by ProxyError('Unable to connect to proxy', ConnectTimeoutError(<HTTPSConnection(host='95.163.234.50', port=10808) at 0x10c289590>, 'Connection to 95.163.234.50 timed out. (connect timeout=20)')))
-  [warn] Could not fetch chapter count — skipping.
-[4/18] kill-the-sun
-  [proxy retry] Attempt 1/5 failed using http://103.134.222.170:8080: ProxyError
-  [proxy retry] Attempt 2/5 failed using http://64.204.90.177:999: ProxyError
-  [proxy retry] Attempt 3/5 failed using http://181.78.175.66:999: ProxyError
-  [proxy retry] Attempt 4/5 failed using http://52.33.78.11:8443: ProxyError
-  ✓ Up to date (992 chapters)
-[5/18] lord-of-mysteries-2-circle-of-inevitability
-  [proxy retry] Attempt 1/5 failed using http://45.175.137.253:999: ProxyError
-  ✓ Up to date (1181 chapters)
-[6/18] lord-of-the-mysteries
-  ✓ Up to date (1432 chapters)
-[7/18] my-vampire-system
-  [proxy retry] Attempt 1/5 failed using http://45.26.30.144:8888: ProxyError
-  [proxy retry] Attempt 2/5 failed using http://45.112.52.26:8080: ProxyError
-  [proxy retry] Attempt 3/5 failed using http://185.94.164.182:8080: ProxyError
-  [proxy retry] Attempt 4/5 failed using http://154.18.255.102:8080: ProxyError
-  ✓ Up to date (2551 chapters)
-[8/18] mysteries-of-immortal-puppet-master
-  ✓ Up to date (1402 chapters)
-[9/18] omniscient-readers-viewpoint-novel
-  ✓ Up to date (552 chapters)
-[10/18] renegade-immortal
-  [proxy retry] Attempt 1/5 failed using http://178.104.234.144:8118: ProxyError
-  ✓ Up to date (2090 chapters)
-[11/18] reverend-insanity
-  [proxy retry] Attempt 1/5 failed using http://95.163.234.50:10808: ConnectionError
-  [proxy retry] Attempt 2/5 failed using http://103.134.222.170:8080: SSLError
-  ✓ Up to date (2334 chapters)
-[12/18] shadow-slave
-  [proxy retry] Attempt 1/5 failed using http://181.78.175.66:999: ProxyError
-  ↑ 44 new chapter(s) (local: 3080, remote: 3124)
+  ↑ 6 new chapter(s) (local: 2558, remote: 2564)
 
 ────────────────────────────────────────────────────────────
-Novel: shadow-slave  [freewebnovel]
-URL:   https://freewebnovel.com/novel/shadow-slave
-  Local:  3080 chapter(s) already on disk (next vol → Vol.4)
-  [proxy retry] Attempt 1/5 failed using http://175.136.239.174:8181: ProxyError
-  [proxy retry] Attempt 2/5 failed using http://45.175.137.253:999: ProxyError
-  [proxy dead] Removed http://45.175.137.253:999 (3 consecutive failures). 17 remaining.
-  Title:  Shadow Slave
-  Tags:   Action, Adventure, Fantasy, Romance
-  Cover:  https://freewebnovel.com/files/article/image/1/1991/1991s.jpg
-  Remote: 3124 chapter(s) available
-  → 44 new chapter(s) to download (ch3081–3124)
+Novel: cultivation-online-novel  [freewebnovel]
+URL:   https://freewebnovel.com/novel/cultivation-online-novel
+  Local:  2558 chapter(s) already on disk (next vol → Vol.1)
+  Title:  Cultivation Online
+  Tags:   Adventure, Comedy, Romance, Action, Harem, Game
+  Cover:  https://freewebnovel.com/files/article/image/1/1427/1427s.jpg
+  Remote: 2564 chapter(s) available
+  → 6 new chapter(s) to download (ch2559–2564)
 
-  Volume 4: chapters 3081–3124
-  ✓ Chapter 3081/3124  [proxy retry] Attempt 1/5 failed using http://178.104.234.144:8118: ProxyError
-  [proxy dead] Removed http://178.104.234.144:8118 (3 consecutive failures). 16 remaining.
-  [proxy retry] Attempt 2/5 failed using http://27.147.177.74:55: ConnectionError
-  [proxy retry] Attempt 1/5 failed using http://45.112.52.26:8080: ProxyError
-  [proxy dead] Removed http://45.112.52.26:8080 (3 consecutive failures). 15 remaining.
-  [proxy retry] Attempt 1/5 failed using http://154.18.255.102:8080: ProxyError
-  [proxy dead] Removed http://154.18.255.102:8080 (3 consecutive failures). 14 remaining.
-  [proxy retry] Attempt 1/5 failed using http://186.148.160.8:999: ProxyError
-  [proxy retry] Attempt 1/5 failed using http://140.245.238.56:53: ProxyError
-  [proxy retry] Attempt 1/5 failed using http://212.34.138.89:8080: ProxyError
-  [proxy retry] Attempt 1/5 failed using http://45.26.30.144:8888: ReadTimeout
-  ✓ Chapter 3084/3124  ✓ Chapter 3083/3124  ✓ Chapter 3085/3124  ✓ Chapter 3090/3124  [proxy retry] Attempt 3/5 failed using http://193.43.149.85:8080: ProxyError
-  ✓ Chapter 3092/3124  [proxy retry] Attempt 2/5 failed using http://193.43.149.85:8080: ProxyError
-  [proxy retry] Attempt 2/5 failed using http://185.94.164.182:8080: ProxyError
-  [proxy retry] Attempt 2/5 failed using http://45.26.30.144:8888: ReadTimeout
-  [proxy dead] Removed http://45.26.30.144:8888 (3 consecutive failures). 13 remaining.
-  [proxy retry] Attempt 2/5 failed using http://186.148.160.8:999: ProxyError
-  ✓ Chapter 3091/3124  ✓ Chapter 3094/3124  ✓ Chapter 3087/3124  ✓ Chapter 3093/3124  ✓ Chapter 3088/3124  ✓ Chapter 3082/3124  [proxy retry] Attempt 4/5 failed using http://103.134.222.170:8080: ProxyError
-  [proxy dead] Removed http://103.134.222.170:8080 (3 consecutive failures). 12 remaining.
-  ✓ Chapter 3096/3124  ✓ Chapter 3099/3124  ✓ Chapter 3089/3124  [proxy retry] Attempt 1/5 failed using http://185.94.164.182:8080: ProxyError
-  ✓ Chapter 3086/3124  [proxy retry] Attempt 1/5 failed using http://140.245.238.56:53: ReadTimeout
-  [proxy retry] Attempt 2/5 failed using http://212.113.104.29:10801: ConnectionError
-  [proxy retry] Attempt 1/5 failed using http://212.34.138.89:8080: ReadTimeout
-  ✓ Chapter 3100/3124  ✓ Chapter 3095/3124  [proxy retry] Attempt 1/5 failed using http://193.43.149.85:8080: ProxyError
-  ✓ Chapter 3104/3124  ✓ Chapter 3097/3124  [proxy retry] Attempt 1/5 failed using http://186.148.160.8:999: ProxyError
-  ✓ Chapter 3106/3124  ✓ Chapter 3101/3124  [proxy retry] Attempt 3/5 failed using http://95.163.234.50:10808: ChunkedEncodingError
-  ✓ Chapter 3107/3124  ✓ Chapter 3103/3124  [proxy retry] Attempt 1/5 failed using http://181.78.175.66:999: ProxyError
-  ✓ Chapter 3110/3124  [proxy retry] Attempt 1/5 failed using http://185.94.164.182:8080: ReadTimeout
-  ✓ Chapter 3108/3124  ✓ Chapter 3111/3124  ✓ Chapter 3109/3124  ✓ Chapter 3112/3124  ✓ Chapter 3102/3124  ✓ Chapter 3114/3124  ✓ Chapter 3116/3124  ✓ Chapter 3115/3124  ✓ Chapter 3105/3124  [proxy retry] Attempt 1/5 failed using http://181.78.175.66:999: ProxyError
-  [proxy retry] Attempt 4/5 failed using http://140.245.238.56:53: ReadTimeout
-  ✓ Chapter 3119/3124  ✓ Chapter 3121/3124  [proxy retry] Attempt 1/5 failed using http://185.94.164.182:8080: ProxyError
-  ✓ Chapter 3123/3124  ✓ Chapter 3113/3124  [proxy retry] Attempt 1/5 failed using http://186.148.160.8:999: ProxyError
-  [proxy retry] Attempt 1/5 failed using http://140.245.238.56:53: ProxyError
-  ✓ Chapter 3117/3124  [proxy retry] Attempt 1/5 failed using http://95.163.234.50:10808: ReadTimeout
-  [proxy retry] Attempt 5/5 failed using http://181.78.175.66:999: ProxyError
-  [proxy dead] Removed http://181.78.175.66:999 (3 consecutive failures). 11 remaining.
-  [retry 1/3] Chapter 3098 failed (HTTPSConnectionPool(host='freewebnovel.com', port=443): Max retries exceeded with url: /novel/shadow-slave/chapter-3098 (Caused by ProxyError('Unable to connect to proxy', ConnectTimeoutError(<HTTPSConnection(host='181.78.175.66', port=999) at 0x10c1f5450>, 'Connection to 181.78.175.66 timed out. (connect timeout=20)')))) — waiting 10s
-  [proxy retry] Attempt 1/5 failed using http://175.136.239.174:8181: ProxyError
-  ✓ Chapter 3124/3124  [proxy retry] Attempt 2/5 failed using http://193.43.149.85:8080: ProxyError
-  [proxy retry] Attempt 2/5 failed using http://185.94.164.182:8080: ProxyError
-  [proxy dead] Removed http://185.94.164.182:8080 (3 consecutive failures). 10 remaining.
-  [proxy retry] Attempt 2/5 failed using http://186.148.160.8:999: ProxyError
-  ✓ Chapter 3120/3124  ✓ Chapter 3122/3124  [proxy retry] Attempt 3/5 failed using http://193.43.149.85:8080: ProxyError
-  [retry ok] Chapter 3098 succeeded on attempt 2
-  ✓ Chapter 3098/3124  [proxy retry] Attempt 4/5 failed using http://186.148.160.8:999: ProxyError
-  [proxy dead] Removed http://186.148.160.8:999 (3 consecutive failures). 9 remaining.
-  ✓ Chapter 3118/3124
+  Volume 1: chapters 2559–2564
+  ✓ Chapter 2562/2564  ✓ Chapter 2564/2564  ✓ Chapter 2559/2564  [proxy retry] Attempt 1/5 failed using http://49.149.116.6:8081: ProxyError
+  [proxy retry] Attempt 1/5 failed using http://103.77.60.10:8080: ProxyError
+  ✓ Chapter 2560/2564  ✓ Chapter 2561/2564  [proxy retry] Attempt 2/5 failed using http://197.253.23.4:8080: ProxyError
+  [proxy retry] Attempt 3/5 failed using http://103.124.197.26:8090: ProxyError
+  ✓ Chapter 2563/2564
