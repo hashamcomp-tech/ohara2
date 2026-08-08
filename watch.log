@@ -2,34 +2,37 @@
   (public proxies are unvetted and often unreliable — use --proxy-file for a source you trust, or --no-proxy to skip)
   Fetched 400 candidate proxies from https://spys.me/proxy.txt
   Testing 400 proxies for connectivity to https://freewebnovel.com...
-  💾 Saved 14 working proxies to .proxies_cache
-  Loaded 14 proxy/proxies from https://spys.me/proxy.txt
+  💾 Saved 43 working proxies to .proxies_cache
+  Loaded 43 proxy/proxies from https://spys.me/proxy.txt
   Workers: 8  |  Chapter delay: 5s  |  Page delay: 2s  |  Novel delay: 3s
-  Proxies: 14 loaded (round-robin)
+  Proxies: 43 loaded (round-robin)
 Watch mode: updating every 60 minute(s). Press Ctrl+C to stop.
 
 
 ════════════════════════════════════════════════════════════
-[Watch] Run #1 started at 2026-08-02 23:34:15
+[Watch] Run #1 started at 2026-08-08 17:40:30
 ════════════════════════════════════════════════════════════
 Checking 18 local novel(s) for updates…
 
 [1/18] cultivation-online-novel
-  ↑ 6 new chapter(s) (local: 2558, remote: 2564)
+  [proxy retry] Attempt 1/5 failed using http://185.189.12.146:3128: ConnectionError
+  [proxy retry] Attempt 2/5 failed using http://165.154.162.73:8888: ProxyError
+  [proxy retry] Attempt 3/5 failed using http://197.253.23.4:8080: ProxyError
+  ↑ 6 new chapter(s) (local: 2570, remote: 2576)
 
 ────────────────────────────────────────────────────────────
 Novel: cultivation-online-novel  [freewebnovel]
 URL:   https://freewebnovel.com/novel/cultivation-online-novel
-  Local:  2558 chapter(s) already on disk (next vol → Vol.1)
+  Local:  2570 chapter(s) already on disk (next vol → Vol.1)
+  [proxy retry] Attempt 1/5 failed using http://103.158.210.25:8080: ProxyError
   Title:  Cultivation Online
   Tags:   Adventure, Comedy, Romance, Action, Harem, Game
   Cover:  https://freewebnovel.com/files/article/image/1/1427/1427s.jpg
-  Remote: 2564 chapter(s) available
-  → 6 new chapter(s) to download (ch2559–2564)
+  Remote: 2576 chapter(s) available
+  → 6 new chapter(s) to download (ch2571–2576)
 
-  Volume 1: chapters 2559–2564
-  ✓ Chapter 2562/2564  ✓ Chapter 2564/2564  ✓ Chapter 2559/2564  [proxy retry] Attempt 1/5 failed using http://49.149.116.6:8081: ProxyError
-  [proxy retry] Attempt 1/5 failed using http://103.77.60.10:8080: ProxyError
-  ✓ Chapter 2560/2564  ✓ Chapter 2561/2564  [proxy retry] Attempt 2/5 failed using http://197.253.23.4:8080: ProxyError
-  [proxy retry] Attempt 3/5 failed using http://103.124.197.26:8090: ProxyError
-  ✓ Chapter 2563/2564
+  Volume 1: chapters 2571–2576
+  ✓ Chapter 2576/2576  ✓ Chapter 2571/2576  ✓ Chapter 2574/2576  ✓ Chapter 2575/2576  [proxy retry] Attempt 1/5 failed using http://38.191.42.201:999: ProxyError
+  [proxy retry] Attempt 1/5 failed using http://130.17.2.209:3128: ReadTimeout
+  ✓ Chapter 2572/2576  [proxy retry] Attempt 2/5 failed using http://203.175.127.240:8080: ProxyError
+  ✓ Chapter 2573/2576
