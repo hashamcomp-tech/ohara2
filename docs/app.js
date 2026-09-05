@@ -31,19 +31,57 @@ async function _fetchWithCloudFallback(localPath, blobRelPath) {
 
 // ── Auth (Firebase) ──────────────────────────────────────────
 function checkAuth() {
+  const _offlineUser = { uid: 'offline', displayName: 'Offline', email: '' };
+
   return new Promise((resolve) => {
-    const unsub = auth.onAuthStateChanged(user => {
-      unsub();
-      if (!user) {
-        window.location.replace('login.html');
+    // If offline and user has logged in before, skip Firebase auth entirely
+    if (!navigator.onLine && localStorage.getItem('ohara-auth-ok')) {
+      resolve(_offlineUser);
+      return;
+    }
+
+    // Guard: if Firebase SDK failed to load (CDN unreachable, etc.),
+    // fall back to the persisted flag rather than crashing.
+    if (typeof auth === 'undefined' || !auth || !auth.onAuthStateChanged) {
+      if (localStorage.getItem('ohara-auth-ok')) {
+        resolve(_offlineUser);
       } else {
+        window.location.replace('login.html');
+      }
+      return;
+    }
+
+    let settled = false;
+    const unsub = auth.onAuthStateChanged(user => {
+      if (settled) return;
+      settled = true;
+      unsub();
+      if (user) {
+        // Persist the "logged in once" flag
+        localStorage.setItem('ohara-auth-ok', 'true');
         resolve(user);
+      } else {
+        // Online but not logged in — clear flag and redirect
+        localStorage.removeItem('ohara-auth-ok');
+        window.location.replace('login.html');
       }
     });
+
+    // Safety timeout: if Firebase SDK is broken/slow (e.g. partially offline),
+    // fall back to the saved flag after 4 seconds
+    setTimeout(() => {
+      if (settled) return;
+      if (localStorage.getItem('ohara-auth-ok')) {
+        settled = true;
+        try { unsub(); } catch (_) {}
+        resolve(_offlineUser);
+      }
+    }, 4000);
   });
 }
 
 async function logout() {
+  localStorage.removeItem('ohara-auth-ok');
   try { await auth.signOut(); } catch (e) { /* ignore */ }
   window.location.href = 'login.html';
 }
