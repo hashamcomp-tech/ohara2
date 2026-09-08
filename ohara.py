@@ -1517,18 +1517,20 @@ def get_local_novel_state(slug: str) -> tuple[int, int]:
                 max_chapter = max(max_chapter, end_ch)
                 max_vol     = max(max_vol, vol_num)
 
-    # If no epubs found, check site meta.json (covers --no-epub runs)
-    if max_chapter == 0:
-        meta_path = os.path.join(SITE_DIR, "data", slug, "meta.json")
-        if os.path.exists(meta_path):
-            try:
-                with open(meta_path, encoding="utf-8") as f:
-                    meta = json.load(f)
-                chapters = meta.get("chapters", [])
-                if chapters:
-                    max_chapter = max(c["num"] for c in chapters)
-            except Exception:
-                pass
+    # Always check site meta.json as well (covers --no-epub runs or mixed runs)
+    meta_chapter = 0
+    meta_path = os.path.join(SITE_DIR, "data", slug, "meta.json")
+    if os.path.exists(meta_path):
+        try:
+            with open(meta_path, encoding="utf-8") as f:
+                meta = json.load(f)
+            chapters = meta.get("chapters", [])
+            if chapters:
+                meta_chapter = max(c["num"] for c in chapters)
+        except Exception:
+            pass
+
+    max_chapter = max(max_chapter, meta_chapter)
 
     return max_chapter, max_vol + 1
 
